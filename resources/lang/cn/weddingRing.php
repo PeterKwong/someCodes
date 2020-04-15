@@ -1,0 +1,66 @@
+<?php 
+
+return [
+	'Wedding Rings' => '结婚戒指',	
+	'wedding Rings' => '结婚戒指',	
+	'Wedding Rings - Classic' => '结婚戒指 - 经典',
+	'Wedding Ring' => '结婚戒指',
+	'Style' => '款式',
+	'Metal' => '金属',
+	'metal' => '金属',
+	'setting' => '托',
+	'Search Option' => '搜寻',
+	'Submit' => '提交',
+	'indexDescription' => 'Thank you for customers support, so that we could share their precious moments.',
+	'indexDescription1' => 'For more detailed information, can reach GIA website query：',	
+	'Side stone' => '碎钻石',
+	'Side Stone' => '碎钻石',
+	'Custom-make' => '订造款式',
+	'More' => '更多',
+	'ct' => '克拉(ct)',
+	'Appointment' => '预约',
+	'Wedding Rings Info' => '结婚戒指资讯',
+	'Men' => '男士',	
+	'Female' => '女士',
+	'Unit Price' => '商品价格',
+	'More Details' => '更多资料',
+	'Stock' => '货号',
+	'Name' => '商品名称',
+	'Description' => '商品描述',
+	'm' => '男士',
+	'f' => '女士',
+	'unit_price' => '商品价格',
+	'sideStone' => '碎钻石',
+	'stock' => '货号',
+	'name' => '商品名称',
+	'description' => '商品描述',
+
+	'Classic' => '经典结婚戒指',
+	'classic' => '经典结婚戒指',
+	'Japanese' => '日本款结婚戒指',
+	'Vintage' => '欧洲款结婚戒指',
+	'18KW' => '18K 白金',
+	'18KY' => '18K 黄金',
+	'18KR' => '18K 玫瑰金',
+	'18K White' => '18K 白金',
+	'18K Rose Gold' => '18K 玫瑰金',
+	'PT950/900' => 'PT950/900',
+	'Mixed' => '混金',
+
+
+	'metaTitle1' => '经典结婚戒指 | 婚戒| 对戒',
+	'metaDescription1' => '经典结婚戒指 | 婚戒| 对戒',
+	
+	'metaTitle2' => '经典结婚戒指 | 日本款| 欧洲款| - 价钱',
+	'metaDescription2' => '经典结婚戒指 | 日本款| 欧洲款| - 价钱 - 有不同材料：PT / 铂金, 18K黄金, 18K白金, 18K玫瑰金,18K混金',
+	
+	'metaTitle3' => '日本款结婚戒指 | 婚戒| 对戒',
+	'metaDescription3' => '日本款结婚戒指 | 婚戒| 对戒',
+
+	'metaTitle4' => '',
+	'metaDescription4' => '',
+
+	'metaTitle5' => '欧洲款结婚戒指 | 婚戒| 对戒',
+	'metaDescription5' => '欧洲款结婚戒指 | 婚戒| 对戒',
+
+];

@@ -1,0 +1,2 @@
+
+{{$diamond->weight}}, {{trans('diamondSearch.carat')}}, {{$diamond->color}}, {{trans('diamondSearch.Color')}}, {{$diamond->cut}}, {{trans('diamondSearch.Cut')}}, {{trans('diamondSearch.' . $diamond->shape)}}, {{trans('diamondSearch.diamond')}}

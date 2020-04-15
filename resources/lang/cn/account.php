@@ -1,0 +1,57 @@
+<?php
+
+return [
+	'My Account' => '账号',
+	'Account Info' => '账号资料',
+	'Shopping Cart' => '购物车',
+	'Orders' => '订单',
+	'Logout' => '登出',
+	'Invoices' => '收据',
+	'Pending Orders' => '待确认',
+	'on' => 'on',
+
+	'Account Setting' => '账号设定',
+	'Name' => '名称',
+	'Email' => '电邮地址',
+	'Shopping Address' => '邮寄地址',
+	'Phone' => '电话',
+	'email' => '电邮地址',
+	'Area' => '地区',
+	'Address' => '地址',
+	'Change Password' => '更改密码',
+	'New Password' => '新密码',
+	'confirm Password' => '确认密码',
+	'Save' => '储存',
+
+	'Referrals' => '推荐',
+	'Coupon code' => '优惠码',
+	'Referral refund' => '推荐回赠',
+	'Referral Records' => '推荐记录',
+
+	'Invoices' => '收据',
+	'Coupon Code' => '优惠码',
+
+	'Coupon Link' => '优惠码连结',
+	'Total Clicked' => '总点击',
+	'Total Applied Coupon User' => '应用优惠码的账号',
+	'Discount Rate' => '折扣率',
+	'Item' => '项目',
+	'Lower Amount' => '金额下限',
+	'Upper Amount' => '金额上限',
+	'Rate' => '比率',
+	'Apply in shopping cart or Click link' => '在购物车中应用, 或点击连结',
+	'Total Applied Orders' => '应用优惠码的订单',
+
+	'My Details' => '账号资料',
+	'welcome to your account' => '欢迎来到你账号',
+	'You are logged in as' => '你登入账号为',
+	'Manage account details' => '管理账号资讯',
+	'Browse your favorite items' => '浏览你的购物车',
+	'Manage your orders and ask for services' => '查看你的订单',
+	'The order is waiting for confirmation' => '订单正在等待客人确认',
+	'Congraduation' => '恭喜',
+	'An order' => '有订单',
+	'applied your coupon code, check it out' => '使用了你的优惠码, 马上查询',
+	'The order is cancelled by customer' => '订单被客人取消了',
+
+];
