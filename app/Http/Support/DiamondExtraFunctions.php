@@ -111,7 +111,7 @@ trait DiamondExtraFunctions{
 
                    try {
                       
-                   $im->readImage($url);
+                        $im->readImage($url);
 
 
                    } catch ( ImagickException $e) {
