@@ -230,17 +230,17 @@ class DiamondController extends Controller
           
       // });
 
-      // $cron = new CronJob();
-      // return $cron->runImportDiamondAPIPerBatch();      
+      $cron = new CronJob();
+      return $cron->runImages();      
 
-      $import = new DiamondImport();
+      // $import = new DiamondImport();
       // return $import->insertOrUpdateAndDelete();
 
       // $import = new DiamondImport();
       // return $import->runCronManually();
       // return Cache::get('batchNumber');
       // return $import->getSupplierTotalStones();
-      return $import->preloadCerts();
+      // return $import->preloadCerts();
       // return $import->preloadImages();
 
       // $import = new DiamondImport();
