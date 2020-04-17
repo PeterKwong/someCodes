@@ -58,14 +58,14 @@ class Kernel extends ConsoleKernel
 
             $this->diamondOncall($CronJob);
 
-        })->cron('*/1 * * * *')->between('00:01', '00:30')->runInBackground();
+        })->cron('*/1 * * * *')->between('00:01', '00:20')->runInBackground();
 
 
         $schedule->call(function () use(&$CronJob) {
 
             $this->diamondOncall($CronJob);
 
-        })->cron('*/5 * * * *')->between('00:31', '23:59')->runInBackground();
+        })->cron('*/5 * * * *')->between('00:21', '23:59')->runInBackground();
 
         $schedule->call(function () use(&$CronJob) {
             $CronJob->runCerts();
