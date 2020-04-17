@@ -22,7 +22,7 @@ class Locale
             if (!in_array($segment, config('app.locales'))) {
                 $segments = $request->segments();
                 $fallback = session('locale') ?: config('app.fallback_locale');
-                $segments[1] = $fallback ;
+                $segments = Arr::prepend($segments, $fallback);
 
                 return redirect()->to(implode('/', $segments));
             }
