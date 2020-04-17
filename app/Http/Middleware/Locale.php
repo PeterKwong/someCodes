@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Arr;
 
 class Locale
 {
@@ -21,7 +22,7 @@ class Locale
             if (!in_array($segment, config('app.locales'))) {
                 $segments = $request->segments();
                 $fallback = session('locale') ?: config('app.fallback_locale');
-                $segments = array_prepend($segments, $fallback);
+                $segments = Arr::prepend($segments, $fallback);
 
                 return redirect()->to(implode('/', $segments));
             }
