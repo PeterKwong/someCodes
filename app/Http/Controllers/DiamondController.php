@@ -210,6 +210,7 @@ class DiamondController extends Controller
 
     public function resetAllDiamonds(){
 
+      dd(request()->segments());
       // $predis = Redis::Connection();
       // $predis->incr('oncall');
       // $predis->set('batchNumber', 50);
