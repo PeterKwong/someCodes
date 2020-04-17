@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
+use App\Customer;
 use App\Diamond;
+use App\EngagementRing;
+use App\InvDiamond;
 use App\InvPost;
 use App\Invoice;
-use App\Customer;
 use App\Jewellery;
-use App\InvDiamond;
+use App\Order;
 use App\WeddingRing;
-use App\EngagementRing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class InvoiceController extends Controller
 {
@@ -101,7 +102,7 @@ class InvoiceController extends Controller
             if ( isset($request->source) ) {
                 $diamonds = Diamond::whereIn('id', $request->input('inv_diamonds.*.id') )->get()->toArray();
                     foreach ($diamonds as $diamond) {
-                        array_pull($diamond, 'id');
+                        Arr::pull($diamond, 'id');
                         $diamond = InvDiamond::create($diamond);
                         $diams[] = $diamond->id;
                     }
@@ -110,7 +111,7 @@ class InvoiceController extends Controller
             }else{
                 foreach ($request->inv_diamonds as $diamond) {
             
-                    $diams[] =  array_pull($diamond, 'id');;
+                    $diams[] =  Arr::pull($diamond, 'id');;
                 }
                 // dd($diams);
             }
