@@ -135,13 +135,13 @@ trait Query
     public function resetAllDiamonds(){
       $diamonds = DiamondQuery::where('r_id',null)->where('available','1')->get();
 
-      $this->oneDaysBeforeReset($diamonds);
+      $this->oneDaysBeforeResetOnDiamondQuery($diamonds);
 
       return 1;
 
     }
 
-    public function oneDaysBeforeReset($diamonds){
+    public function oneDaysBeforeResetOnDiamondQuery($diamonds){
 
           if (count($diamonds)) {
             $dt = Carbon::now();
