@@ -114,24 +114,24 @@ trait Query
 
     public function truncateAndInsert(){
       
-      // DB::table('diamond_queries')->truncate();
+      DB::table('diamond_queries')->truncate();
 
       $queryDiamonds = Diamond::where('available',1)->chunk(1000, function($diamonds){
 
             foreach ($diamonds as $diamond) {
                   // dd($diamond->toArray());                
-                  $diam = DiamondQuery::where('id', $diamond->id)->updateOrInsert($diamond->pluck('id')->toArray());
+                  $diam = DiamondQuery::insert($diamond->toArray());
                   // dd($diam);
             }
       });
 
-      $this->deleteAllDiamonds();
+      // $this->deleteAllDiamonds();
 
       return 1;
   }
 
     public function deleteAllDiamonds(){
-      $diamonds = DiamondQuery::where('r_id',null)->where('available','1')->get();
+      $diamonds = DiamondQuery::where('available','1')->get();
 
       $this->oneDaysBeforeResetOnDiamondQuery($diamonds);
 
