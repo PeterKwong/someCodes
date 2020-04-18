@@ -120,10 +120,8 @@ trait Query
 
             foreach ($diamonds as $diamond) {
                   // dd($diamond->toArray());                
-                  $diam = DiamondQuery::updateOrInsert($diamond->toArray());
+                  $diam = DiamondQuery::where('id', $diamond->id)->updateOrInsert($diamond->toArray());
                   // dd($diam);
-
-
             }
       });
 
