@@ -118,7 +118,7 @@ trait Query
       $queryDiamonds = Diamond::where('available',1)->chunk(1000, function($diamonds){
 
             foreach ($diamonds as $diamond) {
-                
+                  // dd($diamond->toArray());                
                   $diam = DiamondQuery::insert($diamond->toArray());
                   // dd($diam);
 

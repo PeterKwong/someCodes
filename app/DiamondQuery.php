@@ -15,14 +15,13 @@ class DiamondQuery extends Model
 
     public $incrementing = false;
     
-    protected $fillable = [
-	'id', 'price', 'stock', 'certificate', 'shape', 'weight', 'color', 'clarity', 'cut', 'polish', 'symmetry', 'fluorescence', 'lab', 'location', 'has_image','image_link','has_cert', 'video_link', 'available'
-	];
+    protected $guarded = [];
 
     protected $filter = [
         'id', 'price', 'stock', 'certificate', 'shape', 'weight', 'color', 'clarity', 'cut', 'polish', 'symmetry', 'fluorescence', 'lab', 'location', 'has_image','image_link','has_cert', 'video_link', 'available'
                 ];
 
+    
    	 public static $columns = [
     	       'id',
                 'price',

@@ -23,6 +23,11 @@ class Diamond extends Model
         'id', 'price', 'stock', 'certificate', 'shape', 'weight', 'color', 'clarity', 'cut', 'polish', 'symmetry', 'fluorescence', 'lab', 'location', 'has_image','image_link','has_cert', 'video_link', 'available'
                 ];
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H-i-s',
+        'updated_at' => 'datetime:Y-m-d H-i-s',
+    ];
+
    	 public static $columns = [
     	       'id',
                 'price',
