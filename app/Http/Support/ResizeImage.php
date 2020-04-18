@@ -2,6 +2,7 @@
 namespace App\Support;
 use Image;
 use Storage;
+use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Exception\NotReadableException;
@@ -18,7 +19,7 @@ trait ResizeImage{
 
 	public static function getFileName($file)
     {
-        return Carbon::now()->toDateString().'_' . str_random(). '.' .$file->extension();
+        return Carbon::now()->toDateString().'_' . Str::random(). '.' .$file->extension();
     }
 
 
