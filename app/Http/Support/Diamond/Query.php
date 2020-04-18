@@ -120,17 +120,17 @@ trait Query
 
             foreach ($diamonds as $diamond) {
                   // dd($diamond->toArray());                
-                  $diam = DiamondQuery::where('id', $diamond->id)->updateOrInsert($diamond->toArray());
+                  $diam = DiamondQuery::where('id', $diamond->id)->updateOrInsert($diamond->pluck('id')->toArray());
                   // dd($diam);
             }
       });
 
-      $this->resetAllDiamonds();
+      $this->deleteAllDiamonds();
 
       return 1;
   }
 
-    public function resetAllDiamonds(){
+    public function deleteAllDiamonds(){
       $diamonds = DiamondQuery::where('r_id',null)->where('available','1')->get();
 
       $this->oneDaysBeforeResetOnDiamondQuery($diamonds);

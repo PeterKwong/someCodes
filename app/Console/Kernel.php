@@ -95,7 +95,7 @@ class Kernel extends ConsoleKernel
 
             $CronJob->runDiamondQueryCopy();
 
-        })->dailyAt('03:50')->runInBackground();
+        })->dailyAt('03:54')->runInBackground();
 
     }
 
