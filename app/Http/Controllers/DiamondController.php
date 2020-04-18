@@ -231,7 +231,7 @@ class DiamondController extends Controller
       // });
 
       $cron = new CronJob();
-      return $cron->runImportDiamondAPI();      
+      return $cron->runDiamondQueryCopy();      
 
       // $import = new DiamondImport();
       // return $import->insertOrUpdateAndDelete();
