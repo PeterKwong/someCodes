@@ -210,7 +210,6 @@ class DiamondController extends Controller
 
     public function resetAllDiamonds(){
 
-      dd(request()->segments());
       // $predis = Redis::Connection();
       // $predis->incr('oncall');
       // $predis->set('batchNumber', 50);
@@ -232,7 +231,7 @@ class DiamondController extends Controller
       // });
 
       $cron = new CronJob();
-      return $cron->runImages();      
+      return $cron->runImportDiamondAPI();      
 
       // $import = new DiamondImport();
       // return $import->insertOrUpdateAndDelete();
