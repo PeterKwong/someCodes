@@ -36,7 +36,7 @@ class DiamondController extends Controller
 
   public function index(){
 
-      $m = DiamondQuery::SearchPaginateAndOrder();
+      $m = Diamond::SearchPaginateAndOrder();
       
       // $m = DiamondQuery::SearchPaginateAndOrder();
 
