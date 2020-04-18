@@ -120,7 +120,7 @@ trait Query
 
             foreach ($diamonds as $diamond) {
                   // dd($diamond->toArray());                
-                  $diam = DiamondQuery::insert($diamond->toArray());
+                  $diam = DiamondQuery::updateOrInsert($diamond->toArray());
                   // dd($diam);
 
 
