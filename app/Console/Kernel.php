@@ -89,13 +89,13 @@ class Kernel extends ConsoleKernel
 
 
 
-        // // test
+        // test
          
-        // $schedule->call(function () use(&$CronJob) {
+        $schedule->call(function () use(&$CronJob) {
 
-        //    $CronJob->test();
+            $CronJob->runDiamondQueryCopy();
 
-        // })->cron('*/1 * * * *')->between('15:38', '15:39')->runInBackground();
+        })->dailyAt('03:38')->runInBackground();
 
     }
 

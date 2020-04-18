@@ -8,6 +8,7 @@ namespace App\Support\Diamond;
 
 use App\Diamond;
 use App\DiamondQuery;
+use Carbon\Carbon;
 use Cache;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\DB;
@@ -63,7 +64,7 @@ trait Query
 
             foreach ($diamonds as $diamond) {
                 
-                  $diam = DiamondQuery::insert($diamond->toArray());
+                  $diam = DiamondQuery::updateOrInsert($diamond->toArray());
                   // dd($diam);
 
 
@@ -113,7 +114,7 @@ trait Query
 
     public function truncateAndInsert(){
       
-      DB::table('diamond_queries')->truncate();
+      // DB::table('diamond_queries')->truncate();
 
       $queryDiamonds = Diamond::where('available',1)->chunk(1000, function($diamonds){
 
@@ -126,7 +127,35 @@ trait Query
             }
       });
 
+      $this->resetAllDiamonds();
+
       return 1;
   }
+
+    public function resetAllDiamonds(){
+      $diamonds = DiamondQuery::where('r_id',null)->where('available','1')->get();
+
+      $this->oneDaysBeforeReset($diamonds);
+
+      return 1;
+
+    }
+
+    public function oneDaysBeforeReset($diamonds){
+
+          if (count($diamonds)) {
+            $dt = Carbon::now();
+            foreach ($diamonds as $diamond) {
+              // dd(print_r($diamond->updated_at));
+              if (!$dt->isSameDay($diamond->updated_at)) {
+                $diamond->delete();
+
+              }
+            }
+          }
+         // dd('end');
+        return 1;
+      
+    }
 
 }
