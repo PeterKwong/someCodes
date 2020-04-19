@@ -6,6 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\AlipayController;
+use App\Http\Controllers\Auth\RegisterController;
+
 class LoginController extends Controller
 {
     /*
@@ -38,7 +44,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    
+
             /**
      * Redirect the user to the OAuth Provider.
      *
