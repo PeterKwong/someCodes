@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
 
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -196,7 +198,8 @@ class LoginController extends Controller
             );
 
           // $user = ['name' => $data1->nickname,
-          //           'email' => '',
+          //           'email' => '',use Illuminate\Support\Str;
+
           //           'user_id' => $data1->openid
           //           ];
           return $this->findOrCreateUser((object)$user,'wechat');
