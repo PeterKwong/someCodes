@@ -64,10 +64,34 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+                // dd(Coupon::where('code',$_COOKIE['coupon_code'])->first()->id);
+        $coupon = false ;
+        if (isset($_COOKIE['coupon_code'])) {
+            if ($_COOKIE['coupon_code'] !='') {
+            $coupon = Coupon::where('code',$_COOKIE['coupon_code'])->first()->id;
+            }
+        }
+
+        // dd($coupon);
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'provider' => isset($data['provider'])?$data['provider']:'email',
+            'provider_id' => isset($data['provider_id'])?$data['provider_id']:0,
+            'image_url' => isset($data['image_url'])?$data['image_url']:NULL,
+            'coupon_id' => $coupon?$coupon:NULL,
+            'api_token' => str_random('60'),
+            // 'email_token' => str_random('60'),
+            'password' => isset($data['password'])?bcrypt($data['password']):NULL,
         ]);
+
+        return $user;
+        
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
     }
 }
