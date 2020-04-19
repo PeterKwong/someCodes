@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+
 use App\User;
+use Illuminate\Support\Str;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -81,13 +83,13 @@ class RegisterController extends Controller
             'provider_id' => isset($data['provider_id'])?$data['provider_id']:0,
             'image_url' => isset($data['image_url'])?$data['image_url']:NULL,
             'coupon_id' => $coupon?$coupon:NULL,
-            'api_token' => str_random('60'),
-            // 'email_token' => str_random('60'),
+            'api_token' => Str::random('60'),
+            // 'email_token' => Str::random('60'),
             'password' => isset($data['password'])?bcrypt($data['password']):NULL,
         ]);
 
         return $user;
-        
+
         // return User::create([
         //     'name' => $data['name'],
         //     'email' => $data['email'],
