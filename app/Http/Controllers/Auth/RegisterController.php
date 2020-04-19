@@ -64,7 +64,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    public function create(array $data)
     {
                 // dd(Coupon::where('code',$_COOKIE['coupon_code'])->first()->id);
         $coupon = false ;
