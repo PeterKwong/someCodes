@@ -10,7 +10,7 @@
     
     
       @if(auth()->user()->roles()->get()->filter( function($data){ return $data['name'] == 'promoter' ; })->map(function($data){ return $data['name'];})->first())
-      @include('account.asidePromoter')
+      @include('layouts.account.asidePromoter')
       @endif
 
       <a class="btn btn-primary" href="{{ route('logout') }}">{{__('account.Logout')}}</a>

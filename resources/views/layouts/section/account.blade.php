@@ -24,7 +24,7 @@
 
     @include('layouts.frontEnd.header')
 
-    @include('layouts.userHeader')
+    @include('layouts.account.userHeader')
 
     <div class="container-fluid">
 
@@ -34,7 +34,7 @@
                 <div class="col-11">
 
                     <div class="row justify-content-center">
-                        @include('account.aside')
+                        @include('layouts.account.aside')
 
                         @yield('content')
                     </div>
