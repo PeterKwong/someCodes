@@ -41,9 +41,9 @@ class Kernel extends ConsoleKernel
 
             $batchNumber = $CronJob->getApiTotalStones();
 
-            Cache::put('batchNumber', $batchNumber, 12000);
-            Cache::put('counter',1, 12000);
-            Cache::put('diamondQueryState',0,12000);
+            Cache::put('batchNumber', $batchNumber, 90000);
+            Cache::put('counter',1, 90000);
+            Cache::put('diamondQueryState',0,90000);
             
             $CronJob->runImportDiamondRap();
 
