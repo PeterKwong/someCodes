@@ -150,7 +150,7 @@ class AopClient {
 		}
 
 		($res) or die('您使用的私钥格式错误，请检查RSA私钥配置'); 
-		dd($res);
+		// dd($res);
 		if ("RSA2" == $signType) {
 			openssl_sign($data, $sign, $res, OPENSSL_ALGO_SHA256);
 		} else {

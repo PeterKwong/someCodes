@@ -11,9 +11,9 @@ class AlipayController extends Controller
 {
     public function getAccessTokenAlipay() {
         
-        $envData = ['appid' => config('oauth.ALIPAY_APPID'),
-                                'private' => config('oauth.ALIPAY_PRIVATE'),
-                                'public' => config('oauth.ALIPAY_PUBLIC'),
+        $envData = ['appid' => config('services.ALIPAY_APPID'),
+                                'private' => config('services.ALIPAY_PRIVATE'),
+                                'public' => config('services.ALIPAY_PUBLIC'),
                                 ];
 
           $request = request()->all();

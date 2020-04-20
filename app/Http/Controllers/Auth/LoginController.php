@@ -143,8 +143,8 @@ class LoginController extends Controller
 
     private function getAccessTokenWechat() {
         
-        $envData = ['appid' => config('oauth.WECHAT_OPEN_PLATFORM_APPID'),
-                                'secret' => config('oauth.WECHAT_OPEN_PLATFORM_SECRET'),
+        $envData = ['appid' => config('services.WECHAT_OPEN_PLATFORM_APPID'),
+                                'secret' => config('services.WECHAT_OPEN_PLATFORM_SECRET'),
                                 ];
 
           $request = request()->all();

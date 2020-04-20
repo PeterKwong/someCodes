@@ -81,4 +81,11 @@ return [
         'redirect'      => env('WECHAT_OPEN_PLATFORM_URL'),
     ],
 
+    'WECHAT_OPEN_PLATFORM_APPID' => env('WECHAT_OPEN_PLATFORM_APPID'),
+    'WECHAT_OPEN_PLATFORM_SECRET' => env('WECHAT_OPEN_PLATFORM_SECRET'),
+    
+    'ALIPAY_APPID' => env('ALIPAY_APPID'),
+    'ALIPAY_PRIVATE' => env('ALIPAY_PRIVATE'),
+    'ALIPAY_PUBLIC' => env('ALIPAY_PUBLIC'),
+
 ];
