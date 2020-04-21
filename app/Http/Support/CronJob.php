@@ -109,13 +109,13 @@ class CronJob
 
 	public function runImportDiamondAPIPerBatch($p = 0){
 
-		$appoint = new AppointmentController();
 		$diamondImport = new DiamondImport();
 
 		$p = $p *1000 +1;
 
-		$jobs = [ $this->ip . 'start working on api import at ' . $p => now()];
-		$appoint->cronDone($jobs);
+		// $appoint = new AppointmentController();
+		// $jobs = [ $this->ip . 'start working on api import at ' . $p => now()];
+		// $appoint->cronDone($jobs);
 
 		// $api = $diamondImport->importDiamondFromAPI($p = 1);
 		$api = $diamondImport->importDiamondFromAPI_1000_PerBatch($p);

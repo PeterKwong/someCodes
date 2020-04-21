@@ -14,12 +14,33 @@ class CreatePagesTable extends Migration
     public function up()
     {
         Schema::create('pages', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->string('url');
             $table->integer('paginable_id')->nullable(); 
             $table->string('paginable_type')->nullable();  
             $table->timestamps();
         });
+
+        Schema::create('page_tag', function (Blueprint $table) {
+            $table->primary(['page_id','tag_id']);
+
+            $table->bigInteger('page_id');
+            $table->bigInteger('tag_id');
+            $table->timestamps();
+
+            // $table->foreign('tag_id')
+            //     ->references('id')
+            //     ->on('tags')
+            //     ->onDelete('cascade');
+
+            // $table->foreign('page_id')
+            //     ->references('id')
+            //     ->on('pages')
+            //     ->onDelete('cascade');
+            
+        });
+
+
     }
 
     /**
