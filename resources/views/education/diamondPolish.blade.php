@@ -52,60 +52,63 @@
 
                     <br>
 
+                    <div class="row justify-content-center text-center" >
+                        <div class="col">
 
-                    @include('layouts.subTabs.anatony')
+                        @include('layouts.education.anatony')
 
 
-                    <div class="row justify-content-center text-center">
-                        <div class="col-10">
-                            <article class="message is-primary" >
-                                <div class="level is-centered">
-                                
-                                <div class="row justify-centent-center text-left">
-                                      <div class="col-10">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-10">
+                                <article class="message is-primary" >
+                                    <div class="level is-centered">
                                     
-                                            <div class="message-body">
+                                    <div class="row justify-centent-center text-left">
+                                          <div class="col-10">
+                                        
+                                                <div class="message-body">
 
-                                                <center><p class="title is-6">{{trans('diamondPolish.DIAMOND POLISH')}}</p>
-                                                  <li>{{trans('diamondPolish.para1')}}</li>
-                                                </center>
-                                                <div class="level">
+                                                    <center><p class="title is-6">{{trans('diamondPolish.DIAMOND POLISH')}}</p>
+                                                      <li>{{trans('diamondPolish.para1')}}</li>
+                                                    </center>
+                                                    <div class="level">
+                                                    
+                                                       
+                                                    </div>
                                                 
-                                                   
-                                                </div>
-                                            
-                                            
+                                                
 
-                                            <li>{{trans('diamondPolish.para2')}}</li>
-                                            <li>{{trans('diamondPolish.para3')}}</li>
-                                            <li>{{trans('diamondPolish.para4')}}</li>
-                                            <li>{{trans('diamondPolish.para5')}}</li>
-                                            <li>{{trans('diamondPolish.para6')}}</li>
-                                            <li>{{trans('diamondPolish.para7')}}</li>
-                                            <li>{{trans('diamondPolish.para8')}}</li>
+                                                <li>{{trans('diamondPolish.para2')}}</li>
+                                                <li>{{trans('diamondPolish.para3')}}</li>
+                                                <li>{{trans('diamondPolish.para4')}}</li>
+                                                <li>{{trans('diamondPolish.para5')}}</li>
+                                                <li>{{trans('diamondPolish.para6')}}</li>
+                                                <li>{{trans('diamondPolish.para7')}}</li>
+                                                <li>{{trans('diamondPolish.para8')}}</li>
 
-                                            
+                                                
+                                              </div>
+                                                 
                                           </div>
-                                             
+
+                                      <div class="col">
+
+                                         <a class="">
+                                            <center>  
+                                                <figure class="image">
+                                                  <p>{{trans('diamondPolish.DIAMOND POLISH')}}</p>
+                                                    <img class="box img-fluid" src="/images/front-end/education/anatomy-polish/pageImage.jpg">
+                                                </figure>
+                                            </center>
+                                        </a>
                                       </div>
 
-                                  <div class="col">
-
-                                     <a class="">
-                                        <center>  
-                                            <figure class="image">
-                                              <p>{{trans('diamondPolish.DIAMOND POLISH')}}</p>
-                                                <img class="box img-fluid" src="/images/front-end/education/anatomy-polish/pageImage.jpg">
-                                            </figure>
-                                        </center>
-                                    </a>
-                                  </div>
-
+                                </div>
+                                </article>
+                               </div>
                             </div>
-                            </article>
-
-
                         </div>
+                      @include('layouts.education.sideBar')
                     </div>
 
 

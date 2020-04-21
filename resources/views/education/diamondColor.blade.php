@@ -53,119 +53,123 @@
 
                     <br>
 
+                    <div class="row justify-content-center text-center" >
+                      <div class="col">
+                        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link"  id="carat-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/carat" role="tab" aria-controls="carat" aria-selected="true">{{__('education.Diamond Carat')}}</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="cut-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/cut" role="tab" aria-controls="cut" aria-selected="true">{{__('education.Diamond Cut')}}</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active show"  id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/color" role="tab" aria-controls="color" aria-selected="true">{{__('education.Diamond Color')}}</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link"  id="contact-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/clarity" role="tab" aria-controls="clarity" aria-selected="true">{{__('education.Diamond Clarity')}}</a>
+                          </li>
+                        </ul>
 
-                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link"  id="carat-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/carat" role="tab" aria-controls="carat" aria-selected="true">{{__('education.Diamond Carat')}}</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="cut-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/cut" role="tab" aria-controls="cut" aria-selected="true">{{__('education.Diamond Cut')}}</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active show"  id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/color" role="tab" aria-controls="color" aria-selected="true">{{__('education.Diamond Color')}}</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link"  id="contact-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/clarity" role="tab" aria-controls="clarity" aria-selected="true">{{__('education.Diamond Clarity')}}</a>
-                      </li>
-                    </ul>
+                          <div class="tab-pane fade active show "  id="color" role="tabpanel" aria-labelledby="contact-tab">
+                            <center>
 
-                      <div class="tab-pane fade active show "  id="color" role="tabpanel" aria-labelledby="contact-tab">
-                        <center>
+                            <br>
 
-                          <br>
+                            <div class="row justify-content-center text-center">
+                              <div class="col-12">
+                                  <h3>{{trans('education.colorTitle1')}}</h3>
+                                  <li>{{trans('education.colorPara1')}}</li>
+                                  <li>{{trans('education.colorPara2')}}</li>
+                              </div>
+                            </div>
 
-                          <div class="row justify-content-center text-center">
-                            <div class="col-12">
-                                <h3>{{trans('education.colorTitle1')}}</h3>
-                                <li>{{trans('education.colorPara1')}}</li>
-                                <li>{{trans('education.colorPara2')}}</li>
+                            <br>
+
+                            <div class="row justify-content-center text-center">
+                              <div class="col-12">
+                                  <h3>{{trans('education.colorTitle2')}}</h3>
+                                  <li>{{trans('education.colorPara3')}}</li>
+
+                              </div>
+                            </div>
+
+                            <br>
+
+                            <div class="row justify-content-center text-center">
+                              <div class="col-4">
+                                <p>D {{__('education.Color Diamond')}}</p>
+                                <img class="img-fluid" src="/images/front-end/education/color/d.jpg">
+                              </div>
+                              <div class="col-4">
+                                <p>E {{__('education.Color Diamond')}}</p>
+                                <img class="img-fluid" src="/images/front-end/education/color/e.jpg">
+                              </div>
+                              <div class="col-4">
+                                <p>F {{__('education.Color Diamond')}}</p>
+                                <img class="img-fluid" src="/images/front-end/education/color/f.jpg">
+                              </div>
+                            </div>
+
+                            <div class="row justify-content-center text-center">
+                              <div class="col-12">
+                                  <h3>{{trans('education.colorTitle3')}}</h3>
+                                  <li>{{trans('education.colorPara4')}}</li>
+                              </div>
+                            </div>
+
+                            <br>
+
+                            <div class="row justify-content-center text-center">
+                              <div class="col-3">
+                                <p>G {{__('education.Color Diamond')}}</p>
+                                <img class="img-fluid" src="/images/front-end/education/color/g.jpg">
+                              </div>
+                              <div class="col-3">
+                                <p>H {{__('education.Color Diamond')}}</p>
+                                <img class="img-fluid" src="/images/front-end/education/color/h.jpg">
+                              </div>
+                              <div class="col-3">
+                                <p>I {{__('education.Color Diamond')}}</p>
+                                <img class="img-fluid" src="/images/front-end/education/color/i.jpg">
+                              </div>
+                              <div class="col-3">
+                                <p>J {{__('education.Color Diamond')}}</p>
+                                <img class="img-fluid" src="/images/front-end/education/color/j.jpg">
+                              </div>
+                            </div>
+
+                            <br>
+
+                            <div class="row justify-content-center text-center">
+                              <div class="col-12">
+                                  <h3>{{trans('education.colorTitle4')}}</h3>
+                                  <li>{{trans('education.colorPara5')}}</li>
+                                  <li>{{trans('education.colorPara6')}}</li>
+                              </div>
+                            </div>
+
+                            <br>
+
+                            <div class="row justify-content-center text-center">
+                              <div class="col-4">
+                                <p>K {{__('education.Color Diamond')}}</p>
+                                <img class="img-fluid" src="/images/front-end/education/color/k.jpg">
+                              </div>
+                              <div class="col-4">
+                                <p>K {{__('education.Color Diamond（BROWN）')}}</p>
+                                <img class="img-fluid" src="/images/front-end/education/color/K_brown.jpg">
+                              </div>
+                              <div class="col-4">
+                                <p>K {{__('education.Color Diamond（BROWN）')}}</p>
+                                <img class="img-fluid" src="/images/front-end/education/color/K_brown1.jpg">
+                              </div>
                             </div>
                           </div>
 
-                          <br>
-
-                          <div class="row justify-content-center text-center">
-                            <div class="col-12">
-                                <h3>{{trans('education.colorTitle2')}}</h3>
-                                <li>{{trans('education.colorPara3')}}</li>
-
-                            </div>
-                          </div>
-
-                          <br>
-
-                          <div class="row justify-content-center text-center">
-                            <div class="col-4">
-                              <p>D {{__('education.Color Diamond')}}</p>
-                              <img class="img-fluid" src="/images/front-end/education/color/d.jpg">
-                            </div>
-                            <div class="col-4">
-                              <p>E {{__('education.Color Diamond')}}</p>
-                              <img class="img-fluid" src="/images/front-end/education/color/e.jpg">
-                            </div>
-                            <div class="col-4">
-                              <p>F {{__('education.Color Diamond')}}</p>
-                              <img class="img-fluid" src="/images/front-end/education/color/f.jpg">
-                            </div>
-                          </div>
-
-                          <div class="row justify-content-center text-center">
-                            <div class="col-12">
-                                <h3>{{trans('education.colorTitle3')}}</h3>
-                                <li>{{trans('education.colorPara4')}}</li>
-                            </div>
-                          </div>
-
-                          <br>
-
-                          <div class="row justify-content-center text-center">
-                            <div class="col-3">
-                              <p>G {{__('education.Color Diamond')}}</p>
-                              <img class="img-fluid" src="/images/front-end/education/color/g.jpg">
-                            </div>
-                            <div class="col-3">
-                              <p>H {{__('education.Color Diamond')}}</p>
-                              <img class="img-fluid" src="/images/front-end/education/color/h.jpg">
-                            </div>
-                            <div class="col-3">
-                              <p>I {{__('education.Color Diamond')}}</p>
-                              <img class="img-fluid" src="/images/front-end/education/color/i.jpg">
-                            </div>
-                            <div class="col-3">
-                              <p>J {{__('education.Color Diamond')}}</p>
-                              <img class="img-fluid" src="/images/front-end/education/color/j.jpg">
-                            </div>
-                          </div>
-
-                          <br>
-
-                          <div class="row justify-content-center text-center">
-                            <div class="col-12">
-                                <h3>{{trans('education.colorTitle4')}}</h3>
-                                <li>{{trans('education.colorPara5')}}</li>
-                                <li>{{trans('education.colorPara6')}}</li>
-                            </div>
-                          </div>
-
-                          <br>
-
-                          <div class="row justify-content-center text-center">
-                            <div class="col-4">
-                              <p>K {{__('education.Color Diamond')}}</p>
-                              <img class="img-fluid" src="/images/front-end/education/color/k.jpg">
-                            </div>
-                            <div class="col-4">
-                              <p>K {{__('education.Color Diamond（BROWN）')}}</p>
-                              <img class="img-fluid" src="/images/front-end/education/color/K_brown.jpg">
-                            </div>
-                            <div class="col-4">
-                              <p>K {{__('education.Color Diamond（BROWN）')}}</p>
-                              <img class="img-fluid" src="/images/front-end/education/color/K_brown1.jpg">
-                            </div>
-                          </div>
-
+                        </div>
+                      @include('layouts.education.sideBar')
                       </div>
-                    
+
                     <br>
 
                     <div class="row justify-content-center text-center">

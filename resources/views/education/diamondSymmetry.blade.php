@@ -52,123 +52,128 @@
 
                     <br>
 
+                    <div class="row justify-content-center text-center" >
+                        <div class="col">
 
-                    @include('layouts.subTabs.anatony')
+                        @include('layouts.education.anatony')
 
-                    <br>
+                        <br>
 
-                    <div class="row justify-content-center text-left">
-                        <div class="col-10">
-                            <article class="message is-primary" >
-                              <div class="level is-centered">
-                              
-                              <div class="row justify-content-center">
-                                    <div class="col-10">
+                        <div class="row justify-content-center text-left">
+                            <div class="col-10">
+                                <article class="message is-primary" >
+                                  <div class="level is-centered">
                                   
-                                          <div class="message-body">
-                                          <center>
+                                  <div class="row justify-content-center">
+                                        <div class="col-10">
+                                      
+                                              <div class="message-body">
+                                              <center>
 
-                                              <center><p class="title is-6">{{trans('diamondSymmetry.ASYMMETRIC OF CROWN AND PAVILION')}}</p>
-                                                <li>{{trans('diamondSymmetry.para1')}}</li>
+                                                  <center><p class="title is-6">{{trans('diamondSymmetry.ASYMMETRIC OF CROWN AND PAVILION')}}</p>
+                                                    <li>{{trans('diamondSymmetry.para1')}}</li>
+                                                  </center>
+                                               
+                                              
                                               </center>
-                                           
-                                          
-                                          </center>
-                                          
+                                              
+                                            </div>
+                                               
                                         </div>
-                                           
+
+                                    <div class="col">
+
+                                       <a class="">
+                                          <center>  
+                                              <figure class="image">
+                                                <p>{{__('diamondSymmetry.ASYMMETRIC OF CROWN AND PAVILION')}}</p>
+                                                  <img  src="/images/front-end/education/anatomy-symmetry/missalignment-1-98x98.jpg">
+                                              </figure>
+                                          </center>
+                                      </a>
                                     </div>
 
-                                <div class="col">
-
-                                   <a class="">
-                                      <center>  
-                                          <figure class="image">
-                                            <p>{{__('diamondSymmetry.ASYMMETRIC OF CROWN AND PAVILION')}}</p>
-                                              <img  src="/images/front-end/education/anatomy-symmetry/missalignment-1-98x98.jpg">
-                                          </figure>
-                                      </center>
-                                  </a>
-                                </div>
-
-                          </div>
-                          </article>
+                              </div>
+                              </article>
 
 
-                          <article class="message is-primary" >
-                              <div class="level is-centered">
-                              
-                              <div class="row justify-content-center">
-                                    <div class="col-10">
+                              <article class="message is-primary" >
+                                  <div class="level is-centered">
                                   
-                                          <div class="message-body">
-                                          <center>
+                                  <div class="row justify-content-center">
+                                        <div class="col-10">
+                                      
+                                              <div class="message-body">
+                                              <center>
 
-                                              <center><p class="title is-6">{{trans('diamondSymmetry.EXTRA FACETS')}}</p>
-                                                <li>{{trans('diamondSymmetry.para2')}}</li>
+                                                  <center><p class="title is-6">{{trans('diamondSymmetry.EXTRA FACETS')}}</p>
+                                                    <li>{{trans('diamondSymmetry.para2')}}</li>
+                                                  </center>
+                                               
+                                              
                                               </center>
-                                           
-                                          
-                                          </center>
-                                          
+                                              
+                                            </div>
+                                               
                                         </div>
-                                           
+
+                                    <div class="col">
+
+                                       <a class="">
+                                          <center>  
+                                              <figure class="image">
+                                                <p>{{__('diamondSymmetry.EXTRA FACETS')}}</p>
+                                                  <img  src="/images/front-end/education/anatomy-symmetry/facets-101x101.jpg">
+                                              </figure>
+                                          </center>
+                                      </a>
                                     </div>
 
-                                <div class="col">
-
-                                   <a class="">
-                                      <center>  
-                                          <figure class="image">
-                                            <p>{{__('diamondSymmetry.EXTRA FACETS')}}</p>
-                                              <img  src="/images/front-end/education/anatomy-symmetry/facets-101x101.jpg">
-                                          </figure>
-                                      </center>
-                                  </a>
-                                </div>
-
-                          </div>
-                          </article>
+                              </div>
+                              </article>
 
 
-                          <article class="message is-primary" >
-                              <div class="level is-centered">
-                              
-                              <div class="row justify-content-center">
-                                    <div class="col-10">
+                              <article class="message is-primary" >
+                                  <div class="level is-centered">
                                   
-                                          <div class="message-body">
-                                          <center>
+                                  <div class="row justify-content-center">
+                                        <div class="col-10">
+                                      
+                                              <div class="message-body">
+                                              <center>
 
-                                              <center><p class="title is-6">{{trans('diamondSymmetry.OFF CENTER CULET')}}</p>
-                                                <li>{{trans('diamondSymmetry.para3')}}</li>
+                                                  <center><p class="title is-6">{{trans('diamondSymmetry.OFF CENTER CULET')}}</p>
+                                                    <li>{{trans('diamondSymmetry.para3')}}</li>
+                                                  </center>
+                                               
+                                              
                                               </center>
-                                           
-                                          
-                                          </center>
-                                          
+                                              
+                                            </div>
+                                               
                                         </div>
-                                           
+
+                                    <div class="col">
+
+                                       <a class="">
+                                          <center>  
+                                              <figure class="image">
+                                                <p>{{__('diamondSymmetry.OFF CENTER CULET')}}</p>
+                                                  <img  src="/images/front-end/education/anatomy-symmetry/off_center_culet-1-148x148.jpg">
+                                              </figure>
+                                          </center>
+                                      </a>
                                     </div>
 
-                                <div class="col">
+                              </div>
+                              </article>
 
-                                   <a class="">
-                                      <center>  
-                                          <figure class="image">
-                                            <p>{{__('diamondSymmetry.OFF CENTER CULET')}}</p>
-                                              <img  src="/images/front-end/education/anatomy-symmetry/off_center_culet-1-148x148.jpg">
-                                          </figure>
-                                      </center>
-                                  </a>
-                                </div>
 
+
+                            </div>
                           </div>
-                          </article>
-
-
-
                         </div>
+                      @include('layouts.education.sideBar')
                     </div>
 
 

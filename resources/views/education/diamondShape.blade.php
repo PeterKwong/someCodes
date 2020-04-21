@@ -51,392 +51,397 @@
 
                     <br>
 
+                    <div class="row justify-content-center">
+                        <div class="col">
+                          
+                        @include('layouts.education.anatony')
 
-                    @include('layouts.subTabs.anatony')
 
-
-                    <div class="row justify-content-center text-center">
-                        <div class="col-10">
-                           <article class="message is-primary" >
-                            <div class="level is-centered">
-                            
-                            <div class="row justify-content-center">
-                                  <div class="col-10">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-10">
+                               <article class="message is-primary" >
+                                <div class="level is-centered">
                                 
-                                        <div class="message-body">
-                                        <center>
+                                <div class="row justify-content-center">
+                                      <div class="col-10">
+                                    
+                                            <div class="message-body">
+                                            <center>
 
-                                            <center><p class="title is-6">{{trans('diamondShape.ASSHER CUT')}}</p>
+                                                <center><p class="title is-6">{{trans('diamondShape.ASSHER CUT')}}</p>
+                                                </center>
+                                                <div class="level">
+                                                <li>{{trans('diamondShape.shapePara1')}}</li>
+                                                   
+                                                </div>
+                                            
                                             </center>
-                                            <div class="level">
-                                            <li>{{trans('diamondShape.shapePara1')}}</li>
-                                               
-                                            </div>
-                                        
-                                        </center>
-                                        
+                                            
+                                          </div>
+                                             
                                       </div>
-                                         
-                                  </div>
 
-                              <div class="col">
+                                  <div class="col">
 
-                             <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p>{{__('diamondShape.ASSHER CUT DIAMOND')}}</p>
-                                        <img  class="box img-fluid" src="/images/front-end/education/shape/asscher-glam-1-150x150.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                          </div>
+                                 <a class="">
+                                    <center>  
+                                        <figure class="image">
+                                          <p>{{__('diamondShape.ASSHER CUT DIAMOND')}}</p>
+                                            <img  class="box img-fluid" src="/images/front-end/education/shape/asscher-glam-1-150x150.jpg">
+                                        </figure>
+                                    </center>
+                                </a>
+                              </div>
 
-                        </div>
-                        </article>
+                            </div>
+                            </article>
 
 
-                        <article class="message is-primary" >
-                            <div class="level is-centered">
-                            
-                            <div class="row justify-content-center">
-                                  <div class="col-10">
+                            <article class="message is-primary" >
+                                <div class="level is-centered">
                                 
-                                        <div class="message-body">
-                                        <center>
+                                <div class="row justify-content-center">
+                                      <div class="col-10">
+                                    
+                                            <div class="message-body">
+                                            <center>
 
-                                            <center><p class="title is-6">{{trans('diamondShape.ROUND BRILLIANT CUT')}}</p>
+                                                <center><p class="title is-6">{{trans('diamondShape.ROUND BRILLIANT CUT')}}</p>
+                                                </center>
+                                                <div class="level">
+                                                <li>{{trans('diamondShape.shapePara2')}}</li>
+                                                   
+                                                </div>
+                                            
                                             </center>
-                                            <div class="level">
-                                            <li>{{trans('diamondShape.shapePara2')}}</li>
-                                               
-                                            </div>
-                                        
-                                        </center>
-                                        
+                                            
+                                          </div>
+                                             
                                       </div>
-                                         
-                                  </div>
 
-                              <div class="col">
+                                  <div class="col">
 
-                             <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p>{{__('diamondShape.ROUND BRILLIANT CUT DIAMOND')}}</p>
-                                        <img class="box img-fluid" src="/images/front-end/education/shape/round-brilliant-cut-2-150x150.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                          </div>
+                                 <a class="">
+                                    <center>  
+                                        <figure class="image">
+                                          <p>{{__('diamondShape.ROUND BRILLIANT CUT DIAMOND')}}</p>
+                                            <img class="box img-fluid" src="/images/front-end/education/shape/round-brilliant-cut-2-150x150.jpg">
+                                        </figure>
+                                    </center>
+                                </a>
+                              </div>
 
-                        </div>
-                        </article>
+                            </div>
+                            </article>
 
 
-                        <article class="message is-primary" >
-                            <div class="level is-centered">
-                            
-                            <div class="row justify-content-center">
-                                  <div class="col-10">
+                            <article class="message is-primary" >
+                                <div class="level is-centered">
                                 
-                                        <div class="message-body">
-                                        <center>
+                                <div class="row justify-content-center">
+                                      <div class="col-10">
+                                    
+                                            <div class="message-body">
+                                            <center>
 
-                                            <center><p class="title is-6">{{trans('diamondShape.CUSHION CUT')}}</p>
+                                                <center><p class="title is-6">{{trans('diamondShape.CUSHION CUT')}}</p>
+                                                </center>
+                                                <div class="level">
+                                                <li>{{trans('diamondShape.shapePara3')}}</li>
+                                                   
+                                                </div>
+                                            
                                             </center>
-                                            <div class="level">
-                                            <li>{{trans('diamondShape.shapePara3')}}</li>
-                                               
-                                            </div>
-                                        
-                                        </center>
-                                        
+                                            
+                                          </div>
+                                             
                                       </div>
-                                         
-                                  </div>
 
-                              <div class="col">
+                                  <div class="col">
 
-                             <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p>{{__('diamondShape.CUSHION CUT DIAMOND')}}</p>
-                                        <img class="box img-fluid" src="/images/front-end/education/shape/cushion-glam-1-150x150.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                          </div>
+                                 <a class="">
+                                    <center>  
+                                        <figure class="image">
+                                          <p>{{__('diamondShape.CUSHION CUT DIAMOND')}}</p>
+                                            <img class="box img-fluid" src="/images/front-end/education/shape/cushion-glam-1-150x150.jpg">
+                                        </figure>
+                                    </center>
+                                </a>
+                              </div>
 
-                        </div>
-                        </article>
+                            </div>
+                            </article>
 
-                        <article class="message is-primary" >
-                            <div class="level is-centered">
-                            
-                            <div class="row justify-content-center">
-                                  <div class="col-10">
+                            <article class="message is-primary" >
+                                <div class="level is-centered">
                                 
-                                        <div class="message-body">
-                                        <center>
+                                <div class="row justify-content-center">
+                                      <div class="col-10">
+                                    
+                                            <div class="message-body">
+                                            <center>
 
-                                            <center><p class="title is-6">{{trans('diamondShape.EMERALD CUT')}}</p>
+                                                <center><p class="title is-6">{{trans('diamondShape.EMERALD CUT')}}</p>
+                                                </center>
+                                                <div class="level">
+                                                <li>{{trans('diamondShape.shapePara4')}}</li>
+                                                   
+                                                </div>
+                                            
                                             </center>
-                                            <div class="level">
-                                            <li>{{trans('diamondShape.shapePara4')}}</li>
-                                               
-                                            </div>
-                                        
-                                        </center>
-                                        
+                                            
+                                          </div>
+                                             
                                       </div>
-                                         
-                                  </div>
 
-                              <div class="col">
+                                  <div class="col">
 
-                             <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p>{{__('diamondShape.EMERALD CUT DIAMOND')}}</p>
-                                        <img class="box img-fluid" src="/images/front-end/education/shape/emerald-glam-1-150x150.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                          </div>
+                                 <a class="">
+                                    <center>  
+                                        <figure class="image">
+                                          <p>{{__('diamondShape.EMERALD CUT DIAMOND')}}</p>
+                                            <img class="box img-fluid" src="/images/front-end/education/shape/emerald-glam-1-150x150.jpg">
+                                        </figure>
+                                    </center>
+                                </a>
+                              </div>
 
-                        </div>
-                        </article>
+                            </div>
+                            </article>
 
 
-                        <article class="message is-primary" >
-                            <div class="level is-centered">
-                            
-                            <div class="row justify-content-center">
-                                  <div class="col-10">
+                            <article class="message is-primary" >
+                                <div class="level is-centered">
                                 
-                                        <div class="message-body">
-                                        <center>
+                                <div class="row justify-content-center">
+                                      <div class="col-10">
+                                    
+                                            <div class="message-body">
+                                            <center>
 
-                                            <center><p class="title is-6">{{trans('diamondShape.HEART SHAPE')}}</p>
+                                                <center><p class="title is-6">{{trans('diamondShape.HEART SHAPE')}}</p>
+                                                </center>
+                                                <div class="level">
+                                                <li>{{trans('diamondShape.shapePara5')}}</li>
+                                                   
+                                                </div>
+                                            
                                             </center>
-                                            <div class="level">
-                                            <li>{{trans('diamondShape.shapePara5')}}</li>
-                                               
-                                            </div>
-                                        
-                                        </center>
-                                        
+                                            
+                                          </div>
+                                             
                                       </div>
-                                         
-                                  </div>
 
-                              <div class="col">
+                                  <div class="col">
 
-                             <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p>{{__('diamondShape.HEART SHAPE DIAMOND')}}</p>
-                                        <img class="box img-fluid" src="/images/front-end/education/shape/heart-glam-e1461491201975-1-150x150.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                          </div>
+                                 <a class="">
+                                    <center>  
+                                        <figure class="image">
+                                          <p>{{__('diamondShape.HEART SHAPE DIAMOND')}}</p>
+                                            <img class="box img-fluid" src="/images/front-end/education/shape/heart-glam-e1461491201975-1-150x150.jpg">
+                                        </figure>
+                                    </center>
+                                </a>
+                              </div>
 
-                        </div>
-                        </article>
+                            </div>
+                            </article>
 
 
-                        <article class="message is-primary" >
-                            <div class="level is-centered">
-                            
-                            <div class="row justify-content-center">
-                                  <div class="col-10">
+                            <article class="message is-primary" >
+                                <div class="level is-centered">
                                 
-                                        <div class="message-body">
-                                        <center>
+                                <div class="row justify-content-center">
+                                      <div class="col-10">
+                                    
+                                            <div class="message-body">
+                                            <center>
 
-                                            <center><p class="title is-6">{{trans('diamondShape.MARQUISE CUT')}}</p>
+                                                <center><p class="title is-6">{{trans('diamondShape.MARQUISE CUT')}}</p>
+                                                </center>
+                                                <div class="level">
+                                                <li>{{trans('diamondShape.shapePara6')}}</li>
+                                                   
+                                                </div>
+                                            
                                             </center>
-                                            <div class="level">
-                                            <li>{{trans('diamondShape.shapePara6')}}</li>
-                                               
-                                            </div>
-                                        
-                                        </center>
-                                        
+                                            
+                                          </div>
+                                             
                                       </div>
-                                         
-                                  </div>
 
-                              <div class="col">
+                                  <div class="col">
 
-                             <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p>{{__('diamondShape.MARQUISE CUT DIAMOND')}}</p>
-                                        <img class="box img-fluid" src="/images/front-end/education/shape/marquise-glam-1-150x150.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                          </div>
+                                 <a class="">
+                                    <center>  
+                                        <figure class="image">
+                                          <p>{{__('diamondShape.MARQUISE CUT DIAMOND')}}</p>
+                                            <img class="box img-fluid" src="/images/front-end/education/shape/marquise-glam-1-150x150.jpg">
+                                        </figure>
+                                    </center>
+                                </a>
+                              </div>
 
-                        </div>
-                        </article>
+                            </div>
+                            </article>
 
 
-                        <article class="message is-primary" >
-                            <div class="level is-centered">
-                            
-                            <div class="row justify-content-center">
-                                  <div class="col-10">
+                            <article class="message is-primary" >
+                                <div class="level is-centered">
                                 
-                                        <div class="message-body">
-                                        <center>
+                                <div class="row justify-content-center">
+                                      <div class="col-10">
+                                    
+                                            <div class="message-body">
+                                            <center>
 
-                                            <center><p class="title is-6">{{trans('diamondShape.OVAL CUT')}}</p>
+                                                <center><p class="title is-6">{{trans('diamondShape.OVAL CUT')}}</p>
+                                                </center>
+                                                <div class="level">
+                                                <li>{{trans('diamondShape.shapePara7')}}</li>
+                                                   
+                                                </div>
+                                            
                                             </center>
-                                            <div class="level">
-                                            <li>{{trans('diamondShape.shapePara7')}}</li>
-                                               
-                                            </div>
-                                        
-                                        </center>
-                                        
+                                            
+                                          </div>
+                                             
                                       </div>
-                                         
-                                  </div>
 
-                              <div class="col">
+                                  <div class="col">
 
-                             <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p>{{__('diamondShape.OVAL CUT DIAMOND')}}</p>
-                                        <img class="box img-fluid" src="/images/front-end/education/shape/oval-glam-1-150x150.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                          </div>
+                                 <a class="">
+                                    <center>  
+                                        <figure class="image">
+                                          <p>{{__('diamondShape.OVAL CUT DIAMOND')}}</p>
+                                            <img class="box img-fluid" src="/images/front-end/education/shape/oval-glam-1-150x150.jpg">
+                                        </figure>
+                                    </center>
+                                </a>
+                              </div>
 
-                        </div>
-                        </article>
+                            </div>
+                            </article>
 
 
-                        <article class="message is-primary" >
-                            <div class="level is-centered">
-                            
-                            <div class="row justify-content-center">
-                                  <div class="col-10">
+                            <article class="message is-primary" >
+                                <div class="level is-centered">
                                 
-                                        <div class="message-body">
-                                        <center>
+                                <div class="row justify-content-center">
+                                      <div class="col-10">
+                                    
+                                            <div class="message-body">
+                                            <center>
 
-                                            <center><p class="title is-6">{{trans('diamondShape.PEAR SHAPE')}}</p>
+                                                <center><p class="title is-6">{{trans('diamondShape.PEAR SHAPE')}}</p>
+                                                </center>
+                                                <div class="level">
+                                                <li>{{trans('diamondShape.shapePara8')}}</li>
+                                                   
+                                                </div>
+                                            
                                             </center>
-                                            <div class="level">
-                                            <li>{{trans('diamondShape.shapePara8')}}</li>
-                                               
-                                            </div>
-                                        
-                                        </center>
-                                        
+                                            
+                                          </div>
+                                             
                                       </div>
-                                         
-                                  </div>
 
-                              <div class="col">
+                                  <div class="col">
 
-                             <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p>{{__('diamondShape.PEAR SHAPE DIAMOND')}}</p>
-                                        <img class="box img-fluid" src="/images/front-end/education/shape/pear-glam-1-150x150.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                          </div>
+                                 <a class="">
+                                    <center>  
+                                        <figure class="image">
+                                          <p>{{__('diamondShape.PEAR SHAPE DIAMOND')}}</p>
+                                            <img class="box img-fluid" src="/images/front-end/education/shape/pear-glam-1-150x150.jpg">
+                                        </figure>
+                                    </center>
+                                </a>
+                              </div>
 
-                        </div>
-                        </article>
+                            </div>
+                            </article>
 
 
-                        <article class="message is-primary" >
-                            <div class="level is-centered">
-                            
-                            <div class="row justify-content-center">
-                                  <div class="col-10">
+                            <article class="message is-primary" >
+                                <div class="level is-centered">
                                 
-                                        <div class="message-body">
-                                        <center>
+                                <div class="row justify-content-center">
+                                      <div class="col-10">
+                                    
+                                            <div class="message-body">
+                                            <center>
 
-                                            <center><p class="title is-6">{{trans('diamondShape.PRINCESS CUT')}}</p>
+                                                <center><p class="title is-6">{{trans('diamondShape.PRINCESS CUT')}}</p>
+                                                </center>
+                                                <div class="level">
+                                                <li>{{trans('diamondShape.shapePara9')}}</li>
+                                                   
+                                                </div>
+                                            
                                             </center>
-                                            <div class="level">
-                                            <li>{{trans('diamondShape.shapePara9')}}</li>
-                                               
-                                            </div>
-                                        
-                                        </center>
-                                        
+                                            
+                                          </div>
+                                             
                                       </div>
-                                         
-                                  </div>
 
-                              <div class="col">
+                                  <div class="col">
 
-                             <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p>{{__('diamondShape.PRINCESS CUT DIAMOND')}}</p>
-                                        <img class="box img-fluid" src="/images/front-end/education/shape/princess-brilliant-cut-1-150x150.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                          </div>
+                                 <a class="">
+                                    <center>  
+                                        <figure class="image">
+                                          <p>{{__('diamondShape.PRINCESS CUT DIAMOND')}}</p>
+                                            <img class="box img-fluid" src="/images/front-end/education/shape/princess-brilliant-cut-1-150x150.jpg">
+                                        </figure>
+                                    </center>
+                                </a>
+                              </div>
 
-                        </div>
-                        </article>
+                            </div>
+                            </article>
 
 
-                        <article class="message is-primary" >
-                            <div class="level is-centered">
-                            
-                            <div class="row justify-content-center">
-                                  <div class="col-10">
+                            <article class="message is-primary" >
+                                <div class="level is-centered">
                                 
-                                        <div class="message-body">
-                                        <center>
+                                <div class="row justify-content-center">
+                                      <div class="col-10">
+                                    
+                                            <div class="message-body">
+                                            <center>
 
-                                            <center><p class="title is-6">{{trans('diamondShape.RADIANT CUT')}}</p>
+                                                <center><p class="title is-6">{{trans('diamondShape.RADIANT CUT')}}</p>
+                                                </center>
+                                                <div class="level">
+                                                <li>{{trans('diamondShape.shapePara10')}}</li>
+                                                   
+                                                </div>
+                                            
                                             </center>
-                                            <div class="level">
-                                            <li>{{trans('diamondShape.shapePara10')}}</li>
-                                               
-                                            </div>
-                                        
-                                        </center>
-                                        
+                                            
+                                          </div>
+                                             
                                       </div>
-                                         
-                                  </div>
 
-                              <div class="col">
+                                  <div class="col">
 
-                             <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p>{{__('diamondShape.RADIANT CUT DIAMOND')}}</p>
-                                        <img class="box img-fluid" src="/images/front-end/education/shape/radiant-glam-1-150x150.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                          </div>
+                                 <a class="">
+                                    <center>  
+                                        <figure class="image">
+                                          <p>{{__('diamondShape.RADIANT CUT DIAMOND')}}</p>
+                                            <img class="box img-fluid" src="/images/front-end/education/shape/radiant-glam-1-150x150.jpg">
+                                        </figure>
+                                    </center>
+                                </a>
+                              </div>
 
+                            </div>
+                            </article>
+
+
+                            </div>
                         </div>
-                        </article>
-
-
                         </div>
+                      @include('layouts.education.sideBar')
                     </div>
 
 

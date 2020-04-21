@@ -181,13 +181,13 @@
                 <a class="dropdown-item color-blue" href="{{url(app()->getLocale())}}/education-diamond-grading/grading-certficate"><img width="15">{{trans('frontHeader.Diamond Certificate')}}</a>
                   <p class="dropdown-item">
 
-                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/grading-certficate">{{trans('frontHeader.Certificate')}}
+                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report/grading-certficate">{{trans('frontHeader.Certificate')}}
                     | </a>
                       
                     <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report">{{trans('frontHeader.GIA Report')}}
                     | </a>
                       
-                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/grading-eye-clean">{{trans('frontHeader.Eye Clean Diamond')}}
+                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report/grading-eye-clean">{{trans('frontHeader.Eye Clean Diamond')}}
                       </a>    
 
                   </p>
@@ -197,17 +197,17 @@
                 <a class="dropdown-item color-blue" href="{{url(app()->getLocale())}}/education-diamond-grading/shape"><img width="15">{{trans('frontHeader.Diamond Anatomy')}}</a>
                   <p class="dropdown-item" >
 
-                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/shape">{{trans('frontHeader.Shape')}}
+                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/shape">{{trans('frontHeader.Shape')}}
                     | </a>
-                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/hearts-and-arrows">{{trans('frontHeader.Heards And Arrows')}}
+                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/hearts-and-arrows">{{trans('frontHeader.Heards And Arrows')}}
                     | </a>
-                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy-proportion">{{trans('frontHeader.Proportion')}}
+                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/proportion">{{trans('frontHeader.Proportion')}}
                     | </a>
-                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy-symmetry">{{trans('frontHeader.Symmetry')}}
+                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/symmetry">{{trans('frontHeader.Symmetry')}}
                     | </a>
-                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy-polish">{{trans('frontHeader.Polish')}}
+                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/polish">{{trans('frontHeader.Polish')}}
                     | </a>
-                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy-fluorescence">{{trans('frontHeader.Fluorescence')}}
+                    <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/fluorescence">{{trans('frontHeader.Fluorescence')}}
                     </a>
   
                   </p>

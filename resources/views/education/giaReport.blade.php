@@ -52,188 +52,190 @@
 
                     <br>
 
+                    <div class="row justify-content-center">
+                        <div class="col">
 
-                    @include('layouts.subTabs.gradingCert')
+                            @include('layouts.education.gradingCert')
 
-                    <br>
+                            <br>
 
-                    <div class="row justify-content-center text-left">
-                        <div class="col-10">
-                            <article class="message is-primary" >
-                              <div class="level is-centered">
-                                <div class="message-body">
-                                
-                               
-                                <center><p class="title is-6">{{trans('education.giaTitle1')}}</p></center>
-                                <div class="row justify-content-center">
-                                    <div class="col-md-8">
-                                        <li>{{trans('education.giaPara1')}}</li>                                       
-                                    </div>
-                                    <div class="col">
-                                        <a>
-                                        <center>  
-                                        <figure class="image">
-                                          <p>GIA Diamond Report</p>
-                                            <img src="/images/front-end/education/grading-certficate/pageImage.jpg">
-                                        </figure>
-                                        </center>
-                                          </a>
-                                    </div>
+                            <div class="row justify-content-center text-left">
+                                <div class="col-10">
+                                    <article class="message is-primary" >
+                                      <div class="level is-centered">
+                                        <div class="message-body">
+                                        
+                                       
+                                        <center><p class="title is-6">{{trans('education.giaTitle1')}}</p></center>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-8">
+                                                <li>{{trans('education.giaPara1')}}</li>                                       
+                                            </div>
+                                            <div class="col">
+                                                <a>
+                                                <center>  
+                                                <figure class="image">
+                                                  <p>GIA Diamond Report</p>
+                                                    <img src="/images/front-end/education/grading-certficate/pageImage.jpg">
+                                                </figure>
+                                                </center>
+                                                  </a>
+                                            </div>
+                                        </div>
+
+                                        {{trans('education.giaPara2')}}
+                                        {{trans('education.giaPara3')}}
+
+                                        <hr>
+                                        <center><p class="title is-5">{{trans('education.giaTitle2')}}</p></center>
+                                        <center><p class="title is-6">{{trans('education.giaTitle3')}}</p></center>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-8">
+                                                <li>{{trans('education.giaPara4')}}</li>                                    
+                                            </div>
+                                            <div class="col">
+                                                <a>
+                                                <center>  
+                                                <figure >
+                                                  <p>GIA REPORT (PART1)</p>
+                                                    <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia1.jpg">
+                                                </figure>
+                                                </center>
+                                                  </a>
+                                            </div>
+                                        </div>
+
+                                        {{trans('education.giaPara4.1')}}
+                                        {{trans('education.giaPara5')}}
+                                        {{trans('education.giaPara6')}}
+
+                                        <hr>
+                                        <center><p class="title is-6">{{trans('education.giaTitle4')}}</p></center>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-8">
+                                                <li>{{trans('education.giaPara7')}}</li>                                
+                                            </div>
+                                            <div class="col">
+                                                <a>
+                                                <center>  
+                                                <figure >
+                                                  <p>GIA REPORT (PART2)</p>
+                                                    <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia2.jpg">
+                                                </figure>
+                                                </center>
+                                                  </a>
+                                            </div>
+
+                                        </div>
+                                            
+                                        {{trans('education.giaPara7.1')}}
+
+                                        <hr>
+                                        <center><p class="title is-6">{{trans('education.giaTitle5')}}</p></center>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-8">
+                                                <li>{{trans('education.giaPara8')}}</li>                                
+                                            </div>
+                                            <div class="col">
+                                                <a>
+                                                <center>  
+                                                <figure >
+                                                  <p>GIA REPORT (PART3)</p>
+                                                    <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia3.jpg">
+                                                </figure>
+                                                </center>
+                                                  </a>
+                                            </div>
+
+                                        </div>
+                                            
+                                        {{trans('education.giaPara8.1')}}
+
+                                        <hr>
+                                        <center><p class="title is-6">{{trans('education.giaTitle6')}}</p></center>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-8">
+                                                <li>{{trans('education.giaPara9')}}</li>                                
+                                            </div>
+                                            <div class="col">
+                                                <a>
+                                                <center>  
+                                                <figure >
+                                                  <p>GIA REPORT (PART3)</p>
+                                                    <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia4.jpg">
+                                                </figure>
+                                                </center>
+                                                  </a>
+                                            </div>
+
+                                        </div>
+                                            
+                                        {{trans('education.giaPara9.1')}}
+                                        {{trans('education.giaPara10')}}
+
+                                        <hr>
+                                        <center><p class="title is-6">{{trans('education.giaTitle7')}}</p></center>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-8">
+                                                <li>{{trans('education.giaPara11')}}</li>                                
+                                            </div>
+                                            <div class="col">
+                                                <a>
+                                                <center>  
+                                                <figure >
+                                                  <p>GIA REPORT (PART3)</p>
+                                                    <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia5.jpg">
+                                                </figure>
+                                                </center>
+                                                  </a>
+                                            </div>
+
+                                        </div>
+                                            
+                                        {{trans('education.giaPara11.1')}}
+
+                                        <hr>
+                                        <center><p class="title is-6">{{trans('education.giaTitle8')}}</p></center>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-8">
+                                                <li>{{trans('education.giaPara12')}}</li>                                
+                                            </div>
+                                            <div class="col">
+                                                <a>
+                                                <center>  
+                                                <figure >
+                                                  <p>GIA REPORT (PART3)</p>
+                                                    <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia6.jpg">
+                                                </figure>
+                                                </center>
+                                                  </a>
+                                            </div>
+                                        </div>
+                                            
+                                        {{trans('education.giaPara12.1')}}
+                                        
+                                        
+                                        <br>
+                                        <br>
+                                        <br>
+                                        
+                                        <div class="row justify-content-center text-center">
+                                            <div class="col-10">
+                                                <h2 class="title is-5"><span>&nbsp;</span><strong><a>{{trans('home.Must Watch')}} : </a></strong><small>{{trans('home.GIA Teaches You 4Cs')}} - {{trans('home.How To Choose Giamond')}}</small></h2>
+                                                @include('layouts.components.giaVideo')
+                                            </div>
+                                        </div>
+                                         
+                                      </div>
+                                      </div>
+
+                                      
+                                    </article>
                                 </div>
-
-                                {{trans('education.giaPara2')}}
-                                {{trans('education.giaPara3')}}
-
-                                <hr>
-                                <center><p class="title is-5">{{trans('education.giaTitle2')}}</p></center>
-                                <center><p class="title is-6">{{trans('education.giaTitle3')}}</p></center>
-                                <div class="row justify-content-center">
-                                    <div class="col-md-8">
-                                        <li>{{trans('education.giaPara4')}}</li>                                    
-                                    </div>
-                                    <div class="col">
-                                        <a>
-                                        <center>  
-                                        <figure >
-                                          <p>GIA REPORT (PART1)</p>
-                                            <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia1.jpg">
-                                        </figure>
-                                        </center>
-                                          </a>
-                                    </div>
-                                </div>
-
-                                {{trans('education.giaPara4.1')}}
-                                {{trans('education.giaPara5')}}
-                                {{trans('education.giaPara6')}}
-
-                                <hr>
-                                <center><p class="title is-6">{{trans('education.giaTitle4')}}</p></center>
-                                <div class="row justify-content-center">
-                                    <div class="col-md-8">
-                                        <li>{{trans('education.giaPara7')}}</li>                                
-                                    </div>
-                                    <div class="col">
-                                        <a>
-                                        <center>  
-                                        <figure >
-                                          <p>GIA REPORT (PART2)</p>
-                                            <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia2.jpg">
-                                        </figure>
-                                        </center>
-                                          </a>
-                                    </div>
-
-                                </div>
-                                    
-                                {{trans('education.giaPara7.1')}}
-
-                                <hr>
-                                <center><p class="title is-6">{{trans('education.giaTitle5')}}</p></center>
-                                <div class="row justify-content-center">
-                                    <div class="col-md-8">
-                                        <li>{{trans('education.giaPara8')}}</li>                                
-                                    </div>
-                                    <div class="col">
-                                        <a>
-                                        <center>  
-                                        <figure >
-                                          <p>GIA REPORT (PART3)</p>
-                                            <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia3.jpg">
-                                        </figure>
-                                        </center>
-                                          </a>
-                                    </div>
-
-                                </div>
-                                    
-                                {{trans('education.giaPara8.1')}}
-
-                                <hr>
-                                <center><p class="title is-6">{{trans('education.giaTitle6')}}</p></center>
-                                <div class="row justify-content-center">
-                                    <div class="col-md-8">
-                                        <li>{{trans('education.giaPara9')}}</li>                                
-                                    </div>
-                                    <div class="col">
-                                        <a>
-                                        <center>  
-                                        <figure >
-                                          <p>GIA REPORT (PART3)</p>
-                                            <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia4.jpg">
-                                        </figure>
-                                        </center>
-                                          </a>
-                                    </div>
-
-                                </div>
-                                    
-                                {{trans('education.giaPara9.1')}}
-                                {{trans('education.giaPara10')}}
-
-                                <hr>
-                                <center><p class="title is-6">{{trans('education.giaTitle7')}}</p></center>
-                                <div class="row justify-content-center">
-                                    <div class="col-md-8">
-                                        <li>{{trans('education.giaPara11')}}</li>                                
-                                    </div>
-                                    <div class="col">
-                                        <a>
-                                        <center>  
-                                        <figure >
-                                          <p>GIA REPORT (PART3)</p>
-                                            <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia5.jpg">
-                                        </figure>
-                                        </center>
-                                          </a>
-                                    </div>
-
-                                </div>
-                                    
-                                {{trans('education.giaPara11.1')}}
-
-                                <hr>
-                                <center><p class="title is-6">{{trans('education.giaTitle8')}}</p></center>
-                                <div class="row justify-content-center">
-                                    <div class="col-md-8">
-                                        <li>{{trans('education.giaPara12')}}</li>                                
-                                    </div>
-                                    <div class="col">
-                                        <a>
-                                        <center>  
-                                        <figure >
-                                          <p>GIA REPORT (PART3)</p>
-                                            <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia6.jpg">
-                                        </figure>
-                                        </center>
-                                          </a>
-                                    </div>
-                                </div>
-                                    
-                                {{trans('education.giaPara12.1')}}
-                                
-                                
-                                <br>
-                                <br>
-                                <br>
-                                
-                                <div class="row justify-content-center text-center">
-                                    <div class="col-10">
-                                        <h2 class="title is-5"><span>&nbsp;</span><strong><a>{{trans('home.Must Watch')}} : </a></strong><small>{{trans('home.GIA Teaches You 4Cs')}} - {{trans('home.How To Choose Giamond')}}</small></h2>
-                                        @include('layouts.components.giaVideo')
-                                    </div>
-                                </div>
-                                 
-                              </div>
-                              </div>
-
-                              
-                            </article>
-
-
+                            </div>
                         </div>
+                      @include('layouts.education.sideBar')
                     </div>
-
 
 
                 </div>

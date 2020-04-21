@@ -52,26 +52,27 @@
 
                     <br>
 
+                    <div class="row justify-content-center text-center" >
+                      <div class="col">
+                        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link"  id="carat-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/carat" role="tab" aria-controls="carat" aria-selected="true">{{__('education.Diamond Carat')}}</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="cut-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/cut" role="tab" aria-controls="cut" aria-selected="true">{{__('education.Diamond Cut')}}</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link"  id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/color" role="tab" aria-controls="color" aria-selected="true">{{__('education.Diamond Color')}}</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link active show"  id="contact-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/clarity" role="tab" aria-controls="clarity" aria-selected="true">{{__('education.Diamond Clarity')}}</a>
+                          </li>
+                        </ul>                    
+                        <br>
 
-                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link"  id="carat-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/carat" role="tab" aria-controls="carat" aria-selected="true">{{__('education.Diamond Carat')}}</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="cut-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/cut" role="tab" aria-controls="cut" aria-selected="true">{{__('education.Diamond Cut')}}</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link"  id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/color" role="tab" aria-controls="color" aria-selected="true">{{__('education.Diamond Color')}}</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active show"  id="contact-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/clarity" role="tab" aria-controls="clarity" aria-selected="true">{{__('education.Diamond Clarity')}}</a>
-                      </li>
-                    </ul>                    
-                    <br>
 
-
-                      <div class="tab-pane fade active show "      
-                          id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <div class="tab-pane fade active show "      
+                            id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
                           <br>
 
@@ -102,8 +103,11 @@
                                 </figure>
                             </div>
                           </div>
-
+                        </div>
                       </div>
+                    @include('layouts.education.sideBar')
+
+                    </div>
 
 
                     <div class="row justify-content-center text-center">

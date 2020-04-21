@@ -52,42 +52,47 @@
 
                     <br>
 
+                    <div class="row justify-content-center text-center" >
+                        <div class="col">
 
-                    @include('layouts.subTabs.gradingCert')
-                    
-                    <br>
+                            @include('layouts.education.gradingCert')
+                            
+                            <br>
 
-                    <article class="message is-primary" v-if="activedSubTab=='grading-eye-clean'">
-                      <div class="level is-centered">
-                        <div class="message-body">
-                        <center>
+                            <article class="message is-primary" v-if="activedSubTab=='grading-eye-clean'">
+                              <div class="level is-centered">
+                                <div class="message-body">
+                                <center>
 
-                        <center><p class="title is-6">{{trans('education.eyeCleanTitle1')}}</p></center>
-                        <div class="row justify-content-center">
-                            <div class="col-md-10">
-                                <li>{{trans('education.eyeCleanPara1')}}</li>
-                            </div>
-                            <div class="col">
-                                <a>
-                                <center>  
-                                  <p>{{__('education.Eye Clean Diamond')}}</p>
-                                    <img class="img-thumbnail" src="/images/front-end/education/grading-eye-clean/pageImage1.jpg">
+                                <center><p class="title is-6">{{trans('education.eyeCleanTitle1')}}</p></center>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-10">
+                                        <li>{{trans('education.eyeCleanPara1')}}</li>
+                                    </div>
+                                    <div class="col">
+                                        <a>
+                                        <center>  
+                                          <p>{{__('education.Eye Clean Diamond')}}</p>
+                                            <img class="img-thumbnail" src="/images/front-end/education/grading-eye-clean/pageImage1.jpg">
+                                        </center>
+                                          </a>
+                                    </div>
+                                
                                 </center>
-                                  </a>
-                            </div>
-                        
-                        </center>
-                        <li>{{trans('education.eyeCleanPara2')}}</li>
-                        <li>{{trans('education.eyeCleanPara2.1')}}</li>
-                        <li>{{trans('education.eyeCleanPara3')}}</li>
-                        <li>{{trans('education.eyeCleanPara4')}}</li>
-                      </div>
-                         
+                                <li>{{trans('education.eyeCleanPara2')}}</li>
+                                <li>{{trans('education.eyeCleanPara2.1')}}</li>
+                                <li>{{trans('education.eyeCleanPara3')}}</li>
+                                <li>{{trans('education.eyeCleanPara4')}}</li>
+                              </div>
+                                 
 
-                      </div>
-                      
-                    </article>
+                              </div>
+                              
+                            </article>
 
+                        </div>
+                      @include('layouts.education.sideBar')
+                    </div>
 
 
 

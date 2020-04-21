@@ -54,67 +54,71 @@
 
                     <br>
 
-
-                    @include('layouts.subTabs.anatony')
                     
                     <br>
-
-                    <article class="message is-primary" >
-                        <div class="level is-centered">
-                        
-                        <div class="tile is-ancestor">
-                              <div class="tile is-10">
+                    <div class="row justify-content-center text-center" >
+                        <div class="col">
                             
-                                    <div class="message-body">
-                                    <center>
+                            @include('layouts.education.anatony')
+                            
+                            <article class="message is-primary" >
+                                <div class="level is-centered">
+                                
+                                <div class="tile is-ancestor">
+                                      <div class="tile is-10">
+                                    
+                                            <div class="message-body">
+                                            <center>
 
-                                        <center><p class="title is-6">{{trans('diamondFluorescence.DIAMOND FLUORESCENCE')}}</p>
-                                          <li>{{trans('diamondFluorescence.title1')}}</li>
+                                                <center><p class="title is-6">{{trans('diamondFluorescence.DIAMOND FLUORESCENCE')}}</p>
+                                                  <li>{{trans('diamondFluorescence.title1')}}</li>
+                                                </center>
+                                                <div class="level">
+                                                
+                                                   
+                                                </div>
+                                            
+                                            
+                                            </center>
+
+                                            <li>{{trans('diamondFluorescence.para1')}}</li>
+
+                                            <center>
+                                                  <li>{{trans('diamondFluorescence.title2')}}</li>
+                                            </center>
+                                                <div class="level">
+                                                
+                                                   
+                                                </div>
+                                            
+                                            
+                                            </center>
+
+                                            <li>{{trans('diamondFluorescence.para2')}}</li>
+
+
+                                            
+                                          </div>
+                                             
+                                      </div>
+
+                                  <div class="tile">
+
+                                     <a class="">
+                                        <center>  
+                                            <figure class="image">
+                                              <p>{{trans('diamondFluorescence.DIAMOND FLUORESCENCE')}}</p>
+                                                <img  src="/images/front-end/education/anatomy-fluorescence/diamond-fluorescence-1.jpg">
+                                            </figure>
                                         </center>
-                                        <div class="level">
-                                        
-                                           
-                                        </div>
-                                    
-                                    
-                                    </center>
-
-                                    <li>{{trans('diamondFluorescence.para1')}}</li>
-
-                                    <center>
-                                          <li>{{trans('diamondFluorescence.title2')}}</li>
-                                    </center>
-                                        <div class="level">
-                                        
-                                           
-                                        </div>
-                                    
-                                    
-                                    </center>
-
-                                    <li>{{trans('diamondFluorescence.para2')}}</li>
-
-
-                                    
+                                    </a>
                                   </div>
-                                     
-                              </div>
 
-                          <div class="tile">
-
-                             <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p>{{trans('diamondFluorescence.DIAMOND FLUORESCENCE')}}</p>
-                                        <img  src="/images/front-end/education/anatomy-fluorescence/diamond-fluorescence-1.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                          </div>
-
+                                </div>
+                            </article>
+                        </div>
+                      @include('layouts.education.sideBar')
                     </div>
-                    </article>
-
 
 
 

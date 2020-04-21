@@ -52,57 +52,60 @@
 
                     <br>
 
+                    <div class="row justify-content-center">
+                        <div class="col">
 
-                    @include('layouts.subTabs.anatony')
+                            @include('layouts.education.anatony')
 
-                    <br>
+                            <br>
 
-                    <div class="row justify-content-center text-left">
-                        <div class="col-10">
-                            <article class="message is-primary" >
-                                <div class="level is-centered">
-                                
-                                <div class="row justify-content-center">
-                                      <div class="col-10">
-                                    
-                                            <div class="message-body">
-                                            <center>
+                            <div class="row justify-content-center text-left">
+                                <div class="col-10">
+                                    <article class="message is-primary" >
+                                        <div class="level is-centered">
+                                        
+                                        <div class="row justify-content-center">
+                                              <div class="col-10">
+                                            
+                                                    <div class="message-body">
+                                                    <center>
 
-                                                <center><p class="title is-6">{{trans('diamondProportion.DIAMOND PROPORTION – UNDERSTAND BRILLIANT, FIRE AND SCITILLATION')}}</p>
-                                                  <li>{{trans('diamondProportion.para1')}}</li>
+                                                        <center><p class="title is-6">{{trans('diamondProportion.DIAMOND PROPORTION – UNDERSTAND BRILLIANT, FIRE AND SCITILLATION')}}</p>
+                                                          <li>{{trans('diamondProportion.para1')}}</li>
+                                                        </center>
+                                                        <div class="level">
+                                                        
+                                                           
+                                                        </div>
+                                                    
+                                                    
+                                                    </center>
+                                                    <li>{{trans('diamondProportion.para2')}}</li>
+                                                    <li>{{trans('diamondProportion.para3')}}</li>
+                                                    <li>{{trans('diamondProportion.para4')}}</li>
+                                                    
+                                                  </div>
+                                                     
+                                              </div>
+
+                                          <div class="tile">
+
+                                             <a class="">
+                                                <center>  
+                                                    <figure class="image">
+                                                      <p>{{__('diamondProportion.UNDERSTAND BRILLIANT, FIRE AND SCITILLATION')}}</p>
+                                                        <img class="box img-fluid" src="/images/front-end/education/anatomy-proportion/pageImage.jpg">
+                                                    </figure>
                                                 </center>
-                                                <div class="level">
-                                                
-                                                   
-                                                </div>
-                                            
-                                            
-                                            </center>
-                                            <li>{{trans('diamondProportion.para2')}}</li>
-                                            <li>{{trans('diamondProportion.para3')}}</li>
-                                            <li>{{trans('diamondProportion.para4')}}</li>
-                                            
+                                            </a>
                                           </div>
-                                             
-                                      </div>
 
-                                  <div class="tile">
-
-                                     <a class="">
-                                        <center>  
-                                            <figure class="image">
-                                              <p>{{__('diamondProportion.UNDERSTAND BRILLIANT, FIRE AND SCITILLATION')}}</p>
-                                                <img class="box img-fluid" src="/images/front-end/education/anatomy-proportion/pageImage.jpg">
-                                            </figure>
-                                        </center>
-                                    </a>
-                                  </div>
-
+                                    </div>
+                                    </article>
+                                </div>
                             </div>
-                            </article>
-
-
                         </div>
+                      @include('layouts.education.sideBar')
                     </div>
 
 

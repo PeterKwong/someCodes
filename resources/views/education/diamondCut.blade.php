@@ -53,48 +53,49 @@
 
                     <br>
 
+                    <div class="row justify-content-center text-center" >
+                        <div class="col">
+                           <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                              <li class="nav-item">
+                                <a class="nav-link"  id="carat-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/carat" role="tab" aria-controls="carat" aria-selected="true">{{__('education.Diamond Carat')}}</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link active show" id="cut-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/cut" role="tab" aria-controls="cut" aria-selected="true">{{__('education.Diamond Cut')}}</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link"  id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/color" role="tab" aria-controls="color" aria-selected="true">{{__('education.Diamond Color')}}</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link"  id="contact-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/clarity" role="tab" aria-controls="clarity" aria-selected="true">{{__('education.Diamond Clarity')}}</a>
+                              </li>
+                            </ul>
 
-                   
-                   <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link"  id="carat-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/carat" role="tab" aria-controls="carat" aria-selected="true">{{__('education.Diamond Carat')}}</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active show" id="cut-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/cut" role="tab" aria-controls="cut" aria-selected="true">{{__('education.Diamond Cut')}}</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link"  id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/color" role="tab" aria-controls="color" aria-selected="true">{{__('education.Diamond Color')}}</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link"  id="contact-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/clarity" role="tab" aria-controls="clarity" aria-selected="true">{{__('education.Diamond Clarity')}}</a>
-                      </li>
-                    </ul>
 
+                            <div class="tab-pane fade active show"  id="cut" role="tabpanel" aria-labelledby="profile-tab">
 
-                    <div class="tab-pane fade active show"  id="cut" role="tabpanel" aria-labelledby="profile-tab">
+                              <br>
 
-                          <br>
-
-                          <div class="row justify-content-center text-center">
-                            <div class="col-8">
-                                <p class="title is-6">{{trans('education.cutTitle1')}}</p>
-                                <li>{{trans('education.cutPara1')}}</li>
-                                <br>
-                                <li>{{trans('education.cutPara2')}}</li>
-                                <br>
-                                <li>{{trans('education.cutPara3')}}</li>
+                              <div class="row justify-content-center text-center">
+                                <div class="col-8">
+                                    <p class="title is-6">{{trans('education.cutTitle1')}}</p>
+                                    <li>{{trans('education.cutPara1')}}</li>
+                                    <br>
+                                    <li>{{trans('education.cutPara2')}}</li>
+                                    <br>
+                                    <li>{{trans('education.cutPara3')}}</li>
+                                </div>
+                                <div class="col-4">
+                                    <figure class="image is-128x128">
+                                      <p>Diamond Cut</p>
+                                      <img class="img-fluid" src="/images/front-end/education/cut/cut.jpg">
+                                    </figure>
+                                </div>
+                              </div>
                             </div>
-                            <div class="col-4">
-                                <figure class="image is-128x128">
-                                  <p>Diamond Cut</p>
-                                  <img class="img-fluid" src="/images/front-end/education/cut/cut.jpg">
-                                </figure>
-                            </div>
-                          </div>
-
-
+                        </div>
+                      @include('layouts.education.sideBar')
                     </div>
-                    
+            
                     <br>
 
                     <div class="row justify-content-center text-center">

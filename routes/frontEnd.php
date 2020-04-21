@@ -112,27 +112,25 @@ Route::prefix('{locale}')->middleware('locale')->group(function(){
     Route::get('/education-diamond-grading/', 'EducationController@bladeIndex');
 
     //4cs
-    Route::get('/education-diamond-grading/gia-report', 'EducationController@giaReport');
-
     Route::get('/education-diamond-grading/4cs', 'EducationController@fourCs');
-    Route::get('/education-diamond-grading/4cs/carat', 'EducationController@diamondCarat');
+    Route::get('/education-diamond-grading/4cs/carat', 'EducationController@diamondCarat')->name('carat');
     Route::get('/education-diamond-grading/4cs/color', 'EducationController@diamondColor');
     Route::get('/education-diamond-grading/4cs/cut', 'EducationController@diamondCut');
     Route::get('/education-diamond-grading/4cs/clarity', 'EducationController@diamondClarity');
 
     //cert
-    Route::get('/education-diamond-grading/grading-certficate', 'EducationController@diamondCertificate');
     Route::get('/education-diamond-grading/gia-report', 'EducationController@giaReport');
-    Route::get('/education-diamond-grading/grading-eye-clean', 'EducationController@gradingEyeClean');
+    Route::get('/education-diamond-grading/gia-report/grading-certficate', 'EducationController@diamondCertificate');
+    Route::get('/education-diamond-grading/gia-report/grading-eye-clean', 'EducationController@gradingEyeClean');
 
 
     //anatony
-    Route::get('/education-diamond-grading/shape', 'EducationController@diamondShape');
-    Route::get('/education-diamond-grading/hearts-and-arrows', 'EducationController@diamondHeartAndArrow');
-    Route::get('/education-diamond-grading/anatomy-proportion', 'EducationController@diamondProportion');
-    Route::get('/education-diamond-grading/anatomy-symmetry', 'EducationController@diamondSymmetry');
-    Route::get('/education-diamond-grading/anatomy-polish', 'EducationController@diamondPolish');
-    Route::get('/education-diamond-grading/anatomy-fluorescence', 'EducationController@diamondFluorescence');
+    Route::get('/education-diamond-grading/anatomy/shape', 'EducationController@diamondShape');
+    Route::get('/education-diamond-grading/anatomy/hearts-and-arrows', 'EducationController@diamondHeartAndArrow');
+    Route::get('/education-diamond-grading/anatomy/proportion', 'EducationController@diamondProportion');
+    Route::get('/education-diamond-grading/anatomy/symmetry', 'EducationController@diamondSymmetry');
+    Route::get('/education-diamond-grading/anatomy/polish', 'EducationController@diamondPolish');
+    Route::get('/education-diamond-grading/anatomy/fluorescence', 'EducationController@diamondFluorescence');
 
 
     //about-us

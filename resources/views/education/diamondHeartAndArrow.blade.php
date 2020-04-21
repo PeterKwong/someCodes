@@ -52,87 +52,90 @@
 
                     <br>
 
+                    <div class="row justify-content-center text-center" >
+                        <div class="col">
+                            
+                            @include('layouts.education.anatony')
 
-                    @include('layouts.subTabs.anatony')
+                            <div class="row justify-content-center text-center">
+                                <div class="col-10">
+                                    <article class="message is-primary" >
+                                        <div class="level is-centered">
+                                        
+                                        <div class="row justify-content-center">
+                                              <div class="col-10">
+                                            
+                                                    <div class="message-body">
+                                                    <center>
 
+                                                        <center><p class="title is-6">{{trans('diamondHeartArrow.HEARTS AND ARROWS DIAMOND')}}</p>
+                                                          <li>{{trans('diamondHeartArrow.para1')}}</li>
+                                                        </center>
+                                                        <div class="level">
+                                                        <li>{{trans('diamondHeartArrow.para2')}}</li>
+                                                           
+                                                        </div>
+                                                    
+                                                    </center>
+                                                    
+                                                  </div>
+                                                     
+                                              </div>
 
-                    <div class="row justify-content-center text-center">
-                        <div class="col-10">
-                            <article class="message is-primary" >
-                                <div class="level is-centered">
-                                
-                                <div class="row justify-content-center">
-                                      <div class="col-10">
-                                    
-                                            <div class="message-body">
-                                            <center>
+                                          <div class="col">
 
-                                                <center><p class="title is-6">{{trans('diamondHeartArrow.HEARTS AND ARROWS DIAMOND')}}</p>
-                                                  <li>{{trans('diamondHeartArrow.para1')}}</li>
+                                             <a class="">
+                                                <center>  
+                                                    <figure class="image">
+                                                      <p>8 HEARTS OF DIAMOND</p>
+                                                        <img class="box img-fluid"  src="/images/front-end/education/hearts-and-arrows/hr2-1-1-150x150.png">
+                                                    </figure>
                                                 </center>
-                                                <div class="level">
-                                                <li>{{trans('diamondHeartArrow.para2')}}</li>
-                                                   
-                                                </div>
-                                            
-                                            </center>
-                                            
+                                            </a>
                                           </div>
-                                             
-                                      </div>
 
-                                  <div class="col">
-
-                                     <a class="">
-                                        <center>  
-                                            <figure class="image">
-                                              <p>8 HEARTS OF DIAMOND</p>
-                                                <img class="box img-fluid"  src="/images/front-end/education/hearts-and-arrows/hr2-1-1-150x150.png">
-                                            </figure>
-                                        </center>
-                                    </a>
-                                  </div>
-
-                            </div>
-                            </article>
+                                    </div>
+                                    </article>
 
 
-                            <article class="message is-primary" >
-                                <div class="level is-centered">
-                                
-                                <div class="row justify-content-center">
-                                      <div class="col-10">
-                                    
-                                            <div class="message-body">
-                                           
-                                                <div class="level">
-                                                <li>{{trans('diamondHeartArrow.para3')}}</li>
+                                    <article class="message is-primary" >
+                                        <div class="level is-centered">
+                                        
+                                        <div class="row justify-content-center">
+                                              <div class="col-10">
+                                            
+                                                    <div class="message-body">
                                                    
-                                                </div>
-                                            
-                                            
+                                                        <div class="level">
+                                                        <li>{{trans('diamondHeartArrow.para3')}}</li>
+                                                           
+                                                        </div>
+                                                    
+                                                    
+                                                  </div>
+                                                     
+                                              </div>
+
+                                          <div class="col">
+
+                                             <a class="">
+                                                <center>  
+                                                    <figure class="image">
+                                                      <p>8 ARROWS OF DIAMOND</p>
+                                                      <hr>
+                                                        <img class="box img-fluid"  src="/images/front-end/education/hearts-and-arrows/h3_300-1-150x150.png">
+                                                    </figure>
+                                                </center>
+                                            </a>
                                           </div>
-                                             
-                                      </div>
 
-                                  <div class="col">
-
-                                     <a class="">
-                                        <center>  
-                                            <figure class="image">
-                                              <p>8 ARROWS OF DIAMOND</p>
-                                              <hr>
-                                                <img class="box img-fluid"  src="/images/front-end/education/hearts-and-arrows/h3_300-1-150x150.png">
-                                            </figure>
-                                        </center>
-                                    </a>
-                                  </div>
-
+                                        </div>
+                                    </article>
                                 </div>
-                            </article>
-
-                        </div>
-                    </div>
+                              </div>
+                          </div>
+                        @include('layouts.education.sideBar')
+                      </div>
 
 
 

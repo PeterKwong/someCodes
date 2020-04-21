@@ -52,26 +52,33 @@
 
                     <br>
 
-
-                    @include('layouts.subTabs.gradingCert')
-                    
-                    <br>
-
                     <div class="row justify-content-center">
-                        <div class="col-sm-10">
-                            <p class="title is-6">{{trans('education.certTitle1')}}</p>
-                            <li>{{trans('education.certPara1')}}</li>                            
+                      <div class="col">
+
+                        @include('layouts.education.gradingCert')
+                        
+                        <br>
+
+                        <div class="row justify-content-center">
+                            <div class="col-sm-10">
+                                <p class="title is-6">{{trans('education.certTitle1')}}</p>
+                                <li>{{trans('education.certPara1')}}</li>                            
+                            </div>
+                            <div class="col">
+                                <p>{{trans('education.Diamond Certficate')}}</p>
+                                    <img class="img-fluid" src="/images/front-end/education/grading-certficate/pageImage.jpg">
+                            </div>
                         </div>
-                        <div class="col">
-                            <p>{{trans('education.Diamond Certficate')}}</p>
-                                <img class="img-fluid" src="/images/front-end/education/grading-certficate/pageImage.jpg">
-                        </div>
-                    </div>
 
                         <li>{{trans('education.certPara1')}}</li>
                         <li>{{trans('education.certPara2')}}</li>
+                       </div>
 
+                      
+                      @include('layouts.education.sideBar')
+                        
 
+                    </div>
 
 
                 </div>
