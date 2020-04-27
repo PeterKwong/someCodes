@@ -466,7 +466,15 @@ class DiamondImport extends DiamondController
       
         
     }
+    
+    public function isNotMemoSuppliers($suppplier_id){
 
+      $noMemo = ['138','139','153'];
+
+      return !in_array($suppplier_id, $noMemo);
+
+      
+    }
 
     public function deleteSpace(){
         
