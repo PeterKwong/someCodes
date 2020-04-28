@@ -33,57 +33,57 @@ class Kernel extends ConsoleKernel
                  ->hourly();
 
                  
-        // $CronJob = new CronJob();
+        $CronJob = new CronJob();
 
-        // $schedule->call(function () use(&$CronJob) {
+        $schedule->call(function () use(&$CronJob) {
 
-        //     $batchNumber = $CronJob->getApiTotalStones();
+            $batchNumber = $CronJob->getApiTotalStones();
 
-        //     Cache::put('batchNumber', $batchNumber, 90000);
-        //     Cache::put('counter',1, 90000);
-        //     Cache::put('diamondQueryState',0,90000);
+            Cache::put('batchNumber', $batchNumber, 90000);
+            Cache::put('counter',1, 90000);
+            Cache::put('diamondQueryState',0,90000);
             
-        //     $CronJob->runImportDiamondRap();
+            $CronJob->runImportDiamondRap();
 
-        //     Cache::increment('diamondQueryState');
-        //     $CronJob->runResetAllRapDiamonds();
-
-
-        // })->dailyAt('00:01')->runInBackground();
+            Cache::increment('diamondQueryState');
+            $CronJob->runResetAllRapDiamonds();
 
 
-        // $schedule->call(function () use(&$CronJob) {
-
-        //     $this->diamondOncall($CronJob);
-
-        // })->cron('*/1 * * * *')->between('00:01', '00:30')->runInBackground();
+        })->dailyAt('00:01')->runInBackground();
 
 
-        // $schedule->call(function () use(&$CronJob) {
+        $schedule->call(function () use(&$CronJob) {
 
-        //     $this->diamondOncall($CronJob);
+            $this->diamondOncall($CronJob);
 
-        // })->cron('*/5 * * * *')->between('00:31', '23:59')->runInBackground();
-
-        // $schedule->call(function () use(&$CronJob) {
-        //     $CronJob->runCerts();
-        // })->cron('10 */12 * * *')->between('00:01', '23:59')->runInBackground();
-
-        //  $schedule->call(function () use(&$CronJob) {
-        //     $CronJob->runImages();
-        // })->cron('10 */12 * * *')->between('03:01', '23:59')->runInBackground();
+        })->cron('*/1 * * * *')->between('00:01', '00:30')->runInBackground();
 
 
+        $schedule->call(function () use(&$CronJob) {
 
-        //  $schedule->call(function () use(&$CronJob) {
+            $this->diamondOncall($CronJob);
 
-        //     if ( Cache::get('diamondQueryState')  == 2 ) {
+        })->cron('*/5 * * * *')->between('00:31', '23:59')->runInBackground();
 
-        //         Cache::increment('diamondQueryState');
-        //         $CronJob->runDiamondQueryCopy();
-        //     }
+        $schedule->call(function () use(&$CronJob) {
+            $CronJob->runCerts();
+        })->cron('10 */12 * * *')->between('00:01', '23:59')->runInBackground();
 
-        // })->cron('*/1 * * * *')->between('00:01', '23:59')->runInBackground();
+         $schedule->call(function () use(&$CronJob) {
+            $CronJob->runImages();
+        })->cron('10 */12 * * *')->between('03:01', '23:59')->runInBackground();
+
+
+
+         $schedule->call(function () use(&$CronJob) {
+
+            if ( Cache::get('diamondQueryState')  == 2 ) {
+
+                Cache::increment('diamondQueryState');
+                $CronJob->runDiamondQueryCopy();
+            }
+
+        })->cron('*/1 * * * *')->between('00:01', '23:59')->runInBackground();
 
 
         //test
