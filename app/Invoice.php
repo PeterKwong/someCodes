@@ -14,7 +14,7 @@ class Invoice extends Model
 
 	protected $fillable = [
         'customer_id','order_id', 'title', 'notes','date', 'due_date', 'discount','extra',
-        'sub_total', 'total', 'deposit','balance','notes', 'count', 'invoice_no','deposit_method','balance_method'
+        'sub_total', 'total', 'deposit','balance','notes', 'invoice_no','deposit_method','balance_method'
     ];
 
     protected $filter = [
@@ -66,7 +66,7 @@ class Invoice extends Model
     	'sub_total' => 0,
         'deposit' => 0,
         'deposit_method' => 'cash',
-        'count' => 1,
+        // 'count' => 1,
         'balance' => 0,
         'balance_method' => 'cash',
         'notes'=> 'Ring Size:#',
