@@ -65,7 +65,6 @@ class Kernel extends ConsoleKernel
 
         })->cron('*/3 * * * *')->between('00:31', '23:59')->runInBackground();
 
-
         $schedule->call(function () use(&$CronJob) {
             $CronJob->runCerts();
         })->between('14:01', '14:02')->runInBackground();

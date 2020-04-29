@@ -146,7 +146,7 @@
             <a @mouseover="loopImages(index)" @mouseleave="loopImages(index,0)">
                 <img :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${ring.images[0].image}`" v-if="ring.images[0]" width="100%">
                     <center>
-                        <p  class="subtitle" v-if="ring.unit_price">$@{{ring.unit_price}}</p>
+                        <p  class="subtitle" v-if="ring.unit_price">HK$@{{ring.unit_price}}</p>
                         <p class="color-blue">@{{ring.style | transJs(langs)}} @{{ring.prong | transJs(langs)}} @{{ring.shoulder | transJs(langs)}} {{trans('engagementRing.setting')}}</p>
                     </center>
             </a>

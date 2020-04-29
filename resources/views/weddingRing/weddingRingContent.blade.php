@@ -134,7 +134,7 @@
                     <center>
                         <div class="row">
                             <div class="col-6"><p  class="color-blue" v-if="ring.wedding_rings[0].unit_price">$@{{ring.wedding_rings[0].unit_price}}</p></div>
-                            <div class="col-6" v-if="ring.wedding_rings[1]"> <p  class="color-blue" v-if="ring.wedding_rings[1].unit_price">$@{{ring.wedding_rings[1].unit_price}}</p></div>
+                            <div class="col-6" v-if="ring.wedding_rings[1]"> <p  class="color-blue" v-if="ring.wedding_rings[1].unit_price">HK$@{{ring.wedding_rings[1].unit_price}}</p></div>
                         </div>
                         
                        
