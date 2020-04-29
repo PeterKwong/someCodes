@@ -559,7 +559,6 @@ class OrderController extends Controller
                 'sub_total' => 0,
                 'deposit' => $order->deposit,
                 'deposit_method' => strtolower(preg_split("/\(/",$order->deposit_method)[0]),
-                'count' => 1,
                 'balance' => 0,
                 'balance_method' => strtolower(preg_split("/\(/",$order->balance_method)[0]),
                 'notes'=> 'Ring Size:#' . $notes,
