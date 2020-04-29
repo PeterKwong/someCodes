@@ -177,7 +177,7 @@
             <a @mouseover="loopImages(index)" @mouseleave="loopImages(index,0)">
                 <img :src="mutualVar.storage[mutualVar.storage.live] + 'public' +`/images/${ring.images[0].image}`" v-if="ring.images[0]" width="100%">
                     <center>
-                        <p  class="subtitle" v-if="ring.unit_price">$@{{ring.unit_price}}</p>
+                        <p  class="text-primary" v-if="ring.unit_price">HK$@{{ring.unit_price}}</p>
                         <p >@{{ring.metal | transJs(langs)}} @{{ring.gemstone==0?'':ring.gemstone | transJs(langs)}} @{{ring.type | transJs(langs)}}  @{{ring.setting?'setting':'' | transJs(langs)}}</p>
                     </center>
             </a>
