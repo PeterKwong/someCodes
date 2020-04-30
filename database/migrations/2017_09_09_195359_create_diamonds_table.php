@@ -14,7 +14,7 @@ class CreateDiamondsTable extends Migration
     public function up()
     {
         Schema::create('diamonds', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->bigInteger('price');
             $table->string('shape');
             $table->decimal('weight',6,2);
@@ -28,13 +28,6 @@ class CreateDiamondsTable extends Migration
             $table->string('lab')->default('gia');           
             $table->string('stock')->nullable();
             $table->integer('supplier_id')->unsigned()->nullable();
-            $table->integer('length')->unsigned()->nullable();
-            $table->integer('width')->unsigned()->nullable();
-            $table->integer('height')->unsigned()->nullable();
-            $table->integer('table')->unsigned()->nullable();
-            $table->integer('depth')->unsigned()->nullable();
-            $table->integer('table_angle')->unsigned()->nullable();
-            $table->integer('parvilion_angle')->unsigned()->nullable();
             $table->string('location')->nullable();
             $table->boolean('has_image')->nullable();
             $table->boolean('has_cert')->nullable();
@@ -49,6 +42,14 @@ class CreateDiamondsTable extends Migration
             $table->boolean('available')->default(NULL)->nullable();
             $table->bigInteger('r_id')->nullable(); 
             $table->string('milky')->default('None');
+            $table->timestamp('star')->nullable();
+            $table->integer('length')->unsigned()->nullable();
+            $table->integer('width')->unsigned()->nullable();
+            $table->integer('height')->unsigned()->nullable();
+            $table->integer('table')->unsigned()->nullable();
+            $table->integer('depth')->unsigned()->nullable();
+            $table->integer('table_angle')->unsigned()->nullable();
+            $table->integer('parvilion_angle')->unsigned()->nullable();
             $table->timestamps();
             // $table->index(['available']);
         });

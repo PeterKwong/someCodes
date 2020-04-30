@@ -14,7 +14,7 @@ class CreateInvPostsTable extends Migration
     public function up()
     {
         Schema::create('inv_posts', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->integer('invoice_id')->unsigned()->nullable(); 
             $table->string('video')->nullable();
             $table->integer('postable_id')->nullable();

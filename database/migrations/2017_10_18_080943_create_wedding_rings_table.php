@@ -14,7 +14,7 @@ class CreateWeddingRingsTable extends Migration
     public function up()
     {
         Schema::create('wedding_rings', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->string('stock');
             $table->string('metal')->default('18kw');
             $table->string('style')->default('classic');

@@ -14,7 +14,7 @@ class CreateCustomerMomentsTable extends Migration
     public function up()
     {
         Schema::create('customer_moments', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->boolean('published')->default(false);
             $table->timestamps();
         });

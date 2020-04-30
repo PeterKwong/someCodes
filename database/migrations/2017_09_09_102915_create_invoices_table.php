@@ -14,11 +14,9 @@ class CreateInvoicesTable extends Migration
     public function up()
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->integer('customer_id')->unsigned();
             $table->integer('invoice_no')->nullable();
-            $table->integer('account_balance')->nullable();
-            $table->integer('account_total')->nullable();
             $table->string('title');
             $table->date('date');
             $table->date('due_date')->nullable();
@@ -31,6 +29,8 @@ class CreateInvoicesTable extends Migration
             $table->string('balance_method')->default('visa');
             $table->integer('total');
             $table->string('notes')->nullable();
+            $table->integer('account_balance')->nullable();
+            $table->integer('account_total')->nullable();
             $table->timestamps();
         });
     }

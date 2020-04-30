@@ -14,7 +14,7 @@ class CreateInvDiamondsTable extends Migration
     public function up()
     {
         Schema::create('inv_diamonds', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->integer('invoice_id')->unsigned()->nullable();
             $table->string('stock');
             $table->bigInteger('certificate');
@@ -27,9 +27,9 @@ class CreateInvDiamondsTable extends Migration
             $table->string('symmetry');
             $table->string('fluorescence');
             $table->integer('price');
-            $table->integer('account_price')->nullable();
             $table->string('lab')->default('gia');
             $table->date('due_date')->nullable();
+            $table->integer('account_price')->nullable();
             $table->timestamps();
         });
     }

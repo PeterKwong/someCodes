@@ -14,7 +14,7 @@ class CreateEngagementRingsTable extends Migration
     public function up()
     {
         Schema::create('engagement_rings', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->string('stock');
             $table->string('prong')->default('4-prong');
             $table->string('shoulder')->default('tapering');
