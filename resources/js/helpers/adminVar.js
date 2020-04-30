@@ -9,6 +9,7 @@ export default{
     },
     queryString: window.location.search,
 	theme:{dark:'', light:'light/'},
+	user:{role:''},
 	setCookie,
 	getCookie,	
 
