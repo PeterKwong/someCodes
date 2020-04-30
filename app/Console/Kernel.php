@@ -67,12 +67,12 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function () use(&$CronJob) {
             $CronJob->runCerts();
-        })->between('12:01', '12:02')->runInBackground();
+        })->between('14:01', '14:02')->runInBackground();
         // })->cron('10 */12 * * *')->between('00:01', '23:59')->runInBackground();
 
          $schedule->call(function () use(&$CronJob) {
             $CronJob->runImages();
-        })->between('17:01', '17:02')->runInBackground();
+        })->between('18:01', '18:02')->runInBackground();
         // })->cron('10 */12 * * *')->between('03:01', '23:59')->runInBackground();
 
 
