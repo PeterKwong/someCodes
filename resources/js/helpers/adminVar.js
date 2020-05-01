@@ -9,7 +9,7 @@ export default{
     },
     queryString: window.location.search,
 	theme:{dark:'', light:'light/'},
-	user:{role:''},
+	user:{role: document.head.querySelector('meta[name="user-role"]')?document.head.querySelector('meta[name="user-role"]').content:'' },
 	setCookie,
 	getCookie,	
 

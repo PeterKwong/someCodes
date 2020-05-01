@@ -29,7 +29,7 @@ class CreateInvDiamondsTable extends Migration
             $table->integer('price');
             $table->string('lab')->default('gia');
             $table->date('due_date')->nullable();
-            $table->integer('account_price')->nullable();
+            $table->integer('account_price')->nullable()->default(0);
             $table->timestamps();
         });
     }

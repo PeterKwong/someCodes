@@ -2,7 +2,6 @@
 import Vue from 'vue'
 import {get, post, put} from '../../../helpers/api'
 import Typehead from '../../../components/typehead.vue'
-import mutualVar from '../../../helpers/mutualVar'
 import Auth from '../../../store/auth'
 
 export default {
@@ -11,12 +10,15 @@ export default {
 	components:{Typehead},
 	data(){
 		return {
+			globeVar,
 			mutualVar,
 			userRole: Auth.state.user_role,
 			form: {
 				ind_diamonds:[],
 				jewelleries:[{id:''}],
-				sub_total: 0
+				subTotalExceptDiamonds:0,
+				sub_total: 0,
+				account_sub_total: 0,
 			},
 			selectedJew:[],
 			selectedEng:[],
@@ -51,7 +53,7 @@ export default {
 		'selectedDia': 'addSelectedDia' ,
 	},
 	computed: {
-		subTotal(){
+		subTotalExceptDiamonds(){
 			
 			var price = 0
 
@@ -71,6 +73,12 @@ export default {
 					},0)
 
 
+			return this.form.subTotalExceptDiamonds = price
+		},
+		subTotal(){
+			
+			var price = this.subTotalExceptDiamonds
+			console.log(price)
 			price +=  this.form.inv_diamonds.reduce((carry, item)=>{
 						return carry += parseInt(item.price)
 					},0)
@@ -80,10 +88,35 @@ export default {
 			return this.form.sub_total = price
 		},
 		total(){
-			return this.form.total = parseInt(this.form.sub_total) - parseInt(this.form.discount) + parseInt(this.form.extra)
+			return this.form.total = parseInt(this.subTotal) - parseInt(this.form.discount) + parseInt(this.form.extra)
 		},
 		balance(){
 			return this.form.balance = parseInt(this.total) - parseInt(this.form.deposit) 
+		},
+		accountSubTotal(){
+			
+			var price = this.subTotalExceptDiamonds
+			console.log(price)
+
+			price +=  this.form.inv_diamonds.reduce((carry, item)=>{
+						return carry += parseInt(item.account_price)
+					},0)
+
+
+
+			return this.form.account_sub_total = price
+		},
+		accountTotal(){
+			return this.form.account_total = parseInt(this.accountSubTotal) - parseInt(this.form.discount) + parseInt(this.form.extra)
+		},
+		accountBalance(){
+
+			this.form.account_balance = parseInt(this.accountTotal) - parseInt(this.form.deposit)
+
+			if ( this.form.account_balance <= 0) {
+				 this.form.account_balance = 0
+			}
+			return this.form.account_balance
 		},
 	
 	},		

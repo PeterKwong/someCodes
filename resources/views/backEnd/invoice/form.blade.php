@@ -24,7 +24,7 @@
 									<input class="form-control" type="text" v-model="form.title" placeholder="item name" required>
 									<small class="form-control" class="is-danger" v-if="errors.title">@{{errors.title[0]}}</small>
 							</div>
-							<div class="form-group">
+							<div class="form-group" v-if="globeVar.user.role == 'admin' ">
 								<label class="label">Invoice No</label>
 									<input class="form-control" type="text" v-model="form.invoice_no" placeholder="item name" required>
 									<small class="form-control" class="is-danger" v-if="errors.title">@{{errors.invoice_no[0]}}</small>
@@ -77,12 +77,15 @@
 									<p>@{{optDia.id}}</p>
 								</div>
 
-								<div class="col-2">
+								<div class="col">
 									<label>Price</label>
 									<input class="form-control" type="text" name="unit_price" v-model="form.inv_diamonds[index].price">
-	<!-- 								<p>@{{optDia.unit_price}}</p>
-	 -->							</div>
+								</div>
 
+								<div class="col" v-if="globeVar.user.role == 'admin' ">
+									<label>Account Price</label>
+									<input class="form-control" type="text" name="account_price" v-model="form.inv_diamonds[index].account_price">
+								</div>
 								<div class="col-1">
 									<label>weight</label>
 									<p>@{{optDia.weight}}</p>
@@ -109,7 +112,7 @@
 									<p>@{{optDia.clarity}}</p>
 								</div>
 
-								<div class="col-1" v-if="userRole == 'admin' ">
+								<div class="col-1" v-if="globeVar.user.role == 'admin' ">
 									<label>Random</label>
 									<p>@{{optDia.stock | regExp('-C[0-9]*' , optDia.price) }}</p>
 								</div>
@@ -314,6 +317,16 @@
 								<td><strong>Total</strong></td>
 								<td>@{{total}}</td>
 							</tr>
+							<tr v-if="globeVar.user.role == 'admin' ">
+								<td colspan="4"></td>
+								<td><strong>account Balance</strong></td>
+								<td>@{{accountBalance}}</td>
+							</tr>	
+							<tr v-if="globeVar.user.role == 'admin' ">
+								<td colspan="4"></td>
+								<td><strong>account Total</strong></td>
+								<td>@{{accountTotal}}</td>
+							</tr>							
 							<tr>
 								<td colspan="4"></td>
 								<td><strong>notes</strong></td>

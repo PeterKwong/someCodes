@@ -22,6 +22,7 @@ import Vue from 'vue'
 
 //admin Variables
 import AdminVar from './helpers/adminVar'
+import mutualVar from './helpers/mutualVar'
 
 //Auth
 import AdmLogin from './views/backEnd/Auth/adm_login.vue'
@@ -88,7 +89,7 @@ import OrderShow from './views/backEnd/order/show'
 import OrderToInvoice from './views/backEnd/order/orderToInvoice'
 
 
-
+window.mutualVar = mutualVar
 window.globeVar = AdminVar 
 
 const app = new Vue({
@@ -97,6 +98,7 @@ const app = new Vue({
         return  {
             auth: Auth.state,
             globeVar,
+            mutualVar,
         }
 
     },

@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="api-token" content="{{ Auth::guard('admin')->check()?Auth::guard('admin')->user()->api_token:'' }}">
-        
+        <meta name="user-role" content="{{ Auth::guard('admin')->check()
+                ?Auth::guard('admin')->user()->roles()->first()->name:'' }}">         
         <title>Ting Diamond</title>
 
         <!-- Fonts -->
@@ -85,16 +86,18 @@
 							<p class="text-dark" >&nbsp; Phone: @{{model.customer.phone}}</p>
 						</div>
 						<div class="col-3">
-							<p class="text-dark" v-if="model.invoice_no">Invoice Number: </p>			
+							<p class="text-dark" v-if="model.id">Invoice Number: </p>			
 							<p class="text-dark" > Invoice Date: </p>			
 							<p class="text-dark" v-if="model.due_date"> Payment Due: </p>
 							<p class="text-dark" > Amount Due (HKD): </p>
 						</div>
 						<div class="col-2">
-							<p class="text-dark" v-if="model.invoice_no">@{{model.invoice_no}}</p>			
+							<p class="text-dark" v-if="globeVar.user.role == 'admin' " @click="globeVar.user.role = '' ">@{{model.invoice_no}}</p>
+							<p class="text-dark" v-else>@{{model.id}}</p>			
 							<p class="text-dark" >@{{model.date}}</p>			
 							<p class="text-dark" >@{{model.due_date}}</p>
-							<p class="text-dark" >$@{{model.total}}</p>
+							<p class="text-dark" v-if="globeVar.user.role == 'admin' ">$@{{model.account_total}}</p>
+							<p class="text-dark" v-else>$@{{model.total}}</p>
 						</div>
 					</div>
 
@@ -158,12 +161,14 @@
 								<tr>
 									<td colspan="2"></td>
 									<td><p class="subtitle is-6">Balance:</p></td>
-									<td>$@{{model.balance}}</td>
+									<td  v-if="globeVar.user.role == 'admin' ">$@{{model.account_balance}}</td>
+									<td  v-else>$@{{model.balance}}</td>
 								</tr>
 								<tr>
 									<td colspan="2"></td>
 									<td>Total:</td>
-									<td>$@{{model.total}}</td>
+									<td  v-if="globeVar.user.role == 'admin' ">$@{{model.account_total}}</td>
+									<td v-else>$@{{model.total}}</td>
 								</tr>
 							</tfoot>
 						</table>

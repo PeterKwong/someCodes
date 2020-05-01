@@ -11,9 +11,9 @@
 
 				<tr @click="clickRow(props.item)">
 					<td>@{{props.item.id}}</td>
-					<td>@{{props.item.invoice_no}}</td>
-	<!-- 				<td>@{{props.item.inv_posts[0].id}}</td>
-	 -->				<td>@{{props.item.date}}</td>
+					<td v-if="globeVar.user.role == 'admin' ">@{{props.item.invoice_no}}</td>
+					<td v-if="globeVar.user.role == 'admin' ">@{{props.item.account_balance}}</td>
+					<td v-if="globeVar.user.role == 'admin' ">@{{props.item.account_total}}</td>					<td>@{{props.item.date}}</td>
 					<td>@{{props.item.customer.name}}</td>
 					<td>@{{props.item.title}}</td>
 					<td>@{{props.item.deposit}}</td>
@@ -25,7 +25,6 @@
 							:src=" props.item.inv_posts[0].images.length > 0 ? 
 							globeVar.storage[globeVar.storage.live] + 'public/images/'+ props.item.inv_posts[0].images[0].image:'' "></td>
 					<td>@{{props.item.created_at}}</td>
-					<td>@{{props.item.count}}</td>
 				</tr>
 			</template>
 		</data-viewer>

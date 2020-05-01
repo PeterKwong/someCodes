@@ -54,7 +54,7 @@ class InvoiceController extends Controller
     		->json([
     			'form' =>Invoice::form(),
     			'option' => [
-                    'inv_diamonds' => InvDiamond::where('invoice_id',NULL)->orderBy('certificate')->select('id','certificate as text','weight','color','clarity','stock','price')->get(),
+                    'inv_diamonds' => InvDiamond::where('invoice_id',NULL)->orderBy('certificate')->select('id','certificate as text','weight','color','clarity','stock','price', 'account_price')->get(),
                     'customers' => Customer::orderBy('name')->select('id','phone as text')->get(),
                     'jewelleries' => Jewellery::select('id','stock as text','unit_price')->with('texts','images')->get(),
                     'engagement_rings' => EngagementRing::select('id','stock as text','unit_price')->with('texts','images')->get(),
@@ -120,6 +120,7 @@ class InvoiceController extends Controller
             $inv_diamonds = InvDiamond::whereIn('id', $diams)->get();
             $inv_diamonds->filter(function($value,$key){
                     return $value->update( ['price' => request()->input('inv_diamonds.'.$key.'.price'),
+                                            'account_price' => request()->input('inv_diamonds.'.$key.'.account_price'),
                                             'stock' => request()->input('inv_diamonds.'.$key.'.stock'),
                                             ]);
             });
@@ -204,7 +205,7 @@ class InvoiceController extends Controller
     			'form' => $invoice,
     			'option' => [
                     'customers' => Customer::orderBy('name')->select('id','phone as text')->get(),
-                    'inv_diamonds' => InvDiamond::orderBy('certificate')->select('id','certificate as text','weight','color','clarity','stock','price')->get(),
+                    'inv_diamonds' => InvDiamond::orderBy('certificate')->select('id','certificate as text','weight','color','clarity','stock','price', 'account_price')->get(),
                     'jewelleries' => Jewellery::select('id','stock as text','unit_price')->with('texts','images')->get(),
                     'engagement_rings' => EngagementRing::select('id','stock as text','unit_price')->with('texts','images')->get(),
                     'wedding_rings' => WeddingRing::select('id','stock as text','unit_price')->with('texts','images')->get()
@@ -218,7 +219,7 @@ class InvoiceController extends Controller
                 'customer_id' => 'required |exists:customers,id',
                 'title' => 'required',
                 'balance' => 'required | integer',
-                'count' => 'required | boolean',
+                // 'count' => 'required | boolean',
                 'date' => 'required | date_format:Y-m-d',
                 // 'due_date' => 'required | date_format:Y-m-d',
                 'discount' => 'required | numeric | min:0',
@@ -262,6 +263,7 @@ class InvoiceController extends Controller
 
                 $diamond = InvDiamond::whereId($diamond['id'])->update(
                                 ['price' => $diamond['price'],
+                                'account_price' => $diamond['account_price'],
                                 'stock' => $diamond['stock'],
                                 ]);
             };

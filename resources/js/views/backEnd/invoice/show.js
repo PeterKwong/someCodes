@@ -9,10 +9,12 @@ export default {
 	
 	data(){
 		return {
+			globeVar,
 			model: {
 				customer: {},
 				items: []
 			},
+			isAccount:false,
 			company: [],
 			images: Images,
 			resource: 'invoices',

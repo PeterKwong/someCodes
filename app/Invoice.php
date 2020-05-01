@@ -14,7 +14,8 @@ class Invoice extends Model
 
 	protected $fillable = [
         'customer_id','order_id', 'title', 'notes','date', 'due_date', 'discount','extra',
-        'sub_total', 'total', 'deposit','balance','notes', 'invoice_no','deposit_method','balance_method'
+        'sub_total', 'total', 'deposit','balance','notes', 'invoice_no','deposit_method','balance_method',
+        'account_balance','account_total'
     ];
 
     protected $filter = [
@@ -63,14 +64,16 @@ class Invoice extends Model
     	'discount' => 0,
         'extra' => 0,
         'invoice_no' => 0,
-    	'sub_total' => 0,
+        'sub_total' => 0,
+        'account_sub_total' => 0,
         'deposit' => 0,
         'deposit_method' => 'cash',
-        // 'count' => 1,
         'balance' => 0,
         'balance_method' => 'cash',
         'notes'=> 'Ring Size:#',
     	'total'=> 0,
+        'account_balance' => 0,
+        'account_total' => 0,
         'inv_diamonds' =>[],
         // 'inv_diamonds' =>[ InvDiamond::form()],
         'engagement_rings' => [],

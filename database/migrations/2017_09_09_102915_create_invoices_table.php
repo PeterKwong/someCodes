@@ -29,8 +29,8 @@ class CreateInvoicesTable extends Migration
             $table->string('balance_method')->default('visa');
             $table->integer('total');
             $table->string('notes')->nullable();
-            $table->integer('account_balance')->nullable();
-            $table->integer('account_total')->nullable();
+            $table->integer('account_balance')->nullable()->default(0);
+            $table->integer('account_total')->nullable()->default(0);
             $table->timestamps();
         });
     }

@@ -73,7 +73,7 @@
 											<p ><small><small>&nbsp; Phone: @{{model.customer.phone}}</small></small></p>
                                         </div>
                                         <div class="float-right mt-3">
-                                            <p class="m-t-10"><strong>Invoice ID : </strong> # @{{model.invoice_no}}</p>
+                                            <p class="m-t-10"><strong>Invoice ID : </strong> # @{{model.id}}</p>
                                             <p><strong>Invoice Date: </strong> @{{model.date}}</p>
                                             <p class="m-t-10"><strong>Invoice Due : </strong> <span class="label label-pink">@{{model.due_date}}</span></p>
                                             <p><strong>Amount Due (HKD) : </strong>$@{{model.total}}</p>
