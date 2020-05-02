@@ -29,13 +29,13 @@ class DiamondController extends Controller
   public function bladeShow($locale, $id)
   {
     
-    $diamond  = DiamondQuery::findOrFail($id);
+    $diamond  = Diamond::findOrFail($id);
     return view('diamond.show', compact('diamond'));
 
   }
   public function showLoadingImage($id){
     
-  $diamond  = DiamondQuery::findOrFail($id);
+  $diamond  = Diamond::findOrFail($id);
 
   return $diamond->loadCachedImage();
 
@@ -43,12 +43,12 @@ class DiamondController extends Controller
 
   public function showLoadingCert($id){
 
-  $diamond  = DiamondQuery::findOrFail($id);
+  $diamond  = Diamond::findOrFail($id);
 
   return $diamond->loadCachedCert();
 
   }
-
+  
   public function index(){
 
       $m = DiamondQuery::SearchPaginateAndOrder();
