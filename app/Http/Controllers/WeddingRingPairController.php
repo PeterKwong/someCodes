@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use File;
-use App\Text;
 use App\Image;
+use App\Support\ResizeImage;
+use App\Text;
 use App\WeddingRing;
 use App\WeddingRingPair;
-use App\Support\ResizeImage;
+use File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 
 class WeddingRingPairController extends Controller
@@ -170,10 +171,11 @@ class WeddingRingPairController extends Controller
         
         // dd(print_r($request->all()));
         $requestAll = $request->all();
-        // dd(print_r($requestAll[0]));
+        // dd($requestAll);
         $weddingRings = [];
+
         foreach ($requestAll as $req) {
-            $weddingRings [] = WeddingRing::create(array_except($req, ['video','texts','images']));
+            $weddingRings [] = WeddingRing::create(Arr::except($req, ['video','texts','images']));
         }
   
         $weddingRingPair = WeddingRingPair::create();
@@ -394,8 +396,8 @@ class WeddingRingPairController extends Controller
                 $weddingRingPair->weddingRings[$key]->video = $vid;
             }
             
-                // dd(array_except($req,['texts','images','video']));
-            $weddingRingPair->weddingRings[$key]->update(array_except($req,['texts','images','video']));
+                // dd(Arr::except($req,['texts','images','video']));
+            $weddingRingPair->weddingRings[$key]->update(Arr::except($req,['texts','images','video']));
             $weddingRingPair->weddingRings[$key]->images()->saveMany($images);
 
 
