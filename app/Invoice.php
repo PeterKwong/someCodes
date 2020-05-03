@@ -21,7 +21,8 @@ class Invoice extends Model
     protected $filter = [
         'id', 'customer_id','order_id', 'title', 'notes', 'date', 'due_date', 'discount','extra',
         'sub_total','deposit','balance', 'total', 'created_at', 'invoice_no','deposit_method','balance_method',
-        'customer.name', 'customer.phone' , 'invDiamonds.certificate'
+        'customer.name', 'customer.phone' , 
+        'invDiamonds.certificate', 'engagementRings.stock', 'weddingRings.stock', 'jewelleries.stock'
     ];
 
 	public function customer()

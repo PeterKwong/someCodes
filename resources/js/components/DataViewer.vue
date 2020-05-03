@@ -164,10 +164,12 @@
 					column: this.column,
 					direction: 'desc',
 					per_page: this.per_page,
-					page: globeVar.queryString.replace('?p=','')?parseInt(globeVar.queryString.replace('?p=','')):1,
+					page: this.queryString('p=[0-9]*','p=')
+							?parseInt(this.queryString('p=[0-9]*','p=')):1,
 					search_column: this.filter[0],
 					search_operator: 'like',
-					search_query_1: '',
+					search_query_1: this.queryString('sq1=[0-9]*','sq1=')
+							?parseInt(this.queryString('sq1=[0-9]*','sq1=')):'',
 					search_query_2: '',
 				},
 				operators: {
@@ -187,15 +189,27 @@
 		beforeMount(){
 			this.fetchData()
 		},
+		computed:{
+			sq(){
+				var s = this.queryString('p=[0-9]*','p=')
+				return s
+			},
+		},
 		methods: {
 			moveTo(page){
 					if (this.params.page + page >0 ) {
 					this.params.page += page
-					window.open( this.url + '?p=' + this.params.page,'_self' )
-					console.log(page)
+					window.open( this.url + '?p=' + this.params.page + '&sq1=' + this.params.search_query_1,'_self' )
 					this.params.page = this.params.page + page
 					this.fetchData()
 				}				
+			},
+			queryString(pattern,replace){
+				if (globeVar.queryString) {
+					var q = new RegExp(pattern, 'i')
+					q = q.exec(globeVar.queryString).toString()
+					return q.replace(replace,'')
+				}
 			},
 			sort(column){
 				if (column === this.params.column) {
