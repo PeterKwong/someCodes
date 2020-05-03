@@ -18,7 +18,7 @@ export default {
 			{ title: 'Created At', key: 'created_at', sort: true}
 			],
 			filter: [
-			'id','texts' , 'invoice_id' , 'published',
+			'texts.content' ,'id', 'invoice_id' , 'published',
 			]
 		}
 	},

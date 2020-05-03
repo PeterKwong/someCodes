@@ -18,7 +18,7 @@ class InvPost extends Model
     ];
 
     protected $filter =[
-        'id','texts','images','video','published',
+        'id','texts.content','images','video','published','invoice_id'
     ];
    
     public function invoice(){
