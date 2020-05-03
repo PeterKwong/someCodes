@@ -25,9 +25,9 @@ export default {
 			{ title: 'Stock', key: 'stock', sort: true},
 			{ title: 'Shape', key: 'shape', sort: true},
 			{ title: 'Lab', key: 'lab', sort: true},
-			{ title: 'Created At', key: 'created_at', sort: true},
-			{ title: 'Extra', key: 'stock', sort: true},
 			{ title: 'Due Status', key: 'due_date', sort: true},
+			{ title: 'Extra', key: 'stock', sort: true},
+			{ title: 'Created At', key: 'created_at', sort: true},
 			],
 			filter: [
 			'id', 'price', 'weight', 'color', 'clarity', 'fluorescence', 'certificate', 'stock', 'cut', 'polish', 'symmetry', 'shape', 'lab'
@@ -41,8 +41,6 @@ export default {
 		regExp(source, str, price){
 			var pattern = new RegExp(str,'i')
 			var result = pattern.exec(source)
-
-				console.log(result)
 
 			if(result != null){
 				var oriPrice = result.toString().slice(2).split("").reverse().join("") * 7.85 *10
@@ -58,7 +56,7 @@ export default {
 			},
 		setDue(row){
 			window.open('/api/invDiamonds-update-due-date/'+ row.id )
-			window.open('/adm/inv-diamonds', '_self')
+			window.open('/adm/inv-diamonds?p=' +globeVar.queryString.page, '_self')
 			},
 		}
 }
