@@ -9,9 +9,9 @@ export default{
 
     },
     queryString: { search: window.location.search,
-                    page: queryString('p=[0-9]*','p='),
-                    pePage: queryString('pp=[0-9]*','pp='),
-                    searchQuery: queryString('sq1=[0-9]*','sq1='),
+                    page: parseInt(queryString('p=[0-9]*','p=')),
+                    pePage: parseInt(queryString('pp=[0-9]*','pp=')),
+                    searchQuery: parseInt(queryString('sq1=[0-9]*','sq1=')),
                 },
 	theme:{dark:'', light:'light/'},
 	user:{role: document.head.querySelector('meta[name="user-role"]')?document.head.querySelector('meta[name="user-role"]').content:'' },

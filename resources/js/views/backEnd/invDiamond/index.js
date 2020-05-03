@@ -56,7 +56,7 @@ export default {
 			},
 		setDue(row){
 			window.open('/api/invDiamonds-update-due-date/'+ row.id )
-			window.open('/adm/inv-diamonds?p=' +globeVar.queryString.page, '_self')
+			window.open('/adm/inv-diamonds?p=' + globeVar.queryString.page, '_self')
 			},
 		}
 }
