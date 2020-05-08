@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Support\FilterPaginateOrder;
 
 
-class InvDiamond extends Model
+class InvoiceDiamond extends Model
 {
     
     use FilterPaginateOrder;

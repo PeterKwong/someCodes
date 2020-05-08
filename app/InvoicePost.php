@@ -7,7 +7,7 @@ use App\Support\StoreUpdateDestroy;
 use App\Support\FilterPaginateOrder;
 use Illuminate\Database\Eloquent\Model;
 
-class InvPost extends Model
+class InvoicePost extends Model
 {
     use FilterPaginateOrder, StoreUpdateDestroy;
     

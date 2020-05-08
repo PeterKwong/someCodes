@@ -2,14 +2,14 @@
 import DataViewer from '../../../components/DataViewer.vue'
 
 export default {
-	el:'#invDiamondIndex',
-	name: 'InvDiamondsIndex',
+	el:'#invoiceDiamondIndex',
+	name: 'InvoiceDiamondsIndex',
 	data(){
 		return {
 			title: 'Invoice Diamonds',
-			source: '/api/invDiamonds',
+			source: '/api/invoiceDiamonds',
 			url:'/adm/inv-diamonds',
-			create:'/adm/invDiamonds/create',
+			create:'/adm/invoiceDiamonds/create',
 			thead: [
 			{ title: 'ID', key: 'id', sort: true},
 			{ title: 'Price', key: 'price', sort: true},
@@ -55,7 +55,7 @@ export default {
 			window.open('/adm/inv-diamonds/'+ row.id )
 			},
 		setDue(row){
-			window.open('/api/invDiamonds-update-due-date/'+ row.id )
+			window.open('/api/invoiceDiamonds-update-due-date/'+ row.id )
 			window.open('/adm/inv-diamonds?p=' + globeVar.queryString.page, '_self')
 			},
 		}

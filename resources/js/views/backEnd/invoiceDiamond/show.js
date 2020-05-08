@@ -3,12 +3,12 @@ import Vue from 'vue'
 import {get, del} from '../../../helpers/api'
 
 export default {
-	el:'#invDiamondShow',
+	el:'#invoiceDiamondShow',
 	name: 'CategoryShow',
 	data(){
 		return {
 			model: [],
-			resource: 'invDiamonds',
+			resource: 'invoiceDiamonds',
 			redirect: '/adm'
 		}
 	},

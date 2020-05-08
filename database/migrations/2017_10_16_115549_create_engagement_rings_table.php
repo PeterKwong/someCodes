@@ -19,9 +19,12 @@ class CreateEngagementRingsTable extends Migration
             $table->string('prong')->default('4-prong');
             $table->string('shoulder')->default('tapering');
             $table->string('style')->default('solitaire');
-            $table->float('ct')->default(0);
             $table->string('video')->nullable();
             $table->integer('unit_price');
+            $table->string('metal')->default('18KW');
+            $table->integer('metal_weight')->nullable();
+            $table->float('ct')->default(0);
+            $table->integer('cost')->nullable();
             $table->boolean('published')->default(false);
             $table->boolean('customized')->default(false);
             $table->integer('page_id')->unsigned()->nullable();

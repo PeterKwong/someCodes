@@ -70,9 +70,9 @@
 				var obj = []
 				if (this.customerItems.wedding_rings[0].invoices.length > 0) {
 					for (var i =0 ;this.customerItems.wedding_rings[0].invoices.length > i; i++) {
-						if (this.customerItems.wedding_rings[0].invoices[i].inv_posts.length >0) {
-							if(this.customerItems.wedding_rings[0].invoices[i].inv_posts[0].postable_type == 'App/WeddingRing' && this.customerItems.wedding_rings[0].invoices[i].inv_posts[0].published != 0 ){					
-							obj.push(this.customerItems.wedding_rings[0].invoices[i].inv_posts[0])
+						if (this.customerItems.wedding_rings[0].invoices[i].invoice_posts.length >0) {
+							if(this.customerItems.wedding_rings[0].invoices[i].invoice_posts[0].postable_type == 'App/WeddingRing' && this.customerItems.wedding_rings[0].invoices[i].invoice_posts[0].published != 0 ){					
+							obj.push(this.customerItems.wedding_rings[0].invoices[i].invoice_posts[0])
 							console.log(obj)
 							}
 						}

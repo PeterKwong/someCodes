@@ -46,7 +46,7 @@ class EngagementRing extends Model
 
 	    public function posts()
 	    {
-	        return $this->morphMany('App\InvPost', 'postable');
+	        return $this->morphMany('App\InvoicePost', 'postable');
 	    }
 
 	    public static function form()

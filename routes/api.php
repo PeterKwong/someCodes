@@ -52,7 +52,7 @@ Route::get('buyingProcedure', 'BuyingProcedureController@index');
 // Route::resource('weddingRings', 'WeddingRingController');
 
 // customer Jewellery
-Route::resource('invPosts', 'InvPostController');
+Route::resource('invoicePosts', 'InvoicePostController');
 
 //customer-moments
 Route::resource('customerMoments', 'CustomerMomentController');
@@ -138,7 +138,7 @@ Route::group(['middleware' => 'auth:api'], function(){
 
 });
 
-Route::get('invDiamonds-update-due-date/{id}', 'InvDiamondController@setDiamondDueToday');
+Route::get('invoiceDiamonds-update-due-date/{id}', 'InvoiceDiamondController@setDiamondDueToday');
 Route::get('invoices-update-due-date/{id}', 'InvoiceController@setInvoiceDueToday');
 
 //Auth API token
@@ -152,8 +152,8 @@ Route::group(['middleware' => 'auth:admin-api'], function(){
 	Route::resource('invoices', 'InvoiceController');
 
 	//Invoice Diamond
-	Route::resource('invDiamonds', 'InvDiamondController');
-	Route::get('invDiamonds/create-from-diamond/{id}', 'InvDiamondController@createFormDiamond');
+	Route::resource('invoiceDiamonds', 'InvoiceDiamondController');
+	Route::get('invoiceDiamonds/create-from-diamond/{id}', 'InvoiceDiamondController@createFormDiamond');
 
 	//Order
 	Route::get('orders', 'OrderController@adminAllOrders');
@@ -163,7 +163,7 @@ Route::group(['middleware' => 'auth:admin-api'], function(){
     Route::get('order/charge-by-customer-stripe/{id}', 'PurchasesController@chargeByCustomerStripe');
 
 	// customer Jewellery
-	Route::get('invPostsInd', 'InvPostController@admIndex');
+	Route::get('invoicePostsInd', 'InvoicePostController@admIndex');
 
 	Route::prefix('purchase/')->group(function(){
 
@@ -176,8 +176,8 @@ Route::group(['middleware' => 'auth:admin-api'], function(){
 		Route::get('progress-settled-diamond-invoices', 'InvoiceController@onProgressSettledDiamond');
 		Route::get('progress-settled-diamond-invoices-paginate', 'InvoiceController@onProgressSettledDiamondPaginate');
 		
-		Route::get('on-stock-diamonds', 'InvDiamondController@onStockDiamond');
-		Route::get('on-stock-diamonds-paginate', 'InvDiamondController@onStockDiamondPaginate');
+		Route::get('on-stock-diamonds', 'InvoiceDiamondController@onStockDiamond');
+		Route::get('on-stock-diamonds-paginate', 'InvoiceDiamondController@onStockDiamondPaginate');
 
 	});
 
@@ -185,7 +185,7 @@ Route::group(['middleware' => 'auth:admin-api'], function(){
 	Route::prefix('accounting/')->group(function(){
 
 		Route::get('invoice-export', 'InvoiceController@invoiceExport');
-		Route::get('stock-export', 'InvDiamondController@stockExport');
+		Route::get('stock-export', 'InvoiceDiamondController@stockExport');
 
 
 	});

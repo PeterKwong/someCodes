@@ -16,12 +16,14 @@ class CreateWeddingRingsTable extends Migration
         Schema::create('wedding_rings', function (Blueprint $table) {
             $table->id('id');
             $table->string('stock');
-            $table->string('metal')->default('18kw');
             $table->string('style')->default('classic');
             $table->boolean('sideStone')->default(false);
-            $table->float('ct')->default(0);
             $table->string('video')->nullable();
             $table->integer('unit_price');
+            $table->string('metal')->default('18kw');
+            $table->integer('metal_weight')->nullable();
+            $table->float('ct')->default(0);
+            $table->integer('cost')->nullable();
             $table->boolean('published')->default(false);
             $table->boolean('customized')->default(false);
             $table->string('gender')->default('m');

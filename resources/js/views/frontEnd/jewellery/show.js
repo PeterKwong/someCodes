@@ -75,7 +75,7 @@
 				get(`/api/jewellery/${window.location.pathname.slice(14)}`)
 				.then((res)=>{
 					this.jewellery = res.data.model
-					this.filterNotPostable(res.data.posts.invPosts)
+					this.filterNotPostable(res.data.posts.invoicePosts)
 				})
 			},
 			filterNotPostable(data){

@@ -82,7 +82,7 @@
 				return transJs(data,ori,langs)
 			},
 			fetchData(){
-				get(`/api/invPosts/${window.location.pathname.slice(23)}`,window.location.pathname.slice(1,3))
+				get(`/api/invoicePosts/${window.location.pathname.slice(23)}`,window.location.pathname.slice(1,3))
 				.then((res)=>{
 					this.post = res.data.model
 					this.invoice = res.data.invoice
@@ -116,7 +116,7 @@
 			},
 			remove(){
 				this.isRemoving = false
-					del(`/api/invPosts/${window.location.pathname.slice(24)}`)
+					del(`/api/invoicePosts/${window.location.pathname.slice(24)}`)
 					.then((res)=>{
 						if (res.data.deleted) {
 							Flash.setSuccess('You have successfully deleted recipe!')

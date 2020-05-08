@@ -46,7 +46,7 @@ class Jewellery extends Model
 
     public function posts()
     {
-        return $this->morphMany('App\InvPost', 'postable');
+        return $this->morphMany('App\InvoicePost', 'postable');
     }
 
 

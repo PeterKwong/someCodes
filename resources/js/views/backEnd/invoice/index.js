@@ -14,7 +14,7 @@ export default {
 			create:'/adm/invoices/create',
 			userRole: Auth.state.user_role,
 			filter: [
-			      	'invDiamonds.certificate', 'customer.phone', 
+			      	'invoiceDiamonds.certificate', 'customer.phone', 
 			      	'engagementRings.stock','weddingRings.stock','jewelleries.stock',
 			      	'id','customer.name', 
         			'customer_id', 'title', 'date', 'due_date', 'discount',

@@ -3,7 +3,7 @@
 
   @section('content')
 
-    <div id="invDiamondIndex">
+    <div id="invoiceDiamondIndex">
 
     	<data-viewer :source = "source" :thead="thead" :filter="filter" :create="create" :title="title" :url="url">
 			<template slot-scope="props">

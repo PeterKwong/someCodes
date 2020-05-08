@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\InvDiamond;
+use App\InvoiceDiamond;
 use App\Diamond;
 
 
-class InvDiamondController extends Controller
+class InvoiceDiamondController extends Controller
 {
      public function index()
     {
     	return response()
     		->json([
-    			'model' =>InvDiamond::filterPaginateOrder()
+    			'model' =>InvoiceDiamond::filterPaginateOrder()
     			]);
     }
 
@@ -21,7 +21,7 @@ class InvDiamondController extends Controller
     {
     	return response()
     		->json([
-    			'form' =>InvDiamond::form(),
+    			'form' =>InvoiceDiamond::form(),
     			'option' =>[]
     		]);	
     }
@@ -44,8 +44,8 @@ class InvDiamondController extends Controller
 
         $saved = false;
 
-        if ( InvDiamond::where('certificate', $request->certificate)->count() == 0 )  {
-            $invDiamond = InvDiamond::create($request->all());
+        if ( InvoiceDiamond::where('certificate', $request->certificate)->count() == 0 )  {
+            $invoiceDiamond = InvoiceDiamond::create($request->all());
             $saved = true;         
         }
 
@@ -57,31 +57,31 @@ class InvDiamondController extends Controller
 
     public function show($id)
     {
-    	$invDiamond = InvDiamond::findOrFail($id);
+    	$invoiceDiamond = InvoiceDiamond::findOrFail($id);
 
     	return response()
     		->json([
-    			'model' => $invDiamond
+    			'model' => $invoiceDiamond
     			]);
     }
 
     public function edit($id)
     {
-    	$invDiamond = InvDiamond::findOrFail($id);
+    	$invoiceDiamond = InvoiceDiamond::findOrFail($id);
 
     	return response()
     		->json([
-    			'form' =>$invDiamond,
+    			'form' =>$invoiceDiamond,
     			'option' => []
     			]);
     }
 
     public function createFormDiamond($id) {
-        $invDiamond = Diamond::findOrFail($id);
+        $invoiceDiamond = Diamond::findOrFail($id);
 
         return response()
             ->json([
-                'form' =>$invDiamond,
+                'form' =>$invoiceDiamond,
                 'option' => []
                 ]);
     }
@@ -105,10 +105,10 @@ class InvDiamondController extends Controller
 
         $saved = 'same diamond';
         
-        $invDiamond = InvDiamond::findOrFail($id);
+        $invoiceDiamond = InvoiceDiamond::findOrFail($id);
 
-        if ( $invDiamond )  {
-            $invDiamond->update($request->all());
+        if ( $invoiceDiamond )  {
+            $invoiceDiamond->update($request->all());
             $saved = true;         
         }
 
@@ -119,24 +119,24 @@ class InvDiamondController extends Controller
     }
     public function admBladeIndex(){
 
-        return view('backEnd.invDiamond.index');
+        return view('backEnd.invoiceDiamond.index');
 
     }
 
     public function admBladeShow(){
 
-        return view('backEnd.invDiamond.show');
+        return view('backEnd.invoiceDiamond.show');
 
     }
 
     public function admBladeForm(){
 
-        return view('backEnd.invDiamond.form');
+        return view('backEnd.invoiceDiamond.form');
 
     }
 
     public function setDiamondDueToday($id){
-        $invoice = InvDiamond::findOrFail($id);
+        $invoice = InvoiceDiamond::findOrFail($id);
         $invoice->update(['due_date' => now()]);
         // dd($invoice);
          echo "<script>window.close();</script>";
@@ -148,14 +148,14 @@ class InvDiamondController extends Controller
 
         foreach (range(1, 12) as $value) {
             $data = ['amount'=> 0, 'quantity' => 0];
-            $invDiamond = InvDiamond::where('invoice_id',null)->whereMonth('created_at',$value)
+            $invoiceDiamond = InvoiceDiamond::where('invoice_id',null)->whereMonth('created_at',$value)
                         ->select('price as amount')->get();
             // $invoice->map(function($dat){ 
             //                 return $dat->balance ;
             //                 });
             // dd($invoice);
 
-            $month[] = $invDiamond;
+            $month[] = $invoiceDiamond;
 
         }
 
@@ -171,12 +171,12 @@ class InvDiamondController extends Controller
 
         request()->column = 'weight';
 
-        $invDiamond = InvDiamond::where('invoice_id',null)
+        $invoiceDiamond = InvoiceDiamond::where('invoice_id',null)
                     ->filterPaginateOrder();
 
 
         return response()->json([
-            'model' => $invDiamond,
+            'model' => $invoiceDiamond,
         ]);
 
 
@@ -190,7 +190,7 @@ class InvDiamondController extends Controller
         // dd(request()->all());
         $request = request()->all();
 
-        $stock = InvDiamond::where('invoice_id',null)
+        $stock = InvoiceDiamond::where('invoice_id',null)
                     ->get();
 
 
@@ -201,8 +201,8 @@ class InvDiamondController extends Controller
 
     public function destroy($id)
     {
-    	$invDiamond = InvDiamond::findOrFail($id);
-    	$invDiamond->delete();
+    	$invoiceDiamond = InvoiceDiamond::findOrFail($id);
+    	$invoiceDiamond->delete();
 
     	return response()
     		->json([

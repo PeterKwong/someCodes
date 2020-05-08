@@ -9,7 +9,7 @@ export default {
 	data(){
 		return {
 			model: [],
-			resource: 'invPosts',
+			resource: 'invoicePosts',
 			redirect: '/adm',
 			mutualVar,
 		}

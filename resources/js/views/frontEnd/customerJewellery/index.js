@@ -119,7 +119,7 @@ export default {
 				window.open('customer-jewellery/'+row.id)
 			},
 		fetchData(){
-			get(`/api/invPosts?per_page=${this.query.per_page}`)
+			get(`/api/invoicePosts?per_page=${this.query.per_page}`)
 			.then((res)=>{
 				this.posts = res.data.model
 				this.chunkItems()

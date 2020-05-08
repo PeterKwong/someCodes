@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInvDiamondsTable extends Migration
+class CreateInvoiceDiamondsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateInvDiamondsTable extends Migration
      */
     public function up()
     {
-        Schema::create('inv_diamonds', function (Blueprint $table) {
+        Schema::create('invoice_diamonds', function (Blueprint $table) {
             $table->id('id');
             $table->integer('invoice_id')->unsigned()->nullable();
             $table->string('stock');
@@ -41,6 +41,6 @@ class CreateInvDiamondsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inv_diamonds');
+        Schema::dropIfExists('invoice_diamonds');
     }
 }

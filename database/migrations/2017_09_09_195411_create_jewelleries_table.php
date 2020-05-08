@@ -18,10 +18,12 @@ class CreateJewelleriesTable extends Migration
             $table->string('stock');
             $table->string('gemstone')->default(0);
             $table->string('type');
-            $table->string('metal');
             $table->boolean('setting')->default(0);
             $table->string('sideStone')->default(0);
             $table->float('ct')->default(0);
+            $table->string('metal')->default('18KW');
+            $table->integer('metal_weight')->nullable();
+            $table->integer('cost')->nullable();
             $table->string('video')->nullable();
             $table->integer('unit_price');
             $table->boolean('customized')->default(0);

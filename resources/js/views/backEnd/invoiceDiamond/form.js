@@ -4,7 +4,7 @@ import {get, post, put} from '../../../helpers/api'
 import mutualVar from '../../../helpers/mutualVar'
 
 export default {
-	el:'#invDiamondForm',
+	el:'#invoiceDiamondForm',
 	name: 'Invoice Diamonds',
 	data(){
 		return {
@@ -12,9 +12,9 @@ export default {
 			errors: {},
 			option: {},
 			title: 'Create',
-			initialize: '/api/invDiamonds/create',
+			initialize: '/api/invoiceDiamonds/create',
 			redirect: '/adm',
-			store: '/api/invDiamonds',
+			store: '/api/invoiceDiamonds',
 			method: 'post',
 			date:'',
 			isLoading: false,
@@ -23,14 +23,14 @@ export default {
 	beforeMount(){
 		if ( window.location.pathname.includes('edit') ) {
 			this.title = 'Edit'
-			this.initialize = '/api/invDiamonds/' + this.getIdReg(18) + '/edit'
-			this.store = '/api/invDiamonds/' + this.getIdReg(18)
+			this.initialize = '/api/invoiceDiamonds/' + this.getIdReg(18) + '/edit'
+			this.store = '/api/invoiceDiamonds/' + this.getIdReg(18)
 			this.method = 'put'
 		}
 		if ( window.location.pathname.includes('create-from-diamond/') ) {
 			this.title = 'Create'
-			this.initialize = '/api/invDiamonds/create-from-diamond/' + this.getIdReg(38)
-			this.store = '/api/invDiamonds'
+			this.initialize = '/api/invoiceDiamonds/create-from-diamond/' + this.getIdReg(38)
+			this.store = '/api/invoiceDiamonds'
 			this.method = 'post'
 		}
 		this.fetchData()

@@ -230,13 +230,13 @@
                                 </ul>
                             </li>
                             <li class="has-submenu">
-                                <a href="/adm/inv-diamonds">Invoice diamonds <div class="arrow-down"></div></a>
+                                <a href="/adm/invoice-diamonds">Invoice diamonds <div class="arrow-down"></div></a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="/adm/inv-diamonds">Show</a>
+                                        <a href="/adm/invoice-diamonds">Show</a>
                                     </li>
                                     <li>
-                                        <a href="/adm/inv-diamonds/create">Create</a>
+                                        <a href="/adm/invoice-diamonds/create">Create</a>
                                     </li>
                                 </ul>
                             </li>

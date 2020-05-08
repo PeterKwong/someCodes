@@ -21,9 +21,9 @@
 					<td>@{{props.item.total}}</td>
 					<td @click="setDue(props.item)" v-if="!props.item.due_date"><a class="btn btn-primary text-white">Due Now</a></td>
 					<td v-else>@{{props.item.due_date}}</td>
-					<td><img v-if="props.item.inv_posts.length > 0" width="256" 
-							:src=" props.item.inv_posts[0].images.length > 0 ? 
-							globeVar.storage[globeVar.storage.live] + 'public/images/'+ props.item.inv_posts[0].images[0].image:'' "></td>
+					<td><img v-if="props.item.invoice_posts.length > 0" width="256" 
+							:src=" props.item.invoice_posts[0].images.length > 0 ? 
+							globeVar.storage[globeVar.storage.live] + 'public/images/'+ props.item.invoice_posts[0].images[0].image:'' "></td>
 					<td>@{{props.item.created_at}}</td>
 				</tr>
 			</template>

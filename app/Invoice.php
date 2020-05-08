@@ -22,7 +22,7 @@ class Invoice extends Model
         'id', 'customer_id','order_id', 'title', 'notes', 'date', 'due_date', 'discount','extra',
         'sub_total','deposit','balance', 'total', 'created_at', 'invoice_no','deposit_method','balance_method',
         'customer.name', 'customer.phone' , 
-        'invDiamonds.certificate', 'engagementRings.stock', 'weddingRings.stock', 'jewelleries.stock'
+        'invoiceDiamonds.certificate', 'engagementRings.stock', 'weddingRings.stock', 'jewelleries.stock'
     ];
 
 	public function customer()
@@ -35,8 +35,8 @@ class Invoice extends Model
         return $this->hasOne(Order::class);
     }
 
-    public function invDiamonds(){
-    	return $this->hasMany(InvDiamond::class);
+    public function invoiceDiamonds(){
+    	return $this->hasMany(InvoiceDiamond::class);
     }
 
     public function jewelleries(){
@@ -51,9 +51,9 @@ class Invoice extends Model
         return $this->belongsToMany(WeddingRing::class);
     }
 
-    public function invPosts()
+    public function invoicePosts()
     {
-        return $this->hasMany(InvPost::class);
+        return $this->hasMany(InvoicePost::class);
     }
 
     public static function form()
@@ -75,8 +75,8 @@ class Invoice extends Model
     	'total'=> 0,
         'account_balance' => 0,
         'account_total' => 0,
-        'inv_diamonds' =>[],
-        // 'inv_diamonds' =>[ InvDiamond::form()],
+        'invoice_diamonds' =>[],
+        // 'inv_diamonds' =>[ InvoiceDiamond::form()],
         'engagement_rings' => [],
         'wedding_rings' => [],
         'jewelleries' => []

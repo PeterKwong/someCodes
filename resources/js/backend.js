@@ -40,9 +40,9 @@ import InvoiceForm from './views/backEnd/invoice/form'
 import InvoiceTotalSale from './views/backEnd/invoice/totalSale'
 
 //invoice diamonds
-import InvDiamondIndex from './views/backEnd/invDiamond/index'
-import InvDiamondShow from './views/backEnd/invDiamond/show'
-import InvDiamondForm from './views/backEnd/invDiamond/form'
+import InvoiceDiamondIndex from './views/backEnd/invoiceDiamond/index'
+import InvoiceDiamondShow from './views/backEnd/invoiceDiamond/show'
+import InvoiceDiamondForm from './views/backEnd/invoiceDiamond/form'
 
 //diamonds
 import DiamondForm from './views/backEnd/diamond/form'
@@ -152,21 +152,21 @@ if ( pUrl.includes('adm/invoices/') && !pUrl.includes('adm/invoices/create') && 
 
 //Invoice Diamond
 
-if ( pUrl.includes('adm/inv-diamonds') && !pUrl.includes('adm/inv-diamonds/') ) {
-    const invDiamondIndex =  new Vue(InvDiamondIndex);
+if ( pUrl.includes('adm/invoice-diamonds') && !pUrl.includes('adm/invoice-diamonds/') ) {
+    const invoiceDiamondIndex =  new Vue(InvoiceDiamondIndex);
 }
 
-if ( pUrl.includes('adm/inv-diamonds/create') ) {
-    const invDiamondForm =  new Vue(InvDiamondForm);
+if ( pUrl.includes('adm/invoice-diamonds/create') ) {
+    const invoiceDiamondForm =  new Vue(InvoiceDiamondForm);
 }
 
-if ( pUrl.includes('adm/inv-diamonds/') && pUrl.includes('edit') || pUrl.includes('adm/inv-diamonds/ceate-from-diamond/')) {
-    const invDiamondForm =  new Vue(InvDiamondForm);
+if ( pUrl.includes('adm/invoice-diamonds/') && pUrl.includes('edit') || pUrl.includes('adm/invoice-diamonds/ceate-from-diamond/')) {
+    const invoiceDiamondForm =  new Vue(InvoiceDiamondForm);
 }
 
-if ( pUrl.includes('adm/inv-diamonds/') && !pUrl.includes('adm/inv-diamonds/create') && !pUrl.includes('/edit')  && !pUrl.includes('ceate-from-diamond/')
+if ( pUrl.includes('adm/invoice-diamonds/') && !pUrl.includes('adm/invoice-diamonds/create') && !pUrl.includes('/edit')  && !pUrl.includes('ceate-from-diamond/')
      ) {
-    const invDiamondShow =  new Vue(InvDiamondShow);
+    const invoiceDiamondShow =  new Vue(InvoiceDiamondShow);
 }
 
 

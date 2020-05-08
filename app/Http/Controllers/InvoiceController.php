@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Customer;
 use App\Diamond;
 use App\EngagementRing;
-use App\InvDiamond;
-use App\InvPost;
+use App\InvoiceDiamond;
+use App\InvoicePost;
 use App\Invoice;
 use App\Jewellery;
 use App\Order;
@@ -22,7 +22,7 @@ class InvoiceController extends Controller
                 
     	return response()
     		->json([
-    			'model' => Invoice::with('customer', 'invPosts','invPosts.images')->filterPaginateOrder(),
+    			'model' => Invoice::with('customer', 'invoicePosts','invoicePosts.images')->filterPaginateOrder(),
     			]);
     }
 
@@ -54,7 +54,7 @@ class InvoiceController extends Controller
     		->json([
     			'form' =>Invoice::form(),
     			'option' => [
-                    'inv_diamonds' => InvDiamond::where('invoice_id',NULL)->orderBy('certificate')->select('id','certificate as text','weight','color','clarity','stock','price', 'account_price')->get(),
+                    'invoice_diamonds' => InvoiceDiamond::where('invoice_id',NULL)->orderBy('certificate')->select('id','certificate as text','weight','color','clarity','stock','price', 'account_price')->get(),
                     'customers' => Customer::orderBy('name')->select('id','phone as text')->get(),
                     'jewelleries' => Jewellery::select('id','stock as text','unit_price')->with('texts','images')->get(),
                     'engagement_rings' => EngagementRing::select('id','stock as text','unit_price')->with('texts','images')->get(),
@@ -82,34 +82,34 @@ class InvoiceController extends Controller
         $jewelleries = [];
         $engagementRings = [];
         $weddingRings = [];
-        $inv_diam = [] ;
+        $invoice_diam = [] ;
         
-        // dd($request->inv_diamonds);
-        // if (!empty($request->inv_diamonds)) {
-        //         foreach ($request->inv_diamonds as $diamond) {
-        //         $diamonds[] = new InvDiamond($diamond);
+        // dd($request->invoice_diamonds);
+        // if (!empty($request->invoice_diamonds)) {
+        //         foreach ($request->invoice_diamonds as $diamond) {
+        //         $diamonds[] = new InvoiceDiamond($diamond);
         //     }
         // }
 
-        // $inv_diamonds = array_filter($inv_diamonds, 
+        // $invoice_diamonds = array_filter($invoice_diamonds, 
         //                         function($data){return preg_match('/s.td/i', $data['stock']);});
 
 
-        if (!empty($request->inv_diamonds)) {
+        if (!empty($request->invoice_diamonds)) {
             
             $diams = [];
             
             if ( isset($request->source) ) {
-                $diamonds = Diamond::whereIn('id', $request->input('inv_diamonds.*.id') )->get()->toArray();
+                $diamonds = Diamond::whereIn('id', $request->input('invoice_diamonds.*.id') )->get()->toArray();
                     foreach ($diamonds as $diamond) {
                         Arr::pull($diamond, 'id');
-                        $diamond = InvDiamond::create($diamond);
+                        $diamond = InvoiceDiamond::create($diamond);
                         $diams[] = $diamond->id;
                     }
                 // dd($diams);
 
             }else{
-                foreach ($request->inv_diamonds as $diamond) {
+                foreach ($request->invoice_diamonds as $diamond) {
             
                     $diams[] =  Arr::pull($diamond, 'id');;
                 }
@@ -117,23 +117,23 @@ class InvoiceController extends Controller
             }
 
            
-            $inv_diamonds = InvDiamond::whereIn('id', $diams)->get();
-            $inv_diamonds->filter(function($value,$key){
-                    return $value->update( ['price' => request()->input('inv_diamonds.'.$key.'.price'),
-                                            'account_price' => request()->input('inv_diamonds.'.$key.'.account_price'),
-                                            'stock' => request()->input('inv_diamonds.'.$key.'.stock'),
+            $invoice_diamonds = InvoiceDiamond::whereIn('id', $diams)->get();
+            $invoice_diamonds->filter(function($value,$key){
+                    return $value->update( ['price' => request()->input('invoice_diamonds.'.$key.'.price'),
+                                            'account_price' => request()->input('invoice_diamonds.'.$key.'.account_price'),
+                                            'stock' => request()->input('invoice_diamonds.'.$key.'.stock'),
                                             ]);
             });
 
-                $inv_diam = $inv_diamonds->reject(function($data){ 
+                $invoice_diam = $invoice_diamonds->reject(function($data){ 
                                 return !preg_match('/td/i', $data->stock);
                             })->map(function($data){
                                 return $data->id;
                                 });
-            // dd($inv_diamonds);
+            // dd($invoice_diamonds);
         }
 
-        if ( count($inv_diam) != 0  || $request->deposit_method != 'cash' || $request->balance_method != 'cash') {
+        if ( count($invoice_diam) != 0  || $request->deposit_method != 'cash' || $request->balance_method != 'cash') {
             $data['invoice_no'] = Invoice::max('invoice_no') + 1;
 
         }
@@ -145,9 +145,9 @@ class InvoiceController extends Controller
 
         $invoice = Invoice::create($data);
 
-        if (!empty($request->inv_diamonds)) {
-            $invoice->invDiamonds()
-        		->saveMany($inv_diamonds);
+        if (!empty($request->invoice_diamonds)) {
+            $invoice->invoiceDiamonds()
+        		->saveMany($invoice_diamonds);
         }
 
         if ( isset($request->source) ) {
@@ -182,7 +182,7 @@ class InvoiceController extends Controller
 
     public function show($id)
     {
-    	$invoice  = Invoice::with('customer', 'invDiamonds', 'jewelleries','jewelleries.texts','jewelleries.images', 'engagementRings', 'engagementRings.texts','engagementRings.images', 'weddingRings', 'weddingRings.texts', 'weddingRings.images')->findOrFail($id);
+    	$invoice  = Invoice::with('customer', 'invoiceDiamonds', 'jewelleries','jewelleries.texts','jewelleries.images', 'engagementRings', 'engagementRings.texts','engagementRings.images', 'weddingRings', 'weddingRings.texts', 'weddingRings.images')->findOrFail($id);
 
     	return response()
     		->json([
@@ -194,7 +194,7 @@ class InvoiceController extends Controller
     public function edit($id)
     {
     	$invoice  = Invoice::with([
-                'invDiamonds',
+                'invoiceDiamonds',
                 'jewelleries',
                  'engagementRings',
                  'weddingRings',
@@ -205,7 +205,7 @@ class InvoiceController extends Controller
     			'form' => $invoice,
     			'option' => [
                     'customers' => Customer::orderBy('name')->select('id','phone as text')->get(),
-                    'inv_diamonds' => InvDiamond::orderBy('certificate')->select('id','certificate as text','weight','color','clarity','stock','price', 'account_price')->get(),
+                    'invoice_diamonds' => InvoiceDiamond::orderBy('certificate')->select('id','certificate as text','weight','color','clarity','stock','price', 'account_price')->get(),
                     'jewelleries' => Jewellery::select('id','stock as text','unit_price')->with('texts','images')->get(),
                     'engagement_rings' => EngagementRing::select('id','stock as text','unit_price')->with('texts','images')->get(),
                     'wedding_rings' => WeddingRing::select('id','stock as text','unit_price')->with('texts','images')->get()
@@ -229,55 +229,55 @@ class InvoiceController extends Controller
 
         // dd(print_r($invoice));
 
-        $data = $request->except('inv_diamonds','jewelleries','engagement_rings','wedding_rings');
+        $data = $request->except('invoice_diamonds','jewelleries','engagement_rings','wedding_rings');
         // $data['sub_total'] = 0;
 
         $diamonds = [ ];
         $diamondIds = [ ];
-        $inv_diam = [] ;
+        $invoice_diam = [] ;
 
         // dd($request->all());
 
-        // foreach ($request->inv_diamonds as $diamond) {
+        // foreach ($request->invoice_diamonds as $diamond) {
         //     // $data['sub_total'] += $item['unit_price'] * $item['qty']; 
         //     if (isset($diamond['id'])) {
 
-        //     	InvDiamond::whereId($diamond['id'])
+        //     	InvoiceDiamond::whereId($diamond['id'])
         //     		->whereInvoiceId($invoice->id)
         //     		->update($diamond);
 
         //                 $diamondIds[] = $diamond['id'];
         //     }else{
-        //     	$diamonds[ ] = new InvDiamond($diamond);
+        //     	$diamonds[ ] = new InvoiceDiamond($diamond);
         //     }
         // }
         
-        $invoice->invDiamonds()->update(['invoice_id' => null]);
+        $invoice->invoiceDiamonds()->update(['invoice_id' => null]);
 
-        if (count($request->inv_diamonds)) {
+        if (count($request->invoice_diamonds)) {
 
-            // dd($request->input('inv_diamonds.*'));
-            $diamonds = $request->inv_diamonds;
+            // dd($request->input('invoice_diamonds.*'));
+            $diamonds = $request->invoice_diamonds;
 
             foreach ($diamonds as $diamond) {
 
-                $diamond = InvDiamond::whereId($diamond['id'])->update(
+                $diamond = InvoiceDiamond::whereId($diamond['id'])->update(
                                 ['price' => $diamond['price'],
                                 'account_price' => $diamond['account_price'],
                                 'stock' => $diamond['stock'],
                                 ]);
             };
 
-                // $inv_diamonds = InvDiamond::whereIn('id', $request->input('inv_diamonds.*.id'))->get();
-                // $inv_diamonds->filter(function($value,$key){
-                //         return $value->update( ['price' => request()->input('inv_diamonds.'.$key.'.price'),
-                //                                 'stock' => request()->input('inv_diamonds.'.$key.'.stock'),
+                // $invoice_diamonds = InvoiceDiamond::whereIn('id', $request->input('invoice_diamonds.*.id'))->get();
+                // $invoice_diamonds->filter(function($value,$key){
+                //         return $value->update( ['price' => request()->input('invoice_diamonds.'.$key.'.price'),
+                //                                 'stock' => request()->input('invoice_diamonds.'.$key.'.stock'),
                 //                                 ]);
                 // });
             
-            $inv_diamonds = InvDiamond::whereIn('id', $request->input('inv_diamonds.*.id'))->get();
+            $invoice_diamonds = InvoiceDiamond::whereIn('id', $request->input('invoice_diamonds.*.id'))->get();
 
-            $inv_diam = $inv_diamonds->reject(function($data){ 
+            $invoice_diam = $invoice_diamonds->reject(function($data){ 
                                 return !preg_match('/td/i', $data->stock);
                             })->map(function($data){
                                 return $data->id;
@@ -285,11 +285,11 @@ class InvoiceController extends Controller
 
         }
         
-        // dd($inv_diam);
+        // dd($invoice_diam);
 
         if ($request->invoice_no == 0 ) {
             
-            if ( count($inv_diam) != 0  || $request->deposit_method != 'cash' || $request->balance_method != 'cash') {
+            if ( count($invoice_diam) != 0  || $request->deposit_method != 'cash' || $request->balance_method != 'cash') {
                 $data['invoice_no'] = Invoice::max('invoice_no') + 1;
 
             }
@@ -300,11 +300,11 @@ class InvoiceController extends Controller
 
         $invoice->update($data);
 
-        if (!empty($request->inv_diamonds)) {
-            $invoice->invDiamonds()
-                ->saveMany($inv_diamonds);
+        if (!empty($request->invoice_diamonds)) {
+            $invoice->invoiceDiamonds()
+                ->saveMany($invoice_diamonds);
 
-            // dd($invoice->invDiamonds );
+            // dd($invoice->invoiceDiamonds );
         }
 
         $jewelleries = [];
@@ -374,7 +374,7 @@ class InvoiceController extends Controller
         public function records(){
             
             $coupon = auth()->user()->coupons()->first()->code;
-            $order = Order::where('coupon_code', $coupon)->with(['invoice.invDiamonds', 'invoice.customer'])->paginate(10);
+            $order = Order::where('coupon_code', $coupon)->with(['invoice.invoiceDiamonds', 'invoice.customer'])->paginate(10);
 
             return response()->json([
                         'model' => $order
@@ -402,7 +402,7 @@ class InvoiceController extends Controller
 
         $invoice = Invoice::whereYear('date',$request['year'])
                     ->whereMonth('date', $request['month'])
-                    ->with('jewelleries', 'invDiamonds','weddingRings','engagementRings')
+                    ->with('jewelleries', 'invoiceDiamonds','weddingRings','engagementRings')
                     ->get();
 
 
@@ -420,7 +420,7 @@ class InvoiceController extends Controller
         foreach (range(1, 12) as $value) {
             $data = ['amount'=> 0, 'quantity' => 0];
             $invoice = Invoice::where('due_date',null)->whereMonth('created_at',$value)
-                        ->whereHas('invDiamonds', function($query){
+                        ->whereHas('invoiceDiamonds', function($query){
                                     $query->whereNotNull('due_date');
                                 })
                         ->select('balance as amount')->get();
@@ -442,11 +442,11 @@ class InvoiceController extends Controller
     public function duedProgressPaginate(){
 
         $invoice = Invoice::where('due_date',null)
-                    ->whereHas('invDiamonds', function($query){
+                    ->whereHas('invoiceDiamonds', function($query){
                         $query->whereNotNull('due_date');
                     })
-                    ->with('customer', 'invPosts')
-                    ->with(['invDiamonds' => function($query){ return $query->whereNotNull('due_date')->get() ; }])
+                    ->with('customer', 'invoicePosts')
+                    ->with(['invoiceDiamonds' => function($query){ return $query->whereNotNull('due_date')->get() ; }])
                     ->filterPaginateOrder();
 
         // $invoice->map(function($dat){ 
@@ -466,7 +466,7 @@ class InvoiceController extends Controller
         foreach (range(1, 12) as $value) {
             $data = ['amount'=> 0, 'quantity' => 0];
             $invoice = Invoice::where('due_date',null)->whereMonth('created_at',$value)
-                        // ->whereHas('invDiamonds', function($query){
+                        // ->whereHas('invoiceDiamonds', function($query){
                         //             $query->whereNotNull('due_date');
                         //         })
                         ->select('balance as amount')->get();
@@ -488,11 +488,11 @@ class InvoiceController extends Controller
     public function onProgressPaginate(){
 
         $invoice = Invoice::where('due_date',null)
-                    // ->whereHas('invDiamonds', function($query){
+                    // ->whereHas('invoiceDiamonds', function($query){
                     //     $query->whereNotNull('due_date');
                     // })
-                    ->with('customer', 'invPosts')
-                    ->with(['invDiamonds' => function($query){ return $query->whereNotNull('due_date')->get() ; }])
+                    ->with('customer', 'invoicePosts')
+                    ->with(['invoiceDiamonds' => function($query){ return $query->whereNotNull('due_date')->get() ; }])
                     ->filterPaginateOrder();
 
         // $invoice->map(function($dat){ 
@@ -512,7 +512,7 @@ class InvoiceController extends Controller
         foreach (range(1, 12) as $value) {
             $data = ['amount'=> 0, 'quantity' => 0];
             $invoice = Invoice::where('due_date',null)->whereMonth('created_at',$value)
-                        ->with(['invDiamonds' => function($query){ return $query->whereNotNull('due_date')->get() ; }])
+                        ->with(['invoiceDiamonds' => function($query){ return $query->whereNotNull('due_date')->get() ; }])
                         ->get();
             // $invoice->map(function($dat){ 
             //                 return $dat->balance ;
@@ -533,8 +533,8 @@ class InvoiceController extends Controller
     public function onProgressSettledDiamondPaginate(){
 
         $invoice = Invoice::where('due_date',null)
-                    ->with('customer', 'invPosts')
-                    ->with(['invDiamonds' => function($query){ return $query->whereNotNull('due_date')->get() ; }])
+                    ->with('customer', 'invoicePosts')
+                    ->with(['invoiceDiamonds' => function($query){ return $query->whereNotNull('due_date')->get() ; }])
                     ->filterPaginateOrder();
 
 
@@ -547,7 +547,7 @@ class InvoiceController extends Controller
     public function destroy($id)
     {
     	$invoice = Invoice::findOrFail($id);
-    	InvDiamond::whereInvoiceId($invoice->id)
+    	InvoiceDiamond::whereInvoiceId($invoice->id)
     		->delete();
         $invoice->jewelleries()->detach();
         $invoice->engagementRings()->detach();

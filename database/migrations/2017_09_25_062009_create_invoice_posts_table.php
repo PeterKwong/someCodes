@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInvPostsTable extends Migration
+class CreateInvoicePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateInvPostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('inv_posts', function (Blueprint $table) {
+        Schema::create('invoice_posts', function (Blueprint $table) {
             $table->id('id');
             $table->integer('invoice_id')->unsigned()->nullable(); 
             $table->string('video')->nullable();
@@ -32,6 +32,6 @@ class CreateInvPostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inv_posts');
+        Schema::dropIfExists('invoice_posts');
     }
 }

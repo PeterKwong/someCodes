@@ -79,7 +79,7 @@ export default {
 			
 			var price = this.subTotalExceptDiamonds
 			console.log(price)
-			price +=  this.form.inv_diamonds.reduce((carry, item)=>{
+			price +=  this.form.invoice_diamonds.reduce((carry, item)=>{
 						return carry += parseInt(item.price)
 					},0)
 
@@ -98,7 +98,7 @@ export default {
 			var price = this.subTotalExceptDiamonds
 			console.log(price)
 
-			price +=  this.form.inv_diamonds.reduce((carry, item)=>{
+			price +=  this.form.invoice_diamonds.reduce((carry, item)=>{
 						return carry += parseInt(item.account_price)
 					},0)
 
@@ -155,13 +155,13 @@ export default {
 				})[0] )
 		},
 		addSelectedDia(){
-			this.form.inv_diamonds.push(this.option.inv_diamonds
+			this.form.invoice_diamonds.push(this.option.invoice_diamonds
 				.filter((item)=>{
 					return item.id == this.selectedDia
 				})[0] )
 		},
 		addDiamond(){
-			this.form.inv_diamonds.push({
+			this.form.invoice_diamonds.push({
 				certificate: '',
 				clarity: '',
 				color:'',

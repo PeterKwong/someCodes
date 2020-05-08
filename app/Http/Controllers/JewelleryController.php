@@ -106,25 +106,25 @@ class JewelleryController extends Controller
         
         $jewellery = Jewellery::where('published',1)->with(['images','texts'])->findOrFail($id);
         $posts = Jewellery::where('published',1)->findOrFail($id)->invoices()->with(
-                    ['invPosts'=>function($inv){
+                    ['invoicePosts'=>function($inv){
                                     return $inv->where('published',1);},
-                    'invPosts.images'])->orderBy('created_at','desc')->get();
+                    'invoicePosts.images'])->orderBy('created_at','desc')->get();
 
-        $invPosts = [];
+        $invoicePosts = [];
 
         // dd(count($posts)); 
         
         
         foreach ($posts as $p ) {
-            if (isset($p->invPosts[0])) {
-                $invPosts['invPosts'][] = $p->invPosts[0];
+            if (isset($p->invoicePosts[0])) {
+                $invoicePosts['invoicePosts'][] = $p->invoicePosts[0];
             }
         }
 
         return response()
             ->json([
                 'model' => $jewellery,
-                'posts' => $invPosts,
+                'posts' => $invoicePosts,
                 ]);
 
     }

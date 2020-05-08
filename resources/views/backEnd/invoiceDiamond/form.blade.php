@@ -3,7 +3,7 @@
 
   @section('content')
 
-    <div id="invDiamondForm">
+    <div id="invoiceDiamondForm">
 
     	<div class="card-box">	
 			<h1 class="title is-3">@{{title}}</h1>

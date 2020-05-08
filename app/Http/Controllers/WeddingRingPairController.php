@@ -111,13 +111,13 @@ class WeddingRingPairController extends Controller
             ,'weddingRings.images','weddingRings.texts'])->findOrFail($id);
 
         // dd(print_r($weddingRingPairs->weddingRings));
-        $invPosts = WeddingRingPair::with(['weddingRings.invoices.invPosts.images'])->findOrFail($id);
-        // $invPosts = $invPosts->weddingRings;
+        $invoicePosts = WeddingRingPair::with(['weddingRings.invoices.invoicePosts.images'])->findOrFail($id);
+        // $invoicePosts = $invoicePosts->weddingRings;
         
         // $posts = [];
-        // foreach ($invPosts as $weddingRing) {
+        // foreach ($invoicePosts as $weddingRing) {
         //     if (!empty($weddingRing->invoices[0])) {
-        //        $posts []= $weddingRing->invoices[0]->invPosts;
+        //        $posts []= $weddingRing->invoices[0]->invoicePosts;
         //     }
             
         // }
@@ -125,7 +125,7 @@ class WeddingRingPairController extends Controller
         return response()
             ->json([
                 'model' => $weddingRingPairs,
-                'posts' => $invPosts,
+                'posts' => $invoicePosts,
             ]);
     }
 
@@ -134,13 +134,13 @@ class WeddingRingPairController extends Controller
         $weddingRingPairs = WeddingRingPair::with(['weddingRings','weddingRings.images','weddingRings.texts'])->findOrFail($id);
 
         // dd(print_r($weddingRingPairs->weddingRings));
-        $invPosts = WeddingRingPair::with(['weddingRings.invoices.invPosts.images'])->findOrFail($id);
-        // $invPosts = $invPosts->weddingRings;
+        $invoicePosts = WeddingRingPair::with(['weddingRings.invoices.invoicePosts.images'])->findOrFail($id);
+        // $invoicePosts = $invoicePosts->weddingRings;
         
         // $posts = [];
-        // foreach ($invPosts as $weddingRing) {
+        // foreach ($invoicePosts as $weddingRing) {
         //     if (!empty($weddingRing->invoices[0])) {
-        //        $posts []= $weddingRing->invoices[0]->invPosts;
+        //        $posts []= $weddingRing->invoices[0]->invoicePosts;
         //     }
             
         // }
@@ -148,7 +148,7 @@ class WeddingRingPairController extends Controller
         return response()
             ->json([
                 'model' => $weddingRingPairs,
-                'posts' => $invPosts,
+                'posts' => $invoicePosts,
             ]);
     }
 

@@ -73,7 +73,7 @@
 				get(`/api/engagementRings/${window.location.pathname.slice(21)}`)
 				.then((res)=>{
 					this.engagementRing = res.data.model
-					this.filterNotPostable(res.data.posts.invPosts)
+					this.filterNotPostable(res.data.posts.invoicePosts)
 					this.assignCarouselItem()
 				})
 			},

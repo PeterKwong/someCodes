@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tag;
-use App\InvPost;
+use App\InvoicePost;
 use App\Invoice;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
 
 
-class InvPostController extends Controller
+class InvoicePostController extends Controller
 {
 
 
@@ -30,7 +30,7 @@ class InvPostController extends Controller
     // DB::connection()->enableQueryLog();
 
     // $cache = Cache::remember('customerJew:'.$id, 1, function()use($id) {
-    //          return $meta = InvPost::with(['texts'=>function($texts){
+    //          return $meta = InvoicePost::with(['texts'=>function($texts){
     //                 $texts->where('locale',app()->getLocale());
     //             }])->findOrFail($id);   
     // });
@@ -60,7 +60,7 @@ class InvPostController extends Controller
     // return dd($r) ;
 
 
-     $meta = InvPost::with(['texts'=>function($texts){
+     $meta = InvoicePost::with(['texts'=>function($texts){
                     $texts->where('locale',app()->getLocale());
                 }])->findOrFail($id);
 
@@ -88,19 +88,19 @@ class InvPostController extends Controller
 
     public function create()
     {
-        $form = InvPost::form();
+        $form = InvoicePost::form();
 
         return response()
             ->json([
                 'form' =>$form,
-                'option' => Invoice::with(['engagementRings','weddingRings','jewelleries','invDiamonds'])->orderBy('id')
+                'option' => Invoice::with(['engagementRings','weddingRings','jewelleries','invoiceDiamonds'])->orderBy('id')
                 ->get()
                 ]);
     }
 
     public function index()
     {
-        $posts = InvPost::where('published',1)->orderBy('date', 'desc')
+        $posts = InvoicePost::where('published',1)->orderBy('date', 'desc')
                 ->with(['images' => function($query){ 
                                     $query->where('type','cover');
                                     }, 'texts'])
@@ -117,7 +117,7 @@ class InvPostController extends Controller
                 
         return response()
             ->json([
-                'model' => InvPost::with('texts')->filterPaginateOrder(),
+                'model' => InvoicePost::with('texts')->filterPaginateOrder(),
                 ]);
     }
 
@@ -131,10 +131,10 @@ class InvPostController extends Controller
             ]);
 
 
-        $invPost = InvPost::create($request->except(['video','texts','images']));
+        $invoicePost = InvoicePost::create($request->except(['video','texts','images']));
 
-        // dd(print_r($invPost));
-        return $invPost->storeItem($request);
+        // dd(print_r($invoicePost));
+        return $invoicePost->storeItem($request);
 
         
     }
@@ -146,15 +146,15 @@ class InvPostController extends Controller
 
     public function show($id)
     {
-    		// $post = InvPost::with(['contents'=> function($query){$query->where('locale',app()->getLocale())->get();}])
+    		// $post = InvoicePost::with(['contents'=> function($query){$query->where('locale',app()->getLocale())->get();}])
     		// 		->findOrFail($id);
         
-            $post = InvPost::with(['images','texts','invoice.engagementRings.images','invoice.engagementRings.texts','invoice.weddingRings.images','invoice.weddingRings.texts','invoice.jewelleries.images','invoice.jewelleries.texts','invoice.invDiamonds'])
+            $post = InvoicePost::with(['images','texts','invoice.engagementRings.images','invoice.engagementRings.texts','invoice.weddingRings.images','invoice.weddingRings.texts','invoice.jewelleries.images','invoice.jewelleries.texts','invoice.invoiceDiamonds'])
                     ->findOrFail($id);
 
             
     		// if (Invoice::whereId($post->invoice_id)) {
-    		// 	$invoice = Invoice::whereId($post->invoice->id)->with(['invDiamonds','jewelleries','engagementRings','weddingRings'])->get();
+    		// 	$invoice = Invoice::whereId($post->invoice->id)->with(['invoiceDiamonds','jewelleries','engagementRings','weddingRings'])->get();
     		// }
 
             
@@ -178,7 +178,7 @@ class InvPostController extends Controller
     public function edit($id, Request $request)
     {
         
-    $form = InvPost::with(['images','texts','invoice.engagementRings','invoice.weddingRings','invoice.jewelleries','invoice.invDiamonds'])
+    $form = InvoicePost::with(['images','texts','invoice.engagementRings','invoice.weddingRings','invoice.jewelleries','invoice.invoiceDiamonds'])
             ->findOrFail($id);
 
 
@@ -195,7 +195,7 @@ class InvPostController extends Controller
         return response()
                 ->json([
                     'form' =>$form,
-                    'option' => Invoice::with(['engagementRings','weddingRings','jewelleries','invDiamonds'])->orderBy('id')
+                    'option' => Invoice::with(['engagementRings','weddingRings','jewelleries','invoiceDiamonds'])->orderBy('id')
                         ->get()
 
                     ]);
@@ -209,19 +209,19 @@ class InvPostController extends Controller
             'texts' => 'required',
             ]);
 
-        $invPost = InvPost::with(['images','texts'])->findOrFail($id);
+        $invoicePost = InvoicePost::with(['images','texts'])->findOrFail($id);
 
 
         // dd(print_r($request->all()));
-        return $invPost->updateItem($request, 'App\InvPost');
+        return $invoicePost->updateItem($request, 'App\InvoicePost');
 
     }
 
     public function destroy($id, Request $request)
     {
-        $invPost = InvPost::with(['images','texts'])->findOrFail($id);
+        $invoicePost = InvoicePost::with(['images','texts'])->findOrFail($id);
 
-        return $invPost->destroyItem('App\InvPost');
+        return $invoicePost->destroyItem('App\InvoicePost');
 
     }
 

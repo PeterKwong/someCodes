@@ -49,35 +49,35 @@
                     </div>       
                 </div>
 
-                <div class="row " v-if="post.invoice.inv_diamonds[0]">
+                <div class="row " v-if="post.invoice.invoice_diamonds[0]">
                     <div class="col-4">
                         <div class="tile is-child box">
 
                             <div class="tile is-chill">
-                            <article v-if="post.invoice.inv_diamonds[0].lab == 'GIA'">
+                            <article v-if="post.invoice.invoice_diamonds[0].lab == 'GIA'">
                                 <p>
                                 {{trans('diamondSearch.For more detailed information, can reach GIA website query')}}：
                                 </p>
-                                <a :href="`https://www.gia.edu/report-check?reportno=${post.invoice.inv_diamonds[0].certificate}`">
+                                <a :href="`https://www.gia.edu/report-check?reportno=${post.invoice.invoice_diamonds[0].certificate}`">
                                     <div class="level">
                                     <figure class="image">
                                         <img width="100%" src="https://www.gia.edu/onlineopinionV5/GIA-Logo.png">
                                     </figure>
-                                    <p class="button is-primary">@{{post.invoice.inv_diamonds[0].lab}} {{trans('diamondSearch.Certificate Download')}}</p>
+                                    <p class="button is-primary">@{{post.invoice.invoice_diamonds[0].lab}} {{trans('diamondSearch.Certificate Download')}}</p>
                                     </div>
                                 </a>
                             </article>
 
-                            <article v-if="post.invoice.inv_diamonds[0].lab == 'IGI'">
+                            <article v-if="post.invoice.invoice_diamonds[0].lab == 'IGI'">
                                 <p>
                                 {{trans('diamondSearch.For more detailed information, can reach IGI website query')}}：
                                 </p>
-                                <a :href="`https://www.igiworldwide.com/verify.php?r=${post.invoice.inv_diamonds[0].certificate}`">
+                                <a :href="`https://www.igiworldwide.com/verify.php?r=${post.invoice.invoice_diamonds[0].certificate}`">
                                     <div class="level">
                                     <figure class="image">
                                         <img width="100%" src="https://www.igiworldwide.com/igi/images/logo-retina1.png">
                                     </figure>
-                                    <p class="button is-primary">@{{post.invoice.inv_diamonds[0].lab}} {{trans('diamondSearch.Certificate Download')}}</p>
+                                    <p class="button is-primary">@{{post.invoice.invoice_diamonds[0].lab}} {{trans('diamondSearch.Certificate Download')}}</p>
                                     </div>
                                 </a>
                             </article>
@@ -87,15 +87,15 @@
                                 <table class="table is-striped is-fullwidth">
                                 <thead>
                                     <tr>
-                                        <th>{{trans('diamondSearch.Diamond Info')}} ( @{{post.invoice.inv_diamonds[0].shape}} )</th>
+                                        <th>{{trans('diamondSearch.Diamond Info')}} ( @{{post.invoice.invoice_diamonds[0].shape}} )</th>
                                     </tr>
                                 </thead>
                                     
                                 <tbody>
-                                    <tr><td>{{trans('diamondSearch.Carat Weight')}}</td><td>@{{post.invoice.inv_diamonds[0].weight}}</td></tr>
-                                    <tr><td>{{trans('diamondSearch.Color Grade')}}</td><td>@{{post.invoice.inv_diamonds[0].color}}</td></tr>
-                                    <tr><td>{{trans('diamondSearch.Clarity Grade')}}</td><td>@{{post.invoice.inv_diamonds[0].clarity}}</td></tr>
-                                    <tr><td>{{trans('diamondSearch.Cut Grade')}}</td><td>@{{post.invoice.inv_diamonds[0].cut}}</td></tr>
+                                    <tr><td>{{trans('diamondSearch.Carat Weight')}}</td><td>@{{post.invoice.invoice_diamonds[0].weight}}</td></tr>
+                                    <tr><td>{{trans('diamondSearch.Color Grade')}}</td><td>@{{post.invoice.invoice_diamonds[0].color}}</td></tr>
+                                    <tr><td>{{trans('diamondSearch.Clarity Grade')}}</td><td>@{{post.invoice.invoice_diamonds[0].clarity}}</td></tr>
+                                    <tr><td>{{trans('diamondSearch.Cut Grade')}}</td><td>@{{post.invoice.invoice_diamonds[0].cut}}</td></tr>
                                 </tbody>
 
                                 <thead>
@@ -105,8 +105,8 @@
                                 </thead>
                                     
                                 <tbody>
-                                    <tr><td>{{trans('diamondSearch.Polish')}}</td><td>@{{post.invoice.inv_diamonds[0].polish}}</td></tr>
-                                    <tr><td>{{trans('diamondSearch.Symmetry')}}</td><td>@{{post.invoice.inv_diamonds[0].symmetry}}</td></tr>
+                                    <tr><td>{{trans('diamondSearch.Polish')}}</td><td>@{{post.invoice.invoice_diamonds[0].polish}}</td></tr>
+                                    <tr><td>{{trans('diamondSearch.Symmetry')}}</td><td>@{{post.invoice.invoice_diamonds[0].symmetry}}</td></tr>
                                 </tbody>
 
                                 <thead>
@@ -116,7 +116,7 @@
                                 </thead>
                                     
                                 <tbody>
-                                    <tr><td>{{trans('diamondSearch.Fluorescence')}}</td><td>@{{post.invoice.inv_diamonds[0].fluorescence}}</td></tr>
+                                    <tr><td>{{trans('diamondSearch.Fluorescence')}}</td><td>@{{post.invoice.invoice_diamonds[0].fluorescence}}</td></tr>
                                 </tbody>
                                 
                                 <thead>
@@ -126,8 +126,8 @@
                                 </thead>
                                     
                                 <tbody>
-                                    <a :href="`https://www.gia.edu/report-check?reportno=${post.invoice.inv_diamonds[0].certificate}`">
-                                    <tr><td>{{trans('diamondSearch.Certificate')}}</td><td>@{{post.invoice.inv_diamonds[0].certificate}}</td></tr>
+                                    <a :href="`https://www.gia.edu/report-check?reportno=${post.invoice.invoice_diamonds[0].certificate}`">
+                                    <tr><td>{{trans('diamondSearch.Certificate')}}</td><td>@{{post.invoice.invoice_diamonds[0].certificate}}</td></tr>
                                     </a>
                                 </tbody>
 

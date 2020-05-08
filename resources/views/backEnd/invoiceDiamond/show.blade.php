@@ -3,7 +3,7 @@
 
   @section('content')
 
-    <div id="invDiamondShow">
+    <div id="invoiceDiamondShow">
 	<div class="card-box">
 		<nav class="level">
 		

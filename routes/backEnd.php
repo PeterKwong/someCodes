@@ -20,11 +20,11 @@ Route::group(['middleware'=> 'auth:admin'], function(){
         Route::get('invoices/{id}/edit', 'InvoiceController@admBladeForm'); 
 
         //invoice diamond
-        Route::get('inv-diamonds', 'InvDiamondController@admBladeIndex');
-        Route::get('inv-diamonds/create', 'InvDiamondController@admBladeForm');
-        Route::get('inv-diamonds/{id}', 'InvDiamondController@admBladeShow');        
-        Route::get('inv-diamonds/{id}/edit', 'InvDiamondController@admBladeForm'); 
-        Route::get('inv-diamonds/create-from-diamond/{id}', 'InvDiamondController@admBladeForm');
+        Route::get('invoice-diamonds', 'InvoiceDiamondController@admBladeIndex');
+        Route::get('invoice-diamonds/create', 'InvoiceDiamondController@admBladeForm');
+        Route::get('invoice-diamonds/{id}', 'InvoiceDiamondController@admBladeShow');        
+        Route::get('invoice-diamonds/{id}/edit', 'InvoiceDiamondController@admBladeForm'); 
+        Route::get('invoice-diamonds/create-from-diamond/{id}', 'InvoiceDiamondController@admBladeForm');
 
         //Diamond
         Route::get('diamonds', 'DiamondController@admBladeIndex');
@@ -50,10 +50,10 @@ Route::group(['middleware'=> 'auth:admin'], function(){
         Route::get('jewellery/{id}/edit', 'JewelleryController@admBladeForm'); 
 
         //Customer Jewellery
-        Route::get('customer-jewelleries', 'InvPostController@admBladeIndex');
-        Route::get('customer-jewelleries/{id}/create', 'InvPostController@admBladeForm');
-        Route::get('customer-jewelleries/{id}', 'InvPostController@admBladeShow');        
-        Route::get('customer-jewelleries/{id}/edit', 'InvPostController@admBladeForm'); 
+        Route::get('customer-jewelleries', 'InvoicePostController@admBladeIndex');
+        Route::get('customer-jewelleries/{id}/create', 'InvoicePostController@admBladeForm');
+        Route::get('customer-jewelleries/{id}', 'InvoicePostController@admBladeShow');        
+        Route::get('customer-jewelleries/{id}/edit', 'InvoicePostController@admBladeForm'); 
 
 
         //Customer Moment

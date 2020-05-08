@@ -27,15 +27,15 @@ export default {
 			selectedItem: '',
 			redirect: '/adm',
 			isProcessing: false,
-			initializeURL: `/api/invPosts/create`,
-			storeURL: `/api/invPosts`,
+			initializeURL: `/api/invoicePosts/create`,
+			storeURL: `/api/invoicePosts`,
 			action: 'Create'
 		}
 	},
 	created(){
 		if ( window.location.pathname.includes('edit') ) {
-			this.initializeURL = `/api/invPosts/${this.getIdReg()}/edit`
-			this.storeURL = `/api/invPosts/${this.getIdReg()}?_method=PUT`
+			this.initializeURL = `/api/invoicePosts/${this.getIdReg()}/edit`
+			this.storeURL = `/api/invoicePosts/${this.getIdReg()}?_method=PUT`
 			this.action = 'Update'
 		}
 		get(this.initializeURL)
@@ -120,9 +120,9 @@ export default {
 
 
 			for (var i=0; this.form.texts.length > i ; i++) {
-				for (var j = 0; this.option[0].inv_diamonds.length > j; j++) {
-					if (this.selectedItem.includes('App/EngagementRing') && this.option[0].inv_diamonds[j]) {
-						this.form.texts[i].content =  this.option[0].inv_diamonds[j].weight +' '+ transJs('Carat Diamond Ring',this.langs,i) +', '+ this.option[0].inv_diamonds[j].color +' '+ transJs('color',this.langs,i) +', '+this.option[0].inv_diamonds[j].clarity +' '+ transJs('clarity',this.langs,i) + ', '+this.option[0].inv_diamonds[j].cut +' '+ transJs('cut',this.langs,i) + ', '+this.option[0].inv_diamonds[j].polish +' '+ transJs('polish',this.langs,i) + ', '+this.option[0].inv_diamonds[j].symmetry +' '+ transJs('symmetry',this.langs,i) + ', '+this.option[0].inv_diamonds[j].fluorescence +' '+ transJs('fluorescence',this.langs,i) + ', '
+				for (var j = 0; this.option[0].invoice_diamonds.length > j; j++) {
+					if (this.selectedItem.includes('App/EngagementRing') && this.option[0].invoice_diamonds[j]) {
+						this.form.texts[i].content =  this.option[0].invoice_diamonds[j].weight +' '+ transJs('Carat Diamond Ring',this.langs,i) +', '+ this.option[0].invoice_diamonds[j].color +' '+ transJs('color',this.langs,i) +', '+this.option[0].invoice_diamonds[j].clarity +' '+ transJs('clarity',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].cut +' '+ transJs('cut',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].polish +' '+ transJs('polish',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].symmetry +' '+ transJs('symmetry',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].fluorescence +' '+ transJs('fluorescence',this.langs,i) + ', '
 					}
 				}
 				for (var j = 0; this.option[0].engagement_rings.length > j; j++) {

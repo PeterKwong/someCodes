@@ -8,7 +8,7 @@ class Text extends Model
 {
 
 	protected $fillable = [
-	'locale', 'content', 'type'
+	'locale', 'content', 'type', 'textable_type'
 	];
 
 

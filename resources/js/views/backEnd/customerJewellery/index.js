@@ -7,9 +7,9 @@ export default {
 	data(){
 		return {
 			title: 'Invoice Posts',
-			source: '/api/invPostsInd',
+			source: '/api/invoicePostsInd',
 			url:'/adm/customer-jewelleries',
-			create:'/adm/invPosts/create',
+			create:'/adm/invoicePosts/create',
 			thead: [
 			{ title: 'ID', key: 'id', sort: true},
 			{ title: 'invoice_id', key: 'invoice_id', sort: true},

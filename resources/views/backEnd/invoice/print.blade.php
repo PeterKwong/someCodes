@@ -116,7 +116,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr v-for="diamond in model.inv_diamonds" v-if="model.inv_diamonds">
+								<tr v-for="diamond in model.invoice_diamonds" v-if="model.invoice_diamonds">
 									<td>@{{diamond.lab}}:@{{diamond.certificate}}</td>
 									<td>@{{diamond.weight}}ct,@{{diamond.color}} Color,@{{diamond.clarity}} Clarity,@{{diamond.cut}} Cut,@{{diamond.polish}} Polish,@{{diamond.symmetry}} Symmetry,@{{diamond.fluorescence}}</td>
 									<td>1</td>

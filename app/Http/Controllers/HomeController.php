@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\InvPost;
+use App\InvoicePost;
 use App\CustomerMoment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -35,7 +35,7 @@ class HomeController extends Controller
 
         $customer_post = Cache::remember('home_page_customer_post', 10, function(){
 
-            return  $customer_post = InvPost::where('published', 1)
+            return  $customer_post = InvoicePost::where('published', 1)
                                     ->with(['images','texts'])->orderBy('date','desc')
                                     ->take(10)->get();
 
@@ -59,12 +59,12 @@ class HomeController extends Controller
     public function indexLang ($locale) {
 
         // $redis = Redis::Connection();
-        // $customer_post = InvPost::where('published',1)->with(['images','texts'])->orderBy('date','desc')->take(10)->get();
+        // $customer_post = InvoicePost::where('published',1)->with(['images','texts'])->orderBy('date','desc')->take(10)->get();
   
 
         $customer_post = Cache::remember('home_page_customer_post', 10, function(){
 
-            return  $customer_post = InvPost::where('published', 1)
+            return  $customer_post = InvoicePost::where('published', 1)
                                     ->with(['images','texts'])->orderBy('date','desc')
                                     ->take(10)->get();
 
