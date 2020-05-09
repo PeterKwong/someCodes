@@ -58,7 +58,9 @@ return [
 	'Wedding Ring Info' => '结婚戒指资料',	
 	'metal' => '材质',	
 	'Product Video' => '商品影片',	
-	'Proposal Tips' => '求婚小贴士/ 求婚方法 – 小TIPS',	
+	'Proposal Tips' => '求婚小贴士',	
+	'Proposal Methods' => '求婚方法',	
+	'Small tips' => '小TIPS',	
 	'Customer Moments' => '客人珍贵时刻',	
 
 ];

@@ -126,6 +126,23 @@
         </div>
       </div>
     </div>
+    <div class="card">
+      <div class="card-header" id="headingFive">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#engagement-tips" aria-expanded=" {{request()->segment(2) == 'engagement-tips'}}" aria-controls="engagement-tips">
+            {{__('customerMoment.Proposal Tips')}}
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </h5>
+      </div>
+      <div id="engagement-tips" class="collapse {{request()->segment(2) == 'engagement-tips'?'show':''}}" aria-labelledby="headingFive" data-parent="#accordion">
+        <div class="card-body">
+            <a class="text-decoration-none color-grey }}" href="{{ url( app()->getLocale())}}/engagement-tips" >{{__('customerMoment.Proposal Methods')}}</a>
+            <br>
+           
+        </div>
+      </div>
+    </div>
     
   </div>
 </div>

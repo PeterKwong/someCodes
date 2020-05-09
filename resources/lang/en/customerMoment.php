@@ -51,5 +51,7 @@ return [
 	'metal' => 'metal',	
 	'Product Video' => 'Product Video',	
 	'Proposal Tips' => 'Proposal TIPS',	
+	'Proposal Methods' => 'Proposal Methods',	
+	'Small Tips' => 'Small Tips',
 	'Customer Moments' => 'Customer Moments',	
 ];
