@@ -105,7 +105,7 @@
                                 </div>
                             </div>
                         </div>
-                      @include('layouts.education.sideBar')
+                      @include('layouts.components.sideBar')
                     </div>
 
 

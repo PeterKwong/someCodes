@@ -37,10 +37,11 @@
 
 
         <div id="aboutUs">
-            <div class="row justify-content-center">
-                <div class="col-11">
-                    <br>
-
+          <div class="row justify-content-center">
+            <div class="col-11">
+              <br>
+                <div class="row justify-content-center">
+                  <div class="col">
                     <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                       <li class="nav-item">
                         <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure' )}}" >{{trans('buyingProcedure.Appointment First')}}</a>
@@ -59,53 +60,41 @@
                       </li>                
                     </ul>
 
-                    <article class="message is-primary" >
-                      <div class="level is-centered">
-                        <div class="message-body">
+                    <br>
+                    
+                    <div class="row justify-content-center" >
+                        <div class="col-sm-10">
+                          <center>
+                            <p class="title is-6">{{trans('buyingProcedure.Guarantee Satisfaction')}}</a></p>
 
-                        <br>
+                            <li>{{trans('buyingProcedure.para11')}}</li>
+                            <li>{{trans('buyingProcedure.para11.1')}}</li>
 
-                           
-                          <div class="row justify-content-center" >
-                        
-                            <div class="col-sm-10">
-
-                              <center>
-                                <p class="title is-6">{{trans('buyingProcedure.Guarantee Satisfaction')}}</a></p>
-
-                                <li>{{trans('buyingProcedure.para11')}}</li>
-                                <li>{{trans('buyingProcedure.para11.1')}}</li>
-
-                              </center>
+                          </center>
+                          
                               
-                                  
-                            </div>
+                        </div>
 
-                            <div class="col">
-                                 <center>
-                                <p class="title is-6">{{trans('buyingProcedure.Guarantee Satisfaction')}}</p>
-                                <figure class="image">
-                                      <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/39940971-Zufriedenheitsgarantie-Stempel-Lizenzfreie-Bilder-300x300.jpg">
-                                  </figure>
-
-
-                              </center>
-                            </div>
-
-                            
-                          </div>
+                        <div class="col">
+                             <center>
+                            <p class="title is-6">{{trans('buyingProcedure.Guarantee Satisfaction')}}</p>
+                            <figure class="image">
+                                  <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/39940971-Zufriedenheitsgarantie-Stempel-Lizenzfreie-Bilder-300x300.jpg">
+                              </figure>
 
 
+                          </center>
                         </div>
                       </div>
-                      
-                    </article>
-                    
-                </div>
-                
-            </div>
-            
+
+
+              </div>
+            @include('layouts.components.sideBar')
+          </div>      
+
         </div>
+      </div>
+    </div>
 
     @endSection
 

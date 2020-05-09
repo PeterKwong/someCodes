@@ -37,85 +37,70 @@
 
 
         <div id="aboutUs">
-            <div class="row justify-content-center">
-                <div class="col-11">
-                    <br>
+          <div class="row justify-content-center">
+            <div class="col-11">
 
-                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+              <br>
+              <div class="row justify-content-center">
+                <div class="col">
+                  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure' )}}" >{{trans('buyingProcedure.Appointment First')}}</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/take-from-shop-or-gia' )}}" >{{trans('buyingProcedure.Shop Or GIA Lab')}} </a>
+                    </li> 
+                    <li class="nav-item">
+                      <a class="nav-link active show" href="{{ url( app()->getLocale() . '/buying-procedure/custom-engagement-rings' )}}" >{{trans('buyingProcedure.Choose Ring Setting')}}</a>
+                    </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure' )}}" >{{trans('buyingProcedure.Appointment First')}}</a>
-                      </li>
+                      <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/diamond-inlay-engrave' )}}">{{trans('buyingProcedure.Ring Inlay | Engrave')}}</a>
+                    </li> 
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/take-from-shop-or-gia' )}}" >{{trans('buyingProcedure.Shop Or GIA Lab')}} </a>
-                      </li> 
-                      <li class="nav-item">
-                        <a class="nav-link active show" href="{{ url( app()->getLocale() . '/buying-procedure/custom-engagement-rings' )}}" >{{trans('buyingProcedure.Choose Ring Setting')}}</a>
-                      </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/diamond-inlay-engrave' )}}">{{trans('buyingProcedure.Ring Inlay | Engrave')}}</a>
-                      </li> 
-                        <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/full-satisfaction' )}}" >{{trans('buyingProcedure.Pay With Satisfaction')}} </a>
-                      </li>                
-                    </ul>
+                      <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/full-satisfaction' )}}" >{{trans('buyingProcedure.Pay With Satisfaction')}} </a>
+                    </li>                
+                  </ul>
 
-                    <article class="message is-primary" >
-                      <div class="level is-centered">
-                        <div class="message-body">
+                  
+                  <div class="row justify-content-center" v-if="activedSubTab=='Choose Ring Setting'|| activedSubTab=='custom-engagement-rings'">
+                    <div class="col-sm-5">
+                      <center>
+                        <p class="title is-6">{{trans('buyingProcedure.Choose')}} <a class="title is-6" href="">{{trans('buyingProcedure.On Stock Engagaement Ring')}}</a></p>
 
-                            <div class="row justify-content-center" v-if="activedSubTab=='Choose Ring Setting'|| activedSubTab=='custom-engagement-rings'">
-                          
-                              <div class="col-sm-5">
+                        <p>{{trans('buyingProcedure.para5')}}</p>
 
-                                <center>
-                                  <p class="title is-6">{{trans('buyingProcedure.Choose')}} <a class="title is-6" href="">{{trans('buyingProcedure.On Stock Engagaement Ring')}}</a></p>
+                          <figure class="image">
+                            
+                              <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/IMG_0108_1-e1473742419200.jpg">
+                          </figure>
+                      </center>
+                    </div>
+                    <div class="col">
+                         <center>
+                        <p class="title is-6">{{trans('buyingProcedure.title4')}}</p>
+                        <li>{{trans('buyingProcedure.para6')}}</li>
+                        <li>{{trans('buyingProcedure.para7')}}</li>
+                        <p class="title is-6">{{trans('buyingProcedure.para7.1')}}</p>
+                        <figure class="image">
+                              <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/WhatsApp-Image-2017-01-04-at-7.26.31-PM_1.jpg">
+                          </figure>
+                        <li>{{trans('buyingProcedure.para8')}}</li>
 
-                                  <p>{{trans('buyingProcedure.para5')}}</p>
+                        <figure class="image">
+                              <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/0.7-626x453.jpg">
+                          </figure>
+                        </center>
+                    </div>
+                  </div>
 
-                                    <figure class="image">
-                                      
-                                        <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/IMG_0108_1-e1473742419200.jpg">
-                                    </figure>
-                                </center>
-                                
-                                    
-                              </div>
+                           
+              </div>
+            @include('layouts.components.sideBar')
+          </div>      
 
-                              <div class="col">
-                                   <center>
-                                  <p class="title is-6">{{trans('buyingProcedure.title4')}}</p>
-                                  <li>{{trans('buyingProcedure.para6')}}</li>
-                                  <li>{{trans('buyingProcedure.para7')}}</li>
-                                  <p class="title is-6">{{trans('buyingProcedure.para7.1')}}</p>
-                                  <figure class="image">
-                                        <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/WhatsApp-Image-2017-01-04-at-7.26.31-PM_1.jpg">
-                                    </figure>
-
-                                  <li>{{trans('buyingProcedure.para8')}}</li>
-
-                                  <figure class="image">
-                                        <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/0.7-626x453.jpg">
-                                    </figure>
-
-                                </center>
-                              </div>
-
-                              
-                            </div>
-
-
-
-
-                        </div>
-                      </div>
-                      
-                    </article>
-                    
-                </div>
-                
-            </div>
-            
         </div>
+      </div>
+    </div>
 
     @endSection
 

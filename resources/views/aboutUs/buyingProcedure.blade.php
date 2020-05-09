@@ -37,79 +37,62 @@
 
 
         <div id="aboutUs">
-            <div class="row justify-content-center">
-                <div class="col-11">
-                    <br>
-
-                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link  active show" href="{{ url( app()->getLocale() . '/buying-procedure' )}}" >{{trans('buyingProcedure.Appointment First')}}</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/take-from-shop-or-gia' )}}" >{{trans('buyingProcedure.Shop Or GIA Lab')}} </a>
-                      </li> 
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/custom-engagement-rings' )}}" >{{trans('buyingProcedure.Choose Ring Setting')}}</a>
-                      </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/diamond-inlay-engrave' )}}">{{trans('buyingProcedure.Ring Inlay | Engrave')}}</a>
-                      </li> 
-                        <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/full-satisfaction' )}}" >{{trans('buyingProcedure.Pay With Satisfaction')}} </a>
-                      </li>                
-                    </ul>
-
-                    <article class="message is-primary" >
-                      <div class="level is-centered">
-                        <div class="message-body">
-
-                        <br>
-                        
-                          <div class="row justify-content-center" >
+          <div class="row justify-content-center">
+            <div class="col-11">
               
-                              <div class="col-sm-9">
+              <br>
+              <div class="row justify-content-center">
+                <div class="col">                    
+                  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link  active show" href="{{ url( app()->getLocale() . '/buying-procedure' )}}" >{{trans('buyingProcedure.Appointment First')}}</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/take-from-shop-or-gia' )}}" >{{trans('buyingProcedure.Shop Or GIA Lab')}} </a>
+                    </li> 
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/custom-engagement-rings' )}}" >{{trans('buyingProcedure.Choose Ring Setting')}}</a>
+                    </li>
+                      <li class="nav-item">
+                      <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/diamond-inlay-engrave' )}}">{{trans('buyingProcedure.Ring Inlay | Engrave')}}</a>
+                    </li> 
+                      <li class="nav-item">
+                      <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/full-satisfaction' )}}" >{{trans('buyingProcedure.Pay With Satisfaction')}} </a>
+                    </li>                
+                  </ul>
 
-                                <center>
-                                  <p class="title is-5">{{trans('buyingProcedure.title1')}}</p>
-                                  <p>{{trans('buyingProcedure.para1')}}</p>
-                                  <p>{{trans('buyingProcedure.para1.1')}}</p>
-                                  <p>{{trans('buyingProcedure.para1.2')}}</p>
-                                  <p>{{trans('buyingProcedure.para1.3')}}</p>
-                                </center>
-                                
-                                    
-                              </div>
-
-                              <div class="col ">
-                                   <center>
-                                      <p class="title is-5">{{trans('buyingProcedure.title2')}}：</p>
-                                      <p class="title is-6">{{trans('buyingProcedure.title3')}}</p>
-                                      <p >{{trans('buyingProcedure.para2')}}</p>
-                                    </center>
-                              </div>
-
-                              
-                          </div>
+                  <br>
+                        
+                  <div class="row justify-content-center" >
+                    <div class="col-sm-9">
+                      <center>
+                        <p class="title is-5">{{trans('buyingProcedure.title1')}}</p>
+                        <p>{{trans('buyingProcedure.para1')}}</p>
+                        <p>{{trans('buyingProcedure.para1.1')}}</p>
+                        <p>{{trans('buyingProcedure.para1.2')}}</p>
+                        <p>{{trans('buyingProcedure.para1.3')}}</p>
+                      </center>
+                    </div>
+                    <div class="col ">
+                     <center>
+                        <p class="title is-5">{{trans('buyingProcedure.title2')}}：</p>
+                        <p class="title is-6">{{trans('buyingProcedure.title3')}}</p>
+                        <p >{{trans('buyingProcedure.para2')}}</p>
+                      </center>
+                    </div>
+                  </div>
                           
-                          <div class="row justify-content-center" >
-                            
-                          @include('layouts.components.contacts')
+                  <div class="row justify-content-center" >
+                    @include('layouts.components.contacts')
+                  </div>
 
-                            
-                          </div>
-
-
-
-                        </div>
-                      </div>
-                      
-                    </article>
-                    
                 </div>
-                
-            </div>
-            
+              @include('layouts.components.sideBar')
+            </div>      
+
         </div>
+      </div>
+    </div>
 
     @endSection
 

@@ -41,189 +41,134 @@
                 <div class="col-11">
 
                 <br>
+                <div class="row justify-content-center">
+                  <div class="col">
+                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active show" href="{{url(app()->getLocale() . '/about-us' )}} " >{{trans('aboutUs.Contact Us')}}</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link " href="{{url(app()->getLocale() . '/about-us/guarantee' )}}" >{{trans('aboutUs.Quality Guarantee')}}</a>
+                      </li> 
+                      <li class="nav-item">
+                        <a class="nav-link"  href="{{url(app()->getLocale() . '/about-us/commitment' )}}">{{trans('aboutUs.Satification Insurence')}}</a>
+                      </li>                 
+                    </ul>
 
-                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active show" href="{{url(app()->getLocale() . '/about-us' )}} " >{{trans('aboutUs.Contact Us')}}</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link " href="{{url(app()->getLocale() . '/about-us/guarantee' )}}" >{{trans('aboutUs.Quality Guarantee')}}</a>
-                  </li> 
-                  <li class="nav-item">
-                    <a class="nav-link"  href="{{url(app()->getLocale() . '/about-us/commitment' )}}">{{trans('aboutUs.Satification Insurence')}}</a>
-                  </li>                 
-                </ul>
+                    <br>
+                    <div class="row justify-content-center">  
+                      <div class="col-8">   
+                        <center>
 
-                <!-- <div class="tabs is-centered">
-                  <ul>
-                    <li :class="{'is-active': activedSubTab=='Contact Us' }" @click="activeSubTab('Contact Us')" ><a>{{trans('aboutUs.Contact Us')}}</a></li>
-                    <li :class="{'is-active': activedSubTab=='Quality Guarantee' }" @click="activeSubTab('Quality Guarantee')" ><a>{{trans('aboutUs.Quality Guarantee')}} </a></li>
-                    <li :class="{'is-active': activedSubTab=='Satification Insurence' }" @click="activeSubTab('Satification Insurence')"><a>{{trans('aboutUs.Satification Insurence')}}</a></li>
-                  </ul>
-                </div> -->
-
-                <br>
-
-                <div>
-
-
-                  <article class="message is-primary" >
-                    
-                    <div class="level is-centered">
-                    <div class="message-body">
-                    <div class="row justify-content-center">
-                      
-                          <div class="col-8">
+                            <center><p class="title is-6">{{trans('aboutUs.title1')}}</p>
+                            </center>
+                            <br>
+                            <div class="level">
+                            <li>{{trans('aboutUs.para1')}}</li>
+                               
+                            </div>
                         
-                                
-                                <center>
-
-                                    <center><p class="title is-6">{{trans('aboutUs.title1')}}</p>
-                                    </center>
-                                    <br>
-                                    <div class="level">
-                                    <li>{{trans('aboutUs.para1')}}</li>
-                                       
-                                    </div>
-                                
-                                </center>
-                                
-                              
-                                 
-                          </div>
-
-                      <div class="col">
-
-                     <a class="">
-                        <center>  
-                            <figure class="image">
-                              <p></p>
-                                <img class="img-fluid" src="/images/front-end/aboutUs/address/IMG_7397.jpg">
-                            </figure>
                         </center>
-                    </a>
-
-                    </div>
-                  </div>
-
-
-                  <hr>
-
-
-                  @include('layouts.components.contacts')
-
-                  
-                   <hr>
-                   <div class="row justify-content-center">
-                      
-                          <div class="col-5">
-                        
-                                
-                                <center>
-                                  <figure class="image">
-                                          <p></p>
-                                            <img class="img-fluid" src="/images/front-end/aboutUs/CCI15122016-343x240.jpg">
-                                        </figure>
-                                 
-                                </center>
-                              
-                                 
-                          </div>
+                      </div>
 
                       <div class="col">
 
-                               <center>
-                                <br>
-                                    <center><p class="title is-6">{{trans('aboutUs.British qualifier professional qualifications')}}</p>
-                                    </center>
-                                    <br>
-                                    <div class="">
-                                    <li>{{trans('aboutUs.para2')}}</li>
-                                    <a href="https://gem-a.com/">{{trans('aboutUs.para3')}}</a>
-                                       
-                                    </div>
-                                  
-
-                                </center>
-
-                    </div>
-                  </div>
-
-                  <hr>
-                   <div class="row justify-content-center">
-                      
-                          <div class="col-8">
-                        
-                                
-                                <center>
-                                  <figure class="image">
-                                    <p></p>
-                                      <img class="img-fluid" src="/images/front-end/aboutUs/address/map.jpg">
-                                  </figure>
-                                 
-                                </center>
-                              
-                                 
-                          </div>
-
-                      <div class="col">
-
-                               <center>
-                                <center>
-                                  <p class="title is-6">{{trans('aboutUs.address1')}}</p>
-                                  <p class="title is-6">{{trans('aboutUs.address2')}}</p>
-                                  <p class="title is-6">{{trans('aboutUs.address3')}}</p>
-                                  <p class="title is-6">{{trans('aboutUs.address')}}</p>
-
-                                  </center>
-                                    <br>
-                                    <div class="">
-                                    <li>{{trans('aboutUs.Office Hours')}}</li>
-                                    <a>{{trans('aboutUs.Monday to Friday')}}</a>
-                                       
-                                    </div>
-                                  
-
-                                </center>
-
-                    </div>
-                  </div>
-
-
-                  <figure >
-                    <center>
-                      @if( app()->getLocale() != 'cn' )
-
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1845.70976546845!2d114.17391399378062!3d22.29996796946113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340400ec2103aa27%3A0x28d16963f4a64e96!2z5p2x5riv5ZWG5qWt5aSn5buI!5e0!3m2!1szh-TW!2shk!4v1567429885678!5m2!1szh-TW!2shk" width="90%" height="500" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-
-                      @endif
-
-                      @if( app()->getLocale() == 'cn' )
-
-                       <img class="img-fluid" src="/images/front-end/aboutUs/address/baiduMap.png">
-
-                      @endif
-
-                    </center>
-
-                  </figure>
-
-
-                </div>
-                </article>
-              </div>
-
-
+                       <a class="">
+                          <center>  
+                              <figure class="image">
+                                <p></p>
+                                  <img class="img-fluid" src="/images/front-end/aboutUs/address/IMG_7397.jpg">
+                              </figure>
+                          </center>
+                      </a>
 
                       </div>
-                      
-                    </article>
+                    </div>
+
+                    <hr>
                     
-                </div>
-                
-            </div>
-            
+                    @include('layouts.components.contacts')
+
+                      
+                     <hr>
+                     <div class="row justify-content-center">
+                      <div class="col-5">
+                        <center>
+                          <figure class="image">
+                                  <p></p>
+                                    <img class="img-fluid" src="/images/front-end/aboutUs/CCI15122016-343x240.jpg">
+                                </figure>
+                         
+                        </center>
+                      </div>
+                      <div class="col">
+                         <center>
+                          <br>
+                              <center><p class="title is-6">{{trans('aboutUs.British qualifier professional qualifications')}}</p>
+                              </center>
+                              <br>
+                              <div class="">
+                              <li>{{trans('aboutUs.para2')}}</li>
+                              <a href="https://gem-a.com/">{{trans('aboutUs.para3')}}</a>
+                                 
+                              </div>
+                        </center>
+                      </div>
+                    </div>
+
+                    <hr>
+                      <div class="row justify-content-center">
+                        <div class="col-8">
+                          <center>
+                            <figure class="image">
+                              <p></p>
+                                <img class="img-fluid" src="/images/front-end/aboutUs/address/map.jpg">
+                            </figure>
+                           
+                          </center>  
+                        </div>
+                        <div class="col">
+                           <center>
+                            <center>
+                              <p class="title is-6">{{trans('aboutUs.address1')}}</p>
+                              <p class="title is-6">{{trans('aboutUs.address2')}}</p>
+                              <p class="title is-6">{{trans('aboutUs.address3')}}</p>
+                              <p class="title is-6">{{trans('aboutUs.address')}}</p>
+
+                              </center>
+                                <br>
+                                <div class="">
+                                <li>{{trans('aboutUs.Office Hours')}}</li>
+                                <a>{{trans('aboutUs.Monday to Friday')}}</a>
+                                   
+                                </div>
+                            </center>
+                        </div>
+                      </div>
+                      <figure >
+                        <center>
+                          @if( app()->getLocale() != 'cn' )
+
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1845.70976546845!2d114.17391399378062!3d22.29996796946113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340400ec2103aa27%3A0x28d16963f4a64e96!2z5p2x5riv5ZWG5qWt5aSn5buI!5e0!3m2!1szh-TW!2shk!4v1567429885678!5m2!1szh-TW!2shk" width="90%" height="500" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+                          @endif
+
+                          @if( app()->getLocale() == 'cn' )
+
+                           <img class="img-fluid" src="/images/front-end/aboutUs/address/baiduMap.png">
+
+                          @endif
+
+                        </center>
+                      </figure>
+                    
+              </div>
+            @include('layouts.components.sideBar')
+          </div>   
+
         </div>
+      </div>
+    </div>
 
     @endSection
 

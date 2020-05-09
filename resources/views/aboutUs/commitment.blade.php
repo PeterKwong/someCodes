@@ -37,11 +37,13 @@
 
 
         <div id="aboutUs">
+          <div class="row justify-content-center">
+            <div class="col-11">
+
+            <br>
+
             <div class="row justify-content-center">
-                <div class="col-11">
-
-                <br>
-
+              <div class="col">
                 <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                   <li class="nav-item">
                     <a class="nav-link" href="{{url(app()->getLocale() . '/about-us' )}} " >{{trans('aboutUs.Contact Us')}}</a>
@@ -53,195 +55,129 @@
                     <a class="nav-link"  href="{{url(app()->getLocale() . '/about-us/commitment' )}}">{{trans('aboutUs.Satification Insurence')}}</a>
                   </li>                 
                 </ul>
-
-                <!-- <div class="tabs is-centered">
-                  <ul>
-                    <li :class="{'is-active': activedSubTab=='Contact Us' }" @click="activeSubTab('Contact Us')" ><a>{{trans('aboutUs.Contact Us')}}</a></li>
-                    <li :class="{'is-active': activedSubTab=='Quality Guarantee' }" @click="activeSubTab('Quality Guarantee')" ><a>{{trans('aboutUs.Quality Guarantee')}} </a></li>
-                    <li :class="{'is-active': activedSubTab=='Satification Insurence' }" @click="activeSubTab('Satification Insurence')"><a>{{trans('aboutUs.Satification Insurence')}}</a></li>
-                  </ul>
-                </div> -->
-
                 <br>
 
+                <div class="row justify-content-center">
+                  <div class="col-3">
+                    <a class="">
+                        <center>  
+                            <figure class="image">
+                              <p></p>
+                                <img class="img-fluid" src="/images/front-end/aboutUs/insurence/HS_EngagementGuide_RingSizer-539x303.jpg">
+                            </figure>
+                        </center>
+                    </a>
+                  </div>
 
+                  <div class="col">
+                    <center>
+                      <center><p class="title is-6">{{trans('aboutUs.title6')}}</p>
+                      </center>
+                      <br>
+                      <div class="level">
+                        <li>
+                          {{trans('aboutUs.para8')}}
+                        </li>                    
+                      </div>
+                    </center>
+                  </div>
+                </div>
 
-              <div >
+                <hr>
+                <div class="row justify-content-center">
+                  <div class="col-3">
+                    <a class="">
+                      <center>  
+                          <figure class="image">
+                            <p></p>
+                              <img class="img-fluid" src="/images/front-end/aboutUs/insurence/Sterling-Silver-My-Heart-is-Yours-Engraved-CZ-Heart-Promise-Ring-MLA14618486.jpg">
+                          </figure>
+                      </center>
+                    </a>
+                  </div>
+                  <div class="col">
+                    <center>
+                      <center><p class="title is-6">{{trans('aboutUs.title7')}}</p>
+                      </center>
+                      <br>
+                      <div class="level">
+                        <li>{{trans('aboutUs.para9')}}</li>
+                      </div>
+                    </center>
+                  </div>
+                </div>
 
-                <article class="message is-primary" >
-                    
-                    <div class="level is-centered">
-                    <div class="message-body">
+                <hr>
+                <div class="row justify-content-center">
+                  <div class="col-3">
+                    <a class="">
+                      <center>  
+                          <figure class="image">
+                            <p></p>
+                              <img class="img-fluid" src="/images/front-end/aboutUs/insurence/130218-hero_1356018657153.jpg">
+                          </figure>
+                      </center>
+                    </a>
+                  </div>
+                  <div class="col">
+                    <center>
+                      <center><p class="title is-6">{{trans('aboutUs.title8')}}</p>
+                      </center>
+                      <br>
+                      <div class="level">
+                        <li>{{trans('aboutUs.para10')}}</li>
+                      </div>
+                    </center>
+                  </div>
+                </div>
 
-                    <div class="row justify-content-center">
-                      
-                          <div class="col-3">
-                            <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p></p>
-                                        <img class="img-fluid" src="/images/front-end/aboutUs/insurence/HS_EngagementGuide_RingSizer-539x303.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                                
-                          </div>
-
-                      <div class="col">
-
-                          <center>
-
-                                <center><p class="title is-6">{{trans('aboutUs.title6')}}</p>
-                                </center>
-                                <br>
-                                <div class="level">
-                                <li>
-                                  {{trans('aboutUs.para8')}}
-                                </li>
-                                
-                                   
-                                </div>
-                            
-                            </center>
-
-                     
-
+                <hr>
+                <div class="row justify-content-center">
+                  <div class="col-3">
+                    <a class="">
+                        <center>  
+                            <figure class="image">
+                              <p></p>
+                                <img class="img-fluid" src="/images/front-end/aboutUs/insurence/diamondup-img.jpg">
+                            </figure>
+                        </center>
+                    </a>
+                  </div>
+                  <div class="col">
+                    <center>
+                      <center><p class="title is-6">{{trans('aboutUs.title9')}}</p>
+                      </center>
+                      <br>
+                      <div class="level">
+                        <li>{{trans('aboutUs.para11')}}</li>
+                      </div>
+                    </center>
                     </div>
                   </div>
 
                   <hr>
                   <div class="row justify-content-center">
-                      
-                          <div class="col-3">
-                            <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p></p>
-                                        <img class="img-fluid" src="/images/front-end/aboutUs/insurence/Sterling-Silver-My-Heart-is-Yours-Engraved-CZ-Heart-Promise-Ring-MLA14618486.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                                
-                          </div>
-
-                      <div class="col">
-
-                          <center>
-
-                                <center><p class="title is-6">{{trans('aboutUs.title7')}}</p>
-                                </center>
-                                <br>
-                                <div class="level">
-                                <li>{{trans('aboutUs.para9')}}</li>
-                                   
-                                </div>
-                            
-                            </center>
-
-                     
-
+                    <div class="col-3">
+                      <a class="">
+                          <center>  
+                              <figure class="image">
+                                <p></p>
+                                  <img class="img-fluid" src="/images/front-end/customerMoments/engagementTips/Photo-11-9-2016-1-07-18-PM_1-1024x768.jpg">
+                              </figure>
+                          </center>
+                      </a>
                     </div>
-                  </div>
 
-                  <hr>
-                  <div class="row justify-content-center">
-                      
-                          <div class="col-3">
-                            <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p></p>
-                                        <img class="img-fluid" src="/images/front-end/aboutUs/insurence/130218-hero_1356018657153.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                                
-                          </div>
-
-                      <div class="col">
-
-                          <center>
-
-                                <center><p class="title is-6">{{trans('aboutUs.title8')}}</p>
-                                </center>
-                                <br>
-                                <div class="level">
-                                <li>{{trans('aboutUs.para10')}}</li>
-                                   
-                                </div>
-                            
-                            </center>
-
-                     
-
-                    </div>
-                  </div>
-
-                  <hr>
-                  <div class="row justify-content-center">
-                      
-                          <div class="col-3">
-                            <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p></p>
-                                        <img class="img-fluid" src="/images/front-end/aboutUs/insurence/diamondup-img.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                                
-                          </div>
-
-                      <div class="col">
-
-                          <center>
-
-                                <center><p class="title is-6">{{trans('aboutUs.title9')}}</p>
-                                </center>
-                                <br>
-                                <div class="level">
-                                <li>{{trans('aboutUs.para11')}}</li>
-                                   
-                                </div>
-                            
-                            </center>
-
-                     
-
-                    </div>
-                  </div>
-
-                  <hr>
-                  <div class="row justify-content-center">
-                      
-                          <div class="col-3">
-                            <a class="">
-                                <center>  
-                                    <figure class="image">
-                                      <p></p>
-                                        <img class="img-fluid" src="/images/front-end/customerMoments/engagementTips/Photo-11-9-2016-1-07-18-PM_1-1024x768.jpg">
-                                    </figure>
-                                </center>
-                            </a>
-                                
-                          </div>
-
-                      <div class="col">
-
-                          <center>
-
-                                <center><p class="title is-6">{{trans('aboutUs.title10')}}</p>
-                                </center>
-                                <br>
-                                <div class="level">
-                                <li>{{trans('aboutUs.para12')}}</li>
-                                   
-                                </div>
-                            
-                            </center>
-
-                     
-
+                    <div class="col">
+                      <center>
+                        <center><p class="title is-6">{{trans('aboutUs.title10')}}</p>
+                        </center>
+                        <br>
+                        <div class="level">
+                          <li>{{trans('aboutUs.para12')}}</li>
+                           
+                        </div>
+                      </center>
                     </div>
                   </div>
 
@@ -252,23 +188,14 @@
                   </center>    
 
 
-                      
-                  </div>
-
-                  </div>
-                </article>
-
-                        </div>
-                      </div>
-                      
-                    </article>
                     
-                </div>
-                
-            </div>
-            
-        </div>
+              </div>
+            @include('layouts.components.sideBar')
+          </div>      
 
+        </div>
+      </div>
+    </div>
     @endSection
 
 

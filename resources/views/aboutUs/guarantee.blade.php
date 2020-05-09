@@ -37,64 +37,41 @@
 
 
         <div id="aboutUs">
-            <div class="row justify-content-center">
-                <div class="col-11">
+          <div class="row justify-content-center">
+            <div class="col-11">
 
-                <br>
-
-                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{url(app()->getLocale() . '/about-us' )}} " >{{trans('aboutUs.Contact Us')}}</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link  active show" href="{{url(app()->getLocale() . '/about-us/guarantee' )}}" >{{trans('aboutUs.Quality Guarantee')}}</a>
-                  </li> 
-                  <li class="nav-item">
-                    <a class="nav-link"  href="{{url(app()->getLocale() . '/about-us/commitment' )}}">{{trans('aboutUs.Satification Insurence')}}</a>
-                  </li>                 
-                </ul>
-
-                <!-- <div class="tabs is-centered">
-                  <ul>
-                    <li :class="{'is-active': activedSubTab=='Contact Us' }" @click="activeSubTab('Contact Us')" ><a>{{trans('aboutUs.Contact Us')}}</a></li>
-                    <li :class="{'is-active': activedSubTab=='Quality Guarantee' }" @click="activeSubTab('Quality Guarantee')" ><a>{{trans('aboutUs.Quality Guarantee')}} </a></li>
-                    <li :class="{'is-active': activedSubTab=='Satification Insurence' }" @click="activeSubTab('Satification Insurence')"><a>{{trans('aboutUs.Satification Insurence')}}</a></li>
+            <br>
+              <div class="row justify-content-center">
+                <div class="col">
+                  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{url(app()->getLocale() . '/about-us' )}} " >{{trans('aboutUs.Contact Us')}}</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link  active show" href="{{url(app()->getLocale() . '/about-us/guarantee' )}}" >{{trans('aboutUs.Quality Guarantee')}}</a>
+                    </li> 
+                    <li class="nav-item">
+                      <a class="nav-link"  href="{{url(app()->getLocale() . '/about-us/commitment' )}}">{{trans('aboutUs.Satification Insurence')}}</a>
+                    </li>                 
                   </ul>
-                </div> -->
 
-                <br>
+                  <br>
+                  
+                  <div class="row justify-content-center">
+                    <div class="col-9">
+                      <center>
 
-
-                <div >
-
-                <article class="message is-primary" >
-                    
-                    <div class="level is-centered">
-                    <div class="message-body">
-
-                    <div class="row justify-content-center">
-                      
-                          <div class="col-9">
-                        
-                                
-                                <center>
-
-                                    <center><p class="title is-6">{{trans('aboutUs.title2')}}</p>
-                                    </center>
-                                    <br>
-                                    <div class="level">
-                                    <li>{{trans('aboutUs.para4')}} <a href="education-diamond-grading/gia-report/">GIA Report</a>?</li>
-                                       
-                                    </div>
-                                
-                                </center>
-                                
-                              
-                                 
+                          <center><p class="title is-6">{{trans('aboutUs.title2')}}</p>
+                          </center>
+                          <br>
+                          <div class="level">
+                          <li>{{trans('aboutUs.para4')}} <a href="education-diamond-grading/gia-report/">GIA Report</a>?</li>
+                             
                           </div>
-
-                      <div class="col">
-
+                      
+                      </center>
+                    </div>
+                    <div class="col">
                      <a class="">
                         <center>  
                             <figure class="image">
@@ -102,76 +79,55 @@
                                 <img class="img-fluid" src="/images/front-end/aboutUs/guarantee/Diamond-Grading-Report-300x139_1364898592668-300x169.jpg">
                             </figure>
                         </center>
-                    </a>
-
+                      </a>
                     </div>
                   </div>
 
                   <hr>
                   <div class="row justify-content-center">
-                      
-                          <div class="col-9">
-                        
-                                
-                                <center>
-
-                                    <center><p class="title is-6">{{trans('aboutUs.title3')}}</p>
-                                    </center>
-                                    <br>
-                                    <div class="level">
-                                    <li>{{trans('aboutUs.para5')}} 
-                                      <a href="https://www.gia.edu/">{{trans('aboutUs.GIA official website')}}
-                                      </a> {{trans('aboutUs.para5.1')}}</li>
-                                       
-                                    </div>
-                                
-                                </center>
-                                
-                              
-                                 
-                          </div>
-
-                      <div class="col">
-
-                     <a class="">
-                        <center>  
-                            <figure class="image">
-                              <p></p>
-                                <img class="img-fluid" src="/images/front-end/aboutUs/guarantee/Photo 10-9-2017, 10 46 56 PM.jpg">
-                            </figure>
+                    <div class="col-9">
+                      <center>
+                        <center><p class="title is-6">{{trans('aboutUs.title3')}}</p>
                         </center>
-                    </a>
-
+                        <br>
+                        <div class="level">
+                        <li>{{trans('aboutUs.para5')}} 
+                          <a href="https://www.gia.edu/">{{trans('aboutUs.GIA official website')}}
+                          </a> {{trans('aboutUs.para5.1')}}</li>
+                           
+                        </div>
+                      </center>
+                    </div>
+                    <div class="col">
+                     <a class="">
+                      <center>  
+                          <figure class="image">
+                            <p></p>
+                              <img class="img-fluid" src="/images/front-end/aboutUs/guarantee/Photo 10-9-2017, 10 46 56 PM.jpg">
+                          </figure>
+                      </center>
+                      </a>
                     </div>
                   </div>
 
 
                   <hr>
                   <div class="row justify-content-center">
-                      
-                          <div class="col-9">
-                        
-                                
-                                <center>
-
-                                    <center><p class="title is-6">{{trans('aboutUs.title4')}}</p>
-                                    </center>
-                                    <br>
-                                    <div class="level">
-                                    <li>{{trans('aboutUs.para6')}} 
-                                      <a href="https://presidium.com.sg/psdproduct/adamas/">
-                                       {{trans('aboutUs.para6.1')}}</a></li>
-                                       
-                                    </div>
-                                
-                                </center>
-                                
-                              
-                                 
+                    <div class="col-9">
+                      <center>
+                          <center><p class="title is-6">{{trans('aboutUs.title4')}}</p>
+                          </center>
+                          <br>
+                          <div class="level">
+                          <li>{{trans('aboutUs.para6')}} 
+                            <a href="https://presidium.com.sg/psdproduct/adamas/">
+                             {{trans('aboutUs.para6.1')}}</a></li>
+                             
                           </div>
+                      </center>
+                    </div>
 
-                      <div class="col">
-
+                    <div class="col">
                      <a class="">
                         <center>  
                             <figure class="image">
@@ -179,37 +135,28 @@
                                 <img class="img-fluid" src="/images/front-end/aboutUs/guarantee/Adamas_Top_winner_500x500.jpg">
                             </figure>
                         </center>
-                    </a>
-
+                     </a>
                     </div>
                   </div>
 
                   <hr>
                   <div class="row justify-content-center">
-                      
-                          <div class="col-9">
-                        
-                                
-                                <center>
+                    <div class="col-9">
+                      <center>
 
-                                    <center><p class="title is-6">{{trans('aboutUs.title5')}}</p>
-                                    </center>
-                                    <br>
-                                    <div class="level">
-                                    <li>{{trans('aboutUs.para7')}} 
-                                      <a href="http://presidium.com.sg/psdproduct/multi-tester-iii/">
-                                       </a></li>
-                                       
-                                    </div>
-                                
-                                </center>
-                                
-                              
-                                 
+                          <center><p class="title is-6">{{trans('aboutUs.title5')}}</p>
+                          </center>
+                          <br>
+                          <div class="level">
+                          <li>{{trans('aboutUs.para7')}} 
+                            <a href="http://presidium.com.sg/psdproduct/multi-tester-iii/">
+                             </a></li>
+                             
                           </div>
-
-                      <div class="col">
-
+                      
+                      </center>
+                    </div>
+                    <div class="col">
                      <a class="">
                         <center>  
                             <figure class="image">
@@ -217,35 +164,21 @@
                                 <img class="img-fluid" src="/images/front-end/aboutUs/guarantee/HK-Welcome-522x311_1355960572014.jpg">
                             </figure>
                         </center>
-                    </a>
-
+                     </a>
                     </div>
                   </div>
 
 
 
                       
-                  </div>
-
-                  </div>
-                </article>
-
-                
 
               </div>
+            @include('layouts.components.sideBar')
+          </div>      
 
-
-
-
-                      </div>
-                      
-                    </article>
-                    
-                </div>
-                
-            </div>
-            
         </div>
+      </div>
+    </div>
 
     @endSection
 

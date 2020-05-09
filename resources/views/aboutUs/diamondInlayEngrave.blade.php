@@ -37,72 +37,57 @@
 
 
         <div id="aboutUs">
-            <div class="row justify-content-center">
-                <div class="col-11">
-                    <br>
+          <div class="row justify-content-center">
+            <div class="col-11">
 
-                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+              <br>
+              <div class="row justify-content-center">
+                <div class="col">
+                  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure' )}}" >{{trans('buyingProcedure.Appointment First')}}</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/take-from-shop-or-gia' )}}" >{{trans('buyingProcedure.Shop Or GIA Lab')}} </a>
+                    </li> 
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/custom-engagement-rings' )}}" >{{trans('buyingProcedure.Choose Ring Setting')}}</a>
+                    </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure' )}}" >{{trans('buyingProcedure.Appointment First')}}</a>
-                      </li>
+                      <a class="nav-link active show" href="{{ url( app()->getLocale() . '/buying-procedure/diamond-inlay-engrave' )}}">{{trans('buyingProcedure.Ring Inlay | Engrave')}}</a>
+                    </li> 
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/take-from-shop-or-gia' )}}" >{{trans('buyingProcedure.Shop Or GIA Lab')}} </a>
-                      </li> 
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/custom-engagement-rings' )}}" >{{trans('buyingProcedure.Choose Ring Setting')}}</a>
-                      </li>
-                        <li class="nav-item">
-                        <a class="nav-link active show" href="{{ url( app()->getLocale() . '/buying-procedure/diamond-inlay-engrave' )}}">{{trans('buyingProcedure.Ring Inlay | Engrave')}}</a>
-                      </li> 
-                        <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/full-satisfaction' )}}" >{{trans('buyingProcedure.Pay With Satisfaction')}} </a>
-                      </li>                
-                    </ul>
+                      <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/full-satisfaction' )}}" >{{trans('buyingProcedure.Pay With Satisfaction')}} </a>
+                    </li>                
+                  </ul>
 
-                    <article class="message is-primary" >
-                      <div class="level is-centered">
-                        <div class="message-body">
-
-                        <br>
-
-                            <div class="row justify-content-center" >
-      
-                              <div class="col-sm-10">
-
-                                <center>
-                                  <p class="title is-6">{{trans('buyingProcedure.title5')}}</a></p>
-
-                                  <li>{{trans('buyingProcedure.para9')}}</li>
-                                  <li>{{trans('buyingProcedure.para10')}}</li>
-
-                                </center>
-                                
-                                    
-                              </div>
-
-                              <div class="col">
-                                   <center>
-                                  <p class="title is-6">{{trans('buyingProcedure.Free Engrave')}}</p>
-                                  <figure class="image">
-                                        <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/engraving-on-a-ring-150x150.jpg">
-                                    </figure>
+                  <br>
+                  <div class="row justify-content-center" >
+                    <div class="col-sm-10">
+                      <center>
+                        <p class="title is-6">{{trans('buyingProcedure.title5')}}</a></p>
+                        <li>{{trans('buyingProcedure.para9')}}</li>
+                        <li>{{trans('buyingProcedure.para10')}}</li>
+                      </center>
+                    </div>
+                    <div class="col">
+                         <center>
+                        <p class="title is-6">{{trans('buyingProcedure.Free Engrave')}}</p>
+                        <figure class="image">
+                              <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/engraving-on-a-ring-150x150.jpg">
+                          </figure>
+                      </center>
+                    </div>
+                  </div>
 
 
-                                </center>
-                              </div>
+              </div>
+            @include('layouts.components.sideBar')
+          </div>      
 
-
-
-                        </div>
-                      </div>
-                      
-                    </article>
-                    
-                </div>
-                
-            </div>
-            
         </div>
+      </div>
+    </div>
 
     @endSection
 

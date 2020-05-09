@@ -37,10 +37,11 @@
 
 
         <div id="aboutUs">
-            <div class="row justify-content-center">
-                <div class="col-11">
-                    <br>
-
+          <div class="row justify-content-center">
+            <div class="col-11">
+              <br>
+                <div class="row justify-content-center">
+                  <div class="col">
                     <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                       <li class="nav-item">
                         <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure' )}}" >{{trans('buyingProcedure.Appointment First')}}</a>
@@ -58,49 +59,41 @@
                         <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/full-satisfaction' )}}" >{{trans('buyingProcedure.Pay With Satisfaction')}} </a>
                       </li>                
                     </ul>
+                    
+                    <br>
 
-                    <article class="message is-primary" >
-                      <div class="level is-centered">
-                        <div class="message-body">
+                    <div class="row justify-content-center" >
+                    
+                        <div class="col-sm-10">
 
-                        <br>
+                          <center>
+                          <li>{{trans('buyingProcedure.para3')}}</li>
+                          <li>{{trans('buyingProcedure.para4')}}</li>
+                          
+                          </center>
+                          
+                              
+                        </div>
 
-                            <div class="row justify-content-center" >
-                            
-                                <div class="col-sm-10">
-
-                                  <center>
-                                  <li>{{trans('buyingProcedure.para3')}}</li>
-                                  <li>{{trans('buyingProcedure.para4')}}</li>
-                                  
-                                  </center>
-                                  
-                                      
-                                </div>
-
-                                <div class="col">
-                                     <center>  
-                                      <figure class="image">
-                                        <p>GIA</p>
-                                          <img class="img-fluid" src="/images/front-end/GIA/GIA-Logo.jpg">
-                                      </figure>
-                                      </center>
-                                </div>
-
-                                
-                              </div>
-
-
+                        <div class="col">
+                             <center>  
+                              <figure class="image">
+                                <p>GIA</p>
+                                  <img class="img-fluid" src="/images/front-end/GIA/GIA-Logo.jpg">
+                              </figure>
+                              </center>
                         </div>
                       </div>
-                      
-                    </article>
-                    
-                </div>
-                
-            </div>
-            
+
+
+
+              </div>
+            @include('layouts.components.sideBar')
+          </div>      
+
         </div>
+      </div>
+    </div>
 
     @endSection
 

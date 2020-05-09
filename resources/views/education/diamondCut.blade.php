@@ -92,18 +92,22 @@
                                 </div>
                               </div>
                             </div>
+
+                        <br>
+
+                        <div class="row justify-content-center text-center">
+                            <div class="col-10">
+                                <h2 class="title is-5"><span>&nbsp;</span><strong><a>{{trans('home.Must Watch')}} : </a></strong><small>{{trans('home.GIA Teaches You 4Cs')}} - {{trans('home.How To Choose Giamond')}}</small></h2>
+                                @include('layouts.components.giaVideo')
+                            </div>
                         </div>
-                      @include('layouts.education.sideBar')
+
+
+
+                        </div>
+                      @include('layouts.components.sideBar')
                     </div>
             
-                    <br>
-
-                    <div class="row justify-content-center text-center">
-                        <div class="col-10">
-                            <h2 class="title is-5"><span>&nbsp;</span><strong><a>{{trans('home.Must Watch')}} : </a></strong><small>{{trans('home.GIA Teaches You 4Cs')}} - {{trans('home.How To Choose Giamond')}}</small></h2>
-                            @include('layouts.components.giaVideo')
-                        </div>
-                    </div>
 
 
                 </div>
