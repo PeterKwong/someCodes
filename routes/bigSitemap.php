@@ -1,4 +1,53 @@
 <?php
+	// create new sitemap object
+	$sitemap = App::make('sitemap');
+
+	// get all products from db (or wherever you store them)
+	$products = DB::table('diamonds')->orderBy('created_at', 'desc')->get();
+
+	// counters
+	$counter = 0;
+	$sitemapCounter = 0;
+
+	// add every product to multiple sitemaps with one sitemap index
+	foreach ($products as $p) {
+		if ($counter == 50000) {
+			// generate new sitemap file
+			$sitemap->store('xml', 'sitemap-' . $sitemapCounter);
+			// add the file to the sitemaps array
+			$sitemap->addSitemap(secure_url('sitemap-' . $sitemapCounter . '.xml'));
+			// reset items array (clear memory)
+			$sitemap->model->resetItems();
+			// reset the counter
+			$counter = 0;
+			// count generated sitemap
+			$sitemapCounter++;
+		}
+
+		// add product to items array
+		$sitemap->add($p->slug, $p->modified, $p->priority, $p->freq);
+		// count number of elements
+		$counter++;
+	}
+
+	// you need to check for unused items
+	if (!empty($sitemap->model->getItems())) {
+		// generate sitemap with last items
+		$sitemap->store('xml', 'sitemap-' . $sitemapCounter);
+		// add sitemap to sitemaps array
+		$sitemap->addSitemap(secure_url('sitemap-' . $sitemapCounter . '.xml'));
+		// reset items array
+		$sitemap->model->resetItems();
+	}
+
+	// generate new sitemapindex that will contain all generated sitemaps above
+	$sitemap->store('sitemapindex', 'sitemap');
+
+	// dd($sitemap);
+	return redirect('big-sitemap/diamonds/sitemap.xml');
+
+	return 	1;
+
 
 	// create new sitemap object
 	$sitemap = App::make('sitemap');

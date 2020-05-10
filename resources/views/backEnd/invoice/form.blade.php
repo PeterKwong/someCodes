@@ -62,29 +62,29 @@
 				<div class="row">
 					<div class="col-4">
 							<label>Diamond</label>
-							<typehead :options = "option.inv_diamonds" v-model="selectedDia" ></typehead>
+							<typehead :options = "option.invoice_diamonds" v-model="selectedDia" ></typehead>
 					</div>
 					
 				</div>
 
 				<h3>Diamonds</h3>
-				<div class="card-body" v-for="(diamond,index) in form.inv_diamonds">
-					<div class="row" v-for="optDia in option.inv_diamonds" v-if="optDia.id==diamond.id">
+				<div class="card-body" v-for="(diamond,index) in form.invoice_diamonds">
+					<div class="row" v-for="optDia in option.invoice_diamonds" v-if="optDia.id==diamond.id">
 
 								<div class="col-1">
 									<label>ID</label>
-									<a class="icon circle-icon" @click="form.inv_diamonds.splice(index,1)"><i class="mdi mdi-close"></i></a>
+									<a class="icon circle-icon" @click="form.invoice_diamonds.splice(index,1)"><i class="mdi mdi-close"></i></a>
 									<p>@{{optDia.id}}</p>
 								</div>
 
 								<div class="col">
 									<label>Price</label>
-									<input class="form-control" type="text" name="unit_price" v-model="form.inv_diamonds[index].price">
+									<input class="form-control" type="text" name="unit_price" v-model="form.invoice_diamonds[index].price">
 								</div>
 
 								<div class="col" v-if="globeVar.user.role == 'admin' ">
 									<label>Account Price</label>
-									<input class="form-control" type="text" name="account_price" v-model="form.inv_diamonds[index].account_price">
+									<input class="form-control" type="text" name="account_price" v-model="form.invoice_diamonds[index].account_price">
 								</div>
 								<div class="col-1">
 									<label>weight</label>
@@ -94,7 +94,7 @@
 								<div class="col-3">
 									<label>stock</label>
 	<!-- 								<p>@{{optDia.stock}}</p>
-	 -->								<input class="form-control" type="text" name="stock" v-model="form.inv_diamonds[index].stock">
+	 -->								<input class="form-control" type="text" name="stock" v-model="form.invoice_diamonds[index].stock">
 								</div>
 
 								<div class="col-2">
