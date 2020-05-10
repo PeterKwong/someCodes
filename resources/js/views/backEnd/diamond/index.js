@@ -70,7 +70,7 @@ export default {
 				})
 		},
 		saveToInvDiamond(row){
-			window.open('/adm/inv-diamonds/create-from-diamond/'+ row.id )
+			window.open('/adm/invoice-diamonds/create-from-diamond/'+ row.id )
 		},
 	},
 

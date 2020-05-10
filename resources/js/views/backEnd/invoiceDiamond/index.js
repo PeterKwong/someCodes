@@ -8,7 +8,7 @@ export default {
 		return {
 			title: 'Invoice Diamonds',
 			source: '/api/invoiceDiamonds',
-			url:'/adm/inv-diamonds',
+			url:'/adm/invoice-diamonds',
 			create:'/adm/invoiceDiamonds/create',
 			thead: [
 			{ title: 'ID', key: 'id', sort: true},
@@ -52,11 +52,11 @@ export default {
 	},
 	methods: {
 		clickRow(row){
-			window.open('/adm/inv-diamonds/'+ row.id )
+			window.open('/adm/invoice-diamonds/'+ row.id )
 			},
 		setDue(row){
-			window.open('/api/invoiceDiamonds-update-due-date/'+ row.id )
-			window.open('/adm/inv-diamonds?p=' + globeVar.queryString.page, '_self')
+			window.open('/api/invoice-diamonds-update-due-date/'+ row.id )
+			window.open('/adm/invoice-diamonds?p=' + globeVar.queryString.page, '_self')
 			},
 		}
 }

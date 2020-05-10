@@ -29,7 +29,7 @@ export default {
 		}
 		if ( window.location.pathname.includes('create-from-diamond/') ) {
 			this.title = 'Create'
-			this.initialize = '/api/invoiceDiamonds/create-from-diamond/' + this.getIdReg(38)
+			this.initialize = '/api/invoice-diamonds/create-from-diamond/' + this.getIdReg(44)
 			this.store = '/api/invoiceDiamonds'
 			this.method = 'post'
 		}

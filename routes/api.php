@@ -138,7 +138,7 @@ Route::group(['middleware' => 'auth:api'], function(){
 
 });
 
-Route::get('invoiceDiamonds-update-due-date/{id}', 'InvoiceDiamondController@setDiamondDueToday');
+Route::get('invoice-diamonds-update-due-date/{id}', 'InvoiceDiamondController@setDiamondDueToday');
 Route::get('invoices-update-due-date/{id}', 'InvoiceController@setInvoiceDueToday');
 
 //Auth API token
@@ -153,7 +153,7 @@ Route::group(['middleware' => 'auth:admin-api'], function(){
 
 	//Invoice Diamond
 	Route::resource('invoiceDiamonds', 'InvoiceDiamondController');
-	Route::get('invoiceDiamonds/create-from-diamond/{id}', 'InvoiceDiamondController@createFormDiamond');
+	Route::get('invoice-diamonds/create-from-diamond/{id}', 'InvoiceDiamondController@createFormDiamond');
 
 	//Order
 	Route::get('orders', 'OrderController@adminAllOrders');
