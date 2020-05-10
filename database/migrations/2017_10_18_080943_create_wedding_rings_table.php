@@ -21,9 +21,10 @@ class CreateWeddingRingsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('unit_price');
             $table->string('metal')->default('18kw');
-            $table->integer('metal_weight')->nullable();
+            $table->float('metal_weight')->nullable();
             $table->float('ct')->default(0);
             $table->integer('cost')->nullable();
+            $table->string('brand')->nullable();
             $table->boolean('published')->default(false);
             $table->boolean('customized')->default(false);
             $table->string('gender')->default('m');

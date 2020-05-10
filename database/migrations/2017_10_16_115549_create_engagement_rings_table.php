@@ -22,9 +22,10 @@ class CreateEngagementRingsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('unit_price');
             $table->string('metal')->default('18KW');
-            $table->integer('metal_weight')->nullable();
+            $table->float('metal_weight')->nullable();
             $table->float('ct')->default(0);
             $table->integer('cost')->nullable();
+            $table->string('brand')->nullable();
             $table->boolean('published')->default(false);
             $table->boolean('customized')->default(false);
             $table->integer('page_id')->unsigned()->nullable();

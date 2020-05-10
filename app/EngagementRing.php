@@ -13,7 +13,8 @@ class EngagementRing extends Model
 	    protected $hidden = array('pivot');
 	    
 		protected $fillable =[
-		'id','stock' ,'texts','prong','shoulder','style','ct','images','video','customized','published','unit_price',
+		'id','stock' ,'texts','prong','shoulder','style','images','video','customized','published','unit_price',
+		'metal','metal_weight','ct','cost','brand',
 		];
 
 	    protected $filter = [

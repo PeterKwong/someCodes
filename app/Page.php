@@ -10,4 +10,13 @@ class Page extends Model
     {
         return $this->morphTo();
     }
+    public function images()
+    {
+        return $this->morphMany('App\Image', 'imageable');
+    }
+
+    public function texts()
+    {
+        return $this->morphMany('App\Text', 'textable');
+    }
 }

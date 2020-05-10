@@ -95,7 +95,7 @@
 												</tr>
                                             	</thead>
                                                 <tbody >
-                                                <tr v-for="diamond in model.inv_diamonds" v-if="model.inv_diamonds">
+                                                <tr v-for="diamond in model.invoice_diamonds" v-if="model.invoice_diamonds">
 													<td> <p style="font-size: 80%">@{{diamond.lab}}:@{{diamond.certificate}}</p> </td>
 													<td> <p style="font-size: 80%">@{{diamond.weight}}ct,@{{diamond.color}} Color,@{{diamond.clarity}} Clarity,@{{diamond.cut}} Cut,@{{diamond.polish}} Polish,@{{diamond.symmetry}} Symmetry,@{{diamond.fluorescence}}</p> </td>
 													<td> <p style="font-size: 80%">1</p> </td>

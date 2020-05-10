@@ -14,7 +14,9 @@ class Jewellery extends Model
     protected $hidden = array('pivot');
     
 	protected $fillable =[
-	'id','stock' ,'texts' ,'metal' ,'type','gemstone' ,'setting','sideStone','ct','images','video','published','unit_price',
+	'id','stock' ,'texts' ,'type','gemstone' ,'setting','sideStone','images','video','published','unit_price',
+    'metal','metal_weight','ct','cost','brand',
+
 	];
 
     protected $filter = [

@@ -12,7 +12,8 @@ class WeddingRing extends Model
 	    protected $hidden = array('pivot');
 	    
 		protected $fillable =[
-		'id','stock' ,'texts' ,'metal','style','images','sideStone', 'ct', 'gender','customized','published', 'video','unit_price',
+		'id','stock' ,'texts' ,'style','images','sideStone','gender','customized','published', 'video','unit_price',
+		'metal','metal_weight','ct','cost','brand',
 		];
 
 	    protected $filter = [
