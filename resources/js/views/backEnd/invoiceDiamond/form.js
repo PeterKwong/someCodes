@@ -13,7 +13,7 @@ export default {
 			option: {},
 			title: 'Create',
 			initialize: '/api/invoiceDiamonds/create',
-			redirect: '/adm',
+			redirect: '/adm/invoice-diamonds',
 			store: '/api/invoiceDiamonds',
 			method: 'post',
 			date:'',
