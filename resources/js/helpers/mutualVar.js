@@ -1,5 +1,5 @@
 import { getLocale, getLocaleCode, getCurrentURl } from './locale'
-
+import { getGoldPrice } from'./APIs/goldPrice'
 export default {
 	cookiesInfo:{
 			cookieLast: 60,
@@ -55,6 +55,9 @@ export default {
         s3:'https://s3.tingdiamond.com/',
         cfront:'https://cfr.tingdiamond.com/',
 
+    },
+    APIs:{
+        goldPrice:getGoldPrice(),
     },
     namepath: getCurrentURl(),
     viewer:{

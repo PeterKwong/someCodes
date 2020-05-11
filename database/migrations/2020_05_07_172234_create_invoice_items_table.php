@@ -18,8 +18,8 @@ class CreateInvoiceItemsTable extends Migration
             $table->integer('user_id');
             $table->integer('invoice_id')->nullable();
             $table->integer('pair_item_id');
-            $table->integer('cart_itemable_id');
-            $table->string('cart_itemable_type');
+            $table->integer('invoice_itemable_id');
+            $table->string('invoice_itemable_type');
             $table->string('title');
             $table->integer('unit_price');
             $table->string('image');

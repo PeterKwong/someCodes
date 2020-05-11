@@ -65,15 +65,15 @@
 					<div class="row">
 						<div class="col-4">
 								<label>Diamond</label>
-								<typehead :options = "option.inv_diamonds" v-model="selectedDia" ></typehead>
+								<typehead :options = "option.invoice_diamonds" v-model="selectedDia" ></typehead>
 						</div>
 						
 					</div>
 
 					<h3>Diamonds</h3>
-					<div class="box" v-for="(diamond,index) in form.inv_diamonds">
-						<div class="row" v-for="optDia in option.inv_diamonds" v-if="optDia.id==diamond.id">
-							<a class="delete" @click="form.inv_diamonds.splice(index,1)"></a>
+					<div class="box" v-for="(diamond,index) in form.invoice_diamonds">
+						<div class="row" v-for="optDia in option.invoice_diamonds" v-if="optDia.id==diamond.id">
+							<a class="delete" @click="form.invoice_diamonds.splice(index,1)"></a>
 
 									<div class="col-1">
 										<label>ID</label>
@@ -82,7 +82,7 @@
 
 									<div class="col-2">
 										<label>Price</label>
-										<input class="form-control" type="text" name="unit_price" v-model="form.inv_diamonds[index].price">
+										<input class="form-control" type="text" name="unit_price" v-model="form.invoice_diamonds[index].price">
 		<!-- 								<p class="subtitle is-5">@{{optDia.unit_price}}</p>
 		 -->							</div>
 
@@ -94,7 +94,7 @@
 									<div class="col-3">
 										<label>stock</label>
 		<!-- 								<p class="subtitle is-5">@{{optDia.stock}}</p>
-		 -->								<input class="form-control" type="text" name="stock" v-model="form.inv_diamonds[index].stock">
+		 -->								<input class="form-control" type="text" name="stock" v-model="form.invoice_diamonds[index].stock">
 									</div>
 
 									<div class="col-2">

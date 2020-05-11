@@ -1,6 +1,5 @@
 
 import Vue from 'vue'
-import Images from '../../../helpers/images'
 import {get, del} from '../../../helpers/api'
 
 export default {
@@ -14,7 +13,6 @@ export default {
 				items: []
 			},
 			company: [],
-			images: Images,
 			resource: 'orders',
 			redirect: '/adm/orders'
 		}

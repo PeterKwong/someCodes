@@ -3,7 +3,6 @@ import { get, post } from '../../../helpers/api'
 import { transJs } from '../../../helpers/transJs'
 import { getLocaleCode, getLocale } from '../../../helpers/locale'
 
-import Images from '../../../helpers/images'
 
 // import DataViewer from '../../../components/user/DataViewer.vue'
 
@@ -16,7 +15,6 @@ export default {
 				customer:'',
 				model: {},
 				company: [],
-				images: Images,
 		}
 	},
 	watch:{

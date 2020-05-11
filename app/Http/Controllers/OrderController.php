@@ -563,7 +563,7 @@ class OrderController extends Controller
                 'balance_method' => strtolower(preg_split("/\(/",$order->balance_method)[0]),
                 'notes'=> 'Ring Size:#' . $notes,
                 'total'=> 0,
-                'inv_diamonds' => $diamonds,
+                'invoice_diamonds' => $diamonds,
                 'engagement_rings' => $engagementRings,
                 'wedding_rings' => [],
                 'jewelleries' => $jewelleries,
@@ -574,7 +574,7 @@ class OrderController extends Controller
         ->json([
           'form' => $form,
           'option' => [
-                    'inv_diamonds' => $diamonds,
+                    'invoice_diamonds' => $diamonds,
                     'customers' => $customer,
                     'jewelleries' => $jewelleries,
                     'engagement_rings' => $engagementRings,
