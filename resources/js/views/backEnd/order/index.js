@@ -16,8 +16,8 @@ export default {
 
 				title: 'Orders',
 				source: '/api/orders',
-				url:'/adm/invoices',
-				create:'/adm/invoices/create',
+				url:'/adm/orders',
+				create:'/adm/orders/create',
 				userRole: Auth.state.user_role,
 				thead: [
 				{ title: 'ID', key: 'id', sort: true},

@@ -23,6 +23,9 @@ class WeddingRing extends Model
 	    public function invoices(){
 	    	return $this->belongsToMany(Invoice::class);
 	    }
+	    public function invoiceItems(){
+	    	return $this->morphMany('App\InoiceItems','invoiceItemable');
+	    }
 	    public function pages()
 	    {
 	    return $this->morphMany('App\Page', 'paginable');

@@ -30,6 +30,10 @@ class EngagementRing extends Model
 	    	return $this->belongsToMany(Invoice::class);
 	    }
 
+	    public function invoiceItems(){
+	    	return $this->morphMany('App\InoiceItems','invoiceItemable');
+	    }
+
 	    public function images()
 	    {
 	        return $this->morphMany('App\Image', 'imageable');
@@ -49,6 +53,7 @@ class EngagementRing extends Model
 	    {
 	        return $this->morphMany('App\InvoicePost', 'postable');
 	    }
+
 
 	    public static function form()
 	    	{

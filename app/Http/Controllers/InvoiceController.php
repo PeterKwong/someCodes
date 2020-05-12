@@ -84,7 +84,7 @@ class InvoiceController extends Controller
         $weddingRings = [];
         $invoice_diam = [] ;
         
-        // dd($request->invoice_diamonds);
+        dd($request);
         // if (!empty($request->invoice_diamonds)) {
         //         foreach ($request->invoice_diamonds as $diamond) {
         //         $diamonds[] = new InvoiceDiamond($diamond);
