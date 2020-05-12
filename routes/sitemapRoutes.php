@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 	// set cache key (string), duration in minutes (Carbon|Datetime|int), turn on/off (boolean)
 	// by default cache is disabled
-	$sitemap->setCache('tingdiamond.sitemap', 0);
+	$sitemap->setCache('tingdiamond.sitemap', 10);
 
 	// check if there is cached sitemap and build new only if is not
 
@@ -95,7 +95,7 @@ use Carbon\Carbon;
 			}
 		}
 		
-		$invPosts = DB::table('inv_posts')
+		$invPosts = DB::table('invoice_posts')
                 ->orderBy('updated_at','desc')->where('published',1)
                     ->get(['id','updated_at']);
 

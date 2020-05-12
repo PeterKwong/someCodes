@@ -91,7 +91,9 @@
             <div class="row justify-content-center p-20" >
                 <div class="col-12">
                     <center> 
-                    <h1 class="text-secondary">{{$diamond->weight}} {{trans('diamondSearch.carat')}} {{$diamond->color}} {{trans('diamondSearch.Color')}} 
+                    <h1 class="text-secondary">{{$diamond->weight}} {{trans('diamondSearch.carat')}}
+                            {{$diamond->clarity}} {{trans('diamondSearch.Clarity')}} 
+                            {{$diamond->color}} {{trans('diamondSearch.Color')}} 
                             {{$diamond->cut?$diamond->cut:''}}  {{$diamond->cut?trans('diamondSearch.Cut'):''}} 
                             {{trans('diamondSearch.' . $diamond->shape)}} {{trans('diamondSearch.diamond')}}</h1>                        
                     </center>

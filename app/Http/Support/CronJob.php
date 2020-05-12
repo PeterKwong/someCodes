@@ -42,6 +42,9 @@ class CronJob
 
 
 	}
+	public function generateDiamondSitemap(){
+		$diamonds = new DiamondSitemap();
+	} 
 
 	public function test(){
 		$appoint = new AppointmentController();

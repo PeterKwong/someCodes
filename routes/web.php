@@ -33,7 +33,7 @@ Route::get('/sitemap_index.xml', function(){
 });
 
 
-Route::get('/diamonds-sitemap', function() {
+Route::get('/big-sitemap/diamonds', function() {
     // dd('hi');
 	$d = include 'bigSitemap.php';
 
