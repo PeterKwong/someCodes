@@ -90,6 +90,8 @@ class Kernel extends ConsoleKernel
 
         })->cron('*/1 * * * *')->between('00:01', '23:59')->runInBackground();
 
+        $schedule->dailyAt('04:01')->runInBackground()->pingBefore('https://tingdiamond.com/big-sitemap/diamonds/');
+
 
         //test
 
