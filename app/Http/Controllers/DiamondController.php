@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Diamond;
 use App\DiamondQuery;
-use App\Image;
 use App\Supplier;
 use App\Support\CronJob;
 use App\Support\DiamondImport;
 use App\Support\ResizeImage;
-use App\Text;
 use Cache;
 use Excel;
 use Illuminate\Http\Request;
@@ -31,7 +29,7 @@ class DiamondController extends Controller
   {
     $diamond  = Diamond::findOrFail($id);
     //$diamond  = DiamondQuery::findOrFail($id);
-    return view('diamond.show', compact('diamond'));
+    return view('diamond.show', ['diamond' => $diamond]);
 
   }
   public function showLoadingImage($id){
@@ -223,30 +221,10 @@ class DiamondController extends Controller
 
       // return $import->resetAllRapDiamonds();
 
-      $diamond = new Text();
-
-      $diamond->where('textable_type','App\InvPost')->chunk(1000, function($data){
-          foreach ($data as $diamond) {
-            $diamond->update(['textable_type' => 'App\InvoicePost']);
-            // dd($diamond);
-          }
-          
-      });
-
-      $diamond = new Image();
-
-      $diamond->where('imageable_type','App\InvPost')->chunk(1000, function($data){
-          foreach ($data as $diamond) {
-            $diamond->update(['imageable_type' => 'App\InvoicePost']);
-            // dd($diamond);
-          }
-          
-      });
-
-      return;
+      // return;
 
       $cron = new CronJob();
-      return $cron->runDiamondQueryCopy();      
+      return $cron->generateDiamondSitemap();      
 
       // $import = new DiamondImport();
       // return $import->insertOrUpdateAndDelete();

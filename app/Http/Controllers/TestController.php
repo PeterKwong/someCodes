@@ -10,8 +10,6 @@ class TestController extends Controller
 {
     public function test(){
 
-    	\Mail::to('pete@tingdiamond.com')->send(new Appointment);
-
       return response()
         ->json(
           ['sent' => true]

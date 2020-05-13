@@ -138,7 +138,7 @@
                       <div class="message-body">
                         <center>
                             <strong v-if="diamond.available">
-                                <h3 class="text-primary background-op-008-primary box">{{__('diamondSearch.Price')}} HK$:@{{diamond.price}}</h3>
+                                <h3 class="text-primary background-op-008-primary box">{{__('diamondSearch.Price')}} HK$: {{$diamond->price}}</h3>
                             </strong>
                             <strong v-if="diamond.available == '0'"><p> {{__('diamondSearch.Sold')}}</p></strong>
                         </center>
@@ -170,16 +170,16 @@
                         <table class="table is-striped is-fullwidth">
                         <thead>
                             <tr>
-                                <th>{{trans('diamondSearch.Diamond Info')}} (@{{diamond.shape}})</th>
+                                <th>{{trans('diamondSearch.Diamond Info')}} ( {{__($diamond->shape)}} )</th>
                             </tr>
                         </thead>
                             
                         <tbody>
-                            <tr><td>{{trans('diamondSearch.Stock no')}}</td><td> TD-LD@{{diamond.location}}-@{{diamond.id}}</td></tr>
-                            <tr><td>{{trans('diamondSearch.Carat Weight')}}</td><td>@{{diamond.weight}}</td></tr>
-                            <tr><td>{{trans('diamondSearch.Color Grade')}}</td><td>@{{diamond.color}}</td></tr>
-                            <tr><td>{{trans('diamondSearch.Clarity Grade')}}</td><td>@{{diamond.clarity}}</td></tr>
-                            <tr><td>{{trans('diamondSearch.Cut Grade')}}</td><td>@{{diamond.cut}}</td></tr>
+                            <tr><td>{{trans('diamondSearch.Stock no')}}</td><td> TD-LD{{$diamond->location}}-{{$diamond->id}}</td></tr>
+                            <tr><td>{{trans('diamondSearch.Carat Weight')}}</td><td>{{$diamond->weight}}</td></tr>
+                            <tr><td>{{trans('diamondSearch.Color Grade')}}</td><td>{{$diamond->color}}</td></tr>
+                            <tr><td>{{trans('diamondSearch.Clarity Grade')}}</td><td>{{$diamond->clarity}}</td></tr>
+                            <tr><td>{{trans('diamondSearch.Cut Grade')}}</td><td>{{$diamond->cut}}</td></tr>
                         </tbody>
 
                         <thead>
@@ -189,8 +189,8 @@
                         </thead>
                             
                         <tbody>
-                            <tr><td>{{trans('diamondSearch.Polish')}}</td><td>@{{diamond.polish}}</td></tr>
-                            <tr><td>{{trans('diamondSearch.Symmetry')}}</td><td>@{{diamond.symmetry}}</td></tr>
+                            <tr><td>{{trans('diamondSearch.Polish')}}</td><td>{{$diamond->polish}}</td></tr>
+                            <tr><td>{{trans('diamondSearch.Symmetry')}}</td><td>{{$diamond->symmetry}}</td></tr>
                         </tbody>
 
                         <thead>
@@ -200,7 +200,7 @@
                         </thead>
                             
                         <tbody>
-                            <tr><td>{{trans('diamondSearch.Fluorescence')}}</td><td>@{{diamond.fluorescence}}</td></tr>
+                            <tr><td>{{trans('diamondSearch.Fluorescence')}}</td><td>{{$diamond->fluorescence}}</td></tr>
                         </tbody>
                         
                         <thead>
@@ -211,7 +211,7 @@
                             
                         <tbody>
                             <a :href="`https://www.gia.edu/report-check?reportno=${diamond.certificate}`">
-                            <tr><td>{{trans('diamondSearch.Certificate')}}</td><td>@{{diamond.certificate}}</td></tr>
+                            <tr><td>{{trans('diamondSearch.Certificate')}}</td><td>{{$diamond->certificate}}</td></tr>
                             </a>
                         </tbody>
 

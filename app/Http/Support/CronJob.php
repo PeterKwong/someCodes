@@ -3,6 +3,7 @@
 namespace App\Support;
 
 use App\Diamond;
+use App\Route\DiamondSitemap;
 use App\Support\DiamondImport;
 use App\Http\Controllers\DiamondController;
 use App\Http\Controllers\AppointmentController;
@@ -43,7 +44,8 @@ class CronJob
 
 	}
 	public function generateDiamondSitemap(){
-		$diamonds = new DiamondSitemap();
+		$diamond = new DiamondSitemap();
+		return $diamond->create();
 	} 
 
 	public function test(){
