@@ -52,8 +52,9 @@ $diamonds = DB::table('diamonds')->orderBy('created_at', 'desc')
 
 				// count number of elements
 					// dd($sitemap);
-
 			}
+			
+			// dd($sitemap->model->getItems());
 
 
 		});
@@ -73,5 +74,5 @@ if (!empty($sitemap->model->getItems())) {
 
 $sitemap->store('sitemapindex', 'big-sitemap/diamonds/sitemap');
 
-// dd($sitemap);
+dd($sitemap);
 return redirect('big-sitemap/diamonds/sitemap.xml');
