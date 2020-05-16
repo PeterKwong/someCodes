@@ -13,7 +13,7 @@
 				<p class="title is-2">Diamond ID :@{{model.id}}</p>
 			</div>
 			<div class="col-3">
-				<a :href="'/adm/inv-diamonds/' + model.id + '/edit'" class="btn btn-primary">Edit </a>
+				<a :href="'/adm/invvoice-diamonds/' + model.id + '/edit'" class="btn btn-primary">Edit </a>
 				
 			</div>
 		</div>

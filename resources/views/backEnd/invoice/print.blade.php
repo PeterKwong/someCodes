@@ -25,6 +25,9 @@
 			        background-color: rgba(0,150,255,1) !important; 
 			    } 
 			}
+/*			@page {
+				  size: 2.36in 1.18in;
+				}*/
 
 		</style>
 

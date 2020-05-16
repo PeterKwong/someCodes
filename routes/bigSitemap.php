@@ -69,10 +69,10 @@ if (!empty($sitemap->model->getItems())) {
 	// reset items array
 	$sitemap->model->resetItems();
 }
+dd($sitemap);
 
 // generate new sitemapindex that will contain all generated sitemaps above
 
 $sitemap->store('sitemapindex', 'big-sitemap/diamonds/sitemap');
 
-dd($sitemap);
 return redirect('big-sitemap/diamonds/sitemap.xml');

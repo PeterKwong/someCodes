@@ -21,7 +21,7 @@ export default {
 	methods: {
 		fetchData(){
 
-			get(`/api/${this.resource}/${window.location.pathname.slice(18)}`)
+			get(`/api/${this.resource}/${window.location.pathname.slice(22)}`)
 			.then((response)=>{
 				Vue.set(this.$data, 'model', response.data.model)
 			})
