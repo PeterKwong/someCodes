@@ -23,8 +23,8 @@ export default {
 	beforeMount(){
 		if ( window.location.pathname.includes('edit') ) {
 			this.title = 'Edit'
-			this.initialize = '/api/invoiceDiamonds/' + this.getIdReg(18) + '/edit'
-			this.store = '/api/invoiceDiamonds/' + this.getIdReg(18)
+			this.initialize = '/api/invoiceDiamonds/' + this.getIdReg(22) + '/edit'
+			this.store = '/api/invoiceDiamonds/' + this.getIdReg(22)
 			this.method = 'put'
 		}
 		if ( window.location.pathname.includes('create-from-diamond/') ) {
