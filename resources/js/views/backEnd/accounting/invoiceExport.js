@@ -47,9 +47,9 @@ export default {
 			var title = 'invoice no,sub total,discount,balance,total' + ',diamond,stock,DC, jewellery,Engagement rings,wedding rings' + ',create at date,title' + "\n" 
 			const rows = this.data.invoices.map((e)=>{
 							e = e.invoice_no +',' + e.sub_total + ',' + e.discount +',' + e.balance + ','  + e.total + ','  +  
-								( e.inv_diamonds.length > 0 ? e.inv_diamonds[0].price : '') + ','  +
-								( e.inv_diamonds.length > 0 ? e.inv_diamonds[0].stock : '') + ','  +
-								( e.inv_diamonds.length > 0 ? this.regExp(e.inv_diamonds[0].stock) : '') + ','  +
+								( e.invoice_diamonds.length > 0 ? e.invoice_diamonds[0].price : '') + ','  +
+								( e.invoice_diamonds.length > 0 ? e.invoice_diamonds[0].stock : '') + ','  +
+								( e.invoice_diamonds.length > 0 ? this.regExp(e.invoice_diamonds[0].stock) : '') + ','  +
 								( e.jewelleries.length > 0 ? e.jewelleries[0].unit_price : '') + ','  +
 								( e.engagement_rings.length > 0 ? e.engagement_rings[0].unit_price : '') + ','  +
 								( e.wedding_rings.length > 0 ? e.wedding_rings[0].unit_price : '') + ','  +
