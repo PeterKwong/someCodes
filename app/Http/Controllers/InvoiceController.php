@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Customer;
 use App\Diamond;
 use App\EngagementRing;
-use App\InvoiceDiamond;
-use App\InvoicePost;
 use App\Invoice;
+use App\InvoiceDiamond;
+use App\InvoiceItem;
+use App\InvoicePost;
 use App\Jewellery;
 use App\Order;
 use App\WeddingRing;
@@ -84,7 +85,7 @@ class InvoiceController extends Controller
         $weddingRings = [];
         $invoice_diam = [] ;
         
-        // dd($request->invoice_diamonds);
+        // dd($request->jewelleries);
         // if (!empty($request->invoice_diamonds)) {
         //         foreach ($request->invoice_diamonds as $diamond) {
         //         $diamonds[] = new InvoiceDiamond($diamond);
@@ -154,19 +155,49 @@ class InvoiceController extends Controller
             $invoice->order()->save( Order::where('id',$request->source)->first() );
         }
         
-        foreach ($request->jewelleries as $jewellery) {
+        foreach (request()->jewelleries as $jewellery) {
             if (isset($jewellery['id'])) {
             $jewelleries[] = $jewellery['id'];
+
+            $invoiceItem = [
+            'customer_id' => request()->customer_id  ,
+            'invoice_itemable_id' =>  $jewellery['id'] ,
+            'invoice_itemable_type' =>  'App\Jewellery' ,
+            'title' =>  $jewellery['texts'][0]['content'] ,
+            'unit_price' =>  $jewellery['unit_price'] ,
+            ];
+            $invoice->invoiceItems()->create($invoiceItem) ;
+
             }
         }
-        foreach ($request->engagement_rings as $engagementRing) {
+        foreach (request()->engagement_rings as $engagementRing) {
             if (isset($engagementRing['id'])) {
             $engagementRings[] = $engagementRing['id'];
+
+            $invoiceItem = [
+                'customer_id' => request()->customer_id ,
+                'invoice_itemable_id' =>  $engagementRing['id'] ,
+                'invoice_itemable_type' =>  'App\EngagementRing' ,
+                'title' =>  $engagementRing['texts'][0]['content'] ,
+                'unit_price' =>  $engagementRing['unit_price'] ,
+            ];
+            $invoice->invoiceItems()->create($invoiceItem) ;
+
             }
         }
-        foreach ($request->wedding_rings as $weddingRing) {
+        foreach (request()->wedding_rings as $weddingRing) {
             if (isset($weddingRing['id'])) {            
             $weddingRings[] = $weddingRing['id'];
+
+            $invoiceItem = [
+            'customer_id' => request()->customer_id ,
+            'invoice_itemable_id' =>  $weddingRing['id'] ,
+            'invoice_itemable_type' =>  'App\WeddingRing' ,
+            'title' =>  $weddingRing['texts'][0]['content'] ,
+            'unit_price' =>  $weddingRing['unit_price'] ,
+            ];
+            $invoice->invoiceItems()->create($invoiceItem) ;
+
             }
         }
 
@@ -180,9 +211,18 @@ class InvoiceController extends Controller
         			]);
     }
 
+
     public function show($id)
     {
-    	$invoice  = Invoice::with('customer', 'invoiceDiamonds', 'jewelleries','jewelleries.texts','jewelleries.images', 'engagementRings', 'engagementRings.texts','engagementRings.images', 'weddingRings', 'weddingRings.texts', 'weddingRings.images')->findOrFail($id);
+    	$invoice  = Invoice::with([
+                'jewelleries.invoiceItems' => function($data) use ($id){ return $data->where('invoice_id',$id); },
+                 'engagementRings.invoiceItems' => function($data) use ($id){ return $data->where('invoice_id',$id); },
+                 'weddingRings.invoiceItems' => function($data) use ($id){ return $data->where('invoice_id',$id); },
+                'customer', 'invoiceDiamonds', 
+                'jewelleries.texts','jewelleries.images', 
+                'engagementRings.texts','engagementRings.images', 
+                'weddingRings.texts', 'weddingRings.images',
+                                ])->findOrFail($id);
 
     	return response()
     		->json([
@@ -195,11 +235,11 @@ class InvoiceController extends Controller
     {
     	$invoice  = Invoice::with([
                 'invoiceDiamonds',
-                'jewelleries',
-                 'engagementRings',
-                 'weddingRings',
+                'jewelleries.invoiceItems' => function($data) use ($id){ return $data->where('invoice_id',$id); },
+                 'engagementRings.invoiceItems' => function($data) use ($id){ return $data->where('invoice_id',$id); },
+                 'weddingRings.invoiceItems' => function($data) use ($id){ return $data->where('invoice_id',$id); },
                 ])->findOrFail($id);
-
+        // dd($invoice->toArray());
     	return response()
     		->json([
     			'form' => $invoice,
@@ -236,21 +276,7 @@ class InvoiceController extends Controller
         $diamondIds = [ ];
         $invoice_diam = [] ;
 
-        // dd($request->all());
-
-        // foreach ($request->invoice_diamonds as $diamond) {
-        //     // $data['sub_total'] += $item['unit_price'] * $item['qty']; 
-        //     if (isset($diamond['id'])) {
-
-        //     	InvoiceDiamond::whereId($diamond['id'])
-        //     		->whereInvoiceId($invoice->id)
-        //     		->update($diamond);
-
-        //                 $diamondIds[] = $diamond['id'];
-        //     }else{
-        //     	$diamonds[ ] = new InvoiceDiamond($diamond);
-        //     }
-        // }
+        // dd($request->jewelleries);
         
         $invoice->invoiceDiamonds()->update(['invoice_id' => null]);
 
@@ -307,28 +333,85 @@ class InvoiceController extends Controller
             // dd($invoice->invoiceDiamonds );
         }
 
-        $jewelleries = [];
-        $engagementRings = [];
-        $weddingRings = [];
-
-        foreach ($request->jewelleries as $jewellery) {
+       foreach (request()->jewelleries as $jewellery) {
             if (isset($jewellery['id'])) {
             $jewelleries[] = $jewellery['id'];
+
+            $jewelleryInvoiceItem = [
+            'customer_id' => request()->customer_id  ,
+            'invoice_itemable_id' =>  $jewellery['id'] ,
+            'invoice_itemable_type' =>  'App\Jewellery' ,
+            'title' =>  $jewellery['invoice_items'][0]['title'] ,
+            'unit_price' =>  $jewellery['invoice_items'][0]['unit_price'] ,
+            ];
+            
+            $invoice->invoiceItems()
+            ->where('invoice_itemable_type', 'App\Jewellery')
+            ->where('invoice_itemable_id', $jewellery['id'])
+            ->update($jewelleryInvoiceItem) ;
+            // dd($invoice);
             }
+
         }
 
-        foreach ($request->engagement_rings as $engagementRing) {
+        $invoice->invoiceItems()
+         ->where('invoice_itemable_type', 'App\Jewellery')
+         ->whereNotIn('invoice_itemable_id', $jewelleries)
+         ->delete();
+
+        foreach (request()->engagement_rings as $engagementRing) {
             if (isset($engagementRing['id'])) {
             $engagementRings[] = $engagementRing['id'];
+
+            $engagementRingInvoiceItem = [
+                'customer_id' => request()->customer_id ,
+                'invoice_itemable_id' =>  $engagementRing['id'] ,
+                'invoice_itemable_type' =>  'App\EngagementRing' ,
+                'title' =>  $engagementRing['invoice_items'][0]['title'] ,
+                'unit_price' =>  $engagementRing['invoice_items'][0]['unit_price'] ,
+            ];
+            
+            $invoice->invoiceItems()
+            ->where('invoice_itemable_type', 'App\EngagementRing')
+            ->where('invoice_itemable_id', $engagementRing['id'])
+            ->update($engagementRingInvoiceItem) ;
             }
+
         }
 
-        foreach ($request->wedding_rings as $weddingRing) {
+        $invoice->invoiceItems()
+        ->where('invoice_itemable_type', 'App\EngagementRing')
+        ->whereNotIn('invoice_itemable_id', $engagementRings)
+        ->delete();
+
+
+        foreach (request()->wedding_rings as $weddingRing) {
             if (isset($weddingRing['id'])) {            
             $weddingRings[] = $weddingRing['id'];
-            }
-        }
 
+            $weddingRingInvoiceItem = [
+            'customer_id' => request()->customer_id ,
+            'invoice_itemable_id' =>  $weddingRing['id'] ,
+            'invoice_itemable_type' =>  'App\WeddingRing' ,
+            'title' =>  $weddingRing['invoice_items'][0]['title'] ,
+            'unit_price' =>  $weddingRing['invoice_items'][0]['unit_price'] ,
+            ];
+            
+            $invoice->invoiceItems()
+            ->where('invoice_itemable_type', 'App\WeddingRing')
+            ->where('invoice_itemable_id', $weddingRing['id'])
+            ->update($weddingRingInvoiceItem) ;
+            }
+
+            // dd($weddingRings);
+
+
+        }
+        $invoice->invoiceItems()
+        ->where('invoice_itemable_type', 'App\WeddingRing')
+        ->whereNotIn('invoice_itemable_id',$weddingRings)
+        ->delete();
+        
         $invoice->jewelleries()->sync($jewelleries);
         $invoice->engagementRings()->sync($engagementRings);
         $invoice->weddingRings()->sync($weddingRings);
@@ -552,6 +635,7 @@ class InvoiceController extends Controller
         $invoice->jewelleries()->detach();
         $invoice->engagementRings()->detach();
         $invoice->weddingRings()->detach();
+        $invoice->invoiceItems()->delete();
     	$invoice->delete();
 
     	return response()

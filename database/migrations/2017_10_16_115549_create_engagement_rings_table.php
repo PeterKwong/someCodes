@@ -28,14 +28,14 @@ class CreateEngagementRingsTable extends Migration
             $table->string('brand')->nullable();
             $table->boolean('published')->default(false);
             $table->boolean('customized')->default(false);
-            $table->integer('page_id')->unsigned()->nullable();
+            $table->bigInteger('page_id')->unsigned()->nullable();
             $table->timestamps();
         });
 
 
         Schema::create('engagement_ring_invoice', function (Blueprint $table) {
-            $table->integer('invoice_id');
-            $table->integer('engagement_ring_id');            
+            $table->bigInteger('invoice_id');
+            $table->bigInteger('engagement_ring_id');            
             $table->primary(['invoice_id','engagement_ring_id']);
         });
 

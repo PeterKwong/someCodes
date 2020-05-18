@@ -15,16 +15,12 @@ class CreateInvoiceItemsTable extends Migration
     {
         Schema::create('invoice_items', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('invoice_id')->nullable();
-            $table->integer('pair_item_id');
+            $table->bigInteger('customer_id');
+            $table->bigInteger('invoice_id')->nullable();
             $table->integer('invoice_itemable_id');
             $table->string('invoice_itemable_type');
             $table->string('title');
             $table->integer('unit_price');
-            $table->string('image');
-            $table->integer('ring_size')->nullable();
-            $table->string('engrave')->nullable();
             $table->timestamps();
         });
     }

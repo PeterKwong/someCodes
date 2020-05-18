@@ -31,7 +31,7 @@ class EngagementRing extends Model
 	    }
 
 	    public function invoiceItems(){
-	    	return $this->morphMany('App\InoiceItems','invoiceItemable');
+	    	return $this->morphMany('App\InvoiceItem','invoice_itemable');
 	    }
 
 	    public function images()

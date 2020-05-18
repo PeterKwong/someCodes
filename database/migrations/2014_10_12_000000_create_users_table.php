@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('image_url')->nullable();
             $table->string('provider');
             $table->string('provider_id')->nullable();
-            $table->integer('coupon_id')->nullable();
+            $table->bigInteger('coupon_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

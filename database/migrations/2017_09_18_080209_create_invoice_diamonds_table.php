@@ -15,7 +15,7 @@ class CreateInvoiceDiamondsTable extends Migration
     {
         Schema::create('invoice_diamonds', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('invoice_id')->unsigned()->nullable();
+            $table->bigInteger('invoice_id')->unsigned()->nullable();
             $table->string('stock');
             $table->bigInteger('certificate');
             $table->string('shape');

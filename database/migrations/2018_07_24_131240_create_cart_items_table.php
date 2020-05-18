@@ -15,8 +15,8 @@ class CreateCartItemsTable extends Migration
     {
         Schema::create('cart_items', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('user_id');
-            $table->integer('order_id')->nullable();
+            $table->bigInteger('user_id');
+            $table->bigInteger('order_id')->nullable();
             $table->integer('pair_item_id');
             $table->integer('cart_itemable_id');
             $table->string('cart_itemable_type');

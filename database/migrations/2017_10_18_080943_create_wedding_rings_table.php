@@ -29,7 +29,7 @@ class CreateWeddingRingsTable extends Migration
             $table->boolean('customized')->default(false);
             $table->string('gender')->default('m');
             $table->integer('page_id')->unsigned()->nullable();
-            $table->integer('wedding_ring_pair_id')->unsigned()->nullable();
+            $table->bigInteger('wedding_ring_pair_id')->unsigned()->nullable();
             $table->timestamps();
         });
 

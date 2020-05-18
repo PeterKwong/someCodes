@@ -27,7 +27,7 @@ class CreateDiamondsTable extends Migration
             $table->bigInteger('certificate'); 
             $table->string('lab')->default('gia');           
             $table->string('stock')->nullable();
-            $table->integer('supplier_id')->unsigned()->nullable();
+            $table->bigInteger('supplier_id')->unsigned()->nullable();
             $table->string('location')->nullable();
             $table->boolean('has_image')->nullable();
             $table->boolean('has_cert')->nullable();

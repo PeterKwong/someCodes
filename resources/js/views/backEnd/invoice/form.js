@@ -57,20 +57,36 @@ export default {
 			
 			var price = 0
 
+			if (this.title == 'Edit') {
 
-			price +=  this.form.jewelleries.reduce((carry, item)=>{
+				price +=  this.form.jewelleries.reduce((carry, item)=>{
+						return carry += parseInt(item.invoice_items[0].unit_price)
+					},0)
+				price +=  this.form.engagement_rings.reduce((carry, item)=>{
+							return carry += parseInt(item.invoice_items[0].unit_price)
+						},0)
+
+
+				price +=  this.form.wedding_rings.reduce((carry, item)=>{
+							return carry += parseInt(item.invoice_items[0].unit_price)
+						},0)
+
+			}else{
+				
+				price +=  this.form.jewelleries.reduce((carry, item)=>{
 						return carry += parseInt(item.unit_price)
 					},0)
+				price +=  this.form.engagement_rings.reduce((carry, item)=>{
+							return carry += parseInt(item.unit_price)
+						},0)
 
 
-			price +=  this.form.engagement_rings.reduce((carry, item)=>{
-						return carry += parseInt(item.unit_price)
-					},0)
+				price +=  this.form.wedding_rings.reduce((carry, item)=>{
+							return carry += parseInt(item.unit_price)
+						},0)
+			}
 
 
-			price +=  this.form.wedding_rings.reduce((carry, item)=>{
-						return carry += parseInt(item.unit_price)
-					},0)
 
 
 			return this.form.subTotalExceptDiamonds = price

@@ -132,36 +132,53 @@
 					
 				</div>
 
-			<h3>Jewelleries</h3>
-			<div class="card-body" v-for="(jewellery,index) in form.jewelleries">
-				<div class="row" v-for="optJew in option.jewelleries" v-if="optJew.id==jewellery.id">
+				<h3>Jewelleries</h3>
+				<div class="card-body" v-for="(jewellery,index) in form.jewelleries">
+					<div class="row" v-for="optJew in option.jewelleries" v-if="optJew.id==jewellery.id">
 
-							<div class="col-1">
-								<label>ID</label>
-								<a class="icon circle-icon" @click="form.jewelleries.splice(index,1)"><i class="mdi mdi-close"></i></a>
-								<p class="subtitle is-5">@{{optJew.id}}</p>
-							</div>
+						<div class="col-1">
+							<label>ID</label>
+							<a class="icon circle-icon" @click="form.jewelleries.splice(index,1)"><i class="mdi mdi-close"></i></a>
+							<p class="subtitle is-5">@{{optJew.id}}</p>
+						</div>
 
-							<div class="col-2">
-								<label>Unit Price</label>
-								<p class="subtitle is-5">@{{optJew.unit_price}}</p>
-							</div>
+						<div class="col-2">
+							<label>Unit Price</label>
+							<p class="subtitle is-5">@{{optJew.unit_price}}</p>
+						</div>
 
-							<div class="col-2">
-								<label>Name</label>
-								<p class="subtitle is-5">@{{optJew.text}}</p>
-							</div>
+						<div class="col-2">
+							<label>Name</label>
+							<p class="subtitle is-5">@{{optJew.text}}</p>
+						</div>
 
-							<div class="col-4">
-								<label>Title</label>
-								<p class="subtitle is-5">@{{optJew.texts[0].content}}</p>
-							</div>
-							<div class="col-3">
-								<label>Image</label>
-								<img width="200" :src="mutualVar.storage[mutualVar.storage.live] + 'public' +'/images/' + optJew.images[0].image" v-if="optJew.images[0]">
-							</div>
+						<div class="col-4">
+							<label>Title</label>
+							<p class="subtitle is-5">@{{optJew.texts[0].content}}</p>
+						</div>
+						<div class="col-3">
+							<label>Image</label>
+							<img width="200" :src="mutualVar.storage[mutualVar.storage.live] + 'public' +'/images/' + optJew.images[0].image" v-if="optJew.images[0]">
+						</div>
+					</div>
+					<div class="row" v-for="item in jewellery.invoice_items" >
+						<div class="col-1">
+						</div>
 
-						
+						<div class="col-2">
+							<label>Unit Price</label>
+							<input class="form-control" v-model="item.unit_price">
+						</div>
+
+						<div class="col-2">
+						</div>
+
+						<div class="col-4">
+							<label>Title</label>
+							<input class="form-control" v-model="item.title">
+						</div>
+						<div class="col-3">
+						</div>						
 					</div>
 				</div>
 			</div>
@@ -176,34 +193,53 @@
 				</div>
 			
 
-			<h3>engagementRing</h3>
-			<div class="card-body" v-for="(engagementRing,index) in form.engagement_rings">
-				<div class="row" v-for="optEng in option.engagement_rings" v-if="optEng.id==engagementRing.id">
+				<h3>engagementRing</h3>
+				<div class="card-body" v-for="(engagementRing,index) in form.engagement_rings">
+					<div class="row" v-for="optEng in option.engagement_rings" v-if="optEng.id==engagementRing.id">
+						<div class="col-1">
+							<label>ID</label>
+							<a class="icon circle-icon" @click="form.engagement_rings.splice(index,1)"><i class="mdi mdi-close"></i></a>
+							<p class="subtitle is-5">@{{optEng.id}}</p>
+						</div>
 
-							<div class="col-1">
-								<label>ID</label>
-								<a class="icon circle-icon" @click="form.engagement_rings.splice(index,1)"><i class="mdi mdi-close"></i></a>
-								<p class="subtitle is-5">@{{optEng.id}}</p>
-							</div>
+						<div class="col-2">
+							<label>Unit Price</label>
+							<p class="subtitle is-5">@{{optEng.unit_price}}</p>
+						</div>
 
-							<div class="col-2">
-								<label>Unit Price</label>
-								<p class="subtitle is-5">@{{optEng.unit_price}}</p>
-							</div>
+						<div class="col-2">
+							<label>Name</label>
+							<p class="subtitle is-5">@{{optEng.text}}</p>
+						</div>
 
-							<div class="col-2">
-								<label>Name</label>
-								<p class="subtitle is-5">@{{optEng.text}}</p>
-							</div>
+						<div class="col-4">
+							<label>Title</label>
+							<p class="subtitle is-5">@{{optEng.texts[0].content}}</p>
+						</div>
+						<div class="col-3">
+							<label>Image</label>
+							<img width="200" :src="mutualVar.storage[mutualVar.storage.live] + 'public' +'/images/' + optEng.images[0].image" v-if="optEng.images[0]">
+						</div>
+						
+					</div>
+					<div class="row" v-for="item in engagementRing.invoice_items" >
+						<div class="col-1">
+						</div>
 
-							<div class="col-4">
-								<label>Title</label>
-								<p class="subtitle is-5">@{{optEng.texts[0].content}}</p>
-							</div>
-							<div class="col-3">
-								<label>Image</label>
-								<img width="200" :src="mutualVar.storage[mutualVar.storage.live] + 'public' +'/images/' + optEng.images[0].image" v-if="optEng.images[0]">
-							</div>
+						<div class="col-2">
+							<label>Unit Price</label>
+							<input class="form-control" v-model="item.unit_price">
+						</div>
+
+						<div class="col-2">
+						</div>
+
+						<div class="col-4">
+							<label>Title</label>
+							<input class="form-control" v-model="item.title">
+						</div>
+						<div class="col-3">
+						</div>		
 						
 					</div>
 				</div>
@@ -220,33 +256,52 @@
 			
 
 			<h3>weddingRing</h3>
-			<div class="card-body" v-for="(weddingRing,index) in form.wedding_rings">
-				<div class="row" v-for="optWed in option.wedding_rings" v-if="optWed.id==weddingRing.id">
+				<div class="card-body" v-for="(weddingRing,index) in form.wedding_rings">
+					<div class="row" v-for="optWed in option.wedding_rings" v-if="optWed.id==weddingRing.id">
+						<div class="col-1">
+							<label>ID</label>
+							<a class="icon circle-icon" @click="form.wedding_rings.splice(index,1)"><i class="mdi mdi-close"></i></a>
+							<p class="subtitle is-5">@{{optWed.id}}</p>
+						</div>
 
-							<div class="col-1">
-								<label>ID</label>
-								<a class="icon circle-icon" @click="form.wedding_rings.splice(index,1)"><i class="mdi mdi-close"></i></a>
-								<p class="subtitle is-5">@{{optWed.id}}</p>
-							</div>
+						<div class="col-2">
+							<label>Unit Price</label>
+							<p class="subtitle is-5">@{{optWed.unit_price}}</p>
+						</div>
 
-							<div class="col-2">
-								<label>Unit Price</label>
-								<p class="subtitle is-5">@{{optWed.unit_price}}</p>
-							</div>
+						<div class="col-2">
+							<label>Name</label>
+							<p class="subtitle is-5">@{{optWed.text}}</p>
+						</div>
 
-							<div class="col-2">
-								<label>Name</label>
-								<p class="subtitle is-5">@{{optWed.text}}</p>
-							</div>
+						<div class="col-4">
+							<label>Title</label>
+							<p class="subtitle is-5">@{{optWed.texts[0].content}}</p>
+						</div>
+						<div class="col-3">
+							<label>Image</label>
+							<img width="200" :src="mutualVar.storage[mutualVar.storage.live] + 'public' +'/images/' + optWed.images[0].image" v-if="optWed.images[0]">
+						</div>
+						
+					</div>
+					<div class="row" v-for="item in weddingRing.invoice_items" >
+						<div class="col-1">
+						</div>
 
-							<div class="col-4">
-								<label>Title</label>
-								<p class="subtitle is-5">@{{optWed.texts[0].content}}</p>
-							</div>
-							<div class="col-3">
-								<label>Image</label>
-								<img width="200" :src="mutualVar.storage[mutualVar.storage.live] + 'public' +'/images/' + optWed.images[0].image" v-if="optWed.images[0]">
-							</div>
+						<div class="col-2">
+							<label>Unit Price</label>
+							<input class="form-control" v-model="item.unit_price">
+						</div>
+
+						<div class="col-2">
+						</div>
+
+						<div class="col-4">
+							<label>Title</label>
+							<input class="form-control" v-model="item.title">
+						</div>
+						<div class="col-3">
+						</div>		
 						
 					</div>
 				</div>

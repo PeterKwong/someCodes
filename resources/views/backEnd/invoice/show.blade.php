@@ -103,21 +103,21 @@
 												</tr>
 												<tr v-for="jewellery in model.jewelleries" v-if="model.jewelleries">
 													<td> <p style="font-size: 80%">@{{jewellery.stock}}</p> </td>
-													<td v-if="jewellery.texts[0]"> <p style="font-size: 80%">@{{jewellery.texts[0].content}}</p> </td>
+													<td v-if="jewellery.texts[0]"> <p style="font-size: 80%">@{{jewellery.invoice_items[0].title}}</p> </td>
 													<td> <p style="font-size: 80%">1</p> </td>
-													<td> <p style="font-size: 80%">@{{jewellery.unit_price}}</p> </td>						
+													<td> <p style="font-size: 80%">@{{jewellery.invoice_items[0].unit_price}}</p> </td>						
 												</tr>
 												<tr v-for="engagementRing in model.engagement_rings" v-if="model.engagement_rings">
 													<td> <p style="font-size: 80%">@{{engagementRing.stock}}</p> </td>
-													<td v-if="engagementRing.texts[0]"> <p style="font-size: 80%">@{{engagementRing.texts[0].content}}</p> </td>
+													<td v-if="engagementRing.texts[0]"> <p style="font-size: 80%">@{{engagementRing.invoice_items[0].title}}</p> </td>
 													<td> <p style="font-size: 80%">1</p> </td>
-													<td> <p style="font-size: 80%">@{{engagementRing.unit_price}}</p> </td>						
+													<td> <p style="font-size: 80%">@{{engagementRing.invoice_items[0].unit_price}}</p> </td>						
 												</tr>
 												<tr v-for="weddingRing in model.wedding_rings" v-if="model.wedding_rings">
 													<td> <p style="font-size: 80%">@{{weddingRing.stock}}</p> </td>
-													<td> <p style="font-size: 80%">@{{weddingRing.texts[0].content}}</p> </td>
+													<td> <p style="font-size: 80%">@{{weddingRing.invoice_items[0].title}}</p> </td>
 													<td> <p style="font-size: 80%">1</p> </td>
-													<td> <p style="font-size: 80%">@{{weddingRing.unit_price}}</p> </td>						
+													<td> <p style="font-size: 80%">@{{weddingRing.invoice_items[0].unit_price}}</p> </td>						
 												</tr>
                                                 </tbody>
                                              	<tfoot>

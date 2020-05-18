@@ -33,8 +33,8 @@ class CreateJewelleriesTable extends Migration
         });
 
         Schema::create('invoice_jewellery', function (Blueprint $table) {
-            $table->integer('invoice_id');
-            $table->integer('jewellery_id');            
+            $table->bigInteger('invoice_id');
+            $table->bigInteger('jewellery_id');            
             $table->primary(['invoice_id','jewellery_id']);
         });
     }

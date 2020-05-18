@@ -38,7 +38,9 @@ class Invoice extends Model
     public function invoiceDiamonds(){
     	return $this->hasMany(InvoiceDiamond::class);
     }
-
+    public function invoiceItems(){
+        return $this->hasMany(InvoiceItem::class);
+    }
     public function jewelleries(){
         return $this->belongsToMany(Jewellery::class);
     }

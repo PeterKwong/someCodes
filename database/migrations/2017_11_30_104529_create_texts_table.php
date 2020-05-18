@@ -18,7 +18,7 @@ class CreateTextsTable extends Migration
             $table->string('type')->nullable();
             $table->string('locale');
             $table->text('content');
-            $table->integer('textable_id'); 
+            $table->bigInteger('textable_id'); 
             $table->string('textable_type'); 
             $table->timestamps();
         });
