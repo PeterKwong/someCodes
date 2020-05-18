@@ -215,9 +215,12 @@ class InvoiceController extends Controller
     public function show($id)
     {
     	$invoice  = Invoice::with([
-                'jewelleries.invoiceItems' => function($data) use ($id){ return $data->where('invoice_id',$id); },
-                 'engagementRings.invoiceItems' => function($data) use ($id){ return $data->where('invoice_id',$id); },
-                 'weddingRings.invoiceItems' => function($data) use ($id){ return $data->where('invoice_id',$id); },
+                'jewelleries.invoiceItems' 
+                => function($data) use ($id){ return $data->count()?$data->where('invoice_id',$id): '' ; },
+                 'engagementRings.invoiceItems'  
+                 => function($data) use ($id){ return $data->count()?$data->where('invoice_id',$id): '' ; },
+                 'weddingRings.invoiceItems' 
+                 => function($data) use ($id){ return $data->count()?$data->where('invoice_id',$id): '' ; },
                 'customer', 'invoiceDiamonds', 
                 'jewelleries.texts','jewelleries.images', 
                 'engagementRings.texts','engagementRings.images', 
@@ -411,7 +414,7 @@ class InvoiceController extends Controller
         ->where('invoice_itemable_type', 'App\WeddingRing')
         ->whereNotIn('invoice_itemable_id',$weddingRings)
         ->delete();
-        
+
         $invoice->jewelleries()->sync($jewelleries);
         $invoice->engagementRings()->sync($engagementRings);
         $invoice->weddingRings()->sync($weddingRings);

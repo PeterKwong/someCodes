@@ -131,20 +131,26 @@
 								<tr v-for="jewellery in model.jewelleries" v-if="model.jewelleries">
 									<td>@{{jewellery.stock}}</td>
 									<td v-if="jewellery.invoice_items[0]">@{{jewellery.invoice_items[0].title}}</td>
+									<td v-else>@{{jewellery.texts[0].content}}</td>
 									<td>1</td>
 									<td v-if="jewellery.invoice_items[0]">@{{jewellery.invoice_items[0].unit_price}}</td>						
+									<td v-else>@{{jewellery.unit_price}}</td>						
 								</tr>
 								<tr v-for="engagementRing in model.engagement_rings" v-if="model.engagement_rings">
 									<td>@{{engagementRing.stock}}</td>
 									<td v-if="engagementRing.invoice_items[0]">@{{engagementRing.invoice_items[0].title}}</td>
+									<td v-else>@{{engagementRing.texts[0].content}}</td>
 									<td>1</td>
 									<td v-if="engagementRing.invoice_items[0]">@{{engagementRing.invoice_items[0].unit_price}}</td>						
+									<td v-else>@{{engagementRing.unit_price}}</td>						
 								</tr>
 								<tr v-for="weddingRing in model.wedding_rings" v-if="model.wedding_rings">
 									<td>@{{weddingRing.stock}}</td>
 									<td v-if="weddingRing.invoice_items[0]">@{{weddingRing.invoice_items[0].title}}</td>
+									<td v-else>@{{weddingRing.texts[0].content}}</td>
 									<td>1</td>
 									<td v-if="weddingRing.invoice_items[0]">@{{weddingRing.invoice_items[0].unit_price}}</td>						
+									<td v-else>@{{weddingRing.unit_price}}</td>						
 								</tr>
 							</tbody>
 							<tfoot>
