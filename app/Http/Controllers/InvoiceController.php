@@ -285,7 +285,10 @@ class InvoiceController extends Controller
         $diamonds = [ ];
         $diamondIds = [ ];
         $invoice_diam = [] ;
-
+        $jewelleries = [];
+        $engagementRings = [];
+        $weddingRings = [];
+        
         // dd($request->jewelleries);
         
         $invoice->invoiceDiamonds()->update(['invoice_id' => null]);
