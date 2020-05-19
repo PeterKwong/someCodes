@@ -60,25 +60,25 @@ export default {
 			if (this.title == 'Edit') {
 
 				price +=  this.form.jewelleries.reduce((carry, item)=>{
-					if (item.invoice_items.length == 0) {
-						item.invoice_items.push({unit_price:0,title:''})
-					}
+						if (item.invoice_items.length == 0) {
+							item.invoice_items.push({unit_price:0,title:''})
+						}
 						return carry += parseInt(item.invoice_items[0].unit_price)
 					},0)
 				price +=  this.form.engagement_rings.reduce((carry, item)=>{
-					if (item.invoice_items.length == 0) {
-						item.invoice_items.push({unit_price:0,title:''})
-					}
-							return carry += parseInt(item.invoice_items[0].unit_price)
-						},0)
+						if (item.invoice_items.length == 0) {
+							item.invoice_items.push({unit_price:0,title:''})
+						}
+						return carry += parseInt(item.invoice_items[0].unit_price)
+					},0)
 
 
 				price +=  this.form.wedding_rings.reduce((carry, item)=>{
-					if (item.invoice_items.length == 0) {
-						item.invoice_items.push({unit_price:0,title:''})
-					}
-							return carry += parseInt(item.invoice_items[0].unit_price)
-						},0)
+						if (item.invoice_items.length == 0) {
+							item.invoice_items.push({unit_price:0,title:''})
+						}
+						return carry += parseInt(item.invoice_items[0].unit_price)
+					},0)
 
 			}else{
 				
@@ -167,23 +167,27 @@ export default {
 				.filter((item)=>{
 					return item.id == this.selectedJew
 				})[0])
-			this.form.jewelleries[this.form.jewelleries.length-1].invoice_items.push({unit_price:0,title:''})
-
-			console.log(this.form.jewelleries[this.form.jewelleries.length-1])
+			if (this.title == 'Edit') {
+				this.form.jewelleries[this.form.jewelleries.length-1].invoice_items.push({unit_price:0,title:''})
+			}
 		},
 		addSelectedEng(){
 			this.form.engagement_rings.push(this.option.engagement_rings
 				.filter((item)=>{
 					return item.id == this.selectedEng
 				})[0] )
-			this.form.engagement_rings[this.form.engagement_rings.length-1].invoice_items.push({unit_price:0,title:''})
+			if (this.title == 'Edit') {			
+				this.form.engagement_rings[this.form.engagement_rings.length-1].invoice_items.push({unit_price:0,title:''})
+			}
 		},
 		addSelectedWed(){
 			this.form.wedding_rings.push(this.option.wedding_rings
 				.filter((item)=>{
 					return item.id == this.selectedWed
 				})[0] )
-			this.form.wedding_rings[this.form.wedding_rings.length-1].invoice_items.push({unit_price:0,title:''})
+			if (this.title == 'Edit') {
+				this.form.wedding_rings[this.form.wedding_rings.length-1].invoice_items.push({unit_price:0,title:''})
+			}
 		},
 		addSelectedDia(){
 			this.form.invoice_diamonds.push(this.option.invoice_diamonds

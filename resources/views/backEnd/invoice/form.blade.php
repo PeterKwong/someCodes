@@ -161,8 +161,8 @@
 							<img width="200" :src="mutualVar.storage[mutualVar.storage.live] + 'public' +'/images/' + optJew.images[0].image" v-if="optJew.images[0]">
 						</div>
 					</div>
-					<div v-if="jewellery.invoice_items.length">
-						<div class="row" v-for="item in jewellery.invoice_items" >
+					<div v-if="jewellery.invoice_items">
+						<div class="row" v-for="item in jewellery.invoice_items" v-if="jewellery.invoice_items.length">
 							<div class="col-1">
 							</div>
 
@@ -225,8 +225,8 @@
 						
 					</div>
 
-					<div  v-if="engagementRing.invoice_items.length">
-						<div class="row" v-for="item in engagementRing.invoice_items">
+					<div  v-if="engagementRing.invoice_items">
+						<div class="row" v-for="item in engagementRing.invoice_items" v-if="engagementRing.invoice_items.length">
 							<div class="col-1">
 							</div>
 
@@ -289,8 +289,8 @@
 						</div>
 						
 					</div>
-					<div v-if="weddingRing.invoice_items.length">
-						<div class="row" v-for="item in weddingRing.invoice_items" >
+					<div v-if="weddingRing.invoice_items">
+						<div class="row" v-for="item in weddingRing.invoice_items" v-if="weddingRing.invoice_items.length">
 							<div class="col-1">
 							</div>
 
