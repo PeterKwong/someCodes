@@ -60,14 +60,23 @@ export default {
 			if (this.title == 'Edit') {
 
 				price +=  this.form.jewelleries.reduce((carry, item)=>{
+					if (item.invoice_items.length == 0) {
+						item.invoice_items.push({unit_price:0,title:''})
+					}
 						return carry += parseInt(item.invoice_items[0].unit_price)
 					},0)
 				price +=  this.form.engagement_rings.reduce((carry, item)=>{
+					if (item.invoice_items.length == 0) {
+						item.invoice_items.push({unit_price:0,title:''})
+					}
 							return carry += parseInt(item.invoice_items[0].unit_price)
 						},0)
 
 
 				price +=  this.form.wedding_rings.reduce((carry, item)=>{
+					if (item.invoice_items.length == 0) {
+						item.invoice_items.push({unit_price:0,title:''})
+					}
 							return carry += parseInt(item.invoice_items[0].unit_price)
 						},0)
 

@@ -161,24 +161,26 @@
 							<img width="200" :src="mutualVar.storage[mutualVar.storage.live] + 'public' +'/images/' + optJew.images[0].image" v-if="optJew.images[0]">
 						</div>
 					</div>
-					<div class="row" v-for="item in jewellery.invoice_items" v-if="item">
-						<div class="col-1">
-						</div>
+					<div v-if="jewellery.invoice_items.length">
+						<div class="row" v-for="item in jewellery.invoice_items" >
+							<div class="col-1">
+							</div>
 
-						<div class="col-2">
-							<label>Unit Price</label>
-							<input class="form-control" v-model="item.unit_price">
-						</div>
+							<div class="col-2">
+								<label>Unit Price</label>
+								<input class="form-control" required v-model="item.unit_price">
+							</div>
 
-						<div class="col-2">
-						</div>
+							<div class="col-2">
+							</div>
 
-						<div class="col-4">
-							<label>Title</label>
-							<input class="form-control" v-model="item.title">
+							<div class="col-4">
+								<label>Title</label>
+								<input class="form-control" required v-model="item.title">
+							</div>
+							<div class="col-3">
+							</div>						
 						</div>
-						<div class="col-3">
-						</div>						
 					</div>
 				</div>
 			</div>
@@ -222,25 +224,28 @@
 						</div>
 						
 					</div>
-					<div class="row" v-for="item in engagementRing.invoice_items" v-if="item">
-						<div class="col-1">
-						</div>
 
-						<div class="col-2">
-							<label>Unit Price</label>
-							<input class="form-control" v-model="item.unit_price">
-						</div>
+					<div  v-if="engagementRing.invoice_items.length">
+						<div class="row" v-for="item in engagementRing.invoice_items">
+							<div class="col-1">
+							</div>
 
-						<div class="col-2">
-						</div>
+							<div class="col-2">
+								<label>Unit Price</label>
+								<input class="form-control" required v-model="item.unit_price">
+							</div>
 
-						<div class="col-4">
-							<label>Title</label>
-							<input class="form-control" v-model="item.title">
+							<div class="col-2">
+							</div>
+
+							<div class="col-4">
+								<label>Title</label>
+								<input class="form-control" required v-model="item.title">
+							</div>
+							<div class="col-3">
+							</div>		
+							
 						</div>
-						<div class="col-3">
-						</div>		
-						
 					</div>
 				</div>
 			</div>
@@ -284,25 +289,27 @@
 						</div>
 						
 					</div>
-					<div class="row" v-for="item in weddingRing.invoice_items" v-if="item">
-						<div class="col-1">
-						</div>
+					<div v-if="weddingRing.invoice_items.length">
+						<div class="row" v-for="item in weddingRing.invoice_items" >
+							<div class="col-1">
+							</div>
 
-						<div class="col-2">
-							<label>Unit Price</label>
-							<input class="form-control" v-model="item.unit_price">
-						</div>
+							<div class="col-2">
+								<label>Unit Price</label>
+								<input class="form-control" required v-model="item.unit_price">
+							</div>
 
-						<div class="col-2">
-						</div>
+							<div class="col-2">
+							</div>
 
-						<div class="col-4">
-							<label>Title</label>
-							<input class="form-control" v-model="item.title">
+							<div class="col-4">
+								<label>Title</label>
+								<input class="form-control" required v-model="item.title">
+							</div>
+							<div class="col-3">
+							</div>		
+							
 						</div>
-						<div class="col-3">
-						</div>		
-						
 					</div>
 				</div>
 			</div>
