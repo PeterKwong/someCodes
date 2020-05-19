@@ -249,9 +249,16 @@ class InvoiceController extends Controller
     			'option' => [
                     'customers' => Customer::orderBy('name')->select('id','phone as text')->get(),
                     'invoice_diamonds' => InvoiceDiamond::orderBy('certificate')->select('id','certificate as text','weight','color','clarity','stock','price', 'account_price')->get(),
-                    'jewelleries' => Jewellery::select('id','stock as text','unit_price')->with('texts','images')->get(),
-                    'engagement_rings' => EngagementRing::select('id','stock as text','unit_price')->with('texts','images')->get(),
-                    'wedding_rings' => WeddingRing::select('id','stock as text','unit_price')->with('texts','images')->get()
+                    'jewelleries' => Jewellery::select('id','stock as text','unit_price')
+                    ->with(['texts','images',
+                        'invoiceItems'=> function($data) use ($id){ return $data->where('invoice_id',$id); } ])->get(),
+
+                    'engagement_rings' => EngagementRing::select('id','stock as text','unit_price')
+                    ->with(['texts','images',
+                        'invoiceItems'=> function($data) use ($id){ return $data->where('invoice_id',$id); } ])->get(),
+                    'wedding_rings' => WeddingRing::select('id','stock as text','unit_price')
+                    ->with(['texts','images',
+                        'invoiceItems'=> function($data) use ($id){ return $data->where('invoice_id',$id); } ])->get()
                 ]
     			]);
     }
@@ -351,7 +358,7 @@ class InvoiceController extends Controller
             $invoice->invoiceItems()
             ->where('invoice_itemable_type', 'App\Jewellery')
             ->where('invoice_itemable_id', $jewellery['id'])
-            ->update($jewelleryInvoiceItem) ;
+            ->updateOrcreate($jewelleryInvoiceItem) ;
             // dd($invoice);
             }
 
@@ -377,7 +384,7 @@ class InvoiceController extends Controller
             $invoice->invoiceItems()
             ->where('invoice_itemable_type', 'App\EngagementRing')
             ->where('invoice_itemable_id', $engagementRing['id'])
-            ->update($engagementRingInvoiceItem) ;
+            ->updateOrcreate($engagementRingInvoiceItem) ;
             }
 
         }
@@ -403,7 +410,7 @@ class InvoiceController extends Controller
             $invoice->invoiceItems()
             ->where('invoice_itemable_type', 'App\WeddingRing')
             ->where('invoice_itemable_id', $weddingRing['id'])
-            ->update($weddingRingInvoiceItem) ;
+            ->updateOrcreate($weddingRingInvoiceItem) ;
             }
 
             // dd($weddingRings);

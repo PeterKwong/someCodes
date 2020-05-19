@@ -119,11 +119,15 @@
 												</tr>
 												<tr v-for="weddingRing in model.wedding_rings" v-if="model.wedding_rings">
 													<td> <p style="font-size: 80%">@{{weddingRing.stock}}</p> </td>
-													<td> <p style="font-size: 80%" v-if="weddingRing.invoice_items[0]">@{{weddingRing.invoice_items[0].title}}</p> </td>
-													<td> <p style="font-size: 80%" v-else>@{{weddingRing.texts[0].content}}</p> </td>
+													<td> 
+														<p style="font-size: 80%" v-if="weddingRing.invoice_items[0]">@{{weddingRing.invoice_items[0].title}}</p> 
+														<p style="font-size: 80%" v-else>@{{weddingRing.texts[0].content}}</p> 
+													</td>
 													<td> <p style="font-size: 80%">1</p> </td>
-													<td> <p style="font-size: 80%"v-if="weddingRing.invoice_items[0]">@{{weddingRing.invoice_items[0].unit_price}}</p> </td>		
-													<td> <p style="font-size: 80%"v-else>@{{weddingRing.unit_price}}</p> </td>						
+													<td> 
+														<p style="font-size: 80%"v-if="weddingRing.invoice_items[0]">@{{weddingRing.invoice_items[0].unit_price}}</p>
+														<p style="font-size: 80%"v-else>@{{weddingRing.unit_price}}</p> 
+													</td>						
 												</tr>
                                                 </tbody>
                                              	<tfoot>

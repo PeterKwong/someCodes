@@ -153,22 +153,28 @@ export default {
 	},
 	methods: {
 		addSelectedJew(){
-			this.form.jewelleries.push(this.option.jewelleries
+			this.form.jewelleries.push(
+				this.option.jewelleries
 				.filter((item)=>{
 					return item.id == this.selectedJew
-				})[0] )
+				})[0])
+			this.form.jewelleries[this.form.jewelleries.length-1].invoice_items.push({unit_price:0,title:''})
+
+			console.log(this.form.jewelleries[this.form.jewelleries.length-1])
 		},
 		addSelectedEng(){
 			this.form.engagement_rings.push(this.option.engagement_rings
 				.filter((item)=>{
 					return item.id == this.selectedEng
 				})[0] )
+			this.form.engagement_rings[this.form.engagement_rings.length-1].invoice_items.push({unit_price:0,title:''})
 		},
 		addSelectedWed(){
 			this.form.wedding_rings.push(this.option.wedding_rings
 				.filter((item)=>{
 					return item.id == this.selectedWed
 				})[0] )
+			this.form.wedding_rings[this.form.wedding_rings.length-1].invoice_items.push({unit_price:0,title:''})
 		},
 		addSelectedDia(){
 			this.form.invoice_diamonds.push(this.option.invoice_diamonds
