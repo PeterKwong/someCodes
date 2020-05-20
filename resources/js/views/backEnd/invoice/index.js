@@ -7,7 +7,7 @@ export default {
 	name: 'InvoiceIndex',
 	data(){
 		return {
-			globeVar,
+			adminVar,
 			title: 'Invoices',
 			source: '/api/invoices',
 			url:'/adm/invoices',
@@ -40,7 +40,7 @@ export default {
 			{ title: 'image', key: 'image', sort: true},
 			{ title: 'Created At', key: 'created_at', sort: true},
 			]
-			if (globeVar.user.role != 'admin') {
+			if (adminVar.user.role != 'admin') {
 				data = data.slice(0,1).concat(data.slice(4))
 			}
 			return data 

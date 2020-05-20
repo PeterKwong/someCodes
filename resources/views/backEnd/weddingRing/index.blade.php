@@ -16,7 +16,7 @@
 					<td>@{{props.item.unit_price}}</td>
 					<td v-if="props.item.texts[0]">@{{props.item.texts[0].content}}</td>
 					<td><img width="256" :src="props.item.images.length > 0 ? 
-							globeVar.storage[globeVar.storage.live] + 'public/images/'+ props.item.images[0].image:'' "></td>
+							adminVar.storage[adminVar.storage.live] + 'public/images/'+ props.item.images[0].image:'' "></td>
 					<td>@{{props.item.published}}</td>
 					<td>@{{props.item.created_at}}</td>
 				</tr>

@@ -1,5 +1,6 @@
 import { setCookie, getCookie, } from './cookie'
 import {queryString} from './queryString'
+import { getGoldPrice } from'./APIs/goldPrice'
 
 export default{
     storage:{
@@ -17,6 +18,8 @@ export default{
 	user:{role: document.head.querySelector('meta[name="user-role"]')?document.head.querySelector('meta[name="user-role"]').content:'' },
 	setCookie,
 	getCookie,	
-
+    APIs:{
+        goldPrice:getGoldPrice(),
+    },
 
 }

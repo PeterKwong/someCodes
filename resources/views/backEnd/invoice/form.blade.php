@@ -24,7 +24,7 @@
 									<input class="form-control" type="text" v-model="form.title" placeholder="item name" required>
 									<small class="form-control" class="is-danger" v-if="errors.title">@{{errors.title[0]}}</small>
 							</div>
-							<div class="form-group" v-if="globeVar.user.role == 'admin' ">
+							<div class="form-group" v-if="adminVar.user.role == 'admin' ">
 								<label class="label">Invoice No</label>
 									<input class="form-control" type="text" v-model="form.invoice_no" placeholder="item name" required>
 									<small class="form-control" class="is-danger" v-if="errors.title">@{{errors.invoice_no[0]}}</small>
@@ -82,7 +82,7 @@
 									<input class="form-control" type="text" name="unit_price" v-model="form.invoice_diamonds[index].price">
 								</div>
 
-								<div class="col" v-if="globeVar.user.role == 'admin' ">
+								<div class="col" v-if="adminVar.user.role == 'admin' ">
 									<label>Account Price</label>
 									<input class="form-control" type="text" name="account_price" v-model="form.invoice_diamonds[index].account_price">
 								</div>
@@ -112,7 +112,7 @@
 									<p>@{{optDia.clarity}}</p>
 								</div>
 
-								<div class="col-1" v-if="globeVar.user.role == 'admin' ">
+								<div class="col-1" v-if="adminVar.user.role == 'admin' ">
 									<label>Random</label>
 									<p>@{{optDia.stock | regExp('-C[0-9]*' , optDia.price) }}</p>
 								</div>
@@ -379,12 +379,12 @@
 								<td><strong>Total</strong></td>
 								<td>@{{total}}</td>
 							</tr>
-							<tr v-if="globeVar.user.role == 'admin' ">
+							<tr v-if="adminVar.user.role == 'admin' ">
 								<td colspan="4"></td>
 								<td><strong>account Balance</strong></td>
 								<td>@{{accountBalance}}</td>
 							</tr>	
-							<tr v-if="globeVar.user.role == 'admin' ">
+							<tr v-if="adminVar.user.role == 'admin' ">
 								<td colspan="4"></td>
 								<td><strong>account Total</strong></td>
 								<td>@{{accountTotal}}</td>

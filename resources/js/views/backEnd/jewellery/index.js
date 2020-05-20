@@ -6,7 +6,7 @@ export default {
 	name: 'JewelleryIndex',
 	data(){
 		return {
-			globeVar,
+			adminVar,
 			title: 'Jewellery',
 			source: '/api/jewelleryInd',
 			url:'/adm/jewellery',

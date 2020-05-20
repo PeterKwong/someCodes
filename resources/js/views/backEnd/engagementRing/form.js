@@ -27,7 +27,7 @@ export default {
 			redirect: '/adm',
 			storeURL: '/api/engagementRings',
 			method: 'post',
-			goldPrice: mutualVar.APIs.goldPrice,
+			goldPrice: adminVar.APIs.goldPrice,
 		}
 	},
 	beforeMount(){

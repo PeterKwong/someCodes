@@ -20,7 +20,19 @@ class TestController extends Controller
 
     public function test(){
 
+    $this->invoiceItemsCopy();
 
+	return response()
+		->json(
+		['sent' => true]
+	);
+
+    	// return response()->download(base_path('public/front_end/contact/Winnie_Kwong.vcf'));
+    }
+
+
+    public function invoiceItemsCopy(){
+    	
     	$invoices = Invoice::with('weddingRings.texts')->get();
     	// $invoices = $invoices->jewelleries();
     	foreach ($invoices as $invoice) {
@@ -99,12 +111,5 @@ class TestController extends Controller
 	        }
         }
 
-
-      return response()
-        ->json(
-          ['sent' => true]
-        );
-
-    	// return response()->download(base_path('public/front_end/contact/Winnie_Kwong.vcf'));
     }
 }

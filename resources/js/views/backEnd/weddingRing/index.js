@@ -6,7 +6,7 @@ export default {
 	name: 'WeddingRingIndex',
 	data(){
 		return {
-			globeVar,
+			adminVar,
 			title: 'wedding Rings',
 			source: '/api/weddingRingsInd',
 			url:'/adm/wedding-rings',

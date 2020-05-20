@@ -89,18 +89,18 @@
 							<p class="text-dark" >&nbsp; Phone: @{{model.customer.phone}}</p>
 						</div>
 						<div class="col-3">
-							<p class="text-dark"  v-if="globeVar.user.role == 'admin' ">Invoice Number: </p>	
+							<p class="text-dark"  v-if="adminVar.user.role == 'admin' ">Invoice Number: </p>	
 							<p class="text-dark" v-else> Invoice ID: </p>			
 							<p class="text-dark" > Invoice Date: </p>			
 							<p class="text-dark" v-if="model.due_date"> Payment Due: </p>
 							<p class="text-dark" > Amount Due (HKD): </p>
 						</div>
 						<div class="col-2">
-							<p class="text-dark" v-if="globeVar.user.role == 'admin' " @click="globeVar.user.role = '' ">@{{model.invoice_no}}</p>
+							<p class="text-dark" v-if="adminVar.user.role == 'admin' " @click="adminVar.user.role = '' ">@{{model.invoice_no}}</p>
 							<p class="text-dark" v-else>@{{model.id}}</p>							
 							<p class="text-dark" >@{{model.date}}</p>			
 							<p class="text-dark" >@{{model.due_date}}</p>
-							<p class="text-dark" v-if="globeVar.user.role == 'admin' ">$@{{model.account_total}}</p>
+							<p class="text-dark" v-if="adminVar.user.role == 'admin' ">$@{{model.account_total}}</p>
 							<p class="text-dark" v-else>$@{{model.total}}</p>
 						</div>
 					</div>
@@ -125,7 +125,7 @@
 									<td>@{{diamond.lab}}:@{{diamond.certificate}}</td>
 									<td>@{{diamond.weight}}ct,@{{diamond.color}} Color,@{{diamond.clarity}} Clarity,@{{diamond.cut}} Cut,@{{diamond.polish}} Polish,@{{diamond.symmetry}} Symmetry,@{{diamond.fluorescence}}</td>
 									<td>1</td>
-									<td  v-if="globeVar.user.role == 'admin' ">@{{diamond.account_price}}</td>
+									<td  v-if="adminVar.user.role == 'admin' ">@{{diamond.account_price}}</td>
 									<td v-else>@{{diamond.price}}</td>
 								</tr>
 								<tr v-for="jewellery in model.jewelleries" v-if="model.jewelleries">
@@ -172,13 +172,13 @@
 								<tr>
 									<td colspan="2"></td>
 									<td><p class="subtitle is-6">Balance:</p></td>
-									<td  v-if="globeVar.user.role == 'admin' ">$@{{model.account_balance}}</td>
+									<td  v-if="adminVar.user.role == 'admin' ">$@{{model.account_balance}}</td>
 									<td  v-else>$@{{model.balance}}</td>
 								</tr>
 								<tr>
 									<td colspan="2"></td>
 									<td>Total:</td>
-									<td  v-if="globeVar.user.role == 'admin' ">$@{{model.account_total}}</td>
+									<td  v-if="adminVar.user.role == 'admin' ">$@{{model.account_total}}</td>
 									<td v-else>$@{{model.total}}</td>
 								</tr>
 							</tfoot>

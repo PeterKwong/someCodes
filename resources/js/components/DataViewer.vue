@@ -155,7 +155,7 @@
 		// components: { Pagination},
 		data(){
 			return {
-				globeVar,
+				adminVar,
 				showFilter: true,
 				model: {
 					data:[]
@@ -164,10 +164,10 @@
 					column: this.column,
 					direction: 'desc',
 					per_page: this.per_page,
-					page: globeVar.queryString.page?globeVar.queryString.page:1,
+					page: adminVar.queryString.page?adminVar.queryString.page:1,
 					search_column: this.filter[0],
 					search_operator: 'like',
-					search_query_1: globeVar.queryString.searchQuery?globeVar.queryString.searchQuery:'',
+					search_query_1: adminVar.queryString.searchQuery?adminVar.queryString.searchQuery:'',
 					search_query_2: '',
 				},
 				operators: {

@@ -8,7 +8,7 @@ export default {
 	
 	data(){
 		return {
-			globeVar,
+			adminVar,
 			model: {
 				customer: {},
 				items: []

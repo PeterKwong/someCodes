@@ -80,8 +80,6 @@
 				
 
 				<div class="row">
-
-
 					<div class="col-2">
 						<div class="control has-icon-left">
 							<div class="control">
@@ -118,6 +116,44 @@
 						</div>
 					</div>
 					<div class="col-2">
+						<div class="control has-icon-left">
+							<div class="control">
+								<label  class="label">Customized</label>
+									<select class="form-control" v-model="form.customized">
+										<option value="true">true</option>
+										<option value="false">false</option>
+									</select>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-2">
+						<div class="control ">
+							<div class="control">
+								<label class="label">Metal</label>
+								<select v-model="form.metal" class="form-control">
+									<option value="18KW">18KW</option>
+									<option value="18KY">18KY</option>
+									<option value="18KR">18KR</option>
+									<option value="PT">PT</option>
+									<option value="Mixed">Mixed</option>
+								</select>
+							</div>
+						</div>
+					</div>					
+					<div class="col-2">
+						<div class="control ">
+							<div class="control">
+								<label class="label">Metal Weight</label>
+									<input type="text" class="form-control" v-model="form.metal_weigth" placeholder="gram" required>
+									<small class="is-danger" v-if="errors.sideStone" >@{{errors.metal_weigth[0]}}</small>
+							</div>
+						</div>
+					</div>
+					<div class="col-2">
 						<div class="control ">
 							<div class="control">
 								<label class="label">Side Stone</label>
@@ -125,8 +161,16 @@
 									<small class="is-danger" v-if="errors.sideStone">@{{errors.sideStone[0]}}</small>
 							</div>
 						</div>
-					</div>
-					
+					</div>	
+					<div class="col-2">
+						<div class="control ">
+							<div class="control">
+								<label class="label">Extra Cost</label>
+									<input type="text" class="form-control" v-model="form.cost" required>
+									<small class="is-danger" v-if="errors.sideStone" >@{{errors.cost[0]}}</small>
+							</div>
+						</div>
+					</div>	
 					<div class="col-2">
 						<div class="control has-icon-left">
 							<div class="control">
@@ -137,6 +181,8 @@
 						</div>
 					</div>
 				</div>
+
+
 				<div class="row">
 						<div class="column">
 							<p class="btn btn-primary" @click="addImage">Add Image</p>

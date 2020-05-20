@@ -10,7 +10,7 @@ export default {
 	components:{Typehead},
 	data(){
 		return {
-			globeVar,
+			adminVar,
 			mutualVar,
 			userRole: Auth.state.user_role,
 			form: {
@@ -167,8 +167,11 @@ export default {
 				.filter((item)=>{
 					return item.id == this.selectedJew
 				})[0])
+			// console.log(this.form.jewelleries[this.form.jewelleries.length-1])
 			if (this.title == 'Edit') {
-				this.form.jewelleries[this.form.jewelleries.length-1].invoice_items.push({unit_price:0,title:''})
+				this.form.jewelleries[this.form.jewelleries.length-1].invoice_items.push(
+					{unit_price:this.form.jewelleries[this.form.jewelleries.length-1].unit_price,
+					title:this.form.jewelleries[this.form.jewelleries.length-1].texts[0].content})
 			}
 		},
 		addSelectedEng(){
@@ -176,8 +179,10 @@ export default {
 				.filter((item)=>{
 					return item.id == this.selectedEng
 				})[0] )
-			if (this.title == 'Edit') {			
-				this.form.engagement_rings[this.form.engagement_rings.length-1].invoice_items.push({unit_price:0,title:''})
+			if (this.title == 'Edit') {
+				this.form.engagement_rings[this.form.engagement_rings.length-1].invoice_items.push(
+					{unit_price:this.form.engagement_rings[this.form.engagement_rings.length-1].unit_price,
+					title:this.form.engagement_rings[this.form.engagement_rings.length-1].texts[0].content})
 			}
 		},
 		addSelectedWed(){
@@ -186,7 +191,9 @@ export default {
 					return item.id == this.selectedWed
 				})[0] )
 			if (this.title == 'Edit') {
-				this.form.wedding_rings[this.form.wedding_rings.length-1].invoice_items.push({unit_price:0,title:''})
+				this.form.wedding_rings[this.form.wedding_rings.length-1].invoice_items.push(
+					{unit_price:this.form.wedding_rings[this.form.wedding_rings.length-1].unit_price,
+					title:this.form.wedding_rings[this.form.wedding_rings.length-1].texts[0].content})
 			}
 		},
 		addSelectedDia(){
