@@ -48,6 +48,12 @@
 			</div>
 
 
+			<div class="columns is-centered">
+					<div class="column">
+						<button class="button is-primary" @click="test" >test</button>
+					</div>
+			</div>
+
 			<div>
 			<p>Status : @{{CalTotalPage}}</p>
 			<p>Reading on Page : @{{onPage}}</p>

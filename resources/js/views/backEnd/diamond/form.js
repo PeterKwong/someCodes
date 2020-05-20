@@ -150,6 +150,23 @@ export default {
           this.CalTotalPage = 'all have been reset'
 			
 		},
+		test(){
+			// this.resetAll()
+			get('/api/test')
+            	.then((res)=>{
+
+				return res.data
+				// this.totalPage(response.data.response.body.search_results.total_diamonds_found)
+
+				})
+				.catch(function(error){
+					Vue.set(this.$data, 'errors', error.response.data)
+				})
+
+
+        	
+			
+		},
 		pushData(form){
 				rapPost(this.this.jsonUrl, form)
 				.then((response)=>{

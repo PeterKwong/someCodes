@@ -150,8 +150,6 @@ Route::get('/verify/{emailToken}', 'VerifyController@verify')->name('verify');
 
 
 
-Route::get('test', 'TestController@test');
-
 Route::get('/{vue_capture?}', function () {
 	App::setLocale('hk');
     return view('layouts.section.frontend');

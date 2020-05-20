@@ -47,7 +47,7 @@ return [
             'hash' => false,
         ],
 
-        //amind
+        //admin
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
