@@ -63,6 +63,7 @@ class Jewellery extends Model
             'metal'=> '18KW',
             'gemstone'=> 0,
             'ct'=> 0,
+            'cost'=> 0,
             'setting' => 0,
             'sideStone' => 0,
             'images' => [['image'=>'',

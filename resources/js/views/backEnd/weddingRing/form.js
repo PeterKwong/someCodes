@@ -24,11 +24,13 @@ export default {
 			option: {},
 			title: 'Create',
 			initialize: '/api/weddingRings/create',
-			redirect: '/adm',
+			redirect: '/adm/wedding-rings',
 			storeURL: '/api/weddingRings',
 			method: 'post',
 			video:'',
-			test:[]
+			test:[],
+			price:[{metal:0, diamond:0 }, {metal:0, diamond:0 },],
+
 		}
 	},
 	beforeMount(){
@@ -62,7 +64,33 @@ export default {
 			}
 			
 			
-		}
+		},
+		calculatedRoundedPrice(){
+			var price = 0
+			this.price[0].diamond = this.form[0].ct * 8000
+			this.price[0].metal = this.form[0].metal_weight * this.goldPrice
+			price = Math.round( (this.price[0].diamond + this.price[0].metal)/100 ) * 100
+			this.form[0].unit_price = price + parseInt(this.form[0].cost)
+			return price
+		},
+		goldPrice(){
+			var price = 0
+			price = adminVar.APIs.goldPrice['metal' + this.form[0].metal]
+			return price
+		},
+		calculatedRoundedPrice1(){
+			var price = 0
+			this.price[1].diamond = this.form[1].ct * 8000
+			this.price[1].metal = this.form[1].metal_weight * this.goldPrice1
+			price = Math.round( (this.price[1].diamond + this.price[1].metal)/100 ) * 100
+			this.form[1].unit_price = price + parseInt(this.form[1].cost)
+			return price
+		},
+		goldPrice1(){
+			var price = 0
+			price = adminVar.APIs.goldPrice['metal' + this.form[1].metal]
+			return price
+		},
 	},
 	methods: {
 		fetchData(){

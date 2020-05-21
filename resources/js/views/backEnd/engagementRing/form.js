@@ -24,10 +24,10 @@ export default {
 			option: {},
 			title: 'Create',
 			initialize: '/api/engagementRings/create',
-			redirect: '/adm',
+			redirect: '/adm/engagement-rings',
 			storeURL: '/api/engagementRings',
 			method: 'post',
-			goldPrice: adminVar.APIs.goldPrice,
+			price:{metal:0, diamond:0 },
 		}
 	},
 	beforeMount(){
@@ -38,6 +38,22 @@ export default {
 			this.method = 'put'
 		}
 		this.fetchData()
+	},
+	computed:{
+		calculatedRoundedPrice(){
+			var price = 0
+			this.price.diamond = this.form.ct * 8000
+			this.price.metal = this.form.metal_weight * this.goldPrice
+			price = Math.round( (this.price.diamond + this.price.metal)/100 ) * 100
+			this.form.unit_price = price + parseInt(this.form.cost)
+			return price
+		},
+		goldPrice(){
+			var price = 0
+			price = adminVar.APIs.goldPrice['metal' + this.form.metal]
+			return price
+		},
+
 	},
 	watch: {
 		'$route' : 'fetchData'

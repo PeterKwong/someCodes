@@ -20,7 +20,6 @@ return [
 	                    'website' => 'www.tingdiamond.com',
 	                    'logo' => '/images/front-end/company/logo_PNG_sq_60x60_1.png',
 	                        ]
-				]
-                    
+				],
 
 ];

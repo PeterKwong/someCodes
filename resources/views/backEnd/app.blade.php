@@ -9,6 +9,10 @@
                 ?Auth::guard('admin')->user()->api_token:'' }}">
         <meta name="user-role" content="{{ Auth::guard('admin')->check()
                 ?Auth::guard('admin')->user()->roles()->first()->name:'' }}"> 
+
+        <meta name="admin-data" content="{{ Auth::guard('admin')->check()
+                ?json_encode(config('global.cache')) :'' }}"> 
+
         <title>Ting Diamond</title>
 
         <!-- App favicon -->

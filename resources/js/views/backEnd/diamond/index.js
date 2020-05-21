@@ -39,7 +39,7 @@ export default {
 			{ title: 'Created At', key: 'created_at', sort: true},
 			],
 			filter: [
-			'certificate','id',
+			'certificate','id','supplier_id',
 			]
 		}
 	},

@@ -6,7 +6,7 @@
     <div id="engagementRingForm">
 
 	<div class="card-box">	
-		<h1 class="title is-3">@{{title}}</h1>
+		<h1 class="title is-3">@{{title}} </h1>
 		<h1 class="title is-3" v-if="option">Latest ID: @{{option.id}}</h1>
 			<form @submit.prevent="save">
 			<div class="field" >
@@ -120,8 +120,8 @@
 							<div class="control">
 								<label  class="label">Customized</label>
 									<select class="form-control" v-model="form.customized">
-										<option value="true">true</option>
-										<option value="false">false</option>
+										<option value="1">true</option>
+										<option value="0">false</option>
 									</select>
 							</div>
 						</div>
@@ -133,7 +133,7 @@
 					<div class="col-2">
 						<div class="control ">
 							<div class="control">
-								<label class="label">Metal</label>
+								<label class="label">Metal  @$ @{{goldPrice}} </label>
 								<select v-model="form.metal" class="form-control">
 									<option value="18KW">18KW</option>
 									<option value="18KY">18KY</option>
@@ -147,17 +147,17 @@
 					<div class="col-2">
 						<div class="control ">
 							<div class="control">
-								<label class="label">Metal Weight</label>
-									<input type="text" class="form-control" v-model="form.metal_weigth" placeholder="gram" required>
-									<small class="is-danger" v-if="errors.sideStone" >@{{errors.metal_weigth[0]}}</small>
+								<label class="label">Metal Weight :$ @{{price.metal}}</label>
+									<input type="text" class="form-control" v-model="form.metal_weight" placeholder="gram" required>
+									<small class="is-danger" v-if="errors.sideStone" >@{{errors.metal_weight[0]}}</small>
 							</div>
 						</div>
 					</div>
 					<div class="col-2">
 						<div class="control ">
 							<div class="control">
-								<label class="label">Side Stone</label>
-									<input type="text" class="form-control" v-model="form.ct" required>
+								<label class="label">Side Stone :$ @{{price.diamond}}</label>
+									<input type="text" class="form-control" v-model="form.ct" placeholder="@$8000" required>
 									<small class="is-danger" v-if="errors.sideStone">@{{errors.sideStone[0]}}</small>
 							</div>
 						</div>
@@ -174,7 +174,7 @@
 					<div class="col-2">
 						<div class="control has-icon-left">
 							<div class="control">
-								<label class="label">Unit Price</label>
+								<label class="label">Unit Price $( @{{calculatedRoundedPrice}} + @{{form.cost}} )</label>
 									<input type="text" class="form-control" v-model="form.unit_price" placeholder="unit_price" required>
 									<small class="is-danger" v-if="errors.unit_price">@{{errors.unit_price[0]}}</small>
 							</div>

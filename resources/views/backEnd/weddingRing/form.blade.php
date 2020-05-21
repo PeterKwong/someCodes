@@ -97,21 +97,6 @@
 								</div>
 							</div>
 						</div>
-
-						<div class="col-2">
-							<div class="control has-icon-left">
-								<div class="control">
-									<label  class="label">Metal</label>
-										<select v-model="form[0].metal" class="form-control">
-											<option value="18KW">18KW</option>
-											<option value="18KY">18KY</option>
-											<option value="18KR">18KR</option>
-											<option value="PT">PT</option>
-											<option value="Mixed">Mixed</option>
-										</select>
-								</div>
-							</div>
-						</div>
 						<div class="col-2">
 							<div class="control has-icon-left">
 								<div class="control">
@@ -123,21 +108,54 @@
 								</div>
 							</div>
 						</div>
-						
+					</div>
+
+					<div class="row">
 						<div class="col-2">
 							<div class="control ">
 								<div class="control">
-									<label class="label">Side Stone</label>
-										<input type="text" class="form-control" v-model="form[0].ct" required>
-										<small class="is-danger" v-if="errors.sideStone">@{{errors.sideStone[0]}}</small>
+									<label class="label">Metal  @$ @{{goldPrice}} </label>
+									<select v-model="form[0].metal" class="form-control">
+										<option value="18KW">18KW</option>
+										<option value="18KY">18KY</option>
+										<option value="18KR">18KR</option>
+										<option value="PT">PT</option>
+										<option value="Mixed">Mixed</option>
+									</select>
+								</div>
+							</div>
+						</div>					
+						<div class="col-2">
+							<div class="control ">
+								<div class="control">
+									<label class="label">Metal Weight :$ @{{price[0].metal}}</label>
+										<input type="text" class="form-control" v-model="form[0].metal_weight" placeholder="gram" required>
+										<small class="is-danger" v-if="errors.sideStone" >@{{errors.metal_weight[0]}}</small>
 								</div>
 							</div>
 						</div>
-						
+						<div class="col-2">
+							<div class="control ">
+								<div class="control">
+									<label class="label">Side Stone :$ @{{price[0].diamond}}</label>
+										<input type="text" class="form-control" v-model="form[0].ct" placeholder="@$8000" required>
+										<small class="is-danger" v-if="errors.sideStone">@{{errors.sideStone[0]}}</small>
+								</div>
+							</div>
+						</div>	
+						<div class="col-2">
+							<div class="control ">
+								<div class="control">
+									<label class="label">Extra Cost</label>
+										<input type="text" class="form-control" v-model="form[0].cost" required>
+										<small class="is-danger" v-if="errors.sideStone" >@{{errors.cost[0]}}</small>
+								</div>
+							</div>
+						</div>	
 						<div class="col-2">
 							<div class="control has-icon-left">
 								<div class="control">
-									<label class="label">Unit Price</label>
+									<label class="label">Unit Price $( @{{calculatedRoundedPrice}} + @{{form[0].cost}} )</label>
 										<input type="text" class="form-control" v-model="form[0].unit_price" placeholder="unit_price" required>
 										<small class="is-danger" v-if="errors.unit_price">@{{errors.unit_price[0]}}</small>
 								</div>
@@ -267,20 +285,6 @@
 						<div class="col-2">
 							<div class="control has-icon-left">
 								<div class="control">
-									<label  class="label">Metal</label>
-										<select v-model="form[1].metal" class="form-control">
-											<option value="18KW">18KW</option>
-											<option value="18KY">18KY</option>
-											<option value="18KR">18KR</option>
-											<option value="PT">PT</option>
-											<option value="Mixed">Mixed</option>
-										</select>
-								</div>
-							</div>
-						</div>
-						<div class="col-2">
-							<div class="control has-icon-left">
-								<div class="control">
 									<label class="label">Customized</label>
 										<select v-model="form[1].customized" class="form-control">
 											<option value="1">Yes</option>
@@ -289,23 +293,56 @@
 								</div>
 							</div>
 						</div>
-						
+					</div>
+
+					<div class="row">
 						<div class="col-2">
 							<div class="control ">
 								<div class="control">
-									<label class="label">Side Stone</label>
-										<input type="text" class="form-control" v-model="form[1].ct" required>
-										<small class="is-danger" v-if="errors.sideStone">@{{errors.sideStone[0]}}</small>
+									<label class="label">Metal  @$ @{{goldPrice1}} </label>
+									<select v-model="form[1].metal" class="form-control">
+										<option value="18KW">18KW</option>
+										<option value="18KY">18KY</option>
+										<option value="18KR">18KR</option>
+										<option value="PT">PT</option>
+										<option value="Mixed">Mixed</option>
+									</select>
+								</div>
+							</div>
+						</div>					
+						<div class="col-2">
+							<div class="control ">
+								<div class="control">
+									<label class="label">Metal Weight :$ @{{price[1].metal}}</label>
+										<input type="text" class="form-control" v-model="form[1].metal_weight" placeholder="gram" required>
+										<small class="is-danger" v-if="errors.sideStone" >@{{errors.metal_weight[0]}}</small>
 								</div>
 							</div>
 						</div>
-						
+						<div class="col-2">
+							<div class="control ">
+								<div class="control">
+									<label class="label">Side Stone :$ @{{price[1].diamond}}</label>
+										<input type="text" class="form-control" v-model="form[1].ct" placeholder="@$8000" required>
+										<small class="is-danger" v-if="errors.sideStone">@{{errors.sideStone[1]}}</small>
+								</div>
+							</div>
+						</div>	
+						<div class="col-2">
+							<div class="control ">
+								<div class="control">
+									<label class="label">Extra Cost</label>
+										<input type="text" class="form-control" v-model="form[1].cost" required>
+										<small class="is-danger" v-if="errors.sideStone" >@{{errors.cost[1]}}</small>
+								</div>
+							</div>
+						</div>	
 						<div class="col-2">
 							<div class="control has-icon-left">
 								<div class="control">
-									<label class="label">Unit Price</label>
+									<label class="label">Unit Price $( @{{calculatedRoundedPrice1}} + @{{form[1].cost}} )</label>
 										<input type="text" class="form-control" v-model="form[1].unit_price" placeholder="unit_price" required>
-										<small class="is-danger" v-if="errors.unit_price">@{{errors.unit_price[0]}}</small>
+										<small class="is-danger" v-if="errors.unit_price">@{{errors.unit_price[1]}}</small>
 								</div>
 							</div>
 						</div>

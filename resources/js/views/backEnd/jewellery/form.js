@@ -32,10 +32,11 @@ export default {
 			option: {},
 			title: 'Create',
 			initialize: '/api/jewellery/create',
-			redirect: '/adm',
+			redirect: '/adm/jewellery',
 			storeURL: '/api/jewellery',
 			method: 'post',
 			video:'',
+			price:{metal:0, diamond:0 },
 		}
 	},
 	beforeMount(){
@@ -57,8 +58,21 @@ export default {
 			}else{
 				this.form.sideStone = '0'
 			}
-			
-		}
+		},
+		calculatedRoundedPrice(){
+			var price = 0
+			this.price.diamond = this.form.ct * 8000
+			this.price.metal = this.form.metal_weight * this.goldPrice
+			price = Math.round( (this.price.diamond + this.price.metal)/100 ) * 100
+			this.form.unit_price = price + parseInt(this.form.cost)
+			return price
+		},
+		goldPrice(){
+			var price = 0
+			price = adminVar.APIs.goldPrice['metal' + this.form.metal]
+			return price
+		},
+
 	},
 	methods: {
 		fetchData(){

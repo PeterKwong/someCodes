@@ -30,6 +30,10 @@ class TestController extends Controller
     	// return response()->download(base_path('public/front_end/contact/Winnie_Kwong.vcf'));
     }
 
+    public function cacheC(){
+    	
+    }
+
 
     public function invoiceItemsCopy(){
     	

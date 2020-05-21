@@ -17,7 +17,8 @@ export default{
 	theme:{dark:'', light:'light/'},
 	user:{role: document.head.querySelector('meta[name="user-role"]')?document.head.querySelector('meta[name="user-role"]').content:'' },
 	setCookie,
-	getCookie,	
+	getCookie,
+    backendFetch:{},
     APIs:{
         goldPrice:getGoldPrice(),
     },

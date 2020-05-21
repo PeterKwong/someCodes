@@ -1,15 +1,14 @@
 import {curlGet} from '../api'
 
 export function getGoldPrice(){
-	var data = {'18K':440, 
-				'PT':230}
-		// var data 
-		// curlGet('https://data-asg.goldprice.org/dbXRates/USD')
-		// 	.then((res, data)=>{
-
-		// 		data = res.data.items[0].xauClose
-		// 		console.log(res.data.items[0].xauClose)
-		// 	})
+	var priceFactor = 1.9
+	var K18 = 440 * priceFactor
+	var PT = 230 * priceFactor
+	var data = {metal18KW:K18,
+				metal18KY:K18,
+				metal18KR:K18,
+				metalMixed:K18,
+				metalPT:PT}
 
 	return data
 }
