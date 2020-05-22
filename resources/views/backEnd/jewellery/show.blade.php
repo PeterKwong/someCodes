@@ -29,10 +29,6 @@
 					<p class="subtitle is-5">@{{model.unit_price}}</p>
 				</div>
 				<div class="col-2">
-					<label>metal</label>
-					<p class="subtitle is-5">@{{model.metal}}</p>
-				</div>
-				<div class="col-2">
 					<label>gemstone</label>
 					<p class="subtitle is-5">@{{model.gemstone}}</p>
 				</div>
@@ -41,6 +37,10 @@
 					<p class="subtitle is-5">@{{model.type}}</p>
 				</div>
 				<div class="col-2">
+					<label>setting</label>
+					<p class="subtitle is-5">@{{model.setting}}</p>
+				</div>
+				<div class="col">
 					<label>published</label>
 					<p class="subtitle is-5">@{{model.published}}</p>
 				</div>
@@ -49,20 +49,25 @@
 
 			<hr>
 			<div class="row">
-				<div class="col-2">
-					<label>setting</label>
-					<p class="subtitle is-5">@{{model.setting}}</p>
+				<div class="col">
+					<label>metal</label>
+					<p class="subtitle is-5">@{{model.metal}}</p>
 				</div>
 				<div class="col-2">
 					<label>Side Stone</label>
 					<p class="subtitle is-5">@{{model.ct}}</p>
 				</div>
-				<div class="col-3">
+				<div class="col">
+					<label>metal weight</label>
+					<p class="subtitle is-5">@{{model.metal_weight}}</p>
+				</div>
+				<div class="col">
+					<label>extra cost</label>
+					<p class="subtitle is-5">@{{model.cost}}</p>
+				</div>
+				<div class="col">
 					<label>created_at</label>
 					<p class="subtitle is-5">@{{model.created_at}}</p>
-				</div>
-				<div class="col-5">
-					
 				</div>
 			</div>
 

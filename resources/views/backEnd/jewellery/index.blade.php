@@ -14,6 +14,7 @@
 					<td>@{{props.item.gemstone}}</td>
 					<td>@{{props.item.setting}}</td>
 					<td>@{{props.item.ct}}</td>
+					<td>@{{props.item.metal_weight}}</td>
 					<td>@{{props.item.unit_price}}</td>
 					<td v-if="props.item.texts[0]">@{{props.item.texts[0].content}}</td>
 					<td><img width="256" :src="props.item.images.length > 0 ? 

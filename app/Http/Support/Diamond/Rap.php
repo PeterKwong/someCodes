@@ -99,7 +99,7 @@ trait Rap{
 
       $originalPrice = $data->response->body->caratprice * ( 100 - $req->discount)/100 * $req->weight;
       $price = $this->markPrice($originalPrice);
-      $tag = 'G'.$req->gia .'-c'. strrev( substr(strval( ceil( $originalPrice ) ), 0,-1) ) . '.D'. strrev( strval( $req->discount ) );
+      $tag = 'G'.$req->gia .'-c'. strrev( substr(strval( ceil( $originalPrice ) ), 0,-1) ) . '.D'. strval( $req->discount ) ;
 
 
       // dd($price);

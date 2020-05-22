@@ -6,11 +6,22 @@ export default {
 	name: 'InvoiceDiamondsIndex',
 	data(){
 		return {
+			adminVar,
 			title: 'Invoice Diamonds',
 			source: '/api/invoiceDiamonds',
 			url:'/adm/invoice-diamonds',
 			create:'/adm/invoiceDiamonds/create',
-			thead: [
+			filter: [
+			'id', 'price', 'weight', 'color', 'clarity', 'fluorescence', 'certificate', 'stock', 'cut', 'polish', 'symmetry', 'shape', 'lab'
+			]
+		}
+	},
+	components: {
+		DataViewer 
+			},
+	computed:{
+		thead(){
+			var data = [
 			{ title: 'ID', key: 'id', sort: true},
 			{ title: 'Price', key: 'price', sort: true},
 			{ title: 'Weight', key: 'weight', sort: true},
@@ -28,15 +39,13 @@ export default {
 			{ title: 'Due Status', key: 'due_date', sort: true},
 			{ title: 'Extra', key: 'stock', sort: true},
 			{ title: 'Created At', key: 'created_at', sort: true},
-			],
-			filter: [
-			'id', 'price', 'weight', 'color', 'clarity', 'fluorescence', 'certificate', 'stock', 'cut', 'polish', 'symmetry', 'shape', 'lab'
 			]
+			if (adminVar.user.role == 'employee') {
+				data = data.slice(0,14).concat(data.slice(15))
+			}
+			return data 
 		}
 	},
-	components: {
-		DataViewer 
-			},
 	filters:{
 		regExp(source, str, price){
 			var pattern = new RegExp(str,'i')

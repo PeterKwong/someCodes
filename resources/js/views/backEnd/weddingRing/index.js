@@ -17,6 +17,7 @@ export default {
 			{ title: 'metal', key: 'metal', sort: true},
 			{ title: 'style', key: 'style', sort: true},
 			{ title: 'side stone', key: 'ct', sort: true},
+			{ title: 'metal weight', key: 'metal_weight', sort: true},
 			{ title: 'Unit Price', key: 'unit_price', sort: true},
 			{ title: 'texts', key: 'texts', sort: true},
 			{ title: 'image', key: 'image', sort: true},

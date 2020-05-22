@@ -23,7 +23,7 @@
 					<td>@{{props.item.shape}}</td>
 					<td>@{{props.item.lab}}</td>
 					<td @click="setDue(props.item)" v-if="!props.item.due_date"><a class="btn btn-primary text-white">Due Now</a></td>
-					<td>@{{  props.item.stock | regExp('-C[0-9]*' , props.item.price ) }}</td>
+					<td v-if="adminVar.user.role != 'employee'">@{{  props.item.stock | regExp('-C[0-9]*' , props.item.price ) }}</td>
 					<td>@{{props.item.created_at}}</td>
 				</tr>
 			</template>

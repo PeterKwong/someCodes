@@ -32,11 +32,14 @@
 				<label>Prong</label>
 				<p class="subtitle is-5">@{{model.prong}}</p>
 			</div>
-			<div class="col-5">
+			<div class="col">
 				<label>published</label>
 				<p class="subtitle is-5">@{{model.published}}</p>
 			</div>
-
+			<div class="col">
+				<label>created_at</label>
+				<p class="subtitle is-5">@{{model.created_at}}</p>
+			</div>
 			
 		</div>
 		
@@ -54,9 +57,13 @@
 				<label>Side Stone</label>
 				<p class="subtitle is-5">@{{model.ct}}</p>
 			</div>
-			<div class="col-5">
-				<label>created_at</label>
-				<p class="subtitle is-5">@{{model.created_at}}</p>
+			<div class="col">
+				<label>metal weight</label>
+				<p class="subtitle is-5">@{{model.metal_weight}}</p>
+			</div>
+			<div class="col">
+				<label>extra cost</label>
+				<p class="subtitle is-5">@{{model.cost}}</p>
 			</div>
 		</div>
 

@@ -29,11 +29,15 @@
 						<label>Stock</label>
 						<p class="subtitle is-5">@{{wedding_ring.stock}}</p>
 					</div>
-					<div class="col-3">
+					<div class="col">
 						<label>Unit Price</label>
 						<p class="subtitle is-5">@{{wedding_ring.unit_price}}</p>
 					</div>
-					<div class="col-5">
+					<div class="col">
+						<label>style</label>
+						<p class="subtitle is-5">@{{wedding_ring.style}}</p>
+					</div>
+					<div class="col">
 					<label>published</label>
 					<p class="subtitle is-5">@{{wedding_ring.published}}</p>
 				</div>
@@ -47,14 +51,18 @@
 						<p class="subtitle is-5">@{{wedding_ring.metal}}</p>
 					</div>
 					<div class="col-2">
-						<label>style</label>
-						<p class="subtitle is-5">@{{wedding_ring.style}}</p>
-					</div>
-					<div class="col-3">
 						<label>Side Stone</label>
 						<p class="subtitle is-5">@{{wedding_ring.ct}}</p>
 					</div>
-					<div class="col-5">
+					<div class="col">
+						<label>metal weight</label>
+						<p class="subtitle is-5">@{{wedding_ring.metal_weight}}</p>
+					</div>
+					<div class="col">
+						<label>extra cost</label>
+						<p class="subtitle is-5">@{{wedding_ring.cost}}</p>
+					</div>
+					<div class="col">
 						<label>created_at</label>
 						<p class="subtitle is-5">@{{wedding_ring.created_at}}</p>
 					</div>

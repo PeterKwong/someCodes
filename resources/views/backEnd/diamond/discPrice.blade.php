@@ -57,7 +57,7 @@
           <div class="col-2">
             <div class="control ">
               <div class="control">
-                <label class="label">discount</label>
+                <label class="label">D</label>
                   <input type="text" class="form-control" v-model="form.discount" required>
                   <small class="is-danger" v-if="errors.sideStone">@{{errors.sideStone[0]}}</small>
               </div>
