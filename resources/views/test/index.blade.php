@@ -39,8 +39,8 @@
 					<script type="text/javascript">
 					var qrcode = new QRCode(document.getElementById("qrcode"), {
 						text: "https://youtu.be/XvDUKOKUsRM",
-						width: 128,
-						height: 128,
+						width: 100,
+						height: 100,
 						colorDark : "#000000",
 						colorLight : "#ffffff",
 						correctLevel : QRCode.CorrectLevel.H
