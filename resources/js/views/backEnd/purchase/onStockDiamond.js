@@ -18,6 +18,7 @@ export default {
 		return {
 				data:'',
 				labels:'',
+				url:'/adm/purchase/on-stock-diamonds',
 				selectingData:'dueDiamonds',
 				dueDiamonds:{
 						amountKey: 'amount',

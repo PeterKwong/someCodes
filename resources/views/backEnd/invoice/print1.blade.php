@@ -34,7 +34,7 @@
 			    a{
 			    	color: #71b6f9 !important;
 			    }
-			}
+			},
 
         </style>
 

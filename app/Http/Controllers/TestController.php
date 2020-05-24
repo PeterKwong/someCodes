@@ -20,14 +20,17 @@ class TestController extends Controller
 
     public function test(){
 
-    $this->invoiceItemsCopy();
+	    $this->invoiceItemsCopy();
 
-	return response()
-		->json(
-		['sent' => true]
-	);
+		return response()
+			->json(
+			['sent' => true]
+		);
 
-    	// return response()->download(base_path('public/front_end/contact/Winnie_Kwong.vcf'));
+    }
+    public function testView(){
+    	
+    	return view('test.index');
     }
 
     public function cacheC(){

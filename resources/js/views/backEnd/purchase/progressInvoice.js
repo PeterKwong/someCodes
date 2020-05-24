@@ -18,7 +18,7 @@ export default {
 				data:'',
 				labels:'',
 				totalAmount:0,
-
+				url:'/adm/purchase/progress-invoices',
 				dataViewer: {
 					title: 'In-Progress Invoices',
 					source: '/api/purchase/progress-invoices-paginate',

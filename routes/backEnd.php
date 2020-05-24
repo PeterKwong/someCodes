@@ -77,6 +77,9 @@ Route::group(['middleware'=> 'auth:admin'], function(){
         //accounting
         Route::get('accounting/invoice-export', 'AdminController@invoiceExport');
 
+        Route::get('test', 'TestController@testView');
+
+
         Route::get('theme', function(){
             // dd($_COOKIE['theme']);
             if (!isset($_COOKIE['theme'])) {

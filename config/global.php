@@ -13,6 +13,7 @@ return [
 		'hk'=>1,
 		'cn'=>2,
 		],
+		
 	'company' => [ 'info' => [
 						'name' => 'Ting Diamond Limited',
 	                    'address' => 'Room 202, 2/F, Knutsford Commercial Building, 4-5 Knutsford Terrace, Tsim Sha Tsui',

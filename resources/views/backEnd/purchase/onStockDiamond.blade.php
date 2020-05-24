@@ -46,7 +46,7 @@
             <br>
             <br>
 
-            <data-viewer :source = "dataViewer.source" :thead="dataViewer.thead" :filter="dataViewer.filter" :create="dataViewer.create" :title="dataViewer.title" :column="column" :per_page="dataViewer.per_page">
+            <data-viewer :source = "dataViewer.source" :thead="dataViewer.thead" :filter="dataViewer.filter" :create="dataViewer.create" :title="dataViewer.title" :column="column" :per_page="dataViewer.per_page" :url="url">
               <template scope="props">
                 <!-- <tr @click="$router.push('/adm/invoices/' + props.item.id)" v-if="userRole=='admin' || props.item.count"> -->
                 <tr @click="clickRow(props.item)">
