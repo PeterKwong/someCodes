@@ -39,7 +39,7 @@ export default {
             'symmetry',
             'fluorescence',
             'certificate',
-            'lab'
+            'lab',
             ]
 			,
 			storeURL: '/api/diamonds/appointment',

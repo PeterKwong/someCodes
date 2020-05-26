@@ -117,6 +117,9 @@
                             <div v-if=" selectingShowType == 'video' ">
                                 <iframe :src="diamond.video_link.includes('http')?diamond.video_link.replace('http','https'):diamond.video_link" width="100%" height="700" ></iframe>
                             </div>
+                            <div v-if="diamond.plot && selectingShowType == 'plot' ">
+                                <img class="img-responsive" :src="storageURL + 'plots/' + diamond.id + '.jpg' "  width="100%" height="auto"></img>
+                            </div>
                             <div v-if="!diamond.image_cache && selectingShowType == null">
                                 <img class="img-responsive" :src="`/images/front-end/diamond_show/RoundDiamonds_sample.png`" width="100%" height="auto"></img>
                             </div>
@@ -126,6 +129,7 @@
                         <div>
                             <center>
                                 <img v-if="diamond.image_cache" @click="selectingShowType = 'image'"  :src="storageURL + 'images/' + diamond.id + '.jpg' " width="20%" height="auto" ></img>
+                                <img v-if="diamond.plot" :src="storageURL + 'plots/' + diamond.id + '.jpg' " @click="selectingShowType = 'plot'" width="200"></img>
                                 <img v-if="diamond.video_link" @click="selectingShowType = 'video'"  :src="`/images/front-end/diamond_show/d360_degree.png`" width="20%" height="auto" ></img>
                             </center>
                         </div>
