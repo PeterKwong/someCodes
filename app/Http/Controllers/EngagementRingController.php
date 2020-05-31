@@ -45,11 +45,11 @@ class EngagementRingController extends Controller
     public function bladeShow($locale, $id)
     {
 
-     $meta = EngagementRing::with(['texts'=>function($texts){
-                    $texts->where('locale',app()->getLocale());
-                }, 'images'])->findOrFail($id);
-    
-      return view('engagementRing.show', compact('meta'));
+        $meta = EngagementRing::with(['texts'=>function($texts){
+                        $texts->where('locale',app()->getLocale());
+                    }, 'images'])->findOrFail($id);
+
+        return view('engagementRing.show', ['meta'=>$meta] );
  
     }
 

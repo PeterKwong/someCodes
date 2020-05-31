@@ -127,7 +127,7 @@
             <br>
             <div class="row" >
                 <div class="col-12">
-                    <center><h3 class="title is-5"> @{{engagementRing.style | transJs(langs)}} @{{engagementRing.prong | transJs(langs)}} @{{engagementRing.shoulder | transJs(langs)}} {{trans('engagementRing.setting')}}</h3> 
+                    <center><h3 class="title is-5"> {{__('engagementRing.' .$meta->style )}} {{__('engagementRing.' .$meta->prong )}} {{__('engagementRing.' .$meta->shoulder )}} {{trans('engagementRing.setting')}}</h3> 
                                 <h5>{{trans('engagementRing.metaTitle3')}}</h5>                     
                     </center>
                     
@@ -178,10 +178,11 @@
                                 </thead>
                                     
                                 <tbody>
-                                    <tr><td>{{__('engagementRing.Unit Price')}}</td><td>$@{{engagementRing.unit_price }}</td></tr>
-                                    <tr><td>{{__('engagementRing.Shoulder')}}</td><td>@{{engagementRing.shoulder | transJs(langs)}}</td></tr>
-                                    <tr><td>{{__('engagementRing.Prong')}}</td><td>@{{engagementRing.prong | transJs(langs)}}</td></tr>
-                                    <tr><td>{{__('engagementRing.Side Stone')}}</td><td>{{__('engagementRing.Around')}} @{{engagementRing.ct}} {{trans('engagementRing.ct')}}</td></tr>
+                                    <tr><td>{{__('engagementRing.Unit Price')}}</td><td>${{ $meta->unit_price }}</td></tr>
+                                    <tr><td>{{__('engagementRing.Shoulder')}}</td><td>{{__('engagementRing.' .$meta->shoulder )}}</td></tr>
+                                    <tr><td>{{__('engagementRing.Prong')}}</td><td>{{__('engagementRing.' .$meta->prong )}}</td></tr>
+                                    <tr><td>{{__('engagementRing.Metal')}}</td><td>{{__('engagementRing.' .$meta->metal )}}</td></tr>
+                                    <tr><td>{{__('engagementRing.Side Stone')}}</td><td>{{__('engagementRing.Around')}} {{ $meta->ct }} {{trans('engagementRing.ct')}}</td></tr>
                                 </tbody>
 
                                 <thead>
@@ -191,9 +192,9 @@
                                 </thead>
                                     
                                 <tbody>
-                                    <tr><td>{{__('engagementRing.Stock')}}</td><td>@{{engagementRing.stock}}</td></tr>
-                                    <tr><td>{{__('engagementRing.Name')}}</td><td v-if="engagementRing.texts">@{{engagementRing.texts[locale].content}}</td></tr>
-                                    <tr><td>{{__('engagementRing.Description')}}</td><td>@{{engagementRing.style | transJs(langs)}},@{{engagementRing.prong | transJs(langs)}},@{{engagementRing.shoulder | transJs(langs)}},{{trans('engagementRing.setting')}}</td></tr>
+                                    <tr><td>{{__('engagementRing.Stock')}}</td><td>{{ $meta->stock }}</td></tr>
+                                    <tr><td>{{__('engagementRing.Name')}}</td><td v-if="engagementRing.texts">{{ $meta->texts[0]->content }}</td></tr>
+                                    <tr><td>{{__('engagementRing.Description')}}</td><td>{{__('engagementRing.' .$meta->style )}},{{__('engagementRing.' .$meta->prong )}},{{__('engagementRing.' .$meta->shoulder )}},{{trans('engagementRing.setting')}}</td></tr>
                                 </tbody>
 
                                 </table>

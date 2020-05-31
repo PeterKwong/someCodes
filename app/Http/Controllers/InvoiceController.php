@@ -289,7 +289,7 @@ class InvoiceController extends Controller
         $engagementRings = [];
         $weddingRings = [];
         
-        // dd($request->jewelleries);
+        // dd($request->customer_id);
         
         $invoice->invoiceDiamonds()->update(['invoice_id' => null]);
 

@@ -61,7 +61,15 @@ return [
 	'Name' => 'Name',
 	'Description' => 'Description',
 	'Appointment' => 'Appointment',
-
+	
+	'18KW' => '18K White',
+	'18KY' => '18K Yellow',
+	'18KR' => '18K Rose Gold',
+	'18K White' => '18K White',
+	'18K Rose Gold' => '18K Rose Gold',
+	'PT950/900' => 'PT950/900',
+	'Mixed' => 'Mixed',
+	'Metal' => 'Metal',
 	
 	'Submit' => 'Submit',	
 
