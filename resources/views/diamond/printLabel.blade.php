@@ -59,7 +59,7 @@
 				<div style="width: 150px;">1.01 , G , VVS2 </div>
 			</div>
 		</div>
-		<div style="width: 300px; ">
+		<div>
 			<div id="qrcode"></div>
 			<script type="text/javascript">
 				var qrcode = new QRCode(document.getElementById("qrcode"), {
