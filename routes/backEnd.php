@@ -30,6 +30,7 @@ Route::group(['middleware'=> 'auth:admin'], function(){
         Route::get('diamonds', 'DiamondController@admBladeIndex');
         Route::get('diamonds/create', 'DiamondController@admBladeForm');
         Route::get('diamonds/disc-price', 'DiamondController@diamondDiscPrice');
+        Route::get('diamonds/print-label', 'DiamondController@printLabel');
 
         //Engagement Ring
         Route::get('engagement-rings', 'EngagementRingController@admBladeIndex');

@@ -1,5 +1,4 @@
 
-import Vue from 'vue'
 import Flash from '../../../helpers/flash'
 import { get,post, rapPost } from '../../../helpers/api'
 import {toMulipartedForm} from '../../../helpers/form'
