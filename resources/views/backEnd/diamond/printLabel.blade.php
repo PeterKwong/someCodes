@@ -51,16 +51,16 @@
 					<img src="/images/front-end/company/logo_2019_grey_sq.png" width="100%" >	
 				</div>
 				<div style="width: 95px;  border: solid; border-width: 0.5px;">
-					<span style="font-size: 20px; margin:none ">$@{{data.price}}</span>
+					<span style="font-size: 18px; margin:none ">$@{{data.price}}</span>
 					<br>
-					<span style="font-size: 10px; margin:none ">GIA: @{{data.gia}}</span>
+					<span style="font-size: 9px; margin:none ">GIA: @{{data.gia}}</span>
 				</div>
 			</div>
 			<div class="flex-container">
-				<div style="width: 125px; font-size: 18px"> @{{data.weight}}, @{{data.color}}, @{{data.clarity}} </div>
+				<div style="width: 125px; font-size: 16px"> @{{data.weight}}, @{{data.color}}, @{{data.clarity}} </div>
 			</div>
 			<div class="flex-container">
-				<div style="width: 125px; font-size: 15px"> @{{data.stock}}</div>
+				<div style="width: 125px; font-size: 13px"> @{{data.stock}}</div>
 			</div>
 		</div>
 		<div>
