@@ -18,10 +18,12 @@ export function queryStringArray(string) {
 }
 
 function query(pattern,replace){
-        if (window.location.search.includes(replace)) {
+    if (window.location.search.includes(replace)) {
         var q = new RegExp(pattern, 'i')
-        q = q.exec(window.location.search)[1].toString()
+        q = q.exec(window.location.search)
+        length = q.length - 1
+        q = q[length].toString()
         // console.log(q)
         return q.replace(replace,'')
-    }
+}
 }
