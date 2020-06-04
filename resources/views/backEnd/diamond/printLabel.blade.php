@@ -53,14 +53,14 @@
 				<div style="width: 95px;  border: solid; border-width: 0.5px;">
 					<span style="font-size: 20px; margin:none ">$@{{data.price}}</span>
 					<br>
-					<span style="font-size: 12px; margin:none ">@{{data.gia}}</span>
+					<span style="font-size: 12px; margin:none ">GIA: @{{data.gia}}</span>
 				</div>
 			</div>
 			<div class="flex-container">
-				<div style="width: 125px; font-size: 18px"> @{{data.stock}}</div>
+				<div style="width: 125px; font-size: 18px"> @{{data.weight}}, @{{data.color}}, @{{data.clarity}} </div>
 			</div>
 			<div class="flex-container">
-				<div style="width: 125px; font-size: 15px"> @{{data.weight}}, @{{data.color}}, @{{data.clarity}} </div>
+				<div style="width: 125px; font-size: 15px"> @{{data.stock}}</div>
 			</div>
 		</div>
 		<div>
