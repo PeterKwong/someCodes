@@ -22,8 +22,8 @@ export default {
 		QRcode(){
 			var qrcode = new QRCode(document.getElementById("qrcode"), {
 				text: this.data.gia ,
-				width: 85,
-				height: 85,
+				width: 80,
+				height: 80,
 				colorDark : "#000000",
 				colorLight : "#ffffff",
 				correctLevel : QRCode.CorrectLevel.H
