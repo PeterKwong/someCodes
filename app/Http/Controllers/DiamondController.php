@@ -216,13 +216,23 @@ class DiamondController extends Controller
         $diamond = Diamond::findOrFail($id);
         $diamond->update(['starred' => $diamond->starred?NULL: now() ]);
 
-        return redirect('adm/diamonds/print-label?gia=' . $diamond->certificate .
+        $url = 'adm/diamonds';
+
+        if ($diamond->starred) {
+
+            $url = 'adm/diamonds/print-label?gia=' . $diamond->certificate .
                 '&price=' . $diamond->price . 
                 '&weight=' . $diamond->weight . 
                 '&color=' . $diamond->color . 
                 '&clarity=' . $diamond->clarity . 
-                '&stock=' . $diamond->stock . '&' 
-                );
+                '&stock=' . $diamond->stock . '&' ;
+
+            return redirect( $url
+                    );
+        }
+
+
+        echo "<script>window.close();</script>";
     }
 
     public function resetAllDiamonds(){
