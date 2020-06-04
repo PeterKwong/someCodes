@@ -7,7 +7,8 @@ export function queryStringArray(string) {
 
 		for (var i = string.length - 1; i >= 0; i--) {
 			var str = string[i] + '='
-			str = query(str+ '[a-zA-Z0-9]*', str)
+			str = query('(' +str+ '.*?)\&', str)
+			// console.log(str)
 			str = { [string[i]]  : str}
 			var data = Object.assign( data, str )
 
@@ -19,7 +20,8 @@ export function queryStringArray(string) {
 function query(pattern,replace){
         if (window.location.search.includes(replace)) {
         var q = new RegExp(pattern, 'i')
-        q = q.exec(window.location.search).toString()
+        q = q.exec(window.location.search)[1].toString()
+        // console.log(q)
         return q.replace(replace,'')
     }
 }
