@@ -53,7 +53,7 @@
 				<div style="width: 95px;  border: solid; border-width: 0.5px;">
 					<span style="font-size: 20px; margin:none ">$@{{data.price}}</span>
 					<br>
-					<span style="font-size: 12px; margin:none ">GIA: @{{data.gia}}</span>
+					<span style="font-size: 10px; margin:none ">GIA: @{{data.gia}}</span>
 				</div>
 			</div>
 			<div class="flex-container">
