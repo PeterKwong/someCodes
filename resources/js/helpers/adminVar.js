@@ -1,5 +1,5 @@
 import { setCookie, getCookie, } from './cookie'
-import {queryString} from './queryString'
+import {queryString, queryStringArray} from './queryString'
 import { getGoldPrice } from'./APIs/goldPrice'
 
 export default{
@@ -13,6 +13,8 @@ export default{
                     page: parseInt(queryString('p=[0-9]*','p=')),
                     pePage: parseInt(queryString('pp=[0-9]*','pp=')),
                     searchQuery: parseInt(queryString('sq1=[0-9]*','sq1=')),
+                    query:queryString,
+                    queryArray:queryStringArray,
                 },
 	theme:{dark:'', light:'light/'},
 	user:{role: document.head.querySelector('meta[name="user-role"]')?document.head.querySelector('meta[name="user-role"]').content:'' },

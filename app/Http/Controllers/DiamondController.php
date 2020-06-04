@@ -176,8 +176,9 @@ class DiamondController extends Controller
                   ]);
 
     }
+    
     public function printLabel(){
-      return view('diamond.printLabel');
+      return view('backEnd.diamond.printLabel');
     }
 
     public function importAPI(){

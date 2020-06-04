@@ -48,6 +48,7 @@ import InvoiceDiamondForm from './views/backEnd/invoiceDiamond/form'
 import DiamondForm from './views/backEnd/diamond/form'
 import DiamondIndex from './views/backEnd/diamond/index'
 import DiamondDiscPrice from './views/backEnd/diamond/discPrice'
+import DiamondPrintLabel from './views/backEnd/diamond/printLabel'
 
 //Engagement Rings
 import EngagementRingIndex from './views/backEnd/engagementRing/index'
@@ -182,6 +183,10 @@ if ( pUrl.includes('adm/diamonds/create') ) {
 
 if ( pUrl.includes('adm/diamonds/disc-price') ) {
     const diamondDiscPrice =  new Vue(DiamondDiscPrice);
+}
+
+if ( pUrl.includes('adm/diamonds/print-label') ) {
+    const diamondPrintLabel =  new Vue(DiamondPrintLabel);
 }
 
 

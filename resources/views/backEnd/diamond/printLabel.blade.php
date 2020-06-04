@@ -44,33 +44,23 @@
 </head>
 <body>
 
-	<div class="flex-container">
+	<div class="flex-container" id="printLabel">
 		<div >
 			<div class="flex-container">
 				<div style="width: 30px; ">
 					<img src="/images/front-end/company/logo_2019_grey_sq.png" width="100%" >	
 				</div>
-				<div style="width: 95px;  font-size: 20px">$123141</div>
+				<div style="width: 95px;  font-size: 20px">$ @{{data.price}}</div>
 			</div>
 			<div class="flex-container">
-				<div style="width: 125px; font-size: 15px">S138-ekjr123-123</div>
+				<div style="width: 125px; font-size: 15px"> @{{data.stock}}</div>
 			</div>
 			<div class="flex-container">
-				<div style="width: 125px; font-size: 15px">1.01 , G , VVS2 </div>
+				<div style="width: 125px; font-size: 15px"> @{{data.weight}}  @{{data.color}}  @{{data.clarity}} </div>
 			</div>
 		</div>
 		<div>
 			<div id="qrcode"></div>
-			<script type="text/javascript">
-				var qrcode = new QRCode(document.getElementById("qrcode"), {
-					text: "https://youtu.be/XvDUKOKUsRM",
-					width: 80,
-					height: 80,
-					colorDark : "#000000",
-					colorLight : "#ffffff",
-					correctLevel : QRCode.CorrectLevel.H
-				});
-			</script>	
 		</div>
 
 	</div>
@@ -106,6 +96,29 @@
 			</script>	
 		</div>
 	</div> -->
+
+
+        <!-- /Right-bar -->
+
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+            
+        <script type="text/javascript" src="{{mix('js/backend.js')}}"></script>
+        <script type="text/javascript" src="{{mix('js/burgers.js')}}"></script>
+       <!-- Vendor js -->
+        <script src="/admin/assets/js/vendor.min.js"></script>
+
+        <!-- fullcalendar plugins -->
+        <script src="/admin/assets/libs/moment/moment.js"></script>
+        <script src="/admin/assets/libs/jquery-ui/jquery-ui.min.js"></script>
+        <script src="/admin/assets/libs/fullcalendar/fullcalendar.min.js"></script>
+
+        <!-- fullcalendar js -->
+        <script src="/admin/assets/js/pages/fullcalendar.init.js"></script>
+
+        <!-- App js-->
+        <script src="/admin/assets/js/app.min.js"></script>
 
 </body>
 </html>
