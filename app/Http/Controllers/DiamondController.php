@@ -214,7 +214,7 @@ class DiamondController extends Controller
 
     public function toggleStarredDiamond($id){
         $diamond = Diamond::findOrFail($id);
-        $diamond->update(['starred' => $diamond->star?NULL: now() ]);
+        $diamond->update(['starred' => $diamond->starred?NULL: now() ]);
 
         return redirect('adm/diamonds/print-label?gia=' . $diamond->certificate .
                 '&price=' . $diamond->price . 
