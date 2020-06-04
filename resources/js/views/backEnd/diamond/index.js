@@ -31,10 +31,11 @@ export default {
 			{ title: 'symmetry', key: 'symmetry', sort: true},
 			{ title: 'fluorescence', key: 'fluorescence', sort: true},
 			{ title: 'milky', key: 'milky', sort: true},
-			{ title: 'lab', key: 'lab', sort: true},
 			{ title: 'location', key: 'location', sort: true},
-			{ title: 'video', key: 'video', sort: true},
 			{ title: 'available', key: 'available', sort: true},
+			{ title: 'starred', key: 'star', sort: true},
+			{ title: 'video', key: 'video', sort: true},
+			{ title: 'lab', key: 'lab', sort: true},
 			{ title: 'Updated At', key: 'updated_at', sort: true},
 			{ title: 'Created At', key: 'created_at', sort: true},
 			],
@@ -71,6 +72,11 @@ export default {
 		},
 		saveToInvDiamond(row){
 			window.open('/adm/invoice-diamonds/create-from-diamond/'+ row.id )
+		},
+		toggleStarredDiamond(row){
+			window.open('/adm/diamonds/toggle-starred-diamond/'+ row.id )
+			window.open('/adm/diamonds', '_self')
+
 		},
 	},
 

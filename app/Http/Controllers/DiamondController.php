@@ -212,6 +212,19 @@ class DiamondController extends Controller
       return $import->diamondAvailability($id);
     }
 
+    public function toggleStarredDiamond($id){
+        $diamond = Diamond::findOrFail($id);
+        $diamond->update(['starred' => $diamond->star?NULL: now() ]);
+
+        return redirect('adm/diamonds/print-label?gia=' . $diamond->certificate .
+                '&price=' . $diamond->price . 
+                '&weight=' . $diamond->weight . 
+                '&color=' . $diamond->color . 
+                '&clarity=' . $diamond->clarity . 
+                '&stock=' . $diamond->stock . '&' 
+                );
+    }
+
     public function resetAllDiamonds(){
 
 

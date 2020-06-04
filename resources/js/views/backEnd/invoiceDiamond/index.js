@@ -65,7 +65,7 @@ export default {
 			},
 		setDue(row){
 			window.open('/api/invoice-diamonds-update-due-date/'+ row.id )
-			window.open('/adm/invoice-diamonds?p=' + globeVar.queryString.page, '_self')
+			window.open('/adm/invoice-diamonds?p=' + adminVar.queryString.page, '_self')
 			},
 		}
 }

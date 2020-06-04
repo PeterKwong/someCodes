@@ -42,7 +42,7 @@ class CreateDiamondQueriesTable extends Migration
             $table->boolean('available')->default(NULL)->nullable();
             $table->bigInteger('r_id')->nullable(); 
             $table->string('milky')->default('None');
-            $table->timestamp('star')->nullable();
+            $table->timestamp('starred')->nullable();
             $table->integer('length')->unsigned()->nullable();
             $table->integer('width')->unsigned()->nullable();
             $table->integer('height')->unsigned()->nullable();
