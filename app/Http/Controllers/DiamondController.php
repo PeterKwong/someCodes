@@ -231,7 +231,6 @@ class DiamondController extends Controller
                     );
         }
 
-
         echo "<script>window.close();</script>";
     }
 

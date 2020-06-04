@@ -14,6 +14,7 @@ export default {
 			{ title: 'ID', key: 'id', sort: true},
 			{ title: 'invoice_id', key: 'invoice_id', sort: true},
 			{ title: 'texts', key: 'texts', sort: true},
+			{ title: 'images', key: 'images', sort: true},
 			{ title: 'published', key: 'published', sort: true},
 			{ title: 'Created At', key: 'created_at', sort: true}
 			],

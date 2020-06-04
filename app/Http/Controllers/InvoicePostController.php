@@ -117,7 +117,7 @@ class InvoicePostController extends Controller
                 
         return response()
             ->json([
-                'model' => InvoicePost::with('texts')->filterPaginateOrder(),
+                'model' => InvoicePost::with('texts','images')->filterPaginateOrder(),
                 ]);
     }
 
