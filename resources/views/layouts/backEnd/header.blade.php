@@ -272,6 +272,9 @@
                                         <a href="/adm/diamonds/create">Create</a>
                                     </li> 
                                     <li>
+                                        <a href="/adm/diamonds/batch-create">Btach Create</a>
+                                    </li> 
+                                    <li>
                                         <a href="/adm/diamonds/disc-price">Tag Price</a>
                                     </li>                                   
                                 </ul>

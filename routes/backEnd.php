@@ -29,6 +29,7 @@ Route::group(['middleware'=> 'auth:admin'], function(){
         //Diamond
         Route::get('diamonds', 'DiamondController@admBladeIndex');
         Route::get('diamonds/create', 'DiamondController@admBladeForm');
+        Route::get('diamonds/batch-create', 'DiamondController@admBladeBatchForm');
         Route::get('diamonds/disc-price', 'DiamondController@diamondDiscPrice');
         Route::get('diamonds/print-label', 'DiamondController@printLabel');
         Route::get('diamonds/toggle-starred-diamond/{id}', 'DiamondController@toggleStarredDiamond');

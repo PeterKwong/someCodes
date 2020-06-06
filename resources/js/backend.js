@@ -46,6 +46,7 @@ import InvoiceDiamondForm from './views/backEnd/invoiceDiamond/form'
 
 //diamonds
 import DiamondForm from './views/backEnd/diamond/form'
+import DiamondBatchForm from './views/backEnd/diamond/batchform'
 import DiamondIndex from './views/backEnd/diamond/index'
 import DiamondDiscPrice from './views/backEnd/diamond/discPrice'
 import DiamondPrintLabel from './views/backEnd/diamond/printLabel'
@@ -179,6 +180,10 @@ if ( pUrl.includes('adm/diamonds') && !pUrl.includes('adm/diamonds/') ) {
 
 if ( pUrl.includes('adm/diamonds/create') ) {
     const diamondForm =  new Vue(DiamondForm);
+}
+
+if ( pUrl.includes('adm/diamonds/batch-create') ) {
+    const diamondBatchForm =  new Vue(DiamondBatchForm);
 }
 
 if ( pUrl.includes('adm/diamonds/disc-price') ) {

@@ -151,6 +151,20 @@ class DiamondController extends Controller
 
     public function store(Request $request){
 
+      // dd($request->cut);
+
+      $diamond = new Diamond();
+
+      $diamond->create($request->toArray());
+
+        return  response()
+                  ->json([
+                    'saved' => 'Insert Record successfully.'
+                  ]);
+
+    }
+    public function batchStore(Request $request){
+
       $import = new DiamondImport();
 
       return $import->getRapGuzzle();
@@ -319,6 +333,11 @@ class DiamondController extends Controller
 
     }
 
+    public function admBladeBatchForm(){
+
+        return view('backEnd.diamond.batchForm');
+
+    }
     
     public function roundCut($locale)
     {

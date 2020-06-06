@@ -26,6 +26,7 @@ class Diamond extends Model
     protected $casts = [
         'created_at' => 'datetime:Y-m-d H-i-s',
         'updated_at' => 'datetime:Y-m-d H-i-s',
+        'starred' => 'datetime:Y-m-d H-i-s',
     ];
 
    	 public static $columns = [
@@ -58,17 +59,17 @@ class Diamond extends Model
     		'price' => 0 , 
     		'stock' => '' , 
     		'certificate' => 0, 
-    		'shape' => '', 
+    		'shape' => 'ROUND', 
     		'weight' => 0, 
-    		'color' => '', 
-    		'clarity' => '', 
-    		'cut' => '', 
-    		'polish' => '', 
-    		'symmetry' => '', 
-    		'fluorescence' => '', 
-    		'lab' => '', 
-    		'location' => '', 
-    		'has_image'
+    		'color' => 'D', 
+    		'clarity' => 'SI2', 
+    		'cut' => 'EX', 
+    		'polish' => 'EX', 
+    		'symmetry' => 'EX', 
+    		'fluorescence' => 'NON', 
+    		'lab' => 'GIA', 
+            'location' => '1Hong Kong', 
+            'starred' => now('Y-m-d'), 
     		];
     	}
 }
