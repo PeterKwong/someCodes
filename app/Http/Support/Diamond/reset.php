@@ -78,7 +78,7 @@ trait Reset{
 
 
     public function resetAllRapDiamonds(){
-      $diamonds = Diamond::where('available',1)->where('r_id','!=',null)->get();
+      $diamonds = Diamond::where('available',1)->where('starred',NULL)->where('r_id','!=',null)->get();
 
           $this->oneDaysBeforeReset($diamonds);
                 
@@ -87,7 +87,7 @@ trait Reset{
     }
 
     public function resetAllApiDiamonds(){
-      $diamonds = Diamond::where('r_id',null)->where('available','1')->get();
+      $diamonds = Diamond::where('available','1')->where('starred',NULL)->where('r_id',null)->get();
 
         $this->oneDaysBeforeReset($diamonds);
 

@@ -57,7 +57,7 @@ class Diamond extends Model
     		return [
     		'id' => '' , 
     		'price' => 0 , 
-    		'stock' => '' , 
+    		'stock' => 'TD-' , 
     		'certificate' => 0, 
     		'shape' => 'ROUND', 
     		'weight' => 0, 

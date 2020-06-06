@@ -210,10 +210,9 @@ class CronJob
 			// $jobs = [ $this->ip . 'Preload-PDF'=>'fail'];
 			// $appoint->cronDone($jobs);
 		}
-		
-
 
 	}
+
 	public function deleteAll(){
 
 		$appoint = new AppointmentController();
