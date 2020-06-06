@@ -69,7 +69,7 @@ class Diamond extends Model
     		'fluorescence' => 'NON', 
     		'lab' => 'GIA', 
             'location' => '1Hong Kong', 
-            'starred' => now('Y-m-d'), 
+            'starred' => now(), 
     		];
     	}
 }
