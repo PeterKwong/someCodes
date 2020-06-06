@@ -151,7 +151,7 @@ class DiamondController extends Controller
 
     public function store(Request $request){
 
-      // dd($request->cut);
+      // dd($request->starred);
 
       $diamond = new Diamond();
 

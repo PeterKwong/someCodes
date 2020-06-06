@@ -83,16 +83,6 @@
 						</div>
 
 
-						<div class="col-3">
-							<div class="control ">
-								<div class="control">
-									<label class="label">Starred Date</label>
-										<input type="date" class="form-control" v-model="form.starred" >
-										<small class="is-danger" v-if="errors.starred">@{{errors.starred[0]}}</small>
-								</div>
-							</div>
-						</div>
-
 					</div>
 
 					<div class="row">
