@@ -20,7 +20,11 @@ return [
 	                    'contact' => '852 26169773/54844533',
 	                    'website' => 'www.tingdiamond.com',
 	                    'logo' => '/images/front-end/company/logo_PNG_sq_60x60_1.png',
-	                        ]
+	                        ],
+	                'staffs'=>[
+	                		['name' => 'Nancy', 'number' => 52376008],
+	                		['name' => 'Jo', 'number' => 97339639],
+	                	]
 				],
 
 ];

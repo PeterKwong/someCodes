@@ -333,8 +333,9 @@
  -->
  
   <notification></notification>
-<!--   <contact-message></contact-message>
- -->  <shopping-cart-progress></shopping-cart-progress>
+  <shopping-cart-progress></shopping-cart-progress>
+
+ @include('layouts.components.floatingContact')
 
 </div>
 

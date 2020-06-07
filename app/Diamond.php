@@ -26,7 +26,6 @@ class Diamond extends Model
     protected $casts = [
         'created_at' => 'datetime:Y-m-d H-i-s',
         'updated_at' => 'datetime:Y-m-d H-i-s',
-        'starred' => 'datetime:Y-m-d H-i-s',
     ];
 
    	 public static $columns = [
@@ -70,6 +69,9 @@ class Diamond extends Model
     		'lab' => 'GIA', 
             'location' => '1Hong Kong', 
             'available' => 1, 
+            'supplier_id' => 166, 
+            'has_cert' => 1, 
+            'cert_link' => '', 
             'starred' => now()->toDateTimeString(), 
     		];
     	}

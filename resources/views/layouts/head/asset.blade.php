@@ -18,3 +18,14 @@
 
 <!-- Custome -->
 <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+
+<style>
+	*.sticker {
+    top:90%;
+    height:50px;
+    width:50px;
+    position:fixed;
+    right: 0;
+    z-index: 999;
+	}
+</style>

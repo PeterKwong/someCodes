@@ -1,3 +1,4 @@
+
 <section id="footer" class="pt-40">
 
   <div class="d-none d-sm-block bg-dark">
@@ -211,7 +212,8 @@
 
       </div>
 
-    </div>
+    </div>  
+    
 
     @include('layouts.metas.footer')
 <!--     <div class="modal-backdrop fade show"></div>

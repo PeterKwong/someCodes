@@ -154,8 +154,13 @@ class DiamondController extends Controller
       // dd($request->starred);
 
       $diamond = new Diamond();
+      $diamondQuery = new DiamondQuery();
+      $array = $request->toArray();
+      $array['cert_link'] = 'https://myapps.gia.edu/ReportCheckPOC/pocservlet?IPAddress=1.1.1.1&Method=DownloadPDF&ReportNumber=' . $array['certificate'];
 
-      $diamond->create($request->toArray());
+      $diamond = $diamond->create($array);
+      $array['id'] = $diamond->id;
+      $diamondQuery->create($array);
 
         return  response()
                   ->json([

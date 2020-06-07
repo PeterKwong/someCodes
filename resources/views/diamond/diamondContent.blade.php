@@ -479,7 +479,7 @@
 
     <div class="section-4">
       <div class="block-sec-4">
-        <a href="/links/whatsapp/85252376008" v-if="locale != 2">
+        <a href="{{ '/links/whatsapp/852' . config( 'global.company.staffs.0.number' ) }}" v-if="locale != 2">
             <p>{{trans('diamondSearch.If you could not find diamonds as your inquiry')}} , <img class="whatsapp-img" src="/images/front-end/diamond/search/whatsapp.png" alt="">    {{trans('diamondSearch.PLEASE（Whatsapp: Winnie－5484 4533， for the latest diamond Stock）')}}</p>
         </a>
 
