@@ -21,7 +21,7 @@ Route::prefix('/links/')->group(function(){
     } ); 
     Route::get('whatsapp/{number}', function($number){
         // dd($number);
-        return redirect('https://api.whatsapp.com/send?phone=' . $number);
+        return redirect('https://api.whatsapp.com/send?phone=' . $number .'&text='. request()->text);
     } );         
 });
 
