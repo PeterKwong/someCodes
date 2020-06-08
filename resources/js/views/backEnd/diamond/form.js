@@ -74,7 +74,8 @@ export default {
 				post(this.store, this.form)
 				.then((response)=>{
 					if(response.data.saved){
-						window.open(this.redirect,'_self')
+						// console.log(response.data)
+						window.open(response.data.url,'_self')
 						this.isLoading = false
 					}
 

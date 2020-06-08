@@ -152,6 +152,10 @@ class DiamondController extends Controller
     public function store(Request $request){
 
       // dd($request->starred);
+      $this->validate($request, ['price'=>'required | numeric |min:1',
+                        'certificate' => 'required | numeric |min:1',
+                        'weight' => 'required | numeric |min:1',
+                      ]);
 
       $diamond = new Diamond();
       $diamondQuery = new DiamondQuery();
@@ -162,9 +166,14 @@ class DiamondController extends Controller
       $array['id'] = $diamond->id;
       $diamondQuery->create($array);
 
+      // dd($diamond);
+
+
+
         return  response()
                   ->json([
-                    'saved' => 'Insert Record successfully.'
+                    'saved' => 'Insert Record successfully.',
+                    'url' => $this->toggleStarredDiamondbeforeRedirect($diamond->id),
                   ]);
 
     }
@@ -232,25 +241,37 @@ class DiamondController extends Controller
     }
 
     public function toggleStarredDiamond($id){
+
+      $url = $this->toggleStarredDiamondbeforeRedirect($id);
+
+      if ($url) {
+        return redirect( $url
+                ); 
+      }
+
+      echo "<script>window.close();</script>";
+
+    }
+    public function toggleStarredDiamondbeforeRedirect($id){
+        
         $diamond = Diamond::findOrFail($id);
         $diamond->update(['starred' => $diamond->starred?NULL: now() ]);
 
-        $url = 'adm/diamonds';
+        $url = '';
 
-        if ($diamond->starred) {
+        if ( $diamond->starred ) {
 
-            $url = 'adm/diamonds/print-label?gia=' . $diamond->certificate .
-                '&price=' . $diamond->price . 
-                '&weight=' . $diamond->weight . 
-                '&color=' . $diamond->color . 
-                '&clarity=' . $diamond->clarity . 
-                '&stock=' . $diamond->stock . '&' ;
+          $url = '/adm/diamonds/print-label?gia=' . $diamond->certificate .
+                  '&price=' . $diamond->price . 
+                  '&weight=' . $diamond->weight . 
+                  '&color=' . $diamond->color . 
+                  '&clarity=' . $diamond->clarity . 
+                  '&stock=' . $diamond->stock . '&' ;
 
-            return redirect( $url
-                    );
         }
 
-        echo "<script>window.close();</script>";
+        return $url;
+
     }
 
     public function resetAllDiamonds(){

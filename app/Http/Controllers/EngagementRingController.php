@@ -103,7 +103,7 @@ class EngagementRingController extends Controller
     	$this->validate($request, [
     		'stock'  => 'required| unique:engagement_rings',
             'texts' => 'required',
-            'unit_price' => 'required | numeric |min:0',
+            'unit_price' => 'required | numeric |min:1',
     		]);
     	
         // dd(print_r($request->all()));
