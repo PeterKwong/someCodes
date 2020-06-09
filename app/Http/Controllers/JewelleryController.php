@@ -108,7 +108,7 @@ class JewelleryController extends Controller
         $posts = Jewellery::where('published',1)->findOrFail($id)->invoices()->with(
                     ['invoicePosts'=>function($inv){
                                     return $inv->where('published',1);},
-                    'invoicePosts.images'])->orderBy('created_at','desc')->get();
+                    'invoicePosts.images','invoicePosts.texts'])->orderBy('created_at','desc')->get();
 
         $invoicePosts = [];
 
