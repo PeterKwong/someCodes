@@ -65,29 +65,30 @@
         </div>
 
 
-        <center v-if="chunkedItemsDesktop.length">
+        <center v-if="chunkedItems.length">
                 <a>{{title}}</a>
          </center>
 
          <div class="d-none d-sm-block">
             <div class="row justify-content-center">
-                 <div class="col-4 " v-for="(img, index) in chunkedItemsMobile" 
+                 <div class="col-4 " v-for="(img, index) in chunkedItems" 
                                     @click="currentSelectedItem(index,'lower')"  v-if="img.thumb">
                      <img :src="images+img.thumb" width="256" class="rounded mx-auto d-block image-background p-6" :class="{' border border-primary rounded':currentIndex == index}" ></img>
                         <i class="far fa-play-circle fa-3x color-blue image-up-left" style="opacity: 0.5"  aria-hidden="true" v-if="img.type=='video'"></i>
                  </div>
              </div>
          </div>
-
          <div class="d-sm-none d-block">
             <div class="row justify-content-center">
-                 <div class="col-4 " v-for="(img, index) in chunkedItemsMobile" 
+                 <div class="col-4 " v-for="(img, index) in chunkedItems" 
                                     @click="currentSelectedItem(index,'lower')"  v-if="img.thumb">
                      <img :src="images+img.thumb" width="96" class="rounded mx-auto d-block image-background p-6" :class="{' border border-primary rounded':currentIndex == index}" ></img>
                         <i class="far fa-play-circle fa-lg color-blue image-up-left" style="opacity: 0.5"  aria-hidden="true" v-if="img.type=='video'"></i>
                  </div>
              </div>
          </div>
+            
+            <p class="text-primary text-center">{{chunkedItems[currentIndex].text}}</p>
 
 
         <nav aria-label="Page navigation example">
@@ -139,8 +140,6 @@ export default {
         active:'',
         upperitems:'',
 
-        
-        
     },
     created () {
         this.currentIndex = 0;
@@ -157,6 +156,7 @@ export default {
             videoType:'video/mp4',
             currentUpperIndex:0,
             videoPath: mutualVar.storage[mutualVar.storage.live] + 'public/videos/' ,
+            mutualVar,
         }
     },
     methods : {
@@ -297,15 +297,17 @@ export default {
             this.items.reverse()
             
             if (!this.items) {
-                return arr.push({src:'', type:'', thumb:''})
+                return arr.push({src:'', type:'', thumb:'', text:''})
             }
  
             for (var i = this.items.length - 1; i >= 0; i--) {
                 if (this.items[i].images[0].image&&this.items[i].video) {
-                    arr.push({src:this.items[i].video, type:"video", thumb:this.items[i].images[0].image})
+                    arr.push({src:this.items[i].video, type:"video", thumb:this.items[i].images[0].image, 
+                    text:this.items[i].texts[mutualVar.langs.localeCode].content})
                 }else
                 {
-                    arr.push({src:this.items[i].images[0].image, type:"img", thumb:this.items[i].images[0].image})
+                    arr.push({src:this.items[i].images[0].image, type:"img", thumb:this.items[i].images[0].image, 
+                    text:this.items[i].texts[mutualVar.langs.localeCode].content})
                 }
                 
             }
@@ -314,31 +316,8 @@ export default {
                 return arr;
             },
 
-        
-        chunkedItemsDesktop(){
-              
-                var chunk1 = []
-                var chunk2 = []
-                var chunk3 = []
-                if (!this.items) {
-                return chunk1
-            }
-                if (this.currentIndex<=2) {
-                 chunk1 = this.carouselItemsToArray.slice(0,4)
-                 chunk2 = this.carouselItemsToArray.slice(4,this.carouselItemsToArray.length).fill('')
-                 return chunk1.concat(chunk2)
-                }
 
-                chunk1 = this.carouselItemsToArray.slice(0,this.currentIndex-2).fill('')
-                chunk2 = this.carouselItemsToArray.slice(this.currentIndex-2,this.currentIndex+2)
-                chunk3 = this.carouselItemsToArray.slice(this.currentIndex+2,this.carouselItemsToArray.length).fill('')
-                
-                return chunk1.concat(chunk2,chunk3)
-            },
-
-
-
-        chunkedItemsMobile(){
+        chunkedItems(){
                 
                 var chunk1 = []
                 var chunk2 = []

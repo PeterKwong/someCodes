@@ -154,7 +154,7 @@ class DiamondController extends Controller
       // dd($request->starred);
       $this->validate($request, ['price'=>'required | numeric |min:1',
                         'certificate' => 'required | numeric |min:1',
-                        'weight' => 'required | numeric |min:1',
+                        'weight' => 'required | numeric |min:0.001',
                       ]);
 
       $diamond = new Diamond();

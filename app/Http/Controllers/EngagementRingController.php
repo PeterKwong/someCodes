@@ -119,12 +119,14 @@ class EngagementRingController extends Controller
     }
 
     public function show($id)
-    {
+    {   
+        $locale = app()->getLocale();
     	$engagementRing = EngagementRing::where('published',1)->with(['images','texts'])->findOrFail($id);
         $posts = EngagementRing::where('published',1)->findOrFail($id)->invoices()->with(
                     ['invoicePosts'=>function($inv){
-                                    return $inv->where('published',1);},
-                    'invoicePosts.images'])->orderBy('created_at','desc')->get();
+                            return $inv->where('published',1);},
+                    'invoicePosts.texts' 
+                    ,'invoicePosts.images',])->orderBy('created_at','desc')->get();
 
         $invoicePosts = [];
 
