@@ -569,7 +569,7 @@
                                     <img :src=" row.shape|diamondShapeUrl()" width="20">  
                                 </div>
                             </td> 
-                            <td > HK$@{{ row.price }}</td>
+                            <td ><i class="fa fa-star" aria-hidden="true" v-if="row.starred"></i> HK$@{{ row.price }}</td>
                             <td > @{{ row.weight }}</td>
                             <td > @{{ row.color }}</td>
                             <td > @{{ row.clarity }}</td>
