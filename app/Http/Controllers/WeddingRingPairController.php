@@ -111,7 +111,7 @@ class WeddingRingPairController extends Controller
             ,'weddingRings.images','weddingRings.texts'])->findOrFail($id);
 
         // dd(print_r($weddingRingPairs->weddingRings));
-        $invoicePosts = WeddingRingPair::with(['weddingRings.invoices.invoicePosts.images'])->findOrFail($id);
+        $invoicePosts = WeddingRingPair::with(['weddingRings.invoices.invoicePosts.images','weddingRings.invoices.invoicePosts.texts'])->findOrFail($id);
         // $invoicePosts = $invoicePosts->weddingRings;
         
         // $posts = [];
