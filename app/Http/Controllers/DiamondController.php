@@ -242,6 +242,9 @@ class DiamondController extends Controller
 
     public function toggleStarredDiamond($id){
 
+      $diamond = Diamond::findOrFail($id);
+      $diamond->update(['starred' => $diamond->starred?NULL: now() ]);
+
       $url = $this->toggleStarredDiamondbeforeRedirect($id);
 
       if ($url) {
@@ -254,8 +257,7 @@ class DiamondController extends Controller
     }
     public function toggleStarredDiamondbeforeRedirect($id){
         
-        $diamond = Diamond::findOrFail($id);
-        $diamond->update(['starred' => $diamond->starred?NULL: now() ]);
+      $diamond = Diamond::findOrFail($id);
 
         $url = '';
 
@@ -272,6 +274,22 @@ class DiamondController extends Controller
 
         return $url;
 
+    }
+
+    public function starredDiamondsExport(){
+      
+      // dd(request()->all());
+      $request = request()->all();
+
+      $diamonds = Diamond::whereNotNull('starred')
+                  ->with('supplier')
+                  ->get();
+
+      // dd($diamonds);
+
+      return response()->json([
+          'model' => $diamonds,
+      ]);
     }
 
     public function resetAllDiamonds(){

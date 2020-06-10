@@ -81,6 +81,7 @@ import CustomerMomentForm from './views/backEnd/customerMoment/form'
 import ProgressInvoice from './views/backEnd/purchase/progressInvoice'
 import DuedProgressInvoice from './views/backEnd/purchase/duedProgressInvoice'
 import OnStockDiamond from './views/backEnd/purchase/onStockDiamond'
+import StarredDiamondsExport from './views/backEnd/purchase/starredDiamondsExport'
 
 //Accounting
 import InvoiceExport from './views/backEnd/accounting/invoiceExport'
@@ -90,9 +91,12 @@ import OrderIndex from './views/backEnd/order/index'
 import OrderShow from './views/backEnd/order/show'
 import OrderToInvoice from './views/backEnd/order/orderToInvoice'
 
+import { get, post } from './helpers/api'
 
 window.mutualVar = MutualVar
 window.adminVar = AdminVar 
+window.get = get
+window.post = post
 
 const app = new Vue({
     el: '#backend',
@@ -323,6 +327,11 @@ if ( pUrl.includes('adm/purchase/progress-invoices') ) {
 if ( pUrl.includes('adm/purchase/on-stock-diamonds') ) {
     const onStockDiamond =  new Vue(OnStockDiamond);
 }
+
+if ( pUrl.includes('adm/purchase/starred-diamonds-export') ) {
+    const starredDiamondsExport =  new Vue(StarredDiamondsExport);
+}
+
 
 //Acoounting
 if ( pUrl.includes('adm/accounting/invoice-export') ) {

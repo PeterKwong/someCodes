@@ -72,7 +72,7 @@ class Diamond extends Model
             'supplier_id' => 166, 
             'has_cert' => 1, 
             'cert_link' => '', 
-            'starred' => NULL, 
+            'starred' => now()->toDateTimeString(), 
     		];
     	}
 }

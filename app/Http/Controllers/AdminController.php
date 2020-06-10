@@ -97,6 +97,10 @@ class AdminController extends Controller
 			// dd('hi');
 			return view('backEnd.purchase.onStockDiamond'); 
 		}
+		public function starredDiamondsExport(){
+			// dd('hi');
+			return view('backEnd.purchase.starredDiamondsExport'); 
+		}
 
 		public function invoiceExport(){
 			// dd('hi');

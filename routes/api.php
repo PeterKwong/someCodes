@@ -182,6 +182,7 @@ Route::group(['middleware' => 'auth:admin-api'], function(){
 		
 		Route::get('on-stock-diamonds', 'InvoiceDiamondController@onStockDiamond');
 		Route::get('on-stock-diamonds-paginate', 'InvoiceDiamondController@onStockDiamondPaginate');
+		Route::get('starred-diamonds-export', 'DiamondController@starredDiamondsExport');
 
 	});
 

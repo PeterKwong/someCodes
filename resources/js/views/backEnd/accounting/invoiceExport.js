@@ -1,7 +1,3 @@
-import { get, post } from '../../../helpers/api'
-import router from '../../../router'
-
-import Auth from '../../../store/auth'
 
 export default {
 

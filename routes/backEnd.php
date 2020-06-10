@@ -76,6 +76,7 @@ Route::group(['middleware'=> 'auth:admin'], function(){
         Route::get('purchase/progress-invoices', 'AdminController@purchaseProgressInvoices');
         Route::get('purchase/dued-progress-invoices', 'AdminController@duedProgressInvoices');
         Route::get('purchase/on-stock-diamonds', 'AdminController@onStockDiamond');
+        Route::get('purchase/starred-diamonds-export', 'AdminController@starredDiamondsExport');
 
         //accounting
         Route::get('accounting/invoice-export', 'AdminController@invoiceExport');

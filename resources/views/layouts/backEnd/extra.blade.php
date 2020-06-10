@@ -22,10 +22,13 @@
         @if(auth()->guard('admin')->user()->roles()->first()->name == 'admin' || auth()->guard('admin')->user()->roles()->first()->name == 'purchase' )
 
         <li class="has-submenu">
-            <a href="/adm/purchase/dued-progress-invoices">Dued Diamond Invoice <div class="arrow-down"></div></a>
+            <a href="/adm/purchase/dued-progress-invoices"> Purchase <div class="arrow-down"></div></a>
             <ul class="submenu">
                 <li>
-                    <a href="/adm/purchase/dued-progress-invoices">Show</a>
+                    <a href="/adm/purchase/dued-progress-invoices">Dued Diamond Invoice</a>
+                </li> 
+                 <li>
+                    <a href="/adm/purchase/starred-diamonds-export">Export Diamonds</a>
                 </li>                                   
             </ul>
         </li>

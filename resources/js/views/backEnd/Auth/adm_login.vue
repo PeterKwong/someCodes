@@ -29,7 +29,7 @@
 <script type="text/javascript">
 	import Flash from '../../../helpers/flash'
 	import Auth from '../../../store/auth'
-	import {post} from '../../../helpers/api'
+
 	export default {
 		el: '#login',
 		data(){
