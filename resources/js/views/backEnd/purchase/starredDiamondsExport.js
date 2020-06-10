@@ -13,6 +13,7 @@ export default {
 				data:{ diamonds:''} ,
 				labels:'',
 				totalAmount:0,
+				isLoading: false,
 
 		}
 	},
@@ -27,11 +28,14 @@ export default {
 	},
 	methods:{
 		fetchData(){
+			this.isLoading = true
 			get(`/api/purchase/starred-diamonds-export`,)
 			.then((res)=>{
 				console.log(res.data)
 				this.data.diamonds = res.data.model
 				this.exportDiamondsToCSV()
+				this.isLoading = false
+
 			})
 		},
 		exportDiamondsToCSV(){

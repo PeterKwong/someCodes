@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="column is-6">
-                  <button class="button is-primary" @click="fetchData()">Generate</button>
+                  <button class="button is-primary" @click="fetchData()" :disabled="isLoading">Generate</button>
                 </div>
 
                 <div class="column">
