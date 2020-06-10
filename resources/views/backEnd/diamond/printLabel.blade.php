@@ -51,15 +51,15 @@
 		</div>
 		<div >
 			<div class="flex-container">
-				<div style="width: 135px; font-size: 17px">  @{{data.weight}}, @{{data.color}}, @{{data.clarity}}</div>
+				<div style="width: 135px; font-size: 11px"> @{{data.stock}}</div>
 			</div>
 			<div class="flex-container">
-				<div style="width: 135px; font-size: 11px;  margin:0; padding: 0;">
-					<span> @{{data.stock}}</span>
+				<div style="width: 135px; font-size: 10px;  margin:0; padding: 0;">
+					<span>  GIA: @{{data.gia}}</span>
 					<br>
 					<svg id="barcode1"></svg>
 					<br>
-					<span> GIA: @{{data.gia}} </span>		
+					<span style="font-size: 17px;  margin:0; padding: 0;">@{{data.weight}}, @{{data.color}}, @{{data.clarity}} </span>		
 				</div>
 			</div>
 			<div class="flex-container" style=" margin:0; padding: 0;">

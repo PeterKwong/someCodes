@@ -13,7 +13,7 @@ export default {
 			  // margin: 40,
 			  margin:0,
 			  height: 10,
-  			  width: 1
+  			  width: 1.3
 			}),
 		}
 	},
