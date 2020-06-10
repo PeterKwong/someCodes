@@ -11,7 +11,7 @@ export default {
 			  background: "#ffffff",
  			  displayValue: false,
 			  // margin: 40,
-			  margin:1,
+			  margin:0,
 			  height: 10,
   			  width: 1
 			}),

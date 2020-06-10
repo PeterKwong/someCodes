@@ -46,26 +46,26 @@
 <body style="margin: 0;">
 
 	<div class="flex-container" id="printLabel">
-		<div style="width: 70px; ">
+		<div style="width: 75px; ">
 					<img src="/images/front-end/company/logo_2019_grey_sq.png" width="100%" >	
 			</div>
 		<div >
 			<div class="flex-container">
-				<div style="width: 150px; font-size: 17px">  @{{data.weight}}, @{{data.color}}, @{{data.clarity}}</div>
+				<div style="width: 130px; font-size: 17px">  @{{data.weight}}, @{{data.color}}, @{{data.clarity}}</div>
 			</div>
 			<div class="flex-container">
-				<div style="width: 150px; ">
+				<div style="width: 130px; font-size: 11px;  margin:0; padding: 0;">
+					<span> GIA: @{{data.gia}} </span>		
+					<br>
 					<svg id="barcode1"></svg>
 					<br>
-					<span  style="font-size: 11px;  margin:0; padding: 0;"> GIA: @{{data.gia}} </span>
+					<span> @{{data.stock}}</span>
 				</div>
 			</div>
 			<div class="flex-container" style=" margin:0; padding: 0;">
-				<div style="width: 150px;  margin:0; padding: 0;"> 
+				<div style="width: 130px;  margin:0; padding: 0;"> 
 					
-					<span  style="font-size: 11px;  margin:0; padding: 0;"> @{{data.stock}}</span>
-					<br>
-					<span style="font-size: 18px;  margin:0; padding: 0;"> $@{{data.price}}</span>
+					<span style="font-size: 25px;  margin:0; padding: 0;"> $@{{data.price}}</span>
 				</div>
 			</div>
 
