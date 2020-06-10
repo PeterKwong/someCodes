@@ -272,6 +272,9 @@
                                         <a href="/adm/diamonds/create">Create</a>
                                     </li> 
                                     <li>
+                                        <a href="/adm/purchase/starred-diamonds-export">Export Diamonds</a>
+                                    </li>     
+                                    <li>
                                         <a href="/adm/diamonds/batch-create">Btach Create</a>
                                     </li> 
                                     <li>

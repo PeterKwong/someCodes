@@ -26,10 +26,7 @@
             <ul class="submenu">
                 <li>
                     <a href="/adm/purchase/dued-progress-invoices">Dued Diamond Invoice</a>
-                </li> 
-                 <li>
-                    <a href="/adm/purchase/starred-diamonds-export">Export Diamonds</a>
-                </li>                                   
+                </li>                               
             </ul>
         </li>
 
