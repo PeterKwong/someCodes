@@ -161,7 +161,7 @@
 					data:[]
 				},
 				params: {
-					column: this.column,
+					column: adminVar.queryString.searchColumn?adminVar.queryString.searchColumn:this.column,
 					direction: 'desc',
 					per_page: this.per_page,
 					page: adminVar.queryString.page?adminVar.queryString.page:1,
@@ -191,7 +191,12 @@
 			moveTo(page){
 					if (this.params.page + page >0 ) {
 					this.params.page += page
-					window.open( this.url + '?p=' + this.params.page + '&sq1=' + this.params.search_query_1,'_self' )
+					window.open( this.url + 
+								'?p=' + this.params.page + 
+								'&sq1=' + this.params.search_query_1 + 
+								'&column=' + this.params.column 
+								
+								,'_self' )
 					this.params.page = this.params.page + page
 					this.fetchData()
 				}				

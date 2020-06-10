@@ -47,6 +47,12 @@
 	<div class="flex-container" id="printLabel">
 		<div >
 			<div class="flex-container">
+				<div style="width: 125px; font-size: 17px"> @{{data.weight}}, @{{data.color}}, @{{data.clarity}} </div>
+			</div>
+			<div class="flex-container">
+				<div style="width: 125px; font-size: 11px"> @{{data.stock}}</div>
+			</div>
+			<div class="flex-container">
 				<div style="width: 35px; ">
 					<img src="/images/front-end/company/logo_2019_grey_sq.png" width="100%" >	
 				</div>
@@ -55,12 +61,6 @@
 					<br>
 					<span style="font-size: 9px; margin:none ">GIA: @{{data.gia}}</span>
 				</div>
-			</div>
-			<div class="flex-container">
-				<div style="width: 125px; font-size: 16px"> @{{data.weight}}, @{{data.color}}, @{{data.clarity}} </div>
-			</div>
-			<div class="flex-container">
-				<div style="width: 125px; font-size: 13px"> @{{data.stock}}</div>
 			</div>
 		</div>
 		<div>

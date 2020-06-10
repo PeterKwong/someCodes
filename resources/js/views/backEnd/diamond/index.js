@@ -33,7 +33,7 @@ export default {
 			{ title: 'milky', key: 'milky', sort: true},
 			{ title: 'location', key: 'location', sort: true},
 			{ title: 'available', key: 'available', sort: true},
-			{ title: 'starred', key: 'star', sort: true},
+			{ title: 'starred', key: 'starred', sort: true},
 			{ title: 'video', key: 'video', sort: true},
 			{ title: 'lab', key: 'lab', sort: true},
 			{ title: 'Updated At', key: 'updated_at', sort: true},

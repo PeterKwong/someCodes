@@ -186,6 +186,10 @@ if ( pUrl.includes('adm/diamonds/create') ) {
     const diamondForm =  new Vue(DiamondForm);
 }
 
+if ( pUrl.includes('adm/diamonds/') && pUrl.includes('edit') ){
+    const diamondForm =  new Vue(DiamondForm);
+}
+
 if ( pUrl.includes('adm/diamonds/batch-create') ) {
     const diamondBatchForm =  new Vue(DiamondBatchForm);
 }
