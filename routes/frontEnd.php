@@ -5,23 +5,23 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::prefix('/links/')->group(function(){
+    Route::prefix('/links/')->group(function(){
 
-    Route::get('youtube', function(){
-        return redirect('https://youtube.com/channel/UCaNsACwMjz9t9evpaSkHpGg');
-    } );
-    Route::get('facebook', function(){
-        return redirect('https://facebook.com/tingdiamonds');
-    } );
-    Route::get('twitter', function(){
-        return redirect('http://twitter.com/TingDiamond');
-    } );        
-    Route::get('instagram', function(){
-        return redirect('https://instagram.com/tingdiamond/');
-    } ); 
-    Route::get('whatsapp/{number}', function($number){
-        // dd($number);
-        return redirect('https://api.whatsapp.com/send?phone=' . $number .'&text='. request()->text );
+        Route::get('youtube', function(){
+            return redirect('https://youtube.com/channel/UCaNsACwMjz9t9evpaSkHpGg');
+        } );
+        Route::get('facebook', function(){
+            return redirect('https://facebook.com/tingdiamonds');
+        } );
+        Route::get('twitter', function(){
+            return redirect('http://twitter.com/TingDiamond');
+        } );        
+        Route::get('instagram', function(){
+            return redirect('https://instagram.com/tingdiamond/');
+        } ); 
+        Route::get('whatsapp/{number}', function($number){
+            // dd($number);
+            return redirect('https://api.whatsapp.com/send?phone=' . $number .'&text='. request()->text );
     } );         
 });
 
