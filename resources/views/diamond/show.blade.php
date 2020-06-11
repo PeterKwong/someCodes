@@ -115,7 +115,7 @@
                                 <img class="img-responsive" :src="storageURL + 'images/' + diamond.id + '.jpg' " width="100%" height="auto" ></img>
                             </div>
                             <div v-if=" selectingShowType == 'video' ">
-                                <iframe :src="diamond.video_link" width="100%" height="700" ></iframe>
+                                <iframe :src=" '/redirect?url=' + diamond.video_link" width="100%" height="700" ></iframe>
                             </div>
                             <div v-if="diamond.plot && selectingShowType == 'plot' ">
                                 <img class="img-responsive" :src="storageURL + 'plots/' + diamond.id + '.jpg' "  width="100%" height="auto"></img>
