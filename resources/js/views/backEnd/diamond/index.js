@@ -59,6 +59,10 @@ export default {
 		clickRow(row){
 			window.open('/hk/gia-loose-diamonds/'+ row.id )
 		 },
+		editDiamond(row){
+			window.open('/adm/diamonds/'+ row.id +'/edit')
+
+		},
 		setDue(row){
 			// alert('hi')
 			get('/api/diamonds-toggle-available/'+row.id)

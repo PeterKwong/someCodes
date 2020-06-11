@@ -23,15 +23,9 @@ export default {
 	beforeMount(){
 		if ( window.location.pathname.includes('edit') ) {
 			this.title = 'Edit'
-			this.initialize = '/api/diamonds/' + this.getIdReg(22) + '/edit'
-			this.store = '/api/diamonds/' + this.getIdReg(22)
+			this.initialize = '/api/diamonds/' + this.getIdReg(13) + '/edit'
+			this.store = '/api/diamonds/' + this.getIdReg(13)
 			this.method = 'put'
-		}
-		if ( window.location.pathname.includes('create-from-diamond/') ) {
-			this.title = 'Create'
-			this.initialize = '/api/diamonds/create-from-diamond/' + this.getIdReg(42)
-			this.store = '/api/diamonds'
-			this.method = 'post'
 		}
 		this.fetchData()
 	},
@@ -62,6 +56,7 @@ export default {
 		getIdReg(length){
 
 			var txt = window.location.pathname.slice(length)
+			console.log(txt)
 			var pattern = new RegExp('[0-9]*', 'i')
 			 return pattern.exec(txt);
 		},

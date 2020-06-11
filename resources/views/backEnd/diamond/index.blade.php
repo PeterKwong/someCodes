@@ -9,7 +9,10 @@
 	<data-viewer :source = "source" :thead="thead" :filter="filter" :create="create" :title="title" :url="url">
 		<template slot-scope="props">
 			<tr @click="clickRow(props.item)">
-				<td>@{{props.item.id}}</td>
+				<td>@{{props.item.id}}
+					<button class="btn btn-primary" @click="editDiamond(props.item)">Edit
+					</button>
+				</td>
 				<td  @click="saveToInvDiamond(props.item)"><button class="btn btn-primary">Invoice Diamond</button></td>
 				<td>@{{props.item.price}}</td>
 				<td>@{{props.item.stock}}</td>

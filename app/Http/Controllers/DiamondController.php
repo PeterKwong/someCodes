@@ -177,6 +177,14 @@ class DiamondController extends Controller
                   ]);
 
     }
+    
+    public function edit($id){
+      $diamond = Diamond::findOrFail($id);
+
+      return response()->
+              json(['form' => $diamond, 'option'=>'']);  
+    }
+
     public function batchStore(Request $request){
 
       $import = new DiamondImport();

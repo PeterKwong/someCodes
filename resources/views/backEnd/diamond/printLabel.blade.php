@@ -59,7 +59,9 @@
 					<br>
 					<svg id="barcode1"></svg>
 					<br>
-					<span style="font-size: 17px;  margin:0; padding: 0;">@{{data.weight}}, @{{data.color}}, @{{data.clarity}} </span>		
+					<span style="font-size: 17px;  margin:0; padding: 0;">
+					@{{data.weight}}, @{{data.color}}, @{{data.clarity}} 
+					</span>		
 				</div>
 			</div>
 			<div class="flex-container" style=" margin:0; padding: 0;">
