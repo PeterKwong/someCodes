@@ -12,6 +12,7 @@ export default[
 	{'certificate':['certificate','證書編號','证书编号']},
 	{'lab':['lab','檢驗中心','检验中心']},
 	{'fluorescence':['fluorescence','螢光','荧光']},
+	{'starred':['starred','精選','精选']},
 	{'location':['status','狀態','状态']},
 	{'stock no':['stock no','貨號','货号']},
 	{'has_image':['has_image','圖像','图像']},

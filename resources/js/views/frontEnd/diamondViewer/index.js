@@ -69,9 +69,10 @@ import langs from '../../../langs/diamondViewer'
 					{display:'fluorescence',value: 'fluorescence' },
 					{display:'location',value: 'location' },
 					{display:'certificate',value: 'certificate' },
+					{display:'starred',value: 'starred' },
 					{display:'lab',value: 'lab' },
 				],
-				columns:['has_image','shape','price','weight','color','clarity','cut','polish','symmetry','fluorescence','location','certificate','lab'],
+				columns:[],
 				query:{
 					page:1,
 					column: 'price',
@@ -442,28 +443,28 @@ import langs from '../../../langs/diamondViewer'
 					&search_operator=${this.query.search_operator}
 					&search_input=${this.query.search_input}
 					&color=${
-						this.fetchData.color.toString()?this.fetchData.color.toString():this.preset.color.toString()
+						this.checkToString('color')
 					}
 					&clarity=${
-						this.fetchData.clarity.toString()?this.fetchData.clarity.toString():this.preset.clarity.toString()
+						this.checkToString('clarity')
 					}
 					&cut=${
-						this.fetchData.cut.toString()?this.fetchData.cut.toString():this.preset.cut.toString()
+						this.checkToString('cut')
 					}
 					&polish=${
-						this.fetchData.polish.toString()?this.fetchData.polish.toString():this.preset.polish.toString()
+						this.checkToString('polish')
 					}
 					&symmetry=${
-						this.fetchData.symmetry.toString()?this.fetchData.symmetry.toString():this.preset.symmetry.toString()
+						this.checkToString('symmetry')
 					}
 					&fluorescence=${
-						this.fetchData.fluorescence.toString()?this.fetchData.fluorescence.toString():this.preset.fluorescence.toString()
+						this.checkToString('fluorescence')
 					}
 					&shape=${
-						this.fetchData.shape.toString()?this.fetchData.shape.toString():this.preset.shape.toString()
+						this.checkToString('shape')
 					}
 					&location=${
-						this.fetchData.location.toString()?this.fetchData.location.toString():this.preset.location.toString()
+						this.checkToString('location')
 					}
 					&price=${
 						this.fetchData.priceRange
@@ -472,12 +473,16 @@ import langs from '../../../langs/diamondViewer'
 					}`)
 				.then((response)=>{
 					this.model= response.data.model
+					this.columns= response.data.columns
 					// Vue.set(vm.$data, 'columns', response.data.columns)
 				}).catch(function(){
 					console.log(response)
 				})
 				this.sendCookies()
 
-			}
+			},
+			checkToString(column){
+				return this.fetchData[column].toString()?this.fetchData[column].toString():this.preset[column].toString()
+			},
 		}
 	}

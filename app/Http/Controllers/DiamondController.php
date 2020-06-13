@@ -54,54 +54,6 @@ class DiamondController extends Controller
 
       $m = DiamondQuery::SearchPaginateAndOrder();
       
-      // $m = DiamondQuery::SearchPaginateAndOrder();
-
-      // $m = DB::table('diamonds')
-      //   ->where(function($query){
-      //   $query->whereNotNull('available');
-      // });
-
-      // $m = $m->where(function($query){
-      //         $query->whereIn('color', explode(',', request()->color));
-      //       });
-      // $m = $m->where(function($query){
-      //         $query->whereIn('clarity', explode(',', request()->clarity));
-      //       });
-      // $m = $m->where(function($query){
-      //         $query->whereIn('cut', explode(',', request()->cut));
-      //       });
-      // $m = $m->where(function($query){
-      //         $query->whereIn('polish', explode(',', request()->polish));
-      //       });
-      // $m = $m->where(function($query){
-      //         $query->whereIn('symmetry', explode(',', request()->symmetry));
-      //       });
-
-      // $m = $m->where(function($query){
-      //         $query->whereIn('fluorescence', explode(',', request()->fluorescence));
-      //       });
-
-      // $m = $m->where(function($query){
-      //         $query->whereIn('shape', explode(',', request()->shape));
-      //       });
-
-      // $m = $m->where(function($query){
-      //         $query->whereIn('location', explode(',', request()->location));
-      //       });
-
-      // $m = $m->where(function($query){
-      //         $query->whereBetween('weight', explode(',', request()->weight));
-      //       });
-
-      // $m = $m->where(function($query){
-      //         $query->whereBetween('price', explode(',', request()->price));
-      //       })
-
-      // ->orderBy(request()->column, request()->direction)
-      // ->paginate(request()->per_page);
-
-      
-   
     	$columns = Diamond::$columns;
 
     	return response()
@@ -183,6 +135,39 @@ class DiamondController extends Controller
 
       return response()->
               json(['form' => $diamond, 'option'=>'']);  
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+        'price'  => 'required',
+        'clarity' => 'required',
+        'weight' => 'required',
+        'color' => 'required',
+        'polish' => 'required',
+        'symmetry' => 'required',
+        'fluorescence' => 'required',
+        'lab' => 'required',
+        'certificate' => 'required',
+        'shape' =>'required',
+        ]);
+
+
+        $saved = 'same diamond';
+        
+        $invoiceDiamond = Diamond::findOrFail($id);
+        $request = $request->except(['created_at']);
+        $request['updated_at'] = now()->toDateTimeString();
+
+        if ( $invoiceDiamond )  {
+            $invoiceDiamond->update($request);
+            $saved = true;         
+        }
+
+        return response()
+            ->json([
+                'saved' => $saved
+                ]);
     }
 
     public function batchStore(Request $request){

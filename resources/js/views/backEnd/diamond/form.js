@@ -23,8 +23,8 @@ export default {
 	beforeMount(){
 		if ( window.location.pathname.includes('edit') ) {
 			this.title = 'Edit'
-			this.initialize = '/api/diamonds/' + this.getIdReg(13) + '/edit'
-			this.store = '/api/diamonds/' + this.getIdReg(13)
+			this.initialize = '/api/diamonds/' + this.getIdReg(14) + '/edit'
+			this.store = '/api/diamonds/' + this.getIdReg(14)
 			this.method = 'put'
 		}
 		this.fetchData()

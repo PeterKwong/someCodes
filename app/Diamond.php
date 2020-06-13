@@ -24,8 +24,8 @@ class Diamond extends Model
                 ];
 
     protected $casts = [
-        'created_at' => 'datetime:Y-m-d H-i-s',
-        'updated_at' => 'datetime:Y-m-d H-i-s',
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
     ];
 
    	 public static $columns = [
@@ -42,6 +42,7 @@ class Diamond extends Model
                 'certificate',
                 'lab',
                 'stock',
+                'starred',
                 'location',
                 'has_image'];
 

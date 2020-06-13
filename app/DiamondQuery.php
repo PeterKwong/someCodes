@@ -18,7 +18,7 @@ class DiamondQuery extends Model
     protected $guarded = [];
 
     protected $filter = [
-        'id', 'price', 'stock', 'certificate', 'shape', 'weight', 'color', 'clarity', 'cut', 'polish', 'symmetry', 'fluorescence', 'lab', 'location', 'has_image','image_link','has_cert', 'video_link', 'available'
+        'id', 'price', 'stock', 'certificate', 'shape', 'weight', 'color', 'clarity', 'cut', 'polish', 'symmetry', 'fluorescence', 'lab', 'location', 'has_image','image_link','has_cert', 'video_link', 'available','starred'
                 ];
 
     
@@ -37,6 +37,7 @@ class DiamondQuery extends Model
                 'lab',
                 'stock',
                 'location',
+                'starred',
                 'has_image'];
 
 

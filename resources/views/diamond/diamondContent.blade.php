@@ -498,7 +498,7 @@
       </li>
       <li class="nav-item">
         <input v-for="(value, index) in query.search_conditions.location " class="btn btn-outline-secondary is-success" :class=" {' active' : query.search_conditions.location[index].clicked} " type="button" @click="toggleValue(query.search_conditions.location[index].clicked,'location', index)" :value="query.search_conditions.location[index].description |transJs(langs,locale)">
-            <button class="btn btn-outline-secondary is-primary" @click="resetCookies()">{{__('diamondSearch.reset')}} <i class="fas fa-undo"></i></button>
+        <button class="btn btn-outline-secondary is-primary" @click="resetCookies()">{{__('diamondSearch.reset')}} <i class="fas fa-undo"></i></button>
       </li>
     </ul>
 
@@ -526,7 +526,7 @@
             </li>
             <li class="nav-item">
                 <button class="btn btn-outline-secondary" :class=" { ' active' : !showInGrid }" @click="showInGrid = !showInGrid"><i class="fas fa-list-alt">{{ __('diamondSearch.List')}}</i></button>
-                    <button class="btn btn-outline-secondary" :class="{ ' active' : showInGrid }" @click="showInGrid = !showInGrid"><i class="fas fa-grip-vertical">{{ __('diamondSearch.Grid')}}</i></button>
+                <button class="btn btn-outline-secondary" :class="{ ' active' : showInGrid }" @click="showInGrid = !showInGrid"><i class="fas fa-grip-vertical">{{ __('diamondSearch.Grid')}}</i></button>
             </li>
         </ul>
 
@@ -569,7 +569,7 @@
                                     <img :src=" row.shape|diamondShapeUrl()" width="20">  
                                 </div>
                             </td> 
-                            <td ><i class="fa fa-star" aria-hidden="true" v-if="row.starred"></i> HK$@{{ row.price }}</td>
+                            <td >HK$@{{ row.price }}</td>
                             <td > @{{ row.weight }}</td>
                             <td > @{{ row.color }}</td>
                             <td > @{{ row.clarity }}</td>
@@ -580,6 +580,7 @@
                             <td v-if="row.location=='1Hong Kong'">{{__('diamondSearch.1-2 Days')}}</td>
                             <td v-else> {{__('diamondSearch.Order')}}</td>
                             <td > @{{ row.certificate }}</td>
+                            <td ><i class="fa fa-star" aria-hidden="true" v-if="row.starred"></i></td>
                             <td > @{{ row.lab }}</td>
                         </tr>
                         
