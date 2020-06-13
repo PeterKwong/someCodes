@@ -88,7 +88,7 @@
              </div>
          </div>
             
-            <p v-if="chunkedItems.length" class="text-primary text-center">{{chunkedItems[currentIndex].text}}</p>
+            <p v-if="chunkedItems.length && !showUpper" class="text-primary text-center">{{chunkedItems[currentIndex].text}}</p>
 
 
         <nav aria-label="Page navigation example">
