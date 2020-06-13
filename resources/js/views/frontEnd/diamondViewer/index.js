@@ -69,8 +69,8 @@ import langs from '../../../langs/diamondViewer'
 					{display:'fluorescence',value: 'fluorescence' },
 					{display:'location',value: 'location' },
 					{display:'certificate',value: 'certificate' },
-					{display:'starred',value: 'starred' },
 					{display:'lab',value: 'lab' },
+					{display:'starred',value: 'starred' },
 				],
 				columns:[],
 				query:{

@@ -580,8 +580,8 @@
                             <td v-if="row.location=='1Hong Kong'">{{__('diamondSearch.1-2 Days')}}</td>
                             <td v-else> {{__('diamondSearch.Order')}}</td>
                             <td > @{{ row.certificate }}</td>
-                            <td ><i class="fa fa-star" aria-hidden="true" v-if="row.starred"></i></td>
                             <td > @{{ row.lab }}</td>
+                            <td ><i class="fa fa-star" aria-hidden="true" v-if="row.starred"></i></td>
                         </tr>
                         
 
@@ -616,7 +616,9 @@
             </div>
 
           <div class="card-body" >
-            <h5 class="color-blue">HK$ @{{ row.price }}
+            <h5 class="color-blue">
+              <i class="fa fa-star" aria-hidden="true" v-if="row.starred"></i>
+              HK$ @{{ row.price }}
             </h5>
             <p class="card-text">
                     @{{ row.weight }}
