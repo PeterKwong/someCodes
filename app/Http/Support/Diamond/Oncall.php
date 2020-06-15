@@ -427,6 +427,13 @@ trait Oncall{
                       $d->cut = $diamond['cut']?$diamond['cut']:0;
                       $d->polish = $diamond['polish']; 
                       $d->symmetry = $diamond['symmetry'];
+                      $d->length = $diamond['length'];
+                      $d->width = $diamond['width'];
+                      $d->depth = $diamond['depth'];
+                      $d->depth_percent = $diamond['depth_percent'];
+                      $d->table_percent = $diamond['table_percent'];
+                      $d->crown_angle = $diamond['crown_angle'];
+                      $d->parvilion_angle = $diamond['parvilion_angle'];
                       $d->fluorescence = $diamond['fluorescence']?$diamond['fluorescence']:'None'; 
                       $d->lab = $diamond['lab'];
                       $d->location = $diamond['location']; 
