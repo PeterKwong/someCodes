@@ -251,6 +251,13 @@ trait Oncall{
                   $diam['polish'] = $diamond->POLISH;
                   $diam['symmetry'] = $diamond->SYMM;
                   $diam['fluorescence'] = $diamond->FLURO;
+                  $diam['length'] = $diamond->LENGTH;
+                  $diam['width'] = $diamond->WIDTH;
+                  $diam['depth'] = $diamond->DEPTH;
+                  $diam['depth_percent'] = $diamond->DEPTH_PER;
+                  $diam['table_percent'] = $diamond->TABLE_PER;
+                  $diam['crown_angle'] = $diamond->CROWNANGLE;
+                  $diam['parvilion_angle'] = $diamond->PAVALIONANGLE;
                   $diam['lab'] = $diamond->LAB;
                   $diam['certificate'] = is_numeric($diamond->CERTIFICATE_NO)?$diamond->CERTIFICATE_NO:0;
                   $diam['available'] = 1;

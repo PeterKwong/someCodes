@@ -20,10 +20,10 @@ class CreateJewelleriesTable extends Migration
             $table->string('type');
             $table->boolean('setting')->default(0);
             $table->string('sideStone')->default(0);
-            $table->float('ct')->default(0);
-            $table->string('metal')->default('18KW');
-            $table->float('metal_weight')->default(0);
-            $table->integer('cost')->default(0);
+            $table->float('ct')->default(0)->nullable();
+            $table->string('metal')->default('18KW')->nullable();
+            $table->float('metal_weight')->default(0)->nullable();
+            $table->integer('cost')->default(0)->nullable();
             $table->string('brand')->nullable();
             $table->string('video')->nullable();
             $table->integer('unit_price');

@@ -145,8 +145,9 @@
                             <carousel @active="carouselState=!carouselState" :active="carouselState" :height="'500'" :width="'100%'" :upperitems="engagementRing" :items="customerItems" title="customer jewellries"></carousel>
                           </keep-alive>
                         </figure>
-<!--                         <product-viewer :folder="mutualVar.storage[mutualVar.storage.live] + 'public/test/' " filename="{index}.JPG"></product-viewer> -->
-
+                        
+<!--                         <product-viewer :folder="mutualVar.storage[mutualVar.storage.live] + 'public/test/' " filename="{index}.JPG"></product-viewer>
+ -->
                       </div>
 
                       <div class="col-sm-5 box">
