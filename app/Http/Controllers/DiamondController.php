@@ -27,15 +27,15 @@ class DiamondController extends Controller
 
   public function bladeShow($locale, $id)
   {
-    // $diamond  = Diamond::findOrFail($id);
-    $diamond  = DiamondQuery::findOrFail($id);
+    $diamond  = Diamond::findOrFail($id);
+    //$diamond  = DiamondQuery::findOrFail($id);
     return view('diamond.show', ['diamond' => $diamond]);
 
   }
   public function showLoadingImage($id){
     
-  // $diamond  = Diamond::findOrFail($id);
-  $diamond  = DiamondQuery::findOrFail($id);
+  $diamond  = Diamond::findOrFail($id);
+  //$diamond  = DiamondQuery::findOrFail($id);
 
   return $diamond->loadCachedImage();
 
@@ -43,8 +43,8 @@ class DiamondController extends Controller
 
   public function showLoadingCert($id){
 
-  // $diamond  = Diamond::findOrFail($id);
-  $diamond  = DiamondQuery::findOrFail($id);
+  $diamond  = Diamond::findOrFail($id);
+  //$diamond  = DiamondQuery::findOrFail($id);
 
   return $diamond->loadCachedCert();
 
