@@ -89,7 +89,7 @@ trait Query
       return 1;
   } 
   
-  public function insertOrUpdateAndDelete(){
+  public function insertOrUpdate(){
       
 
       $queryDiamonds = Diamond::where('available',1)->chunk(1000, function($diamonds){
