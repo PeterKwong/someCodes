@@ -96,14 +96,14 @@ trait Query
 
             foreach ($diamonds as $diamond) {
 
-                  $d = DiamondQuery::where('available', $diamond->available)->first();
+                  $d = DiamondQuery::where('id', $diamond->id)->first();
 
                   if(!isset($d)){
                     $d = new DiamondQuery();
                   }
                   // dd($diamond->toArray());
 
-                  $d = $d->updateOrCreate($diamond->toArray());
+                  $d = $d->updateOrCreate($diamond->turnHiddenToEmpty()->toArray());
                   // dd($d);
 
             }
@@ -116,11 +116,12 @@ trait Query
       
       DB::table('diamond_queries')->truncate();
 
-      $queryDiamonds = Diamond::where('available',1)->chunk(1000, function($diamonds){
+      $queryDiamonds = Diamond::where('available',1)
+                    ->chunk(1000, function($diamonds){
 
             foreach ($diamonds as $diamond) {
-                  // dd($diamond->toArray());                
-                  $diam = DiamondQuery::insert($diamond->toArray());
+  
+                  $diam = DiamondQuery::insert($diamond->turnHiddenToEmpty()->toArray());
                   // dd($diam);
             }
       });
@@ -131,21 +132,25 @@ trait Query
   }
 
     public function deleteAllDiamonds(){
-      $diamonds = DiamondQuery::where('available','1')->get();
 
-      $this->oneDaysBeforeResetOnDiamondQuery($diamonds);
+      $diamonds = Diamond::where('available', NULL)->chunk(1000, function($diamonds){
 
-      return 1;
+        $this->oneQuarterBeforeResetOnDiamondQuery($diamonds);
+
+        return 1;
+
+      });
+
 
     }
 
-    public function oneDaysBeforeResetOnDiamondQuery($diamonds){
+    public function oneQuarterBeforeResetOnDiamondQuery($diamonds){
 
           if (count($diamonds)) {
             $dt = Carbon::now();
             foreach ($diamonds as $diamond) {
               // dd(print_r($diamond->updated_at));
-              if (!$dt->isSameDay($diamond->updated_at)) {
+              if (!$dt->isSameQuarter($diamond->updated_at)) {
                 $diamond->delete();
 
               }

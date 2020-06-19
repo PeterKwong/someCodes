@@ -27,7 +27,11 @@ class DiamondController extends Controller
 
   public function bladeShow($locale, $id)
   {
-    $diamond  = Diamond::findOrFail($id);
+    $diamond  = Diamond::find($id);
+    // dd($diamond);
+    if(!isset($diamond)){
+      return redirect( $locale . '/gia-loose-diamonds');
+    }
     //$diamond  = DiamondQuery::findOrFail($id);
     return view('diamond.show', ['diamond' => $diamond]);
 
@@ -255,6 +259,8 @@ class DiamondController extends Controller
         $url = '';
 
         if ( $diamond->starred ) {
+
+          $diamond->update(['available' => 1 ]);
 
           $url = '/adm/diamonds/print-label?gia=' . $diamond->certificate .
                   '&price=' . $diamond->price . 

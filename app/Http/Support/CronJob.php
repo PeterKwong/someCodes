@@ -286,6 +286,29 @@ class CronJob
 		
 	}
 	
+	public function copyToDiamondQuery(){
 
+
+		$appoint = new AppointmentController();
+		$diamondImport = new DiamondImport();
+
+		$jobs = [ $this->ip . 'start working on diamond copy diamond query'=> now()];
+		$appoint->cronDone($jobs);
+
+		$reset = $diamondImport->insertOrUpdate();
+		if ($reset == 1) {
+			$jobs = [ $this->ip . 'diamond Query copy'=>'all done'];
+			$appoint->cronDone($jobs);
+		}
+		
+		$reset = $diamondImport->deleteAllDiamonds();
+		if ($reset == 1) {
+			$jobs = [ $this->ip . 'Delete diamonds'=>'all done'];
+			$appoint->cronDone($jobs);
+		}
+		
+		
+	}
+	
 
 }

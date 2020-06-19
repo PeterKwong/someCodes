@@ -85,7 +85,8 @@ class Kernel extends ConsoleKernel
             if ( Cache::get('diamondQueryState')  == 2 ) {
 
                 Cache::increment('diamondQueryState');
-                $CronJob->runDiamondQueryCopy();
+                $CronJob->copyToDiamondQuery();
+                // $CronJob->runDiamondQueryCopy();
             }
 
         })->cron('*/1 * * * *')->between('00:01', '23:59')->runInBackground();

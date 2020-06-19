@@ -57,7 +57,7 @@ class Diamond extends Model
     		return [
     		'id' => '' , 
     		'price' => 0 , 
-    		'stock' => 'TD-' , 
+    		'stock' => 'S166-G' , 
     		'certificate' => 0, 
     		'shape' => 'ROUND', 
     		'weight' => 0, 
@@ -76,4 +76,9 @@ class Diamond extends Model
             'starred' => now()->toDateTimeString(), 
     		];
     	}
+
+        public function turnHiddenToEmpty(){
+            $this->hidden = [];
+            return $this;
+        }
 }

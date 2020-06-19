@@ -10,9 +10,9 @@ use App\InvoiceDiamond;
 use App\InvoiceItem;
 use App\InvoicePost;
 use App\Jewellery;
-
-use Illuminate\Http\Request;
 use App\Mail\Appointment;
+use App\Support\DiamondImport;
+use Illuminate\Http\Request;
 
 
 class TestController extends Controller
@@ -20,7 +20,7 @@ class TestController extends Controller
 
     public function test(){
 
-	    $this->invoiceItemsCopy();
+	    $this->resetAllDiamonds();
 
 		return response()
 			->json(
@@ -28,6 +28,45 @@ class TestController extends Controller
 		);
 
     }
+    public function resetAllDiamonds(){
+
+
+      // $predis = Redis::Connection();
+      // $predis->incr('oncall');
+      // $predis->set('batchNumber', 50);
+      // $predis->decr('oncall');
+
+      // return $predis->get('batchNumber');
+      // return $this->resetAllDiamonds2days();
+
+      // return $import->resetAllRapDiamonds();
+
+      // return;
+
+      // $cron = new CronJob();
+      // return $cron->generateDiamondSitemap();      
+
+      $import = new DiamondImport();
+      return $import->insertOrUpdate();
+
+      // $import = new DiamondImport();
+      // return $import->runCronManually();
+      // return Cache::get('batchNumber');
+      // return $import->getSupplierTotalStones();
+      // return $import->preloadCerts();
+      // return $import->preloadImages();
+
+      // $import = new DiamondImport();
+      // return $import->resetAllApiDiamonds();  
+
+      
+
+
+
+      return 'reset images';
+
+    }
+
     public function testView(){
     	
     	return view('test.index');
