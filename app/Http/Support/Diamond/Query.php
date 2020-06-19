@@ -150,7 +150,7 @@ trait Query
             $dt = Carbon::now();
             foreach ($diamonds as $diamond) {
               // dd(print_r($diamond->updated_at));
-              if (!$dt->isSameYear($diamond->updated_at)) {
+              if (!$dt->isSameQuarter($diamond->updated_at)) {
                 $diamond->delete();
 
               }
