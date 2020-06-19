@@ -27,7 +27,8 @@ class DiamondController extends Controller
 
   public function bladeShow($locale, $id)
   {
-    $diamond  = Diamond::find($id);
+    // $diamond  = Diamond::find($id);
+    $diamond  = DiamondQuery::findOrFail($id);
     // dd($diamond);
     if(!isset($diamond)){
       return redirect( $locale . '/gia-loose-diamonds');
@@ -38,8 +39,8 @@ class DiamondController extends Controller
   }
   public function showLoadingImage($id){
     
-  $diamond  = Diamond::findOrFail($id);
-  //$diamond  = DiamondQuery::findOrFail($id);
+  // $diamond  = Diamond::findOrFail($id);
+  $diamond  = DiamondQuery::findOrFail($id);
 
   return $diamond->loadCachedImage();
 
@@ -47,8 +48,8 @@ class DiamondController extends Controller
 
   public function showLoadingCert($id){
 
-  $diamond  = Diamond::findOrFail($id);
-  //$diamond  = DiamondQuery::findOrFail($id);
+  // $diamond  = Diamond::findOrFail($id);
+  $diamond  = DiamondQuery::findOrFail($id);
 
   return $diamond->loadCachedCert();
 
