@@ -47,7 +47,7 @@ class TestController extends Controller
       // return $cron->generateDiamondSitemap();      
 
       $import = new DiamondImport();
-      return $import->insertOrUpdate();
+      return $import->deleteAllDiamonds();
 
       // $import = new DiamondImport();
       // return $import->runCronManually();
