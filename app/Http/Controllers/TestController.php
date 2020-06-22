@@ -12,6 +12,7 @@ use App\InvoicePost;
 use App\Jewellery;
 use App\Mail\Appointment;
 use App\Support\DiamondImport;
+use App\Support\CronJob;
 use Illuminate\Http\Request;
 
 
@@ -44,7 +45,7 @@ class TestController extends Controller
       // return;
 
       // $cron = new CronJob();
-      // return $cron->generateDiamondSitemap();      
+      // return $cron->runImportDiamondAPIPerBatch();      
 
       $import = new DiamondImport();
       return $import->deleteAllDiamonds();

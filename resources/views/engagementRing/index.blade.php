@@ -21,7 +21,6 @@
         <meta property="article:modified_time" content="2013-09-16T19:08:47+01:00" />
         <meta property="article:tag" content="{{trans('tag.Diamond')}},{{trans('tag.Diamond Ring')}}" /> 
 
- 
 
     @endSection
 

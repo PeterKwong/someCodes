@@ -66,6 +66,10 @@ return [
             'RPW',
             'OCID',
             'OCPW',
+            'PAYMENTCN_KEY',
+            'AWS_SECRET_ACCESS_KEY',
+            'TELEGRAM_TOKEN',
+
         ],
         '_SERVER' => [
             'APP_KEY',
@@ -90,7 +94,11 @@ return [
             'RID',
             'RPW',
             'OCID',
-            'OCPW',                        
+            'OCPW',
+            'PAYMENTCN_KEY',
+            'AWS_SECRET_ACCESS_KEY',
+            'TELEGRAM_TOKEN',
+
         ],    
     ],
 

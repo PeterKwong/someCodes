@@ -133,7 +133,7 @@ trait Query
 
     public function deleteAllDiamonds(){
 
-      $diamonds = Diamond::where('available', NULL)->chunk(1000, function($diamonds){
+      $diamonds = Diamond::where('available', NULL)->orderBy('updated_at','ASC')->chunk(1000, function($diamonds){
 
         $this->oneQuarterBeforeResetOnDiamondQuery($diamonds);
 
@@ -147,10 +147,10 @@ trait Query
     public function oneQuarterBeforeResetOnDiamondQuery($diamonds){
 
           if (count($diamonds)) {
-            $dt = Carbon::now();
+            $dt = Carbon::now()->subDays(91);
             foreach ($diamonds as $diamond) {
               // dd(print_r($diamond->updated_at));
-              if (!$dt->isSameQuarter($diamond->updated_at)) {
+              if (!$dt->isBefore($diamond->updated_at)) {
                 $diamond->delete();
 
               }

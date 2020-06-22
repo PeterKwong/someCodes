@@ -3,6 +3,7 @@
 namespace App\Support\Diamond;
 
 use App\Diamond;
+use App\DiamondQuery;
 use App\Supplier;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request as Req;
@@ -412,9 +413,7 @@ trait Oncall{
                   $d = Diamond::where('certificate',$diamond['certificate'])->first();
 
                       if (!isset($d)) {
-
                         $d = new Diamond;
-
                       }
 
                       $d->stock = 's'.$s_id->id .'-'. $diamond['stock'] ; 

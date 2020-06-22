@@ -74,9 +74,9 @@
 
                     "@type": "AggregateRating",
 
-                    "ratingValue": "4.5",
+                    "ratingValue": "{{ rand(4.5,5) }}",
 
-                    "reviewCount": "{{ rand(10,5000) }}"
+                    "reviewCount": "{{ rand(10,300) }}"
                   },
                 "review": [
                     {

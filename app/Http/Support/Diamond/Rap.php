@@ -288,8 +288,8 @@ trait Rap{
                       $d->length = $data->diamond->meas_length;
                       $d->width = $data->diamond->meas_width;
                       $d->depth = $data->diamond->meas_depth;
-                      $d->depth_percent = $data->diamond->depth_percent;
-                      $d->table_percent = $data->diamond->table_percent;
+                      $d->depth_percent = $data->diamond->depth_percent>0?$data->diamond->depth_percent:0;
+                      $d->table_percent = $data->diamond->table_percent>0?$data->diamond->table_percent:0;
                       $d->fluorescence = $data->diamond->fluor_intensity?$data->diamond->fluor_intensity:'None'; 
                       $d->lab = $data->diamond->lab;
                       $d->location = $data->diamond->country =='Hong Kong' && $this->isNotMemoSuppliers($s_id->id)
