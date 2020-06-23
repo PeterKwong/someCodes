@@ -146,8 +146,8 @@
                           </keep-alive>
                         </figure>
                         
-<!--                         <product-viewer :folder="mutualVar.storage[mutualVar.storage.live] + 'public/test/' " filename="{index}.JPG"></product-viewer>
- -->
+                        <product-viewer :folder="mutualVar.storage[mutualVar.storage.live] + 'public/test/oval/' " filename="{index}.jpg"></product-viewer>
+
                       </div>
 
                       <div class="col-sm-5 box">

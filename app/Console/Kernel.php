@@ -72,11 +72,11 @@ class Kernel extends ConsoleKernel
 
          $schedule->call(function () use(&$CronJob) {
             $CronJob->runImages();
-        })->dailyAt('18:01')->runInBackground();
+        })->dailyAt('14:01')->runInBackground();
 
         $schedule->call(function () use(&$CronJob) {
             $CronJob->runCerts();
-        })->dailyAt('19:01')->runInBackground();
+        })->dailyAt('15:01')->runInBackground();
 
 
 
@@ -85,8 +85,8 @@ class Kernel extends ConsoleKernel
             if ( Cache::get('diamondQueryState')  == 2 ) {
 
                 Cache::increment('diamondQueryState');
-                // $CronJob->copyToDiamondQuery();
-                $CronJob->runDiamondQueryCopy();
+                $CronJob->copyToDiamondQuery();
+                // $CronJob->runDiamondQueryCopy();
             }
 
         })->cron('*/1 * * * *')->between('00:01', '23:59')->runInBackground();
