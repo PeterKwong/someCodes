@@ -133,7 +133,7 @@ trait Query
 
     public function deleteAllDiamonds(){
 
-      $diamonds = Diamond::where('available', NULL)->orderBy('updated_at','ASC')->chunk(1000, function($diamonds){
+      $diamonds = Diamond::where('available', NULL)->chunk(1000, function($diamonds){
 
         $this->oneQuarterBeforeResetOnDiamondQuery($diamonds);
 

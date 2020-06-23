@@ -81,22 +81,22 @@
           </div>
 
         <div class="col-1 margin-top-20 text-center">
-            <div class="grad-img-gg">
-              <p>{{trans('diamondSearch.Shape')}}</p>
-            </div>
+          <div class="grad-img-gg">
+            <p>{{trans('diamondSearch.Shape')}}</p>
           </div>
-          <div class="col-11 margin-top-20">
-            <div class="row">
-              <div class="col-6">
-                <div class="block">
-                  <div class="block-3-item">
-                    <div class="grad-img" v-for="(value, index) in query.search_conditions.shape" class="btn btn-outline-secondary" :class=" {' active' : query.search_conditions.shape[index].clicked} " type="button" @click="toggleValue(query.search_conditions.shape[index].clicked,'shape', index)">
-                      <img class="img-fluid" :src="'/images/front-end/diamond_shapes/'+query.search_conditions.shape[index].description + '.png'" alt="">
-                      <div class="grad-line"></div>
-                    </div>
+        </div>
+        <div class="col-11 margin-top-20">
+          <div class="row">
+            <div class="col-6">
+              <div class="block">
+                <div class="block-3-item">
+                  <div class="grad-img" v-for="(value, index) in query.search_conditions.shape" class="btn btn-outline-secondary" :class=" {' active' : query.search_conditions.shape[index].clicked} " type="button" @click="toggleValue(query.search_conditions.shape[index].clicked,'shape', index)">
+                    <img class="img-fluid" :src="'/images/front-end/diamond_shapes/'+query.search_conditions.shape[index].description + '.png'" alt="">
+                    <div class="grad-line"></div>
                   </div>
                 </div>
               </div>
+            </div>
               <div class="col-1 para-block">
                 <p></p>
               </div>
