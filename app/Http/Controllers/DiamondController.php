@@ -246,7 +246,7 @@ class DiamondController extends Controller
       $url = $this->toggleStarredDiamondbeforeRedirect($id);
 
       if ($url) {
-        redirect( $url
+        return redirect( $url
                 ); 
       }
 
