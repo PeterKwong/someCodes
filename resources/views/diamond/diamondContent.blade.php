@@ -237,6 +237,21 @@
 </div>
 
 
+
+    <ul class="nav nav-tabs justify-content-center pt-10">
+      <li class="nav-item">
+        <a class="nav-link active" @click="showAdvance=!showAdvance" >{{ __('diamondSearch.More Advance') }}</a>
+      </li>
+    </ul>
+    <hr>
+    <button>sdf</button>
+    <div v-if="showAdvance">
+      hi
+    </div>
+
+
+
+
 <!-- 
 <div class="d-none d-sm-block">
     <div class="row">
@@ -477,18 +492,7 @@
         </ul>            
     </div>
 
-<!-- 
-    <ul class="nav nav-tabs justify-content-center pt-10">
-      <li class="nav-item">
-        <a class="nav-link active" @click="showAdvance=!showAdvance" >{{ __('diamondSearch.More Advance') }}</a>
-      </li>
-    </ul>
-    <hr>
-    <button>sdf</button>
-    <div v-if="showAdvance">
-      hi
-    </div>
- -->
+
 
     <div class="section-4">
       <div class="block-sec-4">
