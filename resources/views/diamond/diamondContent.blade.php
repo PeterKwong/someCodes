@@ -1,254 +1,14 @@
 <div class="section-3 d-none d-sm-block">
-  <div class="row">
 
-    <div class="col-12 gg-sec-2 margin-top-20">
-      <div class="grad-block">
-        <div class="row">
-          
-          <div class="col-1 text-center">
-            <div class="grad-img-gg">
-              <p>{{trans('diamondSearch.Price')}}</p>
-            </div>
-          </div>
-          <div class="col-11">
-            <div class="row">
-              <div class="col-6">
-                <div class="block">
-                  <div class="grad-input">
-                    <label>HKD$</label>
-                    <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.priceRange[0]" @focus="$event.target.select()">
-                  </div>
-                  <div class="grad-input pull-right">
-                    <label>HKD$</label>
-                    <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.priceRange[1]" @focus="$event.target.select()" >
-                  </div>
-                </div>
+  @include('diamond.searchDesktop')
 
-<!--                 <div class="block-bar">
-                  <div class="block-bar-line"></div>
-                </div>
- -->
-              </div>
-              <div class="col-1 para-block">
-                <p>{{trans('diamondSearch.Weight')}}</p>
-              </div>
-              <div class="col-5">
-                <div class="block gg">
-                  <div class="grad-input">
-                    <label>ct</label>
-                    <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.weight[0]" @focus="$event.target.select()">
-                  </div>
-                  <div class="grad-input pull-right">
-                    <label>ct</label>
-                    <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.weight[1]" @focus="$event.target.select()" >
-                  </div>
-                </div>
-
-<!--                 <div class="block-bar gg">
-                  <div class="block-bar-line"></div>  
-                </div> -->
-                     
-  <!--               <div class="block-btn-bar">
-                  <div class="block-btn-item active">
-                    <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/0-30-0-49-carat-weight">0.3-0.49</a>
-                  </div>
-                  <div class="block-btn-item active">
-                    <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/0-50-0-79-carat-weight">0.5-0.79</a>
-                  </div>
-                  <div class="block-btn-item active">
-                    <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/0-80-0-99-carat-weight">0.8-0.99</a>
-                  </div>
-                  <div class="block-btn-item active">
-                    <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-00-1-19-carat-weight">1.0-1.19</a>
-                  </div>
-                  <div class="block-btn-item active">
-                    <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-20-1-49-carat-weight">1.2-1.49</a>
-                  </div>
-                  <div class="block-btn-item active">
-                    <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-50-1-99-carat-weight">1.5-1.99</a>
-                  </div>
-                  <div class="block-btn-item active">
-                    <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/2-00-2-99-carat-weight">2.0-2.99</a>
-                  </div>
-                  <div class="block-btn-item active">
-                    <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/3-00-up-carat-weight">
-                    3.0 up</a>  
-                  </div>
-                </div> -->
-
-              </div>
-            </div>
-          </div>
-
-        <div class="col-1 margin-top-20 text-center">
-          <div class="grad-img-gg">
-            <p>{{trans('diamondSearch.Shape')}}</p>
-          </div>
-        </div>
-        <div class="col-11 margin-top-20">
-          <div class="row">
-            <div class="col-6">
-              <div class="block">
-                <div class="block-3-item">
-                  <div class="grad-img" v-for="(value, index) in query.search_conditions.shape" class="btn btn-outline-secondary" :class=" {' active' : query.search_conditions.shape[index].clicked} " type="button" @click="toggleValue(query.search_conditions.shape[index].clicked,'shape', index)">
-                    <img class="img-fluid" :src="'/images/front-end/diamond_shapes/'+query.search_conditions.shape[index].description + '.png'" alt="">
-                    <div class="grad-line"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <div class="col-1 para-block">
-                <p></p>
-              </div>
-              <div class="col-5">
-                <div class="row">
-                     <div class="block-btn-bar">
-                      <div class="block-btn-item active">
-                        <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/0-30-0-49-carat-weight">0.3-0.49</a>
-                      </div>
-                      <div class="block-btn-item active">
-                        <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/0-50-0-79-carat-weight">0.5-0.79</a>
-                      </div>
-                      <div class="block-btn-item active">
-                        <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/0-80-0-99-carat-weight">0.8-0.99</a>
-                      </div>
-                      <div class="block-btn-item active">
-                        <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-00-1-19-carat-weight">1.0-1.19</a>
-                      </div>
-                      <div class="block-btn-item active">
-                        <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-20-1-49-carat-weight">1.2-1.49</a>
-                      </div>
-                      <div class="block-btn-item active">
-                        <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-50-1-99-carat-weight">1.5-1.99</a>
-                      </div>
-                      <div class="block-btn-item active">
-                        <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/2-00-2-99-carat-weight">2.0-2.99</a>
-                      </div>
-                      <div class="block-btn-item active">
-                        <a class="text-white" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/3-00-up-carat-weight">
-                        3.0 up</a>  
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-1 margin-top-20 text-center">
-            <div class="grad-img-gg">
-              <p>{{trans('diamondSearch.Color')}}</p>
-            </div>
-          </div>
-          <div class="col-11 margin-top-20">
-            <div class="row">
-              <div class="col-6">
-                <div class="block">
-                  <div class="block-3-item">
-                    <div  v-for="(value, index) in query.search_conditions.color" class="block-3-item-div p-6" :class=" {'active' : query.search_conditions.color[index].clicked} "  @click="toggleValue(query.search_conditions.color[index].clicked,'color', index)" :value="query.search_conditions.color[index].description"> 
-                    @{{query.search_conditions.color[index].description}}
-                      <div class="block-3-item-bar"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-1 para-block">
-                <p>{{trans('diamondSearch.Cut')}}</p>
-              </div>
-              <div class="col-5">
-                <div class="row">
-                  <div class="col-4 grade-box" v-for="(value, index) in query.search_conditions.cut " :class=" {' active' : query.search_conditions.cut[index].clicked} " type="button" @click="toggleValue(query.search_conditions.cut[index].clicked,'cut', index)" :value="query.search_conditions.cut[index].description"> 
-                    @{{query.search_conditions.cut[index].description}}
-                    <div class="grade-line"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-1 margin-top-20 text-center">
-            <div class="grad-img-gg">
-              <p>{{trans('diamondSearch.Clarity')}}</p>
-            </div>
-          </div>
-          <div class="col-11 margin-top-20">
-            <div class="row">
-              <div class="col-6">
-                <div class="block">
-                  <div class="block-3-item sec-3-div">
-
-                    <div class="block-3-item-div p-6" v-for="(value, index) in query.search_conditions.clarity " :class=" {' active' : query.search_conditions.clarity[index].clicked} " type="button" @click="toggleValue(query.search_conditions.clarity[index].clicked,'clarity', index)" :value="query.search_conditions.clarity[index].description"> 
-                    @{{query.search_conditions.clarity[index].description}}
-                      <div class="block-3-item-bar"></div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-              <div class="col-1 para-block">
-                <p>{{trans('diamondSearch.Polish')}}</p>
-              </div>
-              <div class="col-5">
-                <div class="row">
-                  <div class="col-4 grade-box" v-for="(value, index) in query.search_conditions.polish"  :class=" {' active' : query.search_conditions.polish[index].clicked} " type="button" @click="toggleValue(query.search_conditions.polish[index].clicked,'polish', index)" :value="query.search_conditions.polish[index].description"> 
-                    @{{query.search_conditions.polish[index].description}}
-                    <div class="grade-line"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-1 margin-top-20 text-center">
-            <div class="grad-img-gg">
-              <p>{{trans('diamondSearch.Fluorescence')}}</p>
-            </div>
-          </div>
-          <div class="col-11 margin-top-20">
-            <div class="row">
-              <div class="col-6">
-                <div class="block">
-                  <div class="block-3-item sec-4-div">
-                    <div class="block-3-item-div p-6" v-for="(value, index) in query.search_conditions.fluorescence ":class=" {' active' : query.search_conditions.fluorescence[index].clicked} " type="button" @click="toggleValue(query.search_conditions.fluorescence[index].clicked,'fluorescence', index)" :value="query.search_conditions.fluorescence[index].description |transJs(langs,locale)"> 
-                        @{{query.search_conditions.fluorescence[index].description |transJs(langs,locale)}}
-                      <div class="block-3-item-bar"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-1 para-block">
-                <p>{{trans('diamondSearch.Symmetry')}}</p>
-              </div>
-              <div class="col-5">
-                <div class="row">
-                  <div class="col-4 grade-box" v-for="(value, index) in query.search_conditions.symmetry "  :class=" {' active' : query.search_conditions.symmetry[index].clicked} " type="button" @click="toggleValue(query.search_conditions.symmetry[index].clicked,'symmetry', index)" :value="query.search_conditions.symmetry[index].description"> 
-                    @{{query.search_conditions.symmetry[index].description}}
-                    <div class="grade-line"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>  
-      </div>
-    </div>
-
-  </div>
 </div>
 
 
 
-<!--     <ul class="nav nav-tabs justify-content-center pt-10">
-      <li class="nav-item">
-        <a class="nav-link active" @click="showAdvance=!showAdvance" >{{ __('diamondSearch.More Advance') }}</a>
-      </li>
-    </ul>
-    <hr>
-    <button>sdf</button>
-    <div v-if="showAdvance">
-      hi
-    </div>
- -->
+
+
+
 
 
 
@@ -344,152 +104,8 @@
 
     <div class="d-sm-none d-block">
 
-        <ul class="list-group">
-          <li class="list-group-item">
-             <div  @click="selectDisplayColumn('shape')">
-                <a class="is-primary">{{trans('diamondSearch.Shape')}}</a>
-                <a  @click="selectDisplayColumn('shape')">
-                    <button v-for="(value, index) in query.search_conditions.shape" class="btn btn-outline-secondary is-small" v-if=" query.search_conditions.shape[index].clicked" type="button" @click="toggleValue(query.search_conditions.shape[index].clicked,'shape', index)">
-                            <img :src="'/images/front-end/diamond_shapes/'+query.search_conditions.shape[index].description + '.png'" height="20" width="20">
-                    </button>
-                </a>
-                <i class="fas fa-chevron-down"></i>
-            </div>
+       @include('diamond.searchMobile')
 
-            <div v-if="displayColumn == 'shape' ">
-                <button v-for="(value, index) in query.search_conditions.shape" class="btn btn-outline-secondary is-small" :class=" {' active' : query.search_conditions.shape[index].clicked} " type="button" @click="toggleValue(query.search_conditions.shape[index].clicked,'shape', index)"><img :src="'/images/front-end/diamond_shapes/'+query.search_conditions.shape[index].description + '.png'" height="20" width="20"></button>
-            </div>
-          </li>
-          <li class="list-group-item">
-            <div @click="selectDisplayColumn('price')">
-                <a class="is-primary">{{trans('diamondSearch.Price')}} </a>
-                 <button class="btn btn-outline-secondary is-small"> @{{fetchData.priceRange[0]}} - @{{fetchData.priceRange[1]}} </button> 
-                <i class="fas fa-chevron-down"></i> 
-            </div>
-
-            <div class="level"  v-if="displayColumn == 'price' ">
-                <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.priceRange[0]" @focus="$event.target.select()">
-
-                <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.priceRange[1]" @focus="$event.target.select()">
-            </div> 
-          </li>
-          <li class="list-group-item">
-            <div @click="selectDisplayColumn('weight')">
-                <a class="is-primary">{{trans('diamondSearch.Weight')}}</a>
-                 <button class="btn btn-outline-secondary is-small"> @{{fetchData.weight[0]}} - @{{fetchData.weight[1]}} </button>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-
-            <div class="level"  v-if="displayColumn == 'weight' ">
-                <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.weight[0]" @focus="$event.target.select()">
-
-                <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.weight[1]" @focus="$event.target.select()">       
-            </div> 
-          </li>
-          <li class="list-group-item">
-            <div @click="selectDisplayColumn('color')">
-                            <a class="is-primary">{{trans('diamondSearch.Color')}}</a>
-                            <a  @click="selectDisplayColumn('color')">
-                             <button v-for="(value, index) in query.search_conditions.color" class="btn btn-outline-secondary is-small" v-if="query.search_conditions.color[index].clicked" type="button" @click="toggleValue(query.search_conditions.color[index].clicked,'color', index)" :value="query.search_conditions.color[index].description"> 
-                            @{{query.search_conditions.color[index].description}}
-                            </button>
-                            </a>
-
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-
-                        <div class="level"  v-if="displayColumn == 'color' ">
-                            <button v-for="(value, index) in query.search_conditions.color" class="btn btn-outline-secondary is-small" :class=" {' active' : query.search_conditions.color[index].clicked} " type="button" @click="toggleValue(query.search_conditions.color[index].clicked,'color', index)" :value="query.search_conditions.color[index].description"> 
-                            @{{query.search_conditions.color[index].description}}
-                            </button>
-     
-                        </div>  
-          </li>
-          <li class="list-group-item">
-            <div @click="selectDisplayColumn('clarity')">
-                            <a class="is-primary">{{trans('diamondSearch.Clarity')}}</a>
-                             <button v-for="(value, index) in query.search_conditions.clarity" class="btn btn-outline-secondary is-small" v-if="query.search_conditions.clarity[index].clicked" type="button" @click="toggleValue(query.search_conditions.clarity[index].clicked,'clarity', index)" :value="query.search_conditions.clarity[index].description"> 
-                            @{{query.search_conditions.clarity[index].description}}
-                            </button>
-
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-
-                        <div class="level"  v-if="displayColumn == 'clarity' ">
-                            <button v-for="(value, index) in query.search_conditions.clarity " class="btn btn-outline-secondary is-small" :class=" {' active' : query.search_conditions.clarity[index].clicked} " type="button" @click="toggleValue(query.search_conditions.clarity[index].clicked,'clarity', index)" :value="query.search_conditions.clarity[index].description"> 
-                            @{{query.search_conditions.clarity[index].description}}
-                            </button>
-     
-                        </div>
-          </li>
-          <li class="list-group-item">
-            <div @click="selectDisplayColumn('cut')">
-                            <a class="is-primary">{{trans('diamondSearch.Cut')}}</a>
-                             <button v-for="(value, index) in query.search_conditions.cut" class="btn btn-outline-secondary is-small" v-if="query.search_conditions.cut[index].clicked" type="button" @click="toggleValue(query.search_conditions.cut[index].clicked,'cut', index)" :value="query.search_conditions.cut[index].description"> 
-                            @{{query.search_conditions.cut[index].description}}
-                            </button>
-
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-
-                        <div class="level"  v-if="displayColumn == 'cut' ">
-                            <button v-for="(value, index) in query.search_conditions.cut " class="btn btn-outline-secondary is-small" :class=" {' active' : query.search_conditions.cut[index].clicked} " type="button" @click="toggleValue(query.search_conditions.cut[index].clicked,'cut', index)" :value="query.search_conditions.cut[index].description"> 
-                            @{{query.search_conditions.cut[index].description}}
-                            </button>
-     
-                        </div>    
-          </li>
-          <li class="list-group-item">
-             <div @click="selectDisplayColumn('polish')">
-                            <a class="is-primary">{{trans('diamondSearch.Polish')}}</a>
-                             <button v-for="(value, index) in query.search_conditions.polish" class="btn btn-outline-secondary is-small" v-if="query.search_conditions.polish[index].clicked" type="button" @click="toggleValue(query.search_conditions.polish[index].clicked,'polish', index)" :value="query.search_conditions.polish[index].description"> 
-                            @{{query.search_conditions.polish[index].description}}
-                            </button>
-
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-
-                        <div class="level"  v-if="displayColumn == 'polish' ">
-                            <button v-for="(value, index) in query.search_conditions.polish" class="btn btn-outline-secondary is-small" :class=" {' active' : query.search_conditions.polish[index].clicked} " type="button" @click="toggleValue(query.search_conditions.polish[index].clicked,'polish', index)" :value="query.search_conditions.polish[index].description"> 
-                            @{{query.search_conditions.polish[index].description}}
-                            </button>
-     
-                        </div>   
-          </li>
-          <li class="list-group-item">
-             <div @click="selectDisplayColumn('symmetry')">
-                            <a class="is-primary">{{trans('diamondSearch.Symmetry')}}</a>
-                             <button v-for="(value, index) in query.search_conditions.symmetry" class="btn btn-outline-secondary is-small" v-if="query.search_conditions.symmetry[index].clicked" type="button" @click="toggleValue(query.search_conditions.symmetry[index].clicked,'symmetry', index)" :value="query.search_conditions.symmetry[index].description"> 
-                            @{{query.search_conditions.symmetry[index].description}}
-                            </button>
-
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-
-                        <div class="level"  v-if="displayColumn == 'symmetry' ">
-                            <button v-for="(value, index) in query.search_conditions.symmetry" class="btn btn-outline-secondary is-small" :class=" {' active' : query.search_conditions.symmetry[index].clicked} " type="button" @click="toggleValue(query.search_conditions.symmetry[index].clicked,'symmetry', index)" :value="query.search_conditions.symmetry[index].description"> 
-                            @{{query.search_conditions.symmetry[index].description}}
-                            </button>
-     
-                        </div>     
-          </li>
-          <li class="list-group-item">
-             <div @click="selectDisplayColumn('fluorescence')">
-                            <a class="is-primary">{{trans('diamondSearch.Fluorescence')}}</a>
-                             <button v-for="(value, index) in query.search_conditions.fluorescence" class="btn btn-outline-secondary is-small" v-if="query.search_conditions.fluorescence[index].clicked" type="button" @click="toggleValue(query.search_conditions.fluorescence[index].clicked,'fluorescence', index)" :value="query.search_conditions.fluorescence[index].description"> 
-                            @{{query.search_conditions.fluorescence[index].description}}
-                            </button>
-
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-
-                        <div class="level"  v-if="displayColumn == 'fluorescence' ">
-                            <button v-for="(value, index) in query.search_conditions.fluorescence" class="btn btn-outline-secondary is-small" :class=" {' active' : query.search_conditions.fluorescence[index].clicked} " type="button" @click="toggleValue(query.search_conditions.fluorescence[index].clicked,'fluorescence', index)" :value="query.search_conditions.fluorescence[index].description"> 
-                            @{{query.search_conditions.fluorescence[index].description}}
-                            </button>
-                        </div>  
-          </li>
-        </ul>            
     </div>
 
 
@@ -526,8 +142,8 @@
             <li class="nav-item">
                 <div class="input-group mb-3">
                   <select class="custom-select" id="inputGroupSelect02" v-model="query.column">
-                    <option v-for="column in columnsToggle" :value="column.value">
-                        <a @click="toggleOrder(column.value)">@{{column.value | transJs(langs,locale)}}</a>
+                    <option v-for="column in columns" :value="column">
+                        <a @click="toggleOrder(column)">@{{column | transJs(langs,locale)}}</a>
                     </option>
                   </select>
                   <div class="input-group-append">
@@ -556,9 +172,37 @@
         <table class="table" >
                     <thead>
                         <tr class="is-selected ">
-                            <th v-for="column in columnsToggle" @click="toggleOrder(column.value)">
-                                <span>@{{ column.display | transJs(langs,locale) }}</span>
-                                <span class="dv-table-column" v-if="column.value === query.column">
+                            <th v-for="column in columns" @click="toggleOrder(column)">
+                                <span>@{{ column | transJs(langs,locale) }}</span>
+                                <span class="dv-table-column" v-if="column === query.column">
+                                    <span v-if="query.direction === 'desc' ">&#x25BC;</span>
+                                    <span v-else >&#x25B2;</span>
+                                </span>
+                            </th>
+                            <th @click="toggleOrder('crownAngle')" v-if="fetchData.crownAngle[1] != 0 ">
+                                <span>{{trans('diamondSearch.Crown Angle')}}</span>
+                                <span class="dv-table-column" v-if=" 'crownAngle' === query.column">
+                                    <span v-if="query.direction === 'desc' ">&#x25BC;</span>
+                                    <span v-else >&#x25B2;</span>
+                                </span>
+                            </th>
+                            <th @click="toggleOrder('parvilionAngle')" v-if="fetchData.parvilionAngle[1] != 0 ">
+                                <span>{{trans('diamondSearch.Parvilion Angle')}}</span>
+                                <span class="dv-table-column" v-if=" 'parvilionAngle' === query.column">
+                                    <span v-if="query.direction === 'desc' ">&#x25BC;</span>
+                                    <span v-else >&#x25B2;</span>
+                                </span>
+                            </th>
+                            <th @click="toggleOrder('tablePercent')" v-if="fetchData.tablePercent[1] != 0 ">
+                                <span>{{trans('diamondSearch.Table Percent')}}</span>
+                                <span class="dv-table-column" v-if=" 'tablePercent' === query.column">
+                                    <span v-if="query.direction === 'desc' ">&#x25BC;</span>
+                                    <span v-else >&#x25B2;</span>
+                                </span>
+                            </th>
+                            <th @click="toggleOrder('depthPercent')" v-if="fetchData.depthPercent[1] != 0 ">
+                                <span>{{trans('diamondSearch.Depth Percent')}}</span>
+                                <span class="dv-table-column" v-if=" 'depthPercent' === query.column">
                                     <span v-if="query.direction === 'desc' ">&#x25BC;</span>
                                     <span v-else >&#x25B2;</span>
                                 </span>
@@ -599,6 +243,11 @@
                             <td > @{{ row.certificate }}</td>
                             <td > @{{ row.lab }}</td>
                             <td ><i class="fa fa-star" aria-hidden="true" v-if="row.starred"></i></td>
+                            <td v-if="fetchData.tablePercent[1] != 0 "> @{{ row.table_percent }}</td>
+                            <td v-if="fetchData.depthPercent[1] != 0 "> @{{ row.depth_percent }}</td>
+                            <td v-if="fetchData.crownAngle[1] != 0 "> @{{ row.crown_angle }}</td>
+                            <td v-if="fetchData.parvilionAngle[1] != 0 "> @{{ row.parvilion_angle }}</td>
+
                         </tr>
                         
 

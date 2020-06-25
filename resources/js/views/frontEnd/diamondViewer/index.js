@@ -18,30 +18,8 @@ import langs from '../../../langs/diamondViewer'
 		data(){
 			return {
 				source:'/api/diamonds',
-				fetchData: {
-					shape: '',
-					 color: '',
-					 clarity: '',
-					 cut: '',
-					 polish: '',
-					 symmetry: '',
-					 fluorescence: '',
-					 priceRange: [1000, 50000000],
-					 weight: [0.30,20],
-					 location: '',
-				},
-				preset: {
-					shape: [],
-					 color: [],
-					 clarity: [],
-					 cut: [],
-					 polish: [],
-					 symmetry: [],
-					 fluorescence: [],
-					 priceRange: [1000, 50000000],
-					 weight: [0.30,20],
-					 location: []
-				},
+				fetchData: {},
+				preset: {},
 				mutualVar,
 				loggedValues:{},
 				scrolled: false,
@@ -56,88 +34,72 @@ import langs from '../../../langs/diamondViewer'
 				columnsOrder:['color','clarity','cut','polish','symmetry','fluorescence' ],
 				langs,
 				clickedRows:[],
-				columnsToggle:[
-					{display:'imageLink',value: 'has_image' },
-					{display:'shape',value: 'shape' },
-					{display:'price',value: 'price' },
-					{display:'weight',value: 'weight' },
-					{display:'color',value: 'color' },
-					{display:'clarity',value: 'clarity' },
-					{display:'cut',value: 'cut' },
-					{display:'polish',value: 'polish' },
-					{display:'symmetry',value: 'symmetry' },
-					{display:'fluorescence',value: 'fluorescence' },
-					{display:'location',value: 'location' },
-					{display:'certificate',value: 'certificate' },
-					{display:'lab',value: 'lab' },
-					{display:'starred',value: 'starred' },
-				],
 				columns:[],
 				query:{
 					page:1,
 					column: 'price',
 					direction: 'asc',
 					per_page: 10,
-					search_column: 'id',
+					search_column: 'price',
 					search_operator: 'like',
 					search_input: '',
 					search_conditions:{
 						shape: [
-						{ description: 'Round', clicked: false , value: 'Round'},
-						{ description: 'Pear', clicked: false , value: 'Pear'},
-						{ description: 'Emerald', clicked: false , value: 'Emerald'},
-						{ description: 'Princess', clicked: false , value: 'Princess'},
-						{ description: 'Marquise', clicked: false , value: 'Marquise'},
-						{ description: 'Cushion', clicked: false , value: 'Cushion'},
-						{ description: 'Asscher', clicked: false , value: 'Asscher'},
-						{ description: 'Oval', clicked: false , value: 'Oval'},
-						{ description: 'Heart', clicked: false , value: 'Heart'},
-						{ description: 'Radiant', clicked: false , value: 'Radiant'},
+						{ clicked: false , value: 'Round'},
+						{ clicked: false , value: 'Pear'},
+						{ clicked: false , value: 'Emerald'},
+						{ clicked: false , value: 'Princess'},
+						{ clicked: false , value: 'Marquise'},
+						{ clicked: false , value: 'Cushion'},
+						{ clicked: false , value: 'Asscher'},
+						{ clicked: false , value: 'Oval'},
+						{ clicked: false , value: 'Heart'},
+						{ clicked: false , value: 'Radiant'},
 						],
 						color: [
-						{ description: 'D', clicked: false , value: 'D'},
-						{ description: 'E', clicked: false , value: 'E'},
-						{ description: 'F', clicked: false , value: 'F'},
-						{ description: 'G', clicked: false , value: 'G'},
-						{ description: 'H', clicked: false , value: 'H'},
-						{ description: 'I', clicked: false , value: 'I'},
-						{ description: 'J', clicked: false , value: 'J'},
-						{ description: 'K', clicked: false , value: 'K'},
-						{ description: 'L', clicked: false , value: 'L'},
-						{ description: 'M', clicked: false , value: 'M'},
+						{ clicked: false , value: 'D'},
+						{ clicked: false , value: 'E'},
+						{ clicked: false , value: 'F'},
+						{ clicked: false , value: 'G'},
+						{ clicked: false , value: 'H'},
+						{ clicked: false , value: 'I'},
+						{ clicked: false , value: 'J'},
+						{ clicked: false , value: 'K'},
+						{ clicked: false , value: 'L'},
+						{ clicked: false , value: 'M'},
 						],
 						cut: [
-						{ description: 'Excellent', clicked: false , value: 'Excellent,EX'},
-						{ description: 'Very Good', clicked: false , value: 'Very Good,VG'},
-						{ description: 'Good', clicked: false , value: 'Good,GD'},
+						{ clicked: false , value: 'Excellent,EX'},
+						{ clicked: false , value: 'Very Good,VG'},
+						{ clicked: false , value: 'Good,GD'},
 						],
 						polish: [
-						{ description: 'Excellent', clicked: false , value: 'Excellent,EX'},
-						{ description: 'Very Good', clicked: false , value: 'Very Good,VG'},
-						{ description: 'Good', clicked: false , value: 'Good,GD'},
+						{ clicked: false , value: 'Excellent,EX'},
+						{ clicked: false , value: 'Very Good,VG'},
+						{ clicked: false , value: 'Good,GD'},
 						],
 						symmetry: [
-						{ description: 'Excellent', clicked: false , value: 'Excellent,EX'},
-						{ description: 'Very Good', clicked: false , value: 'Very Good,VG'},
-						{ description: 'Good', clicked: false , value: 'Good,GD'},
+						{ clicked: false , value: 'Excellent,EX'},
+						{ clicked: false , value: 'Very Good,VG'},
+						{ clicked: false , value: 'Good,GD'},
 						],
 						fluorescence: [
-						{ description: 'None', clicked: false , value: 'None,NON'},
-						{ description: 'Faint', clicked: false , value: 'Faint,FNT'},
-						{ description: 'Medium', clicked: false , value: 'Medium,MED'},
-						{ description: 'Strong', clicked: false , value: 'Strong,STG'},
-						{ description: 'Very Strong', clicked: false , value: 'Very Strong,VST'},
+						{ clicked: false , value: 'None,NON'},
+						{ clicked: false , value: 'Faint,FNT'},
+						{ clicked: false , value: 'Medium,MED'},
+						{ clicked: false , value: 'Strong,STG'},
+						{ clicked: false , value: 'Very Strong,VST'},
 						],
 						clarity: [
-						{ description: 'FL', clicked: false, value:'FL'},
-						{ description: 'IF', clicked: false, value:'IF'},
-						{ description: 'VVS1', clicked: false, value:'VVS1'},
-						{ description: 'VVS2', clicked: false, value:'VVS2'},
-						{ description: 'VS1', clicked: false, value:'VS1'},
-						{ description: 'VS2', clicked: false, value:'VS2'},
-						{ description: 'SI1', clicked: false, value:'SI1'},
-						{ description: 'SI2', clicked: false, value:'SI2'},
-						{ description: 'I1', clicked: false, value:'I1'},
+						{ clicked: false, value:'FL'},
+						{ clicked: false, value:'IF'},
+						{ clicked: false, value:'VVS1'},
+						{ clicked: false, value:'VVS2'},
+						{ clicked: false, value:'VS1'},
+						{ clicked: false, value:'VS2'},
+						{ clicked: false, value:'SI1'},
+						{ clicked: false, value:'SI2'},
+						{ clicked: false, value:'I1'},
 						],
 						location: [
 						{ description: 'Only On Stock', clicked: false, value:'1Hong Kong'},
@@ -145,7 +107,7 @@ import langs from '../../../langs/diamondViewer'
 						priceRange: [
 						{ description: 'Price' },
 						{ description: 'minPrice' },
-						]
+						],
 					}
 				},
 				operators: {
@@ -161,6 +123,8 @@ import langs from '../../../langs/diamondViewer'
 			};
 		},
 		created(){
+	        this.setData('fetchData')
+	        this.setData('preset')
 	        this.fetchCookies()
 	        this.setUrlData()
 			this.fetchIndexData()
@@ -199,29 +163,42 @@ import langs from '../../../langs/diamondViewer'
 	                cookies = JSON.parse(getCookie('diamondSearch'))
 	                mutualVar.cookiesInfo.diamondSearch = cookies
 	                this.fetchData = cookies.fetchData
+	                this.columns = cookies.columns
+	                this.showAdvance = cookies.showAdvance
 	                this.clickedRows = cookies.clickedRows
 	                this.query.per_page = 10
 	            }
 
 	        },
 	        resetCookies(){
-	        	this.fetchData = {
-								shape: '',
-								 color: '',
-								 clarity: '',
-								 cut: '',
-								 polish: '',
-								 symmetry: '',
-								 fluorescence: '',
-								 priceRange: [1000, 50000000],
-								 weight: [0.30,20],
-								 location: '',
-								}
+	        	this.setData('fetchData')
 	        	this.sendCookies()
 	        	window.open( getLocale() + '/gia-loose-diamonds', '_self')
 	        },
+	        setData(data){
+	        	this[data] = {
+					shape: [],
+					 color: [],
+					 clarity: [],
+					 cut: [],
+					 polish: [],
+					 symmetry: [],
+					 fluorescence: [],
+					 priceRange: [1000, 50000000],
+					 weight: [0.30,20],
+					 tablePercent: [0,0],
+					 depthPercent: [0,0],
+					 crownAngle: [0,0],
+					 parvilionAngle: [0,0],
+					 location: []
+				}
+				this.columns = [ 'has_image','shape','price','weight','color','clarity','cut','polish',
+						'symmetry','fluorescence','location','certificate','lab','starred' 
+                	]
+                this.showAdvance = false
+	        },
 	        sendCookies(){
-	        	var diamondSearch = {fetchData: this.fetchData, clickedRows: this.clickedRows}
+	        	var diamondSearch = {fetchData: this.fetchData, clickedRows: this.clickedRows, columns:this.columns, showAdvance:this.showAdvance }
 
 	            setCookie('diamondSearch', JSON.stringify(diamondSearch), mutualVar.cookiesInfo.cookieLast)
 	        },
@@ -235,6 +212,11 @@ import langs from '../../../langs/diamondViewer'
 					}
 					
 				}
+	        },
+	        addAdvanceSearch(column){
+	        	if(this.fetchData[column][1] == 0){
+		        	this.fetchData[column] = [0.1, 89.9]
+	        	}
 	        },
 	        setUrlData(){
 	        	//round
@@ -431,10 +413,30 @@ import langs from '../../../langs/diamondViewer'
 				}
 				this.fetchIndexData()
 			},
+			advanceSearchUrl(){
+				var lists = { tablePercent:'table_percent' ,
+							depthPercent:'depth_percent',
+							crownAngle:'crown_angle', 
+							parvilionAngle:'parvilion_angle'},
+				url = ''
+
+				let entries = Object.entries(lists);
+				// console.log(entries)
+				for(const [prop, val] of entries) {
+				    // console.log(prop)
+				    if (this.fetchData[prop][1] != 0) {
+						url += `&${val}=${ this.checkToString(prop) }`
+				    }
+					
+				}
+
+
+				return url
+			},
 			fetchIndexData(){
 				this.logValues();
 				// console.log(this.query)
-				get(`${this.source}
+				var url = `${this.source}
 					?column=${this.query.column}
 					&direction=${this.query.direction}
 					&page=${this.query.page}
@@ -470,10 +472,13 @@ import langs from '../../../langs/diamondViewer'
 						this.fetchData.priceRange
 					}
 					&weight=${this.fetchData.weight
-					}`)
+					}`
+				if (this.showAdvance) {
+					url = url.concat(this.advanceSearchUrl())
+				}
+				get(url)
 				.then((response)=>{
 					this.model= response.data.model
-					this.columns= response.data.columns
 					// Vue.set(vm.$data, 'columns', response.data.columns)
 				}).catch(function(){
 					console.log(response)

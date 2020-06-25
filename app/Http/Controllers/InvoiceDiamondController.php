@@ -45,6 +45,12 @@ class InvoiceDiamondController extends Controller
         $saved = false;
 
         if ( InvoiceDiamond::where('certificate', $request->certificate)->count() == 0 )  {
+
+            $diamond = Diamond::where('certificate', $request->certificate);
+            if($diamond->count()){
+                $diamond->update(['starred'=> null, 'available' => null ]);
+            }
+                            
             $invoiceDiamond = InvoiceDiamond::create($request->all());
             $saved = true;         
         }

@@ -29,9 +29,9 @@ class Diamond extends Model
     ];
 
    	 public static $columns = [
-    	       'id',
-                'price',
+                'has_image',
                 'shape',
+                'price',
                 'weight',
                 'color',
                 'clarity',
@@ -39,12 +39,15 @@ class Diamond extends Model
                 'polish',
                 'symmetry',
                 'fluorescence',
+                'location',
                 'certificate',
                 'lab',
-                'stock',
                 'starred',
-                'location',
-                'has_image'];
+                'table_percent',
+                'depth_percent',
+                'crown_angle',
+                'parvilion_angle',
+            ];
 
 
     	public function supplier()

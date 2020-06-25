@@ -41,6 +41,10 @@ trait DataViewer{
       "location" => "",
       "price" => "1000,50000000",
       "weight" => "0.3,20",
+      "crown_angle" => "0.1,89.9",
+      "parvilion_angle" => "0.1,89.9",
+      "table_percent" => "0.1,89.9",
+      "depth_percent" => "0.1,89.9",
     ];
 
 	public function scopeSearchPaginateAndOrder($query)
@@ -99,7 +103,7 @@ trait DataViewer{
 
 	public function queryDiamonds($query) {
 	 		
-	 		$requests = ['color','clarity','cut','polish','symmetry','fluorescence','shape','location'];
+	 		$requests = ['color','clarity','cut','polish','symmetry','fluorescence','shape','location',];
 
 	 		$query = $query->orderBy('available','desc')->where(function($q){
 			        $q->whereNotNull('available');
@@ -115,6 +119,28 @@ trait DataViewer{
 
 	 		}
 
+		      if (request()->table_percent) {
+		      		$query = $query->where(function($q){
+		              $q->whereBetween('table_percent', explode(',', request()->table_percent));
+		            });
+		      }
+		      if (request()->depth_percent) {
+		      		$query = $query->where(function($q){
+		              $q->whereBetween('depth_percent', explode(',', request()->depth_percent));
+		            });
+		      }
+		      if (request()->parvilion_angle) {
+		      		$query = $query->where(function($q){
+		              $q->whereBetween('parvilion_angle', explode(',', request()->parvilion_angle));
+		            });
+		      }
+		      if (request()->crown_angle) {
+		      		$query = $query->where(function($q){
+		              $q->whereBetween('crown_angle', explode(',', request()->crown_angle));
+		            });
+		      }
+
+
 		      $query = $query->where(function($q){
 		              $q->whereBetween('weight', explode(',', request()->weight));
 		            });
@@ -122,6 +148,7 @@ trait DataViewer{
 		      $query = $query->where(function($q){
 		              $q->whereBetween('price', explode(',', request()->price));
 		            })
+
 
 		      ->orderBy(request()->column, request()->direction)
 		      ->paginate(request()->per_page);

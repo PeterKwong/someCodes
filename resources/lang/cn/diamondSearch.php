@@ -40,8 +40,20 @@ return [
 	'PLEASE（Whatsapp: Winnie－5484 4533， for the latest diamond Stock）' => '请联络（微信号: Nancy－00852 5237 6008， 索取最新的钻石报价）',
 	'Per Page' => '每页',
 	'Page is on update' => '版面正在更新',
-	
-
+	'Width' => '阔度',
+	'Length' => '长度',
+	'Depth' => '深度',
+	'Crown Angle' => '冠部角度',
+	'Parvilion Angle' => '亭部角度',
+	'Table Percent' => '枱面比例',
+	'Depth Percent' => '深度比例',
+	'Min' => '最小',
+	'Max' => '最大',	
+	'None' => '无',	
+	'Faint' => '微',	
+	'Medium' => '中度',	
+	'Strong' => '强',	
+	'Very Strong' => '非常强',	
 
 	
 	//cut

@@ -42,7 +42,20 @@ return [
 	'PLEASE（Whatsapp: Winnie－5484 4533， for the latest diamond Stock）' => 'PLEASE（Whatsapp: Nancy －5237 6008， for the latest diamond Stock）',
 	'Per Page' => 'Per Page',
 	'Page is on update' => 'Page is on update',
-	
+	'Width' => 'Width',
+	'Length' => 'Length',
+	'Depth' => 'Depth',
+	'Crown Angle' => 'Crown Angle',
+	'Parvilion Angle' => 'Parvilion Angle',
+	'Table Percent' => 'Table Percent',
+	'Depth Percent' => 'Depth Percent',
+	'Min' => 'Min',
+	'Max' => 'Max',	
+	'None' => 'None',	
+	'Faint' => 'Faint',	
+	'Medium' => 'Medium',	
+	'Strong' => 'Strong',	
+	'Very Strong' => 'Very Strong',	
 
 
 	

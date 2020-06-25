@@ -100,10 +100,11 @@ trait Query
 
                   if(!isset($d)){
                     $d = new DiamondQuery();
+                    $d = $d->insert($diamond->turnHiddenToEmpty()->toArray());
+                  }else{
+                    $d = $d->update($diamond->turnHiddenToEmpty()->toArray());
                   }
-                  // dd($diamond->toArray());
 
-                  $d = $d->updateOrCreate($diamond->turnHiddenToEmpty()->toArray());
                   // dd($d);
 
             }
