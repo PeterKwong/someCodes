@@ -373,12 +373,12 @@
 
           </div>  
         </li>
-
+<!-- 
       <ul class="nav nav-tabs justify-content-center pt-10">
         <li class="nav-item">
           <a class="nav-link active " @click="showAdvance=!showAdvance" >{{ __('diamondSearch.More Advance') }}</a>
         </li>
-      </ul>
+      </ul> -->
 
       <div v-if="showAdvance">
         
