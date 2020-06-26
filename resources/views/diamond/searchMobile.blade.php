@@ -373,26 +373,26 @@
 
           </div>  
         </li>
-<!-- 
+
       <ul class="nav nav-tabs justify-content-center pt-10">
         <li class="nav-item">
           <a class="nav-link active " @click="showAdvance=!showAdvance" >{{ __('diamondSearch.More Advance') }}</a>
         </li>
       </ul>
- -->
-      <div v-if="showAdvance || fetchData.crownAngle[1] || fetchData.parvilionAngle[1] || fetchData.tablePercent[1] || fetchData.depthPercent[1]">
+
+      <div v-if="showAdvance">
         
         <li class="list-group-item">
-          <div @click="selectDisplayColumn('weight')">
-              <a class="is-primary">{{trans('diamondSearch.Weight')}}</a>
-               <button class="btn btn-outline-secondary is-small"> @{{fetchData.weight[0]}} - @{{fetchData.weight[1]}} </button>
+          <div @click="selectDisplayColumn('crownAngle')">
+              <p  class="btn " :class="{'btn-outline-secondary ': fetchData.crownAngle[1] != 0}" @click="fetchData.crownAngle = [0,0]">{{trans('diamondSearch.Crown Angle')}}</p>
+               <button class="btn btn-outline-secondary is-small"> @{{fetchData.crownAngle[0]}} - @{{fetchData.crownAngle[1]}} </button>
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          <div class="level"  v-if="displayColumn == 'weight' ">
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.weight[0]" @focus="$event.target.select()">
+          <div class="level"  v-if="displayColumn == 'crownAngle' ">
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[0]" @focus="$event.target.select()">
 
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.weight[1]" @focus="$event.target.select()">       
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[1]" @focus="$event.target.select()">       
           </div> 
         </li>
 
