@@ -41,7 +41,11 @@ export default {
 			],
 			filter: [
 			'certificate','id','supplier_id',
-			]
+			],
+			advanceSearch:false,
+			query:{
+				search_conditions:{}
+				},
 		}
 	},
 	methods:{
@@ -82,8 +86,26 @@ export default {
 			window.open('/adm/diamonds', '_self')
 
 		},
-	},
+		advanceSearchUrl(){
+			var lists = { width:'width' ,
+						length:'length',
+						depth:'depth', },
+			url = ''
 
+			let entries = Object.entries(lists);
+			// console.log(entries)
+			for(const [prop, val] of entries) {
+			    // console.log(prop)
+			    if (this.fetchData[prop][1] != 0) {
+					url += `&${val}=${ this.checkToString(prop) }`
+			    }
+				
+			}
+
+
+			return url
+		},
+	},
 	created(){
 		this.save()
 	},
