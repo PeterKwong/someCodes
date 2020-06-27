@@ -28,7 +28,7 @@ trait DataViewer{
       "direction" => "asc",
       "page" => "1",
       "per_page" => "10",
-      "search_column" => "id",
+      "search_column" => "price",
       "search_operator" => "like",
       "search_input" => null,
       "color" => "",
@@ -41,10 +41,6 @@ trait DataViewer{
       "location" => "",
       "price" => "1000,50000000",
       "weight" => "0.3,20",
-      "crown_angle" => "0.1,89.9",
-      "parvilion_angle" => "0.1,89.9",
-      "table_percent" => "0.1,89.9",
-      "depth_percent" => "0.1,89.9",
     ];
 
 	public function scopeSearchPaginateAndOrder($query)
@@ -83,7 +79,7 @@ trait DataViewer{
 
 		if ($presetMatch) {
 
-			$queryPreset = Cache::remember('queryPreset', 1, function() use ($query){
+			$queryPreset = Cache::remember('queryPreset',300, function() use ($query){
 	
 				return $this->queryDiamonds($query);
 
