@@ -281,33 +281,57 @@
                 </div>
             </div>
 
-          <div class="card-body" >
-            <h5 class="color-blue">
-              <i class="fa fa-star" aria-hidden="true" v-if="row.starred"></i>
-              HK$ @{{ row.price }}
-            </h5>
-            <p class="card-text">
-                    @{{ row.weight }}
-                     <strong> | </strong>
-                    @{{ row.color }}
-                     <strong> | </strong>                                        
-                    @{{ row.clarity }} 
-                     <strong> | </strong>                                        
+          <div class="row justify-content-center text-center" >
+            <div class="col">
+              <h5 class="color-blue">
+                <i class="fa fa-star" aria-hidden="true" v-if="row.starred"></i>
+                HK$ @{{ row.price }}
+                <strong style="opacity: 0.3"> | </strong>                                        
 
-                    @{{ row.cut==0?'NoneCut':row.cut | transJs(langs,locale)}}
-                     <strong> | </strong>
-                    @{{ row.polish | transJs(langs,locale)}} 
-                     <strong> | </strong>
-                    @{{ row.symmetry | transJs(langs,locale)}}
-                     <strong> | </strong>
+                <span v-if="row.location=='1Hong Kong'">{{__('diamondSearch.1-2 Days')}}</span>
+                <span v-else> {{__('diamondSearch.Order')}}</span>
+              </h5>
 
-                    @{{ row.fluorescence | transJs(langs,locale)}}
-                    <div v-if="row.location=='1Hong Kong'">{{__('diamondSearch.1-2 Days')}}</div>
-                    <div v-else> {{__('diamondSearch.Order')}}</div>
-                    @{{ row.lab }} 
-                    @{{ row.certificate }}
-            </p>
+              <p class="card-text">
+                      @{{ row.weight }}
+                       <strong style="opacity: 0.3"> | </strong>
+                      @{{ row.color }}
+                       <strong style="opacity: 0.3"> | </strong>                                        
+                      @{{ row.clarity }} 
+                       <strong style="opacity: 0.3"> | </strong>                                        
 
+                      @{{ row.cut==0?'NoneCut':row.cut | transJs(langs,locale)}}
+                       <strong style="opacity: 0.3"> | </strong>
+                      @{{ row.polish | transJs(langs,locale)}} 
+                       <strong style="opacity: 0.3"> | </strong>
+                      @{{ row.symmetry | transJs(langs,locale)}}
+                       <strong style="opacity: 0.3"> | </strong>
+                      @{{ row.fluorescence | transJs(langs,locale)}}
+                       <strong style="opacity: 0.3"> | </strong>
+
+                      @{{ row.lab }} 
+                      @{{ row.certificate }}
+              </p>
+              <p>
+                <span >
+                  <i class="fa fa-star" aria-hidden="true" v-if="row.starred">
+                  <strong style="opacity: 0.3"> | </strong>
+                  </i>
+                </span>
+                <span v-if="fetchData.tablePercent[1] != 0 "> @{{ row.table_percent }}
+                  <strong style="opacity: 0.3"> | </strong>
+                </span>
+                <span v-if="fetchData.depthPercent[1] != 0 "> @{{ row.depth_percent }}
+                  <strong style="opacity: 0.3"> | </strong>
+                </span>
+                <span v-if="fetchData.crownAngle[1] != 0 "> @{{ row.crown_angle }}
+                  <strong style="opacity: 0.3"> | </strong>
+                </span>
+                <span v-if="fetchData.parvilionAngle[1] != 0 "> @{{ row.parvilion_angle }}
+                </span>
+              </p>
+
+            </div>
           </div>
         </div>
 
