@@ -389,7 +389,7 @@
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          <div class="level"  v-if="displayColumn == 'crownAngle' ">
+          <div class="level"  v-if="displayColumn == 'crownAngle' " @click="addAdvanceSearch('crownAngle')">
               <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[0]" @focus="$event.target.select()">
 
               <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[1]" @focus="$event.target.select()">       
@@ -402,7 +402,7 @@
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          <div class="level"  v-if="displayColumn == 'parvilionAngle' ">
+          <div class="level"  v-if="displayColumn == 'parvilionAngle' " @click="addAdvanceSearch('parvilionAngle')">
               <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[0]" @focus="$event.target.select()">
 
               <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[1]" @focus="$event.target.select()">       
@@ -415,7 +415,7 @@
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          <div class="level"  v-if="displayColumn == 'tablePercent' ">
+          <div class="level"  v-if="displayColumn == 'tablePercent' " @click="addAdvanceSearch('tablePercent')">
               <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.tablePercent[0]" @focus="$event.target.select()">
 
               <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.tablePercent[1]" @focus="$event.target.select()">       
@@ -428,7 +428,7 @@
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          <div class="level"  v-if="displayColumn == 'depthPercent' ">
+          <div class="level"  v-if="displayColumn == 'depthPercent' " @click="addAdvanceSearch('depthPercent')">
               <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[0]" @focus="$event.target.select()">
 
               <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[1]" @focus="$event.target.select()">       
