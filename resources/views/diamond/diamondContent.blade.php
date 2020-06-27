@@ -243,10 +243,10 @@
                             <td > @{{ row.certificate }}</td>
                             <td > @{{ row.lab }}</td>
                             <td ><i class="fa fa-star" aria-hidden="true" v-if="row.starred"></i></td>
-                            <td v-if="fetchData.tablePercent[1] != 0 "> @{{ row.table_percent }}</td>
-                            <td v-if="fetchData.depthPercent[1] != 0 "> @{{ row.depth_percent }}</td>
-                            <td v-if="fetchData.crownAngle[1] != 0 "> @{{ row.crown_angle }}</td>
-                            <td v-if="fetchData.parvilionAngle[1] != 0 "> @{{ row.parvilion_angle }}</td>
+                            <td v-if="fetchData.tablePercent[1] != 0 "> @{{ row.table_percent }}%</td>
+                            <td v-if="fetchData.depthPercent[1] != 0 "> @{{ row.depth_percent }}%</td>
+                            <td v-if="fetchData.crownAngle[1] != 0 "> @{{ row.crown_angle }}°</td>
+                            <td v-if="fetchData.parvilionAngle[1] != 0 "> @{{ row.parvilion_angle }}°</td>
 
                         </tr>
                         
@@ -318,16 +318,16 @@
                   <strong style="opacity: 0.3"> | </strong>
                   </i>
                 </span>
-                <span v-if="fetchData.tablePercent[1] != 0 "> @{{ row.table_percent }}
+                <span v-if="fetchData.tablePercent[1] != 0 "> @{{ row.table_percent }}%
                   <strong style="opacity: 0.3"> | </strong>
                 </span>
-                <span v-if="fetchData.depthPercent[1] != 0 "> @{{ row.depth_percent }}
+                <span v-if="fetchData.depthPercent[1] != 0 "> @{{ row.depth_percent }}%
                   <strong style="opacity: 0.3"> | </strong>
                 </span>
-                <span v-if="fetchData.crownAngle[1] != 0 "> @{{ row.crown_angle }}
+                <span v-if="fetchData.crownAngle[1] != 0 "> @{{ row.crown_angle }}°
                   <strong style="opacity: 0.3"> | </strong>
                 </span>
-                <span v-if="fetchData.parvilionAngle[1] != 0 "> @{{ row.parvilion_angle }}
+                <span v-if="fetchData.parvilionAngle[1] != 0 "> @{{ row.parvilion_angle }}°
                 </span>
               </p>
 

@@ -385,53 +385,53 @@
         <li class="list-group-item">
           <div @click="selectDisplayColumn('crownAngle')">
               <p  class="btn " :class="{'btn-outline-secondary ': fetchData.crownAngle[1] != 0}" @click="fetchData.crownAngle = [0,0]">{{trans('diamondSearch.Crown Angle')}}</p>
-               <button class="btn btn-outline-secondary is-small"> @{{fetchData.crownAngle[0]}} - @{{fetchData.crownAngle[1]}} </button>
+               <button class="btn btn-outline-secondary is-small"> @{{fetchData.crownAngle[0]}}°- @{{fetchData.crownAngle[1]}}°</button>
               <i class="fas fa-chevron-down"></i>
           </div>
 
           <div class="level"  v-if="displayColumn == 'crownAngle' " @click="addAdvanceSearch('crownAngle')">
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[0]" @focus="$event.target.select()">
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[0] + '°' " @focus="$event.target.select()">
 
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[1]" @focus="$event.target.select()">       
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[1] + '°' " @focus="$event.target.select()">       
           </div> 
         </li>
         <li class="list-group-item">
           <div @click="selectDisplayColumn('parvilionAngle')">
               <p  class="btn " :class="{'btn-outline-secondary ': fetchData.parvilionAngle[1] != 0}" @click="fetchData.parvilionAngle = [0,0]">{{trans('diamondSearch.Parvilion Angle')}}</p>
-               <button class="btn btn-outline-secondary is-small"> @{{fetchData.parvilionAngle[0]}} - @{{fetchData.parvilionAngle[1]}} </button>
+               <button class="btn btn-outline-secondary is-small"> @{{fetchData.parvilionAngle[0]}}°- @{{fetchData.parvilionAngle[1]}}°</button>
               <i class="fas fa-chevron-down"></i>
           </div>
 
           <div class="level"  v-if="displayColumn == 'parvilionAngle' " @click="addAdvanceSearch('parvilionAngle')">
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[0]" @focus="$event.target.select()">
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[0] + '°' " @focus="$event.target.select()">
 
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[1]" @focus="$event.target.select()">       
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[1] + '°' " @focus="$event.target.select()">       
           </div> 
         </li>
         <li class="list-group-item">
           <div @click="selectDisplayColumn('tablePercent')">
               <p  class="btn " :class="{'btn-outline-secondary ': fetchData.tablePercent[1] != 0}" @click="fetchData.tablePercent = [0,0]">{{trans('diamondSearch.Table Percent')}}</p>
-               <button class="btn btn-outline-secondary is-small"> @{{fetchData.tablePercent[0]}} - @{{fetchData.tablePercent[1]}} </button>
+               <button class="btn btn-outline-secondary is-small"> @{{fetchData.tablePercent[0]}}% - @{{fetchData.tablePercent[1]}}% </button>
               <i class="fas fa-chevron-down"></i>
           </div>
 
           <div class="level"  v-if="displayColumn == 'tablePercent' " @click="addAdvanceSearch('tablePercent')">
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.tablePercent[0]" @focus="$event.target.select()">
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.tablePercent[0] + '%' " @focus="$event.target.select()">
 
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.tablePercent[1]" @focus="$event.target.select()">       
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.tablePercent[1] + '%' " @focus="$event.target.select()">       
           </div> 
         </li>
         <li class="list-group-item">
           <div @click="selectDisplayColumn('depthPercent')">
               <p  class="btn " :class="{'btn-outline-secondary ': fetchData.depthPercent[1] != 0}" @click="fetchData.depthPercent = [0,0]">{{trans('diamondSearch.Depth Percent')}}</p>
-               <button class="btn btn-outline-secondary is-small"> @{{fetchData.depthPercent[0]}} - @{{fetchData.depthPercent[1]}} </button>
+               <button class="btn btn-outline-secondary is-small"> @{{fetchData.depthPercent[0]}}% - @{{fetchData.depthPercent[1]}}% </button>
               <i class="fas fa-chevron-down"></i>
           </div>
 
           <div class="level"  v-if="displayColumn == 'depthPercent' " @click="addAdvanceSearch('depthPercent')">
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[0]" @focus="$event.target.select()">
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[0] + '%' " @focus="$event.target.select()">
 
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[1]" @focus="$event.target.select()">       
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[1] + '%' " @focus="$event.target.select()">       
           </div> 
         </li>
 
