@@ -21,7 +21,7 @@
             <div class="row justify-content-center">
                 <div class="col-4" v-for="(img, index) in chunkedUpperItems" 
                        @click="currentSelectedItem(index,'upper')" v-if="img.thumb" >
-                    <img :src="images+img.thumb" width="180" class="rounded mx-auto d-block image-background p-6" :class="{'border border-primary rounded':currentIndex == index}" ></img>
+                    <img :src="images+img.thumb" width="100%" class="rounded mx-auto d-block image-background p-6" :class="{'border border-primary rounded':currentIndex == index}" ></img>
                     <i class="far fa-play-circle fa-3x color-blue image-up-left" style="opacity: 0.5" aria-hidden="true" v-if="img.type=='video'" ></i>
                 </div>
             </div>            
@@ -32,7 +32,7 @@
             <div class="row justify-content-center">
                 <div class="col-4" v-for="(img, index) in chunkedUpperItems" 
                        @click="currentSelectedItem(index,'upper')" v-if="img.thumb"  >
-                    <img :src="images+img.thumb" width="96" class="rounded mx-auto d-block image-background p-6" :class="{'border border-primary rounded':currentIndex == index}"></img>
+                    <img :src="images+img.thumb" width="100%" class="rounded mx-auto d-block image-background p-6" :class="{'border border-primary rounded':currentIndex == index}"></img>
                     <i class="far fa-play-circle fa-3lg color-blue image-up-left" style="opacity: 0.5"  aria-hidden="true" v-if="img.type=='video'" ></i>
                 </div>
             </div>            
@@ -56,7 +56,12 @@
             <center>
                 <img :src="images+currentItem.src" v-if="currentItem.type=='img'" width="80%" @click="nextItem">
                 <video-player :options="videoOptions" v-if="currentItem.type=='video'"></video-player>
-                    
+                
+<!--                 <product-viewer :folder="mutualVar.storage[mutualVar.storage.live] 
+                            + 'public/test/oval/' " :filename=" '.jpg' "></product-viewer>
+ -->            
+            <p v-if="chunkedItems.length && !showUpper" class="text-primary text-center">{{chunkedItems[currentIndex].text}}</p>
+
                         <p class="title is-3">{{ currentItem.title }}</p>
                         <p class="subtitle is-5"> {{ currentItem.desc }} </p>
                         <span v-html="currentItem.other"></span>
@@ -73,7 +78,7 @@
             <div class="row justify-content-center">
                  <div class="col-4 " v-for="(img, index) in chunkedItems" 
                                     @click="currentSelectedItem(index,'lower')"  v-if="img.thumb">
-                     <img :src="images+img.thumb" width="256" class="rounded mx-auto d-block image-background p-6" :class="{' border border-primary rounded':currentIndex == index}" ></img>
+                     <img :src="images+img.thumb" width="100%" class="rounded mx-auto d-block image-background p-6" :class="{' border border-primary rounded':currentIndex == index}" ></img>
                         <i class="far fa-play-circle fa-3x color-blue image-up-left" style="opacity: 0.5"  aria-hidden="true" v-if="img.type=='video'"></i>
                  </div>
              </div>
@@ -82,13 +87,11 @@
             <div class="row justify-content-center">
                  <div class="col-4 " v-for="(img, index) in chunkedItems" 
                                     @click="currentSelectedItem(index,'lower')"  v-if="img.thumb">
-                     <img :src="images+img.thumb" width="96" class="rounded mx-auto d-block image-background p-6" :class="{' border border-primary rounded':currentIndex == index}" ></img>
+                     <img :src="images+img.thumb" width="100%" class="rounded mx-auto d-block image-background p-6" :class="{' border border-primary rounded':currentIndex == index}" ></img>
                         <i class="far fa-play-circle fa-lg color-blue image-up-left" style="opacity: 0.5"  aria-hidden="true" v-if="img.type=='video'"></i>
                  </div>
              </div>
          </div>
-            
-            <p v-if="chunkedItems.length && !showUpper" class="text-primary text-center">{{chunkedItems[currentIndex].text}}</p>
 
 
         <nav aria-label="Page navigation example">
@@ -117,18 +120,21 @@
 
 </template>
 
+
 <script>
 
 
 import {videoPlayer} from '../../../node_modules/vue-video-player/dist/vue-video-player'
 import mutualVar from '../helpers/mutualVar'
+// import ProductViewer from '../components/productViewer360'
 
 // import VideoPlayer from './VueVideoPlayer.vue'
 
 export default {
     name : 'carousel',
     components:{
-        videoPlayer,
+        videoPlayer, 
+        // ProductViewer,
         // VideoPlayer
     },
     props: {

@@ -202,27 +202,6 @@ trait DataViewer{
 					}
 				});
 
-		 if (request()->table_percent) {
-	      		$query = $query->where(function($q){
-	              $q->whereBetween('table_percent', explode(',', request()->table_percent));
-	            });
-	      }
-	      if (request()->depth_percent) {
-	      		$query = $query->where(function($q){
-	              $q->whereBetween('depth_percent', explode(',', request()->depth_percent));
-	            });
-	      }
-	      if (request()->parvilion_angle) {
-	      		$query = $query->where(function($q){
-	              $q->whereBetween('parvilion_angle', explode(',', request()->parvilion_angle));
-	            });
-	      }
-	      if (request()->crown_angle) {
-	      		$query = $query->where(function($q){
-	              $q->whereBetween('crown_angle', explode(',', request()->crown_angle));
-	            });
-	      }
-
 	      return $query->paginate($request->per_page);
 
 		

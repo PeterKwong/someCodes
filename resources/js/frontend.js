@@ -167,6 +167,8 @@ if ( pUrl.includes('login') ) {
     const login =  new Vue(Login);
 }
 
+
+
 // const diamondViewer = new Vue({
 //     el: '#diamondViewer'
 // });

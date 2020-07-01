@@ -141,15 +141,15 @@
             remark: 'Remark:',
             storeURL:'tingdiamond.com'+window.location.pathname,
           
-        },
-        hrefLangs: window.location.pathname.slice(0,3),
-        text: {
-        title:'Details fo Appointment',
-        button: 'Contact Us',   
-        button1: 'Appointment', 
-        placeholderName: 'your name',
-        placeholderNo: 'your Phone No.',
-        },
+          },
+          hrefLangs: window.location.pathname.slice(0,3),
+          text: {
+          title:'Details fo Appointment',
+          button: 'Contact Us',   
+          button1: 'Appointment', 
+          placeholderName: 'your name',
+          placeholderNo: 'your Phone No.',
+          },
 
 
       }

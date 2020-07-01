@@ -56,9 +56,9 @@ export default {
 
     },
     namepath: getCurrentURl(),
-    viewer:{
-        src:''
-    },
+    productViewer:{
+        source:'', filename:'',size:50, width:400,heigh:400,progress:0,stage:'',
+    }
 
 
 
