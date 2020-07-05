@@ -13,7 +13,7 @@ export default{
                     page: parseInt(queryString('p=[0-9]*','p=')),
                     pePage: parseInt(queryString('pp=[0-9]*','pp=')),
                     column: queryString('column=[a-z0-9A-Z]*','column='),
-                    searchColumn: queryString('sc=[a-z0-9A-Z]*','sc='),
+                    searchColumn: queryString('sc=[a-z0-9A-Z-_]*','sc='),
                     searchQuery: queryString('sq1=[a-z0-9A-Z-_]*','sq1='),
                     query:queryString,
                     queryArray:queryStringArray,
