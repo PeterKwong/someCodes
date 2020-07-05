@@ -3,9 +3,11 @@ import { get } from '../../../helpers/api'
 import langs from '../../../langs/engagementRings'
 
 import { setCookie, getCookie, } from '../../../helpers/cookie'
+import ProductViewer from '../../../components/productViewer360.vue'
 
 	export default {
 		el:'#engagementRings',
+		components:['ProductViewer'],
 		props:[
 		'title'
 		],

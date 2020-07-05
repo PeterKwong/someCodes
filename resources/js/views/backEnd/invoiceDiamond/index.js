@@ -64,8 +64,14 @@ export default {
 			window.open('/adm/invoice-diamonds/'+ row.id )
 			},
 		setDue(row){
+
 			window.open('/api/invoice-diamonds-update-due-date/'+ row.id )
-			window.open('/adm/invoice-diamonds?p=' + adminVar.queryString.page, '_self')
+			window.open('/adm/invoice-diamonds?p=' 
+						+ adminVar.params.page +
+						'&sq1=' + adminVar.params.search_query_1 + 
+						'&sc=' + adminVar.params.search_column ,
+								
+						 '_self')
 			},
 		}
 }

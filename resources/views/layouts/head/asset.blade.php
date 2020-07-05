@@ -4,7 +4,9 @@
 
 <!-- Scripts -->
 
-
+<!-- <script src="https://code.createjs.com/easeljs-0.6.0.min.js"></script>
+ -->
+ 
 <!-- <script src="{{ asset('js/sidebarNavigation.js') }}" ></script>
  -->
  

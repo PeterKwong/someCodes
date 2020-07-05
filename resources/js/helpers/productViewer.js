@@ -1,12 +1,6 @@
-import cj from '../../../node_modules/createjs/builds/createjs-2015.11.26.min'
 
 
-var test = { 
-
-
-  test(){
-
-
+    // let createjs = require('@createjs/easeljs')
 
     var viewer = mutualVar.productViewer
     var stage = viewer.stage
@@ -108,7 +102,10 @@ var test = {
       //------------------------------- 
       function addNavigation() {
         stage.onMouseOver = mouseOver;
+        console.log('mouseOver')
         stage.onMouseDown = mousePressed;
+        console.log('mousePressed')
+
         document.body.style.cursor = 'auto';
       }
 
@@ -149,15 +146,12 @@ var test = {
 
       // TICKER
       createjs.Ticker.addEventListener("tick", handleTick);
-      createjs.Ticker.setFPS(24);
+      createjs.Ticker.framerate(24);
       createjs.Ticker.useRAF = true;
     }
 
     // Init
     window.addEventListener('load', init, false);
 
-    }
 
-}
 
-export default test

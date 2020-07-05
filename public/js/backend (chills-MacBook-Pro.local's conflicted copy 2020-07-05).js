@@ -2078,11 +2078,11 @@ __webpack_require__.r(__webpack_exports__);
         data: []
       },
       params: {
-        column: adminVar.queryString.column ? adminVar.queryString.column : this.column,
+        column: adminVar.queryString.searchColumn ? adminVar.queryString.searchColumn : this.column,
         direction: 'desc',
         per_page: this.per_page,
         page: adminVar.queryString.page ? adminVar.queryString.page : 1,
-        search_column: adminVar.queryString.searchColumn ? adminVar.queryString.searchColumn : this.filter[0],
+        search_column: this.filter[0],
         search_operator: 'like',
         search_query_1: adminVar.queryString.searchQuery ? adminVar.queryString.searchQuery : '',
         search_query_2: ''
@@ -51385,9 +51385,8 @@ __webpack_require__.r(__webpack_exports__);
     search: window.location.search,
     page: parseInt(Object(_queryString__WEBPACK_IMPORTED_MODULE_1__["queryString"])('p=[0-9]*', 'p=')),
     pePage: parseInt(Object(_queryString__WEBPACK_IMPORTED_MODULE_1__["queryString"])('pp=[0-9]*', 'pp=')),
-    column: Object(_queryString__WEBPACK_IMPORTED_MODULE_1__["queryString"])('column=[a-z0-9A-Z]*', 'column='),
-    searchColumn: Object(_queryString__WEBPACK_IMPORTED_MODULE_1__["queryString"])('sc=[a-z0-9A-Z]*', 'sc='),
-    searchQuery: Object(_queryString__WEBPACK_IMPORTED_MODULE_1__["queryString"])('sq1=[a-z0-9A-Z-_]*', 'sq1='),
+    searchColumn: Object(_queryString__WEBPACK_IMPORTED_MODULE_1__["queryString"])('column=[a-z0-9A-Z]*', 'column='),
+    searchQuery: parseInt(Object(_queryString__WEBPACK_IMPORTED_MODULE_1__["queryString"])('sq1=[0-9]*', 'sq1=')),
     query: _queryString__WEBPACK_IMPORTED_MODULE_1__["queryString"],
     queryArray: _queryString__WEBPACK_IMPORTED_MODULE_1__["queryStringArray"]
   },
@@ -51401,7 +51400,6 @@ __webpack_require__.r(__webpack_exports__);
   setCookie: _cookie__WEBPACK_IMPORTED_MODULE_0__["setCookie"],
   getCookie: _cookie__WEBPACK_IMPORTED_MODULE_0__["getCookie"],
   backendFetch: {},
-  params: {},
   APIs: {
     goldPrice: Object(_APIs_goldPrice__WEBPACK_IMPORTED_MODULE_2__["getGoldPrice"])()
   }
@@ -55176,7 +55174,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     setDue: function setDue(row) {
       window.open('/api/invoice-diamonds-update-due-date/' + row.id);
-      window.open('/adm/invoice-diamonds?p=' + adminVar.params.page + '&sq1=' + adminVar.params.search_query_1 + '&sc=' + adminVar.params.search_column, '_self');
+      window.open('/adm/invoice-diamonds?p=' + adminVar.queryString.page, '_self');
     }
   }
 });

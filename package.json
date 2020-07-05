@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@createjs/easeljs": "^2.0.0-beta.4",
         "chart.js": "^2.9.3",
         "owl.carousel": "^2.3.4",
         "vue-video-player": "^5.0.2"

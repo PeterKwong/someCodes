@@ -161,11 +161,11 @@
 					data:[]
 				},
 				params: {
-					column: adminVar.queryString.searchColumn?adminVar.queryString.searchColumn:this.column,
+					column: adminVar.queryString.column?adminVar.queryString.column:this.column,
 					direction: 'desc',
 					per_page: this.per_page,
 					page: adminVar.queryString.page?adminVar.queryString.page:1,
-					search_column: this.filter[0],
+					search_column:  adminVar.queryString.searchColumn?adminVar.queryString.searchColumn:this.filter[0],
 					search_operator: 'like',
 					search_query_1: adminVar.queryString.searchQuery?adminVar.queryString.searchQuery:'',
 					search_query_2: '',
@@ -194,11 +194,13 @@
 					window.open( this.url + 
 								'?p=' + this.params.page + 
 								'&sq1=' + this.params.search_query_1 + 
+								'&sc=' + this.params.search_column + 
 								'&column=' + this.params.column 
 								
 								,'_self' )
-					this.params.page = this.params.page + page
-					this.fetchData()
+
+					// this.params.page = this.params.page + page
+					// this.fetchData()
 				}				
 			},
 			sort(column){
@@ -215,7 +217,7 @@
 				this.fetchData()
 			},
 			fetchData(){
-
+				this.setParams()
 					get(this.buildURL())
 					.then((res)=>{
 						this.model = res.data.model
@@ -223,6 +225,9 @@
 					.catch(function(error){
 						console.log(error)
 					})
+			},
+			setParams(){
+				return adminVar.params = this.params
 			},
 			buildURL(){
 				var p = this.params
