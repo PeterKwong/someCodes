@@ -16,7 +16,7 @@ export default {
 	el:'#customerJewelleryForm',
 	components: {
 		ImageUpload,
-		VideoUpload
+		VideoUpload,
 	},
 	data(){
 		return{

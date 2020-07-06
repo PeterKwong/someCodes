@@ -6,6 +6,7 @@ export default {
 	name: 'JewellryIndex',
 	data(){
 		return {
+			adminVar,
 			title: 'Invoice Posts',
 			source: '/api/invoicePostsInd',
 			url:'/adm/customer-jewelleries',
