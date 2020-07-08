@@ -190,6 +190,9 @@ import langs from '../../../langs/diamondViewer'
 					 depthPercent: [0,0],
 					 crownAngle: [0,0],
 					 parvilionAngle: [0,0],
+					 length: [0,0],
+					 width: [0,0],
+					 depth: [0,0],
 					 location: []
 				}
 				this.columns = [ 'has_image','shape','price','weight','color','clarity','cut','polish',
@@ -417,7 +420,11 @@ import langs from '../../../langs/diamondViewer'
 				var lists = { tablePercent:'table_percent' ,
 							depthPercent:'depth_percent',
 							crownAngle:'crown_angle', 
-							parvilionAngle:'parvilion_angle'},
+							parvilionAngle:'parvilion_angle',
+							length:'length',
+							width:'width',
+							depth:'depth',
+							},
 				url = ''
 
 				let entries = Object.entries(lists);

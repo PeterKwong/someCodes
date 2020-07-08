@@ -21,6 +21,10 @@ mix.autoload({
 	.js('resources/js/userAccount.js', 'public/js').version()
 	.js('resources/js/backend.js', 'public/js').version()
 	.js('resources/js/burgers.js', 'public/js').version()
+	
+	.postCss('resources/css/main.css', 'public/css', [
+	  require('tailwindcss'),
+	]).version()
 	// .styles(['public/css/front-end/home.css', 
 	// 		 'public/css/front-end/home-m.css',
 	// 		 'public/css/front-end/home-images.css',

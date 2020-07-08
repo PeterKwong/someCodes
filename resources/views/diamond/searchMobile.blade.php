@@ -390,9 +390,9 @@
           </div>
 
           <div class="level"  v-if="displayColumn == 'crownAngle' " @click="addAdvanceSearch('crownAngle')">
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[0] + '°' " @focus="$event.target.select()">
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[0] " @focus="$event.target.select()">
 
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[1] + '°' " @focus="$event.target.select()">       
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[1] " @focus="$event.target.select()">       
           </div> 
         </li>
         <li class="list-group-item">
@@ -403,9 +403,9 @@
           </div>
 
           <div class="level"  v-if="displayColumn == 'parvilionAngle' " @click="addAdvanceSearch('parvilionAngle')">
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[0] + '°' " @focus="$event.target.select()">
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[0] " @focus="$event.target.select()">
 
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[1] + '°' " @focus="$event.target.select()">       
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[1] " @focus="$event.target.select()">       
           </div> 
         </li>
         <li class="list-group-item">
@@ -416,9 +416,9 @@
           </div>
 
           <div class="level"  v-if="displayColumn == 'tablePercent' " @click="addAdvanceSearch('tablePercent')">
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.tablePercent[0] + '%' " @focus="$event.target.select()">
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.tablePercent[0] " @focus="$event.target.select()">
 
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.tablePercent[1] + '%' " @focus="$event.target.select()">       
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.tablePercent[1] " @focus="$event.target.select()">       
           </div> 
         </li>
         <li class="list-group-item">
@@ -429,9 +429,48 @@
           </div>
 
           <div class="level"  v-if="displayColumn == 'depthPercent' " @click="addAdvanceSearch('depthPercent')">
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[0] + '%' " @focus="$event.target.select()">
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[0] " @focus="$event.target.select()">
 
-              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[1] + '%' " @focus="$event.target.select()">       
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[1] " @focus="$event.target.select()">       
+          </div> 
+        </li>
+        <li class="list-group-item">
+          <div @click="selectDisplayColumn('length')">
+              <p  class="btn " :class="{'btn-outline-secondary ': fetchData.length[1] != 0}" @click="fetchData.length = [0,0]">{{trans('diamondSearch.Length')}}</p>
+               <button class="btn btn-outline-secondary is-small"> @{{fetchData.length[0]}}mm- @{{fetchData.length[1]}}mm</button>
+              <i class="fas fa-chevron-down"></i>
+          </div>
+
+          <div class="level"  v-if="displayColumn == 'length' " @click="addAdvanceSearch('length')">
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.length[0] " @focus="$event.target.select()">
+
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.length[1] " @focus="$event.target.select()">       
+          </div> 
+        </li>
+        <li class="list-group-item">
+          <div @click="selectDisplayColumn('width')">
+              <p  class="btn " :class="{'btn-outline-secondary ': fetchData.width[1] != 0}" @click="fetchData.width = [0,0]">{{trans('diamondSearch.Width')}}</p>
+               <button class="btn btn-outline-secondary is-small"> @{{fetchData.width[0]}}mm- @{{fetchData.width[1]}}mm</button>
+              <i class="fas fa-chevron-down"></i>
+          </div>
+
+          <div class="level"  v-if="displayColumn == 'width' " @click="addAdvanceSearch('width')">
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.width[0] " @focus="$event.target.select()">
+
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.width[1] " @focus="$event.target.select()">       
+          </div> 
+        </li>
+        <li class="list-group-item">
+          <div @click="selectDisplayColumn('depth')">
+              <p  class="btn " :class="{'btn-outline-secondary ': fetchData.depth[1] != 0}" @click="fetchData.depth = [0,0]">{{trans('diamondSearch.Depth')}}</p>
+               <button class="btn btn-outline-secondary is-small"> @{{fetchData.depth[0]}}mm- @{{fetchData.depth[1]}}mm</button>
+              <i class="fas fa-chevron-down"></i>
+          </div>
+
+          <div class="level"  v-if="displayColumn == 'depth' " @click="addAdvanceSearch('depth')">
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.depth[0] " @focus="$event.target.select()">
+
+              <input class="form-control is-small" type="text" @keyup="fetchIndexData()" v-model="fetchData.depth[1] " @focus="$event.target.select()">       
           </div> 
         </li>
 

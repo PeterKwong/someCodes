@@ -138,8 +138,25 @@ trait DataViewer{
 		              $q->whereBetween('crown_angle', explode(',', request()->crown_angle));
 		            });
 		      }
+		      if (request()->length) {
+		      		$query = $query->where(function($q){
+		              $q->whereBetween('length', explode(',', request()->length));
+		            });
+		      }
 
+		      if (request()->width) {
+		      		$query = $query->where(function($q){
+		              $q->whereBetween('width', explode(',', request()->width));
+		            });
+		      }
 
+		      if (request()->depth) {
+		      		$query = $query->where(function($q){
+		              $q->whereBetween('depth', explode(',', request()->depth));
+		            });
+		      }
+
+		      
 		      $query = $query->where(function($q){
 		              $q->whereBetween('weight', explode(',', request()->weight));
 		            });

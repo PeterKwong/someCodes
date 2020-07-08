@@ -15,6 +15,8 @@
 <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
 <!-- Styles -->
+<!-- <link rel="stylesheet" type="text/css" href="{{ asset('/css/main.css') }}">
+ -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/sidebarNavigation.css') }}">
 

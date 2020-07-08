@@ -207,6 +207,28 @@
                                     <span v-else >&#x25B2;</span>
                                 </span>
                             </th>
+                            <th @click="toggleOrder('length')" v-if="fetchData.length[1] != 0 ">
+                                <span>{{trans('diamondSearch.Length')}}</span>
+                                <span class="dv-table-column" v-if=" 'length' === query.column">
+                                    <span v-if="query.direction === 'desc' ">&#x25BC;</span>
+                                    <span v-else >&#x25B2;</span>
+                                </span>
+                            </th>
+                            <th @click="toggleOrder('width')" v-if="fetchData.width[1] != 0 ">
+                                <span>{{trans('diamondSearch.Width')}}</span>
+                                <span class="dv-table-column" v-if=" 'width' === query.column">
+                                    <span v-if="query.direction === 'desc' ">&#x25BC;</span>
+                                    <span v-else >&#x25B2;</span>
+                                </span>
+                            </th>
+                            <th @click="toggleOrder('depth')" v-if="fetchData.depth[1] != 0 ">
+                                <span>{{trans('diamondSearch.Depth')}}</span>
+                                <span class="dv-table-column" v-if=" 'depth' === query.column">
+                                    <span v-if="query.direction === 'desc' ">&#x25BC;</span>
+                                    <span v-else >&#x25B2;</span>
+                                </span>
+                            </th>
+
                         </tr>
                     </thead>
 
@@ -247,6 +269,9 @@
                             <td v-if="fetchData.depthPercent[1] != 0 "> @{{ row.depth_percent }}%</td>
                             <td v-if="fetchData.crownAngle[1] != 0 "> @{{ row.crown_angle }}°</td>
                             <td v-if="fetchData.parvilionAngle[1] != 0 "> @{{ row.parvilion_angle }}°</td>
+                            <td v-if="fetchData.length[1] != 0 "> @{{ row.length }}mm</td>
+                            <td v-if="fetchData.width[1] != 0 "> @{{ row.width }}mm</td>
+                            <td v-if="fetchData.depth[1] != 0 "> @{{ row.depth }}mm</td>
 
                         </tr>
                         
@@ -328,6 +353,12 @@
                   <strong style="opacity: 0.3"> | </strong>
                 </span>
                 <span v-if="fetchData.parvilionAngle[1] != 0 "> @{{ row.parvilion_angle }}°
+                </span>
+                <span v-if="fetchData.length[1] != 0 "> @{{ row.length }}mm
+                </span>
+                <span v-if="fetchData.width[1] != 0 "> @{{ row.width }}mm
+                </span>
+                <span v-if="fetchData.depth[1] != 0 "> @{{ row.depth }}mm
                 </span>
               </p>
 

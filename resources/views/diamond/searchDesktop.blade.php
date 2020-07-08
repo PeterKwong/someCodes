@@ -426,11 +426,11 @@
                     <div class="block" @click="addAdvanceSearch('crownAngle')">
                       <div class="grad-input">
                         <label>{{trans('diamondSearch.Min')}}</label>
-                        <input class="w3-input" type="text"  @keyup="fetchIndexData()" v-model="fetchData.crownAngle[0] + '°' " @focus="$event.target.select()">
+                        <input class="w3-input" type="text"  @keyup="fetchIndexData()" v-model="fetchData.crownAngle[0] " @focus="$event.target.select()">
                       </div>
                       <div class="grad-input pull-right">
                         <label>{{trans('diamondSearch.Max')}}</label>
-                        <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[1] + '°' " @focus="$event.target.select()" >
+                        <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.crownAngle[1] " @focus="$event.target.select()" >
                       </div>
                     </div>
                   </div>
@@ -443,11 +443,11 @@
                     <div class="block gg" @click="addAdvanceSearch('parvilionAngle')">
                       <div class="grad-input">
                         <label>{{trans('diamondSearch.Min')}}</label>
-                        <input class="w3-input" type="text"  @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[0] + '°' " @focus="$event.target.select()">
+                        <input class="w3-input" type="text"  @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[0] " @focus="$event.target.select()">
                       </div>
                       <div class="grad-input pull-right">
                         <label>{{trans('diamondSearch.Max')}}</label>
-                        <input class="w3-input" type="text"   @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[1] + '°' " @focus="$event.target.select()" >
+                        <input class="w3-input" type="text"   @keyup="fetchIndexData()" v-model="fetchData.parvilionAngle[1] " @focus="$event.target.select()" >
                       </div>
                     </div>
 
@@ -478,11 +478,11 @@
                     <div class="block" @click="addAdvanceSearch('tablePercent')">
                       <div class="grad-input">
                         <label>{{trans('diamondSearch.Min')}}</label>
-                        <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.tablePercent[0] + '%' " @focus="$event.target.select()">
+                        <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.tablePercent[0] " @focus="$event.target.select()">
                       </div>
                       <div class="grad-input pull-right">
                         <label>{{trans('diamondSearch.Max')}}</label>
-                        <input class="w3-input" type="text"  @keyup="fetchIndexData()" v-model="fetchData.tablePercent[1] + '%' " @focus="$event.target.select()" >
+                        <input class="w3-input" type="text"  @keyup="fetchIndexData()" v-model="fetchData.tablePercent[1] " @focus="$event.target.select()" >
                       </div>
                     </div>
                   </div>
@@ -495,15 +495,102 @@
                     <div class="block gg" @click="addAdvanceSearch('depthPercent')">
                       <div class="grad-input">
                         <label>{{trans('diamondSearch.Min')}}</label>
-                        <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[0] + '%' " @focus="$event.target.select()">
+                        <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[0] " @focus="$event.target.select()">
                       </div>
                       <div class="grad-input pull-right">
                         <label>{{trans('diamondSearch.Max')}}</label>
-                        <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[1] + '%' " @focus="$event.target.select()" >
+                        <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.depthPercent[1] " @focus="$event.target.select()" >
                       </div>
                     </div>
 
                   </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 gg-sec-2 margin-top-20">
+          <div class="grad-block">
+            <div class="row">
+
+              <div class="col-1 text-center">
+                <div class="grad-img-gg">
+                  <p class="btn " :class="{'btn-outline-secondary ': fetchData.length[1] != 0}" @click="fetchData.length = [0,0]">{{trans('diamondSearch.Length')}}</p>
+                </div>
+              </div>
+
+              <div class="col-11">
+                <div class="row">
+
+                  <div class="col-6">
+                    <div class="block" @click="addAdvanceSearch('length')">
+                      <div class="grad-input">
+                        <label>{{trans('diamondSearch.Min')}}</label>
+                        <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.length[0] " @focus="$event.target.select()">
+                      </div>
+                      <div class="grad-input pull-right">
+                        <label>{{trans('diamondSearch.Max')}}</label>
+                        <input class="w3-input" type="text"  @keyup="fetchIndexData()" v-model="fetchData.length[1] " @focus="$event.target.select()" >
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-1 para-block">
+                    <p class="btn " :class="{'btn-outline-secondary ': fetchData.width[1] != 0}" @click="fetchData.width = [0,0]">{{trans('diamondSearch.Width')}}</p>
+                  </div>
+
+                  <div class="col-5">
+                    <div class="block gg" @click="addAdvanceSearch('width')">
+                      <div class="grad-input">
+                        <label>{{trans('diamondSearch.Min')}}</label>
+                        <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.width[0] " @focus="$event.target.select()">
+                      </div>
+                      <div class="grad-input pull-right">
+                        <label>{{trans('diamondSearch.Max')}}</label>
+                        <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.width[1] " @focus="$event.target.select()" >
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+           <div class="row">
+        <div class="col-12 gg-sec-2 margin-top-20">
+          <div class="grad-block">
+            <div class="row">
+
+              <div class="col-1 text-center">
+                <div class="grad-img-gg">
+                  <p class="btn " :class="{'btn-outline-secondary ': fetchData.depth[1] != 0}" @click="fetchData.depth = [0,0]">{{trans('diamondSearch.Depth')}}</p>
+                </div>
+              </div>
+
+              <div class="col-11">
+                <div class="row">
+
+                  <div class="col-6">
+                    <div class="block" @click="addAdvanceSearch('depth')">
+                      <div class="grad-input">
+                        <label>{{trans('diamondSearch.Min')}}</label>
+                        <input class="w3-input" type="text" @keyup="fetchIndexData()" v-model="fetchData.depth[0] " @focus="$event.target.select()">
+                      </div>
+                      <div class="grad-input pull-right">
+                        <label>{{trans('diamondSearch.Max')}}</label>
+                        <input class="w3-input" type="text"  @keyup="fetchIndexData()" v-model="fetchData.depth[1] " @focus="$event.target.select()" >
+                      </div>
+                    </div>
+                  </div>
+                 
                 </div>
               </div>
 
