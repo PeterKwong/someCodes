@@ -1,11 +1,20 @@
 
 
+
+    // var viewer = mutualVar.productViewer
+    // var stage = viewer.stage
+
+
     // let createjs = require('@createjs/easeljs')
 
-    var viewer = mutualVar.productViewer
-    var stage = viewer.stage
+    var stage = ''
+    var viewer = { source:'', filename:'',size:50, width:400,heigh:400,progress:0,stage:'',
+                      }
+
+
 
     function init() {
+
       var canvas = document.getElementById("productViewer")
       if (!canvas || !canvas.getContext) return;
 
@@ -20,7 +29,7 @@
 
       for (var i = 0; imgList.length > i; i++) {
         var j = 1 + i 
-        imgList[i] = viewer.source + j + viewer.filename
+        imgList[i] = viewer.source + viewer.filename + j + '.jpg'
       }
       
       imgList = imgList.reverse()
@@ -153,5 +162,12 @@
     // Init
     window.addEventListener('load', init, false);
 
+    export function setData(folder, filename) {
+      viewer.source = folder
+      viewer.filename = filename
+    }
 
+    export default{
+      viewer
+    }
 

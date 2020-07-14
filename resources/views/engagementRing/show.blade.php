@@ -28,10 +28,12 @@
         <meta property="article:tag" content="@include('engagementRing.keywords')" /> 
 
         <script src="https://cdn.scaleflex.it/plugins/js-cloudimage-360-view/2.3.2/js-cloudimage-360-view.min.js" defer></script>
-        
-<!--         <script src="https://code.createjs.com/easeljs-0.6.0.min.js"></script>
- -->
+        <!-- 
+        <script src="https://code.createjs.com/easeljs-0.6.0.min.js"></script>
 
+        <script src="https://unpkg.com/dynamics.js@1.1.5/lib/dynamics.js"></script>
+ -->
+        
         <script type="application/ld+json" defer >
 
                 {
@@ -147,10 +149,10 @@
                           </keep-alive>
                         </figure>
                         
-<!--                         <product-viewer :folder="mutualVar.storage[mutualVar.storage.live] + 'public/test/oval/' " filename="{index}.jpg"></product-viewer> -->
+<!-- 
 
-<!--                         <product-viewer :folder="mutualVar.storage[mutualVar.storage.live] + 'public/test/oval/' " filename=".jpg"></product-viewer>
- -->
+                        <product-viewer :folder="mutualVar.storage[mutualVar.storage.live] + 'public/test/weddingring1/' " :filename="filename"></product-viewer> -->
+
                       </div>
 
                       <div class="col-sm-5 box">

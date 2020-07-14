@@ -57,8 +57,7 @@
                 <img :src="images+currentItem.src" v-if="currentItem.type=='img'" width="80%" @click="nextItem">
                 <video-player :options="videoOptions" v-if="currentItem.type=='video'"></video-player>
                 
-<!--                 <product-viewer :folder="mutualVar.storage[mutualVar.storage.live] 
-                            + 'public/test/oval/' " :filename=" '.jpg' "></product-viewer>
+<!--                 <product-viewer :folder="folder " :filename="fileName"></product-viewer>
  -->            
             <p v-if="chunkedItems.length && !showUpper" class="text-primary text-center">{{chunkedItems[currentIndex].text}}</p>
 
@@ -126,7 +125,7 @@
 
 import {videoPlayer} from '../../../node_modules/vue-video-player/dist/vue-video-player'
 import mutualVar from '../helpers/mutualVar'
-// import ProductViewer from '../components/productViewer360'
+import ProductViewer from '../components/productViewer360'
 
 // import VideoPlayer from './VueVideoPlayer.vue'
 
@@ -134,7 +133,7 @@ export default {
     name : 'carousel',
     components:{
         videoPlayer, 
-        // ProductViewer,
+        ProductViewer,
         // VideoPlayer
     },
     props: {
@@ -163,6 +162,9 @@ export default {
             currentUpperIndex:0,
             videoPath: mutualVar.storage[mutualVar.storage.live] + 'public/videos/' ,
             mutualVar,
+            fileName:'381_x264 ',
+            folder: mutualVar.storage[mutualVar.storage.live] + 'public/test/weddingring1/', 
+
         }
     },
     methods : {

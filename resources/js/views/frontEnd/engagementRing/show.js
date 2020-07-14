@@ -2,7 +2,7 @@
 	import { get, del } from '../../../helpers/api'
 	import Appointment from '../../../components/appointment.vue'
 	import Carousel from '../../../components/carousel.vue'
-	// import ProductViewer from '../../../components/productViewer360.vue'
+
 	import ProductViewer from '../../../components/productViewer360.vue'
 	import ShoppingCart from '../../../components/shoppingCart/cart.vue'
 
@@ -23,6 +23,7 @@
 				appointmentState: false,
 				title: '',
 				langs,
+				filename:'381_x264 ',
 				mutualVar,
 				text:{
 					engagementRing: 'engagementRing',
