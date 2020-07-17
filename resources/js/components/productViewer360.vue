@@ -13,6 +13,7 @@
 		<div class="row text-center">
          	<div class="col-12" >
          		<canvas id="productViewer" :width="width" :height="height" 
+         		
 	         		@mousedown="startDrag" @touchstart="startDrag"
 			        @mousemove="onDrag" @touchmove="onDrag"
 			        @mouseup="stopDrag" @touchend="stopDrag" @mouseleave="stopDrag">
