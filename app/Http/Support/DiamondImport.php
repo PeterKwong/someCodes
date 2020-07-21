@@ -523,6 +523,7 @@ class DiamondImport extends DiamondController
                     'Symmetry' =>  $diamond->symmetry,
                     'Polish' =>  $diamond->polish,
                     'Fluorescence' =>  $diamond->fluorescence,
+                    'Location' =>  $diamond->location,
                     'Cert' => 'https://cfr.tingdiamond.com/public/diamond/certs/'.$diamond->id . '.jpg'
                     ];
 
