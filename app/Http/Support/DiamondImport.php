@@ -472,7 +472,7 @@ class DiamondImport extends DiamondController
     
     public function isNotMemoSuppliers($suppplier_id){
 
-      $noMemo = ['138','139','153','167'];
+      $noMemo = ['153','167'];
 
       return !in_array($suppplier_id, $noMemo);
 
