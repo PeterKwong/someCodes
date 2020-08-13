@@ -269,7 +269,12 @@ trait Oncall{
                   $diam['has_video'] = null;
                   $diam['video_link'] = null; 
                   $diam['plot'] = NULL; 
-                  $diam['milky'] = $diamond->MILKY?$diamond->MILKY:0;  
+                  $diam['heart_image'] = $diamond->HEART_IMAGE; 
+                  $diam['arrow_image'] = $diamond->ARROW_IMAGE; 
+                  $diam['asset_image'] = $diamond->ASSET_IMAGE; 
+                  $diam['milky'] = $diamond->MILKY; 
+                  $diam['brown'] = $diamond->BROWN; 
+                  $diam['green'] = $diamond->GREEN; 
 
                   if (isset($diamond->CERTIFICATE) && !$diamond->CERTIFICATE == null) {
                         $diam['cert_link'] = $diamond->CERTIFICATE;
@@ -439,11 +444,16 @@ trait Oncall{
                       $d->available = 1; 
                       $d->image_link = $diamond['image_link']?$diamond['image_link']:null;
                       $d->has_image = $diamond['has_image']?1:null;
+                      $d->heart_image = $diamond['heart_image']?$diamond['heart_image']:null;
+                      $d->arrow_image = $diamond['arrow_image']?$diamond['arrow_image']:null;
+                      $d->asset_image = $diamond['asset_image']?$diamond['asset_image']:null;
                       $d->cert_link = $diamond['cert_link']?$diamond['cert_link']:null; 
                       $d->has_cert = $diamond['has_cert']?1:null; 
                       $d->video_link = $diamond['video_link']?$diamond['video_link']:null; 
                       $d->has_video = $diamond['has_video']?1:null; 
                       $d->milky = $diamond['milky'];
+                      $d->brown = $diamond['brown'];
+                      $d->green = $diamond['green'];
 
 
                       $s_id->diamonds()->save($d);

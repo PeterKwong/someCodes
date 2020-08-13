@@ -39,9 +39,14 @@ class CreateDiamondsTable extends Migration
             $table->text('image_link')->nullable();
             $table->text('cert_link')->nullable();
             $table->text('video_link')->nullable();
+            $table->text('heart_image')->nullable();
+            $table->text('arrow_image')->nullable();
+            $table->text('asset_image')->nullable();
             $table->boolean('available')->default(NULL)->nullable();
             $table->bigInteger('r_id')->nullable(); 
-            $table->string('milky')->default('None');
+            $table->string('milky')->nullable();
+            $table->string('brown')->nullable();
+            $table->string('green')->nullable();
             $table->timestamp('starred')->nullable();
             $table->decimal('length',6,2)->unsigned()->nullable();
             $table->decimal('width',6,2)->unsigned()->nullable();
