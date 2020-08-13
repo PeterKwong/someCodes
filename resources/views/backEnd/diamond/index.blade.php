@@ -25,6 +25,8 @@
 				<td>@{{props.item.symmetry}}</td>
 				<td>@{{props.item.fluorescence}}</td>
 				<td>@{{props.item.milky}}</td>
+				<td>@{{props.item.brown}}</td>
+				<td>@{{props.item.green}}</td>
 				<td>@{{props.item.location}}</td>
 				<td>
 					<center>
@@ -37,6 +39,9 @@
 					<button class="btn btn-primary" @click="toggleStarredDiamond(props.item)">@{{props.item.starred}}</button>
 					</center>
 				</td>
+				<td><img width="256" :src="props.item.heart_image ? props.item.heart_image:'' "></td>
+				<td><img width="256" :src="props.item.arrow_image ? props.item.arrow_image:'' "></td>
+				<td><img width="256" :src="props.item.asset_image ? props.item.asset_image:'' "></td>
 				<td>@{{props.item.has_video}}</td>
 				<td>@{{props.item.lab}}</td>
 				<td>@{{props.item.updated_at}}</td>
