@@ -178,7 +178,7 @@
 
                 <div class="dropdown-divider"></div>
 
-                <a class="dropdown-item color-blue" href="{{url(app()->getLocale())}}/education-diamond-grading/grading-certficate"><img width="15">{{trans('frontHeader.Diamond Certificate')}}</a>
+                <a class="dropdown-item color-blue" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report"><img width="15">{{trans('frontHeader.Diamond Certificate')}}</a>
                   <p class="dropdown-item">
 
                     <a class="color-grey text-decoration-none" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report/grading-certficate">{{trans('frontHeader.Certificate')}}
