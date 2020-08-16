@@ -7,6 +7,10 @@ Route::get('/', 'HomeController@index');
 
     Route::prefix('/links/')->group(function(){
 
+        Route::get('bl/{id}', function($id){
+            return redirect('https://bit.ly/' . $id);
+        } );
+
         Route::get('youtube', function(){
             return redirect('https://youtube.com/channel/UCaNsACwMjz9t9evpaSkHpGg');
         } );
