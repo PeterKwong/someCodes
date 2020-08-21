@@ -68,7 +68,7 @@ class Kernel extends ConsoleKernel
 
             $this->diamondOncall($CronJob);
 
-        })->cron('*/7 * * * *')->between('02:31', '23:59')->runInBackground();
+        })->cron('*/8 * * * *')->between('02:31', '23:59')->runInBackground();
 
          $schedule->call(function () use(&$CronJob) {
             $CronJob->runImages();

@@ -21,6 +21,11 @@ class Customer extends Model
     {
     	return $this->hasMany(Invoice::class);
     }
+    
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
 
     public static function form()
     {

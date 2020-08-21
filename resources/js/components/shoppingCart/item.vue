@@ -223,7 +223,7 @@ export default {
                             { 'name': 'Wechat(-1%)', 'discount':0.99},
                             { 'name': 'Cash(-2%)', 'discount':0.98}],
             apiToken: getAuthUser.api_token,
-            shortenName:'',
+            shortenName:mutualVar.cookiesInfo.shoppingCart.items,
             model:'',
 
         }
@@ -249,7 +249,6 @@ export default {
 
     },
     mounted(){
-        this.shortenName = mutualVar.cookiesInfo.shoppingCart.items
         if (getCookie('coupon_code')) {        
             this.checkCouponCodeValid()
         }
@@ -393,6 +392,7 @@ export default {
         },
         sendCookies(){
             var cookies = mutualVar.cookiesInfo.shoppingCart
+            this.shortenName = mutualVar.cookiesInfo.shoppingCart.items
             localStorage.setItem('shoppingCart', encodeURIComponent(JSON.stringify(cookies)), 10080)
             setCookie('coupon_code', mutualVar.cookiesInfo.coupon_code, 10080)
             setCookie('checkout', JSON.stringify(mutualVar.cookiesInfo.checkout), 10080)
@@ -580,7 +580,7 @@ export default {
         deleteNotAddedToCart(){
             for (var i = 0 ; this.shortenName.length > i ; i++) {
                 if (this.shortenName[i].addedCart == 0 || this.shortenName[i].pairItems.length == 0) {
-                    this.shortenName.splice(i,1)
+                     mutualVar.cookiesInfo.shoppingCart.items.splice(i,1)
                 }
                  
             }
@@ -612,7 +612,7 @@ export default {
             window.open(urlId,'_self')
         },
         removeItem(index){
-            this.shortenName.splice(index,1)
+             mutualVar.cookiesInfo.shoppingCart.items.splice(index,1)
             this.sendCookies()
             this.updateCartItems()
         },

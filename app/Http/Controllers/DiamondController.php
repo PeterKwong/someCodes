@@ -94,7 +94,7 @@ class DiamondController extends Controller
 
   public function show($id){
     // dd($id);
-    $diamond  = DiamondQuery::findOrFail($id);
+    $diamond  = Diamond::findOrFail($id);
 
     // $this->guzzleRequest();
 

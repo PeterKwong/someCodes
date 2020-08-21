@@ -65,8 +65,8 @@ class CustomerController extends Controller
     		'name'  => 'required',
     		'phone' =>'required',
     		]);
-    	$customer = Customer::findOrFail($id);
-    	$customer->update($request->all());
+    	dd($customer = Customer::findOrFail($id));
+    	$customer->update($request->except(['created_at', 'updated_at']));
 
     	return response()
     		->json([

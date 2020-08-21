@@ -144,7 +144,7 @@
                             <strong v-if="diamond.available">
                                 <h3 class="text-primary background-op-008-primary box">{{__('diamondSearch.Price')}} HK$: {{$diamond->price}}</h3>
                             </strong>
-                            <strong v-if="diamond.available == '0'"><p> {{__('diamondSearch.Sold')}}</p></strong>
+                            <strong v-if="diamond.available != '1'"><p> {{__('diamondSearch.Sold')}}</p></strong>
                         </center>
                       </div>
                     </article>
