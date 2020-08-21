@@ -29,32 +29,32 @@
 
         <br>
 
-        <div id="customerJewelleryShow">
+        <div id="customerJewelleryShow" class="p-8">
 
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="grid grid-cols-12">
+                <div class="col-span-12">
 
-                    <article class="tile is-child box is-primary">
-                        <div class="row justify-content-center" v-for="image in post.images" v-if="image.type == 'cover' ">
-                            <div class="col" >
+                    <article class="is-primary">
+                        <div class="grid grid-cols-12" v-for="image in post.images" v-if="image.type == 'cover' ">
+                            <div class="col-span-12 box" >
                                 <figure class="image text-center" ><img width="100%" width="100%" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${image.image}`"></figure>
                             </div>
                         </div>
                     </article>
 
 
-                <div class="row">
-                    <div class="col">
-                        <h4 class="text-center p-30 color-blue">{{$meta->texts[0]->content}}</h4>
+                <div class="grid grid-cols-12 text-center">
+                    <div class="col-span-12">
+                        <h4 class="p-12 text-blue-600 sm:text-xl">{{$meta->texts[0]->content}}</h4>
                     </div>       
                 </div>
 
-                <div class="row " v-if="post.invoice.invoice_diamonds[0]">
-                    <div class="col-4">
-                        <div class="tile is-child box">
+                <div class="grid grid-cols-12 " v-if="post.invoice.invoice_diamonds[0]">
+                    <div class="col-span-12 sm:col-span-4">
+                        <div class="box">
 
                             <div class="tile is-chill">
-                            <article v-if="post.invoice.invoice_diamonds[0].lab == 'GIA'">
+                            <article v-if="post.invoice.invoice_diamonds[0].lab == 'GIA'" class="px-2">
                                 <p>
                                 {{trans('diamondSearch.For more detailed information, can reach GIA website query')}}：
                                 </p>
@@ -68,7 +68,7 @@
                                 </a>
                             </article>
 
-                            <article v-if="post.invoice.invoice_diamonds[0].lab == 'IGI'">
+                            <article v-if="post.invoice.invoice_diamonds[0].lab == 'IGI'" class="px-2">
                                 <p>
                                 {{trans('diamondSearch.For more detailed information, can reach IGI website query')}}：
                                 </p>
@@ -84,62 +84,71 @@
 
                             </div>
                             <article>
-                                <table class="table is-striped is-fullwidth">
-                                <thead>
-                                    <tr>
-                                        <th>{{trans('diamondSearch.Diamond Info')}} ( @{{post.invoice.invoice_diamonds[0].shape}} )</th>
-                                    </tr>
-                                </thead>
+                                <div class="">
+                                <div>
+                                    <div>
+                                        <div class="text-xl px-2 font-semibold">{{trans('diamondSearch.Diamond Info')}} ( @{{post.invoice.invoice_diamonds[0].shape}} )</div>
+                                    </div>
+                                </div>
                                     
-                                <tbody>
-                                    <tr><td>{{trans('diamondSearch.Carat Weight')}}</td><td>@{{post.invoice.invoice_diamonds[0].weight}}</td></tr>
-                                    <tr><td>{{trans('diamondSearch.Color Grade')}}</td><td>@{{post.invoice.invoice_diamonds[0].color}}</td></tr>
-                                    <tr><td>{{trans('diamondSearch.Clarity Grade')}}</td><td>@{{post.invoice.invoice_diamonds[0].clarity}}</td></tr>
-                                    <tr><td>{{trans('diamondSearch.Cut Grade')}}</td><td>@{{post.invoice.invoice_diamonds[0].cut}}</td></tr>
-                                </tbody>
+                                <div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{trans('diamondSearch.Carat Weight')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.invoice_diamonds[0].weight}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{trans('diamondSearch.Color Grade')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.invoice_diamonds[0].color}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{trans('diamondSearch.Clarity Grade')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.invoice_diamonds[0].clarity}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{trans('diamondSearch.Cut Grade')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.invoice_diamonds[0].cut}}</div>
+                                    </div>
+                                </div>
 
-                                <thead>
-                                    <tr>
-                                        <th>{{trans('diamondSearch.Finish')}}</th>
-                                    </tr>
-                                </thead>
                                     
-                                <tbody>
-                                    <tr><td>{{trans('diamondSearch.Polish')}}</td><td>@{{post.invoice.invoice_diamonds[0].polish}}</td></tr>
-                                    <tr><td>{{trans('diamondSearch.Symmetry')}}</td><td>@{{post.invoice.invoice_diamonds[0].symmetry}}</td></tr>
-                                </tbody>
+                                <div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{trans('diamondSearch.Polish')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.invoice_diamonds[0].polish}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{trans('diamondSearch.Symmetry')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.invoice_diamonds[0].symmetry}}</div>
+                                    </div>
+                                </div>
 
-                                <thead>
-                                    <tr>
-                                        <th>{{trans('diamondSearch.Fluorescence')}}</th>
-                                    </tr>
-                                </thead>
                                     
-                                <tbody>
-                                    <tr><td>{{trans('diamondSearch.Fluorescence')}}</td><td>@{{post.invoice.invoice_diamonds[0].fluorescence}}</td></tr>
-                                </tbody>
+                                <div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{trans('diamondSearch.Fluorescence')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.invoice_diamonds[0].fluorescence}}</div>
+                                    </div>
+                                </div>
                                 
-                                <thead>
-                                    <tr>
-                                        <th>{{trans('diamondSearch.Certificate')}}</th>
-                                    </tr>
-                                </thead>
                                     
-                                <tbody>
+                                <div>
                                     <a :href="`https://www.gia.edu/report-check?reportno=${post.invoice.invoice_diamonds[0].certificate}`">
-                                    <tr><td>{{trans('diamondSearch.Certificate')}}</td><td>@{{post.invoice.invoice_diamonds[0].certificate}}</td></tr>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{trans('diamondSearch.Certificate')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.invoice_diamonds[0].certificate}}</div>
+                                    </div>
                                     </a>
-                                </tbody>
+                                </div>
 
-                                </table>
+                                </div>
                             </article>
 
                             
                         </div>
                     </div>
 
-                    <div class="col-8 " v-for="image in post.images" v-if="image.type == 'cert'">
-                            <div class="tile is-child box">
+                    <div class="col-span-12 sm:col-span-8" v-for="image in post.images" v-if="image.type == 'cert'">
+                            <div class="box">
                                 <a href="{{url(app()->getLocale() . '/gia-loose-diamonds')}}">
                                     <figure class="image">
                                     <img width="100%" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${image.image}`">
@@ -150,15 +159,15 @@
                 </div>
 
 
-                <div class="row" v-for="image in post.images" v-if="image.type == 'gia_no'">
+                <div class="grid grid-cols-12 text-center p-8" v-for="image in post.images" v-if="image.type == 'gia_no'">
 
-                    <div class="col-7">
+                    <div class="col-span-7">
                         <article>
                             <figure><img width="100%" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${image.image}`"></figure>
                         </article>
                         
                     </div>
-                    <div class="col">
+                    <div class="col-span-5">
                         <article>
                             <figure>
                                 <img width="100%" src="/images/front-end/diamond/GIA-Laser-Inscription-girdle.jpg">
@@ -174,9 +183,9 @@
                 </div>
 
 
-                <div class="row" v-if="published.engagementRings">
-                    <div class="col-6">
-                            <div class="tile is-child box">
+                <div class="grid grid-cols-12" v-if="published.engagementRings">
+                    <div class="col-span-6">
+                            <div class="box">
                                 <a :href=" langHref +'/engagement-rings/' + post.invoice.engagement_rings[0].id">
                                     <figure class="image" v-if="post.invoice.engagement_rings[0].images[0]">
                                     <img width="100%" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${post.invoice.engagement_rings[0].images[0].image}`">
@@ -190,46 +199,64 @@
                             </div>
                         </div>
 
-                    <div class="col" >
-                        <div class="tile is-child box">
+                    <div class="col-span-6" >
+                        <div class="box">
                             <article>
                                 <div>
                                   <p>
                                     <video-player :options="videoOpts[0].videoEng" v-if="post.invoice.engagement_rings[0].video"></video-player> 
                                   </p>
                                  </div>
-                                <table class="table is-striped is-fullwidth">
-                                <thead>
-                                    <tr>
-                                        <th>{{__('engagementRing.Engagement Ring Info')}}</th>
-                                    </tr>
-                                </thead>
+                                <div class="">
+                                <div>
+                                    <div>
+                                        <div class="text-xl px-2 font-semibold">{{__('engagementRing.Engagement Ring Info')}}</div>
+                                    </div>
+                                </div>
                                     
-                                <tbody> 
-                                    <tr><td>{{__('engagementRing.Shoulder')}}</td><td>@{{post.invoice.engagement_rings[0].shoulder | transJs(langs,locale)}}</td></tr>
-                                    <tr><td>{{__('engagementRing.Prong')}}</td><td>@{{post.invoice.engagement_rings[0].prong | transJs(langs,locale)}}</td></tr>
-                                    <tr><td>{{__('engagementRing.Side stone')}}</td><td>{{__('engagementRing.Around')}} @{{post.invoice.engagement_rings[0].ct}}ct</td></tr>
+                                <div> 
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('engagementRing.Shoulder')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.engagement_rings[0].shoulder | transJs(langs,locale)}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('engagementRing.Prong')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.engagement_rings[0].prong | transJs(langs,locale)}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('engagementRing.Side stone')}}</div>
+                                        <div class="col-span-6">{{__('engagementRing.Around')}} @{{post.invoice.engagement_rings[0].ct}}ct</div>
+                                    </div>
 
-                                    <thead>
-                                    <tr>
-                                        <th>{{__('engagementRing.Engagement Ring Info')}}</th>
-                                    </tr>
-                                    </thead>
-                                    <tr><td>{{__('customerMoment.Stock No.')}}</td><td>@{{post.invoice.engagement_rings[0].stock}}</td></tr> 
-                                    <tr><td>{{__('customerMoment.Title')}}</td><td>@{{post.invoice.engagement_rings[0].texts[locale].content}}</td></tr>
-                                    <tr><td>{{__('customerMoment.Description')}}</td><td>@{{post.invoice.engagement_rings[0].style | transJs(langs,locale)}},@{{post.invoice.engagement_rings[0].prong | transJs(langs,locale)}},@{{post.invoice.engagement_rings[0].shoulder | transJs(langs,locale)}},{{trans('engagementRing.setting')}}</td></tr>
+                                    <div>
+                                    <div>
+                                        <div class="text-xl px-2 font-semibold">{{__('engagementRing.Engagement Ring Info')}}</div>
+                                    </div>
+                                    </div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('customerMoment.Stock No.')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.engagement_rings[0].stock}}</div>
+                                    </div> 
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('customerMoment.Title')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.engagement_rings[0].texts[locale].content}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('customerMoment.Description')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.engagement_rings[0].style | transJs(langs,locale)}},@{{post.invoice.engagement_rings[0].prong | transJs(langs,locale)}},@{{post.invoice.engagement_rings[0].shoulder | transJs(langs,locale)}},{{trans('engagementRing.setting')}}</div>
+                                    </div>
                                     
-                                </tbody>
+                                </div>
 
-                                </table>
+                                </div>
                             </article>                            
                         </div>
                     </div>   
                 </div>
 
-                <div class="row" v-if="published.jewellries">
-                    <div class="col-6">
-                            <div class="tile is-child box">
+                <div class="grid grid-cols-12 " v-if="published.jewellries">
+                    <div class="col-span-6">
+                            <div class="box">
                                 <a :href=" langHref +'/jewellries/' + post.invoice.jewellries[0].id">
                                     <figure class="image" v-if="post.invoice.jewellries[0].images[0]">
                                     <img width="100%" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${post.invoice.jewellries[0].images[0].image}`">
@@ -243,29 +270,41 @@
                             </div>
                         </div>
 
-                    <div class="col" >
-                        <div class="tile is-child box">
+                    <div class="col-span-6" >
+                        <div class="box">
                             <article>
                                 <div>
                                   <p>
                                     <video-player :options="videoOpts[2].videoJew" v-if="post.invoice.jewellries[0].video"></video-player> 
                                   </p>
                                  </div>
-                                <table class="table is-striped is-fullwidth">
-                                <thead>
-                                    <tr>
-                                        <th>{{__('customerMoment.Jewellry Info')}}</th>
-                                    </tr>
-                                </thead>
+                                <div class="">
+                                <div>
+                                    <div>
+                                        <div class="text-xl px-2 font-semibold">{{__('customerMoment.Jewellry Info')}}</div>
+                                    </div>
+                                </div>
                                     
-                                <tbody>
-                                    <tr><td>{{__('customerMoment.Stock No.')}}</td><td>@{{post.invoice.jewellries[0].stock}}</td></tr>  
-                                    <tr><td>{{__('customerMoment.Title')}}</td><td>@{{post.invoice.jewellries[0].texts[locale].content}}</td></tr>
-                                    <tr><td>{{__('customerMoment.Side stone')}}</td><td>{{__('engagementRing.Around')}} @{{post.invoice.jewellries[0].ct}}</td></tr>
-                                    <tr><td>{{__('customerMoment.metal')}}</td><td>@{{post.invoice.jewellries[0].metal}}</td></tr>
-                                </tbody>
+                                <div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('customerMoment.Stock No.')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.jewellries[0].stock}}</div>
+                                    </div>  
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('customerMoment.Title')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.jewellries[0].texts[locale].content}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('customerMoment.Side stone')}}</div>
+                                        <div class="col-span-6">{{__('engagementRing.Around')}} @{{post.invoice.jewellries[0].ct}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('customerMoment.metal')}}</div>
+                                        <div class="col-span-6">@{{post.invoice.jewellries[0].metal}}</div>
+                                    </div>
+                                </div>
 
-                                </table>
+                                </div>
                             </article>                            
                         </div>
                     </div>   
@@ -273,9 +312,9 @@
 
 
 
-                <div class="row" v-if="published.weddingRings" v-for="wedding_ring in post.invoice.wedding_rings">
-                    <div class="col-6">
-                            <div class="tile is-child box">
+                <div class="grid grid-cols-12 " v-if="published.weddingRings" v-for="wedding_ring in post.invoice.wedding_rings">
+                    <div class="col-span-6">
+                            <div class="box">
                                 <a :href=" langHref +'/wedding-rings/' + wedding_ring.wedding_ring_pair_id">
                                     <figure class="image" v-if="wedding_ring.images[0]">
                                     <img width="100%" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${wedding_ring.images[0].image}`">
@@ -297,8 +336,8 @@
                             </div>
                         </div>
 
-                    <div class="col" >
-                        <div class="tile is-child box">
+                    <div class="col-span-6" >
+                        <div class="box">
                             <article>
                                 <div>
                                     <video-player :options="videoOpts[1].videoWed" v-if="wedding_ring.video"></video-player> 
@@ -306,24 +345,39 @@
                                     
                                   </p>
                                  </div>
-                                <table class="table is-striped is-fullwidth">
-                                <thead>
-                                    <tr>
-                                        <th>{{__('customerMoment.Wedding Ring Info')}} - @{{wedding_ring.gender | transJs(langs,locale)}}</th>
-                                    </tr>
-                                </thead>
+                                <div class="">
+                                <div>
+                                    <div>
+                                        <div class="text-xl px-2 font-semibold">{{__('customerMoment.Wedding Ring Info')}} - @{{wedding_ring.gender | transJs(langs,locale)}}</div>
+                                    </div>
+                                </div>
                                     
-                                <tbody>
-                                    <tr><td>{{__('customerMoment.Metal')}}</td><td>@{{wedding_ring.metal | transJs(langs,locale)}}</td></tr>
-                                    <tr><td>{{__('customerMoment.Side stone')}}</td><td>{{__('engagementRing.Around')}} @{{wedding_ring.ct}}ct</td></tr>
-                                    <tr><td>{{__('customerMoment.Stock No.')}}</td><td>@{{wedding_ring.stock}}</td></tr>  
-                                    <tr><td>{{__('customerMoment.Title')}}</td><td>@{{wedding_ring.texts[locale].content}}</td></tr>
-                                    <tr><td>{{__('customerMoment.Description')}}</td><td>@{{wedding_ring.style | transJs(langs,locale)}},@{{wedding_ring.metal | transJs(langs,locale)}},@{{wedding_ring.sideStone? transJsMet('ct',langs,locale):''}}
-                                    {{trans('weddingRing.Wedding Ring')}}</td></tr>
+                                <div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('customerMoment.Metal')}}</div>
+                                        <div class="col-span-6">@{{wedding_ring.metal | transJs(langs,locale)}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('customerMoment.Side stone')}}</div>
+                                        <div class="col-span-6">{{__('engagementRing.Around')}} @{{wedding_ring.ct}}ct</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('customerMoment.Stock No.')}}</div>
+                                        <div class="col-span-6">@{{wedding_ring.stock}}</div>
+                                    </div>  
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('customerMoment.Title')}}</div>
+                                        <div class="col-span-6">@{{wedding_ring.texts[locale].content}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 p-2 text-light border-b">
+                                        <div class="col-span-6">{{__('customerMoment.Description')}}</div>
+                                        <div class="col-span-6">@{{wedding_ring.style | transJs(langs,locale)}},@{{wedding_ring.metal | transJs(langs,locale)}},@{{wedding_ring.sideStone? transJsMet('ct',langs,locale):''}}
+                                    {{trans('weddingRing.Wedding Ring')}}</div>
+                                </div>
                               
-                                </tbody>
+                                </div>
 
-                                </table>
+                                </div>
                             </article>                            
                         </div>
                     </div> 
@@ -334,10 +388,10 @@
 
 
 
-                <div class="row justify-content-center" v-if="post.video">
+                <div class="grid grid-cols-12" v-if="post.video">
 
-                    <div class="col-10 ">
-                        <div class="tile is-child box">
+                    <div class="col-span-10 col-start-2">
+                        <div class="box">
                             <article>
                                 <div>
                                   <center><p class="title is-5">{{__('customerMoment.Product Video')}}</p></center>

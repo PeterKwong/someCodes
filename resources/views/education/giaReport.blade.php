@@ -29,12 +29,12 @@
 
 
         <div id="education">
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="p-4">
+                <div class="">
                     <br>
 
-                    <div class="row justify-content-center text-center" >
-                        <div class="col-sm-2">
+                    <div class="grid grid-cols-12 text-center" >
+                        <div class="col-span-2 col-start-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" :src="'/images/front-end/education/' + activedSubTab +'/pageImage.jpg'" >
@@ -42,9 +42,9 @@
                             </center>
                             
                         </div>
-                        <div class="col">
+                        <div class="col-span-8">
                             <center>
-                                <h3 class="title is-5">{{__('education.metaTitle13')}}</h3>
+                                <h3 class="sm:text-xl font-semibold">{{__('education.metaTitle13')}}</h3>
                                 {{__('education.You know how to interpret GIA Report, basically to see other diamond certification reports, such as: IGI or HRD, will not have any difficulty, but the main is that they are called, respectively, or a little different.')}} 
                             </center>
                         </div>
@@ -52,26 +52,38 @@
 
                     <br>
 
-                    <div class="row justify-content-center">
-                        <div class="col">
+                    <div class="grid grid-cols-12">
+                        <div class="col-span-12 sm:col-span-10">
 
-                            @include('layouts.education.gradingCert')
+                            <ul class="flex justify-center items-center border-b" id="myTab" role="tablist">
+                              <li class="">
+                                <a class="text-blue-600 text-center px-2"  id="carat-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report/grading-certficate" role="tab" aria-controls="carat" aria-selected="true">{{__('education.Diamond certficate')}}</a>
+                              </li>
+                              <li class="">
+                                <a class="nav-link bg-blue-300 text-white"  id="cut-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report" role="tab" aria-controls="cut" aria-selected="true">{{__('education.Gia Report')}}</a>
+                              </li>
+                              <li class="">
+                                <a class="text-blue-600 text-center px-2"  id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report/grading-eye-clean" role="tab" aria-controls="color" aria-selected="true">{{__('education.Eye Clean Diamond')}}</a>
+                              </li>
+                            </ul>
+
+
 
                             <br>
 
-                            <div class="row justify-content-center text-left">
-                                <div class="col-10">
+                            <div class="grid grid-cols-12 text-left">
+                                <div class="col-span-12">
                                     <article class="message is-primary" >
                                       <div class="level is-centered">
-                                        <div class="message-body">
+                                        <div class="">
                                         
                                        
-                                        <center><p class="title is-6">{{trans('education.giaTitle1')}}</p></center>
-                                        <div class="row justify-content-center">
-                                            <div class="col-md-8">
+                                        <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle1')}}</p></center>
+                                        <div class="grid grid-cols-12">
+                                            <div class="col-span-8">
                                                 <li>{{trans('education.giaPara1')}}</li>                                       
                                             </div>
-                                            <div class="col">
+                                            <div class="col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure class="image">
@@ -87,13 +99,13 @@
                                         {{trans('education.giaPara3')}}
 
                                         <hr>
-                                        <center><p class="title is-5">{{trans('education.giaTitle2')}}</p></center>
-                                        <center><p class="title is-6">{{trans('education.giaTitle3')}}</p></center>
-                                        <div class="row justify-content-center">
-                                            <div class="col-md-8">
+                                        <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle2')}}</p></center>
+                                        <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle3')}}</p></center>
+                                        <div class="grid grid-cols-12">
+                                            <div class="col-span-8">
                                                 <li>{{trans('education.giaPara4')}}</li>                                    
                                             </div>
-                                            <div class="col">
+                                            <div class="col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure >
@@ -110,12 +122,12 @@
                                         {{trans('education.giaPara6')}}
 
                                         <hr>
-                                        <center><p class="title is-6">{{trans('education.giaTitle4')}}</p></center>
-                                        <div class="row justify-content-center">
-                                            <div class="col-md-8">
+                                        <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle4')}}</p></center>
+                                        <div class="grid grid-cols-12">
+                                            <div class="col-span-8">
                                                 <li>{{trans('education.giaPara7')}}</li>                                
                                             </div>
-                                            <div class="col">
+                                            <div class="col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure >
@@ -131,12 +143,12 @@
                                         {{trans('education.giaPara7.1')}}
 
                                         <hr>
-                                        <center><p class="title is-6">{{trans('education.giaTitle5')}}</p></center>
-                                        <div class="row justify-content-center">
-                                            <div class="col-md-8">
+                                        <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle5')}}</p></center>
+                                        <div class="grid grid-cols-12">
+                                            <div class="col-span-8">
                                                 <li>{{trans('education.giaPara8')}}</li>                                
                                             </div>
-                                            <div class="col">
+                                            <div class="col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure >
@@ -152,16 +164,16 @@
                                         {{trans('education.giaPara8.1')}}
 
                                         <hr>
-                                        <center><p class="title is-6">{{trans('education.giaTitle6')}}</p></center>
-                                        <div class="row justify-content-center">
-                                            <div class="col-md-8">
+                                        <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle6')}}</p></center>
+                                        <div class="grid grid-cols-12">
+                                            <div class="col-span-8">
                                                 <li>{{trans('education.giaPara9')}}</li>                                
                                             </div>
-                                            <div class="col">
+                                            <div class="col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure >
-                                                  <p>GIA REPORT (PART3)</p>
+                                                  <p>GIA REPORT (PART4)</p>
                                                     <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia4.jpg">
                                                 </figure>
                                                 </center>
@@ -174,16 +186,16 @@
                                         {{trans('education.giaPara10')}}
 
                                         <hr>
-                                        <center><p class="title is-6">{{trans('education.giaTitle7')}}</p></center>
-                                        <div class="row justify-content-center">
-                                            <div class="col-md-8">
+                                        <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle7')}}</p></center>
+                                        <div class="grid grid-cols-12">
+                                            <div class="col-span-8">
                                                 <li>{{trans('education.giaPara11')}}</li>                                
                                             </div>
-                                            <div class="col">
+                                            <div class="col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure >
-                                                  <p>GIA REPORT (PART3)</p>
+                                                  <p>GIA REPORT (PART5)</p>
                                                     <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia5.jpg">
                                                 </figure>
                                                 </center>
@@ -195,16 +207,16 @@
                                         {{trans('education.giaPara11.1')}}
 
                                         <hr>
-                                        <center><p class="title is-6">{{trans('education.giaTitle8')}}</p></center>
-                                        <div class="row justify-content-center">
-                                            <div class="col-md-8">
+                                        <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle8')}}</p></center>
+                                        <div class="grid grid-cols-12">
+                                            <div class="col-span-8">
                                                 <li>{{trans('education.giaPara12')}}</li>                                
                                             </div>
-                                            <div class="col">
+                                            <div class="col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure >
-                                                  <p>GIA REPORT (PART3)</p>
+                                                  <p>GIA REPORT (PART6)</p>
                                                     <img class="img-thumbnail" src="/images/front-end/education/gia-report/gia6.jpg">
                                                 </figure>
                                                 </center>
@@ -219,9 +231,9 @@
                                         <br>
                                         <br>
                                         
-                                        <div class="row justify-content-center text-center">
-                                            <div class="col-10">
-                                                <h2 class="title is-5"><span>&nbsp;</span><strong><a>{{trans('home.Must Watch')}} : </a></strong><small>{{trans('home.GIA Teaches You 4Cs')}} - {{trans('home.How To Choose Giamond')}}</small></h2>
+                                        <div class="grid grid-cols-12 text-center">
+                                            <div class="col-span-10">
+                                                <h2 class="sm:text-xl font-semibold"><span>&nbsp;</span><strong><a>{{trans('home.Must Watch')}} : </a></strong><small>{{trans('home.GIA Teaches You 4Cs')}} - {{trans('home.How To Choose Giamond')}}</small></h2>
                                                 @include('layouts.components.giaVideo')
                                             </div>
                                         </div>

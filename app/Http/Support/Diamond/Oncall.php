@@ -11,7 +11,7 @@ use GuzzleHttp\Exception\RequestException;
 
 trait Oncall{
 
-	 protected $diamondSource = [];
+   protected $diamondSource = [];
 
     function __construct()
     {
@@ -129,14 +129,14 @@ trait Oncall{
     }
 
 
-  	public function importDiamondFromAPI_1000_PerBatch($countingPage, $selectedID = 'VRU STAR (HK) LIMITED'){
+    public function importDiamondFromAPI_1000_PerBatch($countingPage, $selectedID = 'VRU STAR (HK) LIMITED'){
           $data = $this->guzzleRequest($this->diamondSource,$selectedID,$countingPage);
           $extractedDiamonds = $this->importDiamondsFromWebJson($data,$selectedID);   
 
           return $extractedDiamonds;
-  	}
+    }
 
-   	public function importDiamondFromWebJson($name, $startindex){
+    public function importDiamondFromWebJson($name, $startindex){
 
       $selectedID = $name;
       

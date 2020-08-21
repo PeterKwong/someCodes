@@ -61,12 +61,12 @@ class CustomerController extends Controller
 
     public function update(Request $request, $id)
     {
-    	    	$this->validate($request, [
+    	$this->validate($request, [
     		'name'  => 'required',
     		'phone' =>'required',
     		]);
-    	dd($customer = Customer::findOrFail($id));
-    	$customer->update($request->except(['created_at', 'updated_at']));
+    	$customer = Customer::findOrFail($id);
+    	$customer->update($request->except(['created_at','updated_at']));
 
     	return response()
     		->json([

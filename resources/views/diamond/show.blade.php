@@ -27,57 +27,6 @@
         <meta property="article:modified_time" content="2013-09-16T19:08:47+01:00" />
         <meta property="article:tag" content="@include('diamond.keywords')" /> 
 
-        
-        <style>
-
-        hr{
-            border: 0.2px solid white;
-        }
-
-/*        body, html {
-          height: 100%;
-          margin: 0;
-          color: #777;
-        }
-        .cut-bg, .clarity-bg, .bgimg-3 {
-          position: relative;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-*/
-        .clarity-bg {
-            /* The image used */
-            background-image: url("/images/front-end/diamond_show/diamond_clarity.jpg");
-
-            /* Full height */
-            height: 100%; 
-
-        }
-/*        .caption {
-          left: 0;
-          top: 50%;
-          width: 100%;
-          text-align: left;
-          color: #000;
-          padding: 80px;
-        }
-
-        .caption span.border {
-          color: #fff;
-          font-size: 25px;
-          border: 40px;
-        }
-
-        .caption span.cut-text {
-          font-weight: bold;
-          width: 80px;
-          text-align: left;
-          color: #fff;
-          font-size: 15px;
-          border: 40px;
-        }*/
-        </style>
 
         <!-- Fonts -->
        
@@ -86,69 +35,62 @@
     @endSection
 
     @section('content')
-        <div id="diamondViewerShow" class="container">
+        <div id="diamondViewerShow" class="p-8 sm:px-16 md:px-32">
 
-            <div class="row justify-content-center p-20" >
-                <div class="col-12">
+            <div class="flex justify-center p-6" >
                     <center> 
-                    <h1 class="text-secondary">{{$diamond->weight}} {{trans('diamondSearch.carat')}}
+                    <h1 class="text-gray-600 sm:text-2xl">{{$diamond->weight}} {{trans('diamondSearch.carat')}}
                             {{$diamond->clarity}} {{trans('diamondSearch.Clarity')}} 
                             {{$diamond->color}} {{trans('diamondSearch.Color')}} 
                             {{$diamond->cut?$diamond->cut:''}}  {{$diamond->cut?trans('diamondSearch.Cut'):''}} 
                             {{trans('diamondSearch.' . $diamond->shape)}} {{trans('diamondSearch.diamond')}}</h1>                        
                     </center>
-                    
-                </div>
             </div>
 
-            <div class="row justify-content-center p-20">
+            <div class="grid grid-cols-1 sm:grid-cols-2 px-6">
                 <keep-alive>
-                    <div class="col-sm-6 box">
+                    <div class="box">
                         <div v-if="!loadingStatus.image">
                             <center>
-                            <img class="img-responsive" src="/images/front-end/loader.gif"  width="200">
+                            <img class="w-auto" src="/images/front-end/loader.gif"  width="200">
                             </center>
                         </div>
                         <div v-if="loadingStatus.image">
-                            <figure class="image">
+                            <div class="p-2">
                             <div v-if="diamond.image_cache && selectingShowType == 'image' ">
-                                <img class="img-responsive" :src="storageURL + 'images/' + diamond.id + '.jpg' " width="100%" height="auto" ></img>
+                                <img class="w-auto" :src="storageURL + 'images/' + diamond.id + '.jpg' " width="100%" height="auto" ></img>
                             </div>
                             <div v-if=" selectingShowType == 'video' ">
                                 <iframe :src=" '/redirect?url=' + diamond.video_link" width="100%" height="700" ></iframe>
                             </div>
                             <div v-if="diamond.plot && selectingShowType == 'plot' ">
-                                <img class="img-responsive" :src="storageURL + 'plots/' + diamond.id + '.jpg' "  width="100%" height="auto"></img>
+                                <img class="w-auto" :src="storageURL + 'plots/' + diamond.id + '.jpg' "  width="100%" height="auto"></img>
                             </div>
                             <div v-if="!diamond.image_cache && selectingShowType == null">
-                                <img class="img-responsive" :src="`/images/front-end/diamond_show/RoundDiamonds_sample.png`" width="100%" height="auto"></img>
+                                <img class="w-auto" :src="`/images/front-end/diamond_show/RoundDiamonds_sample.png`" width="100%" height="auto"></img>
                             </div>
-                            </figure>
+                            </div>
                         </div>
 
-                        <div>
-                            <center>
-                                <img v-if="diamond.image_cache" @click="selectingShowType = 'image'"  :src="storageURL + 'images/' + diamond.id + '.jpg' " width="20%" height="auto" ></img>
-                                <img v-if="diamond.plot" :src="storageURL + 'plots/' + diamond.id + '.jpg' " @click="selectingShowType = 'plot'" width="200"></img>
-                                <img v-if="diamond.video_link" @click="selectingShowType = 'video'"  :src="`/images/front-end/diamond_show/d360_degree.png`" width="20%" height="auto" ></img>
-                            </center>
+                        <div class="flex items-center w-2/6">
+                                <img v-if="diamond.image_cache" @click="selectingShowType = 'image'"  :src="storageURL + 'images/' + diamond.id + '.jpg' " class="p-2 w-auto" ></img>
+                                <img v-if="diamond.plot" :src="storageURL + 'plots/' + diamond.id + '.jpg' " @click="selectingShowType = 'plot'" class="p-2 w-auto "></img>
+                                <img v-if="diamond.video_link" @click="selectingShowType = 'video'"  :src="`/images/front-end/diamond_show/d360_degree.png`" class="p-2 w-auto" ></img>
                         </div>
                     </div>
                 </keep-alive>
 
-                <div class="col-sm-6 box">
-                    <article class="message is-primary">
+                <div class="box p-4">
                      
                       <div class="message-body">
                         <center>
                             <strong v-if="diamond.available">
-                                <h3 class="text-primary background-op-008-primary box">{{__('diamondSearch.Price')}} HK$: {{$diamond->price}}</h3>
+                                <h3 class="text-primary text-2xl">{{__('diamondSearch.Price')}} HK$: {{$diamond->price}}</h3>
                             </strong>
-                            <strong v-if="diamond.available != '1'"><p> {{__('diamondSearch.Sold')}}</p></strong>
+                            <strong v-if="!diamond.available"><p class="text-2xl"> {{__('diamondSearch.Sold')}}</p></strong>
                         </center>
                       </div>
-                    </article>
-                    <article>
+                      <div class="p-2">
                         <center>
                             
                             <shopping-cart :item="diamond" :type="shoppingCartType" :title="appointmentTitle" ></shopping-cart>
@@ -156,97 +98,107 @@
                             <button  v-if="diamond.location == '1Hong Kong' " class="btn btn-primary" @click="appointmentState=!appointmentState">{{trans('diamondSearch.Appointment')}}</button>
                             <appointment  v-model="diamond" :title="appointmentTitle" @active="appointmentState=!appointmentState" :active="appointmentState" :columns="columns" :processing="false" :langs="langs" :locale="locale"></appointment>
                         </center>
+                      </div>
+
                         <br>
                         <p>
                         {{trans('diamondSearch.For more detailed information, can reach GIA website query')}}：
                         </p>
                         <a :href="`https://www.gia.edu/report-check?reportno=${diamond.certificate}`">
-                            <div class="level">
-                            <figure class="image">
-                                <img class="img-responsive" src="https://www.gia.edu/onlineopinionV5/GIA-Logo.png" width="100%">
-                            </figure>
-                            <p class="btn btn-primary">GIA {{trans('diamondSearch.Certificate Download')}}</p>
+                            <div class="">
+                            <div class="w-auto">
+                                <img class="w-auto" src="https://www.gia.edu/onlineopinionV5/GIA-Logo.png" class="w-auto">
+                            </div>
+                            <button class="btn btn-primary">GIA {{trans('diamondSearch.Certificate Download')}}</pbutton>
                             </div>
                         </a>
-                    </article>
-
-                    <article>
-                        <table class="table is-striped is-fullwidth">
-                        <thead>
-                            <tr>
-                                <th>{{trans('diamondSearch.Diamond Info')}} ( {{__($diamond->shape)}} )</th>
-                            </tr>
-                        </thead>
+                       
+                            <div class="grid grid-cols-12">
+                                <div class="col-span-6 p-2 border-b text-lg font-semibold">{{trans('diamondSearch.Diamond Info')}}</div>
+                                <div class="col-span-6 p-2 border-b"> ( {{__($diamond->shape)}} )</div>
+                            </div>
                             
-                        <tbody>
-                            <tr><td>{{trans('diamondSearch.Stock no')}}</td><td> TD-LD{{$diamond->location}}-{{$diamond->id}}</td></tr>
-                            <tr><td>{{trans('diamondSearch.Carat Weight')}}</td><td>{{$diamond->weight}}</td></tr>
-                            <tr><td>{{trans('diamondSearch.Color Grade')}}</td><td>{{$diamond->color}}</td></tr>
-                            <tr><td>{{trans('diamondSearch.Clarity Grade')}}</td><td>{{$diamond->clarity}}</td></tr>
-                            <tr><td>{{trans('diamondSearch.Cut Grade')}}</td><td>{{$diamond->cut}}</td></tr>
-                        </tbody>
-
-                        <thead>
-                            <tr>
-                                <th>{{trans('diamondSearch.Finish')}}</th>
-                            </tr>
-                        </thead>
-                            
-                        <tbody>
-                            <tr><td>{{trans('diamondSearch.Polish')}}</td><td>{{$diamond->polish}}</td></tr>
-                            <tr><td>{{trans('diamondSearch.Symmetry')}}</td><td>{{$diamond->symmetry}}</td></tr>
-                        </tbody>
-
-                        <thead>
-                            <tr>
-                                <th>{{trans('diamondSearch.Fluorescence')}}</th>
-                            </tr>
-                        </thead>
-                            
-                        <tbody>
-                            <tr><td>{{trans('diamondSearch.Fluorescence')}}</td><td>{{$diamond->fluorescence}}</td></tr>
-                        </tbody>
+                       
                         
-                        <thead>
-                            <tr>
-                                <th>{{trans('diamondSearch.Certificate')}}</th>
-                            </tr>
-                        </thead>
-                            
-                        <tbody>
-                            <a :href="`https://www.gia.edu/report-check?reportno=${diamond.certificate}`">
-                            <tr><td>{{trans('diamondSearch.Certificate')}}</td><td>{{$diamond->certificate}}</td></tr>
-                            </a>
-                        </tbody>
+                            <div class="grid grid-cols-12">
+                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Stock no')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light"> TD-LD{{$diamond->location}}-{{$diamond->id}}</div>
+                            </div>
+                            <div class="grid grid-cols-12">
+                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Carat Weight')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->weight}}</div>
+                            </div>
+                            <div class="grid grid-cols-12">
+                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Color Grade')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->color}}</div>
+                            </div>
+                            <div class="grid grid-cols-12">
+                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Clarity Grade')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->clarity}}</div>
+                            </div>
 
-                        </table>
-                    </article>
+
+                            <div class="grid grid-cols-12">
+                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Cut Grade')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->cut}}</div>
+                            </div>
+                       
+
+
+                       
+                        
+                            <div class="grid grid-cols-12">
+                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Polish')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->polish}}</div>
+                            </div>
+                            <div class="grid grid-cols-12">
+                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Symmetry')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->symmetry}}</div>
+                            </div>
+                       
+
+
+                       
+                        
+                            <div class="grid grid-cols-12">
+                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Fluorescence')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->fluorescence}}</div>
+                            </div>
+                       
+
+                       
+                        
+                            <div class="grid grid-cols-12">
+                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Certificate')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->certificate}}</div>
+                            </div>
+                       
+
 
                 </div>
             </div>
 
-            <div class="row justify-content-center p-20">
-                <div class="col">
+            <div class="flex justify-center">
+                <div class="flex-auto p-4">
                     <div v-if="!loadingStatus.cert">
                         <center>
-                            <img class="img-responsive" src="/images/front-end/loader.gif" width="200">
+                            <img class="w-auto" src="/images/front-end/loader.gif" >
                         </center>
                     </div>
 
-                    <div v-if="loadingStatus.cert">
-                        <img class="img-responsive" :src="storageURL + 'certs/' + diamond.id + '.jpg' " type="application/pdf" height="auto" width="100%" v-if="diamond.cert_cache">
+                    <div v-if="loadingStatus.cert" class="flex justify-center" >
+                        <img class="w-auto" :src="storageURL + 'certs/' + diamond.id + '.jpg' "  v-if="diamond.cert_cache">
                     </div>
 
 
                 </div>
             </div>
 
-            <div class="row justify-content-center p-20">
-                <div class="col">
+            <div class="flex justify-center p-4">
+                <div class="flex-auto">
                     <div class="image-background" style="background-image: url('/images/front-end/diamond_show/diamond_cut.jpg'); background-repeat: no-repeat; background-size: cover;">
-                        <div class="p-70">
-                            <h3 class="text-white">{{trans('diamondSearch.Cut Grade')}}: @{{diamond.cut}}</h3>
-                            <hr style="text-decoration: whi">
+                        <div class="p-8 sm:p-24 lg:p-56">
+                            <h3 class="text-white border-b border-white sm:text-2xl">{{trans('diamondSearch.Cut Grade')}}: @{{diamond.cut}}</h3>
                             <span class="text-white" v-if="diamond.cut == 'EX' || diamond.cut == 'Excellent'">{{trans('diamondSearch.cutEx')}}
                             <br>
                             </span>
@@ -257,7 +209,7 @@
                             <br>
                             </span>
                             <span class="text-white">{{trans('diamondSearch.Want to learn even more about cut')}}? 
-                               <a :href=" localeHref+ 'education-diamond-grading/4cs/cut/'">{{__('diamondSearch.Learn More')}}<br>
+                               <a class="text-blue-400" :href=" localeHref+ 'education-diamond-grading/4cs/cut/'">{{__('diamondSearch.Learn More')}}<br>
                                </a>
                             </span>
                             <span class="text-white">
@@ -268,10 +220,10 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center p-20">
-                <div class="col">
+            <div class="flex justify-center p-4">
+                <div class="flex-auto">
         
-                    <h3 class="p-20">
+                    <h3 class="sm:text-2xl">
                         {{trans('diamondSearch.DIAMOND SIZE')}}: @{{diamond.weight}} {{__('diamondSearch.Carat')}}
                     </h3>
                     <br>
@@ -283,36 +235,34 @@
                         {{trans('diamondSearch.caratDescription1')}}
                     </p1>
                                        
-                    <a :href=" localeHref+ 'education-diamond-grading/4cs/carat/'">
+                    <a class="text-blue-400" :href=" localeHref+ 'education-diamond-grading/4cs/carat/'">
                         {{trans('diamondSearch.Learn More')}}
                     </a>
                                        
                     <br>
                                 
-                    <img class="img-responsive" src="/images/front-end/diamond_show/diamond_weight.jpg" width="100%">
+                    <img class="w-auto" src="/images/front-end/diamond_show/diamond_weight.jpg" width="100%">
                         
 
                 </div>
             </div>
                 
-            <div class="row justify-content-center p-20">
-                <div class="col">
+            <div class="flex justify-center p-4">
+                <div class="flex-auto">
                     <article>
-                        <div class="columns">
-                            <div class="column is-6">
-                            
-                                <center>
-                                    <h3 class="title is-5 is-primary">
-                                        {{trans('diamondSearch.Diamond Color')}}: @{{diamond.color}} 
-                                    </h3>
-                                    <br>
-                                </center>
-                            
-                            </div>
+                        <div class="">
+                        
+                            <center>
+                                <h3 class="sm:text-2xl">
+                                    {{trans('diamondSearch.Diamond Color')}}: @{{diamond.color}} 
+                                </h3>
+                                <br>
+                            </center>
+                        
                         </div>
 
-                        <div class="row justify-content-center">
-                            <div class="col-6">
+                        <div class="flex justify-center">
+                            <div class="flex-auto">
                                 <center>
                                     <span class="cut-text" v-if="diamond.color == 'D' ||diamond.color == 'E' || diamond.color == 'F'">{{trans('diamondSearch.colorDtoF')}}
                                     <br>
@@ -337,7 +287,7 @@
 
                                 <center>
                                     {{trans('diamondSearch.Want to learn even more about colour')}}?
-                                    <a :href=" localeHref+ 'education-diamond-grading/4cs/color/'">
+                                    <a class="text-blue-400" :href=" localeHref+ 'education-diamond-grading/4cs/color/'">
                                     {{trans('diamondSearch.Learn More')}}
                                     </a>
                                     </center>
@@ -345,7 +295,7 @@
                                 </center>
                                 
                             </div>
-                            <div class="col-6">
+                            <div class="flex-auto">
                                 <center>
                                     <p1 class="subtitle is-6">
                                         <li>{{trans('diamondSearch.colorDescription')}}
@@ -361,15 +311,15 @@
                             </div>
                             <br>
                         </div>
-                        <img class="img-responsive" src="/images/front-end/diamond_show/diamond_color.jpg" width="100%">
+                        <img class="w-auto" src="/images/front-end/diamond_show/diamond_color.jpg" width="100%">
                     </article>
                 </div>
             </div>
 
-            <div class="row justify-content-center p-20">
-                <div class="col">
-                    <div style="background-image: url('/images/front-end/diamond_show/diamond_clarity.jpg');">
-                        <div class="p-70">
+            <div class="flex justify-center p-4">
+                <div class="flex-auto">
+                    <div style="background-image: url('/images/front-end/diamond_show/diamond_clarity.jpg'); background-repeat: no-repeat; background-size: cover;">
+                        <div class="p-8 sm:p-24 lg:p-56">
                             <h3 class="text-white">{{trans('diamondSearch.Clarity')}}: @{{diamond.clarity}}</h3>
                             <hr style="border: 0.2px solid white; ">
                                 <span class="text-white" v-if="diamond.clarity == 'I1' ">{{trans('diamondSearch.clarityI')}}
@@ -394,7 +344,7 @@
                             <span class="text-white">
                                 {{trans('diamondSearch.clarityDescription')}}?
                                 <br>
-                                <a :href="localeHref+ 'education-diamond-grading/4cs/clarity/'">
+                                <a class="text-blue-400" :href="localeHref+ 'education-diamond-grading/4cs/clarity/'">
                                     {{trans('diamondSearch.Learn More')}}
                                 </a>
                             </span>

@@ -1,13 +1,14 @@
 <template>
-  <div>
+  <div class="z-10">
 
     <div v-if="notification.state.success || notification.state.error || notification.contactMessage.active" @click="resetArray()">
       <transition name="modal">
         <div class="modal-mask">
+          <button tabindex="-1" class="modal-button"></button>          
           <div class="modal-wrapper">
             <div class="modal-dialog modal-dialog-centered" role="document" @click="resetArray()">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header border-b">
 
                   <h5 class="modal-title"></h5>
 
@@ -15,15 +16,15 @@
                     <span aria-hidden="true" @click="resetArray()">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body p-2">
                   <div v-if="notification.state.success">
-                    <div class="notification is-info" v-if="!Array.isArray(notification.state.success)">
+                    <div class="notification is-info w-64" v-if="!Array.isArray(notification.state.success)">
                       <center>
                         {{notification.state.success}}
                       </center>
                     </div>
 
-                    <div class="notification is-info" v-if="Array.isArray(notification.state.success)">
+                    <div class="notification is-info w-64" v-if="Array.isArray(notification.state.success)">
 
                       <ol type="1">
                         <div v-for="message in notification.state.success">
@@ -36,13 +37,13 @@
 
 
                   <div v-if="notification.state.error">
-                    <div class="notification is-info" v-if="!Array.isArray(notification.state.error)">
+                    <div class="notification is-info w-64" v-if="!Array.isArray(notification.state.error)">
                       <center>
                         {{notification.state.error}}
                       </center>
                     </div>
 
-                    <div class="notification is-info" v-if="Array.isArray(notification.state.error)">
+                    <div class="notification is-info w-64" v-if="Array.isArray(notification.state.error)">
 
                       <ol type="1">
                         <div v-for="message in notification.state.error">
@@ -54,18 +55,18 @@
                   </div>
 
 
-                  <div class="row" v-if="notification.contactMessage.active">
-                    <div class="col-3">
+                  <div class="grid grid-cols-12" v-if="notification.contactMessage.active">
+                    <div class="col-span-4">
                       <img width="128" src="/images/front-end/aboutUs/wechat.jpg">
                     </div>
-                    <div class="col">
+                    <div class="col-span-8">
                       <div class="content">
                           <div v-if="notification.contactMessage.trans">
-                            <p >
+                            <p class="text-2xl p-1">
                               <strong>{{notification.contactMessage.title |transJs(langs) }}</strong> <small>@Admin</small>
                               <br>
                             </p> 
-                            <p class="subtitle is-5" :class="notification.contactMessage.type" v-for="dat in notification.contactMessage.data">
+                            <p :class="notification.contactMessage.type" v-for="dat in notification.contactMessage.data">
                               {{dat  |transJs(langs) }}
                             </p>
                             <a :href="notification.contactMessage.next.nextUrl" target="_blank">
@@ -81,32 +82,31 @@
                             </p>
 
 
-                            <p class="subtitle is-5" :class="notification.contactMessage.type" v-for="dat in notification.contactMessage.data">
+                            <p class="text-lg p-1" :class="notification.contactMessage.type" v-for="dat in notification.contactMessage.data">
                               {{dat }}
                             </p>
 
 
-                            <a :href="notification.contactMessage.next.nextUrl" target="_blank">
+                            <a  class="text-lg p-1" :href="notification.contactMessage.next.nextUrl" target="_blank">
                               <i class="fas fa-search-plus"></i>
                               {{mutualVar.notification.contactMessage.next.nextText  }}
                             </a>
                           </div>
                         </div>
 
-                        <nav class="level is-mobile">
-                          <div class="level-left">
-                            <a class="level-item" aria-label="reply" href="https://api.whatsapp.com/send?phone=85252376008" target="_blank">
-
+                        <div class="flex p-1">
+                            <a class="text-blue-500" aria-label="reply" href="https://api.whatsapp.com/send?phone=85252376008" target="_blank">
+                              Whatsapp
+                            </a>
+                            <a class="text-green-500" aria-label="reply" href="https://api.whatsapp.com/send?phone=85252376008" target="_blank">
                               <span class="icon is-large">
-                          <span class="fa-stack fa-lg">
-                                <i class="fab fa-whatsapp-square"></i>
-                          </span>
-                        </span>
-                        Whatsapp
+                                    <span class="fa-stack fa-lg">
+                                          <i class="fab fa-whatsapp-square"></i>
+                                    </span>
+                              </span>
                             </a>
                             
-                          </div>
-                        </nav>
+                        </div>
                     </div>
                   </div>
 
@@ -130,8 +130,9 @@
     </div>
 
 
-  
+    </div>
   </div>
+
 </template>
 
 <script>

@@ -29,12 +29,12 @@
 
 
         <div id="education">
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="p-4">
+                <div class="">
                     <br>
 
-                    <div class="row justify-content-center text-center" >
-                        <div class="col-sm-2">
+                    <div class="grid grid-cols-12 text-center" >
+                        <div class="col-span-2 col-start-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" :src="'/images/front-end/education/carat/pageImage.jpg'" >
@@ -42,9 +42,9 @@
                             </center>
                             
                         </div>
-                        <div class="col">
+                        <div class="col-span-8">
                             <center>
-                                <h3 class="title is-5">{{__('diamondPolish.WHAT IS DIAMOND POLISH ?')}}</h3>
+                                <h3 class="sm:text-xl font-semibold">{{__('diamondPolish.WHAT IS DIAMOND POLISH ?')}}</h3>
                                 {{__('diamondPolish.The diamond polish affects the ability of light coming out from the diamond. The integration of brilliant in the diamond is a very very important factor.')}}   
                             </center>
                         </div>
@@ -52,23 +52,41 @@
 
                     <br>
 
-                    <div class="row justify-content-center text-center" >
-                        <div class="col">
+                    <div class="grid grid-cols-12 text-center" >
+                        <div class="col-span-12 sm:col-span-10">
 
-                        @include('layouts.education.anatony')
+                            <ul class="flex justify-center items-center border-b" id="myTab" role="tablist">
+                              <li class="">
+                                <a class="text-blue-600 text-center px-2" id="carat-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/shape" role="tab" aria-controls="carat" aria-selected="true">{{__('diamondShape.Diamond Shape')}}</a>
+                              </li>
+                              <li class="">
+                                <a class="text-blue-600 text-center px-2" id="cut-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/hearts-and-arrows" role="tab" aria-controls="cut" aria-selected="true">{{__('diamondHeartArrow.Hearts And Arrows diamond')}}</a>
+                              </li>
+                              <li class="">
+                                <a class="text-blue-600 text-center px-2" id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/proportion" role="tab" aria-controls="color" aria-selected="true">{{__('diamondProportion.Anatomy Proportion')}}</a>
+                              </li>
+                              <li class="">
+                                <a class="text-blue-600 text-center px-2" id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/symmetry" role="tab" aria-controls="color" aria-selected="true">{{__('diamondSymmetry.Anatomy Symmetry')}}</a>
+                              </li>
+                              <li class="">
+                                <a class="nav-link bg-blue-300 text-white" id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/polish" role="tab" aria-controls="color" aria-selected="true">{{__('diamondPolish.Anatomy Polish')}}</a>
+                              </li>
+                              <li class="">
+                                <a class="text-blue-600 text-center px-2" id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/fluorescence" role="tab" aria-controls="color" aria-selected="true">{{__('diamondFluorescence.Anatomy Fluorescence')}}</a>
+                              </li>
+                            </ul>
 
-
-                        <div class="row justify-content-center text-center">
-                            <div class="col-10">
+                        <div class="grid grid-cols-12 text-center">
+                            <div class="col-span-12">
                                 <article class="message is-primary" >
                                     <div class="level is-centered">
                                     
-                                    <div class="row justify-centent-center text-left">
-                                          <div class="col-10">
+                                    <div class="grid grid-cols-12 text-left">
+                                          <div class="col-span-10">
                                         
-                                                <div class="message-body">
+                                                <div class="">
 
-                                                    <center><p class="title is-6">{{trans('diamondPolish.DIAMOND POLISH')}}</p>
+                                                    <center><p class="sm:text-xl font-semibold">{{trans('diamondPolish.DIAMOND POLISH')}}</p>
                                                       <li>{{trans('diamondPolish.para1')}}</li>
                                                     </center>
                                                     <div class="level">
@@ -91,7 +109,7 @@
                                                  
                                           </div>
 
-                                      <div class="col">
+                                      <div class="col-span-2">
 
                                          <a class="">
                                             <center>  

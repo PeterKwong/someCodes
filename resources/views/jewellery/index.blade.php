@@ -35,7 +35,7 @@
         <br>
             <div class="row" >
                 <div class="col-12">
-                    <center><h3 class="title is-5">{{trans('jewellery.metaTitle2')}}</h3>                        
+                    <center><h3 class="sm:text-2xl">{{trans('jewellery.metaTitle2')}}</h3>                        
                     </center>
                     
                 </div>

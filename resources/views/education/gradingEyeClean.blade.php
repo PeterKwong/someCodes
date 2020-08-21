@@ -29,12 +29,12 @@
 
 
         <div id="education">
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="p-4">
+                <div class="">
                     <br>
 
-                    <div class="row justify-content-center text-center" >
-                        <div class="col-sm-2">
+                    <div class="grid grid-cols-12 text-center" >
+                        <div class="col-span-2 col-start-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" :src="'/images/front-end/education/' + activedSubTab +'/pageImage.jpg'"  >
@@ -42,7 +42,7 @@
                             </center>
                             
                         </div>
-                        <div class="col">
+                        <div class="col-span-8">
                             <center>
                                 <h3 class="title is-5">{{__('education.eyeCleanTitle1')}}</h3>
                                 {{__('education.According to their ratings, GIA diamond gradings of clarity in Flawless (FL), within Internal Flawless (IF), very very slight (VVS), and slight (VS) are eye clean visually')}}
@@ -52,10 +52,20 @@
 
                     <br>
 
-                    <div class="row justify-content-center text-center" >
-                        <div class="col">
+                    <div class="grid grid-cols-12 text-center" >
+                        <div class="col-span-12 sm:col-span-10">
 
-                            @include('layouts.education.gradingCert')
+                            <ul class="flex justify-center items-center border-b" id="myTab" role="tablist">
+                              <li class="">
+                                <a class="text-blue-600 text-center px-2"  id="carat-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report/grading-certficate" role="tab" aria-controls="carat" aria-selected="true">{{__('education.Diamond certficate')}}</a>
+                              </li>
+                              <li class="">
+                                <a class="text-blue-600 text-center px-2"  id="cut-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report" role="tab" aria-controls="cut" aria-selected="true">{{__('education.Gia Report')}}</a>
+                              </li>
+                              <li class="">
+                                <a class="nav-link bg-blue-300 text-white"  id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report/grading-eye-clean" role="tab" aria-controls="color" aria-selected="true">{{__('education.Eye Clean Diamond')}}</a>
+                              </li>
+                            </ul>
                             
                             <br>
 
@@ -65,11 +75,11 @@
                                 <center>
 
                                 <center><p class="title is-6">{{trans('education.eyeCleanTitle1')}}</p></center>
-                                <div class="row justify-content-center">
-                                    <div class="col-md-10">
+                                <div class="grid grid-cols-12">
+                                    <div class="col-span-10">
                                         <li>{{trans('education.eyeCleanPara1')}}</li>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-span-2">
                                         <a>
                                         <center>  
                                           <p>{{__('education.Eye Clean Diamond')}}</p>

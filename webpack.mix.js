@@ -25,6 +25,7 @@ mix.autoload({
 	.postCss('resources/css/main.css', 'public/css', [
 	  require('tailwindcss'),
 	]).version()
+	
 	// .styles(['public/css/front-end/home.css', 
 	// 		 'public/css/front-end/home-m.css',
 	// 		 'public/css/front-end/home-images.css',

@@ -6,7 +6,7 @@ import ImageCarousel from '../../../components/imageCarousel.vue'
 import mutualVar from '../../../helpers/mutualVar'
 
 export default {
-		el: '#customerJewellryIndex',
+		el: '#customerJewelleryIndex',
 		components: {ImageCarousel},
 	data(){
 		return {

@@ -8,6 +8,7 @@
       <div v-if="mutualVar.cookiesInfo.shoppingCart.modalActive">
           <transition name="modal">
             <div class="modal-mask">
+            <button tabindex="-1" class="modal-button"></button>
               <div class="modal-wrapper">
                 <div class="modal-dialog modal-dialog-centered" role="document" @click="toggleModal()">
                   <div class="modal-content">
@@ -20,7 +21,7 @@
                         <span aria-hidden="true" @click="toggleModal()">&times;</span>
                       </button>
                     </div>
-                      <div class="modal-body">
+                      <div class="modal-body mx-12 mb-4">
                         <center>
                             <div v-for="option in nextProcedure.modalOptions">
                                 <div @click="toggleModal()">
@@ -32,7 +33,7 @@
                                 </div>
                             </div>
 
-                          <button class="btn btn-primary" :disabled="!nextProcedure.addToCart.clickable" @click="addItemToCart()">{{nextProcedure.addToCart.text |transJs(langs, mutualVar.langs.localeCode)}}</button>
+                          <button class="btn btn-primary hover:bg-blue-500" :class="{'opacity-50':!nextProcedure.addToCart.clickable}" :disabled="!nextProcedure.addToCart.clickable" @click="addItemToCart()">{{nextProcedure.addToCart.text |transJs(langs, mutualVar.langs.localeCode)}}</button>
                         </center>
 
                       </div>
@@ -45,38 +46,7 @@
       </div>
     </div>
                
-<!--             <button class="btn btn-info" @click="selectItem()">{{'Select this Item' |transJs(langs, mutualVar.langs.localeCode)}}</button>
 
-            <div v-if="mutualVar.cookiesInfo.shoppingCart.haveShoppingCart">
-
-                <div class="modal" :class="{'is-active' : mutualVar.cookiesInfo.shoppingCart.modalActive}">
-                  <div class="modal-background" @click="toggleModal()"></div>
-                  <div class="modal-card">
-
-                    <section class="modal-card-body">
-                        <center>
-                            <div v-for="option in nextProcedure.modalOptions">
-                                <div @click="toggleModal()">
-                                    <a :href="`${option.url}`">
-                                      <button class="btn btn-primary" :disabled="!option.clickable" >
-                                        {{option.text |transJs(langs, mutualVar.langs.localeCode)}}
-                                      </button>
-                                    </a>
-                                </div>
-                            </div>
-
-                          <button class="btn btn-primary" :disabled="!nextProcedure.addToCart.clickable" @click="addItemToCart()">{{nextProcedure.addToCart.text |transJs(langs, mutualVar.langs.localeCode)}}</button>
-                        </center>
-
-                    </section>
-
-                      <button class="modal-close is-large" aria-label="close" @click="toggleModal()"></button>
-
-                  </div>
-                </div>
-
-            </div>
- -->
     </div>
 </template>
 

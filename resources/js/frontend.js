@@ -128,7 +128,7 @@ if (!pUrl.includes('/jewellery/necklaces') && !pUrl.includes('/jewellery/earring
     }
 
 //Customer share
-if (pUrl =='/customer-jewellery' ||pUrl.includes('/engagement-tips')) {
+if (pUrl =='/customer-jewellery' || pUrl.includes('/engagement-tips')) {
     const customerJewelleryIndex =  new Vue(CustomerJewelleryIndex);
 }
 if (window.location.pathname.slice(4,23) == 'customer-jewellery/') {
@@ -145,7 +145,7 @@ if (pUrl.includes('/education-diamond-grading')) {
 }
 
 //buying procedure
-if ( pUrl.includes('about-us') || pUrl.includes('buying-procedure')) {
+if ( pUrl.includes('about-us') || pUrl.includes('buying-procedure') ) {
     const aboutUs =  new Vue(AboutUs);
 }
 

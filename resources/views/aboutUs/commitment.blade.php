@@ -28,8 +28,8 @@
     @section('content')
         <br>
             <div class="row" >
-                <div class="col-12">
-                    <center><h3 class="title is-5">{{trans('aboutUs.About Us')}}</h3>                 {{trans('buyingProcedure.First to buy diamonds, then buy ring setting')}}     
+                <div class="col-span-12">
+                    <center><h3 class="sm:text-lg font-semibold">{{trans('aboutUs.About Us')}}</h3>                 {{trans('buyingProcedure.First to buy diamonds, then buy ring setting')}}     
                     </center>
                     
                 </div>
@@ -37,28 +37,29 @@
 
 
         <div id="aboutUs">
-          <div class="row justify-content-center">
-            <div class="col-11">
+          <div class="">
+            <div class="">
 
             <br>
 
-            <div class="row justify-content-center">
-              <div class="col">
-                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{url(app()->getLocale() . '/about-us' )}} " >{{trans('aboutUs.Contact Us')}}</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link " href="{{url(app()->getLocale() . '/about-us/guarantee' )}}" >{{trans('aboutUs.Quality Guarantee')}}</a>
-                  </li> 
-                  <li class="nav-item active show">
-                    <a class="nav-link"  href="{{url(app()->getLocale() . '/about-us/commitment' )}}">{{trans('aboutUs.Satification Insurence')}}</a>
-                  </li>                 
-                </ul>
+            <div class="grid grid-cols-12">
+              <div class="col-span-12 sm:col-span-10">
+                  <ul class="flex justify-center items-center border-b" id="myTab" role="tablist">
+                    <li class="">
+                      <a class="text-blue-600 text-center px-2" href="{{url(app()->getLocale() . '/about-us' )}} " >{{trans('aboutUs.Contact Us')}}</a>
+                    </li>
+                    <li class="">
+                      <a class="text-blue-600 text-center px-2" href="{{url(app()->getLocale() . '/about-us/guarantee' )}}" >{{trans('aboutUs.Quality Guarantee')}}</a>
+                    </li> 
+                    <li class="">
+                      <a class="nav-link bg-blue-300 text-white"  href="{{url(app()->getLocale() . '/about-us/commitment' )}}">{{trans('aboutUs.Satification Insurence')}}</a>
+                    </li>                 
+                  </ul>
+
                 <br>
 
-                <div class="row justify-content-center">
-                  <div class="col-3">
+                <div class="grid grid-cols-12">
+                  <div class="col-span-3">
                     <a class="">
                         <center>  
                             <figure class="image">
@@ -69,9 +70,9 @@
                     </a>
                   </div>
 
-                  <div class="col">
+                  <div class="col-span-9">
                     <center>
-                      <center><p class="title is-6">{{trans('aboutUs.title6')}}</p>
+                      <center><p class="sm:text-lg font-semibold">{{trans('aboutUs.title6')}}</p>
                       </center>
                       <br>
                       <div class="level">
@@ -84,8 +85,8 @@
                 </div>
 
                 <hr>
-                <div class="row justify-content-center">
-                  <div class="col-3">
+                <div class="grid grid-cols-12">
+                  <div class="col-span-3">
                     <a class="">
                       <center>  
                           <figure class="image">
@@ -95,9 +96,9 @@
                       </center>
                     </a>
                   </div>
-                  <div class="col">
+                  <div class="col-span-9">
                     <center>
-                      <center><p class="title is-6">{{trans('aboutUs.title7')}}</p>
+                      <center><p class="sm:text-lg font-semibold">{{trans('aboutUs.title7')}}</p>
                       </center>
                       <br>
                       <div class="level">
@@ -108,8 +109,8 @@
                 </div>
 
                 <hr>
-                <div class="row justify-content-center">
-                  <div class="col-3">
+                <div class="grid grid-cols-12">
+                  <div class="col-span-3">
                     <a class="">
                       <center>  
                           <figure class="image">
@@ -119,9 +120,9 @@
                       </center>
                     </a>
                   </div>
-                  <div class="col">
+                  <div class="col-span-9">
                     <center>
-                      <center><p class="title is-6">{{trans('aboutUs.title8')}}</p>
+                      <center><p class="sm:text-lg font-semibold">{{trans('aboutUs.title8')}}</p>
                       </center>
                       <br>
                       <div class="level">
@@ -132,8 +133,8 @@
                 </div>
 
                 <hr>
-                <div class="row justify-content-center">
-                  <div class="col-3">
+                <div class="grid grid-cols-12">
+                  <div class="col-span-3">
                     <a class="">
                         <center>  
                             <figure class="image">
@@ -143,9 +144,9 @@
                         </center>
                     </a>
                   </div>
-                  <div class="col">
+                  <div class="col-span-9">
                     <center>
-                      <center><p class="title is-6">{{trans('aboutUs.title9')}}</p>
+                      <center><p class="sm:text-lg font-semibold">{{trans('aboutUs.title9')}}</p>
                       </center>
                       <br>
                       <div class="level">
@@ -156,8 +157,8 @@
                   </div>
 
                   <hr>
-                  <div class="row justify-content-center">
-                    <div class="col-3">
+                  <div class="grid grid-cols-12">
+                    <div class="col-span-3">
                       <a class="">
                           <center>  
                               <figure class="image">
@@ -168,9 +169,9 @@
                       </a>
                     </div>
 
-                    <div class="col">
+                    <div class="col-span-9">
                       <center>
-                        <center><p class="title is-6">{{trans('aboutUs.title10')}}</p>
+                        <center><p class="sm:text-lg font-semibold">{{trans('aboutUs.title10')}}</p>
                         </center>
                         <br>
                         <div class="level">

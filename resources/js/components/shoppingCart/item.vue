@@ -1,61 +1,63 @@
 <template>
-    <div>
+    <div class="p-4">
           
-        <div class="row border rounded " v-for="(item,firstIndex) in shortenName" style="margin-top: 10px">
+        <div class="grid grid-cols-12 border rounded mt-1" v-for="(item,firstIndex) in shortenName" >
 
-            <div class="col"  v-if="item.pairItems.length >0">
+            <div class="col-span-12"  v-if="item.pairItems.length >0">
                 <div @click="shiftIndex(firstIndex)">
-                    <div class="row justify-content-between color-white " :class="item.pairItems.filter((data)=>{return data.available != 1}).length?'background-danger': 'background-primary' " >
-                        <div class="col-auto mr-auto">
-                           <p > <strong>{{item.pairItems[0].type |transJs(langs, mutualVar.langs.localeCode) }} </strong><strong v-if="item.pairItems[1]"> + {{ item.pairItems[1].type |transJs(langs, mutualVar.langs.localeCode) }}</strong></p>
+                    <div class="flex justify-between items-center text-white p-1" :class="item.pairItems.filter((data)=>{return data.available != 1}).length?'bg-red-300': 'bg-blue-300' " >
+                        <div class="px-4">
+                           <p class="text-xl font-light"> <strong>{{item.pairItems[0].type |transJs(langs, mutualVar.langs.localeCode) }} </strong><strong v-if="item.pairItems[1]"> + {{ item.pairItems[1].type |transJs(langs, mutualVar.langs.localeCode) }}</strong></p>
                         </div>
 
-                        <div class="col-auto">
+                        <div class="sm:px-4">
                             <a @click="directTo(item.pairItems[0].id)" :href="item.pairItems[0].url + item.pairItems[0].id ">
-                                <button class="btn btn-primary" :class="item.pairItems.filter((data)=>{return data.available != 1}).length?'btn-danger': 'btn-primary' " >{{ 'Back to'|transJs(langs, mutualVar.langs.localeCode) }}{{item.pairItems[0].type |transJs(langs, mutualVar.langs.localeCode)}}</button>
+                                <button class="btn btn-primary" :class="item.pairItems.filter((data)=>{return data.available != 1}).length?'bg-red-500': 'btn-primary' " >{{ 'Back to'|transJs(langs, mutualVar.langs.localeCode) }}{{item.pairItems[0].type |transJs(langs, mutualVar.langs.localeCode)}}</button>
                             </a>
-                            <button class="btn btn-primary" :class="item.pairItems.filter((data)=>{return data.available != 1}).length?'btn-danger': 'btn-primary' "  @click="removeItem(firstIndex)">{{ 'Remove' |transJs(langs, mutualVar.langs.localeCode) }}  <i class="fa fa-times-circle"></i></button>
+                            <button class="btn btn-primary" :class="item.pairItems.filter((data)=>{return data.available != 1}).length?'bg-red-500': 'btn-primary' "  @click="removeItem(firstIndex)">{{ 'Remove' |transJs(langs, mutualVar.langs.localeCode) }}  <i class="fa fa-times-circle"></i></button>
                         </div>
 
                     </div>
 
-                    <div v-for="(pairItem, secondIndex) in item.pairItems">
-                        <div class="row color-grey " :class="item.pairItems.filter((data)=>{return data.available != 1}).length?'background-op-008-danger': 'background-op-008-primary' ">
-                            <div class="col-8">
-                                <div class="row ">
-                                    <div class="col-6 p-10">
-                                         <a @click="directTo(pairItem.id)" :href="pairItem.url + pairItem.id ">
-                                            <img class="arounded border" width="128" :src="pairItem.image" @click="selectingCarousel = pairItem.type">
-                                        </a>
+                    <div v-for="(pairItem, secondIndex) in item.pairItems" >
+                        <div class="grid grid-cols-12 text-grey-300 border-b" :class="item.pairItems.filter((data)=>{return data.available != 1}).length?'bg-red-100': 'bg-blue-100' ">
+                            <div class="col-span-9">
+                                <div class="grid grid-cols-12 ">
+                                    <div class="col-span-4">
+                                        <div class="flex justify-center">
+                                            <a @click="directTo(pairItem.id)" :href="pairItem.url + pairItem.id ">
+                                                <img class="arounded border w-32 sm:w-48" :src="pairItem.image" @click="selectingCarousel = pairItem.type">
+                                            </a>
+                                        </div>
                                     </div>
 
-                                    <div class="col">
-                                        <a @click="directTo(pairItem.id)" :href="pairItem.url + pairItem.id ">{{pairItem.title}}</a>
+                                    <div class="col-span-8 text-center">
+                                        <a class="text-blue-600" @click="directTo(pairItem.id)" :href="pairItem.url + pairItem.id ">{{pairItem.title}}</a>
                                         <div v-if="pairItem.type == 'engagementRings' ">    
-                                            <div class="input-group mb-3">
-                                              <div class="input-group-prepend">
-                                                <label class="input-group-text" for="inputGroupSelect01">
+                                            <div class="flex justify-center">
+                                              <div class="bg-gray-300 p-1 rounded">
+                                                <label class="" for="inputGroupSelect01">
                                                     {{ 'Ring Size' |transJs(langs, mutualVar.langs.localeCode) }}
                                                 </label>
                                               </div>
-                                              <select class="custom-select" id="inputGroupSelect01" v-model="pairItem.ringSize" required>
+                                              <select class="rounded" id="inputGroupSelect01" v-model="pairItem.ringSize" required>
                                                 <option v-for="size in ringSizeOptions" :value="size" >{{size}}</option>
                                               </select>
-                                              <input class="input is-small" id="inputGroupSelect01" type="text" name="" v-model="pairItem.engrave" :placeholder="'Engrave' |transJs(langs, mutualVar.langs.localeCode)">
                                             </div>
+                                              <input class="input is-small" id="inputGroupSelect01" type="text" name="" v-model="pairItem.engrave" :placeholder="'Engrave' |transJs(langs, mutualVar.langs.localeCode)">
                                         </div>                                        
                                     </div>                                    
                                 </div>
                             </div>    
 
-                            <div class="col-4">
-                                <div class="row ">
-                                    <div class="col">
-                                         <a @click="directTo()" class="title is-6" :href="pairItem.url" ><u>{{'change'  |transJs(langs, mutualVar.langs.localeCode) }}</u></a>
+                            <div class="col-span-3">
+                                <div class="grid grid-cols-12">
+                                    <div class="col-span-6">
+                                         <a class="text-blue-600" @click="directTo()" :href="pairItem.url" ><u>{{'change'  |transJs(langs, mutualVar.langs.localeCode) }}</u></a>
 
                                     </div>
 
-                                    <div class="col"  @click="selectingCarousel = pairItem.type">
+                                    <div class="col-span-6"  @click="selectingCarousel = pairItem.type">
                                         <img class="" width="32" :src=" '/images/front-end/shoppingCart/' + pairItem.type + '.png' ">
                                         <div v-if="couponValid">
                                             <a v-if="pairItem.available">
@@ -66,7 +68,7 @@
                                             </a>
                                         </div>
                                         <div v-if="!couponValid || pairItem.discounted_unit_price == pairItem.unit_price">
-                                            <p>{{'$' + pairItem.unit_price }}</p>     
+                                            <p class="text-lg font-light text-gray-700">{{'$' + pairItem.unit_price }}</p>     
                                         </div>
                                         <p style="color:red" v-if="!pairItem.available"><strong>{{'sold'}}</strong></p>
                                     </div>                                    
@@ -80,15 +82,10 @@
         </div>
 
 
-        <div class="row ">
-            <div class="col-xl-auto mr-auto col-6">
-                <div class="row ">
-                    <div class="col">
-                        <p></p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
+        <div class="grid grid-cols-12 p-1">
+            <div class="col-span-6 sm:col-span-8">
+                <div class="grid grid-cols-12">
+                    <div class="col-span-10">
                         <p>{{ 'Precautions'|transJs(langs, mutualVar.langs.localeCode) }}：</p>                    
                         <small>
                             <p>{{ 'All amounts of the company are subject to Hong Kong dollar settlement' |transJs(langs, mutualVar.langs.localeCode) }}</p>                    
@@ -98,7 +95,7 @@
                         <br>
                         <div class="rounded border text-center p-10">
                             <p v-if="maxDeliveryDate">{{ 'Today Order, Diamond Gets Free shipment' |transJs(langs, mutualVar.langs.localeCode) }}
-                                <strong>{{ 'On' |transJs(langs, mutualVar.langs.localeCode) }} <a class="color-blue"> {{ extraWorkingDates( maxDeliveryDate ,'months') |transJs(langs, mutualVar.langs.localeCode) }} {{ extraWorkingDates( maxDeliveryDate ) }} {{ 'day' |transJs(langs, mutualVar.langs.localeCode) }},  {{ extraWorkingDates( maxDeliveryDate ,'dates') |transJs(langs, mutualVar.langs.localeCode) }}</a>
+                                <strong>{{ 'On' |transJs(langs, mutualVar.langs.localeCode) }} <a class="text-blue-600"> {{ extraWorkingDates( maxDeliveryDate ,'months') |transJs(langs, mutualVar.langs.localeCode) }} {{ extraWorkingDates( maxDeliveryDate ) }} {{ 'day' |transJs(langs, mutualVar.langs.localeCode) }},  {{ extraWorkingDates( maxDeliveryDate ,'dates') |transJs(langs, mutualVar.langs.localeCode) }}</a>
                                 </strong> 
 
                             </p> 
@@ -107,30 +104,27 @@
                 </div>
             </div>
             
-            <div class="col-xl-auto col-6">
-                    <div class="row">
-                        <div class="col">
-                            <div class="level is-mobile">
+            <div class="col-span-6 sm:col-span-4">
+                <div class="grid grid-cols-12">
+                    <div class="col-span-12">
+                        <div class="flex">
 
-                            <div class="input-group mb-3">
-                              <div class="input-group-prepend">
-                                <button class="btn btn-primary is-small" @click="checkCouponCodeValid" type="button" id="button-addon1">{{'Apply Coupon'|transJs(langs, mutualVar.langs.localeCode) }}</button>
-                              </div>
-                              <input type="text" class="form-control" :placeholder="'Enter Coupon Code' |transJs(langs, mutualVar.langs.localeCode) " v-model="mutualVar.cookiesInfo.coupon_code" @focus="$event.target.select()" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                            </div>
-                            
-                            </div>
-                            
+                          <div class="input-group-prepend">
+                            <button class="btn btn-primary is-small" @click="checkCouponCodeValid" type="button" id="button-addon1">{{'Apply Coupon'|transJs(langs, mutualVar.langs.localeCode) }}</button>
+                          </div>
+                          <input type="text" class="input" :placeholder="'Enter Coupon Code' |transJs(langs, mutualVar.langs.localeCode) " v-model="mutualVar.cookiesInfo.coupon_code" @focus="$event.target.select()" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                                        
                             <p v-if="couponValid == 0 " style="color:red;">
                                 <small>{{'not valid'|transJs(langs, mutualVar.langs.localeCode) }}</small>
                             </p>
                         </div>
-                        
 
                     </div>
-                <div class="row ">
 
-                    <div class="col-xl-auto mr-auto col-6">
+                </div>
+                <div class="flex justify-between ">
+
+                    <div class="">
                         <div v-if="couponValid || calculatedDiscountRate != 1">
                             <p>{{'Total' |transJs(langs, mutualVar.langs.localeCode) }} </p>
                             <p>{{'Disounted Total' |transJs(langs, mutualVar.langs.localeCode) }}</p>
@@ -138,17 +132,17 @@
                         <div v-else="!couponValid ">
                             <p>{{'Total' |transJs(langs, mutualVar.langs.localeCode) }} </p>
                         </div>
-                        <p>{{'Deposit (20%)' |transJs(langs, mutualVar.langs.localeCode) }}</p>
-                        <div class="level">
-                            <p>{{'Balance (80%)'|transJs(langs, mutualVar.langs.localeCode) }}
+                        <p class="text-lg text-blue-600">{{'Deposit (20%)' |transJs(langs, mutualVar.langs.localeCode) }}</p>
+                        <div class="">
+                            <p class="text-lg text-blue-600">{{'Balance (80%)'|transJs(langs, mutualVar.langs.localeCode) }}
                             </p>
-                            <select v-model="mutualVar.cookiesInfo.checkout.balancePaymentMethod">
+                            <select class="box" v-model="mutualVar.cookiesInfo.checkout.balancePaymentMethod">
                                     <option v-for="paymentOption in paymentOptions" :value="paymentOption.name"> {{paymentOption.name |transJs(langs, mutualVar.langs.localeCode) }}</option>
                             </select>   
                         </div>
 
                     </div>
-                    <div class="col-xl-auto col-6">
+                    <div class="">
                         <div v-if="couponValid || calculatedDiscountRate != 1">
                             <del><p>HK$ {{subTotal}}</p></del>
                             <p style="color:red;">HK$ {{discountedSubTotal}}</p>
@@ -158,31 +152,28 @@
                         <div v-else="!couponValid ">
                             <p>HK$ {{subTotal}}</p>
                             <p></p>
-                            <p><strong> HK$ {{mutualVar.cookiesInfo.checkout.deposit}} </strong></p>
+                            <p class="text-lg text-blue-600"><strong> HK$ {{mutualVar.cookiesInfo.checkout.deposit}} </strong></p>
                         </div>
-                        <p><strong> HK$ {{balance}} </strong></p>
+                        <p class="text-lg text-blue-600"><strong> HK$ {{balance}} </strong></p>
                     </div>
 
                     
                 </div>
 
-                <div class="row ">
+                <div class="flex justify-between ">
 
-                    <div class="col-xl-auto mr-auto col-6">
+                    <div class="">
                         <p style="color:red;">* {{'you only need to pay deposit, balance will pay after 100% satisfied'|transJs(langs, mutualVar.langs.localeCode) }}</p>
                     </div>
 
-                    <div class="col-xl-auto col-6">
-                        <div  v-if=" windowHref.includes('shopping-cart')"  @click="sendCookies()">
-                            <a :href=" locale + '/shop-bag-bill' ">
-                            <button class="btn btn-primary" :disabled="!checkoutClickable"> <i class="fas fa-shopping-cart"></i>{{'checkout' |transJs(langs, mutualVar.langs.localeCode) }}</button> 
-                            </a>
-                        </div>                              
-                    </div>                                                      
-
-
+                    <div  v-if=" windowHref.includes('shopping-cart')"  @click="sendCookies()">
+                        <a :href=" locale + '/shop-bag-bill' ">
+                        <button class="btn btn-primary" :class="{'opacity-25' : !checkoutClickable}" :disabled="!checkoutClickable"> <i class="fas fa-shopping-cart"></i>{{'checkout' |transJs(langs, mutualVar.langs.localeCode) }}</button> 
+                        </a>
+                    </div>                              
 
                 </div>
+                
 
             </div>
         </div>
@@ -249,6 +240,7 @@ export default {
 
     },
     mounted(){
+        
         if (getCookie('coupon_code')) {        
             this.checkCouponCodeValid()
         }
@@ -305,9 +297,9 @@ export default {
                         if (this.maxDeliveryDate < this.shortenName[i].pairItems[j].delivery) {
                             this.maxDeliveryDate = this.shortenName[i].pairItems[j].delivery
                         }
+                    }
                 }
 
-            }
             mutualVar.cookiesInfo.checkout.deposit = parseInt( subTotal * 0.2)
 
             if ( mutualVar.cookiesInfo.checkout.deposit > 10000) {
@@ -578,9 +570,13 @@ export default {
 
         },
         deleteNotAddedToCart(){
+                 console.log('checking')
+
             for (var i = 0 ; this.shortenName.length > i ; i++) {
+                 console.log(this.shortenName[i].length)
+
                 if (this.shortenName[i].addedCart == 0 || this.shortenName[i].pairItems.length == 0) {
-                     mutualVar.cookiesInfo.shoppingCart.items.splice(i,1)
+                    mutualVar.cookiesInfo.shoppingCart.items.splice(i,1)
                 }
                  
             }
@@ -612,7 +608,7 @@ export default {
             window.open(urlId,'_self')
         },
         removeItem(index){
-             mutualVar.cookiesInfo.shoppingCart.items.splice(index,1)
+            mutualVar.cookiesInfo.shoppingCart.items.splice(index,1)
             this.sendCookies()
             this.updateCartItems()
         },

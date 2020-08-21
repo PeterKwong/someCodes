@@ -1,70 +1,50 @@
 <template>
 
-    <div>
-        <ul class="nav nav-pills justify-content-center">
-            <li class="nav-item" @click="$emit('active', null)" v-for="(img, index) in upperitems.images" >
-                <a class="nav-link" :class="{ 'active' : currentIndex == index }" v-if="!upperitems.images" @click="currentSelectedItem(index,'upper')">
+    <div class="p-2">
+
+        <div class="nav-item" @click="$emit('active', null)" v-for="(img, index) in upperitems.images" >
+            <a class="nav-link" :class="{ 'active' : currentIndex == index }" v-if="!upperitems.images" @click="currentSelectedItem(index,'upper')">
+                   {{ index+1 }}
+            </a>
+        </div>
+
+        <div class="flex justify-center p-2">
+            <div class="box " @click="$emit('btn-primary', null)" v-for="(img, index) in chunkedUpperItems" >
+                <a class="btn" :class="{ 'btn-primary' : currentIndex == index }"  @click="currentSelectedItem(index,'upper')" >
                        {{ index+1 }}
                 </a>
-            </li>
-        </ul>
-
-        <ul class="nav nav-pills justify-content-center">
-            <li class="nav-item" @click="$emit('active', null)" v-for="(img, index) in chunkedUpperItems" >
-                <a class="nav-link" :class="{ 'active' : currentIndex == index }"  @click="currentSelectedItem(index,'upper')" >
-                       {{ index+1 }}
-                </a>
-            </li>
-        </ul>
-
-        <div class="d-none d-sm-block">
-            <div class="row justify-content-center">
-                <div class="col-4" v-for="(img, index) in chunkedUpperItems" 
-                       @click="currentSelectedItem(index,'upper')" v-if="img.thumb" >
-                    <img :src="images+img.thumb" width="100%" class="rounded mx-auto d-block image-background p-6" :class="{'border border-primary rounded':currentIndex == index}" ></img>
-                    <i class="far fa-play-circle fa-3x color-blue image-up-left" style="opacity: 0.5" aria-hidden="true" v-if="img.type=='video'" ></i>
-                </div>
-            </div>            
+            </div>
         </div>
 
 
-        <div class="d-sm-none d-block">
-            <div class="row justify-content-center">
-                <div class="col-4" v-for="(img, index) in chunkedUpperItems" 
+        <div class="">
+            <div class="grid grid-cols-12">
+                <div class="col-span-4 relative" v-for="(img, index) in chunkedUpperItems" 
                        @click="currentSelectedItem(index,'upper')" v-if="img.thumb"  >
-                    <img :src="images+img.thumb" width="100%" class="rounded mx-auto d-block image-background p-6" :class="{'border border-primary rounded':currentIndex == index}"></img>
-                    <i class="far fa-play-circle fa-3lg color-blue image-up-left" style="opacity: 0.5"  aria-hidden="true" v-if="img.type=='video'" ></i>
+                    <img :src="images+img.thumb" width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentIndex == index}"></img>
+                    <div class="absolute top-0" v-if="img.type=='video'" >
+                        <i class="hidden sm:block far fa-play-circle text-blue-600 fa-3x" style="opacity: 0.5"  aria-hidden="true" ></i>
+                        <i class="sm:hidden far fa-play-circle text-blue-600 " style="opacity: 0.5"  aria-hidden="true" ></i>
+                    </div>
                 </div>
             </div>            
         </div>
   
-  <!--       <ul class="nav nav-pills justify-content-center"> 
-            <li class="nav-item" v-for="(img, index) in chunkedUpperItems" 
-                   @click="currentSelectedItem(index,'upper')" v-if="img.thumb" :class="{'border border-primary rounded':currentIndex == index}" >
-                <a class="nav-link">
-                    <center>
-                        <img :src="images+img.thumb" width="128" ></img>
-                        <i class="far fa-play-circle fa-3x color-blue" aria-hidden="true" v-if="img.type=='video'" ></i>
-                    </center>
-                    
-                </a>
-            </li>
-        </ul>
- -->
+
         <div class="" @click="$emit('active', null)">
 
-            <center>
-                <img :src="images+currentItem.src" v-if="currentItem.type=='img'" width="80%" @click="nextItem">
+            <div class="w-full">
+                <img :src="images+currentItem.src" v-if="currentItem.type=='img'" class="w-auto" @click="nextItem">
                 <video-player :options="videoOptions" v-if="currentItem.type=='video'"></video-player>
                 
 <!--                 <product-viewer :folder="folder " :filename="fileName"></product-viewer>
  -->            
-            <p v-if="chunkedItems.length && !showUpper" class="text-primary text-center">{{chunkedItems[currentIndex].text}}</p>
+            <p v-if="chunkedItems.length && !showUpper" class="text-primary text-center p-4">{{chunkedItems[currentIndex].text}}</p>
 
-                        <p class="title is-3">{{ currentItem.title }}</p>
-                        <p class="subtitle is-5"> {{ currentItem.desc }} </p>
+                        <p class="text-xl font-light">{{ currentItem.title }}</p>
+                        <p class="text-lg font-light"> {{ currentItem.desc }} </p>
                         <span v-html="currentItem.other"></span>
-            </center>
+            </div>
 
         </div>
 
@@ -73,43 +53,37 @@
                 <a>{{title}}</a>
          </center>
 
-         <div class="d-none d-sm-block">
-            <div class="row justify-content-center">
-                 <div class="col-4 " v-for="(img, index) in chunkedItems" 
+         <div class="">
+            <div class="grid grid-cols-12 justify-center">
+                 <div class="col-span-4 relative" v-for="(img, index) in chunkedItems" 
                                     @click="currentSelectedItem(index,'lower')"  v-if="img.thumb">
-                     <img :src="images+img.thumb" width="100%" class="rounded mx-auto d-block image-background p-6" :class="{' border border-primary rounded':currentIndex == index}" ></img>
-                        <i class="far fa-play-circle fa-3x color-blue image-up-left" style="opacity: 0.5"  aria-hidden="true" v-if="img.type=='video'"></i>
-                 </div>
-             </div>
-         </div>
-         <div class="d-sm-none d-block">
-            <div class="row justify-content-center">
-                 <div class="col-4 " v-for="(img, index) in chunkedItems" 
-                                    @click="currentSelectedItem(index,'lower')"  v-if="img.thumb">
-                     <img :src="images+img.thumb" width="100%" class="rounded mx-auto d-block image-background p-6" :class="{' border border-primary rounded':currentIndex == index}" ></img>
-                        <i class="far fa-play-circle fa-lg color-blue image-up-left" style="opacity: 0.5"  aria-hidden="true" v-if="img.type=='video'"></i>
+                     <img :src="images+img.thumb" width="100%" class="rounded mx-auto d-block image-background p-2" :class="{' border border-primary rounded':currentIndex == index}" ></img>
+                    <div class="absolute top-0" v-if="img.type=='video'" >
+                        <i class="hidden sm:block far fa-play-circle text-blue-600 fa-3x" style="opacity: 0.5"  aria-hidden="true" ></i>
+                        <i class="sm:hidden far fa-play-circle text-blue-600 " style="opacity: 0.5"  aria-hidden="true" ></i>
+                    </div>
                  </div>
              </div>
          </div>
 
 
-        <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center">
-            <li class="page-item">
+        <div aria-label="Page navigation example">
+          <div class="flex justify-center">
+            <div class="btn btn-outline">
               <a  @click="currentSelectedItem( 0,'lower')" class="page-link"  aria-label="Previous">
                 <span aria-hidden="true">1 &laquo;</span>
               </a>
-            </li>
-            <li  @click="currentSelectedItem(currentIndex -1,'lower')" class="page-item" :class=" {' disabled' : currentIndex == 0 }"><a class="page-link" >{{currentIndex }}</a></li>
-            <li class="page-item active"><a class="page-link" >{{currentIndex +1}}</a></li>
-            <li @click="currentSelectedItem(currentIndex +1,'lower')" class="page-item"><a class="page-link" >{{currentIndex +2 }}</a></li>
-            <li class="page-item">
+            </div>
+            <div  @click="currentSelectedItem(currentIndex -1,'lower')" class="btn btn-outline" :class=" {' disabled' : currentIndex == 0 }"><a class="page-link" >{{currentIndex }}</a></div>
+            <div class="btn btn-primary"><a class="page-link" >{{currentIndex +1}}</a></div>
+            <div @click="currentSelectedItem(currentIndex +1,'lower')" class="btn btn-outline"><a class="page-link" >{{currentIndex +2 }}</a></div>
+            <div class="btn btn-outline">
               <a class="page-link"  aria-label="Next" @click="currentSelectedItem( items.length -1,'lower')">
                 <span aria-hidden="true">&raquo; {{ items.length +1}}</span>
               </a>
-            </li>
-          </ul>
-        </nav>
+            </div>
+          </div>
+        </div>
 
 
 

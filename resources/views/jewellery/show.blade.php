@@ -73,19 +73,19 @@
 
 
         <div id="jewellery">
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="row justify-center">
+                <div class="col-span-11">
 
-                    <div class="row justify-content-center" >
-                        <div class="col-9">
-                            <h3 class="text-center">@{{jewellery.metal | transJs(langs,locale)}} @{{jewellery.gemstone==0?'': jewellery.gemstone | transJs(langs,locale)}} @{{jewellery.type | transJs(langs,locale)}} @{{jewellery.setting==0?'': 'setting' | transJs(langs,locale)}}</h3>        
+                    <div class="flex justify-center p-4" >
+                        <div class="">
+                            <h3 class="sm:text-2xl">@{{jewellery.metal | transJs(langs,locale)}} @{{jewellery.gemstone==0?'': jewellery.gemstone | transJs(langs,locale)}} @{{jewellery.type | transJs(langs,locale)}} @{{jewellery.setting==0?'': 'setting' | transJs(langs,locale)}}</h3>        
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="grid grid-cols-12 p-2">
 
-                    <div class="col-md-7">
-                            <div class="tile is-child box">
+                    <div class="col-span-7">
+                            <div class=" box">
                                     <figure class="image" @click="carouselState=!carouselState">
                                     <keep-alive>
                                     <carousel @active="carouselState=!carouselState" :active="carouselState" :height="'500'" :width="'100%'" :upperitems="jewellery" :items="customerItems" title="customer jewellries"></carousel></keep-alive>
@@ -94,10 +94,10 @@
                         </div>
 
 
-                    <div class="col-md-5">
-                        <div class="tile is-child box">
+                    <div class="col-span-5">
+                        <div class="p-4 box">
                             
-                            <div class="tile is-child">
+                            <div class="">
                             <article>
                                 <center>
                                     <button class="btn btn-primary" @click="appointmentState=!appointmentState">{{__('jewellery.Appointment')}}</button>
@@ -112,35 +112,46 @@
                             </article>
                             </div>
                             
-                            <article>
+                            <article class="">
 
-                                <table class="table is-striped is-fullwidth">
-                                <thead>
-                                    <tr><th>{{__('jewellery.Jewellery Info')}}</th>
-                                    </tr>
-                                </thead>
-                                    
-                                <tbody>
-                                    <tr><td>{{__('jewellery.Unit Price')}}</td><td>$@{{jewellery.unit_price }}</td></tr>
-                                    <tr><td>{{__('jewellery.Type')}}</td><td>@{{jewellery.type | transJs(langs,locale)}}</td></tr>
-                                    <tr><td>{{__('jewellery.Gemstone')}}</td><td>@{{jewellery.gemstone | transJs(langs,locale)}}</td></tr>
-                                    <tr><td>{{__('jewellery.Metal')}}</td><td>@{{jewellery.metal | transJs(langs,locale)}}</td></tr>
-                                    <tr><td>{{__('jewellery.Side Stone')}}</td><td>{{__('engagementRing.Around')}} @{{jewellery.ct}} {{trans('jewellery.ct')}}</td></tr>
-                                </tbody>
-
-                                <thead>
-                                    <tr>
-                                        <th>{{__('jewellery.More Details')}}</th>
-                                    </tr>
-                                </thead>
-                                    
-                                <tbody>
-                                    <tr><td>{{__('jewellery.Stock')}}</td><td>@{{jewellery.stock}}</td></tr>
-                                    <tr><td>{{__('jewellery.Name')}}</td><td v-if="jewellery.texts">@{{jewellery.texts[locale].content}}</td></tr>
-                                    <tr><td>{{__('jewellery.Description')}}</td><td>@{{jewellery.type | transJs(langs,locale)}} @{{jewellery.metal | transJs(langs,locale)}} @{{jewellery.setting==0?'': 'setting' | transJs(langs,locale)}}</td></tr>
-                                </tbody>
-
-                                </table>
+                                    <div class="grid grid-cols-12 border-b p-2 font-semibold sm:text-lg">
+                                        <div class="col-span-6">{{__('jewellery.Jewellery Info')}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b p-2 font-light">
+                                        <div class="col-span-6">{{__('jewellery.Unit Price')}}</div>
+                                        <div class="col-span-6">$@{{jewellery.unit_price }}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b p-2 font-light">
+                                        <div class="col-span-6">{{__('jewellery.Type')}}</div>
+                                        <div class="col-span-6">@{{jewellery.type | transJs(langs,locale)}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b p-2 font-light">
+                                        <div class="col-span-6">{{__('jewellery.Gemstone')}}</div>
+                                        <div class="col-span-6">@{{jewellery.gemstone | transJs(langs,locale)}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b p-2 font-light">
+                                        <div class="col-span-6">{{__('jewellery.Metal')}}</div>
+                                        <div class="col-span-6">@{{jewellery.metal | transJs(langs,locale)}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b p-2 font-light">
+                                        <div class="col-span-6">{{__('jewellery.Side Stone')}}</div>
+                                        <div class="col-span-6">{{__('engagementRing.Around')}} @{{jewellery.ct}} {{trans('jewellery.ct')}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b p-2 font-semibold sm:text-lg">
+                                        <div class="col-span-6">{{__('jewellery.More Details')}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b p-2 font-light">
+                                        <div class="col-span-6">{{__('jewellery.Stock')}}</div>
+                                        <div class="col-span-6">@{{jewellery.stock}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b p-2 font-light">
+                                        <div class="col-span-6">{{__('jewellery.Name')}}</div>
+                                        <div class="col-span-6" v-if="jewellery.texts">@{{jewellery.texts[locale].content}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b p-2 font-light">
+                                        <div class="col-span-6">{{__('jewellery.Description')}}</div>
+                                        <div class="col-span-6">@{{jewellery.type | transJs(langs,locale)}} @{{jewellery.metal | transJs(langs,locale)}} @{{jewellery.setting==0?'': 'setting' | transJs(langs,locale)}}</div>
+                                    </div>
                            
                             </article>
 

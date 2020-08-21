@@ -1,4 +1,2 @@
 
-<script type="application/javascript" src="{{ mix('js/langs.js') }}" ></script>
-<script type="application/javascript" src="{{ mix('js/app.js') }}" ></script>
-<script type="application/javascript" src="{{ mix('js/frontend.js') }}" ></script>
+<link href="https://vjs.zencdn.net/7.8.3/video-js.css" rel="stylesheet" />

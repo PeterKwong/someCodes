@@ -15,13 +15,26 @@
 <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
 <!-- Styles -->
-<!-- <link rel="stylesheet" type="text/css" href="{{ asset('/css/main.css') }}">
- -->
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/sidebarNavigation.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 
+
+<!--  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+ -->
+<!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+ -->
+ 
+<!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/sidebarNavigation.css') }}">
+ -->
+ 
 <!-- Custome -->
-<link href="{{ asset('css/all.css') }}" rel="stylesheet">
+<!-- <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+ -->
+
+
+<script defer="" type="application/javascript" src="{{ mix('js/langs.js') }}" ></script>
+<script defer="" type="application/javascript" src="{{ mix('js/app.js') }}" ></script>
+<script defer="" type="application/javascript" src="{{ mix('js/frontend.js') }}" ></script>
+
 
 <style>
 	*.sticker {

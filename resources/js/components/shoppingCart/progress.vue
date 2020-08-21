@@ -1,123 +1,69 @@
 <template>
 
-	<div v-if="currentUrl != ''">
-
-		<br>
+	<div v-if="currentUrl != ''" class="bg-gray-100 opacity-75" >
 
 		 <div v-if="selectingType=='diamonds' || selectingType=='engagementRings' || selectingType == 'review' ">
 		 	<div v-if="mutualVar.cookiesInfo.shoppingCart.items.length">
-                 <div class="row justify-content-center">
+                 <div class="grid grid-cols-12">
 
-					    <div class="col-4 border d-sm-block d-none" :class="{' background-primary': selectingType == shortenName[0].type }"  v-if="shortenName[0]"  >
+					    <div class="col-span-4 border " :class="{' bg-blue-600': selectingType == shortenName[0].type }"  v-if="shortenName[0]"  @click="directTo(0)" >
 
-					      <a class="nav-link " v-if="shortenName[0]">
+					      <div class="flex justify-center items-center text-center"  :class="{'text-white': selectingType == shortenName[0].type }" v-if="shortenName[0]">
 
-					        <p :class="{'color-white': selectingType == shortenName[0].type }" v-if="shortenName[0]">
-					        	<strong @click="directTo(0)" v-if="shortenName[0]">
-					        		<img width="48" :src="shortenName[0].image" @click="directTo(0)">
-						        	 ${{shortenName[0].unit_price}}				        		
-					        	</strong>
-				        		<strong><strong @click="directTo(shortenName[0].type)" >
-	                         		<img width="48" :src=" '/images/front-end/shoppingCart/' + shortenName[0].type + '.png' ">
-	                         		{{shortenName[0].type == 'engagementRings'? 'Engagement Ring':'diamond' | transJs(langs,locale) }}
-	                         	</strong></strong>
-	                         	<i @click="removeItem(0)" class="fa fa-times-circle"></i>
+					        <p class="px-2" v-if="shortenName[0]"></p>
+                         	<strong class="px-2" @click="directTo(0)" v-if="shortenName[0]">
+				        		<img class="h-12" :src="shortenName[0].image">
+					        	 ${{shortenName[0].unit_price}}				        		
+				        	</strong>
+			        		<strong class="hidden sm:block px-2"><strong @click="directTo(shortenName[0].type)" >
+                         		<img class="h-12" :src=" '/images/front-end/shoppingCart/' + shortenName[0].type + '.png' ">
+                         		{{shortenName[0].type == 'engagementRings'? 'Engagement Ring':'diamond' | transJs(langs,locale) }}
+                         	</strong></strong>
+                         	<i @click="removeItem(0)" class="fa fa-times-circle px-2 text-xl"></i>
 
-	                         </p>
-	                         
-					      </a>
+					      </div>
 
 					    </div>
 
-					    <div class="col-4 border d-block d-sm-none" :class="{' background-primary': selectingType == shortenName[0].type }"  v-if="shortenName[0]"  >
 
-					      <a class="nav-link " v-if="shortenName[0]">
+<!-- 					    <div :class="{[$style.arrow] : selectingType == shortenName[0].type }"></div>
+ -->
+					    <div class="col-span-4 border" :class="{' bg-blue-600': selectingType == shortenName[0].type?0:1 &&
+					    		!currentUrl.includes('diamond-ring-review') }" v-if="shortenName[0]" @click="directTo(1)" >
 
-					        <p :class="{'color-white': selectingType == shortenName[0].type }" v-if="shortenName[0]">
-					        	<strong @click="directTo(0)" v-if="shortenName[0]">
-					        		<img width="48" :src="shortenName[0].image" @click="directTo(0)">
-						        	 ${{shortenName[0].unit_price}}				        		
-					        	</strong>
-	                         	<i @click="removeItem(0)" class="fa fa-times-circle"></i>
+					      <div class="flex justify-center items-center text-center" :class="{'text-white': selectingType == shortenName[0].type?0:1 &&
+					    		!currentUrl.includes('diamond-ring-review') }">
 
-	                         </p>
-	                         
-					      </a>
+							<strong class="px-2" @click="directTo(1)" v-if="shortenName[1]">
+				      			<img class="h-12" :src="shortenName[1].image">
+				        		 ${{shortenName[1].unit_price}}
+				      		</strong>
+				      		<strong class="px-2 hidden sm:block" @click="directTo(shortenName[0].type == 'diamonds'?'engagementRings':'diamonds')"  ><strong >
+				      			<img class="h-12" :src=" `/images/front-end/shoppingCart/${shortenName[0].type == 'diamonds'?'engagementRings':'diamonds'}.png` " >
+				      			{{shortenName[0].type == 'engagementRings'? 'diamond' : 'Engagement Ring' | transJs(langs,locale)}} 
+				      		</strong></strong>
+				      		<i class="fa fa-times-circle px-1 text-xl" @click="removeItem(1)" v-if="shortenName[1]"></i>
 
-					    </div>
-					    
-					    
-
-					    <div :class="{[$style.arrow] : selectingType == shortenName[0].type }"></div>
-
-					    <div class="col-4 border d-sm-block d-none" :class="{' background-primary': selectingType == shortenName[0].type?0:1 &&
-					    		!currentUrl.includes('diamond-ring-review') }" v-if="shortenName[0]"  >
-
-					      <a class="nav-link " >
-
-					      	<p :class="{'color-white': selectingType == shortenName[0].type?0:1 &&
-					    		!currentUrl.includes('diamond-ring-review') }" >
-					      		<strong @click="directTo(1)" v-if="shortenName[1]">
-					      			<img width="48" :src="shortenName[1].image">
-					        		 ${{shortenName[1].unit_price}}
-					      		</strong>
-					      		<strong @click="directTo(shortenName[0].type == 'diamonds'?'engagementRings':'diamonds')"  ><strong >
-					      			<img width="48" :src=" `/images/front-end/shoppingCart/${shortenName[0].type == 'diamonds'?'engagementRings':'diamonds'}.png` " >
-					      			{{shortenName[0].type == 'engagementRings'? 'diamond' : 'Engagement Ring' | transJs(langs,locale)}} 
-					      		</strong></strong>
-					      		<i class="fa fa-times-circle" @click="removeItem(1)" v-if="shortenName[1]"></i>
-
-					      	</p>
-
-					      </a>
+					      </div>
 
 					    </div>
 
 
 
-					    <div :class="{[$style.arrow] : selectingType == shortenName[0].type }"></div>
+<!-- 					    <div :class="{[$style.arrow] : selectingType == shortenName[0].type }"></div>
+ -->
 
-					    <div class="col-4 border d-block d-sm-none" :class="{' background-primary': selectingType == shortenName[0].type?0:1 &&
-					    		!currentUrl.includes('diamond-ring-review') }" v-if="shortenName[0]"  >
-
-					      <a class="nav-link " >
-
-					      	<p :class="{'color-white': selectingType == shortenName[0].type?0:1 &&
-					    		!currentUrl.includes('diamond-ring-review') }" >
-					    		<strong @click="directTo(1)" v-if="shortenName[1]">
-					      			<img width="48" :src="shortenName[1].image">
-					        		 ${{shortenName[1].unit_price}}
-					      		</strong>
-					      		<strong  v-if="!shortenName[1]" @click="directTo(shortenName[0].type == 'diamonds'?'engagementRings':'diamonds')"  ><strong >
-					      			<img width="48" :src=" `/images/front-end/shoppingCart/${shortenName[0].type == 'diamonds'?'engagementRings':'diamonds'}.png` " >
-					      			{{shortenName[0].type == 'engagementRings'? 'diamond' : 'Engagement Ring' | transJs(langs,locale)}} 
-					      		</strong></strong>
-					      		<i class="fa fa-times-circle" @click="removeItem(1)" v-if="shortenName[1]"></i>
-
-					      	</p>
-
-					      </a>
-
-					    </div>
-
-					    
-
-
-					    <div :class="{[$style.arrow] : selectingType == shortenName[0].type?0:1 &&
-					    		!currentUrl.includes('diamond-ring-review') }"></div>
-
-
-					    <div class="col-4 border" :class=" {' background-primary': currentUrl.includes('diamond-ring-review') }" @click="directToUrl('/diamond-ring-review')">
-					      <a class="nav-link " >
-					      	<p :class="{'color-white': currentUrl.includes('diamond-ring-review') }"  v-if="shortenName.filter((data)=>{return data.id}).length" >
+					    <div class="col-span-4 border" :class=" {' bg-blue-600': currentUrl.includes('diamond-ring-review') }" @click="directToUrl('/diamond-ring-review')">
+					      <div class="flex justify-center items-center text-center" >
+					      	<p :class="{'text-white': currentUrl.includes('diamond-ring-review') }"  v-if="shortenName.filter((data)=>{return data.id}).length" >
 					      		<img width="48" src="/images/front-end/shoppingCart/review.png">
 						         {{'Review' | transJs(langs,locale)}}
 					      	</p>
 
-					      </a>
+					      </div>
 					    </div>
-					    <div :class="{[$style.arrow] : currentUrl.includes('diamond-ring-review') }"></div>
-
+<!-- 					    <div :class="{[$style.arrow] : currentUrl.includes('diamond-ring-review') }"></div>
+ -->
 					  </div>
             
 

@@ -28,30 +28,22 @@
     <br>
 
 
-    <div id="customerJewellryIndex">
-      <div class="row justify-content-center">
-        <div class="col-11">
+    <div id="customerJewelleryIndex" class="p-4">
+      <div class="grid grid-cols-12">
+        <div class="col-span-12">
+
 
           <br>
-          <div class="row justify-content-center">
-            <div class="col">
-                <center>
-                    <h3 class="title is-5">{{__('customerMoment.title1')}}</h3>
-                </center>
-            </div>
-          </div>
-
+          <center><p class="sm:text-2xl font-semibold">{{trans('customerMoment.title1')}}</p></center>
           <br>
-          <center><p class="title is-3">{{trans('customerMoment.title1')}}</p></center>
-          <br>
-          <div class="row justify-content-center text-center" >
-              <div class="col">                               
-              <div class="row justify-content-center">
+          <div class="grid grid-cols-12 text-center" >
+              <div class="col-span-12 sm:col-span-10">                               
+              <div class="grid grid-cols-12">
                 
-                    <div class="col-sm-4">
+                    <div class="col-span-12 sm:col-span-4">
                       <center>
 
-                          <center><p class="title is-6">{{trans('customerMoment.title2')}}</p>
+                          <center><p class="sm:text-xl font-semibold">{{trans('customerMoment.title2')}}</p>
                           </center>
                           <br>
                           <div class="level">
@@ -63,7 +55,7 @@
                           
                     </div>
 
-                <div class="col-sm-4">
+                <div class="col-span-6 sm:col-span-4">
 
                     <center>
 
@@ -80,7 +72,7 @@
 
                   </div>
 
-                  <div class="col-sm-4">
+                  <div class="col-span-6 sm:col-span-4">
 
                     <center>
 
@@ -99,13 +91,13 @@
             </div>
             <br>
             
-            <div class="row justify-content-center">
+            <div class="grid grid-cols-12">
                 
-                    <div class="col-sm-8">
+                    <div class="col-span-12 sm:col-span-8">
 
                       <center>
 
-                          <center><p class="title is-6">{{trans('customerMoment.title3')}}</p>
+                          <center><p class="sm:text-xl font-semibold">{{trans('customerMoment.title3')}}</p>
                           </center>
                           <br>
                           <div class="level">
@@ -118,7 +110,7 @@
                           
                     </div>
 
-                <div class="col">
+                <div class="col-span-12 sm:col-span-4">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -133,13 +125,13 @@
             </div>
             <br>
 
-            <div class="row justify-content-center">
+            <div class="grid grid-cols-12">
                 
-                    <div class="col-sm-8">
+                    <div class="col-span-12 sm:col-span-8">
 
                       <center>
 
-                          <center><p class="title is-6">{{trans('customerMoment.title4')}}</p>
+                          <center><p class="sm:text-xl font-semibold">{{trans('customerMoment.title4')}}</p>
                           </center>
                           <br>
                           <div class="level">
@@ -152,7 +144,7 @@
                           
                     </div>
 
-                <div class="col">
+                <div class="col-span-12 sm:col-span-4">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -167,13 +159,13 @@
             </div>
             <br>
 
-            <div class="row justify-content-center">
+            <div class="grid grid-cols-12">
                 
-                    <div class="col-sm-8">
+                    <div class="col-span-12 sm:col-span-8">
 
                       <center>
 
-                          <center><p class="title is-6">{{trans('customerMoment.title5')}}</p>
+                          <center><p class="sm:text-xl font-semibold">{{trans('customerMoment.title5')}}</p>
                           </center>
                           <br>
                           <div class="level">
@@ -186,7 +178,7 @@
                           
                     </div>
 
-                <div class="col">
+                <div class="col-span-12 sm:col-span-4">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -202,15 +194,15 @@
             <br>
 
           <center>
-              <p class="title is-3">{{trans('customerMoment.title6')}}</p>
-              <p class="title is-6">{{trans('customerMoment.title7')}}</p>
-              <p class="title is-6">{{trans('customerMoment.para5')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.title6')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.title7')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.para5')}}</p>
           </center>
           <br>
 
-          <div class="row justify-content-center">
+          <div class="grid grid-cols-12">
                 
-                    <div class="col-sm-6">
+                    <div class="col-span-6">
 
                       <a class="">
                           <center>  
@@ -224,7 +216,7 @@
                           
                     </div>
 
-                <div class="col">
+                <div class="col-span-6">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -240,13 +232,13 @@
           
 
           <center>
-              <p class="title is-6">{{trans('customerMoment.title8')}}</p>
-              <p class="title is-6">{{trans('customerMoment.para6')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.title8')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.para6')}}</p>
           </center>
           <br>
-          <div class="row justify-content-center">
+          <div class="grid grid-cols-12">
                 
-                    <div class="col-sm-4">
+                    <div class="col-span-4">
 
                       <a class="">
                           <center>  
@@ -260,7 +252,7 @@
                           
                     </div>
 
-                  <div class="col-sm-4">
+                  <div class="col-span-4">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -273,7 +265,7 @@
 
                   </div>
 
-                  <div class="col-sm-4">
+                  <div class="col-span-4">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -288,14 +280,14 @@
             </div>
             
           <center>
-              <p class="title is-6">{{trans('customerMoment.title9')}}</p>
-              <p class="title is-6">{{trans('customerMoment.para7')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.title9')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.para7')}}</p>
           </center>
           <br>
 
-          <div class="row justify-content-center">
+          <div class="grid grid-cols-12">
                 
-                    <div class="col-sm-6">
+                    <div class="col-span-6">
 
                       <a class="">
                           <center>  
@@ -309,7 +301,7 @@
                           
                     </div>
 
-                <div class="col">
+                <div class="col-span-6">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -324,14 +316,14 @@
             </div>
 
           <center>
-              <p class="title is-6">{{trans('customerMoment.title10')}}</p>
-              <p class="title is-6">{{trans('customerMoment.para8')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.title10')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.para8')}}</p>
           </center>
           <br>
 
-          <div class="row justify-content-center">
+          <div class="grid grid-cols-12">
                 
-                    <div class="col-sm-6">
+                    <div class="col-span-6">
 
                       <a class="">
                           <center>  
@@ -345,7 +337,7 @@
                           
                     </div>
 
-                <div class="col">
+                <div class="col-span-6">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -360,13 +352,13 @@
             </div>
 
           <center>
-              <p class="title is-6">{{trans('customerMoment.title11')}}</p>
-              <p class="title is-6">{{trans('customerMoment.para9')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.title11')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.para9')}}</p>
           </center>
           <br>
-          <div class="row justify-content-center">
+          <div class="grid grid-cols-12">
                 
-                    <div class="col-sm-4">
+                    <div class="col-span-4">
 
                       <a class="">
                           <center>  
@@ -380,7 +372,7 @@
                           
                     </div>
 
-                  <div class="col-sm-4">
+                  <div class="col-span-4">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -393,7 +385,7 @@
 
                   </div>
 
-                  <div class="col-sm-4">
+                  <div class="col-span-4">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -408,13 +400,13 @@
           </div>
 
           <center>
-              <p class="title is-6">{{trans('customerMoment.title12')}}</p>
-              <p class="title is-6">{{trans('customerMoment.para10')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.title12')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.para10')}}</p>
           </center>
           <br>
-          <div class="row justify-content-center">
+          <div class="grid grid-cols-12">
                 
-                    <div class="col-sm-4">
+                    <div class="col-span-4">
 
                       <a class="">
                           <center>  
@@ -428,7 +420,7 @@
                           
                     </div>
 
-                  <div class="col-sm-4">
+                  <div class="col-span-4">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -441,7 +433,7 @@
 
                   </div>
 
-                  <div class="col-sm-4">
+                  <div class="col-span-4">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -456,13 +448,13 @@
           </div>
 
           <center>
-              <p class="title is-6">{{trans('customerMoment.title13')}}</p>
-              <p class="title is-6">{{trans('customerMoment.para11')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.title13')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.para11')}}</p>
           </center>
           <br>
-          <div class="row justify-content-center">
+          <div class="grid grid-cols-12">
                 
-                    <div class="col-sm-4">
+                    <div class="col-span-4">
 
                       <a class="">
                           <center>  
@@ -476,7 +468,7 @@
                           
                     </div>
 
-                  <div class="col-sm-4">
+                  <div class="col-span-4">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -489,7 +481,7 @@
 
                   </div>
 
-                  <div class="col-sm-4">
+                  <div class="col-span-4">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -504,13 +496,13 @@
           </div>
 
           <center>
-              <p class="title is-6">{{trans('customerMoment.title14')}}</p>
-              <p class="title is-6">{{trans('customerMoment.para12')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.title14')}}</p>
+              <p class="sm:text-xl font-semibold">{{trans('customerMoment.para12')}}</p>
           </center>
           <br>
-          <div class="row justify-content-center">
+          <div class="grid grid-cols-12">
                 
-                    <div class="col-sm-3">
+                    <div class="col-span-6 sm:col-span-3">
 
                       <a class="">
                           <center>  
@@ -524,7 +516,7 @@
                           
                     </div>
 
-                  <div class="col-sm-3">
+                  <div class="col-span-6 sm:col-span-3">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -537,7 +529,7 @@
 
                   </div>
 
-                  <div class="col-sm-3">
+                  <div class="col-span-6 sm:col-span-3">
                   <a class="">
                           <center>  
                               <figure class="image">
@@ -549,7 +541,7 @@
    
                   </div>
 
-                  <div class="col-sm-3">
+                  <div class="col-span-6 sm:col-span-3">
                     <a class="">
                           <center>  
                               <figure class="image">

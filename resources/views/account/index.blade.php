@@ -28,23 +28,23 @@
     @endSection
 
     @section('content')
-        <br>
-                <div class="col-10 " id="account">
+
+                <div class="col-span-10 p-2" id="account">
 
                     <p class="title is-4"></p>
 
-                    <div class="row justify-content-center">
+                    <div class="grid grid-cols-12">
 
-                      <div class="col-sm-8 box">
-                        <article class="message is-info">
-                          <div class="message-header">
+                      <div class="col-span-12 sm:col-span-8 sm:col-start-3 box">
+                        <article class="p-2 sm:p-8 font-light">
+                          <div class="text-2xl">
                             <p>{{__('account.My Account')}}</p>
                           </div>
-                          <div class="message-body">
+                          <div class="">
                             <p class="subtitle is-5"> {{ auth()->user()->name }}, 
                             <small> {{__('account.welcome to your account')}}!</small>
                             </p>
-                            <p class=""> {{__('account.You are logged in as')}} 
+                            <p class="text-lg"> {{__('account.You are logged in as')}} 
                                 <strong>{{ auth()->user()->email }}</strong>
                             </p>
                           </div>
@@ -53,28 +53,28 @@
 
                     </div>
 
-                    <div class="row justify-content-center">
+                    <div class="grid grid-cols-12">
 
-                      <div class="col box">
-                        <article class="message is-link">
-                          <div class="message-body">
-                            <a class="subtitle is-4" href="{{ url(app()->getLocale()) }}/account/setting">{{__('account.My Details')}}</a>
+                      <div class="col-span-4 box">
+                        <article class="p-2 sm:p-8 message ">
+                          <div class="">
+                            <a class="text-blue-600" href="{{ url(app()->getLocale()) }}/account/setting">{{__('account.My Details')}}</a>
                             <p><small>{{__('account.Manage account details')}}</small></p>
                           </div>
                         </article>                        
                       </div>
-                      <div class="col box ">
-                        <article class="message is-link">
-                          <div class="message-body">
-                            <a class="subtitle is-4" href="{{ url(app()->getLocale()) }}/shopping-cart">{{__('account.Shopping Cart')}}</a>
+                      <div class="col-span-4 box ">
+                        <article class="p-2 sm:p-8 message ">
+                          <div class="">
+                            <a class="text-blue-600" href="{{ url(app()->getLocale()) }}/shopping-cart">{{__('account.Shopping Cart')}}</a>
                             <p><small>{{__('account.Browse your favorite items')}}</small></p>
                           </div>
                         </article>
                       </div>
-                      <div class="col box">
-                        <article class="message is-link">
-                          <div class="message-body">
-                            <a class="subtitle is-4" href="{{ url(app()->getLocale()) }}/account/pending">{{__('account.Pending Orders')}}</a>
+                      <div class="col-span-4 box">
+                        <article class="p-2 sm:p-8 message ">
+                          <div class="">
+                            <a class="text-blue-600" href="{{ url(app()->getLocale()) }}/account/pending">{{__('account.Pending Orders')}}</a>
                             <p><small>{{__('account.Manage your orders and ask for services')}}</small></p>
                           </div>
                         </article>

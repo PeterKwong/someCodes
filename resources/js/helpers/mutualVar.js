@@ -56,6 +56,11 @@ export default {
 
     },
     namepath: getCurrentURl(),
+    css:{
+        jsReady:true,
+        innerWidth:0,
+    },
+    tabs:{sideBar:'4cs'}
 
 
 }

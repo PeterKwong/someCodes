@@ -27,9 +27,9 @@
 
     @section('content')
         <br>
-            <div class="row" >
-                <div class="col-12">
-                    <center><h3 class="title is-5">{{trans('buyingProcedure.BUYING PROCEDURE')}}</h3>                 {{trans('buyingProcedure.First to buy diamonds, then buy ring setting')}}     
+            <div class="" >
+                <div class="">
+                    <center><h3 class="sm:text-xl font-semibold">{{trans('buyingProcedure.BUYING PROCEDURE')}}</h3>                 {{trans('buyingProcedure.First to buy diamonds, then buy ring setting')}}     
                     </center>
                     
                 </div>
@@ -37,34 +37,35 @@
 
 
         <div id="aboutUs">
-          <div class="row justify-content-center">
-            <div class="col-11">
+          <div class="grid grid-cols-12">
+            <div class="col-span-12">
               <br>
-                <div class="row justify-content-center">
-                  <div class="col">
-                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure' )}}" >{{trans('buyingProcedure.Appointment First')}}</a>
+                <div class="grid grid-cols-12">
+                  <div class="col-span-10">
+                    <ul class="flex justify-center items-center border-b" id="myTab" role="tablist">
+                      <li class="">
+                        <a class="text-blue-600 text-center px-2" href="{{ url( app()->getLocale() . '/buying-procedure' )}}" >{{trans('buyingProcedure.Appointment First')}}</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link active show" href="{{ url( app()->getLocale() . '/buying-procedure/take-from-shop-or-gia' )}}" >{{trans('buyingProcedure.Shop Or GIA Lab')}} </a>
+                      <li class="">
+                        <a class="nav-link bg-blue-300 text-white" href="{{ url( app()->getLocale() . '/buying-procedure/take-from-shop-or-gia' )}}" >{{trans('buyingProcedure.Shop Or GIA Lab')}} </a>
                       </li> 
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/custom-engagement-rings' )}}" >{{trans('buyingProcedure.Choose Ring Setting')}}</a>
+                      <li class="">
+                        <a class="text-blue-600 text-center px-2" href="{{ url( app()->getLocale() . '/buying-procedure/custom-engagement-rings' )}}" >{{trans('buyingProcedure.Choose Ring Setting')}}</a>
                       </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/diamond-inlay-engrave' )}}">{{trans('buyingProcedure.Ring Inlay | Engrave')}}</a>
+                        <li class="">
+                        <a class="text-blue-600 text-center px-2" href="{{ url( app()->getLocale() . '/buying-procedure/diamond-inlay-engrave' )}}">{{trans('buyingProcedure.Ring Inlay | Engrave')}}</a>
                       </li> 
-                        <li class="nav-item">
-                        <a class="nav-link" href="{{ url( app()->getLocale() . '/buying-procedure/full-satisfaction' )}}" >{{trans('buyingProcedure.Pay With Satisfaction')}} </a>
+                        <li class="">
+                        <a class="text-blue-600 text-center px-2" href="{{ url( app()->getLocale() . '/buying-procedure/full-satisfaction' )}}" >{{trans('buyingProcedure.Pay With Satisfaction')}} </a>
                       </li>                
                     </ul>
+
                     
                     <br>
 
-                    <div class="row justify-content-center" >
+                    <div class="grid grid-cols-12" >
                     
-                        <div class="col-sm-10">
+                        <div class="col-span-10">
 
                           <center>
                           <li>{{trans('buyingProcedure.para3')}}</li>
@@ -75,7 +76,7 @@
                               
                         </div>
 
-                        <div class="col">
+                        <div class="col-span-2">
                              <center>  
                               <figure class="image">
                                 <p>GIA</p>

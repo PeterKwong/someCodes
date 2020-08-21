@@ -29,7 +29,7 @@
             <div class="row" >
                 <div class="col-12">
 
-                   <center><h2 class="title is-5">{{__('customerMoment.Customer Moments')}}</h2>
+                   <center><h2 class="sm:text-2xl">{{__('customerMoment.Customer Moments')}}</h2>
                     
                         
                         <h5 >
@@ -48,22 +48,21 @@
 
         <br>
 
-        <div id="customerJewellryIndex">
+        <div id="customerJewelleryIndex" class="p-2">
             <div class="box">
                
                <!-- <img :src="`/images/lJ2fvr7ni4k1SdRP.jpeg`" >  -->
 
                 <div class="">      
-                        <div class="row">
-                            <div class="col-md-3" v-for="arr in customers.data">
-                                <div class="" v-if="arr.images[0]">
+                        <div class="grid grid-cols-12 p-2">
+                            <div class="col-span-6 sm:col-span-3" v-for="arr in customers.data">
+                                <div class="p-2" v-if="arr.images[0]">
                                     <article class="tile" @click="selectedCarouselItems(arr.images)">
                                         <a>
                                         <figure class="image">
                                             <img width="100%" :src=" mutualVar.storage[mutualVar.storage.live] + 'public' + '/images/sq-' + arr.images[0].image" v-if="arr.images[0].image">
                                         <center>
-                                            <p  class="subtitle" ></p>
-                                            <p v-if="arr.id">@{{arr.texts[locale].content}}</p>
+                                            <p v-if="arr.id" class="font-light p-4">@{{arr.texts[locale].content}}</p>
                                         </center>
                                         </figure>
                                         </a>
@@ -73,39 +72,13 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-center">
-                            <div class="col-md-12 text-center">
+                        <div class="grid grid-cols-12 justify-content-center">
+                            <div class="col-span-12 text-center">
                                 <button class="btn btn-primary " @click="more()">{{trans('engagementRing.More')}}</button>
                             </div>
                         </div>
 
                 </div>
-                    
-               <!--  <div class="">      
-                        <div class="tile is-ancestor" v-for="(arrs,index) in chunkedItemsDesktop">
-                            <div class="tile is-parent is-3" v-for="(arr,ind) in arrs">
-                                <div class="tile is-child" v-if="arr.images[0]">
-                                    <article class="tile" @click="selectedCarouselItems(arr.images)">
-                                        <a>
-                                        <figure class="image">
-                                            <img :src=" mutualVar.storage[mutualVar.storage.live] + 'public' + '/images/sq-' + arr.images[0].image" v-if="arr.images[0].image">
-                                        <center>
-                                            <p  class="subtitle" ></p>
-                                            <p v-if="arr.id">@{{arr.texts[locale].content}}</p>
-                                        </center>
-                                        </figure>
-                                        </a>
-                                        
-                                    </article>
-                                </div>
-                            </div>
-                        </div>
-                                <div class="level">
-                                    <article class="level-item" >
-                                        <button class="button is-primary" @click="more()">{{trans('engagementRing.More')}}</button>
-                                    </article>
-                                </div>
-                    </div> -->
 
         </div>
         <image-carousel :active="carouselActive" :items="carouselItems" @active="carouselActive=!carouselActive"></image-carousel>

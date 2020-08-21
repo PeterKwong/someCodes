@@ -29,18 +29,18 @@
     @endSection
 
     @section('content')
-        <br>
-          <div class="col-10" id="pending">
+
+          <div class="col-span-10" id="pending">
 
 
-                    <p class="title is-4">{{__('shoppingCart.Pending Orders')}}</p>
+                    <p class="text-2xl">{{__('shoppingCart.Pending Orders')}}</p>
 
-                    <div class="row">
-                      <div class="col table-responsive">
+                    <div class="relative">
+                      <div class="scrolling-touch overflow-auto">
 
-                        <table class="table table-sm table-striped">
+                        <table class="w-full">
                           <thead>
-                            <tr>
+                            <tr class="border p-1">
                               <th></th>
                               <th>{{__('shoppingCart.Title')}}</th>
                               <th>{{__('shoppingCart.Email Verified')}}</th>
@@ -55,7 +55,7 @@
                           </thead>
 
                           <tbody>
-                                <tr v-for="(da,key) in data.data" @click="directTo(da.id)">
+                                <tr class="border p-1" v-for="(da,key) in data.data" @click="directTo(da.id)">
                                   <th>@{{key + 1}}</th>
                                   <td>@{{da.title}}</td>
                                   <td>@{{da.verified |transJs(langs, mutualVar.langs.localeCode) }}</td>
@@ -74,11 +74,12 @@
                       </div>    
                     </div>
 
+
+
                     <div v-if="couponCode">
-                        <div class="control">
-                          <div class="tags has-addons">
-                            <span class="tag is-dark">{{__('shoppingCart.Coupon Code')}}</span>
-                            <span class="tag is-success">@{{couponCode}}
+                        <div class="">
+                          <div class="">
+                            <span class="tag">{{__('shoppingCart.Coupon Code')}} : @{{couponCode}}
                             </span>
                           </div>
                         </div>

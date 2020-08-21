@@ -30,10 +30,10 @@
 
 
 
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="grid grid-cols-12">
+                <div class="col-span-12">
 
-                    <div class="row justify-content-center">
+                    <div class="grid grid-cols-12">
                         @include('layouts.account.aside')
 
                         @yield('content')

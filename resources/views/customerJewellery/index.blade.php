@@ -30,7 +30,7 @@
             <div class="row" >
                 <div class="col-12">
                     <center>
-                        <h3 class="title is-5">{{__('customerMoment.Customer moments')}} - {{__('customerMoment.Customer Jewelrries')}}
+                        <h3 class="sm:text-xl font-semibold">{{__('customerMoment.Customer moments')}} - {{__('customerMoment.Customer Jewelrries')}}
                         </h3>    
 
                         <br>
@@ -52,13 +52,13 @@
 
         <div id="customerJewelleryIndex">
 
-            <div class="row">
-                <div class="col-sm-4 col-12" v-for="(post,index) in posts.data">
-                    <div @click="clickRow(post)">
+            <div class="grid grid-cols-12 gap-4">
+                <div class="sm:col-span-4 col-span-6" v-for="(post,index) in posts.data">
+                    <div @click="clickRow(post)" >
                         <a @mouseover="loopImages(index)" @mouseleave="loopImages(index,0)">
                             <img :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${post.images[0].image}`" v-if="post.images[0]" width="100%">
-                                <center>
-                                    <p v-if="post.texts[0]">@{{post.texts[locale].content }} </p>
+                                <center class="p-4">
+                                    <p v-if="post.texts[0]" class="truncate">@{{post.texts[locale].content }} </p>
                                     </a>
                                     <p v-if="post.created_at">@{{post.date}} </p>
                                 </center>
@@ -68,8 +68,8 @@
             </div>
                             
 
-            <div class="row justify-content-center">
-                <div class="col">
+            <div class="grid grid-cols-12">
+                <div class="col-span-12">
                     <center>
                         <button class="btn btn-primary" @click="more()">{{trans('engagementRing.More')}}</button>
                     </center>

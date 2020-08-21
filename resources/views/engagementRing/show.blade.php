@@ -128,22 +128,22 @@
         <div id="engagementRingsShow">
 
             <br>
-            <div class="row" >
-                <div class="col-12">
-                    <center><h3 class="title is-5"> {{__('engagementRing.' .$meta->style )}} {{__('engagementRing.' .$meta->prong )}} {{__('engagementRing.' .$meta->shoulder )}} {{trans('engagementRing.setting')}}</h3> 
+            <div class="" >
+                <div class="">
+                    <center><h3 class="sm:text-2xl"> {{__('engagementRing.' .$meta->style )}} {{__('engagementRing.' .$meta->prong )}} {{__('engagementRing.' .$meta->shoulder )}} {{trans('engagementRing.setting')}}</h3> 
                                 <h5>{{trans('engagementRing.metaTitle3')}}</h5>                     
                     </center>
                     
                 </div>
             </div>
 
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="grid-cols-12 justify-center">
+                <div class="col-span-12">
                     <br>
 
-                    <div class="row">
-                      <div class="col-sm-7">
-                        <figure class="image box" @click="carouselState=!carouselState">
+                    <div class="grid grid-cols-12">
+                      <div class="col-span-12 sm:col-span-7">
+                        <figure class="box" @click="carouselState=!carouselState">
                           <keep-alive >
                             <carousel @active="carouselState=!carouselState" :active="carouselState" :height="'500'" :width="'100%'" :upperitems="engagementRing" :items="customerItems" title="customer jewellries"></carousel>
                           </keep-alive>
@@ -155,55 +155,69 @@
 
                       </div>
 
-                      <div class="col-sm-5 box">
+                      <div class="col-span-12 sm:col-span-5 box px-4">
                         <article>
-                                <center>
-                                    
-                                   <!--  <button class="button is-info" @click="appointmentState=!appointmentState">{{__('engagementRing.Appointment')}}</button>
-                                    <appointment v-model="engagementRing" :title="appointmentTitle" @active="appointmentState=!appointmentState" :active="appointmentState" :columns="columns"  :processing="false" :langs="langs" :locale="locale"></appointment> -->
-                                    
-                                    <shopping-cart :item="engagementRing" :type="shoppingCartType" :title="appointmentTitle" :carousel-item="carouselItem" ></shopping-cart>
+                              <center class="p-2">
+                                  
+                                 <!--  <button class="button is-info" @click="appointmentState=!appointmentState">{{__('engagementRing.Appointment')}}</button>
+                                  <appointment v-model="engagementRing" :title="appointmentTitle" @active="appointmentState=!appointmentState" :active="appointmentState" :columns="columns"  :processing="false" :langs="langs" :locale="locale"></appointment> -->
+                                  
+                                  <shopping-cart :item="engagementRing" :type="shoppingCartType" :title="appointmentTitle" :carousel-item="carouselItem" ></shopping-cart>
 
-                                </center>
-                                <br>
-                                <p>
-                                {{trans('engagementRing.For more detailed information')}}, 
-                                <br>
-                                    <a @click="appointmentState=!appointmentState">{{trans('engagementRing.Make Appointment')}}</a> or <a :href="hrefLangs + '/about-us'">{{trans('engagementRing.contact us')}}
-                                    </a> {{trans('engagementRing.for further')}}：
-                                </p>
-                            </article>
+                              </center>
+
+                              <p class="p-2">
+                              {{trans('engagementRing.For more detailed information')}}, 
+
+                                  <a @click="appointmentState=!appointmentState">{{trans('engagementRing.Make Appointment')}}</a> or <a :href="hrefLangs + '/about-us'">{{trans('engagementRing.contact us')}}
+                                  </a> {{trans('engagementRing.for further')}}：
+                              </p>
+                          </article>
 
 
-                            <article>
+                            <article class="p-2">
 
-                                <table class="table is-striped is-fullwidth">
-                                <thead>
-                                    <tr><th>{{__('engagementRing.Engagement Ring Info')}}</th>
-                                    </tr>
-                                </thead>
-                                    
-                                <tbody>
-                                    <tr><td>{{__('engagementRing.Unit Price')}}</td><td>${{ $meta->unit_price }}</td></tr>
-                                    <tr><td>{{__('engagementRing.Shoulder')}}</td><td>{{__('engagementRing.' .$meta->shoulder )}}</td></tr>
-                                    <tr><td>{{__('engagementRing.Prong')}}</td><td>{{__('engagementRing.' .$meta->prong )}}</td></tr>
-                                    <tr><td>{{__('engagementRing.Metal')}}</td><td>{{__('engagementRing.' .$meta->metal )}}</td></tr>
-                                    <tr><td>{{__('engagementRing.Side Stone')}}</td><td>{{__('engagementRing.Around')}} {{ $meta->ct }} {{trans('engagementRing.ct')}}</td></tr>
-                                </tbody>
-
-                                <thead>
-                                    <tr>
-                                        <th>{{__('engagementRing.More Details')}}</th>
-                                    </tr>
-                                </thead>
-                                    
-                                <tbody>
-                                    <tr><td>{{__('engagementRing.Stock')}}</td><td>{{ $meta->stock }}</td></tr>
-                                    <tr><td>{{__('engagementRing.Name')}}</td><td v-if="engagementRing.texts">{{ $meta->texts[0]->content }}</td></tr>
-                                    <tr><td>{{__('engagementRing.Description')}}</td><td>{{__('engagementRing.' .$meta->style )}},{{__('engagementRing.' .$meta->prong )}},{{__('engagementRing.' .$meta->shoulder )}},{{trans('engagementRing.setting')}}</td></tr>
-                                </tbody>
-
-                                </table>
+                                    <div class="grid grid-cols-12 border-b p-2" >
+                                      <div class="col-span-6 p-2 text-lg sm:text-2xl font-semibold" >{{__('engagementRing.Engagement Ring Info')}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b" >
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Unit Price')}}</div>
+                                      <div class="col-span-6 p-2 font-light" >${{ $meta->unit_price }}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b" >
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Shoulder')}}</div>
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.' .$meta->shoulder )}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b" >
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Prong')}}</div>
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.' .$meta->prong )}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b" >
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Metal')}}</div>
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.' .$meta->metal )}}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b" >
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Side Stone')}}</div>
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Around')}} {{ $meta->ct }} {{trans('engagementRing.ct')}}</div>
+                                    </div>
+                              
+                                    <div class="grid grid-cols-12 border-b p-2" >
+                                        {{__('engagementRing.More Details')}}
+                                    </div>
+                               
+                                    <div class="grid grid-cols-12 border-b" >
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Stock')}}</div>
+                                      <div class="col-span-6 p-2 font-light" >{{ $meta->stock }}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b" >
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Name')}}</div>
+                                      <div  class="col-span-6 p-2 font-light" v-if="engagementRing.texts">{{ $meta->texts[0]->content }}</div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b" >
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Description')}}</div>
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.' .$meta->style )}},{{__('engagementRing.' .$meta->prong )}},{{__('engagementRing.' .$meta->shoulder )}},{{trans('engagementRing.setting')}}</div>
+                                    </div>
+           
                            
                             </article>
                       </div>

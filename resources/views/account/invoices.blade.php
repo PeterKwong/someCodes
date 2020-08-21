@@ -29,16 +29,16 @@
     @endSection
 
     @section('content')
-        <br>
-          <div class="col-10" id="invoices">
-              <p class="title is-4">{{__('shoppingCart.Invoices')}}</p>
 
-                  <div class="row">
-                    <div class="col table-responsive">
+          <div class="col-span-10" id="invoices">
+              <p class="text-2xl">{{__('shoppingCart.Invoices')}}</p>
 
-                      <table class="table is-striped is-narrow is-hoverable is-fullwidth">
+                  <div class="relative">
+                    <div class="scrolling-touch overflow-auto">
+
+                      <table class="w-full">
                         <thead>
-                          <tr>
+                          <tr class="border p-1">
                             <th></th>
                             <th>{{__('shoppingCart.Title')}}</th>
                             <th>{{__('shoppingCart.Email Verified')}}</th>
@@ -52,7 +52,7 @@
                         </thead>
 
                         <tbody>
-                              <tr v-for="(da,key) in data.data" @click="directTo(da.id)">
+                              <tr class="border p-1" v-for="(da,key) in data.data" @click="directTo(da.id)">
                                 <th>@{{key + 1}}</th>
                                 <td>@{{da.title}}</td>
                                 <td>@{{ da.verified |transJs(langs, mutualVar.langs.localeCode) }}</td>

@@ -29,20 +29,20 @@
 
 
         <div id="education">
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="p-4">
+                <div class="">
                     <br>
 
-                    <div class="row" >
-                        <div class="col-sm-2">
+                    <div class="grid grid-cols-12" >
+                        <div class="col-span-2 col-start-2">
                             <center>
                               <img class="box img-thumbnail" :src="'/images/front-end/education/shape/pageImage.jpg'" class="">
                               
                             </center>
                             
                         </div>
-                        <div class="col">
-                            <center><h3 class="title is-5">{{__('diamondShape.HOW TO INTERPRET DIAMOND SHAPE ?')}}</h3>   
+                        <div class="col-span-8">
+                            <center><h3 class="sm:text-xl font-semibold">{{__('diamondShape.HOW TO INTERPRET DIAMOND SHAPE ?')}}</h3>   
                                     {{__('diamondShape.Diamonds can have many different shapes, each a diamond shape has its own unique properties.')}}
                             </center>
                             
@@ -51,24 +51,43 @@
 
                     <br>
 
-                    <div class="row justify-content-center">
-                        <div class="col">
+                    <div class="grid grid-cols-12 justify-center">
+                        <div class="col-span-12 sm:col-span-10">
                           
-                        @include('layouts.education.anatony')
+                          <ul class="flex justify-center items-center border-b" id="myTab" role="tablist">
+                            <li class="">
+                              <a class="nav-link bg-blue-300 text-white" id="carat-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/shape" role="tab" aria-controls="carat" aria-selected="true">{{__('diamondShape.Diamond Shape')}}</a>
+                            </li>
+                            <li class="">
+                              <a class="text-blue-600 text-center px-2" id="cut-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/hearts-and-arrows" role="tab" aria-controls="cut" aria-selected="true">{{__('diamondHeartArrow.Hearts And Arrows diamond')}}</a>
+                            </li>
+                            <li class="">
+                              <a class="text-blue-600 text-center px-2" id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/proportion" role="tab" aria-controls="color" aria-selected="true">{{__('diamondProportion.Anatomy Proportion')}}</a>
+                            </li>
+                            <li class="">
+                              <a class="text-blue-600 text-center px-2" id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/symmetry" role="tab" aria-controls="color" aria-selected="true">{{__('diamondSymmetry.Anatomy Symmetry')}}</a>
+                            </li>
+                            <li class="">
+                              <a class="text-blue-600 text-center px-2" id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/polish" role="tab" aria-controls="color" aria-selected="true">{{__('diamondPolish.Anatomy Polish')}}</a>
+                            </li>
+                            <li class="">
+                              <a class="text-blue-600 text-center px-2" id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/fluorescence" role="tab" aria-controls="color" aria-selected="true">{{__('diamondFluorescence.Anatomy Fluorescence')}}</a>
+                            </li>
+                          </ul>
 
 
-                        <div class="row justify-content-center text-center">
-                            <div class="col-10">
+                        <div class="grid grid-cols-12 justify-center text-center">
+                            <div class="col-span-12">
                                <article class="message is-primary" >
                                 <div class="level is-centered">
                                 
-                                <div class="row justify-content-center">
-                                      <div class="col-10">
+                                <div class="grid grid-cols-12 justify-center">
+                                      <div class="col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
 
-                                                <center><p class="title is-6">{{trans('diamondShape.ASSHER CUT')}}</p>
+                                                <center><p class="sm:text-xl font-semibold">{{trans('diamondShape.ASSHER CUT')}}</p>
                                                 </center>
                                                 <div class="level">
                                                 <li>{{trans('diamondShape.shapePara1')}}</li>
@@ -81,7 +100,7 @@
                                              
                                       </div>
 
-                                  <div class="col">
+                                  <div class="col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -100,13 +119,13 @@
                             <article class="message is-primary" >
                                 <div class="level is-centered">
                                 
-                                <div class="row justify-content-center">
-                                      <div class="col-10">
+                                <div class="grid grid-cols-12 justify-center">
+                                      <div class="col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
 
-                                                <center><p class="title is-6">{{trans('diamondShape.ROUND BRILLIANT CUT')}}</p>
+                                                <center><p class="sm:text-xl font-semibold">{{trans('diamondShape.ROUND BRILLIANT CUT')}}</p>
                                                 </center>
                                                 <div class="level">
                                                 <li>{{trans('diamondShape.shapePara2')}}</li>
@@ -119,7 +138,7 @@
                                              
                                       </div>
 
-                                  <div class="col">
+                                  <div class="col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -138,13 +157,13 @@
                             <article class="message is-primary" >
                                 <div class="level is-centered">
                                 
-                                <div class="row justify-content-center">
-                                      <div class="col-10">
+                                <div class="grid grid-cols-12 justify-center">
+                                      <div class="col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
 
-                                                <center><p class="title is-6">{{trans('diamondShape.CUSHION CUT')}}</p>
+                                                <center><p class="sm:text-xl font-semibold">{{trans('diamondShape.CUSHION CUT')}}</p>
                                                 </center>
                                                 <div class="level">
                                                 <li>{{trans('diamondShape.shapePara3')}}</li>
@@ -157,7 +176,7 @@
                                              
                                       </div>
 
-                                  <div class="col">
+                                  <div class="col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -175,13 +194,13 @@
                             <article class="message is-primary" >
                                 <div class="level is-centered">
                                 
-                                <div class="row justify-content-center">
-                                      <div class="col-10">
+                                <div class="grid grid-cols-12 justify-center">
+                                      <div class="col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
 
-                                                <center><p class="title is-6">{{trans('diamondShape.EMERALD CUT')}}</p>
+                                                <center><p class="sm:text-xl font-semibold">{{trans('diamondShape.EMERALD CUT')}}</p>
                                                 </center>
                                                 <div class="level">
                                                 <li>{{trans('diamondShape.shapePara4')}}</li>
@@ -194,7 +213,7 @@
                                              
                                       </div>
 
-                                  <div class="col">
+                                  <div class="col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -213,13 +232,13 @@
                             <article class="message is-primary" >
                                 <div class="level is-centered">
                                 
-                                <div class="row justify-content-center">
-                                      <div class="col-10">
+                                <div class="grid grid-cols-12 justify-center">
+                                      <div class="col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
 
-                                                <center><p class="title is-6">{{trans('diamondShape.HEART SHAPE')}}</p>
+                                                <center><p class="sm:text-xl font-semibold">{{trans('diamondShape.HEART SHAPE')}}</p>
                                                 </center>
                                                 <div class="level">
                                                 <li>{{trans('diamondShape.shapePara5')}}</li>
@@ -232,7 +251,7 @@
                                              
                                       </div>
 
-                                  <div class="col">
+                                  <div class="col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -251,13 +270,13 @@
                             <article class="message is-primary" >
                                 <div class="level is-centered">
                                 
-                                <div class="row justify-content-center">
-                                      <div class="col-10">
+                                <div class="grid grid-cols-12 justify-center">
+                                      <div class="col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
 
-                                                <center><p class="title is-6">{{trans('diamondShape.MARQUISE CUT')}}</p>
+                                                <center><p class="sm:text-xl font-semibold">{{trans('diamondShape.MARQUISE CUT')}}</p>
                                                 </center>
                                                 <div class="level">
                                                 <li>{{trans('diamondShape.shapePara6')}}</li>
@@ -270,7 +289,7 @@
                                              
                                       </div>
 
-                                  <div class="col">
+                                  <div class="col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -289,13 +308,13 @@
                             <article class="message is-primary" >
                                 <div class="level is-centered">
                                 
-                                <div class="row justify-content-center">
-                                      <div class="col-10">
+                                <div class="grid grid-cols-12 justify-center">
+                                      <div class="col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
 
-                                                <center><p class="title is-6">{{trans('diamondShape.OVAL CUT')}}</p>
+                                                <center><p class="sm:text-xl font-semibold">{{trans('diamondShape.OVAL CUT')}}</p>
                                                 </center>
                                                 <div class="level">
                                                 <li>{{trans('diamondShape.shapePara7')}}</li>
@@ -308,7 +327,7 @@
                                              
                                       </div>
 
-                                  <div class="col">
+                                  <div class="col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -327,13 +346,13 @@
                             <article class="message is-primary" >
                                 <div class="level is-centered">
                                 
-                                <div class="row justify-content-center">
-                                      <div class="col-10">
+                                <div class="grid grid-cols-12 justify-center">
+                                      <div class="col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
 
-                                                <center><p class="title is-6">{{trans('diamondShape.PEAR SHAPE')}}</p>
+                                                <center><p class="sm:text-xl font-semibold">{{trans('diamondShape.PEAR SHAPE')}}</p>
                                                 </center>
                                                 <div class="level">
                                                 <li>{{trans('diamondShape.shapePara8')}}</li>
@@ -346,7 +365,7 @@
                                              
                                       </div>
 
-                                  <div class="col">
+                                  <div class="col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -365,13 +384,13 @@
                             <article class="message is-primary" >
                                 <div class="level is-centered">
                                 
-                                <div class="row justify-content-center">
-                                      <div class="col-10">
+                                <div class="grid grid-cols-12 justify-center">
+                                      <div class="col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
 
-                                                <center><p class="title is-6">{{trans('diamondShape.PRINCESS CUT')}}</p>
+                                                <center><p class="sm:text-xl font-semibold">{{trans('diamondShape.PRINCESS CUT')}}</p>
                                                 </center>
                                                 <div class="level">
                                                 <li>{{trans('diamondShape.shapePara9')}}</li>
@@ -384,7 +403,7 @@
                                              
                                       </div>
 
-                                  <div class="col">
+                                  <div class="col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -403,13 +422,13 @@
                             <article class="message is-primary" >
                                 <div class="level is-centered">
                                 
-                                <div class="row justify-content-center">
-                                      <div class="col-10">
+                                <div class="grid grid-cols-12 justify-center">
+                                      <div class="col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
 
-                                                <center><p class="title is-6">{{trans('diamondShape.RADIANT CUT')}}</p>
+                                                <center><p class="sm:text-xl font-semibold">{{trans('diamondShape.RADIANT CUT')}}</p>
                                                 </center>
                                                 <div class="level">
                                                 <li>{{trans('diamondShape.shapePara10')}}</li>
@@ -422,7 +441,7 @@
                                              
                                       </div>
 
-                                  <div class="col">
+                                  <div class="col-span-2">
 
                                  <a class="">
                                     <center>  

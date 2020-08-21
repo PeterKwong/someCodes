@@ -1,5 +1,5 @@
 <template>
-	 	<sup v-if="mutualVar.cookiesInfo.shoppingCart.items.length != 0"> {{mutualVar.cookiesInfo.shoppingCart.items.length}}
+	 	<sup v-if="mutualVar.cookiesInfo.shoppingCart.items.length != 0"> {{mutualVar.cookiesInfo.shoppingCart.items.length }}
 	    </sup>
 		    
 </template>

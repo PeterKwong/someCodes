@@ -29,12 +29,12 @@
 
 
         <div id="education">
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="p-4">
+                <div class="">
                     <br>
 
-                    <div class="row justify-content-center text-center" >
-                        <div class="col-sm-2">
+                    <div class="grid grid-cols-12 text-center" >
+                        <div class="col-start-2 col-span-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" :src="'/images/front-end/education/' + activedSubTab +'/pageImage.jpg'"  >
@@ -42,9 +42,9 @@
                             </center>
                             
                         </div>
-                        <div class="col">
+                        <div class="col-span-8">
                             <center>
-                                <h3 class="title is-5">{{__('education.HOW TO INTERPRET GIA REPORT')}} ?</h3>
+                                <h3 class="sm:text-xl font-semibold">{{__('education.HOW TO INTERPRET GIA REPORT')}} ?</h3>
                                 {{__('education.You know how to interpret GIA Report, basically to see other diamond certification reports, such as: IGI or HRD, will not have any difficulty, but the main is that they are called, respectively, or a little different.')}}' 
                             </center>
                         </div>
@@ -52,19 +52,31 @@
 
                     <br>
 
-                    <div class="row justify-content-center">
-                      <div class="col">
+                    <div class="grid grid-cols-12">
+                      <div class="col-span-12 sm:col-span-10">
 
-                        @include('layouts.education.gradingCert')
+                        <ul class="flex justify-center items-center border-b" id="myTab" role="tablist">
+                          <li class="">
+                            <a class="nav-link bg-blue-300 text-white"  id="carat-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report/grading-certficate" role="tab" aria-controls="carat" aria-selected="true">{{__('education.Diamond certficate')}}</a>
+                          </li>
+                          <li class="">
+                            <a class="text-blue-600 text-center px-2"  id="cut-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report" role="tab" aria-controls="cut" aria-selected="true">{{__('education.Gia Report')}}</a>
+                          </li>
+                          <li class="">
+                            <a class="text-blue-600 text-center px-2"  id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report/grading-eye-clean" role="tab" aria-controls="color" aria-selected="true">{{__('education.Eye Clean Diamond')}}</a>
+                          </li>
+                        </ul>
+
+
                         
                         <br>
 
-                        <div class="row justify-content-center">
-                            <div class="col-sm-10">
-                                <p class="title is-6">{{trans('education.certTitle1')}}</p>
+                        <div class="grid grid-cols-12">
+                            <div class="col-span-10">
+                                <p class="sm:text-xl font-semibold">{{trans('education.certTitle1')}}</p>
                                 <li>{{trans('education.certPara1')}}</li>                            
                             </div>
-                            <div class="col">
+                            <div class="col-span-2">
                                 <p>{{trans('education.Diamond Certficate')}}</p>
                                     <img class="img-fluid" src="/images/front-end/education/grading-certficate/pageImage.jpg">
                             </div>

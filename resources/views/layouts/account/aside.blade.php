@@ -1,19 +1,19 @@
-<div class="col-2">
+<div class="col-span-2">
 
     <div class="list-group list-group-flush">
-      <a class="list-group-item list-group-item-action list-group-item-dark">{{__('account.My Account')}}</a>
+      <a class="block box p-2 bg-gray-500 text-white">{{__('account.My Account')}}</a>
 
-      <a href="{{url( app()->getLocale() . '/account/setting')}}" class="list-group-item list-group-item-action list-group-item-light">{{__('account.Account Setting')}}</a>
-      <a href="{{url( app()->getLocale() . '/shopping-cart')}}" class="list-group-item list-group-item-action list-group-item-light">{{__('account.Shopping Cart')}}</a>
-      <a href="{{url( app()->getLocale() . '/account/pending')}}" class="list-group-item list-group-item-action list-group-item-light">{{__('account.Orders')}}｜{{__('account.Pending Orders')}}</a>
-      <a href="{{url( app()->getLocale() . '/account/invoices')}}" class="list-group-item list-group-item-action list-group-item-light">{{__('account.Invoices')}}</a>
+      <a href="{{url( app()->getLocale() . '/account/setting')}}" class="block box p-2 bg-gray-100 hover:bg-gray-300">{{__('account.Account Setting')}}</a>
+      <a href="{{url( app()->getLocale() . '/shopping-cart')}}" class="block box p-2 bg-gray-100 hover:bg-gray-300">{{__('account.Shopping Cart')}}</a>
+      <a href="{{url( app()->getLocale() . '/account/pending')}}" class="block box p-2 bg-gray-100 hover:bg-gray-300">{{__('account.Orders')}}｜{{__('account.Pending Orders')}}</a>
+      <a href="{{url( app()->getLocale() . '/account/invoices')}}" class="block box p-2 bg-gray-100 hover:bg-gray-300">{{__('account.Invoices')}}</a>
     
     
       @if(auth()->user()->roles()->get()->filter( function($data){ return $data['name'] == 'promoter' ; })->map(function($data){ return $data['name'];})->first())
       @include('layouts.account.asidePromoter')
       @endif
 
-      <a class="btn btn-primary" href="{{ route('logout') }}">{{__('account.Logout')}}</a>
+      <a class="block btn btn-primary" href="{{ route('logout') }}">{{__('account.Logout')}}</a>
 
 
     </div>

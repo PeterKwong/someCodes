@@ -29,36 +29,36 @@
 
     <br>
 
-    <div class="row justify-content-between color-white background-primary border">
-            <div class="col-auto mr-auto">
+    <div class="flex justify-between text-white bg-blue-400 border p-2">
+            <div class="">
                <strong><p >{{__('login.Register')}}</p></strong>
                       
             </div>
-            <div class="col-auto">
-              <a class="btn btn-success" href="{{ url(app()->getLocale()) }}/login">{{__('login.Login')}}</a>
+            <div class="">
+              <a class="btn btn-primary bg-green-400" href="{{ url(app()->getLocale()) }}/login">{{__('login.Login')}}</a>
             </div>
           </div>
 
-          <div class="row justify-content-center border background-primary-op-008">
-            <div class="col">
-              <div class="row justify-content-center" >
-                  <div class="col-md-6">
+          <div class="grid grid-cols-12 justify-center border background-primary-op-008">
+            <div class="col-span-12">
+              <div class="grid grid-cols-12 justify-center" >
+                  <div class="col-span-12 sm:col-span-5 sm:col-start-4">
                     @include('auth.lang.socialLogin')
                   </div>
               </div>
-              <div class="row justify-content-center">
-                <div class="col-md-6">
+              <div class="grid grid-cols-12 justify-center">
+                <div class="col-span-12">
                       <form class="form-horizontal" method="POST" action="{{ route('register') }}">
 
                         {{ csrf_field() }}
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
+                        <div class="grid grid-cols-12 justify-center p-8">
+                            <div class="col-span-12 sm:col-span-5 sm:col-start-4">
 
-                              <div class="form-group" >
+                              <div class="p-2" >
                                 <label for="email" class="control-label">{{__('login.Name')}}</label>
 
                                 <p class="control has-icons-right">
-                                  <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus placeholder="{{__('login.Name')}}">
+                                  <input id="name" type="text" class="input w-9/12" name="name" value="{{ old('name') }}" required autofocus placeholder="{{__('login.Name')}}">
                                   <span class="icon is-small is-right">
                                     <i class="fas fa-check"></i>
                                   </span>
@@ -72,11 +72,11 @@
 
                               </div>
 
-                              <div class="form-group" >
+                              <div class="p-2" >
                                 <label for="email" class="control-label">{{__('login.E-Mail Address')}}</label>
 
                                 <p class="control has-icons-left has-icons-right">
-                                  <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="{{__('login.E-Mail Address')}}">
+                                  <input id="email" type="email" class="input w-9/12" name="email" value="{{ old('email') }}" required autofocus placeholder="{{__('login.E-Mail Address')}}">
                                   <span class="icon is-small is-left">
                                     <i class="fas fa-envelope"></i>
                                   </span>
@@ -94,11 +94,11 @@
                               </div>
                               
 
-                              <div class="form-group">
+                              <div class="p-2">
                                   <label for="password" class="control-label">{{__('login.Password')}}</label>
 
                                 <p class="control has-icons-left">
-                                  <input id="password" type="password" class="form-control" name="password" placeholder="{{__('login.Password')}}" required>
+                                  <input id="password" type="password" class="input w-9/12" name="password" placeholder="{{__('login.Password')}}" required>
                                   <span class="icon is-small is-left">
                                     <i class="fas fa-lock"></i>
                                   </span>
@@ -112,11 +112,11 @@
                               </div>
 
 
-                              <div class="form-group">
+                              <div class="p-2">
                                   <label for="password" class="control-label">{{__('login.Confirm Password')}}</label>
 
                                 <p class="control has-icons-left">
-                                  <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="{{__('login.Confirm Password')}}" required>
+                                  <input id="password-confirm" type="password" class="input w-9/12" name="password_confirmation" placeholder="{{__('login.Confirm Password')}}" required>
                                   <span class="icon is-small is-left">
                                     <i class="fas fa-lock"></i>
                                   </span>
@@ -130,9 +130,9 @@
                               </div>
 
 
-                              <div class="form-group">
+                              <div class="p-2">
                                 <p class="control">
-                                  <button class="btn btn-success">
+                                  <button class="btn btn-primary bg-green-400">
                                           {{__('login.Register')}}
                                   </button>
                                 </p>

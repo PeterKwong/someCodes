@@ -34,8 +34,8 @@
     @section('content')
         <br>
             <div class="row" >
-                <div class="col-12">
-                    <center><h3 class="title is-5">{{__('shoppingCart.Secure Checkout')}}</h3>                        
+                <div class="col-span-12">
+                    <center><h3 class="text-lg font-semibold">{{__('shoppingCart.Secure Checkout')}}</h3>                        
                     </center>
                     
                 </div>
@@ -43,14 +43,14 @@
 
 
         <div id="jewellery">
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="grid grid-cols-12">
+                <div class="col-span-12">
                     <br>
 
                       <div id="shopBagBill">
-                        <ul class="nav nav-pills nav-fill">
-                          <li class="nav-item border">
-                            <a class="nav-link" href="#" :class="{ ' active' : form.onTab == 'login' }" @click="changeOnTab('login')">
+                        <ul class="grid grid-cols-12 px-4 text-center">
+                          <li class="col-span-4 text-lg border" :class="{ ' bg-blue-400 text-white' : form.onTab == 'login' }">
+                            <a class="p-1" href="#" @click="changeOnTab('login')">
                               <p>
                                 <span>1. {{__('shoppingCart.Login') }}</span>
                                 <span class="icon"><i class="fas fa-angle-right" aria-hidden="true"></i></span>
@@ -58,8 +58,8 @@
                               </p>
                             </a>
                           </li>
-                          <li class="nav-item border">
-                            <a class="nav-link" href="#" :class="{ ' active' :  form.onTab == 'customerInfo' }" @click="changeOnTab('customerInfo')">
+                          <li class="col-span-4 text-lg border" :class="{ ' bg-blue-400 text-white' :  form.onTab == 'customerInfo' }">
+                            <a class="p-1" href="#" @click="changeOnTab('customerInfo')">
                               <p>
                                 <span>2. {{__('shoppingCart.Info') }}</span>
                                 <span class="icon"><i class="fas fa-angle-right" aria-hidden="true"></i></span>
@@ -67,8 +67,8 @@
                               </p>
                             </a>
                           </li>
-                          <li class="nav-item border">
-                            <a class="nav-link" href="#" :class="{ ' active' :  form.onTab == 'payment' }" @click="changeOnTab('payment')">
+                          <li class="col-span-4 text-lg border" :class="{ ' bg-blue-400 text-white' :  form.onTab == 'payment' }">
+                            <a class="p-1" href="#" @click="changeOnTab('payment')">
                               <p>
                                 <span>3. {{__('shoppingCart.Review') }} </span>
                                 <span class="icon"><i class="fas fa-angle-right" aria-hidden="true"></i></span>
@@ -82,180 +82,166 @@
 
                         <div v-if="form.onTab == 'login' ">
 
-                                      <div v-if="!apiToken">
+                          <div v-if="!apiToken">
 
-                                          <div class="row justify-content-center ">
+                              <div class="grid grid-cols-12 text-center">
 
-                                              <div class="col-md-5">
-                                                  <div class="rounded border">
-                                                      <div v-if=" locale != '/cn' " class="row justify-content-center ">
-                                                        <a href="/auth/facebook" class="btn btn-primary"><i class="fab fa-facebook"></i> Facebook</a>
-                                                        <a href="/auth/google" class="btn btn-primary"><i class="fab fa-google"></i> google</a>              
-                                                        <a href="/auth/twitter" class="btn btn-primary"><i class="fab fa-twitter"></i> Twitter</a>
-                                                      </div>  
-
-                                                      <br>
-
-                                                      <div class="row justify-content-center ">
-                                                        <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wx37cf6a202a727207&scope=snsapi_login&redirect_uri=https%3A%2F%2Ftingdiamond.com%2Fwechatqrnext&state=&login_type=jssdk&self_redirect=true&style=black" class="btn btn-primary"><i class="fab fa-weixin"></i> {{__('shoppingCart.Wechat') }}</a>
-
-                                                        <a href="https://auth.alipay.com/login/index.htm?goto=https%3A%2F%2Fopenauth.alipay.com%3A443%2Foauth2%2FpublicAppAuthorize.htm%3Fapp_id%3D2018081161022086%26scope%3Dauth_user%26redirect_uri%3Dhttps%253A%252F%252Ftingdiamond.com%252Falipay%26state%3Dinit" class="btn btn-primary"><i class="fab fa-alipay"></i>{{__('shoppingCart.Alipay') }}</a>
-
-                                                      </div>
-                                                  </div>
-
-                                                  <br>
-
-                                                  <div class="row justify-content-center ">
-                                                      <a :href="mutualVar.langs.locale + '/login' " class="btn btn-success">{{__('shoppingCart.Create New Account/Login') }}</a>
-                                                  </div>
-
-                                                  
-                                              </div>
-
-                                          </div>
-                                          
+                                  <div class="col-span-12 sm:col-span-5 sm:col-start-4">
+                                      <div class="">
+                                        @include('auth.lang.socialLogin')
                                       </div>
 
-                                      <div v-if="apiToken">
-
-                                          <div class="row justify-content-center ">
-                                              <div class="col-6 rounded border" @click="changeOnTab('customerInfo')">
-
-                                                  <center>
-                                                      <p class="subtitle is-6">{{__('shoppingCart.You Logged in!') }}</p>
-                                                  </center>
-                                              </div>
-
-                                          </div>
-                                          
+                                      <div class="col-span-12 p-8">
+                                          <a :href="mutualVar.langs.locale + '/login' " class="btn btn-primary bg-green-400">{{__('shoppingCart.Create New Account/Login') }}</a>
                                       </div>
 
-
+                                      
                                   </div>
 
+                              </div>
+                              
+                          </div>
 
+                          <div v-if="apiToken">
 
+                              <div class="grid grid-cols-12 ">
+                                  <div class="col-span-12 rounded border p-8 mx-8" @click="changeOnTab('customerInfo')">
 
-                                  <div v-if="form.onTab == 'customerInfo' " >
                                       <center>
-                                      <p>{{__('shoppingCart.Shipping Address') }}</p>
+                                          <p class="text-lg font-light btn btn-primary w-48">{{__('shoppingCart.You Logged in!') }}</p>
+                                      </center>
+                                  </div>
 
-                                       <div class="col-11 rounded border">
-                                          <form @submit.prevent="updateCustomerInfo">
-
-                                              <div class="row" v-for="(item,value) in formItems">
-                                                <div class="input-group mb-3">
-                                                  <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">
-                                                      * @{{ item.display |transJs(langs) }}
-                                                    </span>
-                                                  </div>
-                                                  <input type="text" class="form-control" :class="{'is-invalided': formError[item.errorName]}"  :placeholder="item.display |transJs(langs)" aria-label="Username" aria-describedby="basic-addon1"  v-model="form.user[item.data]" required>
-                                                </div>
-                                                <p v-if="formError[item.errorName]" style="color:red;"> 
-                                                      <small>                                                     {{__('shoppingCart.this is not correct!') }}
-                                                      </small>
-                                                  </p>
+                              </div>
+                              
+                          </div>
 
 
-                                              </div>
+                      </div>
 
 
-                                              <div class="row" >
-                                                <div class="input-group mb-3">
-                                                  <div class="input-group-prepend">
-                                                    <label class="input-group-text" for="inputGroupSelect01">@{{'Area' |transJs(langs) }}</label>
-                                                  </div>
-                                                  <select class="custom-select" id="inputGroupSelect01" v-model="form.user.country">
-                                                    <option :value = " 'HK' ">{{__('shoppingCart.HK') }}</option>
-                                                    <option :value = " 'CN' ">{{__('shoppingCart.CN') }}</option>
-                                                  </select>
-                                                </div>
-
-                                                  <div class="col ">
-                                                    <p style="color: red" v-if="form.user.country == 'CN' ">*<small> {{__('shoppingCart.China customer will be sent a ring size tool.') }} </small></p>
-                                                  </div>
-                                              </div>
-
-                                              <div class="row" >
-
-                                                <div class="col">
-                                                  <center>
-                                                  <button class="btn btn-primary" :disabled="isProcessing" @click="updateCustomerInfo" >{{__('shoppingCart.Save' ) }}</button>
-                                                  </center>
-                                                </div>
-                                              </div>
 
 
-                                          </form>
+                      <div v-if="form.onTab == 'customerInfo' " >
+                          <center>
+                          <p>{{__('shoppingCart.Shipping Address') }}</p>
 
+                           <div class="rounded border mx-4">
+                              <form @submit.prevent="updateCustomerInfo">
+
+                                  <div class="" v-for="(item,value) in formItems">
+                                    <div class="grid grid-cols-12">
+                                      <div class="col-span-4 input-group-prepend m-1">
+                                        <span class="input-group-text" id="basic-addon1">
+                                          * @{{ item.display |transJs(langs) }}
+                                        </span>
                                       </div>
+                                      <input type="text" class="col-span-8 input w-9/12 m-1" :class="{'is-invalided': formError[item.errorName]}"  :placeholder="item.display |transJs(langs)" aria-label="Username" aria-describedby="basic-addon1"  v-model="form.user[item.data]" required>
+                                    </div>
+                                    <p v-if="formError[item.errorName]" style="color:red;"> 
+                                          <small>                                                     {{__('shoppingCart.this is not correct!') }}
+                                          </small>
+                                      </p>
 
-
-                                  </center>
 
                                   </div>
+
+
+                                  <div class="" >
+                                    <div class="grid grid-cols-12">
+                                      <div class="col-span-4 input-group-prepend m-1">
+                                        <label class="input-group-text" for="inputGroupSelect01">@{{'Area' |transJs(langs) }}
+                                        </label>
+                                      </div>
+                                      <select class="col-span-8 w-9/12 rounded p-1 box m-1" id="inputGroupSelect01" v-model="form.user.country">
+                                        <option :value = " 'HK' ">{{__('shoppingCart.HK') }}</option>
+                                        <option :value = " 'CN' ">{{__('shoppingCart.CN') }}</option>
+                                      </select>
+                                    </div>
+
+                                      <div class="col ">
+                                        <p style="color: red" v-if="form.user.country == 'CN' ">*<small> {{__('shoppingCart.China customer will be sent a ring size tool.') }} </small></p>
+                                      </div>
+                                  </div>
+
+                                  <div class="row" >
+
+                                    <div class="col">
+                                      <center>
+                                      <button class="btn btn-primary" :disabled="isProcessing" @click="updateCustomerInfo" >{{__('shoppingCart.Save' ) }}</button>
+                                      </center>
+                                    </div>
+                                  </div>
+
+
+                              </form>
+
+                          </div>
+
+
+                      </center>
+
+                      </div>
 
 
                                   <div v-if="form.onTab == 'payment' ">
 
-                                       <div class="row justify-content-center">
-                                        <div class="col-11">
-                                          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth"> 
-                                          <thead>
+                                       <div class="grid grid-cols-12">
+                                        <div class="col-span-12 p-8">
+                                          <div class=""> 
+                                          <div>
                                               <th colspan="12"> <center>{{__('shoppingCart.Info') }}</center> </th>
-                                          </thead>             
-                                            <tbody>
-                                              <tr v-for="(item,value) in formItems">
-                                                <td >@{{ item.display |transJs(langs) }}</td>
-                                                <td>@{{form.user[item.data]}}</td>
-                                              </tr>
-                                              <tr>
-                                                <td ><p class="subtitle is-6">@{{'Area' |transJs(langs) }}</p></td>
-                                                <td>@{{form.user.country |transJs(langs) }}</td>
-                                              </tr>                               
-                                            </tbody>
-                                          </table>
+                                          </div>             
+                                            <div>
+                                              <div v-for="(item,value) in formItems" class="grid grid-cols-12 ">
+                                                <div class="col-span-4 box p-2">@{{ item.display |transJs(langs) }}</div>
+                                                <div class="col-span-8 box p-2">@{{form.user[item.data]}}</div>
+                                              </div>
+                                              <div class="grid grid-cols-12 ">
+                                                <div class="col-span-4 box p-2"><p class="text-lg font-light">@{{'Area' |transJs(langs) }}</p>
+                                                </div>
+                                                <div  class="col-span-8 box p-2">@{{form.user.country |transJs(langs) }}</div>
+                                              </div>                               
+                                            </div>
+                                          </div>
 
                                         </div>  
                                       </div>
 
-                                      <form>
-                                           <div class="row">
-                                                <div class="col">
-                                                  <shopping-cart-item></shopping-cart-item>
-                                                </div>
-                                          </div>
-
-
-
-                                      <br>
-
-                                      <div class="row">
-                                        <div class="col-auto mr-auto">
+                                      <form class="p-4">
+                                         <div class="grid grid-cols-12">
+                                              <div class="col-span-12">
+                                                <shopping-cart-item></shopping-cart-item>
+                                              </div>
                                         </div>
-                                        <div class="col-auto">
 
+                                      <div class="flex justify-between">
+                                        <div></div>
+                                        <div class="order-last">
                                           <div @click="checkoutStatus = 'selectingPayment'">
-                                            <buton class="btn btn-primary " @click="paymentOption.modal = !paymentOption.modal" :class = " {'disabled' : !checkoutClickable || isProcessing } " >{{__('shoppingCart.select payment')  }}</buton>
+                                            <buton class="btn btn-primary " :class="{'opacity-25' : !checkoutClickable || isProcessing}" @click="paymentOption.modal = !paymentOption.modal"  >{{__('shoppingCart.select payment')  }}</buton>
                                           </div>
+                                        </div>                            
+                                      </div>
+
+
 
                                             <div v-if="paymentOption.modal && checkoutClickable " @click="paymentOption.modal = !paymentOption.modal">
                                               <transition name="modal">
                                                 <div class="modal-mask">
+                                                <button tabindex="-1" class="modal-button"></button>
                                                   <div class="modal-wrapper">
                                                     <div class="modal-dialog modal-dialog-centered" role="document" @click="paymentOption.modal = !paymentOption.modal">
                                                       <div class="modal-content">
-                                                        <div class="modal-header">
-                                                          <h5 class="modal-title">{{__('shoppingCart.Payment Methods')}}</h5>
-                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <div class="modal-header flex justify-between items-center bg-blue-300 rounded-t-lg px-4">
+                                                          <h5 class="modal-title text-white order-first">{{__('shoppingCart.Payment Methods')}}</h5>
+                                                          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true" @click="paymentOption.modal = !paymentOption.modal">&times;</span>
                                                           </button>
                                                         </div>
-                                                        <div class="modal-body">
-                                                          <div class="row">
-                                                        <div class="col-8">
+                                                        <div class="modal-body p-8">
+                                                          <div class="grid grid-cols-12">
+                                                        <div class="col-span-8">
                                                             <div v-if="checkoutStatus == 'selectingPayment' && !isProcessing" @click="checkoutStatus = 'paymentProcessing' ">
                                                               <center>
                                                               <div @click="paymentOption.modal = !paymentOption.modal" >
@@ -291,54 +277,41 @@
 
                                                         </div>
 
-                                                        <div class="col">
+                                                        <div class="col-span-4">
                                                           <br>
-                                                          <p class="title is-6">
+                                                          <p class="text-lg font-semibold">
                                                             <small> @{{ title }} </small>
                                                           </p>
-                                                          <a class="color-blue" v-if="cookies.checkout.discountedDeposit">{{ __('shoppingCart.Deposit') }} : HK$ @{{ cookies.checkout.discountedDeposit }}</a>
-                                                          <a class="color-blue" v-else>{{ __('shoppingCart.Deposit') }} : HK$ @{{ cookies.checkout.deposit }}</a>
+                                                          <a class="text-blue-600" v-if="cookies.checkout.discountedDeposit">{{ __('shoppingCart.Deposit') }} : HK$ @{{ cookies.checkout.discountedDeposit }}</a>
+                                                          <a class="text-blue-600" v-else>{{ __('shoppingCart.Deposit') }} : HK$ @{{ cookies.checkout.deposit }}</a>
 
 
                                                             <br>
-                                                              <a class="" v-if="formData.depositPaymentMethod == 'Wechat(-1%)' ">
+                                                              <a class="text-green-400" v-if="formData.depositPaymentMethod == 'Wechat(-1%)' ">
                                                                 {{__('shoppingCart.select payment')  }} : 
                                                                 <i class="fab fa-weixin"></i>{{__('shoppingCart.Wechat')}}
                                                               </a>
 
-                                                              <a class="" v-if="formData.depositPaymentMethod == 'Alipay(-1%)' ">
+                                                              <a class="text-blue-400" v-if="formData.depositPaymentMethod == 'Alipay(-1%)' ">
                                                                 {{__('shoppingCart.select payment')  }} : 
                                                                 <i class="fab fa-weixin"></i>{{__('shoppingCart.Alipay')}}
                                                               </a>
 
 
                                                         </div>
-                                    
-
-
-                                                    </div>
+                                                                                            
                                                         </div>
-
-<!--                                                         <div class="modal-footer">
-                                                          <button type="button" class="btn btn-secondary" @click="paymentOption.modal = !paymentOption.modal">Close</button>
-                                                        </div>
- -->
-
                                                       </div>
                                                     </div>
                                                   </div>
                                                 </div>
-                                              </transition>
-                                            </div>
-
-
-
-
-                                                  
-                                                  </div>                            
                                               </div>
+                                            </transition>
+                                          </div>
+
+
+
                                       </div>
-                                      <br>
 
 
 

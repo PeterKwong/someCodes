@@ -26,9 +26,9 @@
 
     @section('content')
         <br>
-            <div class="row" >
-                <div class="col-12">
-                    <center><h3 class="title is-5">{{trans('engagementRing.metaTitle2')}}</h3>                        
+            <div class="flex justify-center" >
+                <div class="">
+                    <center><h3 class="sm:text-2xl">{{trans('engagementRing.metaTitle2')}}</h3>                        
                     </center>
                     
                 </div>
@@ -36,8 +36,8 @@
 
 
         <div id="engagementRings">
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="block justify-center">
+                <div class="">
                     <br>
 
                     @include('engagementRing.engagementRingContent')

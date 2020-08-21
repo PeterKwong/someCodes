@@ -5,7 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
 
 //jquery Plugin
 
@@ -83,8 +83,8 @@ const header = new Vue({
     	return{
             yPosition:'',
             mutualVar,
-            notShowSubTab:['diamond-ring-review','shopping-cart', 'account','shop-bag-bill'],
-
+            burgerOpen:false,
+            headerSection:0,
  
     	}
     },
@@ -94,10 +94,18 @@ const header = new Vue({
         },
         scrollToTop(){
             window.scrollTo(500, 0);
-        }
+        },
+        onClickedHeader(section){
+            if (this.headerSection == section) {
+                return this.headerSection = 0
+            }
+            this.headerSection = section
+        },
     },
     created(){
         window.addEventListener('scroll', this.updateYOffset);
+        mutualVar.css.innerWidth = window.innerWidth
+
 
     }, 
     destroyed () {
@@ -108,13 +116,24 @@ const header = new Vue({
         shoppingCartNumber(){
             return this.mutualVar.cookiesInfo.shoppingCart.items.filter((data)=>{return data.addedCart == 1}).length
         },
-        activeTab(){
-            return window.location.pathname.slice(3)
-        },
-        partialUrl(){
-            return window.location.pathname.slice(3)                
-        }
 
+    },
+
+});
+
+const footer = new Vue({
+    el: '#footer',
+    data(){
+        return{
+            footerSection:1,
+            mutualVar,
+
+        }
+    },
+    methods:{
+        onClickedFooter(section){
+            this.footerSection = section
+        },
     },
 
 });

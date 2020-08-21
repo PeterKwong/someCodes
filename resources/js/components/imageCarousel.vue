@@ -1,11 +1,19 @@
 <template>
+<!--   <div class="relative flex justify-center">
+    <button @click="burgerOpen = false" tabindex="-1" class="fixed inset-0 h-full w-full bg-black opacity-50 cursor-default"></button>
 
+    <div class="fixed z-10 bg-white top-0 mt-48 h-64 w-6/12" >
+        rwerw
+    </div>
+</div>
+ -->
 
-    <div @click="$emit('active', null)" v-if="active">
-      <transition name="modal">
+    <div @click="$emit('active', null)" v-if="active" >
+      <transition name="modal" click="mutualVar.notification.contactMessage.active = !mutualVar.notification.contactMessage.active" >
         <div class="modal-mask">
+        <button tabindex="-1" class="modal-button"></button>
           <div class="modal-wrapper">
-            <div class="modal-dialog modal-dialog-centered" role="document" @click="mutualVar.notification.contactMessage.active = !mutualVar.notification.contactMessage.active">
+            <div class="modal-dialog" role="document" @click="mutualVar.notification.contactMessage.active = !mutualVar.notification.contactMessage.active">
               <div class="modal-content">
 
 
@@ -18,25 +26,28 @@
                 </div>
                 <div class="modal-body" @click="$emit('active', null)">
 
+                    <div class="flex justify-center">
+                        <div class="">
+                            <button class="btn box" @click="currentSelectedItem(0)" >{{ 0 }}</button>
+                            <button class="btn box" @click="prevItem()" >{{ currentIndex - 1 > 0 ? currentIndex - 1: 0 }}</button>
+                            <button class="btn btn-primary"  >{{ currentIndex + 1 }}</button>
+                            <button class="btn box" @click="nextItem()" >{{currentIndex + 2 < items.length ? currentIndex + 2: items.length }}</button>
+                            <button class="btn box" @click="currentSelectedItem(items.length )" >{{ items.length }}</button>
+                    </div>
+
+                    </div>
+
                     <div class="box">
-                        <figure class="image">
-                            <img width="100%" :src="images+currentItem.src" v-if="currentItem.type=='img'" @click="nextItem">
-                            <iframe id="iframe1" :src="youtube+currentItem.src+rel" :width="width" :height="height" v-if="currentItem.type=='video'"></iframe>
+                        <div class="">
+                            <img class="" :src="images+currentItem.src" v-if="currentItem.type=='img'" @click="nextItem">
                             <figcaption class="has-text-centered">
                                 <p class="title is-3">{{ currentItem.title }}</p>
                                 <p class="subtitle is-5"> {{ currentItem.desc }} </p>
                                 <span v-html="currentItem.other"></span>
                             </figcaption>
-                        </figure>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-md-12 text-center">
-                            <a v-for="(item, index) in items">
-                                <button class="btn" @click="currentSelectedItem(index,'lower')" :class="{ ' btn-primary' : currentIndex == index }"  >{{ index+1 }}</button>
-                            </a>                            
                         </div>
-
                     </div>
+
 
                 </div>
               </div>
@@ -46,94 +57,6 @@
       </transition>
     </div>
 
-
-<!-- 
-    <div class="box" @click="$emit('active', null)">
-    <div class="modal" :class="{'is-active': active} ">
-                  <div class="modal-background" ></div>
-                  <div class="modal-card">
-                    <header class="modal-card-head">
-                      <p class="modal-card-title">{{title}}</p>
-                      <button class="delete" aria-label="close"></button>
-                    </header>
-                    <section class="modal-card-body" @click="$emit('active', null)">
-
-
-                      <div class="box">
-                        <figure class="image">
-                            <img :src="images+currentItem.src" v-if="currentItem.type=='img'" @click="nextItem">
-                            <iframe id="iframe1" :src="youtube+currentItem.src+rel" :width="width" :height="height" v-if="currentItem.type=='video'"></iframe>
-                            <figcaption class="has-text-centered">
-                                <p class="title is-3">{{ currentItem.title }}</p>
-                                <p class="subtitle is-5"> {{ currentItem.desc }} </p>
-                                <span v-html="currentItem.other"></span>
-                            </figcaption>
-                        </figure>
-                    </div>
-
-            
-            <div class="is-hidden-mobile">
-                <center v-if="chunkedItemsDesktop.length">
-                    <a></a>
-                </center>
-
-                <div class="level is-mobile" >
-                    <div class="level-item">
-                    <div v-for="(img, index) in chunkedItemsDesktop" 
-                    @click="currentSelectedItem(index,'lower')" v-if="chunkedItemsDesktop">
-                        <div class="level-item has-text-centered" >
-                            <a v-if="img.thumb">
-                            <figure class="image is-96x96">
-                                <img :src="images+img.thumb" ></img>
-                                <i class="fa fa-play" aria-hidden="true" v-if="img.type=='video'"></i>
-                            </figure>
-                            </a>
-                        </div>
-                    </div>
-                </div> 
-            </div>
-
-                <div class="level-item">
-                        <a v-for="(item, index) in items">
-                            <a class="button" @click="currentSelectedItem(index,'lower')" :class="{ 'is-primary' : currentIndex == index }">{{ index+1 }}</a>
-                        </a>
-                    </div>
-            </div>
-
-
-
-            <div class="level is-hidden-desktop is-hidden-tablet is-centered">
-                <center v-if="chunkedItemsMobile.length">
-                    <a></a>
-                </center>
-                    <div class="level is-mobile" >
-                        <div class="level-item">
-                        <div v-for="(img, index) in chunkedItemsMobile" 
-                        @click="currentSelectedItem(index,'lower')" v-if="chunkedItemsMobile">
-                            <div class="level-item has-text-centered" >
-                                <a v-if="img.thumb">
-                                <figure class="image is-96x96">
-                                    <img :src="images+img.thumb"></img>
-                                    <i class="fa fa-play" aria-hidden="true" v-if="img.type=='video'"></i>
-                                </figure>
-                                </a>
-                            </div>
-                        </div>
-                        </div>
-                    </div> 
-
-                    <div class="level-item">
-                        <a v-for="(item, index) in items">
-                            <a class="button" @click="currentSelectedItem(index,'lower')" :class="{ 'is-primary' : currentIndex == index }">{{ index+1 }}</a>
-                        </a>
-                    </div>
-                </div>
-
-
-                    </section>
-
-               
-        </div> -->
 </template>
 
 <script>
@@ -183,7 +106,7 @@ export default {
             }
         },
         prevItem () {
-            if(this.currentIndex == 0){
+            if(this.currentIndex < 1){
                 this.currentIndex = this.items.length-1;
             }else{
                 this.currentIndex--;  
@@ -192,12 +115,7 @@ export default {
         showAtIndex(index){
             this.currentIndex = index;
         },
-        currentSelectedItem(index,upper){
-            if (upper == 'upper') {
-                this.currentIndex = index
-                return this.showUpper = true
-            }
-            this.showUpper = false
+        currentSelectedItem(index){
             this.currentIndex = index
             
         },

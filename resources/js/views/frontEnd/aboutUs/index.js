@@ -5,6 +5,7 @@ export default {
 	data(){
 		return {
 			activedSubTab: 'Appointment First',
+			mutualVar,
 		}
 	},
 	watch:{

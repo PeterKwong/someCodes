@@ -33,9 +33,9 @@
 
     @section('content')
         <br>
-            <div class="row" >
-                <div class="col-12">
-                    <center><h3 class="title is-5">{{__('shoppingCart.Congratulations! Review Your Ring, Here is your design.')}}</h3>                        
+            <div class="grid grid-cols-12" >
+                <div class="col-span-12">
+                    <center><h3 class="sm:text-2xl font-semibold">{{__('shoppingCart.Congratulations! Review Your Ring, Here is your design.')}}</h3>                        
                     </center>
                     
                 </div>
@@ -43,12 +43,12 @@
 
 
         <div id="diamondRingReview">
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="grid grid-cols-12 justify-content-center">
+                <div class="col-span-12">
                     <br>
 
-                    <div class="row">
-                        <div class="col-sm-7">
+                    <div class="grid grid-cols-12">
+                        <div class="col-span-12 sm:col-span-7 items-center">
                             <div  v-if="selectingCarousel== 'engagementRings'">
                                     <keep-alive>
                                     <carousel :active="carouselItem.active" :height="'500'" :width="'100%'" :upperitems="carouselItem.upperitems" :items="carouselItem.items" title="customer jewellries"></carousel></keep-alive>
@@ -60,30 +60,30 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-5">
+                        <div class="col-span-12 sm:col-span-5">
                             <article>
                                     <center>
-                                        <p class="subtitle is-3">{{__('shoppingCart.Diamond Arrival')}}</p>
-                                        <p class="subtitle is-6">{{__('shoppingCart.Today Order, Get Free shipment')}}
-                                            <strong>{{__('shoppingCart.on')}} <a> @{{ extraWorkingDates( maxDeliveryDate ,'months') |transJs() }} @{{ extraWorkingDates( maxDeliveryDate ) }} @{{ 'day' |transJs() }},  @{{ extraWorkingDates( maxDeliveryDate ,'dates') |transJs() }}</a></strong> 
+                                        <p class="sm:text-lg font-light">{{__('shoppingCart.Diamond Arrival')}}</p>
+                                        <p class="font-light">{{__('shoppingCart.Today Order, Get Free shipment')}}
+                                            <strong class="sm:text-lg font-semibold">{{__('shoppingCart.on')}} <a> @{{ extraWorkingDates( maxDeliveryDate ,'months') |transJs() }} @{{ extraWorkingDates( maxDeliveryDate ) }} @{{ 'day' |transJs() }},  @{{ extraWorkingDates( maxDeliveryDate ,'dates') |transJs() }}</a></strong> 
                                         </p>
 
                                     </center>
                                     <hr>
                                     <div v-for="item in shortenName">
-                                        <div class="row " >
+                                        <div class="grid grid-cols-12 text-blue-600" >
 
-                                          <div class="col">
-                                            <img class="rounded border p-6" width="128" :src="item.image" @click="selectingCarousel = item.type">
+                                          <div class="col-span-4">
+                                            <img class="rounded border p-2" width="128" :src="item.image" @click="selectingCarousel = item.type">
                                           </div>
 
-                                          <div class="col-6">
+                                          <div class="col-span-6">
                                             <a :href="item.url + item.id ">@{{item.title}}</a>
-                                            <a class="title is-6" :href="item.url"><u>{{__('shoppingCart.change')}}</u></a>
+                                            <a class="sm:text-lx font-semibold" :href="item.url"><u>{{__('shoppingCart.change')}}</u></a>
                                           </div>
 
-                                          <div class="col-2"  @click="selectingCarousel = item.type">
-                                            <img class="rounded border p-6" width="64" :src=" '/images/front-end/shoppingCart/' + item.type + '.png' ">
+                                          <div class="col-span-2"  @click="selectingCarousel = item.type">
+                                            <img class="rounded" width="64" :src=" '/images/front-end/shoppingCart/' + item.type + '.png' ">
                                             <a>$@{{item.unit_price}}</a>
                                           </div>
                                           
@@ -93,27 +93,20 @@
 
                                     <hr>
 
-                                    <div class="row ">
-                                        <div class="col-6">
-                                            
-                                        </div>
-
-                                        <div class="col">
-                                            <div class="row ">
-                                                <div class="col">
+                                    <div class="grid grid-cols-12">
+                                        <div class="col-span-6 col-start-7">
+                                            <div class="grid grid-cols-12 p-4">
+                                                <div class="col-span-4">
                                                     <p>{{__('shoppingCart.Total')}} </p>
                                                 </div>
-                                                <div class="col-5">
-                                                    <p>HK$ @{{subTotal}}</p>
+                                                <div class="col-span-8 text-center">
+                                                    <p class="text-2xl font-semibold text-blue-600">HK$ @{{subTotal}}</p>
                                                 </div>
                                                 
                                             </div>
 
-                                            <div class="row ">
-                                                <div class="col">
-                                                    <p></p>
-                                                </div>
-                                                <div class="col">
+                                            <div class="grid grid-cols-12 text-center">
+                                                <div class="col-span-8 col-start-5 col-end-11">
                                                     <p class="btn btn-primary" @click="addItemToCart()">{{__('shoppingCart.Add Cart')}}</p>
                                                 </div>
 

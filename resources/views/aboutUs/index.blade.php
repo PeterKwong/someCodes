@@ -27,8 +27,8 @@
 
     @section('content')
         <br>
-            <div class="row" >
-                <div class="col-12">
+            <div class="grid grid-cols-12" >
+                <div class="col-span-12">
                     <center><h3 class="title is-5">{{trans('aboutUs.About Us')}}</h3>                 {{trans('buyingProcedure.First to buy diamonds, then buy ring setting')}}     
                     </center>
                     
@@ -37,27 +37,27 @@
 
 
         <div id="aboutUs">
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="grid grid-cols-12">
+                <div class="col-span-12">
 
                 <br>
-                <div class="row justify-content-center">
-                  <div class="col">
-                    <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link active show" href="{{url(app()->getLocale() . '/about-us' )}} " >{{trans('aboutUs.Contact Us')}}</a>
+                <div class="grid grid-cols-12">
+                  <div class="col-span-12 sm:col-span-10">
+                    <ul class="flex justify-center items-center border-b" id="myTab" role="tablist">
+                      <li class="">
+                        <a class="nav-link bg-blue-300 text-white" href="{{url(app()->getLocale() . '/about-us' )}} " >{{trans('aboutUs.Contact Us')}}</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link " href="{{url(app()->getLocale() . '/about-us/guarantee' )}}" >{{trans('aboutUs.Quality Guarantee')}}</a>
+                      <li class="">
+                        <a class="text-blue-600 text-center px-2" href="{{url(app()->getLocale() . '/about-us/guarantee' )}}" >{{trans('aboutUs.Quality Guarantee')}}</a>
                       </li> 
-                      <li class="nav-item">
-                        <a class="nav-link"  href="{{url(app()->getLocale() . '/about-us/commitment' )}}">{{trans('aboutUs.Satification Insurence')}}</a>
+                      <li class="">
+                        <a class="text-blue-600 text-center px-2"  href="{{url(app()->getLocale() . '/about-us/commitment' )}}">{{trans('aboutUs.Satification Insurence')}}</a>
                       </li>                 
                     </ul>
 
                     <br>
-                    <div class="row justify-content-center">  
-                      <div class="col-8">   
+                    <div class="grid grid-cols-12 p-2">  
+                      <div class="col-span-8">   
                         <center>
 
                             <center><p class="title is-6">{{trans('aboutUs.title1')}}</p>
@@ -71,7 +71,7 @@
                         </center>
                       </div>
 
-                      <div class="col">
+                      <div class="col-span-4">
 
                        <a class="">
                           <center>  
@@ -85,14 +85,12 @@
                       </div>
                     </div>
 
-                    <hr>
                     
                     @include('layouts.components.contacts')
 
                       
-                     <hr>
-                     <div class="row justify-content-center">
-                      <div class="col-5">
+                     <div class="grid grid-cols-12 p-2">
+                      <div class="col-span-5">
                         <center>
                           <figure class="image">
                                   <p></p>
@@ -101,7 +99,7 @@
                          
                         </center>
                       </div>
-                      <div class="col">
+                      <div class="col-span-7">
                          <center>
                           <br>
                               <center><p class="title is-6">{{trans('aboutUs.British qualifier professional qualifications')}}</p>
@@ -117,8 +115,8 @@
                     </div>
 
                     <hr>
-                      <div class="row justify-content-center">
-                        <div class="col-8">
+                      <div class="grid grid-cols-12">
+                        <div class="col-span-8">
                           <center>
                             <figure class="image">
                               <p></p>
@@ -127,7 +125,7 @@
                            
                           </center>  
                         </div>
-                        <div class="col">
+                        <div class="col-span-4">
                            <center>
                             <center>
                               <p class="title is-6">{{trans('aboutUs.address1')}}</p>

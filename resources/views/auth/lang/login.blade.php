@@ -27,36 +27,36 @@
 
     @section('content')
         <br>
-          <div class="row justify-content-between color-white background-primary border">
-            <div class="col-auto mr-auto">
+          <div class="flex justify-between text-white bg-blue-400 border p-2 px-2">
+            <div class="">
                <strong><p >{{__('login.Login')}}</p></strong>
                       
             </div>
-            <div class="col-auto">
-              <a class="btn btn-success" href="{{ url(app()->getLocale()) }}/register">{{__('login.Register')}}</a>
+            <div class="">
+              <a class="btn btn-primary bg-green-400" href="{{ url(app()->getLocale()) }}/register">{{__('login.Register')}}</a>
             </div>
           </div>
 
-          <div class="row justify-content-center border background-primary-op-008">
-            <div class="col">
-              <div class="row justify-content-center" >
-                  <div class="col-md-6">
+          <div class="grid grid-cols-12 border background-primary-op-008">
+            <div class="col-span-12 sm:col-span-6 sm:col-start-4">
+              <div class="grid grid-cols-12" >
+                  <div class="col-span-12 p-4">
                     @include('auth.lang.socialLogin')
                   </div>
               </div>
-              <div class="row justify-content-center">
-                <div class="col-md-6">
+              <div class="grid grid-cols-12">
+                <div class="col-span-12">
                       <form class="form-horizontal" method="POST" action="{{ route('login') }}">
 
                                       {{ csrf_field() }}
-                              <div class="row justify-content-center">
-                                  <div class="col-md-8">
+                              <div class="grid grid-cols-12 p-8">
+                                  <div class="col-span-12">
 
-                                      <div class="form-group" >
+                                      <div class="p-2" >
                                         <label for="email" class="control-label">{{__('login.E-Mail Address')}}</label>
 
-                                        <p class="control has-icons-left has-icons-right">
-                                          <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="{{__('login.E-Mail Address')}}">
+                                        <p class="">
+                                          <input id="email" type="email" class="input w-9/12" name="email" value="{{ old('email') }}" required autofocus placeholder="{{__('login.E-Mail Address')}}">
                                           <span class="icon is-small is-left">
                                             <i class="fas fa-envelope"></i>
                                           </span>
@@ -73,11 +73,11 @@
 
                                       </div>
                                       
-                                      <div class="form-group">
+                                      <div class="p-2">
                                           <label for="password" class="control-label">{{__('login.Password')}}</label>
 
-                                        <p class="control has-icons-left">
-                                          <input id="password" type="password" class="form-control" name="password" placeholder="{{__('login.Password')}}" required>
+                                        <p class="">
+                                          <input id="password" type="password" class="input w-9/12" name="password" placeholder="{{__('login.Password')}}" required>
                                           <span class="icon is-small is-left">
                                             <i class="fas fa-lock"></i>
                                           </span>
@@ -90,7 +90,7 @@
                                           @endif
                                       </div>
 
-                                      <div class="form-group">
+                                      <div class="p-2">
                                           <div class="control">
                                               <div class="checkbox">
                                                   <label>
@@ -100,14 +100,14 @@
                                           </div>
                                       </div>
 
-                                      <div class="field">
+                                      <div class="p-2">
                                         <p class="control">
-                                          <button class="btn btn-success">
+                                          <button class="btn btn-primary bg-green-400">
                                             {{__('login.Login')}}
                                           </button>
                                         </p>
 
-                                          <a class="" href="{{ url(app()->getLocale()) }}/password/request">
+                                          <a class="text-blue-600" href="{{ url(app()->getLocale()) }}/password/request">
                                               {{__('login.Forgot Your Password?')}}
                                           </a>
                                       </div>

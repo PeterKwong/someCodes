@@ -28,13 +28,13 @@
     @endSection
 
     @section('content')
-        <br>
-          <div class="col-10" id="pendingShow">
+
+          <div class="col-span-10" id="pendingShow">
 
               <p class="title is-4">{{__('shoppingCart.Pending Orders')}}</p>
 
-              <div class="row justify-content-center">
-               <div class="col">
+              <div class="grid grid-cols-12 justify-center">
+               <div class="col-span-12">
                   <table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;" width="95%">
                     <tr>
                       <td align="center" bgcolor="#81cdf3" style="padding: 0px 0 0px 0;">

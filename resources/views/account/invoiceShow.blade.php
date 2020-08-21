@@ -29,123 +29,126 @@
     @endSection
 
     @section('content')
-        <br>
-          <div class="col-10" id="invoiceShow">
-              <div class="row">
-                      <div class="col">
+
+          <div class="col-span-10 p-2 border relative" id="invoiceShow">
+              <div class="grid grid-cols-12 sm:m-8">
+                      <div class="col-span-6 sm:col-span-8">
                         
                             <img src="{{ url('/') . config('global.company.info.logo')}}" width="128" height="auto"  >
                          
                       </div>
-                      <div class="col-4">
-                        <h1 class="title is-3" >Invoice</h1>      
-                        <h1 class="subtitle is-5">@{{company.info.name}}</h1>      
-                        <small><small><p >@{{company.info.address}}</p></small></small>
-                        <small><small><p >Tel: @{{company.info.contact}}</p></small></small>
-                        <a href="/">@{{company.info.website}}</a>
+                      <div class="col-span-6 sm:col-span-4">
+                        <h1 class="text-4xl" >Invoice</h1>      
+                        <h1 class="text-2xl font-ligth">@{{company.info.name}}</h1>      
+                        <p class="text-xs font-ligth" >@{{company.info.address}}</p>
+                        <p class="text-xs font-ligth" >Tel: @{{company.info.contact}}</p>
+                        <a class="text-blue-600" href="/">@{{company.info.website}}</a>
                       </div>
                     </div>
                     <hr>
-                    <div class="row">
-                      <div class="col">
+                    <div class="grid grid-cols-12 sm:m-8">
+                      <div class="col-span-7">
                         <p class="title is-6">BILL TO</p>
-                        <p class="subtitle is-5"><small><small>@{{model.customer.name}}</small></small></p>
-                        <p ><small><small>Phone: @{{model.customer.phone}}</small></small></p>
+                        <p class="text-lg font-ligth">@{{model.customer.name}}</p>
+                        <p >Phone: @{{model.customer.phone}}</p>
                       </div>
-                      <div class="col-3">
-                        <p v-if="model.invoice_no"><small><small>Invoice Number: </small></small></p>     
-                        <p ><small><small> Invoice Date: </small></small></p>     
-                        <p v-if="model.due_date"><small><small> Payment Due: </small></small></p>
-                        <p ><small><small> Total (HKD): </small></small></p>
-                        <p ><small><small> Amount Due (HKD): </small></small></p>
+                      <div class="col-span-3">
+                        <p v-if="model.invoice_no">Invoice Number: </p>     
+                        <p > Invoice Date: </p>     
+                        <p v-if="model.due_date"> Payment Due: </p>
+                        <p > Total (HKD): </p>
+                        <p > Amount Due (HKD): </p>
                       </div>
-                      <div class="col-2">
-                        <p v-if="model.invoice_no"><small><small>@{{model.invoice_no}}</small></small></p>     
-                        <p ><small><small>@{{model.date}}</small></small></p>      
-                        <p ><small><small>@{{model.due_date}}</small></small></p>
-                        <p ><small><small>$@{{model.total}}</small></small></p>
-                        <p ><small><small>$@{{model.balance}}</small></small></p>
+                      <div class="col-span-2">
+                        <p v-if="model.invoice_no">@{{model.invoice_no}}</p>     
+                        <p >@{{model.date}}</p>      
+                        <p >@{{model.due_date}}</p>
+                        <p >$@{{model.total}}</p>
+                        <p >$@{{model.balance}}</p>
                       </div>
                     </div>
 
                     <div class="tile">
-                   
-                <!--         <article class="tile notification is-primary">
-                 -->    
+    
                         </article>
                        </div>
-                    <table class="table is-fullwidth">
-                        <thead>
-                          <tr class="background-primary text-white">
-                            <th><small>Items</small></th>
-                            <th><small>Desciption</small></th>
-                            <th><small>Quantity</small></th>
-                            <th><small>Price</small></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr v-for="diamond in model.inv_diamonds" v-if="model.inv_diamonds">
-                            <td><small><small><small>@{{diamond.lab}}:@{{diamond.certificate}}</small></small></small></td>
-                            <td><small><small><small>@{{diamond.weight}}ct,@{{diamond.color}} Color,@{{diamond.clarity}} Clarity,@{{diamond.cut}} Cut,@{{diamond.polish}} Polish,@{{diamond.symmetry}} Symmetry,@{{diamond.fluorescence}}</small></small></small></td>
-                            <td><small><small><small>1</small></small></small></td>
-                            <td><small><small><small>@{{diamond.price}}</small></small></small></td>
-                          </tr>
-                          <tr v-for="jewellery in model.jewelleries" v-if="model.jewelleries">
-                            <td><small><small><small>@{{jewellery.stock}}</small></small></small></td>
-                            <td v-if="jewellery.texts[0]"><small><small><small>@{{jewellery.texts[0].content}}</small></small></small></td>
-                            <td><small><small><small>1</small></small></small></td>
-                            <td><small><small><small>@{{jewellery.unit_price}}</small></small></small></td>            
-                          </tr>
-                          <tr v-for="engagementRing in model.engagement_rings" v-if="model.engagement_rings">
-                            <td><small><small><small>@{{engagementRing.stock}}</small></small></small></td>
-                            <td v-if="engagementRing.texts[0]"><small><small><small>@{{engagementRing.texts[0].content}}</small></small></small></td>
-                            <td><small><small><small>1</small></small></small></td>
-                            <td><small><small><small>@{{engagementRing.unit_price}}</small></small></small></td>           
-                          </tr>
-                          <tr v-for="weddingRing in model.wedding_rings" v-if="model.wedding_rings">
-                            <td><small><small><small>@{{weddingRing.stock}}</small></small></small></td>
-                            <td><small><small><small>@{{weddingRing.texts[0].content}}</small></small></small></td>
-                            <td><small><small><small>1</small></small></small></td>
-                            <td><small><small><small>@{{weddingRing.unit_price}}</small></small></small></td>            
-                          </tr>
-                        </tbody>
-                        <tfoot>
-                          <tr>
-                            <td colspan="2"></td>
-                            <td><p class="subtitle is-6"><small><small>Discount:</small></small></p></td>
-                            <td><small><small>$@{{model.discount}}</small></small></td>
-                          </tr>
-                          <tr>
-                            <td colspan="2"></td>
-                            <td><p class="subtitle is-6"><small><small>Extra:</small></small></p></td>
-                            <td><small><small>$@{{model.extra}}</small></small></td>
-                          </tr>
-                          <tr>
-                            <td colspan="2"></td>
-                            <td><p class="subtitle is-6"><small><small>Deposit:</small></small></p></td>
-                            <td><small><small>$@{{model.deposit}}</small></small></td>
-                          </tr>
-                          <tr>
-                            <td colspan="2"></td>
-                            <td><p class="subtitle is-6"><small><small>Balance:</small></small></p></td>
-                            <td><small><small>$@{{model.balance}}</small></small></td>
-                          </tr>
-                          <tr>
-                            <td colspan="2"></td>
-                            <td><small>Total:</small></td>
-                            <td><small>$@{{model.total}}</small></td>
-                          </tr>
-                        </tfoot>
-                      </table>
+                  
+                    <div class="overflow-x-scroll">
+                      <table class=" w-full">
+                          <thead>
+                            <tr class="border bg-blue-500 text-white" class="background-primary text-white">
+                              <th>Items</th>
+                              <th>Desciption</th>
+                              <th>Quantity</th>
+                              <th>Price</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="border" v-for="diamond in model.inv_diamonds" v-if="model.inv_diamonds">
+                              <td>@{{diamond.lab}}:@{{diamond.certificate}}</td>
+                              <td>@{{diamond.weight}}ct,@{{diamond.color}} Color,@{{diamond.clarity}} Clarity,@{{diamond.cut}} Cut,@{{diamond.polish}} Polish,@{{diamond.symmetry}} Symmetry,@{{diamond.fluorescence}}</td>
+                              <td>1</td>
+                              <td>@{{diamond.price}}</td>
+                            </tr>
+                            <tr class="border" v-for="jewellery in model.jewelleries" v-if="model.jewelleries">
+                              <td>@{{jewellery.stock}}</td>
+                              <td v-if="jewellery.texts[0]">@{{jewellery.texts[0].content}}</td>
+                              <td>1</td>
+                              <td>@{{jewellery.unit_price}}</td>            
+                            </tr>
+                            <tr class="border" v-for="engagementRing in model.engagement_rings" v-if="model.engagement_rings">
+                              <td>@{{engagementRing.stock}}</td>
+                              <td v-if="engagementRing.texts[0]">@{{engagementRing.texts[0].content}}</td>
+                              <td>1</td>
+                              <td>@{{engagementRing.unit_price}}</td>           
+                            </tr>
+                            <tr class="border" v-for="weddingRing in model.wedding_rings" v-if="model.wedding_rings">
+                              <td>@{{weddingRing.stock}}</td>
+                              <td>@{{weddingRing.texts[0].content}}</td>
+                              <td>1</td>
+                              <td>@{{weddingRing.unit_price}}</td>            
+                            </tr>
+                          </tbody>
+                          <tfoot>
+                            <tr class="border">
+                              <td colspan="2"></td>
+                              <td><p class="text-lg font-ligth">Discount:</p></td>
+                              <td>$@{{model.discount}}</td>
+                            </tr>
+                            <tr class="border">
+                              <td colspan="2"></td>
+                              <td><p class="text-lg font-ligth">Extra:</p></td>
+                              <td>$@{{model.extra}}</td>
+                            </tr>
+                            <tr class="border">
+                              <td colspan="2"></td>
+                              <td><p class="text-lg font-ligth">Deposit:</p></td>
+                              <td>$@{{model.deposit}}</td>
+                            </tr>
+                            <tr class="border">
+                              <td colspan="2"></td>
+                              <td><p class="text-lg font-ligth">Balance:</p></td>
+                              <td>$@{{model.balance}}</td>
+                            </tr>
+                            <tr class="border">
+                              <td colspan="2"></td>
+                              <td>Total:</td>
+                              <td>$@{{model.total}}</td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+
                       <hr>
-                      <div class="row is-centered">
-                        <div class="col-11 ">
-                          <small><small>
+
+                      <div class="grid grid-cols-12 sm:m-8 is-centered">
+                        <div class="col-span-11 ">
+                          
                             <p class="">Notes:
                               <br>
                             @{{model.notes}}
                             </p>
-                          </small></small>
+                          
                         </div>
                       </div>
           </div>

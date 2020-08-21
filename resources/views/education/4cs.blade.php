@@ -29,12 +29,12 @@
 
 
         <div id="education">
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="p-4">
+                <div class="">
                     <br>
 
-                    <div class="row justify-content-center text-center" >
-                        <div class="col-sm-2">
+                    <div class="grid grid-cols-12 text-center" >
+                        <div class="col-start-2 col-span-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" :src="'/images/front-end/education/' + activedSubTab +'/pageImage.jpg'" >
@@ -42,9 +42,9 @@
                             </center>
                             
                         </div>
-                        <div class="col">
+                        <div class="col-span-8">
                             <center>
-                                <h3 class="title is-5">{{trans('education.DIAMOND GRADING | EDUCATION')}}</h3>
+                                <h3 class="sm:text-2xl">{{trans('education.DIAMOND GRADING | EDUCATION')}}</h3>
                                 {{trans('education.It increases the weight of a diamond, and looking up from the diameter of the surface will also increase, but add a lot of weight, just add a little diameter.')}}
                             </center>
                         </div>
@@ -54,61 +54,64 @@
                     <br>
 
 
-                    <div class="row justify-content-center">
-                      <div class="col">
-                        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                          <li class="nav-item">
-                            <a class="nav-link active show"  id="carat-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/carat" role="tab" aria-controls="carat" aria-selected="true">{{__('education.Diamond Carat')}}</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" id="cut-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/cut" role="tab" aria-controls="cut" aria-selected="true">{{__('education.Diamond Cut')}}</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link"  id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/color" role="tab" aria-controls="color" aria-selected="true">{{__('education.Diamond Color')}}</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link"  id="contact-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/clarity" role="tab" aria-controls="clarity" aria-selected="true">{{__('education.Diamond Clarity')}}</a>
-                          </li>
-                        </ul>
+                    <div class="grid grid-cols-12">
+                      <div class="col-span-12 sm:col-span-10">
+                        <div class="flex justify-center items-center border-b" id="myTab" role="tablist">
+                          <div class="">
+                            <a class="nav-link bg-blue-300 text-white"  id="carat-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/carat" role="tab" aria-controls="carat" aria-selected="true">{{__('education.Diamond Carat')}}</a>
+                          </div>
+                          <div class="">
+                            <a class="text-blue-600 text-center px-2" id="cut-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/cut" role="tab" aria-controls="cut" aria-selected="true">{{__('education.Diamond Cut')}}</a>
+                          </div>
+                          <div class="">
+                            <a class="text-blue-600 text-center px-2"  id="color-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/color" role="tab" aria-controls="color" aria-selected="true">{{__('education.Diamond Color')}}</a>
+                          </div>
+                          <div class="">
+                            <a class="text-blue-600 text-center px-2"  id="contact-tab" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs/clarity" role="tab" aria-controls="clarity" aria-selected="true">{{__('education.Diamond Clarity')}}</a>
+                          </div>
+                        </div>
 
 
-                        <div class="tab-content" id="myTabContent">
-                          <div class="tab-pane fade active show" 
+                        <div class="" id="myTabContent">
+                          <div class="" 
                               id="carat" role="tabpanel" aria-labelledby="carat-tab">
 
                               <br>
 
-                              <div class="row justify-content-center text-center">
-                                <div class="col-8">
-                                    <p class="title is-6">{{trans('education.caratTitle1')}}</p>
-                                    <li>{{trans('education.caratPara1')}}</li>
+                              <div class="grid grid-cols-12 text-center">
+                                <div class="col-span-8">
+                                    <p class="sm:text-lg font-semibold">{{trans('education.caratTitle1')}}</p>
+                                    <div>{{trans('education.caratPara1')}}</div>
                                 </div>
-                                <div class="col-4">
-                                    <figure class="image is-128x128">
+                                <div class="col-span-4 flex justify-center">
+                                    <div class="">
                                       <p>{{__('education.Diamond Carat & Size')}}</p>
                                         <img class="img-fluid"src="/images/front-end/education/carat/pod-150x150.png">
-                                    </figure>
+                                    </div>
                                 </div>
                               </div>
 
 
-                              <div class="row justify-content-center text-center">
-                                <div class="col-8">
-                                    <p class="title is-6">{{trans('education.caratTitle2')}}</p>
-                                    <li>{{trans('education.caratPara2')}}</li>
+                              <div class="grid grid-cols-12 text-center">
+                                <div class="col-span-8">
+                                    <p class="sm:text-lg font-semibold">{{trans('education.caratTitle2')}}</p>
+                                    <div>{{trans('education.caratPara2')}}</div>
                                 </div>
-                                <div class="col-4">
-                                    <figure class="image is-128x128">
-                                      <p></p>
+                                <div class="col-span-4 flex justify-center">
+                                    <div class="">
                                         <img class="img-fluid"src="/images/front-end/education/carat/Different-carat-sizes-150x150.jpg">
-                                    </figure>
+                                    </div>
                                 </div>
                               </div>
 
-                              <div class="row justify-content-center text-center">
-                                <div class="col-12">
-                                    <li>{{trans('education.caratPara3')}}</li>
-                                    <img class="img-fluid"src="/images/front-end/education/carat/caratsizes.jpg">
+                              <div class="grid grid-cols-12 text-center">
+                                <div class="col-start-2 col-span-10 ">
+                                  <div class="">
+                                    <center>
+                                      <div>{{trans('education.caratPara3')}}</div>
+                                      <img class="img-fluid"src="/images/front-end/education/carat/caratsizes.jpg">
+                                    </center>
+                                  </div>
                                 </div>
                               </div>
 
@@ -117,9 +120,9 @@
 
                         <br>
 
-                        <div class="row justify-content-center text-center">
-                            <div class="col-10">
-                                <h2 class="title is-5"><span>&nbsp;</span><strong><a>{{trans('home.Must Watch')}} : </a></strong><small>{{trans('home.GIA Teaches You 4Cs')}} - {{trans('home.How To Choose Giamond')}}</small></h2>
+                        <div class="grid grid-cols-12 text-center">
+                            <div class="col-start-2 col-span-10">
+                                <h2 class="sm:text-2xl"><span>&nbsp;</span><strong><a>{{trans('home.Must Watch')}} : </a></strong><small>{{trans('home.GIA Teaches You 4Cs')}} - {{trans('home.How To Choose Giamond')}}</small></h2>
                                 @include('layouts.components.giaVideo')
                             </div>
                         </div>

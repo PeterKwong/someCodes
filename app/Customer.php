@@ -17,15 +17,15 @@ class Customer extends Model
     	'id', 'email', 'name', 'phone', 'address', 'country','user_id', 'created_at','wechat'
     ];
 
-    public function invoices()
-    {
-    	return $this->hasMany(Invoice::class);
-    }
-    
     protected $casts = [
         'created_at' => 'datetime:Y-m-d H:i:s',
         'updated_at' => 'datetime:Y-m-d H:i:s',
     ];
+
+    public function invoices()
+    {
+    	return $this->hasMany(Invoice::class);
+    }
 
     public static function form()
     {

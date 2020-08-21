@@ -37,28 +37,28 @@
 
 
         <div id="aboutUs">
-          <div class="row justify-content-center">
-            <div class="col-11">
+          <div class="p-4">
+            <div class="">
 
             <br>
-              <div class="row justify-content-center">
-                <div class="col">
-                  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{url(app()->getLocale() . '/about-us' )}} " >{{trans('aboutUs.Contact Us')}}</a>
+              <div class="grid grid-cols-12">
+                <div class="col-span-12 sm:col-span-10">
+                  <ul class="flex justify-center items-center border-b" id="myTab" role="tablist">
+                    <li class="">
+                      <a class="text-blue-600 text-center px-2" href="{{url(app()->getLocale() . '/about-us' )}} " >{{trans('aboutUs.Contact Us')}}</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link  active show" href="{{url(app()->getLocale() . '/about-us/guarantee' )}}" >{{trans('aboutUs.Quality Guarantee')}}</a>
+                    <li class="">
+                      <a class="nav-link bg-blue-300 text-white" href="{{url(app()->getLocale() . '/about-us/guarantee' )}}" >{{trans('aboutUs.Quality Guarantee')}}</a>
                     </li> 
-                    <li class="nav-item">
-                      <a class="nav-link"  href="{{url(app()->getLocale() . '/about-us/commitment' )}}">{{trans('aboutUs.Satification Insurence')}}</a>
+                    <li class="">
+                      <a class="text-blue-600 text-center px-2"  href="{{url(app()->getLocale() . '/about-us/commitment' )}}">{{trans('aboutUs.Satification Insurence')}}</a>
                     </li>                 
                   </ul>
 
                   <br>
                   
-                  <div class="row justify-content-center">
-                    <div class="col-9">
+                  <div class="grid grid-cols-12">
+                    <div class="col-span-9">
                       <center>
 
                           <center><p class="title is-6">{{trans('aboutUs.title2')}}</p>
@@ -71,12 +71,12 @@
                       
                       </center>
                     </div>
-                    <div class="col">
+                    <div class="col-span-3">
                      <a class="">
                         <center>  
                             <figure class="image">
                               <p></p>
-                                <img class="img-fluid" src="/images/front-end/aboutUs/guarantee/Diamond-Grading-Report-300x139_1364898592668-300x169.jpg">
+                                <img class="w-full" src="/images/front-end/aboutUs/guarantee/Diamond-Grading-Report-300x139_1364898592668-300x169.jpg">
                             </figure>
                         </center>
                       </a>
@@ -84,8 +84,8 @@
                   </div>
 
                   <hr>
-                  <div class="row justify-content-center">
-                    <div class="col-9">
+                  <div class="grid grid-cols-12">
+                    <div class="col-span-9">
                       <center>
                         <center><p class="title is-6">{{trans('aboutUs.title3')}}</p>
                         </center>
@@ -98,12 +98,12 @@
                         </div>
                       </center>
                     </div>
-                    <div class="col">
+                    <div class="col-span-3">
                      <a class="">
                       <center>  
                           <figure class="image">
                             <p></p>
-                              <img class="img-fluid" src="/images/front-end/aboutUs/guarantee/Photo 10-9-2017, 10 46 56 PM.jpg">
+                              <img class="w-full" src="/images/front-end/aboutUs/guarantee/Photo 10-9-2017, 10 46 56 PM.jpg">
                           </figure>
                       </center>
                       </a>
@@ -112,8 +112,8 @@
 
 
                   <hr>
-                  <div class="row justify-content-center">
-                    <div class="col-9">
+                  <div class="grid grid-cols-12">
+                    <div class="col-span-9">
                       <center>
                           <center><p class="title is-6">{{trans('aboutUs.title4')}}</p>
                           </center>
@@ -127,12 +127,12 @@
                       </center>
                     </div>
 
-                    <div class="col">
+                    <div class="col-span-3">
                      <a class="">
                         <center>  
                             <figure class="image">
                               <p></p>
-                                <img class="img-fluid" src="/images/front-end/aboutUs/guarantee/Adamas_Top_winner_500x500.jpg">
+                                <img class="w-full" src="/images/front-end/aboutUs/guarantee/Adamas_Top_winner_500x500.jpg">
                             </figure>
                         </center>
                      </a>
@@ -140,8 +140,8 @@
                   </div>
 
                   <hr>
-                  <div class="row justify-content-center">
-                    <div class="col-9">
+                  <div class="grid grid-cols-12">
+                    <div class="col-span-9">
                       <center>
 
                           <center><p class="title is-6">{{trans('aboutUs.title5')}}</p>
@@ -156,12 +156,12 @@
                       
                       </center>
                     </div>
-                    <div class="col">
+                    <div class="col-span-3">
                      <a class="">
                         <center>  
                             <figure class="image">
                               <p></p>
-                                <img class="img-fluid" src="/images/front-end/aboutUs/guarantee/HK-Welcome-522x311_1355960572014.jpg">
+                                <img class="w-full" src="/images/front-end/aboutUs/guarantee/HK-Welcome-522x311_1355960572014.jpg">
                             </figure>
                         </center>
                      </a>
