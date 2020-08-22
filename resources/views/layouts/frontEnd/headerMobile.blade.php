@@ -102,21 +102,20 @@
       </div>
 
       <div v-if="headerSection == 4" class="block py-4 bg-gray-200">
-        <div class="flex justify-center">
-         <div class="flex-initial">
+         <div class="flex justify-center text-blue-500">
           <a class="flex hover:text-blue-300 px-1" href="{{url(app()->getLocale())}}/jewellery/rings"><img src="/images/front-end/jewellery/Ring.png" class="h-6">{{trans('frontHeader.Rings')}}
           </a>
          </div>
-         <div class="flex-initial">
+         <div class="flex justify-center">
            <a class="flex hover:text-blue-300 px-1" href="{{url(app()->getLocale())}}/jewellery/diamond-rings">
-              ｜ {{trans('frontHeader.Diamond Rings')}}
+              {{trans('frontHeader.Diamond Rings')}}
             </a>   
          </div>
-         <div class="flex-initial">
-           <a class="flex hover:text-blue-300 px-1" href="{{url(app()->getLocale())}}/jewellery/fancy-diamond-rings">｜ {{trans('frontHeader.Fancy Diamond Rings')}}</a>                    
+         <div class="flex justify-center">
+           <a class="flex hover:text-blue-300 px-1" href="{{url(app()->getLocale())}}/jewellery/fancy-diamond-rings">
+              {{trans('frontHeader.Fancy Diamond Rings')}}</a>                    
           </p> 
         </div>
-       </div>
 
         <a class="flex justify-center text-blue-500" href="{{url(app()->getLocale())}}/jewellery/rings">
           {{trans('frontHeader.Jewellery')}}
