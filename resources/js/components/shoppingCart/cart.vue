@@ -158,8 +158,11 @@ export default {
 
         },
         maxItemIndex(){
-            if (this.shoppingCart.selectingIndex != 0 && this.shoppingCart.selectingIndex > this.shoppingCart.items.length-1) {
-                this.shoppingCart.selectingIndex = this.shoppingCart.items.length-1
+            if (this.shoppingCart.selectingIndex != 0 && this.shoppingCart.selectingIndex > this.shoppingCart.items.length-1 && this.shoppingCart.items.length) {
+
+                if (this.shoppingCart.items.length) {
+                    this.shoppingCart.selectingIndex = this.shoppingCart.items.length-1
+                }
 
             }
             this.sendCookies()
@@ -247,13 +250,10 @@ export default {
             item.id = this.item.id
             item.title = this.title
 
-            console.log()
-
             if (this.type == 'engagementRings') {
                 item.type = 'engagementRings'
                 item.unit_price = this.item.unit_price
                 item.image = mutualVar.storage[mutualVar.storage.live] + 'public/images/' + this.item.images.find((data)=>{ return data.type == 'cover'}).image
-            console.log(item.image)
 
                 item.url = getLocale() +'/engagement-rings/'
 

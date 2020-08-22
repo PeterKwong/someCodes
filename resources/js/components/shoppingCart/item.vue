@@ -34,13 +34,13 @@
                                     <div class="col-span-8 text-center">
                                         <a class="text-blue-600" @click="directTo(pairItem.id)" :href="pairItem.url + pairItem.id ">{{pairItem.title}}</a>
                                         <div v-if="pairItem.type == 'engagementRings' ">    
-                                            <div class="flex justify-center">
+                                            <div class="flex justify-between">
                                               <div class="bg-gray-300 p-1 rounded">
                                                 <label class="" for="inputGroupSelect01">
                                                     {{ 'Ring Size' |transJs(langs, mutualVar.langs.localeCode) }}
                                                 </label>
                                               </div>
-                                              <select class="rounded" id="inputGroupSelect01" v-model="pairItem.ringSize" required>
+                                              <select class="rounded" id="inputGroupSelect01" v-model="pairItem.ringSize">
                                                 <option v-for="size in ringSizeOptions" :value="size" >{{size}}</option>
                                               </select>
                                             </div>
@@ -570,17 +570,17 @@ export default {
 
         },
         deleteNotAddedToCart(){
-                 console.log('checking')
 
             for (var i = 0 ; this.shortenName.length > i ; i++) {
-                 console.log(this.shortenName[i].length)
 
                 if (this.shortenName[i].addedCart == 0 || this.shortenName[i].pairItems.length == 0) {
                     mutualVar.cookiesInfo.shoppingCart.items.splice(i,1)
                 }
                  
             }
+            
             mutualVar.cookiesInfo.shoppingCart.selectingIndex = this.shortenName.length
+            
             this.sendCookies()
         },
         directTo(item){

@@ -45,11 +45,11 @@
 
 <div class=" sm:hidden">
 
-    <div class="flex justify-between">
-        <div class="flex-auto">
-            <div class="flex">
-                <div class="inline-block relative w-64">
-                      <select class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+    <div class="flex justify-between px-4">
+        <div class="">
+            <div class="flex items-center">
+                <div class="inline-block relative w-24">
+                      <select class="select hover:border-gray-500 focus:outline-none focus:shadow-outline">
                         <option v-for="column in columns" :value="column">
                         <a @click="toggleOrder(column)">@{{column | transJs(langs,locale)}}</a>
                       </select>
@@ -69,7 +69,7 @@
             </div>
 
         </div>
-        <div class="flex-auto">
+        <div class="">
             <button class="btn btn-outline" :class=" { ' active' : !showInGrid }" @click="showInGrid = !showInGrid"><i class="fas fa-list-alt">{{ __('diamondSearch.List')}}</i></button>
             <button class="btn btn-outline" :class="{ ' active' : showInGrid }" @click="showInGrid = !showInGrid"><i class="fas fa-grip-vertical">{{ __('diamondSearch.Grid')}}</i></button>
         </div>
@@ -201,18 +201,24 @@
 
         <div class="border border-gray-400" v-for="(row, index) in model.data" @click="clickRow(row,index)" :class="{ ' bg-secondary text-white': clickedRows.filter( (data)=>{ return data == row.id }).length > 0}">
 
-            <div class="flex">
+            <div class="flex items-center">
                 <div class="flex-auto" v-if="row.image_cache">
                     <img :src="storageURL + 'images/thm-' + row.id + '.jpg' " class="w-48 h-auto"></img>    
                 </div>
-                <div class="flex-auto"  v-else>
-                    <img :src=" row.shape|diamondSampleShapeUrl() " class="w-48 h-auto"  ></img>
+                <div class="flex-auto relative"  v-else>
+                  <center>
+                    <img :src=" row.shape|diamondSampleShapeUrl() " class="w-48 h-auto"  >
+<!--                     <p class="text-purple-500">sample</p>
+ -->                  </center>
                 </div>
                 <div class="flex-auto" v-if="row.plot">
                     <img :src="storageURL + 'plots/' + row.id + '.jpg' " class="w-48 h-auto" ></img>
                 </div>
-                <div class="flex-auto"  v-else>
+                <div class="flex-auto relative"  v-else>
+                  <center>
                     <img :src=" row.shape|diamondShapeUrl()"  class="h-24 w-auto"> 
+                      <p class="text-purple-500">sample</p>
+                    </center>
                 </div>
             </div>
 
