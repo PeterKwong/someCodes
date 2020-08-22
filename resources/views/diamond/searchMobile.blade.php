@@ -1,9 +1,9 @@
 
 <div class="text-center text-gray-700">
         <div class="border border-gray-300 p-2 mx-1">
-           <div  class="hover:text-blue-600" @click="selectDisplayColumn('shape')">
+           <div  class="hover:text-blue-600 w-full" @click="selectDisplayColumn('shape')">
               <a class="is-primary">{{trans('diamondSearch.Shape')}}</a>
-              <div  class="hover:text-blue-600" @click="selectDisplayColumn('shape')">
+              <a  class="hover:text-blue-600" @click="selectDisplayColumn('shape')">
                   <button  class="btn btn-outline" v-if=" query.search_conditions.shape[0].clicked"  @click="toggleValue(query.search_conditions.shape[0].clicked,'shape', 0)">
                           <img :src="'/images/front-end/diamond_shapes/Round.png'" class="w-6">
                   </button>
@@ -34,11 +34,11 @@
                   <button  class="btn btn-outline" v-if=" query.search_conditions.shape[9].clicked"  @click="toggleValue(query.search_conditions.shape[9].clicked,'shape', 9)">
                           <img :src="'/images/front-end/diamond_shapes/Radiant.png'" class="w-6">
                   </button>
-              </div>
+              </a>
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          <div v-if="displayColumn == 'shape' ">
+          <a v-if="displayColumn == 'shape' ">
               <button  class="btn btn-outline" :class=" {' active' : query.search_conditions.shape[0].clicked} "  @click="toggleValue(query.search_conditions.shape[0].clicked,'shape', 0)">
                 <img :src="'/images/front-end/diamond_shapes/Round.png'" class="w-6">
               </button>
@@ -69,7 +69,7 @@
               <button  class="btn btn-outline" :class=" {' active' : query.search_conditions.shape[9].clicked} "  @click="toggleValue(query.search_conditions.shape[9].clicked,'shape', 9)">
                 <img :src="'/images/front-end/diamond_shapes/Radiant.png'" class="w-6">
               </button>
-          </div>
+          </a>
         </div>
         <div class="border border-gray-300 p-2 mx-1">
           <div class="hover:text-blue-600" @click="selectDisplayColumn('price')">

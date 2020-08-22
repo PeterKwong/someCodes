@@ -34,22 +34,26 @@
     @endSection
 
     @section('content')
-        <br>
-            <div class="row" >
-                <div class="col-12">
+    
+        <div class="flex" >
+            <div class="flex-auto">
 
-                    <div class="section-1">
-                      <div class="container-fluid">
-                        <div class="row">
-                            <p class="frame-para">{{trans('diamondSearch.Diamond')}} > {{trans('diamondSearch.Diamond Price')}}</p>
-                            <img class="w-100" src="{{url('images/front-end/diamond/search/frame.png')}}">
-                        </div>
-                      </div>
-                    </div>
+                <div class="relative">
+                    <a class="absolute m-1 sm:m-8" href="{{url(app()->getLocale())}}/gia-loose-diamonds" >{{trans('diamondSearch.Diamond')}} > {{trans('diamondSearch.Diamond Price')}}</a>
+                    <img class="object-contain w-full" src="{{url('images/front-end/diamond/search/frame.png')}}">
+                </div>
 
-                    <div class="section-2">
-                      <div class="grad-div">
-                        <span><b>{{trans('diamondSearch.Diamond Price')}}</b></span>&nbsp;&nbsp;<br class="d-none d-sm-block d-md-none d-block d-sm-none"> <span>{{trans('diamond.metaTitle20')}}</span>
+                <div class="">
+                  <div class="w-5/6 sm:w-4/6 p-2" style="
+                        background-image:url(/images/front-end/diamond/search/grad.png);
+                        background-repeat-x: repeat;
+                        background-size:100%;
+                        font-size:24px;
+                        color:#fff;">
+                    <span><b class="text-base sm:text-2xl">{{trans('diamond.metaTitle29')}} {{trans('diamondSearch.Search')}}</b>
+                    </span>&nbsp;&nbsp;<br class=""> 
+                    <span class="text-base">
+                    {{trans('diamond.metaTitle20')}}</span>
                       </div>
                     </div>
                     

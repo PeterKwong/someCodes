@@ -3,7 +3,7 @@
     <button @click="burgerOpen = false" tabindex="-1" class="fixed inset-0 h-full w-full bg-black opacity-50 cursor-default"></button>
 
     <div class="fixed z-10 bg-white top-0 left-0 bottom-0 w-7/12" >
-      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " @click="onClickedHeader(1)">
+      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1" @click="onClickedHeader(1)">
         {{trans('frontHeader.Diamonds')}}
         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> 
         </svg>

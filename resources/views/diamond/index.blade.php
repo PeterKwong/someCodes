@@ -35,19 +35,21 @@
             <div class="flex-auto">
 
                 <div class="relative">
-                    <a class="absolute mt-8 ml-8" href="{{url(app()->getLocale())}}/gia-loose-diamonds" >{{trans('diamondSearch.Diamond')}} > {{trans('diamondSearch.Diamond Price')}}</a>
+                    <a class="absolute m-1 sm:m-8" href="{{url(app()->getLocale())}}/gia-loose-diamonds" >{{trans('diamondSearch.Diamond')}} > {{trans('diamondSearch.Diamond Price')}}</a>
                     <img class="object-contain w-full" src="{{url('images/front-end/diamond/search/frame.png')}}">
                 </div>
 
                 <div class="">
                   <div class="w-5/6 sm:w-4/6 p-2" style="
-                        background-image:url(../images/front-end/diamond/search/grad.png);
+                        background-image:url(/images/front-end/diamond/search/grad.png);
                         background-repeat-x: repeat;
                         background-size:100%;
                         font-size:24px;
                         color:#fff;">
-                    <span><b class="sm:text-2xl">{{trans('diamond.metaTitle29')}} {{trans('diamondSearch.Search')}}</b></span>&nbsp;&nbsp;<br class=""> 
-                    <span class="text-base">0.30- 20 鑽石 ( 克拉 / 卡數 )</span>
+                    <span><b class="text-base sm:text-2xl">{{trans('diamond.metaTitle29')}} {{trans('diamondSearch.Search')}}</b>
+                    </span>&nbsp;&nbsp;<br class=""> 
+                    <span class="text-base">
+                    0.30- 20 鑽石 ( 克拉 / 卡數 )</span>
                   </div>
                 </div>
                 
