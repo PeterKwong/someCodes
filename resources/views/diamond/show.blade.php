@@ -58,16 +58,16 @@
                         <div v-if="loadingStatus.image">
                             <div class="p-2">
                             <div v-if="diamond.image_cache && selectingShowType == 'image' ">
-                                <img class="w-auto" :src="storageURL + 'images/' + diamond.id + '.jpg' " width="100%" height="auto" ></img>
+                                <img class="w-full" :src="storageURL + 'images/' + diamond.id + '.jpg' " ></img>
                             </div>
                             <div v-if=" selectingShowType == 'video' ">
                                 <iframe :src=" '/redirect?url=' + diamond.video_link" width="100%" height="700" ></iframe>
                             </div>
                             <div v-if="diamond.plot && selectingShowType == 'plot' ">
-                                <img class="w-auto" :src="storageURL + 'plots/' + diamond.id + '.jpg' "  width="100%" height="auto"></img>
+                                <img class="w-full" :src="storageURL + 'plots/' + diamond.id + '.jpg' "  width="100%" height="auto"></img>
                             </div>
                             <div v-if="!diamond.image_cache && selectingShowType == null">
-                                <img class="w-auto" :src="`/images/front-end/diamond_show/RoundDiamonds_sample.png`" width="100%" height="auto"></img>
+                                <img class="w-full" :src="`/images/front-end/diamond_show/RoundDiamonds_sample.png`"></img>
                             </div>
                             </div>
                         </div>
