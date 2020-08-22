@@ -4,70 +4,70 @@
            <div  class="hover:text-blue-600" @click="selectDisplayColumn('shape')">
               <a class="is-primary">{{trans('diamondSearch.Shape')}}</a>
               <div  class="hover:text-blue-600" @click="selectDisplayColumn('shape')">
-                  <button  class="btn btn-outline" v-if=" query.search_conditions.shape[0].clicked"  @click="toggleValue(query.search_conditions.shape[0].clicked,'shape', 0)">
-                          <img src="/images/front-end/diamond_shapes/Round.png" class="w-6 h-6" v-if=" query.search_conditions.shape[0].clicked">
+                  <button  class="" v-if=" query.search_conditions.shape[0].clicked"  @click="toggleValue(query.search_conditions.shape[0].clicked,'shape', 0)">
+                          <img src="/images/front-end/diamond_shapes/Round.png" class="w-8">
                   </button>
-                  <button  class="btn btn-outline" v-if=" query.search_conditions.shape[1].clicked"  @click="toggleValue(query.search_conditions.shape[1].clicked,'shape', 1)">
-                          <img src="/images/front-end/diamond_shapes/Pear.png" class="w-6 h-6">
+                  <button  class="" v-if=" query.search_conditions.shape[1].clicked"  @click="toggleValue(query.search_conditions.shape[1].clicked,'shape', 1)">
+                          <img src="/images/front-end/diamond_shapes/Pear.png" class="w-8">
                   </button>
-                  <button  class="btn btn-outline" v-if=" query.search_conditions.shape[2].clicked"  @click="toggleValue(query.search_conditions.shape[2].clicked,'shape', 2)">
-                          <img src="/images/front-end/diamond_shapes/Emerald.png" class="w-6 h-6">
+                  <button  class="" v-if=" query.search_conditions.shape[2].clicked"  @click="toggleValue(query.search_conditions.shape[2].clicked,'shape', 2)">
+                          <img src="/images/front-end/diamond_shapes/Emerald.png" class="w-8">
                   </button>
-                  <button  class="btn btn-outline" v-if=" query.search_conditions.shape[3].clicked"  @click="toggleValue(query.search_conditions.shape[3].clicked,'shape', 3)">
-                          <img src="/images/front-end/diamond_shapes/Princess.png" class="w-6 h-6">
+                  <button  class="" v-if=" query.search_conditions.shape[3].clicked"  @click="toggleValue(query.search_conditions.shape[3].clicked,'shape', 3)">
+                          <img src="/images/front-end/diamond_shapes/Princess.png" class="w-8">
                   </button>
-                  <button  class="btn btn-outline" v-if=" query.search_conditions.shape[4].clicked"  @click="toggleValue(query.search_conditions.shape[4].clicked,'shape', 4)">
-                          <img src="/images/front-end/diamond_shapes/Marquise.png" class="w-6 h-6">
+                  <button  class="" v-if=" query.search_conditions.shape[4].clicked"  @click="toggleValue(query.search_conditions.shape[4].clicked,'shape', 4)">
+                          <img src="/images/front-end/diamond_shapes/Marquise.png" class="w-8">
                   </button>
-                  <button  class="btn btn-outline" v-if=" query.search_conditions.shape[5].clicked"  @click="toggleValue(query.search_conditions.shape[5].clicked,'shape', 5)">
-                          <img src="/images/front-end/diamond_shapes/Cushion.png" class="w-6 h-6">
+                  <button  class="" v-if=" query.search_conditions.shape[5].clicked"  @click="toggleValue(query.search_conditions.shape[5].clicked,'shape', 5)">
+                          <img src="/images/front-end/diamond_shapes/Cushion.png" class="w-8">
                   </button>
-                  <button  class="btn btn-outline" v-if=" query.search_conditions.shape[6].clicked"  @click="toggleValue(query.search_conditions.shape[6].clicked,'shape', 6)">
-                          <img src="/images/front-end/diamond_shapes/Asscher.png" class="w-6 h-6">
+                  <button  class="" v-if=" query.search_conditions.shape[6].clicked"  @click="toggleValue(query.search_conditions.shape[6].clicked,'shape', 6)">
+                          <img src="/images/front-end/diamond_shapes/Asscher.png" class="w-8">
                   </button>
-                  <button  class="btn btn-outline" v-if=" query.search_conditions.shape[7].clicked"  @click="toggleValue(query.search_conditions.shape[7].clicked,'shape', 7)">
-                          <img src="/images/front-end/diamond_shapes/Oval.png" class="w-6 h-6">
+                  <button  class="" v-if=" query.search_conditions.shape[7].clicked"  @click="toggleValue(query.search_conditions.shape[7].clicked,'shape', 7)">
+                          <img src="/images/front-end/diamond_shapes/Oval.png" class="w-8">
                   </button>
-                  <button  class="btn btn-outline" v-if=" query.search_conditions.shape[8].clicked"  @click="toggleValue(query.search_conditions.shape[8].clicked,'shape', 8)">
-                          <img src="/images/front-end/diamond_shapes/Heart.png" class="w-6 h-6">
+                  <button  class="" v-if=" query.search_conditions.shape[8].clicked"  @click="toggleValue(query.search_conditions.shape[8].clicked,'shape', 8)">
+                          <img src="/images/front-end/diamond_shapes/Heart.png" class="w-8">
                   </button>
-                  <button  class="btn btn-outline" v-if=" query.search_conditions.shape[9].clicked"  @click="toggleValue(query.search_conditions.shape[9].clicked,'shape', 9)">
-                          <img src="/images/front-end/diamond_shapes/Radiant.png" class="w-6 h-6">
+                  <button  class="" v-if=" query.search_conditions.shape[9].clicked"  @click="toggleValue(query.search_conditions.shape[9].clicked,'shape', 9)">
+                          <img src="/images/front-end/diamond_shapes/Radiant.png" class="w-8">
                   </button>
               </div>
               <i class="fas fa-chevron-down"></i>
           </div>
 
           <div v-if="displayColumn == 'shape' ">
-              <button  class="btn btn-outline" :class=" {' active' : query.search_conditions.shape[0].clicked} "  @click="toggleValue(query.search_conditions.shape[0].clicked,'shape', 0)">
-                <img src="/images/front-end/diamond_shapes/Round.png" class="w-6 h-6">
+              <button  class="" :class=" {' active' : query.search_conditions.shape[0].clicked} "  @click="toggleValue(query.search_conditions.shape[0].clicked,'shape', 0)">
+                <img src="/images/front-end/diamond_shapes/Round.png" class="w-8">
               </button>
-              <button  class="btn btn-outline" :class=" {' active' : query.search_conditions.shape[1].clicked} "  @click="toggleValue(query.search_conditions.shape[1].clicked,'shape', 1)">
-                <img src="/images/front-end/diamond_shapes/Pear.png" class="w-6 h-6">
+              <button  class="" :class=" {' active' : query.search_conditions.shape[1].clicked} "  @click="toggleValue(query.search_conditions.shape[1].clicked,'shape', 1)">
+                <img src="/images/front-end/diamond_shapes/Pear.png" class="w-8">
               </button>
-              <button  class="btn btn-outline" :class=" {' active' : query.search_conditions.shape[2].clicked} "  @click="toggleValue(query.search_conditions.shape[2].clicked,'shape', 2)">
-                <img src="/images/front-end/diamond_shapes/Emerald.png" class="w-6 h-6">
+              <button  class="" :class=" {' active' : query.search_conditions.shape[2].clicked} "  @click="toggleValue(query.search_conditions.shape[2].clicked,'shape', 2)">
+                <img src="/images/front-end/diamond_shapes/Emerald.png" class="w-8">
               </button>
-              <button  class="btn btn-outline" :class=" {' active' : query.search_conditions.shape[3].clicked} "  @click="toggleValue(query.search_conditions.shape[3].clicked,'shape', 3)">
-                <img src="/images/front-end/diamond_shapes/Princess.png" class="w-6 h-6">
+              <button  class="" :class=" {' active' : query.search_conditions.shape[3].clicked} "  @click="toggleValue(query.search_conditions.shape[3].clicked,'shape', 3)">
+                <img src="/images/front-end/diamond_shapes/Princess.png" class="w-8">
               </button>
-              <button  class="btn btn-outline" :class=" {' active' : query.search_conditions.shape[4].clicked} "  @click="toggleValue(query.search_conditions.shape[4].clicked,'shape', 4)">
-                <img src="/images/front-end/diamond_shapes/Marquise.png" class="w-6 h-6">
+              <button  class="" :class=" {' active' : query.search_conditions.shape[4].clicked} "  @click="toggleValue(query.search_conditions.shape[4].clicked,'shape', 4)">
+                <img src="/images/front-end/diamond_shapes/Marquise.png" class="w-8">
               </button>
-              <button  class="btn btn-outline" :class=" {' active' : query.search_conditions.shape[5].clicked} "  @click="toggleValue(query.search_conditions.shape[5].clicked,'shape', 5)">
-                <img src="/images/front-end/diamond_shapes/Cushion.png" class="w-6 h-6">
+              <button  class="" :class=" {' active' : query.search_conditions.shape[5].clicked} "  @click="toggleValue(query.search_conditions.shape[5].clicked,'shape', 5)">
+                <img src="/images/front-end/diamond_shapes/Cushion.png" class="w-8">
               </button>
-              <button  class="btn btn-outline" :class=" {' active' : query.search_conditions.shape[6].clicked} "  @click="toggleValue(query.search_conditions.shape[6].clicked,'shape', 6)">
-                <img src="/images/front-end/diamond_shapes/Asscher.png" class="w-6 h-6">
+              <button  class="" :class=" {' active' : query.search_conditions.shape[6].clicked} "  @click="toggleValue(query.search_conditions.shape[6].clicked,'shape', 6)">
+                <img src="/images/front-end/diamond_shapes/Asscher.png" class="w-8">
               </button>
-              <button  class="btn btn-outline" :class=" {' active' : query.search_conditions.shape[7].clicked} "  @click="toggleValue(query.search_conditions.shape[7].clicked,'shape', 7)">
-                <img src="/images/front-end/diamond_shapes/Oval.png" class="w-6 h-6">
+              <button  class="" :class=" {' active' : query.search_conditions.shape[7].clicked} "  @click="toggleValue(query.search_conditions.shape[7].clicked,'shape', 7)">
+                <img src="/images/front-end/diamond_shapes/Oval.png" class="w-8">
               </button>
-              <button  class="btn btn-outline" :class=" {' active' : query.search_conditions.shape[8].clicked} "  @click="toggleValue(query.search_conditions.shape[8].clicked,'shape', 8)">
-                <img src="/images/front-end/diamond_shapes/Heart.png" class="w-6 h-6">
+              <button  class="" :class=" {' active' : query.search_conditions.shape[8].clicked} "  @click="toggleValue(query.search_conditions.shape[8].clicked,'shape', 8)">
+                <img src="/images/front-end/diamond_shapes/Heart.png" class="w-8">
               </button>
-              <button  class="btn btn-outline" :class=" {' active' : query.search_conditions.shape[9].clicked} "  @click="toggleValue(query.search_conditions.shape[9].clicked,'shape', 9)">
-                <img src="/images/front-end/diamond_shapes/Radiant.png" class="w-6 h-6">
+              <button  class="" :class=" {' active' : query.search_conditions.shape[9].clicked} "  @click="toggleValue(query.search_conditions.shape[9].clicked,'shape', 9)">
+                <img src="/images/front-end/diamond_shapes/Radiant.png" class="w-8">
               </button>
           </div>
         </div>
