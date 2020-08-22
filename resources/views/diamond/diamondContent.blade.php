@@ -160,7 +160,10 @@
                                 <img :src="storageURL + 'plots/' + row.id + '.jpg' " width="200"></img>
                         </div>
                         <div v-else>
+                          <center>
                             <img :src=" row.shape|diamondShapeUrl()" class="w-16">  
+                            <p class="text-gray-800">sample</p>
+                          </center>
                         </div>
                     </td> 
                     <td class="border-b px-4 py-2" >HK$@{{ row.price }}</td>
@@ -208,8 +211,7 @@
                 <div class="flex-auto relative"  v-else>
                   <center>
                     <img :src=" row.shape|diamondSampleShapeUrl() " class="w-48 h-auto"  >
-<!--                     <p class="text-purple-500">sample</p>
- -->                  </center>
+                  </center>
                 </div>
                 <div class="flex-auto" v-if="row.plot">
                     <img :src="storageURL + 'plots/' + row.id + '.jpg' " class="w-48 h-auto" ></img>
@@ -217,8 +219,8 @@
                 <div class="flex-auto relative"  v-else>
                   <center>
                     <img :src=" row.shape|diamondShapeUrl()"  class="h-24 w-auto"> 
-                      <p class="text-purple-500">sample</p>
-                    </center>
+                    <p class="text-gray-800">sample</p>
+                  </center>
                 </div>
             </div>
 
