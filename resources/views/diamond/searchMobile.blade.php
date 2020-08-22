@@ -5,7 +5,7 @@
               <a class="is-primary">{{trans('diamondSearch.Shape')}}</a>
               <div  class="hover:text-blue-600" @click="selectDisplayColumn('shape')">
                   <button  class="btn btn-outline" v-if=" query.search_conditions.shape[0].clicked"  @click="toggleValue(query.search_conditions.shape[0].clicked,'shape', 0)">
-                          <img src="/images/front-end/diamond_shapes/Round.png" class="w-6 h-6">
+                          <img src="/images/front-end/diamond_shapes/Round.png" class="w-6 h-6" v-if=" query.search_conditions.shape[0].clicked">
                   </button>
                   <button  class="btn btn-outline" v-if=" query.search_conditions.shape[1].clicked"  @click="toggleValue(query.search_conditions.shape[1].clicked,'shape', 1)">
                           <img src="/images/front-end/diamond_shapes/Pear.png" class="w-6 h-6">
