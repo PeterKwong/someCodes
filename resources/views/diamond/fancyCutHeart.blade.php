@@ -33,22 +33,24 @@
     @endSection
 
     @section('content')
-        <br>
-            <div class="row" >
-                <div class="col-12">
 
-                    <div class="section-1">
-                      <div class="container-fluid">
-                        <div class="row">
-                            <p class="frame-para">{{trans('diamondSearch.Diamond')}} > {{trans('diamondSearch.Diamond Price')}}</p>
-                            <img class="w-100" src="{{url('images/front-end/diamond/search/frame.png')}}">
-                        </div>
-                      </div>
-                    </div>
+        <div class="flex" >
+            <div class="flex-auto">
 
-                    <div class="section-2">
-                      <div class="grad-div">
-                        <span><b>{{trans('diamondSearch.Diamond Price')}}</b></span>&nbsp;&nbsp;<br class="d-none d-sm-block d-md-none d-block d-sm-none"> <span>{{trans('diamond.metaTitle15')}}</span>
+                <div class="relative">
+                    <a class="absolute mt-8 ml-8" href="{{url(app()->getLocale())}}/gia-loose-diamonds" >{{trans('diamondSearch.Diamond')}} > {{trans('diamondSearch.Diamond Price')}}</a>
+                    <img class="object-contain w-full" src="{{url('images/front-end/diamond/search/frame.png')}}">
+                </div>
+
+                <div class="">
+                  <div class="w-5/6 sm:w-4/6 p-2" style="
+                        background-image:url(../images/front-end/diamond/search/grad.png);
+                        background-repeat-x: repeat;
+                        background-size:100%;
+                        font-size:24px;
+                        color:#fff;
+                    <span><b class="text-base">{{trans('diamond.metaTitle29')}} {{trans('diamondSearch.Search')}}</b></span>&nbsp;&nbsp;<br class=""> 
+                        <span>{{trans('diamond.metaTitle15')}}</span>
                       </div>
                     </div>
                     
@@ -57,8 +59,8 @@
 
 
         <div id="diamondViewerIndex">
-            <div class="row justify-content-center">
-                <div class="col-11">
+            <div class="">
+                <div class="">
                     <br>
 
                     @include('diamond.diamondContent')            

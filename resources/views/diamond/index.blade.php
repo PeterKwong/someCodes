@@ -45,8 +45,9 @@
                         background-repeat-x: repeat;
                         background-size:100%;
                         font-size:24px;
-                        color:#fff;
-                    <span><b class="text-base">{{trans('diamond.metaTitle29')}} {{trans('diamondSearch.Search')}}</b></span>&nbsp;&nbsp;<br class=""> <span class="text-base">0.30- 20 鑽石 ( 克拉 / 卡數 )</span>
+                        color:#fff;">
+                    <span><b class="sm:text-2xl">{{trans('diamond.metaTitle29')}} {{trans('diamondSearch.Search')}}</b></span>&nbsp;&nbsp;<br class=""> 
+                    <span class="text-base">0.30- 20 鑽石 ( 克拉 / 卡數 )</span>
                   </div>
                 </div>
                 

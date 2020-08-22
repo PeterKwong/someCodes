@@ -47,6 +47,11 @@
 			<div id="invoiceShow">
 				
 				<div class="container">
+
+				<br>
+				<br>
+				<br>
+				
 				<nav class="level">
 					
 				</nav>
