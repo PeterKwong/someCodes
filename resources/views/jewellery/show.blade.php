@@ -84,7 +84,7 @@
 
                     <div class="grid grid-cols-12 p-2">
 
-                    <div class="col-span-7">
+                    <div class="col-span-12 sm:col-span-7">
                             <div class=" box">
                                     <figure class="image" @click="carouselState=!carouselState">
                                     <keep-alive>
@@ -94,7 +94,7 @@
                         </div>
 
 
-                    <div class="col-span-5">
+                    <div class="col-span-12 sm:col-span-5">
                         <div class="p-4 box">
                             
                             <div class="">

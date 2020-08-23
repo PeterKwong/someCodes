@@ -35,7 +35,7 @@
     @endSection
 
     @section('content')
-        <div id="diamondViewerShow" class="p-8 sm:px-16 md:px-32">
+        <div id="diamondViewerShow" class=" sm:px-16 md:px-32">
 
             <div class="flex justify-center p-6" >
                     <center> 
@@ -47,7 +47,7 @@
                     </center>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 p-1 sm:px-6">
                 <keep-alive>
                     <div class="box">
                         <div v-if="!loadingStatus.image">
