@@ -17,6 +17,7 @@ class CreateInvoicePostsTable extends Migration
             $table->id('id');
             $table->bigInteger('invoice_id')->unsigned()->nullable(); 
             $table->string('video')->nullable();
+            $table->string('unique_code')->nullable();
             $table->bigInteger('postable_id')->nullable();
             $table->string('postable_type')->nullable();
             $table->date('date');

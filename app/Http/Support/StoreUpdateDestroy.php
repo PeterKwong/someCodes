@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 trait StoreUpdateDestroy{
 
     public $videoPath = 'public/videos';
+    public $video360Path = 'public/video360';
     public $imagePath = 'public/images';
 
 	public function storeItem($request, $sizeTypes = []){
@@ -138,10 +139,6 @@ trait StoreUpdateDestroy{
             // dd($path);
             Storage::disk('s3')->setVisibility($path, 'public');   
 
-            // Storage::disk('s3')->put($this->videoPath.$vid , $request->file('video'), 'public');
-            // $request->video->move(base_path('public/videos'),$vid);
-            // File::delete(base_path('public/videos/'. $this->video));
-
             $this->video = $vid;
         }
 
@@ -162,9 +159,6 @@ trait StoreUpdateDestroy{
             $oriImg= Image::where('id', $image['id'])->get()->toArray();
 
             $this->deleteAllSizeImages($oriImg);
-
-            // File::delete(base_path('public/images/'. $oriImg[0]['image']));
-            // File::delete(base_path('public/images/thm-'. $oriImg[0]['image']));
 
             Image::where('id', $image['id'])
                 ->delete();
