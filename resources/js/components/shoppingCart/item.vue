@@ -122,7 +122,7 @@
                     </div>
 
                 </div>
-                <div class="flex justify-between ">
+                <div class=" ">
 
                     <div class="">
                         <div v-if="couponValid || calculatedDiscountRate != 1">
