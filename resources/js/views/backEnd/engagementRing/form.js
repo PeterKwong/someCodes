@@ -4,16 +4,17 @@ import {get, post, put} from '../../../helpers/api'
 import {toMulipartedForm} from '../../../helpers/form'	
 import ImageUpload from '../../../components/ImageUpload.vue'
 import VideoUpload from '../../../components/VideoUpload.vue'
+// import UploadMultiImage from '../../../components/UploadMultiImage.vue'
 
 import { transJs } from '../../../helpers/transJs'
 import langs from '../../../langs/engagementRings'
-
 
 export default {
 	el:'#engagementRingForm',
 	components: {
 		ImageUpload,
-		VideoUpload
+		VideoUpload,
+		// UploadMultiImage,
 	},
 	data(){
 		return {
