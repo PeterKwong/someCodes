@@ -187,7 +187,7 @@
                     </div>
 
                     <div v-if="loadingStatus.cert" class="flex justify-center" >
-                        <img class="w-full h-auto" :src="storageURL + 'certs/' + diamond.id + '.jpg' "  v-if="diamond.cert_cache">
+                        <img class="w-full h-full" :src="storageURL + 'certs/' + diamond.id + '.jpg' "  v-if="diamond.cert_cache">
                     </div>
 
 
