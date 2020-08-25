@@ -186,8 +186,8 @@
                         </center>
                     </div>
 
-                    <div v-if="loadingStatus.cert" class="w-full h-full" >
-                        <img class="w-full h-full" :src="storageURL + 'certs/' + diamond.id + '.jpg' "  v-if="diamond.cert_cache">
+                    <div v-if="loadingStatus.cert" class="w-full" >
+                        <img class="w-full" :src="storageURL + 'certs/' + diamond.id + '.jpg' "  v-if="diamond.cert_cache">
                     </div>
 
 
