@@ -106,9 +106,10 @@ class EngagementRingController extends Controller
             'unit_price' => 'required | numeric |min:1',
     		]);
     	
-        // dd(print_r($request->all()));
+        // dd($request->all());
+        dd($request->video360);
 
-        $engagementRing = EngagementRing::create($request->except(['video','texts','images']));
+        $engagementRing = EngagementRing::create($request->except(['video','texts','images','video360']));
 
         return $engagementRing->storeItem($request);
     }

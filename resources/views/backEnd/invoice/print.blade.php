@@ -83,7 +83,7 @@
 							<h4 class="subtitle is-5">@{{company.info.name}}</h4>			
 							<p >@{{company.info.address}}</p>
 							<p >Tel: @{{company.info.contact}}</p>
-							<a href="/">@{{company.info.website}}</a>
+							<a style="color: #3490dc" href="/">@{{company.info.website}}</a>
 						</div>
 					</div>
 					<hr>

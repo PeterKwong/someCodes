@@ -70,6 +70,8 @@ class EngagementRing extends Model
 	            'cost' => 0,
 	            'brand'=> '',
 	            'video'=> '',
+	            'video360'=> [],
+	            'unique_code'=> '',
 				'images' => [['image'=>'',
 								'type' => 'cover'],] , 
 				'texts' => [

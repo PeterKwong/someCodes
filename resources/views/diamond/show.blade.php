@@ -52,7 +52,7 @@
                     <div class="box">
                         <div v-if="!loadingStatus.image">
                             <center>
-                            <img class="w-auto" src="/images/front-end/loader.gif"  width="200">
+                            <img class="w-1/3" src="/images/front-end/loader.gif"  width="200">
                             </center>
                         </div>
                         <div v-if="loadingStatus.image">
@@ -182,12 +182,12 @@
                 <div class="flex-auto p-4">
                     <div v-if="!loadingStatus.cert">
                         <center>
-                            <img class="w-auto" src="/images/front-end/loader.gif" >
+                            <img class="w-1/3" src="/images/front-end/loader.gif" >
                         </center>
                     </div>
 
                     <div v-if="loadingStatus.cert" class="flex justify-center" >
-                        <img class="w-auto" :src="storageURL + 'certs/' + diamond.id + '.jpg' "  v-if="diamond.cert_cache">
+                        <img class="w-full h-auto" :src="storageURL + 'certs/' + diamond.id + '.jpg' "  v-if="diamond.cert_cache">
                     </div>
 
 

@@ -33,6 +33,8 @@ export default {
     return {
       images: [],
       index:'',
+      formData:'',
+      fileList:'',
       maxImage:60,
     }
   },
@@ -42,6 +44,8 @@ export default {
   methods: {
     uploadImageSuccess(formData, index, fileList) {
       console.log('data', formData, index, fileList)
+      this.fileList = fileList
+      adminVar.form.video360 = this.fileList    
       this.index = index +1
       // Upload image api
       // axios.post('http://your-url-upload', formData).then(response => {

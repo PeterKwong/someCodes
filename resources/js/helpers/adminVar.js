@@ -27,5 +27,7 @@ export default{
     APIs:{
         goldPrice:getGoldPrice(),
     },
+    form:{},
+    
 
 }

@@ -19,6 +19,7 @@ export default {
 	data(){
 		return {
 			form:'',
+			adminVar,
 			isProcessing: false,
 			langs,
 			errors: {},
@@ -65,6 +66,7 @@ export default {
 				.then((response)=>{
 					Vue.set(this.$data, 'form', response.data.form)
 					Vue.set(this.$data, 'option', response.data.option)
+					adminVar.form = this.form
 				})
 				.catch(function(error){
 					console.log(error)

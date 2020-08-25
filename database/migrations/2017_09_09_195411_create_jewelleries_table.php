@@ -26,7 +26,7 @@ class CreateJewelleriesTable extends Migration
             $table->integer('cost')->default(0)->nullable();
             $table->string('brand')->nullable();
             $table->string('video')->nullable();
-            $table->string('unique_code')->nullable();
+            $table->string('video360')->nullable();
             $table->integer('unit_price');
             $table->boolean('customized')->default(0);
             $table->boolean('published')->default(0);

@@ -44,7 +44,24 @@ trait StoreUpdateDestroy{
                                         ]);
             }
         }
-        $this->images()->saveMany($images);        
+        $this->images()->saveMany($images); 
+
+        // foreach ($request->video360 as $video360File) {
+        //     if (!empty($video360File['image'])) {
+        //         $imgFileName= ResizeImage::getFileName($video360File['image']);
+
+        //         // $video360File['image']->move(base_path('public/images'),$imgFileName);
+        //         // var_dump(die($video360File['image']));
+                
+        //         $this->saveImageToDifferentSizes($imgFileName, $video360File, $sizeTypes);
+
+        //         // File::delete(base_path('public/images/'. $imgFileName ) );
+
+        //         $images[] = new Image(['image' => $imgFileName,
+        //                                 'type' => $video360File['type']
+        //                                 ]);
+        //     }
+        // }
 
         // dd($texts);
         if ($request->video) {
@@ -58,6 +75,7 @@ trait StoreUpdateDestroy{
             $this->video = $vid;
             $this->save();
         }
+
         // dd(print_r($this->video));
 
 

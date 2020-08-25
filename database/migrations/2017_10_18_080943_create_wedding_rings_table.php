@@ -19,7 +19,7 @@ class CreateWeddingRingsTable extends Migration
             $table->string('style')->default('classic');
             $table->boolean('sideStone')->default(false);
             $table->string('video')->nullable();
-            $table->string('unique_code')->nullable();
+            $table->string('video360')->nullable();
             $table->integer('unit_price');
             $table->string('metal')->default('18kw')->nullable();
             $table->float('metal_weight')->default(0)->nullable();

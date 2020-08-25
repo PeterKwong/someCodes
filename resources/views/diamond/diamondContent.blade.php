@@ -156,8 +156,8 @@
                     </td>
 
                     <td class="border-b px-4 py-2" >
-                        <div v-if="row.plot">
-                                <img :src="storageURL + 'plots/' + row.id + '.jpg' " width="200"></img>
+                        <div v-if="row.plot" class="w-48">
+                                <img :src="storageURL + 'plots/' + row.id + '.jpg' " class="object-contain w-full h-auto" ></img>
                         </div>
                         <div v-else>
                           <center>
