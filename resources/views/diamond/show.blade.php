@@ -178,15 +178,15 @@
                 </div>
             </div>
 
-            <div class="flex justify-center">
-                <div class="flex-auto p-4">
+            <div class="grid grid-cols-12">
+                <div class="col-span-12 p-4">
                     <div v-if="!loadingStatus.cert">
                         <center>
                             <img class="w-1/3" src="/images/front-end/loader.gif" >
                         </center>
                     </div>
 
-                    <div v-if="loadingStatus.cert" class="flex justify-center" >
+                    <div v-if="loadingStatus.cert" class="" >
                         <img class="w-full h-full" :src="storageURL + 'certs/' + diamond.id + '.jpg' "  v-if="diamond.cert_cache">
                     </div>
 
