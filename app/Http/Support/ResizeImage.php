@@ -19,12 +19,13 @@ trait ResizeImage{
 
 	public static function getFileName($file)
     {
-        return $this->generateUniqueCode() . '.' .$file->extension();
+        return self::generateUniqueCode() . '.' .$file->extension();
     }
 
 
 	public static function generateUniqueCode()
     {
+    	// dd(Carbon::now()->toDateString().'_' . Str::random());
         return Carbon::now()->toDateString().'_' . Str::random();
     }
 
