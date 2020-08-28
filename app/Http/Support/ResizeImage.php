@@ -203,7 +203,7 @@ trait ResizeImage{
 		$image = str_replace('data:image/jpeg;base64,', '', $content);
         $content = str_replace(' ', '+', $image);
 		
-
+		Image::configure(array('driver' => 'imagick'));
 
 		$img =(String) Image::make($content)->resize(400,null, function ($constraint) {
 			$constraint->aspectRatio(); 
@@ -222,6 +222,7 @@ trait ResizeImage{
 		$image = str_replace('data:image/jpeg;base64,', '', $content);
         $content = str_replace(' ', '+', $image);
 		
+		Image::configure(array('driver' => 'imagick'));
 
 		$maxWidth = Image::make($content)->width();
 
