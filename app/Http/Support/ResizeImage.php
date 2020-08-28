@@ -19,36 +19,14 @@ trait ResizeImage{
 
 	public static function getFileName($file)
     {
-        return Carbon::now()->toDateString().'_' . Str::random(). '.' .$file->extension();
+        return $this->generateUniqueCode() . '.' .$file->extension();
     }
 
 
-	// public static function cropCenter($file){
-	// 	$targetFile = $file;
-
-	// 	$new = imagecreatefromjpeg(base_path('public/images/') . $targetFile);
-
-	//     $crop_width = imagesx($new);
-	//     $crop_height = imagesy($new);
-	                
-	//             $size = min($crop_width, $crop_height);
-	            
-	            
-	//             if($crop_width >= $crop_height) {
-	//             $newx= ($crop_width-$crop_height)/2;
-	            
-	//             $im2 = imagecrop($new, ['x' => $newx, 'y' => 0, 'width' => $size, 'height' => $size]);
-	//             }
-	//             else {
-	//                 $newy= ($crop_height-$crop_width)/2;
-	            
-	//                 $im2 = imagecrop($new, ['x' => 0, 'y' => $newy, 'width' => $size, 'height' => $size]);
-	//                 }
-	            
-	                
-	//     return imagejpeg($im2,base_path('public/images/') .'sq-'. $targetFile,90);
-	// }
-
+	public static function generateUniqueCode()
+    {
+        return Carbon::now()->toDateString().'_' . Str::random();
+    }
 
 	public static function crop16to9($file){
 		$targetFile = $file;
@@ -197,7 +175,7 @@ trait ResizeImage{
 
 		// $content = base_path('public/images/') . $targetFile;
 		
-		Image::configure(array('driver' => 'imagick'));
+		// Image::configure(array('driver' => 'imagick'));
 
 		// $img = Image::make($content)->resize(400,null, function ($constraint) {
   		//   				$constraint->aspectRatio(); 
@@ -215,6 +193,61 @@ trait ResizeImage{
 
 		// $manager = new ImageManager(array('driver' => 'imagick'));
 		
+	}
+
+	public static function setBase64ImageToThumb($folderName, $content, $key){
+
+		$targetFile = $folderName;
+
+		$image = str_replace('data:image/jpeg;base64,', '', $content);
+        $content = str_replace(' ', '+', $image);
+		
+
+
+		$img =(String) Image::make($content)->resize(400,null, function ($constraint) {
+			$constraint->aspectRatio(); 
+		})->encode('jpg');
+
+		
+		Storage::disk('s3')->put('public/video360/' .$targetFile. '/thm-'.$key . '.jpg', $img, 'public');		
+
+
+	}
+
+	public static function setBase64ImageToLarge($folderName, $content, $key){
+
+		$targetFile = $folderName;
+
+		$image = str_replace('data:image/jpeg;base64,', '', $content);
+        $content = str_replace(' ', '+', $image);
+		
+
+		$maxWidth = Image::make($content)->width();
+
+		if ($maxWidth > 1100) {
+			// $img = Image::make($content)->resize(1100,null, function ($constraint) {
+			// 	$constraint->aspectRatio(); 
+			// });
+
+			$img =(String) Image::make($content)->resize(1100,null, function ($constraint) {
+				$constraint->aspectRatio(); 
+			})->encode('jpg');
+
+		}else{
+			// $img = Image::make($new)->resize($maxWidth,null, function ($constraint) {
+			// 	$constraint->aspectRatio(); 
+			// });
+
+			$img =(String) Image::make($content)->resize($maxWidth,null, function ($constraint) {
+				$constraint->aspectRatio(); 
+			})->encode('jpg');
+		}
+
+
+		
+		Storage::disk('s3')->put('public/video360/' .$targetFile. '/'.$key . '.jpg', $img, 'public');		
+
+
 	}
 
 	public static function spaceImage($content,$filename,$maxWidth,$thmWidthSize=0,$path='/public/images/'){

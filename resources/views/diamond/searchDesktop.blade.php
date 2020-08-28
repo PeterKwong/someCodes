@@ -281,7 +281,7 @@
   <div class="col-span-6">
     <div class="grid grid-cols-12 items-center">
       <div class="col-span-2 mx-8 font-light text-lg">
-        <p>{{trans('diamondSearch.Clarity')}}</p>
+        <p>{{trans('diamondSearch.Fluorescence')}}</p>
       </div>
       <div class="col-span-10 mx-8">
         <div class="flex justify-between flex-wrap text-center">

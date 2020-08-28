@@ -107,7 +107,7 @@ class EngagementRingController extends Controller
     		]);
     	
         // dd($request->all());
-        // dd($request->video360);
+        // dd($request->video360['hasFile']);
 
         $engagementRing = EngagementRing::create($request->except(['video','texts','images','video360']));
 

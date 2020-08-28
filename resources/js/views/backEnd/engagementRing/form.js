@@ -63,9 +63,9 @@ export default {
 	methods: {
 		fetchData(){
 			get(this.initialize)
-				.then((response)=>{
-					Vue.set(this.$data, 'form', response.data.form)
-					Vue.set(this.$data, 'option', response.data.option)
+				.then((res)=>{
+					Vue.set(this.$data, 'form', res.data.form)
+					Vue.set(this.$data, 'option', res.data.option)
 					adminVar.form = this.form
 				})
 				.catch(function(error){
@@ -76,8 +76,8 @@ export default {
 			this.isProcessing = true
 			const form = toMulipartedForm(this.form)
 			post(this.storeURL, form)
-			.then((response)=>{
-				if(response.data.saved){
+			.then((res)=>{
+				if(res.data.saved){
 					window.open(this.redirect,'_self')
 				}
 				this.isProcessing = false
@@ -89,7 +89,7 @@ export default {
 				this.isProcessing = false
 			})
 				
-				
+
 		},
 		getIdReg(){
 			var txt = window.location.pathname.slice(22)

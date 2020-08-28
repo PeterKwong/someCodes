@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Support\StoreUpdateDestroy;
 use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
+	use StoreUpdateDestroy;
+
 	protected $fillable = [ 'image', 'alt', 'title','type','imageable_type'
 	];
 

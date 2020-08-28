@@ -11,13 +11,12 @@
 
 <template>
 		<div class="row text-center">
-         	<div class="col-12" >
-         		<canvas id="productViewer" :width="width" :height="height" 
-         		
+         	<div class="col-12">
+         		<canvas id="productViewer" class="flex" :width="width" :height="height" 
+
 	         		@mousedown="startDrag" @touchstart="startDrag"
 			        @mousemove="onDrag" @touchmove="onDrag"
 			        @mouseup="stopDrag" @touchend="stopDrag" @mouseleave="stopDrag">
-              @click="rotating = !rotating"
          			
          		</canvas>
          	</div>         		
@@ -27,36 +26,37 @@
 <script type="text/javascript">
 
 	export default {
-		props: ['folder', 'filename'],
+		props: ['folder', 'filename', 'size'],
 		data(){
 			return {
 				dragging: false,
-	            // quadratic bezier control point
-	            c: { x: 160, y: 160 },
-	            // record drag start point
-	            start: { x: 0, y: 0 },
+        // quadratic bezier control point
+        c: { x: 160, y: 160 },
+        // record drag start point
+        start: { x: 0, y: 0 },
 
-				width:720,
-				height:490,
-				viewer:{ size:50, width:400,heigh:400,progress:1,stage:'',},
-				rotating:false,
-				direction:0,
+				width:1080,
+				height:720,
+				viewer:{ width:1080,heigh:720,progress:0,stage:'',},
+        rotatingTime:100,
 				interval:'',
 
 			}
 		},
 		methods:{
-
 		  startDrag(e) {
         e = e.changedTouches ? e.changedTouches[0] : e;
         this.dragging = true;
         this.start.x = e.pageX;
         this.start.y = e.pageY;
+        document.body.style.cursor = 'ew-resize';
       },
       onDrag(e) {
-      	var moved = 0
+
+        var moved = 0
         e = e.changedTouches ? e.changedTouches[0] : e;
         if (this.dragging) {
+
           this.c.x = 160 + (e.pageX - this.start.x);
           this.c.y = 160 + (e.pagey - this.start.y);
 
@@ -71,62 +71,55 @@
 
           }
 
-      	  this.rotateDirection(moved)
+          this.rotateDirection(moved)
 
-          // console.log(this.start.x  )
-          // console.log(e.pageX)
+          this.setRotation(moved)
 
-          this.keepRotate(moved)
         }
+
       },
-      keepRotate(moved){
+      setRotation(moved){
 
-      	if (this.direction != moved || !this.rotating) {
-            this.clearInterval()
-           	this.direction = moved 
-  			    this.rotating = true
+        this.clearInterval()
 
-  			    this.interval = setInterval(() => {
-  				  this.nextImage(moved)
-  				}, 150)   
-      	}
+        this.interval = setInterval(() => {
+          if (!this.dragging ) {
+            this.nextImage(moved)
+          }
+        }, this.rotatingTime)             
 
-      	console.log(moved)
       },
       clearInterval(){
-      		clearInterval(this.interval);
+    		clearInterval(this.interval);
+        // console.log('clear')
       },
       nextImage(moved){
+        console.log(moved)
       	this.rotateDirection(moved)
-      	console.log(moved)
 
-      	// this.keepRotate(moved)
       },
       rotateDirection(moved){
 
-      	var viewer = this.viewer
+        this.viewer.progress +=  moved
 
-          viewer.progress +=  moved
+        console.log(this.viewer.progress)
 
-
-
-          console.log(viewer.progress)
-
-          this.drawImg()
+        this.drawImg()
 
 
-          if (viewer.progress < 2 && moved == -1) {
-          	viewer.progress = viewer.size + 1
-          }
+        if (this.viewer.progress <= 0 && moved == -1) {
+        	this.viewer.progress = this.size -1
+        }
 
-          if (viewer.progress == viewer.size && moved == 1) {
-          	viewer.progress = 1
-          }
+        if (this.viewer.progress >= this.size -1 && moved == 1) {
+        	this.viewer.progress = 0
+        }
 
       },
       stopDrag() {
         if (this.dragging) {
           this.dragging = false;
+          document.body.style.cursor = 'auto';
         }
       },
       drawImg(){
@@ -136,10 +129,12 @@
   			var img = new Image;
 
   			img.onload = function(){
-  			  ctx.drawImage(img,0, 0); // Or at whatever offset you like
+  			  ctx.drawImage(img,0, 0, 1080 ,720); // Or at whatever offset you like
   			};
 
   			img.src = this.folder + this.filename +  this.viewer.progress + '.jpg';
+        
+        console.log(this.viewer.progress)
 
       },
 
@@ -148,13 +143,12 @@
 		},
 		components: {
 		},
-		created(){
-		},
-		beforeMounted(){
-		},
+    destroyed(){
+      this.clearInterval()      
+    },
 		mounted(){
 			this.drawImg()
-
+      this.setRotation(1)
 
 		}
 	

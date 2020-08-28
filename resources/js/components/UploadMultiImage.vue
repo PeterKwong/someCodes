@@ -35,7 +35,7 @@ export default {
       index:'',
       formData:'',
       fileList:'',
-      maxImage:60,
+      maxImage:130,
     }
   },
   components: {
@@ -45,7 +45,7 @@ export default {
     uploadImageSuccess(formData, index, fileList) {
       console.log('data', formData, index, fileList)
       this.fileList = fileList
-      adminVar.form.video360 = this.fileList    
+      adminVar.form.video360 = this.fileList  
       this.index = index +1
       // Upload image api
       // axios.post('http://your-url-upload', formData).then(response => {

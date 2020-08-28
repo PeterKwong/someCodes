@@ -46,22 +46,26 @@ trait StoreUpdateDestroy{
         }
         $this->images()->saveMany($images); 
 
-        // foreach ($request->video360 as $video360File) {
-        //     if (!empty($video360File['image'])) {
-        //         $imgFileName= ResizeImage::getFileName($video360File['image']);
 
-        //         // $video360File['image']->move(base_path('public/images'),$imgFileName);
-        //         // var_dump(die($video360File['image']));
-                
-        //         $this->saveImageToDifferentSizes($imgFileName, $video360File, $sizeTypes);
+        if ($request->video360) {
 
-        //         // File::delete(base_path('public/images/'. $imgFileName ) );
+            $video360Code= ResizeImage::generateUniqueCode();
 
-        //         $images[] = new Image(['image' => $imgFileName,
-        //                                 'type' => $video360File['type']
-        //                                 ]);
-        //     }
-        // }
+            $this->video360 = $video360Code;
+            $this->save();
+
+            foreach ($request->video360 as $key => $video360File) {
+
+                if (!empty($video360File['path'])) {
+                    
+                    $this->saveSequentImages($video360Code, $video360File['path'], $key);
+
+                }
+            }
+
+
+        }
+
 
         // dd($texts);
         if ($request->video) {
@@ -84,7 +88,8 @@ trait StoreUpdateDestroy{
 
     	return response()
     		->json([
-    			'saved' => true
+    			'saved' => true,
+                'video360'=>$this->video360
     			]);
 
 	}
@@ -147,6 +152,31 @@ trait StoreUpdateDestroy{
             
         }
         
+        if (is_array($request->video360)) {
+
+            if (!$this->video360) {
+                $video360Code= ResizeImage::generateUniqueCode();
+
+                $this->video360 = $video360Code;
+                $this->save();
+            }else{
+
+                Storage::disk('s3')->deleteDirectory($this->video360Path .'/'. $this->video360);
+                    // dd('deleted');                
+            }
+
+
+            foreach ($request->video360 as $key => $video360File) {
+
+                if (!empty($video360File['path'])) {
+                    // dd($video360File);
+                    $this->saveSequentImages($this->video360, $video360File['path'], $key);
+
+                }
+            }
+
+
+        }
 
 
         if ($request->hasFile('video')) {
@@ -160,7 +190,7 @@ trait StoreUpdateDestroy{
             $this->video = $vid;
         }
 
-    	$this->update($request->except(['texts','images','video']));
+    	$this->update($request->except(['texts','images','video','video360']));
         $this->images()->saveMany($images);
 
     	return response()
@@ -209,6 +239,12 @@ trait StoreUpdateDestroy{
         }
     }
 
+    public function saveSequentImages($folderName, $file,$key){
+        ResizeImage::setBase64ImageToThumb($folderName,$file,$key);
+        ResizeImage::setBase64ImageToLarge($folderName,$file,$key);
+
+    } 
+    
     public function deleteAllSizeImages($oriImg){
 
         Storage::disk('s3')->delete($this->imagePath .'/'. $oriImg[0]['image']);

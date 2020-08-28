@@ -14,7 +14,7 @@ class EngagementRing extends Model
 	    
 		protected $fillable =[
 		'id','stock' ,'texts','prong','shoulder','style','images','video','customized','published','unit_price',
-		'metal','metal_weight','ct','cost','brand',
+		'metal','metal_weight','ct','cost','brand','video360',
 		];
 
 	    protected $filter = [
@@ -71,7 +71,6 @@ class EngagementRing extends Model
 	            'brand'=> '',
 	            'video'=> '',
 	            'video360'=> [],
-	            'unique_code'=> '',
 				'images' => [['image'=>'',
 								'type' => 'cover'],] , 
 				'texts' => [

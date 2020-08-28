@@ -150,6 +150,9 @@ Route::group(['middleware' => 'auth:admin-api'], function(){
 
 	//Rap price
 	Route::post('diamonds/rap-discount-price', 'DiamondController@rapDiscountPrice');
+
+	//StoreVideo360
+	// Route::post('video360/{code}', 'ImageController@storeVideo360Image');
 	
 	//backend
 	Route::resource('customers', 'CustomerController');

@@ -21,7 +21,8 @@
             <div class="grid grid-cols-12">
                 <div class="col-span-4 relative" v-for="(img, index) in chunkedUpperItems" 
                        @click="currentSelectedItem(index,'upper')" v-if="img.thumb"  >
-                    <img :src="images+img.thumb" width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentIndex == index}"></img>
+                    <img :src="images+img.thumb"  v-if="img.type=='img' || img.type=='video'"  width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentIndex == index}"></img>
+                    <img :src="img.thumb"  v-if="img.type=='video360'"  width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentIndex == index}"></img>
                     <div class="absolute top-0" v-if="img.type=='video'" >
                         <i class="hidden sm:block far fa-play-circle text-blue-600 fa-3x" style="opacity: 0.5"  aria-hidden="true" ></i>
                         <i class="sm:hidden far fa-play-circle text-blue-600 " style="opacity: 0.5"  aria-hidden="true" ></i>
@@ -37,8 +38,9 @@
                 <img :src="images+currentItem.src" v-if="currentItem.type=='img'" class="w-auto" @click="nextItem">
                 <video-player :options="videoOptions" v-if="currentItem.type=='video'"></video-player>
                 
-<!--                 <product-viewer :folder="folder " :filename="fileName"></product-viewer>
- -->            
+                <product-viewer v-if="currentItem.type=='video360'" :folder="folder + upperitems.video360 +'/'" 
+                :filename="fileName " :size="currentItem.size"></product-viewer>
+            
             <p v-if="chunkedItems.length && !showUpper" class="text-primary text-center p-4">{{chunkedItems[currentIndex].text}}</p>
 
                         <p class="text-xl font-light">{{ currentItem.title }}</p>
@@ -98,7 +100,6 @@
 
 
 import {videoPlayer} from '../../../node_modules/vue-video-player/dist/vue-video-player'
-import mutualVar from '../helpers/mutualVar'
 import ProductViewer from '../components/productViewer360'
 
 // import VideoPlayer from './VueVideoPlayer.vue'
@@ -123,6 +124,11 @@ export default {
     created () {
         this.currentIndex = 0;
     },
+    mounted(){
+        if (mutualVar.css.innerWidth<500) {
+            this.fileName = 'thm-'
+        }
+    },
     data () {
         return {
             currentIndex : 0,
@@ -136,8 +142,8 @@ export default {
             currentUpperIndex:0,
             videoPath: mutualVar.storage[mutualVar.storage.live] + 'public/videos/' ,
             mutualVar,
-            fileName:'381_x264 ',
-            folder: mutualVar.storage[mutualVar.storage.live] + 'public/test/weddingring1/', 
+            fileName:'',
+            folder: mutualVar.storage[mutualVar.storage.live] + 'public/video360/', 
 
         }
     },
@@ -231,6 +237,10 @@ export default {
         },
         carouselUpperItemsToArray(){
             var arr = []
+
+            if (this.upperitems.video360) {
+                    arr.push({src:this.upperitems.video360, type:"video360", thumb:this.folder + this.upperitems.video360 +'/thm-0.jpg', size:120})
+                }
 
             if (this.upperitems.video) {
                     arr.push({src:this.upperitems.video, type:"video", thumb:this.upperitems.images[0].image})
