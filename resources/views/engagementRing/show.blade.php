@@ -202,7 +202,7 @@
                                     </div>
                               
                                     <div class="grid grid-cols-12 border-b p-2" >
-                                        {{__('engagementRing.More Details')}}
+                                      <div class="col-span-12 p-2 font-light" >{{__('engagementRing.More Details')}}</div>
                                     </div>
                                
                                     <div class="grid grid-cols-12 border-b" >
