@@ -26,7 +26,7 @@
 <script type="text/javascript">
 
 	export default {
-		props: ['folder', 'filename', 'size'],
+		props: ['folder', 'filename', 'size','rotate'],
 		data(){
 			return {
 				dragging: false,
@@ -128,11 +128,11 @@
   			var ctx = myCanvas.getContext('2d');
   			var img = new Image;
 
+        img.src = this.folder + this.filename +  this.viewer.progress + '.jpg';
+
   			img.onload = function(){
   			  ctx.drawImage(img,0, 0, 1080 ,720); // Or at whatever offset you like
   			};
-
-  			img.src = this.folder + this.filename +  this.viewer.progress + '.jpg';
         
         console.log(this.viewer.progress)
 
@@ -148,7 +148,7 @@
     },
 		mounted(){
 			this.drawImg()
-      this.setRotation(1)
+      this.setRotation(this.rotate)
 
 		}
 	

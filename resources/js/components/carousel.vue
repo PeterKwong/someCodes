@@ -39,7 +39,7 @@
                 <video-player :options="videoOptions" v-if="currentItem.type=='video'"></video-player>
                 
                 <product-viewer v-if="currentItem.type=='video360'" :folder="folder + upperitems.video360 +'/'" 
-                :filename="fileName " :size="currentItem.size"></product-viewer>
+                :filename="fileName " :size="currentItem.size" :rotate="currentItem.rotate"></product-viewer>
             
             <p v-if="chunkedItems.length && !showUpper" class="text-primary text-center p-4">{{chunkedItems[currentIndex].text}}</p>
 
@@ -239,7 +239,7 @@ export default {
             var arr = []
 
             if (this.upperitems.video360) {
-                    arr.push({src:this.upperitems.video360, type:"video360", thumb:this.folder + this.upperitems.video360 +'/thm-0.jpg', size:120})
+                    arr.push({src:this.upperitems.video360, type:"video360", thumb:this.folder + this.upperitems.video360 +'/thm-0.jpg', size:120 , rotate:1})
                 }
 
             if (this.upperitems.video) {
