@@ -176,7 +176,7 @@ trait ResizeImage{
 
 		// $content = base_path('public/images/') . $targetFile;
 		
-		// Image::configure(array('driver' => 'imagick'));
+		Image::configure(array('driver' => 'imagick'));
 
 		// $img = Image::make($content)->resize(400,null, function ($constraint) {
   		//   				$constraint->aspectRatio(); 
