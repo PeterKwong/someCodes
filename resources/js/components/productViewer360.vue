@@ -71,9 +71,9 @@
 
           }
 
-          this.rotateDirection(moved)
+          // this.setRotation(moved)
 
-          this.setRotation(moved)
+          this.rotateDirection(moved)
 
         }
 
