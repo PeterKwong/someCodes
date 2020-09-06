@@ -18,6 +18,8 @@ class CreateFancyDiamondsTable extends Migration
             $table->bigInteger('price');
             $table->string('shape');
             $table->decimal('weight',6,2);
+            $table->string('intensity');
+            $table->string('overtone');
             $table->string('color');
             $table->string('clarity');
             $table->string('cut')->default(0)->nullable();

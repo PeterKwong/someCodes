@@ -23,7 +23,10 @@ class Order extends Model
             'customer.phone'
     ];
 
-    protected $hidden = ['customer_stripe','finalize_code'];
+    protected $hidden = [
+                        // 'customer_stripe',
+                        'finalize_code'
+                    ];
 
     public function cartItems(){
     	

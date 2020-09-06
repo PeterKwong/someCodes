@@ -160,8 +160,8 @@ class CronJob
 		//reset stones not update for 2 days
 		 // dd('run'); 
 
-		$jobs = [ $this->ip . 'start working on images'=> now()];
-		$appoint->cronDone($jobs);
+		// $jobs = [ $this->ip . 'start working on images'=> now()];
+		// $appoint->cronDone($jobs);
 
 		$images = $diamondImport->preloadImages();
 		if ($images != 1) {
@@ -183,8 +183,8 @@ class CronJob
 		//reset stones not update for 2 days
 		 // dd('run'); 
 
-		$jobs = [ $this->ip . 'start working on certs'=> now()];
-		$appoint->cronDone($jobs);
+		// $jobs = [ $this->ip . 'start working on certs'=> now()];
+		// $appoint->cronDone($jobs);
 
 		$certs = $diamondImport->preloadCerts();
 		if ($certs != 1) {

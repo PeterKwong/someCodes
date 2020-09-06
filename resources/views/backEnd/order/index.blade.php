@@ -17,7 +17,7 @@
 					<td>@{{props.item.discount}}</td>
 					<td>@{{props.item.extra}}</td>
 					<td>@{{props.item.sub_total}}</td>
-					<td>@{{props.item.deposit}} <button class="btn btn-primary" v-if="props.item.deposit_method == 'VISA' && props.item.status != 'received money' " @click="chargeByStripe(props.item)">Charge</button></td>
+					<td>@{{props.item.deposit}} <button class="btn btn-primary" v-if="props.item.deposit_method == 'VISA' && props.item.status != 'received money' && props.item.customer_stripe " @click="chargeByStripe(props.item)">Charge</button></td>
 					<td>@{{props.item.balance}}</td>
 					<td>@{{props.item.balance_method}}</td>
 					<td>@{{props.item.total}}</td>
