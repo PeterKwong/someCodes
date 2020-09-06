@@ -87,7 +87,7 @@
                             <strong v-if="diamond.available">
                                 <h3 class="text-primary text-2xl">{{__('diamondSearch.Price')}} HK$: {{$diamond->price}}</h3>
                             </strong>
-                            <strong v-if="!diamond.available"><p class="text-2xl"> {{__('diamondSearch.Sold')}}</p></strong>
+                            <strong v-else="!diamond.available"><p class="text-2xl"> {{__('diamondSearch.Sold')}}</p></strong>
                         </center>
                       </div>
                       <div class="p-2">
