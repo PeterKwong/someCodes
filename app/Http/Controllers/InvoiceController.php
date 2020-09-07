@@ -141,7 +141,7 @@ class InvoiceController extends Controller
 
         // dd($data['invoice_no']);
 
-        $data['total'] = $data['sub_total'] - $data['discount'];
+        $data['total'] = $data['sub_total'] - $data['discount'] + $data['extra'];
         $data['balance'] = $data['total'] - $data['deposit'];
 
         $invoice = Invoice::create($data);
@@ -335,7 +335,7 @@ class InvoiceController extends Controller
         }
 
 
-        // $data['total'] = $data['sub_total'] - $data['discount'];
+        // $data['total'] = $data['sub_total'] - $data['discount'] + $data['extra'];
 
         $invoice->update($data);
 
