@@ -51,30 +51,26 @@ class Kernel extends ConsoleKernel
 
         })->dailyAt('00:01')->runInBackground();
 
-
+        //regular
         $schedule->call(function () use(&$CronJob) {
-
             $this->diamondOncall($CronJob);
+        })->cron('*/8 * * * *')->between('00:01', '23:59')->runInBackground();
 
+
+        //extra
+        $schedule->call(function () use(&$CronJob) {
+            $this->diamondOncall($CronJob);
         })->cron('*/1 * * * *')->between('00:01', '00:30')->runInBackground();
 
         $schedule->call(function () use(&$CronJob) {
-
             $this->diamondOncall($CronJob);
-
         })->cron('*/6 * * * *')->between('00:31', '02:00')->runInBackground();
 
         $schedule->call(function () use(&$CronJob) {
-
             $this->diamondOncall($CronJob);
-
         })->cron('*/6 * * * *')->between('03:31', '05:00')->runInBackground();
 
-        $schedule->call(function () use(&$CronJob) {
 
-            $this->diamondOncall($CronJob);
-
-        })->cron('*/6 * * * *')->between('00:01', '23:59')->runInBackground();
 
          $schedule->call(function () use(&$CronJob) {
             $CronJob->runImages();
