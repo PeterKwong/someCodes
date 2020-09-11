@@ -31,7 +31,7 @@
 				<td>
 					<center>
 					<button class="btn btn-primary" @click="setDue(props.item)">@{{props.item.available}}</button>
-					<a class="btn btn-primary" :href=" '/hk/gia-loose-diamonds/' + props.item.id + '/ava' ">Check</a>
+					<a class="btn btn-primary" :href=" '/hk/gia-loose-diamonds/' + props.item.id + '/ava' " target="_blank">Check</a>
 					</center>
 				</td>
 				<td>
