@@ -248,13 +248,15 @@ class PurchasesController extends Controller
       
           // dd($cartItems);
 
-            $message = 'Money Received from ' . $paymentMethod;
+          $message = 'Money Received from ' . $paymentMethod;
 
-
+          if ($paymentMethod == 'Wechat' ) {
+              $amount = $amount/100;
+          }
 
           $body = urlencode(
                   $message .  " \n".
-                  'Order deposit: $'. ($amount/100) .  " \n"
+                  'Order deposit: $'. ($amount) .  " \n"
                    . 'Order Title: '. $order->title 
 
                   );
