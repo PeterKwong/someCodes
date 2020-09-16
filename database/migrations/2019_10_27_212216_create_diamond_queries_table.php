@@ -19,6 +19,9 @@ class CreateDiamondQueriesTable extends Migration
             $table->string('shape');
             $table->decimal('weight',6,2);
             $table->string('color');
+            $table->string('fancy_color')->nullable();
+            $table->string('fancy_intensity')->nullable();
+            $table->string('fancy_overtone')->nullable();
             $table->string('clarity');
             $table->string('cut')->default(0)->nullable();
             $table->string('polish');
@@ -47,6 +50,7 @@ class CreateDiamondQueriesTable extends Migration
             $table->string('milky')->nullable();
             $table->string('brown')->nullable();
             $table->string('green')->nullable();
+            $table->string('eye_clean')->nullable();
             $table->timestamp('starred')->nullable();
             $table->decimal('length',6,2)->unsigned()->nullable();
             $table->decimal('width',6,2)->unsigned()->nullable();
