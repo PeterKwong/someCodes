@@ -85,8 +85,11 @@
 							<div class="control">
 								<label  class="label">Prong</label>
 									<select class="form-control" v-model="form.prong">
+										<option value="3-prong">3-prong</option>
 										<option value="4-prong">4-prong</option>
+										<option value="5-prong">5-prong</option>
 										<option value="6-prong">6-prong</option>
+										<option value="8-prong">8-prong</option>
 									</select>
 							</div>
 						</div>
