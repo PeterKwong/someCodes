@@ -47,13 +47,14 @@ import mutualVar from './helpers/mutualVar'
 
 // Langs
 import transJS from './helpers/transJs1'
-
+import { get } from './helpers/api'
 
 import HomeIndex from './views/frontEnd/home/index'
 
 
 
 window.mutualVar = mutualVar
+window.get = get
 window.pUrl = window.location.pathname.slice(3)
 
 

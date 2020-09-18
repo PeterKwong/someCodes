@@ -91,12 +91,15 @@ import OrderIndex from './views/backEnd/order/index'
 import OrderShow from './views/backEnd/order/show'
 import OrderToInvoice from './views/backEnd/order/orderToInvoice'
 
-import { get, post } from './helpers/api'
+import transJS from './helpers/transJs1'
+import { get, post, put } from './helpers/api'
 
 window.mutualVar = MutualVar
 window.adminVar = AdminVar 
+Vue.filter('transJs', transJS.transJs)
 window.get = get
 window.post = post
+window.put = put
 
 const app = new Vue({
     el: '#backend',

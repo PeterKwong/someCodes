@@ -8,9 +8,12 @@ export default[
 	{'Halo':['Halo','圍圈','围圈']},
 	{'halo':['Halo','圍圈','围圈']},
 	{'4-claw prong':['4-prong', '四爪', '四爪']},
-	{'4-prong':['4-prong', '四爪', '四爪']},
 	{'6-claw prong':['6-prong','六爪','六爪']},
+	{'3-prong':['3-prong', '三爪', '三爪']},
+	{'4-prong':['4-prong', '四爪', '四爪']},
+	{'5-prong':['5-prong', '五爪', '五爪']},
 	{'6-prong':['6-prong','六爪','六爪']},
+	{'8-prong':['8-prong','八爪','八爪']},
 
 	{'Tapering':['Tapering', '尖臂', '尖臂']},
 	{'tapering':['Tapering', '尖臂', '尖臂']},
