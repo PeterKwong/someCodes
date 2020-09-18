@@ -90,6 +90,30 @@ class CronJob
 
 
 	}
+
+	public function runImportDiamondSunrise(){
+
+		$appoint = new AppointmentController();
+		$diamondImport = new DiamondImport();
+
+
+		$jobs = [];
+		$diamondController = new DiamondController();
+
+
+		$jobs = [ $this->ip . 'start working on Sunrise import'=> now()];
+		$appoint->cronDone($jobs);
+		
+		//rap
+		$rap = $diamondImport->getDiamondsFromSunrise();
+		if ($rap != 1) {
+			// $jobs = [ $this->ip . 'rap Import'=>'fail'];
+			// $appoint->cronDone($jobs);
+		}
+
+
+	}
+
 	public function runResetAllRapDiamonds(){
 
 		$appoint = new AppointmentController();

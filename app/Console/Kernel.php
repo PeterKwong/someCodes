@@ -97,9 +97,12 @@ class Kernel extends ConsoleKernel
          $schedule->call(function () use(&$CronJob) {
 
             if ( Cache::get('diamondQueryState')  == 2 ) {
+                
+                $CronJob->runImportDiamondSunrise();
 
                 Cache::increment('diamondQueryState');
                 $CronJob->copyToDiamondQuery();
+
                 // $CronJob->runDiamondQueryCopy();
             }
 

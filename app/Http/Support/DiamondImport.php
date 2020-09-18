@@ -7,6 +7,7 @@ use App\Http\Controllers\DiamondController;
 use App\Support\CronJob;
 use App\Support\Diamond\Oncall;
 use App\Support\Diamond\Rap;
+use App\Support\Diamond\Sunrise;
 use App\Support\Diamond\Reset;
 use App\Support\Diamond\Query;
 use Carbon\Carbon;
@@ -20,7 +21,7 @@ class DiamondImport extends DiamondController
 	
   public $sleepSeconds = 70;
 
-  use Oncall, Rap, Reset, Telegram, query;
+  use Oncall, Rap, Sunrise, Reset, Telegram, query;
 
       protected $lookup = [ 'VG' => 'Very Good',
                             'Very Good' => 'Very Good',
@@ -165,36 +166,6 @@ class DiamondImport extends DiamondController
     
  
 
-    public function info(){
-
-      // return response()->json([
-      //       'login' => [ "username" => "tingdiamond",
-      //                           "password" => "T92872482d" ],
-      //       'body' => ["search_type" => "White",
-      //                 'labs' => ['GIA'],
-      //                 "shapes" => ["Round", "Pear", "Princess", "Marquise", "Oval", "Radiant", "Emerald", "Heart", "Cushion", "Asscher"],
-      //                 "size_from" => "0.3",
-      //                 "size_to" => "20",
-      //                 "color_from" => "D",
-      //                 "color_to" => "J",
-      //                 "page_number" => "1",
-      //                 "page_size" => "50",
-      //                 'clarity_from'=> 'i1',
-      //                 'clarity_to'=> 'IF',
-      //                 'cut_from'=> 'Good',
-      //                 'cut_to'=> 'Excellent',
-      //                 'polish_from'=> 'Good',
-      //                 'polish_to'=> 'Excellent',
-      //                 'symmetry_from'=> 'Good',
-      //                 'symmetry_to'=> 'Excellent',
-      //         ],
-
-      //       'url' => 'https://technet.rapaport.com/HTTP/JSON/RetailFeed/GetDiamonds.aspx',
-      //       'urlSingle' => 'https://technet.rapaport.com/HTTP/JSON/RetailFeed/GetSingleDiamond.aspx',
-      // ]);
-
-    }
-
     public function getDiamondJson(Request $request){
       
       // dd(print_r($request->all()));
@@ -222,31 +193,10 @@ class DiamondImport extends DiamondController
       // fclose($out);
       
     }
+    
     public function importDiamondFromRap(){
 
       $diamondsID = $this->getRapGuzzle();
-
-      // $this->resetAllRapDiamonds();
-
-      // dd(print_r($diamonds));
-
-      // $this->delDPF();
-      // $this->delImage();
-
-        // if (count($diamondsID)) {
-        //   foreach ($diamondsID as $diamondsA) {
-        //     foreach ($diamondsA as $diamond) {
-
-        //       $diam = Diamond::where('r_id', $diamond);
-
-        //       if ($diam->count()) {
-        //         $diam->update(['available'=>1]);
-        //       }
-              
-        //     }
-        //   }
-        // }
-
 
         return 1;  
         
