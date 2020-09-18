@@ -14,14 +14,14 @@
       "@type": "Review",
       "author": "WinG Leung",
       "reviewBody": "(Translated by Google) The clerk is attentive.
-I bought a ring for the first time, and I don’t have any relevant knowledge. The clerk will answer all your questions in detail👍
-Worth recommending👍👍",
+        I bought a ring for the first time, and I don’t have any relevant knowledge. The clerk will answer all your questions in detail👍
+        Worth recommending👍👍",
       "reviewRating": {
         "@type": "Rating",
         "bestRating": "5",
-        "ratingValue": "4.8",
-        "worstRating": "4.8",
-    	"ratingCount": "29"
+        "ratingValue": "5",
+        "worstRating": "5",
+    	  "ratingCount": "29"
       }
       }],
 "brand":[{
@@ -36,5 +36,6 @@ Worth recommending👍👍",
     }
     ]
 }
+
 
 </script>
