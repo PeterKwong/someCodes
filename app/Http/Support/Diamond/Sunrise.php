@@ -83,8 +83,9 @@ trait Sunrise{
               $d->available = 1; 
               $d->image_link = $diamond['Other Image']?$diamond['Other Image']:null;
               $d->has_image = $diamond['Other Image']?1:null;
-              $d->video_link = $diamond['Other Video']?$diamond['Other Video']:null; 
-              $d->has_video = $diamond['Other Video']?1:null; 
+              
+              // $d->video_link = $diamond['Other Video']?$diamond['Other Video']:null; 
+              // $d->has_video = $diamond['Other Video']?1:null; 
 
               $s_id->diamonds()->save($d);
 
