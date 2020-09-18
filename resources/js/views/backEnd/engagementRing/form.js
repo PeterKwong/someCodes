@@ -61,8 +61,8 @@ export default {
 		fetchData(){
 			get(this.initialize)
 				.then((res)=>{
-					Vue.set(this.$data, 'form', res.data.form)
-					Vue.set(this.$data, 'option', res.data.option)
+					this.form = res.data.form
+					this.option = res.data.option
 					adminVar.form = this.form
 				})
 				.catch(function(error){
