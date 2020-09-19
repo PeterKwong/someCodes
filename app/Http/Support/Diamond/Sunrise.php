@@ -67,6 +67,12 @@ trait Sunrise{
               $d->weight = $diamond['Cts']; 
               $d->color = $diamond['Color'];
               $d->clarity = $diamond['Clarity']; 
+              if ($diamond['Cut'] == '3EX') {
+                $diamond['Cut'] = 'EX';
+              }
+              if ($diamond['Cut'] == 'G') {
+                $diamond['Cut'] = 'GD';
+              }
               $d->cut = $diamond['Cut']?$diamond['Cut']:0;
               $d->polish = $diamond['Polish']; 
               $d->symmetry = $diamond['Symm'];

@@ -19,8 +19,8 @@
       "reviewRating": {
         "@type": "Rating",
         "bestRating": "5",
-        "ratingValue": "4.8",
-        "worstRating": "4.8",
+        "ratingValue": "5",
+        "worstRating": "5",
     	  "ratingCount": "29"
       }
       }],
