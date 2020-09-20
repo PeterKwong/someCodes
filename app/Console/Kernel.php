@@ -44,6 +44,7 @@ class Kernel extends ConsoleKernel
             Cache::put('diamondQueryState',0,90000);
             
             $CronJob->runImportDiamondRap();
+            $CronJob->runImportDiamondSunrise();
 
             Cache::increment('diamondQueryState');
             $CronJob->runResetAllRapDiamonds();
