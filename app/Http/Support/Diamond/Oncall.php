@@ -86,41 +86,6 @@ trait Oncall{
     // $this->resetAllApiDiamonds();
     return 1;
 
-        // dd(print_r($request->csv));
-      // $path = $this->getFileName($request->csv[0]);
-      //   $request->csv[0]->move(base_path('public/files'), $path);
-
-      //   $diamonds = Excel::load('public/files/'.$path, function($reader){
-      //                                           $reader->all();
-      //                                           })->get();
-
-      //   unlink(base_path('public/files/').$path);
-
-      //   // dd(print_r($request->supplier));
-      //   // dd(print_r($data));
-      //     $s_id = Supplier::where('name',$request->supplier)->first();
-
-      //     foreach ($diamonds as $data) {
-
-      //       if (!empty($data->certificate &&  is_numeric($data->certificate))) {
-
-      //       $existedDiamond = Diamond::where('certificate',$data->certificate);
-      //       // dd(print_r($data['diamond']['cert_num']));
-      //         // dd(print_r($existedDiamond));
-      //         if ($existedDiamond->count()) {
-      //         $d = [];
-      //         $d['video_link'] = $data->video_link; 
-
-      //         // $existedDiamond->imageLink = $data['diamond->imagelink;
-      //         // dd(print_r($d));
-      //         // $updateDiamonds[] = $d; 
-      //         $existedDiamond->update($d);
-
-      //         }
-      //       }
-
-      //     }
-          
 
         return  response()
                   ->json([
@@ -382,33 +347,6 @@ trait Oncall{
     }
     
     public function createSingleDiamondFromArray($diamond){
-        
-        // dd(print_r($name));
-
-
-                //   $d = Diamond::updateOrCreate(
-                // ['certificate' => $diamond['certificate'] ],
-                // [ 'stock' =>'s14' .'-'. $diamond['stock'],
-                //   'price' => $diamond['price'],
-                //   'shape' => $diamond['shape'],
-                //   'weight' => $diamond['weight'],
-                //   'color' => $diamond['color'],
-                //   'clarity' => $diamond['clarity'],
-                //   'cut' => $diamond['cut']?$diamond['cut']:0,
-                //   'polish' => $diamond['polish'],
-                //   'symmetry' => $diamond['symmetry'],
-                //   'fluorescence' => $diamond['fluorescence']?$diamond['fluorescence']:'None',
-                //   'lab' => $diamond['lab'],
-                //   'location' => $diamond['location'],
-                //   'available' => 1,
-                //   'image_link' => $diamond['image_link']?$diamond['image_link']:null,
-                //   'has_image' => $diamond['has_image']?1:null,
-                //   'cert_link' => $diamond['cert_link']?$diamond['cert_link']:null,
-                //   'has_cert' => $diamond['has_cert']?1:null,
-                //   'video_link' => $diamond['video_link']?$diamond['video_link']:null,
-                //   'has_video' => $diamond['has_video']?1:null,
-                //   'milky' => $diamond['milky'],
-                //   ]);
 
 
             $s_id = Supplier::where('id',14)->first();
@@ -420,6 +358,8 @@ trait Oncall{
                       if (!isset($d)) {
                         $d = new Diamond;
                       }
+    
+                      if($d->supplier_id == 168){return ;}
 
                       $d->stock = 's'.$s_id->id .'-'. $diamond['stock'] ; 
                       $d->price = $diamond['price'];

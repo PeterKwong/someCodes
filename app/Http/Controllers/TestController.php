@@ -44,11 +44,11 @@ class TestController extends Controller
 
       // return;
 
-      // $cron = new CronJob();
-      // return $cron->runImportDiamondAPIPerBatch();      
+      $cron = new CronJob();
+      return $cron->runImportDiamondAPIPerBatch();      
 
-      $import = new DiamondImport();
-      return $import->getDiamondsFromSunrise();
+      // $import = new DiamondImport();
+      // return $import->getDiamondsFromSunrise();
 
       // $import = new DiamondImport();
       // return $import->runCronManually();
