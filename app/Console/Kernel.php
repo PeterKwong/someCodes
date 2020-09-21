@@ -101,7 +101,7 @@ class Kernel extends ConsoleKernel
             
                 Cache::increment('diamondQueryState');
                 $CronJob->copyToDiamondQuery();
-                $CronJob->runImportDiamondSunrise();
+                // $CronJob->runImportDiamondSunrise();
 
                 // $CronJob->runDiamondQueryCopy();
             }
