@@ -32,4 +32,10 @@ class PageController extends Controller
         return view('page.hkLabs');
     }
 
+    public function sellYourDiamonds($locale){
+
+        return view('page.sellYourDiamonds');
+
+    }
+
 }

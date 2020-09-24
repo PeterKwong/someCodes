@@ -183,6 +183,7 @@ Route::prefix('{locale}')->middleware('locale')->group(function(){
     Route::get('/holloway-cut-adviser_hca-tool', 'PageController@hca');
     Route::get('/鑽石/鑽石淨度/鑽石淨度特徵的類型', 'PageController@characteristics');
     Route::get('/鑽石/鑽石鑑定/香港鑽石鑑定機構', 'PageController@hkLabs');
+    Route::get('/sell-your-diamonds', 'PageController@sellYourDiamonds');
 
 
     //shopping cart

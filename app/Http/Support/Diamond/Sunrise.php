@@ -61,7 +61,7 @@ trait Sunrise{
               }
 
               $d->stock = 's'.$s_id->id .'-'. $diamond['Stock ID'] .'-c'. strrev( substr(strval( ceil( $diamond['Net Amt($)'] ) ), 0,-1) );
-              $d->price = $this->markPrice($diamond['Net Amt($)'])*1.03;
+              $d->price = $this->markPrice($diamond['Net Amt($)']*1.03);
               $d->certificate = $diamond['Certi No.'];
               $d->shape = $diamond['Shape'];
               $d->weight = $diamond['Cts']; 
