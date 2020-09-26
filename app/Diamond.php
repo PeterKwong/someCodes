@@ -20,7 +20,7 @@ class Diamond extends Model
 	// ];
 
     protected $filter = [
-        'id', 'price', 'stock', 'certificate', 'shape', 'weight', 'color', 'clarity', 'cut', 'polish', 'symmetry', 'fluorescence', 'lab', 'location', 'has_image', 'heart_image', 'arrow_image', 'asset_image', 'image_link','has_cert', 'video_link', 'available','supplier_id','starred' , 'milky', 'brown', 'green', 'length', 'width', 'depth'
+        'id', 'price', 'stock', 'certificate', 'shape', 'weight', 'color', 'clarity', 'cut', 'polish', 'symmetry', 'fluorescence', 'lab', 'location', 'has_image', 'heart_image', 'arrow_image', 'asset_image', 'image_link','has_cert', 'video_link', 'available','supplier_id','starred' , 'milky', 'brown', 'green', 'length', 'width', 'depth','eye_clean', 'fancy_color', 'fancy_intensity','fancy_overtone'
                 ];
 
     protected $casts = [

@@ -240,6 +240,7 @@ trait Oncall{
                   $diam['milky'] = $diamond->MILKY; 
                   $diam['brown'] = $diamond->BROWN; 
                   $diam['green'] = $diamond->GREEN; 
+                  $diam['eye_clean'] = $diamond->EYE_CLEAN; 
 
                   if (isset($diamond->CERTIFICATE) && !$diamond->CERTIFICATE == null) {
                         $diam['cert_link'] = $diamond->CERTIFICATE;
@@ -255,16 +256,13 @@ trait Oncall{
                         }
                         
                   }
-                  
-                  // if (isset($diamond->VIDEO) && strpos($diamond->VIDEO, 'segoma.com') ) {
-                  //       $diam['video_link'] = $diamond->VIDEO;
-                  //       $diam['has_video'] = 1;
-                  // }
+
 
                   if (isset($diamond->VIDEO) ) {
                         $diam['video_link'] = $diamond->VIDEO;
                         $diam['has_video'] = 1;
                   }
+
 
                   if (preg_match('/(hong)/i', ($diamond->LOCATION)) && $diamond->CARAT > 1.0 && $diamond->AMOUNT  > 3000 ) {
                         $diam['location'] = '1Hong Kong';
@@ -272,6 +270,12 @@ trait Oncall{
                         $diam['location'] = '3';                    
                   }
                   
+                  if (isset($diamond->COLOR) && $diamond->COLOR == 'fancy' ) {
+                        $diam['fancy_color'] = $diamond->F_COLOR;
+                        $diam['fancy_intensity'] = $diamond->F_INTENSITY;
+                        $diam['fancy_overtone'] = $diamond->F_OVERTONE;
+                  }
+
                   $this->createSingleDiamondFromArray($diam);
 
                   // $diamonds[] =$diam;
@@ -361,6 +365,7 @@ trait Oncall{
     
                       if($d->supplier_id == 168){return ;}
 
+
                       $d->stock = 's'.$s_id->id .'-'. $diamond['stock'] ; 
                       $d->price = $diamond['price'];
                       $d->certificate = $diamond['certificate'];
@@ -394,6 +399,10 @@ trait Oncall{
                       $d->milky = $diamond['milky'];
                       $d->brown = $diamond['brown'];
                       $d->green = $diamond['green'];
+                      $d->eye_clean = $diamond['eye_clean'];
+                      $d->fancy_color = $diamond['fancy_color'];
+                      $d->fancy_intensity = $diamond['fancy_intensity'];
+                      $d->fancy_overtone = $diamond['fancy_overtone'];
 
 
                       $s_id->diamonds()->save($d);
