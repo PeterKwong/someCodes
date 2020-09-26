@@ -19,6 +19,7 @@ class CreateEngagementRingsTable extends Migration
             $table->string('prong')->default('4-prong');
             $table->string('shoulder')->default('tapering');
             $table->string('style')->default('solitaire');
+            $table->string('shape')->default('round');
             $table->string('video')->nullable();
             $table->string('video360')->nullable();
             $table->integer('unit_price');

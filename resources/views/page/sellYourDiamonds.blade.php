@@ -30,7 +30,7 @@
 
         <div id="home">
                        
-                <h1 style="text-align: center;">/sell-your-diamonds</h1>
+                <h1 class="">How to deal with some unwanted diamond jewelry?</h1>
         </div>
 
             
