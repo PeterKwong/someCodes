@@ -39,7 +39,7 @@ trait Oncall{
                                         "shape"=>"Round,Pear,Princess,Marquise,Oval,Radiant,Emerald,Heart,Cushion,Asscher",
                                         "color"=>"d,e,f,g,h,i,j,k,l,m,fancy",
                                         "clarity"=>"fl,if,vvs1,vvs2,vs1,vs2,si1,si2,i1",
-                                        "cut"=>"ex,vg,gd, ,",
+                                        "cut"=>"ex,vg,gd,",
                                         "polish"=>"ex,vg,gd",
                                         "symmetry"=>"ex,vg,gd",
                                         "fluorescence"=>"non,fnt,med,stg,vst",
