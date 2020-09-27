@@ -242,6 +242,9 @@ trait Oncall{
                   $diam['brown'] = $diamond->BROWN; 
                   $diam['green'] = $diamond->GREEN; 
                   $diam['eye_clean'] = $diamond->EYE_CLEAN; 
+                  $diam['fancy_color'] = $diamond->F_COLOR;
+                  $diam['fancy_intensity'] = $diamond->F_INTENSITY;
+                  $diam['fancy_overtone'] = $diamond->F_OVERTONE;
 
                   if (isset($diamond->CERTIFICATE) && !$diamond->CERTIFICATE == null) {
                         $diam['cert_link'] = $diamond->CERTIFICATE;
@@ -271,11 +274,6 @@ trait Oncall{
                         $diam['location'] = '3';                    
                   }
                   
-                  if (isset($diamond->COLOR) && $diamond->COLOR == 'fancy' ) {
-                        $diam['fancy_color'] = $diamond->F_COLOR;
-                        $diam['fancy_intensity'] = $diamond->F_INTENSITY;
-                        $diam['fancy_overtone'] = $diamond->F_OVERTONE;
-                  }
 
                   $this->createSingleDiamondFromArray($diam);
 
@@ -353,7 +351,8 @@ trait Oncall{
     
     public function createSingleDiamondFromArray($diamond){
 
-
+            // dd($diamond);
+      
             $s_id = Supplier::where('id',14)->first();
 
             if (!empty($diamond['certificate']) ) {
