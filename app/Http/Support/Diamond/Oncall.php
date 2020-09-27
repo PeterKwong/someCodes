@@ -18,6 +18,7 @@ trait Oncall{
       $this->diamondSource = ['GLOW STAR' => 
                             ['r_id' =>'73302', 
                               'extraImport' => 0,
+
                               'url' => 'https://www.glowstaronline.com/inventory/website/ting_diamond.php',
                               'method' => 'get',
                               'header' => [],
@@ -36,7 +37,7 @@ trait Oncall{
                                         "lotno"=>"",
                                         "certificate_no"=>"",
                                         "shape"=>"Round,Pear,Princess,Marquise,Oval,Radiant,Emerald,Heart,Cushion,Asscher",
-                                        "color"=>"d,e,f,g,h,i,j,k,l,m",
+                                        "color"=>"d,e,f,g,h,i,j,k,l,m,fancy",
                                         "clarity"=>"fl,if,vvs1,vvs2,vs1,vs2,si1,si2,i1",
                                         "cut"=>"ex,vg,gd, ,",
                                         "polish"=>"ex,vg,gd",
