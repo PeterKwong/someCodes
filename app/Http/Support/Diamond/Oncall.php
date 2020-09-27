@@ -242,9 +242,6 @@ trait Oncall{
                   $diam['brown'] = $diamond->BROWN; 
                   $diam['green'] = $diamond->GREEN; 
                   $diam['eye_clean'] = $diamond->EYE_CLEAN; 
-                  $diam['fancy_color'] = $diamond->F_COLOR;
-                  $diam['fancy_intensity'] = $diamond->F_INTENSITY;
-                  $diam['fancy_overtone'] = $diamond->F_OVERTONE;
 
                   if (isset($diamond->CERTIFICATE) && !$diamond->CERTIFICATE == null) {
                         $diam['cert_link'] = $diamond->CERTIFICATE;
@@ -274,6 +271,11 @@ trait Oncall{
                         $diam['location'] = '3';                    
                   }
                   
+                  if (isset($diamond->COLOR) && $diamond->COLOR == 'fancy' ) {
+                        $diam['fancy_color'] = $diamond->F_COLOR;
+                        $diam['fancy_intensity'] = $diamond->F_INTENSITY;
+                        $diam['fancy_overtone'] = $diamond->F_OVERTONE;
+                  }
 
                   $this->createSingleDiamondFromArray($diam);
 
@@ -352,7 +354,6 @@ trait Oncall{
     public function createSingleDiamondFromArray($diamond){
 
             // dd($diamond);
-      
             $s_id = Supplier::where('id',14)->first();
 
             if (!empty($diamond['certificate']) ) {
@@ -396,11 +397,9 @@ trait Oncall{
                       $d->brown = $diamond['brown'];
                       $d->green = $diamond['green'];
                       $d->eye_clean = $diamond['eye_clean'];
-                      $d->fancy_color = $diamond['fancy_color'];
-                      $d->fancy_intensity = $diamond['fancy_intensity'];
-                      $d->fancy_overtone = $diamond['fancy_overtone'];
 
                       $this->notUpdateSuppliers($d, $s_id);
+                      $this->checkDiamondFancyColor($d,$diamond);
 
                       $d->stock = 's'.$s_id->id .'-'. $diamond['stock'] ; 
                       $d->price = $diamond['price'];
@@ -421,5 +420,15 @@ trait Oncall{
 
     }
 
+    public function checkDiamondFancyColor($d,$diamond){
+      if ($diamond['color'] == 'fancy') {
+
+        $d->fancy_color = $diamond['fancy_color'];
+        $d->fancy_intensity = $diamond['fancy_intensity'];
+        $d->fancy_overtone = $diamond['fancy_overtone'];
+
+      }
+      
+    }
 
 }
