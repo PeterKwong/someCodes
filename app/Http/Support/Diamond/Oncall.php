@@ -364,11 +364,7 @@ trait Oncall{
                         $d = new Diamond;
                       }
     
-                      if($d->supplier_id == 168){return ;}
 
-
-                      $d->stock = 's'.$s_id->id .'-'. $diamond['stock'] ; 
-                      $d->price = $diamond['price'];
                       $d->certificate = $diamond['certificate'];
                       $d->shape = $diamond['shape'];
                       $d->weight = $diamond['weight']; 
@@ -405,12 +401,24 @@ trait Oncall{
                       $d->fancy_intensity = $diamond['fancy_intensity'];
                       $d->fancy_overtone = $diamond['fancy_overtone'];
 
+                      $this->notUpdateSuppliers($d, $s_id);
+
+                      $d->stock = 's'.$s_id->id .'-'. $diamond['stock'] ; 
+                      $d->price = $diamond['price'];
+
 
                       $s_id->diamonds()->save($d);
 
 
                 }
 
+
+    }
+
+    public function notUpdateSuppliers($d,$s_id){
+      if($d->supplier_id == 168){
+        return $s_id->diamonds()->save($d);
+      }
 
     }
 
