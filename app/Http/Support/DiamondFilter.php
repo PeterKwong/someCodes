@@ -5,7 +5,7 @@ namespace App\Support;
 use Illuminate\Support\Facades\Cache;
 use Validator;
 
-trait DataViewer{
+trait DiamondFilter{
 
 
 	protected $operators = [
