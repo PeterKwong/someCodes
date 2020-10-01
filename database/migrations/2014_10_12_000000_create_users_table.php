@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('api_token', 60)->unique();
             $table->string('email_token', 60)->nullable();
             $table->string('image_url')->nullable();
-            $table->string('provider')->defaul('email');
+            $table->string('provider')->default('email');
             $table->string('provider_id')->nullable();
             $table->bigInteger('coupon_id')->nullable();
             $table->rememberToken();

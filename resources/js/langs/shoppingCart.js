@@ -67,7 +67,7 @@ export default[
 	{'day':['','日','日']},
 
 	{'Precautions':['Precautions','注意事項','注意事项']},
-	{'All amounts of the company are subject to Hong Kong dollar settlement':['All amounts of the company are subject to Hong Kong dollar settlement','本公司一切金額以港幣結算為準 (我們8萬塊以上已經是現金價, 如果需要付支付寶/微信, 或是刷卡, 需要付手續費的 )','本公司一切金额以港币结算为准（我们8万块以上已经是现金价，如果需要付支付宝/微信，要么刷卡，需要付手续费的）']},
+	{'All amounts of the company are subject to Hong Kong dollar settlement':['All amounts of the company are subject to Hong Kong dollar settlement','本公司一切金額以港幣結算為準 (我們8萬塊以上已經是現金價，在本公司鑲嵌戒指托，可以有1.7-2%左右優惠，如果需要付支付寶/微信, 或是刷卡, 需要付手續費的 )','本公司一切金额以港币结算为准（我们8万块以上已经是现金价，在本公司镶嵌戒指托，可以有1.7-2%左右优惠，如果需要付支付宝/微信，要么刷卡，需要付手续费的）']},
 	{'The customer is required to pay the full amount and withdraw the goods within two months after the order is placed, otherwise the company reserves the right to terminate the transaction.':['The customer is required to pay the full amount and withdraw the goods within two months after the order is placed, otherwise the company reserves the right to terminate the transaction.','客戶需在訂貨後一個月內付完全額並提取貨物，否則本公司保留終止交易的權利。','客户需在订货一个月内付完全额并提取货物，否则本公司保留终止交易的权利。']},
 	{'In order to protect the interests of both parties, unless the diamond does not match the GIA report, the order will not be returned after confirmation.':['In order to protect the interests of both parties, unless the diamond does not match the GIA report, the order will not be returned after confirmation.','為保障雙方利益, 除非鑽石跟GIA報告不相符，否則確認訂單後恕不退換。','为保障双方利益, 除非钻石跟GIA报告不相符，否则确认订单后恕不退换。']},
 	{'The deposit amount is 20%, ranging from at least $ 3000 to at most $ 10,000.':['The deposit amount is 20%, ranging from at least $ 3000 to at most $ 10,000.','訂金數目為2成，由最少$3000到最多$10000。','订金数量为2成，由最少$ 3000到最多$ 10000。']},
