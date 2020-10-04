@@ -18,7 +18,7 @@ export default {
 		'$route': 'fetchData'
 	},
 	beforeMount(){
-		mutualVar.notification.contactMessage = { active: true,
+		mutualVar.notification.contactMessage = { active: false,
 												  trans:false,
 												  data:['🌕中秋節🌕' + "\n" +
 														'🎉🎉2020年10月1 日(星期四)為中秋節假期，本公司營業時間將更改為1pm-6pm，敬請留意🤓' + "\n" +
