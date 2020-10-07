@@ -2,14 +2,14 @@
 
 namespace App;
 
-use App\Support\DataViewer;
+use App\Support\DiamondFilter;
 use App\Support\DiamondExtraFunctions;
 use App\Support\FilterPaginateOrder;
 use Illuminate\Database\Eloquent\Model;
 
 class DiamondQuery extends Model
 {
-    use DataViewer, DiamondExtraFunctions;
+    use DiamondFilter, DiamondExtraFunctions;
 
     protected $hidden = array('supplier_id','image_link','r_id','cert_link');
 
