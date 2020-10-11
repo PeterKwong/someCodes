@@ -85,7 +85,7 @@ trait Sunrise{
               $d->parvilion_angle = $diamond['PavAng']?$diamond['PavAng']:null;
               $d->fluorescence = $diamond['Fls']?$diamond['Fls']:'None'; 
               $d->lab = $diamond['Lab'];
-              $d->location = $diamond['Location'] == 'Hong Kong'?'1Hong Kong':'2'; 
+              $d->location = $diamond['Location'] == 'Hong Kong' && $diamond['Cts'] > 1.0 && $diamond['Net Amt($)'] >3000 ?'1Hong Kong':'2'; 
               $d->available = 1; 
               $d->image_link = $diamond['Other Image']?$diamond['Other Image']:null;
               $d->has_image = $diamond['Other Image']?1:null;
@@ -97,7 +97,6 @@ trait Sunrise{
 
           }
   
-
 
     }
 
