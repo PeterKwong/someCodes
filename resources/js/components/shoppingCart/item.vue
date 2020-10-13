@@ -122,9 +122,9 @@
                     </div>
 
                 </div>
-                <div class=" ">
+                <div class="grid grid-cols-12">
 
-                    <div class="">
+                    <div class="col-span-6">
                         <div v-if="couponValid || calculatedDiscountRate != 1">
                             <p>{{'Total' |transJs(langs, mutualVar.langs.localeCode) }} </p>
                             <p>{{'Disounted Total' |transJs(langs, mutualVar.langs.localeCode) }}</p>
@@ -136,13 +136,13 @@
                         <div class="">
                             <p class="text-lg text-blue-600">{{'Balance (80%)'|transJs(langs, mutualVar.langs.localeCode) }}
                             </p>
-                            <select class="box" v-model="mutualVar.cookiesInfo.checkout.balancePaymentMethod">
+                            <select class="border-2 border-gray-500" v-model="mutualVar.cookiesInfo.checkout.balancePaymentMethod">
                                     <option v-for="paymentOption in paymentOptions" :value="paymentOption.name"> {{paymentOption.name |transJs(langs, mutualVar.langs.localeCode) }}</option>
                             </select>   
                         </div>
 
                     </div>
-                    <div class="">
+                    <div class="col-span-6">
                         <div v-if="couponValid || calculatedDiscountRate != 1">
                             <del><p>HK$ {{subTotal}}</p></del>
                             <p style="color:red;">HK$ {{discountedSubTotal}}</p>
