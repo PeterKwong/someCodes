@@ -301,7 +301,7 @@ trait Oncall{
         // dd($diamond);
         $client = new Client();
 
-        $requestData = ['url' => 'https://diamondsoncall.com/API/action.php',
+        $requestData = ['url' => 'https://www.diamondsoncall.com/API/action.php',
                   'method' => 'post',
                   'header' => [],
                   'data' => ["action"=>"stone_available",
