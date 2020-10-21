@@ -54,6 +54,11 @@ return [
 	'Medium' => '中度',	
 	'Strong' => '強',	
 	'Very Strong' => '非常強',	
+	'NON' => '無',	
+	'FNT' => '微',	
+	'MED' => '中度',	
+	'STG' => '強',	
+	'VST' => '非常強',	
 
 	
 	//cut
@@ -123,5 +128,26 @@ return [
 	
 	'List' => '列表',
 	'Grid' => '圖示',
+
+
+	'has_image' => '圖像',
+	'shape' => '形狀',
+	'price' => '價格',
+	'weight' => '重量',
+	'color' => '顏色',
+	'clarity' => '淨度',
+	'cut' => '切割',
+	'polish' => '打磨',
+	'symmetry' => '對稱',
+	'fluorescence' => '螢光反應',
+	'location' => '狀態',
+	'lab' => '檢驗中心',
+	'starred' => '精選',
+	'certificate' => '證書編號',
+
+
+
+
+
 
 ];

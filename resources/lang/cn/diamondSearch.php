@@ -54,7 +54,11 @@ return [
 	'Medium' => '中度',	
 	'Strong' => '强',	
 	'Very Strong' => '非常强',	
-
+	'NON' => '无',	
+	'FNT' => '微',	
+	'MED' => '中度',	
+	'STG' => '强',	
+	'VST' => '非常强',	
 	
 	//cut
 	'cutEx' => '最高级的切割级别。能给予钻石最佳的火彩，闪烁及亮度。',
@@ -118,6 +122,7 @@ return [
 	'1-2 Days' => '1-2天',
 	
 	'Stock no' => '货号',
+	'Only On Stock'=>'只選現貨',
 	'Sold' => '已售',
 	
 	'List' => '列表',

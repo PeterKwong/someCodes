@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'previous' => '&laquo; Previous',
-    'next' => 'Next &raquo;',
-
+    'Next' => '下頁',
+    'Previous' => '前頁',
+    'First Page' => '首頁',
+    'Last Page' => '最後',
+    'Per Page' => '每頁',
 ];

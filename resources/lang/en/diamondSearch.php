@@ -56,7 +56,11 @@ return [
 	'Medium' => 'Medium',	
 	'Strong' => 'Strong',	
 	'Very Strong' => 'Very Strong',	
-
+	'NON' => 'NON',	
+	'FNT' => 'Faint',	
+	'MED' => 'Medium',	
+	'STG' => 'Strong',	
+	'VST' => 'Very Strong',	
 
 	
 	//cut
@@ -125,6 +129,7 @@ return [
 	'1-2 Days' => '1-2 Days',
 	
 	'Stock no' => 'Stock no',
+	'Only On Stock' => 'Only On Stock',
 	'Sold' => 'Sold',
 	
 	'List' => 'List',
