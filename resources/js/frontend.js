@@ -1,6 +1,6 @@
 
 //diamond
-import DiamondViewerIndex from './views/frontEnd/diamondViewer/index'
+// import DiamondViewerIndex from './views/frontEnd/diamondViewer/index'
 import DiamondViewerShow from './views/frontEnd/diamondViewer/show'
 
 //Engagement Ring
@@ -69,12 +69,12 @@ import Login from './views/frontEnd/account/login'
 
 
 //diamond
-if (pUrl == '/gia-loose-diamonds' || pUrl == '/gia-loose-diamonds/' || 
-    pUrl.includes('/gia-loose-diamonds/round-cut') || pUrl.includes('/gia-loose-diamonds/fancy-cut-diamond') || 
-    pUrl.includes('/gia-loose-diamonds/fancy-color')) 
-    {
-        const diamondViewerIndex =  new Vue(DiamondViewerIndex);
-    }
+// if (pUrl == '/gia-loose-diamonds' || pUrl == '/gia-loose-diamonds/' || 
+//     pUrl.includes('/gia-loose-diamonds/round-cut') || pUrl.includes('/gia-loose-diamonds/fancy-cut-diamond') || 
+//     pUrl.includes('/gia-loose-diamonds/fancy-color')) 
+//     {
+//         const diamondViewerIndex =  new Vue(DiamondViewerIndex);
+//     }
 
 if (!pUrl.includes('/gia-loose-diamonds/round-cut') && !pUrl.includes('/gia-loose-diamonds/fancy-cut-diamond') && 
     !pUrl.includes('/gia-loose-diamonds/fancy-color') && window.location.pathname.slice(4,23) == 'gia-loose-diamonds/') 

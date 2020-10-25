@@ -17,12 +17,11 @@
         @include('layouts.metas.userApiToken')
         @include('layouts.metas.stripeHeaders')
 
-    
+        @livewireStyles
 </head>
 <body>
-    <div class="container-fluid">
 
-	    @include('layouts.frontEnd.header')
+	    @livewire('header')
 
 	      	@yield('content')
 
@@ -33,6 +32,6 @@
     </div>
 
 
-
+        @livewireScripts
   </body>
 </html>

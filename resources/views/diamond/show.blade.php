@@ -84,16 +84,10 @@
                      
                       <div class="message-body">
                         <center>
-                            @if($diamond->available)
-                                <strong>
-                                    <h3 class="text-primary text-2xl">{{__('diamondSearch.Price')}} HK$: {{$diamond->price}}
-                                        <h4 class="text-gray-600 text-xl">({{__('diamondSearch.location')}} : {{$diamond->location == '1Hong Kong'? __('diamondSearch.1-2 Days') : __('diamondSearch.Order')}} )</h4>
-                                    </h3>
-
-                                </strong>
-                            @else
-                                <strong><p class="text-2xl"> {{__('diamondSearch.Sold')}}</p></strong>
-                            @endif
+                            <strong v-if="diamond.available">
+                                <h3 class="text-primary text-2xl">{{__('diamondSearch.Price')}} HK$: {{$diamond->price}}</h3>
+                            </strong>
+                            <strong v-else><p class="text-2xl"> {{__('diamondSearch.Sold')}}</p></strong>
                         </center>
                       </div>
                       <div class="p-2">

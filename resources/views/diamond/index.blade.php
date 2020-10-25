@@ -57,7 +57,7 @@
         </div>
 
 
-        <div id="diamondViewerIndex">
+        <div id="">
             <div class="">
                 <div class="">
 

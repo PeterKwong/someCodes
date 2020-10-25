@@ -55,6 +55,7 @@ export default {
         cfront:'https://cfr.tingdiamond.com/',
 
     },
+    screen:{x:0, y: 0, scrollable:false },
     namepath: getCurrentURl(),
     css:{
         jsReady:true,
