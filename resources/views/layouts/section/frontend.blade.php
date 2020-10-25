@@ -20,6 +20,7 @@
         @livewireStyles
 </head>
 <body>
+    <div class="container-fluid">
 
 	    @livewire('header')
 
@@ -28,6 +29,8 @@
 	    @include('layouts.frontEnd.footer')
 
 
+
+    </div>
 
 
         @livewireScripts
