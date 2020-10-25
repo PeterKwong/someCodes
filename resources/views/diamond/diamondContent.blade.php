@@ -1,1 +1,3 @@
-@livewire('diamond.content')
+<div>
+	@livewire('diamond.content')	
+</div>
