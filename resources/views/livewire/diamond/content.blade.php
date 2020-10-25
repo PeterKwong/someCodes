@@ -21,7 +21,6 @@
 
 
 
-
   <div class="flex justify-center text-center items-center border border-gray-400 p-2 pt-4 m-4">
     <div class="flex-1">
       <center>
