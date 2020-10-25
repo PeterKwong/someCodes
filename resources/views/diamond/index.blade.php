@@ -63,6 +63,7 @@
 
                     @include('diamond.diamondContent')            
                     
+                    
                 </div>
                 
             </div>
