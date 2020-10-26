@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Diamond;
 
 use App\Diamond;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
 class Content extends Component
@@ -26,6 +27,8 @@ class Content extends Component
 		        	];
 
 	public $fetchData = '';
+	public $preset = '';
+
 	public $clickedRows = [];
 	public $displayColumn = '';
 
@@ -59,7 +62,7 @@ class Content extends Component
 
     		if ( !$same ) {
     			// return dd('hi');
-	    		$this->queryDiamonds();
+	    		$this->checkCache();
 
     		}
 			$this->setcookie();
@@ -84,7 +87,7 @@ class Content extends Component
     	$this->setRequest();
 
     	$this->resetPartial();
-	    $this->queryDiamonds();
+	    $this->checkCache();
 
     }
     public function setRequest(){
@@ -221,8 +224,40 @@ class Content extends Component
 		}
 	} 
 
+	public function checkCache(){
+
+		$same = true;
+
+	    foreach ($this->preset as $key => $column) {
+			if ($same && $column != $this->fetchData[$key]) {
+				// dd($column, $this->fetchData[$key]);
+
+				$same = false;
+			}
+		}
+		
+		// dd($same);
+
+		if ($same) {
+
+			$queryPreset = Cache::remember('queryPreset',300, function(){
+	
+				return $this->queryDiamonds();
+
+			});
+
+			return $queryPreset;
+
+		}else{
+
+
+			return $this->queryDiamonds();
+
+		}
+	}
+
 	public function queryDiamonds() {
-	 		
+
 	 		$requests = ['color','clarity','cut','polish','symmetry','fluorescence','shape','location',];
 
 	 		$query = Diamond::orderBy('available','desc')->where(function($q){
@@ -360,6 +395,7 @@ class Content extends Component
 						 'crown_angle' => [0,0], 'parvilion_angle' => [0,0], 'length' => [0,0], 
 						 'width' => [0,0], 'depth' => [0,0], 'location' => []
 					];
+			$this->preset = $this->fetchData;
 	} 
 	public function clickRow($id){
 			
