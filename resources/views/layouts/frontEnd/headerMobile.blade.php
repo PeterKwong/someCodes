@@ -1,14 +1,17 @@
-<div class="sm:hidden" :class=" burgerOpen? 'inline' : 'hidden' ">
+<div class="sm:hidden {{ $burgerOpen ? 'inline' :'hidden' }}">
   <div class="relative">
-    <button @click="burgerOpen = false" tabindex="-1" class="fixed inset-0 h-full w-full bg-black opacity-50 cursor-default"></button>
-
+    <button wire:click="$toggle('burgerOpen')" tabindex="-1" class="fixed inset-0 h-full w-full bg-black opacity-50 cursor-default"></button>
     <div class="fixed z-10 bg-white top-0 left-0 bottom-0 w-7/12" >
-      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1" @click="onClickedHeader(1)">
+      
+      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1" wire:click="onClickedHeader(1)">
         {{trans('frontHeader.Diamonds')}}
         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> 
         </svg>
       </div>
-      <div v-if="headerSection == 1" class="block py-4 bg-gray-200">
+
+      {{$headerSection}}
+      @if($headerSection == 1)
+      <div class="block py-4 bg-gray-200">
         <a class="flex justify-center text-blue-500" href="{{url(app()->getLocale())}}/gia-loose-diamonds">{{trans('frontHeader.Loose Diamonds')}}</a>
         <a class="flex justify-center hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut">
           <img class="w-6" src="/images/front-end/diamond_shapes/RD.png" > {{trans('frontHeader.Round')}}
@@ -49,13 +52,16 @@
           </a>
 
       </div>
+      @endif
 
-      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " @click="onClickedHeader(2)">
+      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " wire:click="onClickedHeader(2)">
         {{trans('frontHeader.Engagement Rings')}}
         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> 
         </svg>
       </div>
-      <div v-if="headerSection == 2" class="block py-4 bg-gray-200">
+
+      @if($headerSection == 2)
+      <div class="block py-4 bg-gray-200">
        <a class="flex justify-center text-blue-500" href="{{url(app()->getLocale())}}/engagement-rings">
         {{trans('frontHeader.Engagement Rings')}}
         </a>
@@ -71,15 +77,17 @@
         </a>
 
       </div>
+      @endif
 
 
-      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " @click="onClickedHeader(3)">
+      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " wire:click="onClickedHeader(3)">
         {{trans('frontHeader.Wedding Rings')}}
         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> 
         </svg>
       </div>
 
-      <div v-if="headerSection == 3" class="block py-4 bg-gray-200">
+      @if($headerSection == 3)
+      <div class="block py-4 bg-gray-200">
         <a class="flex justify-center text-blue-500" href="{{url(app()->getLocale())}}/wedding-rings">{{trans('frontHeader.Wedding Rings')}}
         </a>
         <a class="flex justify-center hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/classic">
@@ -93,15 +101,17 @@
         </a>
         
       </div>
+      @endif
 
 
-      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " @click="onClickedHeader(4)">
+      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " wire:click="onClickedHeader(4)">
         {{trans('frontHeader.Jewellery')}}
         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> 
         </svg>
       </div>
 
-      <div v-if="headerSection == 4" class="block py-4 bg-gray-200">
+      @if($headerSection == 4)
+      <div class="block py-4 bg-gray-200">
          <div class="flex justify-center text-blue-500">
           <a class="flex hover:text-blue-300 px-1" href="{{url(app()->getLocale())}}/jewellery/rings"><img src="/images/front-end/jewellery/Ring.png" class="h-6">{{trans('frontHeader.Rings')}}
           </a>
@@ -136,15 +146,17 @@
           {{trans('frontHeader.Pendants')}}
         </a>                 
       </div>
+      @endif
 
-      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " @click="onClickedHeader(5)">
+      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " wire:click="onClickedHeader(5)">
         {{trans('frontHeader.Education')}}
         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> 
         </svg>
       </div>
 
 
-      <div v-if="headerSection == 5" class="block py-4 bg-gray-200">
+      @if($headerSection == 5)
+      <div class="block py-4 bg-gray-200">
 
         <a class="flex justify-center text-blue-500" href="{{url(app()->getLocale())}}/education-diamond-grading/4cs">{{trans('frontHeader.Diamond Grading')}}
         </a>
@@ -226,14 +238,16 @@
        </div>
 
       </div>
+      @endif
 
-      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " @click="onClickedHeader(6)">
+      <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " wire:click="onClickedHeader(6)">
        {{trans('frontHeader.Customer Jewellery')}}
         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> 
         </svg>
       </div>
 
-      <div v-if="headerSection == 6" class="block py-4 bg-gray-200">
+      @if($headerSection == 6)
+      <div class="block py-4 bg-gray-200">
         <a class="flex justify-center text-blue-500" href="{{url(app()->getLocale())}}/customer-jewellery">{{trans('frontHeader.Customer Jewellery')}}
         </a>
         <a class="flex justify-center hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/customer-jewellery">
@@ -247,15 +261,17 @@
         </a>
         
       </div>
+      @endif
 
 
-       <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " @click="onClickedHeader(7)">
+       <div class="flex justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " wire:click="onClickedHeader(7)">
        {{trans('frontHeader.About Us')}}
         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> 
         </svg>
       </div>
 
-      <div v-if="headerSection == 7" class="block py-4 bg-gray-200">
+      @if($headerSection == 7)
+      <div class="block py-4 bg-gray-200">
         <a class="flex justify-center text-blue-500" href="{{url(app()->getLocale())}}/about-us">
           {{trans('frontHeader.About Us')}}
         </a>
@@ -267,9 +283,10 @@
         </a>
         
       </div>
+      @endif
       
      
-       <div class="flex items-center justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " @click="onClickedHeader(8)">
+       <div class="flex items-center justify-center text-lg font-light border border-gray-400 hover:text-blue-400 p-1 " wire:click="onClickedHeader(8)">
         <img class="h-4 w-4" src="/images/front-end/langs/{{app()->getLocale()}}.png" >
         <span class="mr-1">
           {{trans('frontHeader.' . strToUpper(app()->getLocale(session('locale')))) }} 
@@ -278,7 +295,8 @@
         </svg>
       </div>
 
-      <div v-if="headerSection == 8" class="block py-4 bg-gray-200 justify-center">
+      @if($headerSection == 8)
+      <div class="block py-4 bg-gray-200 justify-center">
          <a class="flex items-center justify-center h-8 hover:text-blue-300 hover:bg-gray-100" href=" {{ '/en' . substr(str_replace(url(''),'',url()->current()), 3) }} ">
           <img class="h-4 w-4" src="/images/front-end/langs/en.png" >{{trans('frontHeader.EN')}}
          </a>
@@ -289,6 +307,7 @@
           <img class="h-4 w-4" src="/images/front-end/langs/china.png" >{{trans('frontHeader.CN')}}
          </a>
       </div>
+      @endif
 
   </div>
 </div>

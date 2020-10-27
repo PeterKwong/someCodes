@@ -118,6 +118,9 @@ class Content extends Component
     				'/1-50-1-99-carat-weight' => ['weight'=>[1.5,1.99]],
     				'/2-00-2-99-carat-weight' => ['weight'=>[2,2.99]],
     				'/3-00-up-carat-weight' => ['weight'=>[3,20]],
+    				'/fancy-cut-diamond' => ['shape'=>
+    											['heart','princess','emerald','asscher','cushion',
+    											'oval','marquise','radiant','pear']],
     				'/fancy-cut-diamond/heart-shaped' => ['shape'=>['heart']],
     				'/fancy-cut-diamond/princess-cut' => ['shape'=>['princess']],
     				'/fancy-cut-diamond/emerald-cut' => ['shape'=>['emerald']],

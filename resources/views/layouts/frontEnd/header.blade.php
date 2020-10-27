@@ -1,4 +1,4 @@
-<div id="header" class="top-0 sticky z-40 " :class="{ 'block':mutualVar.css.jsReady }">
+<div id="header" class="top-0 sticky z-40 ">
   <header class="bg-white sm:flex sm:justify-between sm:items-center sm:px-2 sm:py-2" >
     <div class="flex items-center justify-between px-4 py-3 sm:p-0" >
       
@@ -28,10 +28,14 @@
         @include('layouts.account.loginIcon')
         @endguest
 
-        <button @click="burgerOpen = !burgerOpen" type="button" class="hover:text-gray-400 focus:text-gray-600 focus:outline-none text-lg px-4">
-          <i v-if="!burgerOpen" class="fa fa-bars" aria-hidden="true"></i>
-          <i v-else class="fa fa-times" aria-hidden="true"></i>
+        <button wire:click="$toggle('burgerOpen')" type="button" class="hover:text-gray-400 focus:text-gray-600 focus:outline-none text-lg px-4">
+          @if(!$burgerOpen)
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          @else
+            <i class="fa fa-times" aria-hidden="true"></i>
+          @endif
         </button>
+
       </div>
 
     </div>
