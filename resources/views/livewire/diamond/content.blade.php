@@ -6,7 +6,7 @@
    
   <div class="section-3 hidden sm:block">
 
-    @include('diamond.searchDesktop')
+    @include('diamond.searchDesktopLW')
 
 
   </div>
@@ -14,7 +14,7 @@
 
   <div class="sm:hidden">
 
-     @include('diamond.searchMobile')
+     @include('diamond.searchMobileLW')
    
 
   </div>

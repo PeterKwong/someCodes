@@ -28,14 +28,20 @@
         @include('layouts.account.loginIcon')
         @endguest
 
-        <button wire:click="$toggle('burgerOpen')" type="button" class="hover:text-gray-400 focus:text-gray-600 focus:outline-none text-lg px-4">
+        <button @click="burgerOpen = !burgerOpen" type="button" class="hover:text-gray-400 focus:text-gray-600 focus:outline-none text-lg px-4">
+          <i v-if="!burgerOpen" class="fa fa-bars" aria-hidden="true"></i>
+          <i v-else class="fa fa-times" aria-hidden="true"></i>
+        </button>
+
+
+<!--         <button wire:click="$toggle('burgerOpen')" type="button" class="hover:text-gray-400 focus:text-gray-600 focus:outline-none text-lg px-4">
           @if(!$burgerOpen)
             <i class="fa fa-bars" aria-hidden="true"></i>
           @else
             <i class="fa fa-times" aria-hidden="true"></i>
           @endif
         </button>
-
+ -->
       </div>
 
     </div>

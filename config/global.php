@@ -8,7 +8,7 @@ return [
 		's3' => 'https://s3.tingdiamond.com/',
 		],
 
-	'cookie'=>['time' => 1 ],
+	'cookie'=>['time' => 1440 ],
 
 	'locale'=>[
 		'en'=>0,

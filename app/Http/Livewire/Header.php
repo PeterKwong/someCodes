@@ -22,4 +22,10 @@ class Header extends Component
         $this->headerSection = $section;
     } 
 
+    public function toggleBurger()
+    {   
+
+        $this->burgerOpen = !$this->burgerOpen;
+
+    }
 }

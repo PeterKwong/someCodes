@@ -37,7 +37,9 @@
 
 <script defer="" type="application/javascript" src="{{ mix('js/frontend.js') }}" ></script>
 
-
+<!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+ -->
+ 
 <style>
 	*.sticker {
     top:90%;
