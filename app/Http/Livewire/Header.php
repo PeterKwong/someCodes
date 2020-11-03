@@ -15,7 +15,7 @@ class Header extends Component
     }
 
     public function onClickedHeader($section){
-        dd($section);
+        // dd($section);
 		if ($this->headerSection == $section) {
             return $this->headerSection = 0;
         }
