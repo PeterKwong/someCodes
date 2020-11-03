@@ -22,7 +22,7 @@
 </head>
 <body>
 
-    @include('layouts.frontEnd.header')
+    @livewire('header')
 
     @include('layouts.account.userHeader')
 

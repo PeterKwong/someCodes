@@ -15,7 +15,8 @@ class Content extends Component
 	public $search_conditions = [
 									'shapes'=>['round','pear','emerald','princess','marquise','cushion','asscher','oval','heart','radiant'],
 									'colors'=>['D','E','F','G','H','I','J','K','L','M','N'],
-									'cuts'=>['Excellent','Very Good','Good'],
+									'cuts'=>[
+										'Excellent'=>false ,'Very Good'=>false ,'Good'=>false ],
 									'clarities'=>['FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1'],
 									'polishes'=>['Excellent','Very Good','Good'],
 									'fluorescences'=>['None','Faint','Medium','Strong','Very Strong'],
@@ -43,6 +44,11 @@ class Content extends Component
     public function render()
     {	 
 
+        return view('livewire.diamond.content');
+    }
+
+    public function dehydrate(){
+
     	if ( isset($_COOKIE['diamondSearch']) ) {
 
     		$same = true ;
@@ -69,9 +75,7 @@ class Content extends Component
 
     	}
 
-        return view('livewire.diamond.content');
     }
-
     public function mount(){
 
 	    $this->resetFetchData();
