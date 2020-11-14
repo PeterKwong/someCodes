@@ -1,245 +1,277 @@
 
-<div class="text-center text-gray-700">
+<div class="text-center text-gray-700" >
+  <span x-data="mobileSearch()">
         <div class="border border-gray-300 p-2 mx-1">
-           <div  class="hover:text-blue-600 w-full" wire:click="selectDisplayColumn('shape')">
+           <div  class="hover:text-blue-600 w-full" x-on:click="selectDisplayColumn('shape')">
               <a class="is-primary">{{trans('diamondSearch.Shape')}}</a>
-
- 
-              <a  class="hover:text-blue-600" wire:click="selectDisplayColumn('shape')">
-                  @foreach($fetchData['shape'] as $shape)
-
-                    <button  class="btn btn-outline"  wire:click="toggleValue('shape', '{{$shape}}' )">
-                            <img src=" {{'/images/front-end/diamond_shapes/' . $shape . '.png' }} " class="w-6">
-                    </button>
-
-                  @endforeach
-
-              </a>
+                <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('shape')">
+                    <template x-for="(iItem, iIndex) in Object.entries(search_conditions.shape)" >
+                      <span x-on:click="iItem[1].clicked = ! iItem[1].clicked" >
+                        <button :class=" `btn btn-outline ${iItem[1].clicked?
+                              '':'hidden'}`"   x-on:click="@this.toggleValue('shape', iItem[0])" >
+                                <img :src=" `/images/front-end/diamond_shapes/${iItem[0]}.png` " class="w-6">
+                        </button>
+                      </span>
+                    </template>
+                </a>
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          @if($displayColumn == 'shape')
-            <a >
-              @foreach($search_conditions['shapes'] as $shape)              
-                <button  class="btn btn-outline {{ in_array($shape,$fetchData['shape'])?
-                          'active':''}}"  wire:click="toggleValue('shape', '{{$shape}}' )">
-                  <img src="{{'/images/front-end/diamond_shapes/' . $shape . '.png' }}" class="w-6">
-                </button>
-              @endforeach
+            <a x-show="displayColumn == 'shape' ">
+
+                @foreach($search_conditions['shape'] as  $key => $shape)
+                <span x-on:click="search_conditions.shape['{{$key}}'].clicked = ! search_conditions.shape['{{$key}}'].clicked" >
+                  <button :class=" `btn btn-outline ${search_conditions.shape['{{$key}}'].clicked?
+                                'bg-gray-300':''}` "  wire:click="toggleValue('shape', '{{$key}}' )">
+                    <img src="{{'/images/front-end/diamond_shapes/' . $key . '.png' }}" class="w-6">
+                  </button>
+                </span>
+                @endforeach
+
             </a>
-          @endif
         </div>
 
         <div class="border border-gray-300 p-2 mx-1">
-          <div class="hover:text-blue-600" wire:click="selectDisplayColumn('price')">
+          <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('price')">
               <a class="is-primary">{{trans('diamondSearch.Price')}} </a>
                <button class="btn btn-outline"> HK$ {{$fetchData['price'][0]}} - {{$fetchData['price'][1]}} </button> 
               <i class="fas fa-chevron-down"></i> 
           </div>
 
-          @if($displayColumn == 'price')
+          <a x-show="displayColumn == 'price' ">
             <div class="level" >
                 <input class="input" type="text" wire:model.debounce.800ms="fetchData.price.0">
 
                 <input class="input" type="text" wire:model.debounce.800ms="fetchData.price.1">
             </div> 
-          @endif
+          </a>
         </div>
         <div class="border border-gray-300 p-2 mx-1">
-          <div class="hover:text-blue-600" wire:click="selectDisplayColumn('weight')">
+          <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('weight')">
               <a class="is-primary">{{trans('diamondSearch.Weight')}}</a>
                <button class="btn btn-outline"> {{$fetchData['weight'][0]}} - {{$fetchData['weight'][1]}} ct</button>
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          @if($displayColumn == 'weight')
+          <a x-show="displayColumn == 'weight' ">
             <div class="level"  v-if="displayColumn == 'weight' ">
                 <input class="input" type="text" wire:model.debounce.800ms="fetchData.weight.0">
 
                 <input class="input" type="text" wire:model.debounce.800ms="fetchData.weight.1">       
             </div>
-          @endif
+          </a>
         </div>
         <div class="border border-gray-300 p-2 mx-1">
-          <div class="hover:text-blue-600" wire:click="selectDisplayColumn('color')">
+          <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('color')">
             <a class="is-primary">{{trans('diamondSearch.Color')}}</a>
-              <a  class="hover:text-blue-600" wire:click="selectDisplayColumn('color')">
-                @foreach($fetchData['color'] as $color)
-                   <button class="btn btn-outline" type="button" wire:click="toggleValue('color', '{{$color}}' )" > 
-                      {{$color}}
-                   </button>
-                @endforeach
+              <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('color')">
+                <template x-for="(iItem, iIndex) in Object.entries(search_conditions.color)" >
+                  <span x-on:click="iItem[1].clicked = ! iItem[1].clicked" >
+                    <button :class=" `btn btn-outline ${iItem[1].clicked?
+                          '':'hidden'}`"   x-on:click="@this.toggleValue('color', iItem[0])" type="button" x-text="iItem[0]">
+                    </button>
+                  </span>
+                </template>
              </a>
             <i class="fas fa-chevron-down"></i>
           </div>
 
-          @if($displayColumn == 'color')
+          <a x-show="displayColumn == 'color' ">
             <div class="level">
-                @foreach($search_conditions['colors'] as $color)              
-                    <button  class="btn btn-outline {{ in_array($color,$fetchData['color'])?
-                            'active':''}}" type="button" wire:click="toggleValue('color', '{{$color}}' )"> 
-                        {{$color}}
+                @foreach($search_conditions['color'] as $key => $color)
+                  <span x-on:click="search_conditions.color['{{$key}}'].clicked = ! search_conditions.color['{{$key}}'].clicked" >        
+                    <button  :class=" `btn btn-outline ${search_conditions.color['{{$key}}'].clicked?
+                                'bg-gray-300':''}` " type="button" wire:click="toggleValue('color', '{{$key}}' )"> 
+                        {{$key}}
                     </button>
+                  </span>
                 @endforeach
             </div>
-          @endif
+          </a>
         </div>
         <div class="border border-gray-300 p-2 mx-1">
-          <div class="hover:text-blue-600" wire:click="selectDisplayColumn('clarity')">
+          <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('clarity')">
             <a class="is-primary">{{trans('diamondSearch.Clarity')}}</a>
-              @foreach($fetchData['clarity'] as $clarity)
-                 <button class="btn btn-outline" type="button" wire:click="toggleValue('clarity', '{{$clarity}}' )" > 
-                  {{$clarity}}
-                </button>
-              @endforeach
+             <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('clarity')">
+                <template x-for="(iItem, iIndex) in Object.entries(search_conditions.clarity)" >
+                  <span x-on:click="iItem[1].clicked = ! iItem[1].clicked" >
+                    <button :class=" `btn btn-outline ${iItem[1].clicked?
+                          '':'hidden'}`"   x-on:click="@this.toggleValue('clarity', iItem[0])" type="button" x-text="iItem[0]">
+                    </button>
+                  </span>
+                </template>
+             </a>
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          @if($displayColumn == 'clarity')
+          <a x-show="displayColumn == 'clarity' ">
             <div class="level" >
-              @foreach($search_conditions['clarities'] as $clarity)              
-                <button class="btn btn-outline {{ in_array($clarity,$fetchData['clarity'])?
-                              'active':''}} " type="button" wire:click="toggleValue('clarity', '{{$clarity}}' )" > 
-                    {{$clarity}}
+              @foreach($search_conditions['clarity'] as $key => $key)
+              <span x-on:click="search_conditions.clarity['{{$key}}'].clicked = ! search_conditions.clarity['{{$key}}'].clicked" >                 
+                <button :class=" `btn btn-outline ${search_conditions.clarity['{{$key}}'].clicked?
+                                'bg-gray-300':''}` " type="button" wire:click="toggleValue('clarity', '{{$key}}' )" > 
+                    {{$key}}
                 </button>
+              </span>
               @endforeach
             </div>
-          @endif
+          </a>
         </div>
 
         <div class="border border-gray-300 p-2 mx-1">
-          <div class="hover:text-blue-600" wire:click="selectDisplayColumn('cut')">
+          <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('cut')">
               <a class="is-primary">{{trans('diamondSearch.Cut')}}</a>
-              @foreach($fetchData['cut'] as $cut)
-                 <button class="btn btn-outline" type="button" wire:click="toggleValue('cut', '{{$cut}}' )" > 
-                  {{$cut}}
-                </button>
-              @endforeach
+               <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('cut')">
+                  <template x-for="(iItem, iIndex) in Object.entries(search_conditions.cut)" >
+                    <span x-on:click="iItem[1].clicked = ! iItem[1].clicked" >
+                      <button :class=" `btn btn-outline ${iItem[1].clicked?
+                            '':'hidden'}`"   x-on:click="@this.toggleValue('cut', iItem[0])" type="button" x-text="iItem[0]">
+                      </button>
+                    </span>
+                  </template>
+               </a>
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          @if($displayColumn == 'cut')
+          <a x-show="displayColumn == 'cut' ">
             <div class="level" >
-              @foreach($search_conditions['cuts'] as $cut)              
-
-                <button class="btn btn-outline {{ in_array($cut,$fetchData['cut'])?
-                                'active':''}} " type="button"  wire:click="toggleValue('cut', '{{$cut}}' )" > 
-                  {{$cut}}
+              @foreach($search_conditions['cut'] as $key => $cut)              
+              <span x-on:click="search_conditions.cut['{{$key}}'].clicked = ! search_conditions.cut['{{$key}}'].clicked" >    
+                <button :class=" `btn btn-outline ${search_conditions.cut['{{$key}}'].clicked?
+                                'bg-gray-300':''}` " type="button"  wire:click="toggleValue('cut', '{{$key}}' )" > 
+                  {{$key}}
                 </button>
+              </span>
               @endforeach
             </div>
-          @endif
+          </a>
         </div>
 
         <div class="border border-gray-300 p-2 mx-1">
-           <div class="hover:text-blue-600" wire:click="selectDisplayColumn('polish')">
+           <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('polish')">
               <a class="is-primary">{{trans('diamondSearch.Polish')}}</a>
-              @foreach($fetchData['polish'] as $polish)
-                 <button class="btn btn-outline" type="button" wire:click="toggleValue('polish', '{{$polish}}' )"  > 
-                  {{$polish}}
-                </button>
-              @endforeach
+               <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('polish')">
+                  <template x-for="(iItem, iIndex) in Object.entries(search_conditions.polish)" >
+                    <span x-on:click="iItem[1].clicked = ! iItem[1].clicked" >
+                      <button :class=" `btn btn-outline ${iItem[1].clicked?
+                            '':'hidden'}`"   x-on:click="@this.toggleValue('polish', iItem[0])" type="button" x-text="iItem[0]">
+                      </button>
+                    </span>
+                  </template>
+               </a>
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          @if($displayColumn == 'polish')
+          <a x-show="displayColumn == 'polish' ">
             <div class="level" >
-                @foreach($search_conditions['polishes'] as $polish)              
-                  <button class="btn btn-outline {{ in_array($polish,$fetchData['polish'])?
-                                'active':''}} " type="button" wire:click="toggleValue('polish', '{{$polish}}' )"  > 
-                    {{$polish}}
+                @foreach($search_conditions['polish'] as $key => $key)
+                <span x-on:click="search_conditions.polish['{{$key}}'].clicked = ! search_conditions.polish['{{$key}}'].clicked" >    
+                  <button :class=" `btn btn-outline ${search_conditions.polish['{{$key}}'].clicked?
+                                'bg-gray-300':''}` " type="button" wire:click="toggleValue('polish', '{{$key}}' )"  > 
+                    {{$key}}
                   </button>
+                </span>
                 @endforeach
             </div>
-          @endif  
+          </a>  
         </div>
 
         <div class="border border-gray-300 p-2 mx-1">
-           <div class="hover:text-blue-600" wire:click="selectDisplayColumn('symmetry')">
+           <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('symmetry')">
               <a class="is-primary">{{trans('diamondSearch.Symmetry')}}</a>
-              @foreach($fetchData['symmetry'] as $symmetry)
-                 <button class="btn btn-outline" type="button"  wire:click="toggleValue('symmetry', '{{$symmetry}}' )"> 
-                {{$symmetry}}
-                </button>
-              @endforeach
-
+                <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('symmetry')">
+                  <template x-for="(iItem, iIndex) in Object.entries(search_conditions.symmetry)" >
+                    <span x-on:click="iItem[1].clicked = ! iItem[1].clicked" >
+                      <button :class=" `btn btn-outline ${iItem[1].clicked?
+                            '':'hidden'}`"   x-on:click="@this.toggleValue('symmetry', iItem[0])" type="button" x-text="iItem[0]">
+                      </button>
+                    </span>
+                  </template>
+               </a>
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          @if($displayColumn == 'symmetry')
+          <a x-show="displayColumn == 'symmetry' ">
             <div class="level" >
-                @foreach($search_conditions['symmetries'] as $symmetry)              
-                  <button class="btn btn-outline {{ in_array($symmetry,$fetchData['symmetry'])?
-                                'active':''}} "  type="button" wire:click="toggleValue('symmetry', '{{$symmetry}}' )" > 
-                  {{$symmetry}}
+                @foreach($search_conditions['symmetry'] as $key => $key)
+                <span x-on:click="search_conditions.symmetry['{{$key}}'].clicked = ! search_conditions.symmetry['{{$key}}'].clicked" >
+                  <button :class=" `btn btn-outline ${search_conditions.symmetry['{{$key}}'].clicked?
+                                'bg-gray-300':''}` "  type="button" wire:click="toggleValue('symmetry', '{{$key}}' )" > 
+                  {{$key}}
                   </button>
+                </span>
                 @endforeach
             </div>   
-          @endif
+          </a>
         </div>
 
         <div class="border border-gray-300 p-2 mx-1">
-           <div class="hover:text-blue-600" wire:click="selectDisplayColumn('fluorescence')">
+           <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('fluorescence')">
               <a class="is-primary">{{trans('diamondSearch.Fluorescence')}}</a>
-              @foreach($fetchData['fluorescence'] as $fluorescence)
-                 <button class="btn btn-outline" type="button"  wire:click="toggleValue('fluorescence', '{{$fluorescence}}' )"> 
-                {{trans('diamondSearch.' . $fluorescence)}}
-                </button>
-              @endforeach
-
+                <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('fluorescence')">
+                  <template x-for="(iItem, iIndex) in Object.entries(search_conditions.fluorescence)" >
+                    <span x-on:click="iItem[1].clicked = ! iItem[1].clicked" >
+                      <button :class=" `btn btn-outline ${iItem[1].clicked?
+                            '':'hidden'}`"   x-on:click="@this.toggleValue('fluorescence', iItem[0])" type="button" x-text="iItem[0]">
+                      </button>
+                    </span>
+                  </template>
+               </a>
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          @if($displayColumn == 'fluorescence')
+          <a x-show="displayColumn == 'fluorescence' ">
             <div class="level" >
-                @foreach($search_conditions['fluorescences'] as $fluorescence)              
-                  <button class="btn btn-outline {{ in_array($fluorescence,$fetchData['fluorescence'])?
-                                'active':''}} "  type="button" wire:click="toggleValue('fluorescence', '{{$fluorescence}}' )" > 
-                  {{trans('diamondSearch.' . $fluorescence)}}
+                @foreach($search_conditions['fluorescence'] as $key => $key)
+                <span x-on:click="search_conditions.fluorescence['{{$key}}'].clicked = ! search_conditions.fluorescence['{{$key}}'].clicked" >
+                  <button :class=" `btn btn-outline ${search_conditions.fluorescence['{{$key}}'].clicked?
+                                'bg-gray-300':''}` "  type="button" wire:click="toggleValue('fluorescence', '{{$key}}' )" > 
+                  {{trans('diamondSearch.' . $key)}}
                   </button>
+                </span>
                 @endforeach
             </div>   
-          @endif
+          </a>
         </div>
 
 
       <ul class="flex border-b justify-center mt-2">
-         <li class="-mb-px mr-1">
-          <a class="bg-white hover:text-blue-600 inline-block border-l border-t border-r rounded-t py-2 px-4 text-gray-700 font-semibold"  wire:click="toggleShowAdvance" >{{ __('diamondSearch.More Advance') }}</a>
+         <li class="-mb-px mr-1" x-on:click="showAdvance = !showAdvance">
+          <a class="bg-white hover:text-blue-600 inline-block border-l border-t border-r rounded-t py-2 px-4 text-gray-700 font-semibold"  wire:click="toggleShowAdvance">{{ __('diamondSearch.More Advance') }}</a>
         </li>
       </ul>
 
 
-      @if($showAdvance)
-      <div >
+      <div x-show="showAdvance">
         @foreach($fetchAdvance as $key => $value)
 
         <div class="border border-gray-300 p-2 mx-1">
-          <div class="hover:text-blue-600" wire:click="selectDisplayColumn('{{$key}}')">
+          <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('{{$key}}')">
               <p  class="btn " class=" {{ $fetchData[$key][1] != 0 ?'btn btn-yellow ':'btn' }}" >{{trans('diamondSearch.' . $value)}}</p>
               @if($fetchData[$key][1] != 0 )
                <button wire:click="setAdvanceToZero( '{{$key}}' )" class="btn btn-outline"> {{ $fetchData[$key][0] }} - {{ $fetchData[$key][1] }}</button>
-               @endif
+              @endif
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          @if($displayColumn == $key)
+          <a x-show="displayColumn == '{{$key}}' ">
           <div class="level" wire:click="addAdvanceSearch( '{{$key}}' )">
               <input class="input" type="text" wire:model.debounce.800ms="{{ 'fetchData.' . $key . '.0' }}" placeholder="{{trans('diamondSearch.Min')}}">
 
               <input class="input" type="text" wire:model.debounce.800ms="{{ 'fetchData.' . $key . '.1' }}" placeholder="{{trans('diamondSearch.Max')}}">       
           </div> 
-          @endif
+          </a>
         </div>
 
         @endforeach
 
 
       </div>  
-      @endif
 
 
-</div>  
+  </span>
+</div>
+
 
 
 

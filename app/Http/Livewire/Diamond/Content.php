@@ -13,23 +13,77 @@ class Content extends Component
 	protected $listeners = ['addPage'];
 
 	public $search_conditions = [
-									'shapes'=>['round','pear','emerald','princess','marquise','cushion','asscher','oval','heart','radiant'],
-									'colors'=>['D','E','F','G','H','I','J','K','L','M','N'],
-									'cuts'=>[
-										'Excellent'=>false ,'Very Good'=>false ,'Good'=>false ],
-									'clarities'=>['FL','IF','VVS1','VVS2','VS1','VS2','SI1','SI2','I1'],
-									'polishes'=>['Excellent','Very Good','Good'],
-									'fluorescences'=>['None','Faint','Medium','Strong','Very Strong'],
-									'symmetries'=>['Excellent','Very Good','Good'],
+									'shape'=>[
+										'round' => ['clicked'=>false],
+										'pear' => ['clicked'=>false],
+										'emerald' => ['clicked'=>false],
+										'princess' => ['clicked'=>false],
+										'marquise' => ['clicked'=>false],
+										'cushion' => ['clicked'=>false],
+										'asscher' => ['clicked'=>false],
+										'oval' => ['clicked'=>false],
+										'heart' => ['clicked'=>false],
+										'radiant' => ['clicked'=>false]
+										],
+									'color'=>[
+										'D' => ['clicked'=>false],
+										'E' => ['clicked'=>false],
+										'F' => ['clicked'=>false],
+										'G' => ['clicked'=>false],
+										'H' => ['clicked'=>false],
+										'I' => ['clicked'=>false],
+										'J' => ['clicked'=>false],
+										'K' => ['clicked'=>false],
+										'L' => ['clicked'=>false],
+										'M' => ['clicked'=>false],
+										'N' => ['clicked'=>false]
+										],
+									'cut'=>[
+										'Excellent' => ['clicked'=>false],
+										'Very Good' => ['clicked'=>false],
+										'Good' => ['clicked'=>false] 
+										],
+									'clarity'=>[
+										'FL' => ['clicked'=>false],
+										'IF' => ['clicked'=>false],
+										'VVS1' => ['clicked'=>false],
+										'VVS2' => ['clicked'=>false],
+										'VS1' => ['clicked'=>false],
+										'VS2' => ['clicked'=>false],
+										'SI1' => ['clicked'=>false],
+										'SI2' => ['clicked'=>false],
+										'I1' => ['clicked'=>false]
+										],
+									'polish'=>[
+										'Excellent' => ['clicked'=>false],
+										'Very Good' => ['clicked'=>false],
+										'Good' => ['clicked'=>false]
+										],
+									'fluorescence'=>[
+										'None' => ['clicked'=>false],
+										'Faint' => ['clicked'=>false],
+										'Medium' => ['clicked'=>false],
+										'Strong' => ['clicked'=>false],
+										'Very Strong' => ['clicked'=>false]
+										],
+									'symmetry'=>[
+										'Excellent' => ['clicked'=>false],
+										'Very Good' => ['clicked'=>false],
+										'Good' => ['clicked'=>false]
+										],
+									'location'=>[
+										'1Hong Kong' => ['clicked'=>false],
+										],
+
 								];
-	public $diamonds = '';
 	public $columns = [ 'has_image','shape','price','weight','color','clarity','cut','polish',
 						'symmetry','fluorescence','location','certificate','lab','starred' 
 		        	];
 
 	public $fetchData = '';
 	public $preset = '';
-
+	public $diamonds = [];
+	
 	public $clickedRows = [];
 	public $displayColumn = '';
 
@@ -40,16 +94,27 @@ class Content extends Component
 							'table_percent'=>'Table Percent', 'depth_percent'=>'Depth Percent', 
 							'length'=>'Length', 'width'=>'Width', 'depth'=>'Depth'];
 	
+	public $readyToLoad = false;
+
+	public $firstTimeFetch = true;
 
     public function render()
     {	 
 
-        return view('livewire.diamond.content');
+        return view('livewire.diamond.content', [
+            'diamonds' => $this->readyToLoad
+                ? $this->deferLoading()
+                : $this->diamonds
+        ]);
     }
+    public function loadDiamonds()
+    {
+        $this->readyToLoad = true;
+        // dd('done');
+    }
+    public function isDiamondQuery(){
 
-    public function dehydrate(){
-
-    	if ( isset($_COOKIE['diamondSearch']) ) {
+      	if ( isset($_COOKIE['diamondSearch']) ) {
 
     		$same = true ;
     		$columns = ['page','column','direction','per_page','shape','color','clarity','cut','polish','symmetry','fluorescence','price','weight','table_percent','depth_percent','crown_angle','parvilion_angle','length','width','depth','location'];
@@ -63,22 +128,36 @@ class Content extends Component
     			}
     		}
 
-
-    		// dd($cookie['price'] );
-
-    		if ( !$same ) {
-    			// return dd('hi');
-	    		$this->checkCache();
-
-    		}
 			$this->setcookie();
+
+    		// dd('skip' );
 
     	}
 
+    	return $same ;
+
+    }  
+    public function deferLoading(){
+    	 
+
+		$same = $this->isDiamondQuery();
+
+		// dd($cookie['price'] );
+
+		if ( $this->firstTimeFetch || !$same ) {
+
+			$this->firstTimeFetch = false;
+
+    		return $this->checkCache();
+
+		}
+
+
     }
+
     public function mount(){
 
-	    $this->resetFetchData();
+    	$this->resetSettings();
 
     	if (!isset($_COOKIE['diamondSearch'])) {
 			$this->setCookie();
@@ -89,11 +168,20 @@ class Content extends Component
 		    	// dd( $this->fetchData );
 	    $this->extraUrls();
     	$this->setRequest();
-
     	$this->resetPartial();
-	    $this->checkCache();
-
+		// dd( $this->fetchData );
+	    $this->setClickedSearchConditions();
+	    // $this->checkCache();
     }
+    public function setClickedSearchConditions(){
+
+    	foreach ($this->search_conditions as $iKey => $iValue) {
+    		foreach ($this->fetchData[$iKey] as $key => $value) {
+    			$this->search_conditions[$iKey][$value]['clicked'] = true ;
+    		}
+    	}
+    	// dd($this->search_conditions);
+    } 
     public function setRequest(){
 		    	// dd( request()->all() );
 
@@ -174,6 +262,7 @@ class Content extends Component
 	}
     public function toggleValue($condition, $data)
     {	
+    	// dd($condition, $data);
 
     	$fetchData = $this->fetchData[$condition];
 
@@ -215,12 +304,13 @@ class Content extends Component
 	}
 	public function goto($id){
 
+		$url = '/' . app()->getLocale() . '/gia-loose-diamonds/'. $id ;
+		$this->dispatchBrowserEvent('new-tab', ['link' => $url]);
+
 		$this->clickedRows[] = $id;
 		$this->setCookie();
 
-		$url = '/' . app()->getLocale() . '/gia-loose-diamonds/'. $id ;
 
-		$this->dispatchBrowserEvent('new-tab', ['link' => $url]);
 
 	}
 	public function selectDisplayColumn($column){
@@ -247,11 +337,18 @@ class Content extends Component
 
 		if ($same) {
 
-			$queryPreset = Cache::remember('queryPreset',300, function(){
-	
+			// if (Cache::has('queryPreset')) {
+			    // dd('hihi');
+			// }
+
+			$queryPreset = Cache::remember('queryPreset',30, function(){
+				// dd($this->preset);
 				return $this->queryDiamonds();
 
 			});
+
+			// dd($queryPreset);
+			$this->diamonds = $queryPreset;
 
 			return $queryPreset;
 
@@ -276,7 +373,7 @@ class Content extends Component
 	 		foreach ($requests as $req) {
 	 			if ($this->fetchData[$req]) {
 	 				$query = $query->where(function($q)use($req){
-		              $q->whereIn( $req , $this->fetchData[$req] );
+		              $q->whereIn( $req , (array)$this->fetchData[$req] );
 		            });
 	 			}
 
@@ -333,7 +430,9 @@ class Content extends Component
 		      $query = $query->orderBy($this->fetchData['column'], $this->fetchData['direction'])
 		      ->paginate($this->fetchData['per_page'])->withPath('')->toArray();
 
-		      $this->diamonds = $query;
+		      
+
+		      return $this->diamonds = $query;
 
 
 		      // dd($this->diamonds);
@@ -376,15 +475,21 @@ class Content extends Component
 
 	}
 	public function resetAll(){
-		
-		$this->resetFetchData();
 
 		$this->resetCookies();
-
+		$this->resetSettings();
 		// dd('hi');
 		redirect(app()->getLocale() . '/gia-loose-diamonds');
 
 
+	}
+	public function resetSettings(){
+
+		$this->resetFetchData();
+
+		$this->readyToLoad = false;
+
+		$this->firstTimeFetch = true;
 	} 
 
 	public function resetPartial(){

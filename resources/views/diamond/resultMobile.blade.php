@@ -1,9 +1,10 @@
+@if( isset($diamonds['data']) )
 
-@foreach($diamonds['data'] as $index => $row)
+@foreach($diamonds['data'] as  $row)
 
 <div class="border border-gray-400 {{ in_array( $row['id'], $clickedRows) ? 'bg-gray-400':'' }}">
-  <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" 
-      target="_blank" wire:click="goto({{$row['id']}})">
+  <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" target="_blanck" 
+      wire:click="goto({{$row['id']}})">
       <div class="flex items-center">
             @if($row['image_cache'])  
               <div class="flex-auto" >
@@ -111,3 +112,5 @@
     </a>
   </div>
 @endforeach
+
+@endif

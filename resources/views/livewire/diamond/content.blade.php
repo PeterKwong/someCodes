@@ -2,15 +2,14 @@
 
 <div id="diamondHeight">
 
-    @include('layouts.components.loading')
-   
+<!--     @include('layouts.components.loading')
+ -->   
   <div class="section-3 hidden sm:block">
 
     @include('diamond.searchDesktopLW')
 
 
   </div>
-
 
   <div class="sm:hidden">
 
@@ -21,7 +20,8 @@
 
 
 
-  <div class="flex justify-center text-center items-center border border-gray-400 p-2 pt-4 m-4">
+  <div class="flex justify-center text-center items-center border border-gray-400 p-2 pt-4 m-4" wire:init="loadDiamonds">
+
     <div class="flex-1">
       <center>
 
@@ -46,17 +46,19 @@
   <div class="flex justify-between p-4">
     <div class="">
       <a class="text-blue-600"><strong>{{trans('diamondSearch.Total')}}: </strong>
-              {{$diamonds['total']}} {{trans('diamondSearch.diamond')}}
+              {{isset($diamonds['total'])?$diamonds['total']:''}} {{trans('diamondSearch.diamond')}}
           </a>
     </div>
 
-    <div class="">
-      <button wire:click="setLocationToHK" class="btn btn-outline {{ count($fetchData['location']) == 1 ? 'btn-primary' : ''}}" 
-      type="button"  >{{__('diamondSearch.Only On Stock')}}
-      </button> 
-      <button class="btn btn-primary" wire:click="resetAll">
-          {{__('diamondSearch.reset')}} <i class="fas fa-undo"></i>
-      </button>
+    <div x-data="{ search_conditions: @entangle('search_conditions')}">
+      <div x-on:click="search_conditions.location['1Hong Kong'].clicked = ! search_conditions.location['1Hong Kong'].clicked" >
+        <button wire:click="setLocationToHK" :class=" `btn btn-outline ${search_conditions.location['1Hong Kong'].clicked?'btn-primary':''}` " 
+        type="button"  >{{__('diamondSearch.Only On Stock')}}
+        </button> 
+        <button class="btn btn-primary" wire:click="resetAll">
+            {{__('diamondSearch.reset')}} <i class="fas fa-undo"></i>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -108,7 +110,7 @@
 
 
 
-  <div class="  {{ $showInGrid ? 'hidden sm:block' : 'sm:hidden'}}">
+  <div class="{{ $showInGrid ? 'hidden sm:block' : 'sm:hidden'}}">
 
     @include('diamond.resultMobile')
 
@@ -118,49 +120,151 @@
 
 
   <div class="flex justify-center">
-      <a class="border border-gray-400 px-4 "  href="{{ $diamonds['first_page_url'] }}" >{{trans('pagination.First Page')}} 1</a>
-      <a class="border border-gray-400 px-4 "  href="{{ $diamonds['prev_page_url'] }}" >{{trans('diamondSearch.Previous')}}</a>
-      <a class="border border-gray-400 px-4 text-white bg-blue-600" >{{$diamonds['current_page']}}</a>
-      <a class="border border-gray-400 px-4 "  href="{{ $diamonds['next_page_url'] }}" >{{trans('diamondSearch.Next')}}</a>
-      <a class="border border-gray-400 px-4 " href="{{ $diamonds['last_page_url'] }}" >{{trans('pagination.Last Page')}} {{ $diamonds['last_page'] }}</a>
+      <a class="border border-gray-400 px-4 "  
+      href="{{ isset($diamonds['first_page_url'])?$diamonds['first_page_url']:'' }}" >
+        {{trans('pagination.First Page')}} 1</a>
+      <a class="border border-gray-400 px-4 "  
+      href="{{ isset($diamonds['prev_page_url'])?$diamonds['prev_page_url']:'' }}" >
+        {{trans('diamondSearch.Previous')}}</a>
+      <a class="border border-gray-400 px-4 text-white bg-blue-600" >
+        {{isset($diamonds['current_page'])?$diamonds['current_page']:''}}</a>
+      <a class="border border-gray-400 px-4 "  
+      href="{{ isset($diamonds['next_page_url'])?$diamonds['next_page_url']:'' }}" >
+        {{trans('diamondSearch.Next')}}</a>
+      <a class="border border-gray-400 px-4 " 
+      href="{{ isset($diamonds['last_page_url'])?$diamonds['last_page_url']:'' }}" >
+        {{trans('pagination.Last Page')}} {{ isset($diamonds['last_page'])?$diamonds['last_page']:'' }}</a>
 
   </div>
 
 <div id="loading" wire:loading.class="loading">
 </div>
 
+
+<script >
+  function mobileSearch(){
+
+    return {
+       displayColumn:'', 
+       showAdvance : @entangle('showAdvance'),
+       search_conditions: @entangle('search_conditions'),
+       selectDisplayColumn(column){
+          if (this.displayColumn != column) {
+            this.displayColumn = column 
+          }else{
+            this.displayColumn = ''  
+          }
+      },
+
+    }
+  }
+</script>
+
+<!-- <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+        Livewire.hook('message.processed', (message, component) => {
+
+          var w = '' 
+          var i = 0 
+          var total = parseInt(document.getElementById('diamondsTotal').className);
+
+          for (var h = total-1; h >= 0; h--) {
+            var maxW = 0
+            console.log(h)
+
+            for (var i = 21 ; i >= 0; i--) {
+
+                console.log(document.getElementById("row1-"+ i ).clientWidth)
+                
+                w = document.getElementById("row" + h + "-"+ i ).clientWidth
+
+                if (w > maxW) {
+                  console.log(maxW)
+                  document.getElementById("row" + h + "-"+ i).style.width = w + 'px'; 
+                }
+
+                i += 1
+            };
+
+          };
+
+
+        })
+    });
+
+
+</script> -->
+
+<style type="text/css">
+  .css-table{
+    display: table;
+  }
+  .css-table .thead{
+    display:table-header-group;
+  }
+  .css-table .tbody{
+    display:table-row-group;
+  }
+  .css-table .tr{
+    display:table-row;
+  }
+  .css-table .th, .css-table .td{
+    display:table-cell;
+  }
+  .table-outter { 
+    overflow-x: scroll; 
+  }
+
+</style>
+
+
 <script>
 
 
-
 window.addEventListener('new-tab', event => {
-    window.open(event.detail.link, '_blank');
+
+    window.open(event.detail.link , '');
 })
 
 
-window.addEventListener("scroll", function(event) {
+  document.addEventListener("DOMContentLoaded", () => {
+      Livewire.hook('message.processed', (message, component) => {
 
-    if (window.mutualVar.screen.y == 0) {
-      window.mutualVar.screen.y = document.getElementById('diamondHeight').clientHeight * 0.98
-    }
+      window.addEventListener("scroll", function(event) {
 
-    var top = this.scrollY,
-    y = window.mutualVar.screen.y,
-    loading = document.getElementById('loading').className,
-    height = document.getElementById('diamondHeight').clientHeight * 0.98;
+          if (window.mutualVar.screen.y == 0) {
+            window.mutualVar.screen.y = document.getElementById('diamondHeight').clientHeight * 0.98
+          }
 
-
-    if (top > y ) {
-
-      window.mutualVar.screen.y = height;
-      if (!loading) {
-        Livewire.emit('addPage')
-      } 
+          var top = this.scrollY,
+          y = window.mutualVar.screen.y,
+          loading = document.getElementById('loading').className,
+          height = document.getElementById('diamondHeight').clientHeight * 0.98;
 
 
-    }
-  
-}, false);
+          if (top > y ) {
+          console.log(height)
+
+            if (!loading) {
+              window.mutualVar.screen.y = height;
+              console.log(height)
+              console.log(window.mutualVar.screen.y)
+              console.log(top)
+              Livewire.emit('addPage')
+            } 
+
+
+          }
+        
+      }, false);
+
+
+      })
+  });
+
+
+
 
 
 
