@@ -241,12 +241,6 @@ class Content extends Component
 
 		$this->showAdvance = !$this->showAdvance;
 
-	}
-    public function toggleShowInGrid()
-    {	
-
-		$this->showInGrid = !$this->showInGrid;
-
 	}	
 	public function setAdvanceToZero($column){
 
@@ -295,11 +289,7 @@ class Content extends Component
 	}
 	public function toggleShowGrid(){
 
-		if( $this->showInGrid ){
-        	$this->showInGrid = false;
-    	}else{
-        	$this->showInGrid = true;    		
-    	}
+		$this->showInGrid = !$this->showInGrid;
 
 	}
 	public function goto($id){
