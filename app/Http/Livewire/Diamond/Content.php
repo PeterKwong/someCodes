@@ -331,7 +331,7 @@ class Content extends Component
 			    // dd('hihi');
 			// }
 
-			$queryPreset = Cache::remember('queryPreset',30, function(){
+			$queryPreset = Cache::remember('queryPreset',300, function(){
 				// dd($this->preset);
 				return $this->queryDiamonds();
 
