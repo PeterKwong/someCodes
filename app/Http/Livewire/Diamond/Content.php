@@ -248,7 +248,7 @@ class Content extends Component
 
 	} 
 	public function addAdvanceSearch($column){
-
+		
 	    if( $this->fetchData[$column][1] == 0 ){
         	$this->fetchData[$column] = [0.1, 89.9];
     	}

@@ -223,7 +223,6 @@
 
 
 window.addEventListener('new-tab', event => {
-
     window.open(event.detail.link , '');
 })
 

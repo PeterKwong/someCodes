@@ -6,10 +6,10 @@
         <p>{{trans('diamondSearch.Price')}}</p>        
       </div>
       <div class="col-span-5 mx-8">
-          <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" wire:model="fetchData.price.0" placeholder="HKD$">
+          <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" wire:model.debounce.500ms="fetchData.price.0" placeholder="HKD$">
       </div>
       <div class="col-span-5">
-          <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" wire:model="fetchData.price.1" placeholder="HKD$">
+          <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" wire:model.debounce.500ms="fetchData.price.1" placeholder="HKD$">
       </div>
     </div>
 
@@ -20,10 +20,10 @@
         <p>{{trans('diamondSearch.Weight')}}</p>
       </div>         
       <div class="col-span-5 mx-8">
-          <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" wire:model="fetchData.weight.0" placeholder="ct">
+          <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" wire:model.debounce.500ms="fetchData.weight.0" placeholder="ct">
       </div>
       <div class="col-span-5">
-          <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" wire:model="fetchData.weight.1" placeholder="ct">
+          <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" wire:model.debounce.500ms="fetchData.weight.1" placeholder="ct">
       </div>
     </div>
   </div>
@@ -271,6 +271,7 @@
   </div>
 </div>
 
+
 <span x-data="{ showAdvance: @entangle('showAdvance')}">
   <ul class="flex border-b justify-center mt-2">
     <div x-on:click="showAdvance = ! showAdvance" >
@@ -294,11 +295,11 @@
             <div class="grid grid-cols-12 items-center"  wire:click="addAdvanceSearch( '{{$key}}' )">
               <div class="col-span-6">
                 {{trans('diamondSearch.Min')}}
-                <input class="input" type="text" wire:model="{{ 'fetchData.' . $key . '.0' }}" placeholder=""> 
+                <input class="input" type="text" wire:model.debounce.500ms="{{ 'fetchData.' . $key . '.0' }}" placeholder=""> 
               </div>
               <div class="col-span-6">
                 {{trans('diamondSearch.Max')}}
-                <input class="input" type="text" wire:model="{{ 'fetchData.' . $key . '.1' }}" placeholder="">
+                <input class="input" type="text" wire:model.debounce.500ms="{{ 'fetchData.' . $key . '.1' }}" placeholder="">
               </div>
             </div>
 
