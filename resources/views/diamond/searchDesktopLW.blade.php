@@ -272,7 +272,7 @@
 </div>
 
 
-<span x-data="{ showAdvance: @entangle('showAdvance')}">
+<span x-data="{ showAdvance: @entangle('showAdvance'), fetchData: @entangle('fetchData')  }">
   <ul class="flex border-b justify-center mt-2">
     <div x-on:click="showAdvance = ! showAdvance" >
        <li class="-mb-px mr-1">
@@ -288,22 +288,27 @@
       <div class="col-span-6 border border-gray-400 mx-1" >
         <div class="grid grid-cols-12 items-center">
           <div class="col-span-2" wire:click="setAdvanceToZero( '{{$key}}' )">
-            <p class="{{ $fetchData[$key][1] != 0 ?'btn btn-yellow ':'btn' }}">{{trans('diamondSearch.' . $value)}}</p>
+            <p :class=" `${fetchData['{{$key}}'][0]?'btn btn-yellow':''}` ">{{trans('diamondSearch.' . $value)}}</p>
           </div>   
+
           <div class="col-span-10 mx-8">
-            
-            <div class="grid grid-cols-12 items-center"  wire:click="addAdvanceSearch( '{{$key}}' )">
-              <div class="col-span-6">
-                {{trans('diamondSearch.Min')}}
-                <input class="input" type="text" wire:model.debounce.500ms="{{ 'fetchData.' . $key . '.0' }}" placeholder=""> 
+
+            <span x-on:click="fetchData['{{$key}}'].slice(0,0,0.1,89.9)">
+              <div class="grid grid-cols-12 items-center"  wire:click="addAdvanceSearch( '{{$key}}' )">
+                <div class="col-span-6">
+                  {{trans('diamondSearch.Min')}}
+                  <input class="input" type="text" wire:model.debounce.500ms="{{ 'fetchData.' . $key . '.0' }}" placeholder=""> 
+                </div>
+                <div class="col-span-6">
+                  {{trans('diamondSearch.Max')}}
+                  <input class="input" type="text" wire:model.debounce.500ms="{{ 'fetchData.' . $key . '.1' }}" placeholder="">
+                </div>
+                <span x-text="fetchData['{{$key}}'][0]"></span>
               </div>
-              <div class="col-span-6">
-                {{trans('diamondSearch.Max')}}
-                <input class="input" type="text" wire:model.debounce.500ms="{{ 'fetchData.' . $key . '.1' }}" placeholder="">
-              </div>
-            </div>
+            </span>
 
           </div>
+
         </div>
       </div>
 
