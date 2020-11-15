@@ -247,14 +247,15 @@
 
         <div class="border border-gray-300 p-2 mx-1">
           <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('{{$key}}')">
-              <p  class="btn " class=" {{ $fetchData[$key][1] != 0 ?'btn btn-yellow ':'btn' }}" >{{trans('diamondSearch.' . $value)}}</p>
-              @if($fetchData[$key][1] != 0 )
-               <button wire:click="setAdvanceToZero( '{{$key}}' )" class="btn btn-outline"> {{ $fetchData[$key][0] }} - {{ $fetchData[$key][1] }}</button>
-              @endif
+              <p>{{trans('diamondSearch.' . $value)}}</p>
+              <span x-show="advance_search_conditions['{{$key}}'].clicked" 
+                    x-on:click=" advance_search_conditions[['{{$key}}'][0]].clicked = false ">
+                <button wire:click="setAdvanceToZero( '{{$key}}' )" :class=" `${advance_search_conditions['{{$key}}'].clicked?'btn btn-yellow':''}` "> {{ $fetchData[$key][0] }} - {{ $fetchData[$key][1] }}</button>
+              </span>
               <i class="fas fa-chevron-down"></i>
           </div>
 
-          <a x-show="displayColumn == '{{$key}}' ">
+          <a x-show="displayColumn == '{{$key}}' " x-on:click=" advance_search_conditions[['{{$key}}'][0]].clicked = true  ">
           <div class="level" wire:click="addAdvanceSearch( '{{$key}}' )">
               <input class="input" type="text" wire:model.debounce.800ms="{{ 'fetchData.' . $key . '.0' }}" placeholder="{{trans('diamondSearch.Min')}}">
 

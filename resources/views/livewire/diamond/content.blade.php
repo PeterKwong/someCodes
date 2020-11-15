@@ -148,6 +148,7 @@
        displayColumn:'', 
        showAdvance : @entangle('showAdvance'),
        search_conditions: @entangle('search_conditions'),
+      advance_search_conditions: @entangle('advance_search_conditions'), 
        selectDisplayColumn(column){
           if (this.displayColumn != column) {
             this.displayColumn = column 
@@ -160,6 +161,19 @@
   }
 </script>
 
+<script>
+  function advanceSearch(){
+
+    return {
+        showAdvance: @entangle('showAdvance'),
+        advance_search_conditions: @entangle('advance_search_conditions'), 
+        addAdvanceSearch(column){
+            this.advance_search_conditions[column].clicked = !this.advance_search_conditions[column].clicked
+        }
+
+    }
+  }
+</script>
 <!-- <script>
 
     document.addEventListener("DOMContentLoaded", () => {

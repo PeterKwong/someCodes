@@ -272,7 +272,7 @@
 </div>
 
 
-<span x-data="{ showAdvance: @entangle('showAdvance'), fetchData: @entangle('fetchData')  }">
+<span x-data="advanceSearch()">
   <ul class="flex border-b justify-center mt-2">
     <div x-on:click="showAdvance = ! showAdvance" >
        <li class="-mb-px mr-1">
@@ -287,13 +287,16 @@
 
       <div class="col-span-6 border border-gray-400 mx-1" >
         <div class="grid grid-cols-12 items-center">
-          <div class="col-span-2" wire:click="setAdvanceToZero( '{{$key}}' )">
-            <p :class=" `${fetchData['{{$key}}'][0]?'btn btn-yellow':''}` ">{{trans('diamondSearch.' . $value)}}</p>
-          </div>   
+
+          <div class="col-span-2" x-on:click=" advance_search_conditions[['{{$key}}'][0]].clicked = false ">
+            <span  wire:click="setAdvanceToZero( '{{$key}}' )">
+              <p :class=" `${advance_search_conditions['{{$key}}'].clicked?'btn btn-yellow':''}` ">{{trans('diamondSearch.' . $value)}}</p>
+            </span>
+          </div>
 
           <div class="col-span-10 mx-8">
 
-            <span x-on:click="fetchData['{{$key}}'].slice(0,0,0.1,89.9)">
+            <span x-on:click=" advance_search_conditions[['{{$key}}'][0]].clicked = true  ">
               <div class="grid grid-cols-12 items-center"  wire:click="addAdvanceSearch( '{{$key}}' )">
                 <div class="col-span-6">
                   {{trans('diamondSearch.Min')}}
@@ -303,7 +306,7 @@
                   {{trans('diamondSearch.Max')}}
                   <input class="input" type="text" wire:model.debounce.500ms="{{ 'fetchData.' . $key . '.1' }}" placeholder="">
                 </div>
-                <span x-text="fetchData['{{$key}}'][0]"></span>
+
               </div>
             </span>
 

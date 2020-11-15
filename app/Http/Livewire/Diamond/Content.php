@@ -76,6 +76,16 @@ class Content extends Component
 										],
 
 								];
+	public $advance_search_conditions = [
+									'table_percent'=>['clicked'=>false],
+									'depth_percent'=>['clicked'=>false],
+									'crown_angle'=>['clicked'=>false],
+									'parvilion_angle'=>['clicked'=>false],
+									'length'=>['clicked'=>false],
+									'width'=>['clicked'=>false],
+									'depth'=>['clicked'=>false],
+								];
+
 	public $columns = [ 'has_image','shape','price','weight','color','clarity','cut','polish',
 						'symmetry','fluorescence','location','certificate','lab','starred' 
 		        	];
@@ -180,6 +190,13 @@ class Content extends Component
     			$this->search_conditions[$iKey][$value]['clicked'] = true ;
     		}
     	}
+
+    	foreach ($this->advance_search_conditions as $key=>$value) {
+
+    		if ($this->fetchData[$key][1] != 0 ) {
+    			$this->advance_search_conditions[$key]['clicked'] = true ;
+    		}
+    	}
     	// dd($this->search_conditions);
     } 
     public function setRequest(){
@@ -243,12 +260,12 @@ class Content extends Component
 
 	}	
 	public function setAdvanceToZero($column){
-
+        
 		$this->fetchData[$column] = [0, 0];
 
 	} 
 	public function addAdvanceSearch($column){
-		
+
 	    if( $this->fetchData[$column][1] == 0 ){
         	$this->fetchData[$column] = [0.1, 89.9];
     	}
