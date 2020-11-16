@@ -140,7 +140,6 @@
 <div id="loading" wire:loading.class="loading">
 </div>
 
-
 <script >
   function mobileSearch(){
 

@@ -61,11 +61,14 @@ class Content extends Component
 										],
 									'cut'=>[
 										'Excellent' => ['clicked'=>false,
-													  'value' => ['EX'],['Excellent']],
+													  'value' => ['EX','Excellent']
+													],
 										'Very Good' => ['clicked'=>false,
-													  'value' => ['VG'],['Very Good']],
+													  'value' => ['VG','Very Good']
+													],
 										'Good' => ['clicked'=>false,
-													  'value' => ['GD'],['Good']] 
+													  'value' => ['GD','Good']
+													] 
 										],
 									'clarity'=>[
 										'FL' => ['clicked'=>false,
@@ -89,31 +92,42 @@ class Content extends Component
 										],
 									'polish'=>[
 										'Excellent' => ['clicked'=>false,
-													  'value' => ['EX'],['Excellent']],
+													  'value' => ['EX','Excellent']
+													],
 										'Very Good' => ['clicked'=>false,
-													  'value' => ['VG'],['Very Good']],
+													  'value' => ['VG','Very Good']
+													],
 										'Good' => ['clicked'=>false,
-													  'value' => ['GD'],['Good']] 
+													  'value' => ['GD','Good']
+													] 
 										],
 									'fluorescence'=>[
 										'None' => ['clicked'=>false,
-													  'value' => ['Non'],['None']],
+													  'value' => ['Non','None']
+													],
 										'Faint' => ['clicked'=>false,
-													  'value' => ['FNT'],['Faint']],
+													  'value' => ['FNT','Faint']
+													],
 										'Medium' => ['clicked'=>false,
-													  'value' => ['MED'],['Medium']],
+													  'value' => ['MED','Medium']
+													],
 										'Strong' => ['clicked'=>false,
-													  'value' => ['STG'],['Strong']],
+													  'value' => ['STG','Strong']
+													],
 										'Very Strong' => ['clicked'=>false,
-													  'value' => ['VST'],['Very Strong']]
+													  'value' => ['VST','Very Strong']
+													]
 										],
 									'symmetry'=>[
 										'Excellent' => ['clicked'=>false,
-													  'value' => ['EX'],['Excellent']],
+													  'value' => ['EX','Excellent']
+													],
 										'Very Good' => ['clicked'=>false,
-													  'value' => ['VG'],['Very Good']],
+													  'value' => ['VG','Very Good']
+													],
 										'Good' => ['clicked'=>false,
-													  'value' => ['GD'],['Good']] 
+													  'value' => ['GD','Good']
+													] 
 										],
 									'location'=>[
 										'1Hong Kong' => ['clicked'=>false,
@@ -232,7 +246,11 @@ class Content extends Component
 
     	foreach ($this->search_conditions as $iKey => $iValue) {
     		foreach ($this->fetchData[$iKey] as $key => $value) {
-    			$this->search_conditions[$iKey][$value]['clicked'] = true ;
+
+    			if (isset($this->search_conditions[$iKey][$value])) {
+    				// dd($this->search_conditions[$iKey][$value]);
+    				$this->search_conditions[$iKey][$value]['clicked'] = true ;
+    			}
     		}
     	}
 
@@ -324,14 +342,18 @@ class Content extends Component
 
 		if ( in_array($data,$fetchData) ) {
 
-			unset($fetchData[array_search($data,$fetchData)]);
+			foreach ($this->search_conditions[$condition][$data]['value'] as $key => $value) {
+					// dd($value);
+				unset($fetchData[array_search($value,$fetchData)]);
+
+			}
 
 		}else{
-			// foreach ($this->search_conditions[$condition][$data]['value'] as $key => $value) {
-			// 		dd($value);
-					array_push($fetchData,$data);
+			foreach ($this->search_conditions[$condition][$data]['value'] as $key => $value) {
+					// dd($value);
+					array_push($fetchData,$value);
 
-			// }
+			}
 
 		}
 
