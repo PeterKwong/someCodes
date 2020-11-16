@@ -14,65 +14,110 @@ class Content extends Component
 
 	public $search_conditions = [
 									'shape'=>[
-										'round' => ['clicked'=>false],
-										'pear' => ['clicked'=>false],
-										'emerald' => ['clicked'=>false],
-										'princess' => ['clicked'=>false],
-										'marquise' => ['clicked'=>false],
-										'cushion' => ['clicked'=>false],
-										'asscher' => ['clicked'=>false],
-										'oval' => ['clicked'=>false],
-										'heart' => ['clicked'=>false],
-										'radiant' => ['clicked'=>false]
+										'round' => ['clicked'=>false,
+													  'value' => ['round']],
+										'pear' => ['clicked'=>false,
+													  'value' => ['pear']],
+										'emerald' => ['clicked'=>false,
+													  'value' => ['emerald']],
+										'princess' => ['clicked'=>false,
+													  'value' => ['princess']],
+										'marquise' => ['clicked'=>false,
+													  'value' => ['marquise']],
+										'cushion' => ['clicked'=>false,
+													  'value' => ['cushion']],
+										'asscher' => ['clicked'=>false,
+													  'value' => ['asscher']],
+										'oval' => ['clicked'=>false,
+													  'value' => ['oval']],
+										'heart' => ['clicked'=>false,
+													  'value' => ['heart']],
+										'radiant' => ['clicked'=>false,
+													  'value' => ['radiant']]
 										],
 									'color'=>[
-										'D' => ['clicked'=>false],
-										'E' => ['clicked'=>false],
-										'F' => ['clicked'=>false],
-										'G' => ['clicked'=>false],
-										'H' => ['clicked'=>false],
-										'I' => ['clicked'=>false],
-										'J' => ['clicked'=>false],
-										'K' => ['clicked'=>false],
-										'L' => ['clicked'=>false],
-										'M' => ['clicked'=>false],
-										'N' => ['clicked'=>false]
+										'D' => ['clicked'=>false,
+													  'value' => ['D']],
+										'E' => ['clicked'=>false,
+													  'value' => ['E']],
+										'F' => ['clicked'=>false,
+													  'value' => ['F']],
+										'G' => ['clicked'=>false,
+													  'value' => ['G']],
+										'H' => ['clicked'=>false,
+													  'value' => ['H']],
+										'I' => ['clicked'=>false,
+													  'value' => ['I']],
+										'J' => ['clicked'=>false,
+													  'value' => ['J']],
+										'K' => ['clicked'=>false,
+													  'value' => ['K']],
+										'L' => ['clicked'=>false,
+													  'value' => ['L']],
+										'M' => ['clicked'=>false,
+													  'value' => ['M']],
+										'N' => ['clicked'=>false,
+													  'value' => ['N']]
 										],
 									'cut'=>[
-										'Excellent' => ['clicked'=>false],
-										'Very Good' => ['clicked'=>false],
-										'Good' => ['clicked'=>false] 
+										'Excellent' => ['clicked'=>false,
+													  'value' => ['EX'],['Excellent']],
+										'Very Good' => ['clicked'=>false,
+													  'value' => ['VG'],['Very Good']],
+										'Good' => ['clicked'=>false,
+													  'value' => ['GD'],['Good']] 
 										],
 									'clarity'=>[
-										'FL' => ['clicked'=>false],
-										'IF' => ['clicked'=>false],
-										'VVS1' => ['clicked'=>false],
-										'VVS2' => ['clicked'=>false],
-										'VS1' => ['clicked'=>false],
-										'VS2' => ['clicked'=>false],
-										'SI1' => ['clicked'=>false],
-										'SI2' => ['clicked'=>false],
-										'I1' => ['clicked'=>false]
+										'FL' => ['clicked'=>false,
+													  'value' => ['FL']],
+										'IF' => ['clicked'=>false,
+													  'value' => ['IF']],
+										'VVS1' => ['clicked'=>false,
+													  'value' => ['VVS1']],
+										'VVS2' => ['clicked'=>false,
+													  'value' => ['VVS2']],
+										'VS1' => ['clicked'=>false,
+													  'value' => ['VS1']],
+										'VS2' => ['clicked'=>false,
+													  'value' => ['VS2']],
+										'SI1' => ['clicked'=>false,
+													  'value' => ['SI1']],
+										'SI2' => ['clicked'=>false,
+													  'value' => ['SI2']],
+										'I1' => ['clicked'=>false,
+													  'value' => ['I1']]
 										],
 									'polish'=>[
-										'Excellent' => ['clicked'=>false],
-										'Very Good' => ['clicked'=>false],
-										'Good' => ['clicked'=>false]
+										'Excellent' => ['clicked'=>false,
+													  'value' => ['EX'],['Excellent']],
+										'Very Good' => ['clicked'=>false,
+													  'value' => ['VG'],['Very Good']],
+										'Good' => ['clicked'=>false,
+													  'value' => ['GD'],['Good']] 
 										],
 									'fluorescence'=>[
-										'None' => ['clicked'=>false],
-										'Faint' => ['clicked'=>false],
-										'Medium' => ['clicked'=>false],
-										'Strong' => ['clicked'=>false],
-										'Very Strong' => ['clicked'=>false]
+										'None' => ['clicked'=>false,
+													  'value' => ['Non'],['None']],
+										'Faint' => ['clicked'=>false,
+													  'value' => ['FNT'],['Faint']],
+										'Medium' => ['clicked'=>false,
+													  'value' => ['MED'],['Medium']],
+										'Strong' => ['clicked'=>false,
+													  'value' => ['STG'],['Strong']],
+										'Very Strong' => ['clicked'=>false,
+													  'value' => ['VST'],['Very Strong']]
 										],
 									'symmetry'=>[
-										'Excellent' => ['clicked'=>false],
-										'Very Good' => ['clicked'=>false],
-										'Good' => ['clicked'=>false]
+										'Excellent' => ['clicked'=>false,
+													  'value' => ['EX'],['Excellent']],
+										'Very Good' => ['clicked'=>false,
+													  'value' => ['VG'],['Very Good']],
+										'Good' => ['clicked'=>false,
+													  'value' => ['GD'],['Good']] 
 										],
 									'location'=>[
-										'1Hong Kong' => ['clicked'=>false],
+										'1Hong Kong' => ['clicked'=>false,
+													  'value' => ['1Hong Kong']],
 										],
 
 								];
@@ -282,7 +327,11 @@ class Content extends Component
 			unset($fetchData[array_search($data,$fetchData)]);
 
 		}else{
-			array_push($fetchData,$data);
+			foreach ($this->search_conditions[$condition][$data]['value'] as $key => $value) {
+					// dd($value);
+					array_push($fetchData,$value);
+
+			}
 
 		}
 
