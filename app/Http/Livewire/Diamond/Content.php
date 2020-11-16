@@ -327,11 +327,11 @@ class Content extends Component
 			unset($fetchData[array_search($data,$fetchData)]);
 
 		}else{
-			foreach ($this->search_conditions[$condition][$data]['value'] as $key => $value) {
-					// dd($value);
-					array_push($fetchData,$value);
+			// foreach ($this->search_conditions[$condition][$data]['value'] as $key => $value) {
+			// 		dd($value);
+					array_push($fetchData,$data);
 
-			}
+			// }
 
 		}
 
