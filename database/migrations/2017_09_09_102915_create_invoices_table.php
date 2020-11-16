@@ -17,6 +17,7 @@ class CreateInvoicesTable extends Migration
             $table->id('id');
             $table->bigInteger('customer_id')->unsigned();
             $table->bigInteger('invoice_no')->nullable();
+            $table->bigInteger('draft_no')->nullable();
             $table->string('title');
             $table->date('date');
             $table->date('due_date')->nullable();

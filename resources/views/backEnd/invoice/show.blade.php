@@ -28,8 +28,8 @@
 							<div class="col">
 								<a href="/adm/invoices/create" class="btn btn-primary waves-effect waves-light">Create</a>
 								<a :href="'/adm/invoices/' + model.id + '/edit'" class="btn btn-primary waves-effect waves-light">Edit</a>
-								<button class="btn btn-primary waves-effect waves-light" @click="remove">Delete</button>
-							</div>
+<!-- 								<button class="btn btn-primary waves-effect waves-light" @click="remove">Delete</button>
+ -->							</div>
 						</div>
 					</div>
 

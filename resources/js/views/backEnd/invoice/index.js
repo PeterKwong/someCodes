@@ -14,7 +14,7 @@ export default {
 			create:'/adm/invoices/create',
 			userRole: Auth.state.user_role,
 			filter: [
-			      	'invoiceDiamonds.certificate', 'customer.phone', 
+			      	'invoiceDiamonds.certificate', 'customer.phone', 'draft_no',
 			      	'engagementRings.stock','weddingRings.stock','jewelleries.stock',
 			      	'id','customer.name', 
         			'customer_id', 'title', 'date', 'due_date', 'discount',
@@ -27,6 +27,7 @@ export default {
 		thead(){
 			var data = [
 			{ title: 'ID', key: 'id', sort: true},
+			{ title: 'Draft No', key: 'draft_no', sort: true},
 			{ title: 'Invoice No', key: 'invoice_no', sort: true},
 			{ title: 'account balance', key: 'account_balance', sort: true},
 			{ title: 'account total', key: 'account_total', sort: true},

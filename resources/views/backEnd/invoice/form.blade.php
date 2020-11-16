@@ -16,6 +16,11 @@
 								
 								<small class="form-control" v-if="errors.customer_id">@{{errors.customer_id[0]}}</small>
 							</div>
+							<div class="form-group">
+								<label class="label">Draft No</label>
+									<input class="form-control" type="text" v-model="form.draft_no" placeholder="Draft No" required>
+									<small class="form-control" class="is-danger" v-if="errors.title">@{{errors.draft_no[0]}}</small>
+							</div>
 					</div>	
 					<div class="col">
 						<div class="control has-icon-left">

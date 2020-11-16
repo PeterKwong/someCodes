@@ -65,8 +65,8 @@
 						
 						<a :href="'/adm/invoices/create'" class="button is-primary">Create</a>
 						<a :href="'/adm/invoices/' + model.id + '/edit'" class="button is-primary">Edit</a>
-						<button class="button is-primary" @click="remove">Delete</button>
-						</div>
+<!-- 						<button class="button is-primary" @click="remove">Delete</button>
+ -->						</div>
 					</div>
 
 				</div>

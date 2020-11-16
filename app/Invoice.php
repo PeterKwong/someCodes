@@ -14,13 +14,13 @@ class Invoice extends Model
 
 	protected $fillable = [
         'customer_id','order_id', 'title', 'notes','date', 'due_date', 'discount','extra',
-        'sub_total', 'total', 'deposit','balance','notes', 'invoice_no','deposit_method','balance_method',
+        'sub_total', 'total', 'deposit','balance','notes', 'invoice_no','draft_no','deposit_method','balance_method',
         'account_balance','account_total'
     ];
 
     protected $filter = [
         'id', 'customer_id','order_id', 'title', 'notes', 'date', 'due_date', 'discount','extra',
-        'sub_total','deposit','balance', 'total', 'created_at', 'invoice_no','deposit_method','balance_method',
+        'sub_total','deposit','balance', 'total', 'created_at', 'invoice_no','draft_no','deposit_method','balance_method',
         'customer.name', 'customer.phone' , 
         'invoiceDiamonds.certificate', 'engagementRings.stock', 'weddingRings.stock', 'jewelleries.stock'
     ];
@@ -67,6 +67,7 @@ class Invoice extends Model
     	'discount' => 0,
         'extra' => 0,
         'invoice_no' => 0,
+        'draft_no' => 0,
         'sub_total' => 0,
         'account_sub_total' => 0,
         'deposit' => 0,
