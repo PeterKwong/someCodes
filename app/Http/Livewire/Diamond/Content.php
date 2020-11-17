@@ -263,9 +263,9 @@ class Content extends Component
 	    		}
     		}
 
-    		if (count($this->fetchData['starred'])) {
-    			 $this->advance_search_conditions[$key]['clicked'] = true ;
-    		}
+    		// if (count($this->fetchData['starred'])) {
+    		// 	 $this->advance_search_conditions[$key]['clicked'] = true ;
+    		// }
     	}
     	// dd($this->advance_search_conditions);
     } 
