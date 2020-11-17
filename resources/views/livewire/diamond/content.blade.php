@@ -1,5 +1,6 @@
 <div>   
 
+
 <div id="diamondHeight">
 
 <!--     @include('layouts.components.loading')
@@ -50,11 +51,18 @@
           </a>
     </div>
 
-    <div x-data="{ search_conditions: @entangle('search_conditions')}">
-      <div x-on:click="search_conditions.location['1Hong Kong'].clicked = ! search_conditions.location['1Hong Kong'].clicked" >
-        <button wire:click="setLocationToHK" :class=" `btn btn-outline ${search_conditions.location['1Hong Kong'].clicked?'btn-primary':''}` " 
-        type="button"  >{{__('diamondSearch.Only On Stock')}}
-        </button> 
+    <div x-data="{ search_conditions: @entangle('search_conditions'), advance_search_conditions: @entangle('advance_search_conditions')}">
+      <div>
+        <span x-on:click="advance_search_conditions.starred.clicked = ! advance_search_conditions.starred.clicked">
+          <button wire:click="selectStarred" :class=" `btn btn-outline ${advance_search_conditions.starred.clicked?'btn-primary':''}` " 
+          type="button"  >{{__('diamondSearch.starred')}}
+          </button> 
+        </span>
+        <span x-on:click="search_conditions.location['1Hong Kong'].clicked = ! search_conditions.location['1Hong Kong'].clicked">
+          <button wire:click="setLocationToHK" :class=" `btn btn-outline ${search_conditions.location['1Hong Kong'].clicked?'btn-primary':''}` " 
+          type="button"  >{{__('diamondSearch.Only On Stock')}}
+          </button> 
+        </span>
         <button class="btn btn-primary" wire:click="resetAll">
             {{__('diamondSearch.reset')}} <i class="fas fa-undo"></i>
         </button>

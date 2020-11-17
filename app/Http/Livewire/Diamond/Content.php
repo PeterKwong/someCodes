@@ -143,6 +143,7 @@ class Content extends Component
 									'length'=>['clicked'=>false],
 									'width'=>['clicked'=>false],
 									'depth'=>['clicked'=>false],
+									'starred'=>['clicked'=>false],
 								];
 
 	public $columns = [ 'has_image','shape','price','weight','color','clarity','cut','polish',
@@ -186,7 +187,7 @@ class Content extends Component
       	if ( isset($_COOKIE['diamondSearch']) ) {
 
     		$same = true ;
-    		$columns = ['page','column','direction','per_page','shape','color','clarity','cut','polish','symmetry','fluorescence','price','weight','table_percent','depth_percent','crown_angle','parvilion_angle','length','width','depth','location'];
+    		$columns = ['page','column','direction','per_page','shape','color','clarity','cut','polish','symmetry','fluorescence','price','weight','table_percent','depth_percent','crown_angle','parvilion_angle','length','width','depth','location','starred'];
 
     		
     		$cookie = (array)json_decode($_COOKIE['diamondSearch']) ;
@@ -256,11 +257,17 @@ class Content extends Component
 
     	foreach ($this->advance_search_conditions as $key=>$value) {
 
-    		if ($this->fetchData[$key][1] != 0 ) {
-    			$this->advance_search_conditions[$key]['clicked'] = true ;
+    		if ($key != 'starred') {
+    			if ($this->fetchData[$key][1] != 0 ) {
+	    			$this->advance_search_conditions[$key]['clicked'] = true ;
+	    		}
+    		}
+
+    		if (count($this->fetchData['starred'])) {
+    			 $this->advance_search_conditions[$key]['clicked'] = true ;
     		}
     	}
-    	// dd($this->search_conditions);
+    	// dd($this->advance_search_conditions);
     } 
     public function setRequest(){
 		    	// dd( request()->all() );
@@ -269,9 +276,9 @@ class Content extends Component
 			if (is_string( $value ) || is_int($value)) {
     			$this->fetchData[$key] = explode(',',$value );
 			}
-			if(count($value)){
-    			$this->fetchData[$key] = $value ;    				
-			}
+			// if(count($value)){
+   //  			$this->fetchData[$key] = $value ;    				
+			// }
  		}
 		    	// dd( $this->fetchData );
 		$this->setCookie();
@@ -440,13 +447,19 @@ class Content extends Component
 
 	public function queryDiamonds() {
 
-	 		$requests = ['color','clarity','cut','polish','symmetry','fluorescence','shape','location',];
+	 		$requests = ['color','clarity','cut','polish','symmetry','fluorescence','shape','location'];
 
 	 		$query = Diamond::orderBy('available','desc')->where(function($q){
 			        $q->whereNotNull('available');
 			      });
 
 	 			// dd($this->fetchData);
+
+	      	if (count($this->fetchData['starred'])) {
+	      		$query = $query->where(function($q){
+	              $q->whereNotNull('starred');
+	            });
+	      	}
 
 	 		foreach ($requests as $req) {
 	 			if ($this->fetchData[$req]) {
@@ -528,6 +541,16 @@ class Content extends Component
 
 		}
 	}
+	public function selectStarred(){
+
+		if ( !count($this->fetchData['starred']) ) {
+			$this->fetchData['starred'] = [true];
+		}else{
+			$this->fetchData['starred'] = [];	
+
+		}
+		// dd($this->fetchData['starred']);
+	}
 	public function setCookie(){
 
 		$time = time() + (60 * config('global.cookie.time') );
@@ -583,12 +606,9 @@ class Content extends Component
 						 'symmetry' => [], 'fluorescence' => [], 'price' => [1000, 50000000], 
 						 'weight' => [0.30,20], 'table_percent' => [0,0], 'depth_percent' => [0,0], 
 						 'crown_angle' => [0,0], 'parvilion_angle' => [0,0], 'length' => [0,0], 
-						 'width' => [0,0], 'depth' => [0,0], 'location' => []
+						 'width' => [0,0], 'depth' => [0,0], 'location' => [],'starred'=>[]
 					];
 			$this->preset = $this->fetchData;
-	} 
-	public function clickRow($id){
-			
 	} 
 
 

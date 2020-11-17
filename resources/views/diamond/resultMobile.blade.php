@@ -32,10 +32,6 @@
     <div class="row justify-content-center text-center" >
       <div class="col">
         <h5 class="text-blue-500">
-          @if($row['starred'])
-            <i class="fa fa-star" aria-hidden="true"></i>
-          @endif
-
           HK$ {{ $row['price'] }}
           <strong style="opacity: 0.3"> | </strong>   
 
