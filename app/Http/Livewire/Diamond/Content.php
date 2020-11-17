@@ -234,9 +234,7 @@ class Content extends Component
     	}
     	if (isset($_COOKIE['diamondSearch'])) {
     		$this->getCookie();
-	    	if(!isset($this->fetchData['starred'])){
-	    		$this->resetCookies();
-	    	}
+
     	}    	
 		    	// dd( $this->fetchData );
 	    $this->extraUrls();
@@ -265,7 +263,9 @@ class Content extends Component
 	    			$this->advance_search_conditions[$key]['clicked'] = true ;
 	    		}
     		}
-
+	    	if(!isset($this->fetchData['starred'])){
+	    		$this->resetCookies();
+	    	}
     		if (count($this->fetchData['starred'])) {
     			 $this->advance_search_conditions[$key]['clicked'] = true ;
     		}
