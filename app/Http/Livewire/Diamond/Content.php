@@ -264,7 +264,7 @@ class Content extends Component
 	    		}
     		}
 	    	if(!isset($this->fetchData['starred'])){
-	    		$this->resetCookies();
+	    		$this->resetAll();
 	    	}
     		if (count($this->fetchData['starred'])) {
     			 $this->advance_search_conditions[$key]['clicked'] = true ;
