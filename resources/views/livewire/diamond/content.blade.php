@@ -1,6 +1,5 @@
 <div>   
 
-
 <div id="diamondHeight">
 
 <!--     @include('layouts.components.loading')
@@ -155,7 +154,7 @@
        displayColumn:'', 
        showAdvance : @entangle('showAdvance'),
        search_conditions: @entangle('search_conditions'),
-      advance_search_conditions: @entangle('advance_search_conditions'), 
+       advance_search_conditions: @entangle('advance_search_conditions'), 
        selectDisplayColumn(column){
           if (this.displayColumn != column) {
             this.displayColumn = column 
@@ -163,6 +162,53 @@
             this.displayColumn = ''  
           }
       },
+        fancy_color: @entangle('fancy_color'),
+        selectedColor: @entangle('selectedColor'),
+        assignSelectColor(){
+          var items = Object.entries(this.fancy_color.fancy_color)
+          for (var [key, value] of Object.entries(items)) {
+            if (this.fancy_color.fancy_color[items[key][0]].clicked) {
+              if (items[key][0]!='Brown') {
+                this.selectedColor = items[key][0].toLowerCase()
+                }else{
+                this.selectedColor = 'red'
+              }
+            }
+          }
+        },
+        resetFancyColor(){
+          var items = Object.entries(this.fancy_color.fancy_color)
+          for (var [key, value] of Object.entries(items)) {
+            this.fancy_color.fancy_color[items[key][0]].clicked = false
+          }          
+        },
+        resetColor(){
+          var fancyClicked = this.search_conditions.color['Fancy'].clicked
+          var items = Object.entries(this.search_conditions.color)
+          for (var [key, value] of Object.entries(items)) {
+            this.search_conditions.color[items[key][0]].clicked = false
+          }          
+          console.log(fancyClicked)
+             this.search_conditions.color['Fancy'].clicked = fancyClicked
+        },
+        resetIntensity(){
+          var items = Object.entries(this.fancy_color.fancy_intensity)
+          for (var [key, value] of Object.entries(items)) {
+            this.fancy_color.fancy_intensity[items[key][0]].clicked = false
+          }          
+        },
+        resetCut(){
+          var items = Object.entries(this.search_conditions.cut)
+          for (var [key, value] of Object.entries(items)) {
+            this.search_conditions.cut[items[key][0]].clicked = false
+          }         
+        },
+        resetFancyData(){
+          this.resetFancyColor()
+          this.resetIntensity()
+          this.resetColor()
+          this.resetCut()
+        },
 
     }
   }
@@ -181,6 +227,64 @@
     }
   }
 </script>
+
+<script>
+  function fancyColor(){
+
+    return {
+        search_conditions: @entangle('search_conditions'), 
+        fancy_color: @entangle('fancy_color'),
+        selectedColor: @entangle('selectedColor'),
+        assignSelectColor(){
+          var items = Object.entries(this.fancy_color.fancy_color)
+          for (var [key, value] of Object.entries(items)) {
+            if (this.fancy_color.fancy_color[items[key][0]].clicked) {
+              if (items[key][0]!='Brown') {
+                this.selectedColor = items[key][0].toLowerCase()
+                }else{
+                this.selectedColor = 'red'
+              }
+            }
+          }
+        },
+        resetFancyColor(){
+          var items = Object.entries(this.fancy_color.fancy_color)
+          for (var [key, value] of Object.entries(items)) {
+            this.fancy_color.fancy_color[items[key][0]].clicked = false
+          }          
+        },
+        resetColor(){
+          var fancyClicked = this.search_conditions.color['Fancy'].clicked
+          var items = Object.entries(this.search_conditions.color)
+          for (var [key, value] of Object.entries(items)) {
+            this.search_conditions.color[items[key][0]].clicked = false
+          }          
+          console.log(fancyClicked)
+             this.search_conditions.color['Fancy'].clicked = fancyClicked
+        },
+        resetIntensity(){
+          var items = Object.entries(this.fancy_color.fancy_intensity)
+          for (var [key, value] of Object.entries(items)) {
+            this.fancy_color.fancy_intensity[items[key][0]].clicked = false
+          }          
+        },
+        resetCut(){
+          var items = Object.entries(this.search_conditions.cut)
+          for (var [key, value] of Object.entries(items)) {
+            this.search_conditions.cut[items[key][0]].clicked = false
+          }         
+        },
+        resetFancyData(){
+          this.resetFancyColor()
+          this.resetIntensity()
+          this.resetColor()
+          this.resetCut()
+        },
+
+    }
+  }
+</script>
+
 <!-- <script>
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -216,29 +320,6 @@
 
 
 </script> -->
-
-<style type="text/css">
-  .css-table{
-    display: table;
-  }
-  .css-table .thead{
-    display:table-header-group;
-  }
-  .css-table .tbody{
-    display:table-row-group;
-  }
-  .css-table .tr{
-    display:table-row;
-  }
-  .css-table .th, .css-table .td{
-    display:table-cell;
-  }
-  .table-outter { 
-    overflow-x: scroll; 
-  }
-
-</style>
-
 
 <script>
 

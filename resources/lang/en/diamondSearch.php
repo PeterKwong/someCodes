@@ -134,5 +134,7 @@ return [
 	
 	'List' => 'List',
 	'Grid' => 'Grid',
+	
+	'Fancy' => 'Fancy',
 
 ];

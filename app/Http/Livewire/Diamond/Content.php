@@ -57,7 +57,9 @@ class Content extends Component
 										'M' => ['clicked'=>false,
 													  'value' => ['M']],
 										'N' => ['clicked'=>false,
-													  'value' => ['N']]
+													  'value' => ['N']],
+										'Fancy' => ['clicked'=>false,
+													  'value' => ['Fancy']],
 										],
 									'cut'=>[
 										'Excellent' => ['clicked'=>false,
@@ -146,6 +148,50 @@ class Content extends Component
 									'starred'=>['clicked'=>false],
 								];
 
+	public $fancy_color = [		'fancy_color'=>[
+										'Yellow' => ['clicked'=>false,
+													  'value' => ['Yellow']],
+										'Pink' => ['clicked'=>false,
+													  'value' => ['Pink']],
+										'Orange' => ['clicked'=>false,
+													  'value' => ['Orange']],
+										'Purple' => ['clicked'=>false,
+													  'value' => ['Purple']],
+										'Brown' => ['clicked'=>false,
+													  'value' => ['Brown']],
+										'Green' => ['clicked'=>false,
+													  'value' => ['Green']],
+										'Gray' => ['clicked'=>false,
+													  'value' => ['Gray']],
+										'Blue' => ['clicked'=>false,
+													  'value' => ['Blue']],
+										'Black' => ['clicked'=>false,
+													  'value' => ['Black']],
+										],
+									'fancy_intensity'=>[
+										'Faint' => ['clicked'=>false,
+													  'value' => ['Faint']],
+										'Very Light' => ['clicked'=>false,
+													  'value' => ['Very Light']],
+										'Light' => ['clicked'=>false,
+													  'value' => ['Light']],
+										'Fancy Light' => ['clicked'=>false,
+													  'value' => ['Fancy Light']],
+										'Fancy' => ['clicked'=>false,
+													  'value' => ['Fancy']],
+										'Fancy Dark' => ['clicked'=>false,
+													  'value' => ['Fancy Dark']],
+										'Fancy Intense' => ['clicked'=>false,
+													  'value' => ['Fancy Intense']],
+										'Fancy Vivid' => ['clicked'=>false,
+													  'value' => ['Fancy Vivid']],
+										'Fancy Deep' => ['clicked'=>false,
+													  'value' => ['Fancy Deep']],
+										],
+
+
+								];
+								
 	public $columns = [ 'has_image','shape','price','weight','color','clarity','cut','polish',
 						'symmetry','fluorescence','location','certificate','lab','starred' 
 		        	];
@@ -167,6 +213,8 @@ class Content extends Component
 	public $readyToLoad = false;
 
 	public $firstTimeFetch = true;
+
+	public $selectedColor = 'yellow';
 
     public function render()
     {	 
@@ -198,9 +246,19 @@ class Content extends Component
     			}
     		}
 
+    		if (array_search('Fancy',$this->fetchData['color']) > -1) {
+    			$columns = ['fancy_color','fancy_intensity'];
+    			foreach ($columns as $column) {
+	    			if ($same && $this->fetchData[$column] != $cookie[$column]) {
+	    				$same = false;
+	    			}
+	    		}
+    		}
+
+
 			$this->setcookie();
 
-    		// dd('skip' );
+    		// dd($this->fetchData );
 
     	}
 
@@ -212,7 +270,7 @@ class Content extends Component
 
 		$same = $this->isDiamondQuery();
 
-		// dd($cookie['price'] );
+		// dd($same );
 
 		if ( $this->firstTimeFetch || !$same ) {
 
@@ -242,15 +300,16 @@ class Content extends Component
     	$this->resetPartial();
 		// dd( $this->fetchData );
 	    $this->setClickedSearchConditions();
+	    $this->setFancyColumns();
 	    // $this->checkCache();
     }
     public function setClickedSearchConditions(){
 
+    				// dd($this->search_conditions['color']);
     	foreach ($this->search_conditions as $iKey => $iValue) {
     		foreach ($this->fetchData[$iKey] as $key => $value) {
 
     			if (isset($this->search_conditions[$iKey][$value])) {
-    				// dd($this->search_conditions[$iKey][$value]);
     				$this->search_conditions[$iKey][$value]['clicked'] = true ;
     			}
     		}
@@ -263,15 +322,33 @@ class Content extends Component
 	    			$this->advance_search_conditions[$key]['clicked'] = true ;
 	    		}
     		}
-	    	if(!isset($this->fetchData['starred'])){
+	    	if(!isset($this->fetchData['fancy_intensity'])){
 	    		$this->resetAll();
 	    	}
     		if (count($this->fetchData['starred'])) {
     			 $this->advance_search_conditions[$key]['clicked'] = true ;
     		}
     	}
-    	// dd($this->advance_search_conditions);
+
+    	foreach ($this->fancy_color as $iKey => $iValue) {
+    		foreach ($this->fetchData[$iKey] as $key => $value) {
+
+    			if (isset($this->fancy_color[$iKey][$value])) {
+    				// dd($this->fancy_color[$iKey][$value]);
+    				$this->fancy_color[$iKey][$value]['clicked'] = true ;
+    			}
+    		}
+    	}
+
+    	// dd($this->fancy_color);
     } 
+    public function setFancyColumns(){
+
+    	if ($this->search_conditions['color']['Fancy']) {
+	    	array_splice($this->columns,4,3,['fancy_intensity','fancy_color','clarity']);
+    	}
+
+    }
     public function setRequest(){
 		    	// dd( request()->all() );
 
@@ -280,7 +357,7 @@ class Content extends Component
     			$this->fetchData[$key] = explode(',',$value );
 			}
 			// if(count($value)){
-   //  			$this->fetchData[$key] = $value ;    				
+   			// $this->fetchData[$key] = $value ;    				
 			// }
  		}
 		    	// dd( $this->fetchData );
@@ -348,24 +425,87 @@ class Content extends Component
     {	
     	// dd($condition, $data);
 
-    	$fetchData = $this->fetchData[$condition];
+    	$this->fetchData[$condition] = $this->fetchData[$condition];
 
-		if ( in_array($data,$fetchData) ) {
+		if ( in_array($data,$this->fetchData[$condition]) ) {
 
+			if ($data == 'Fancy') {
+				
+		    	$this->unsetFancyData();
+				$this->fetchData['color'][] = 'Fancy';
+				array_splice($this->columns,4,3,['color','clarity','cut']);
+
+		    }
 			foreach ($this->search_conditions[$condition][$data]['value'] as $key => $value) {
-					// dd($value);
-				unset($fetchData[array_search($value,$fetchData)]);
+
+				unset($this->fetchData[$condition][array_search($value,$this->fetchData[$condition])]);
+						// dd($this->search_conditions['color']['Fancy']);
 
 			}
+
 
 		}else{
+
+			if ($data == 'Fancy') {
+				
+		    	$this->unsetFancyData();
+		    	$this->setFancyColumns();
+					// dd($this->fetchData['color']);
+
+		    }
+
 			foreach ($this->search_conditions[$condition][$data]['value'] as $key => $value) {
-					// dd($value);
-					array_push($fetchData,$value);
+
+
+				array_push($this->fetchData[$condition],$value);
 
 			}
 
+
+
 		}
+
+		// $this->fetchData[$condition] = $this->fetchData[$condition];
+		// dd($this->search_conditions['color']);
+
+	}
+	public function unsetFancyData(){
+
+			$this->fetchData['color'] = [];
+			$this->fetchData['cut'] = [];
+			$this->fetchData['fancy_color'] = [];
+	 		$this->fetchData['fancy_intensity'] = [];
+
+		// dd($this->search_conditions['color']);
+	}
+    public function toggleFancyValue($condition, $data)
+    {	
+    	// dd($condition, $data);
+
+    	$fetchData = $this->fetchData[$condition];
+
+    	if ($condition == 'fancy_color') {
+			unset($fetchData);
+			$fetchData[] = $data;
+    	}else{
+
+    		if ( in_array($data,$fetchData) ) {
+
+				foreach ($this->fancy_color[$condition][$data]['value'] as $key => $value) {
+					unset($fetchData[array_search($value,$fetchData)]);
+
+				}
+
+			}else{
+				foreach ($this->fancy_color[$condition][$data]['value'] as $key => $value) {
+						array_push($fetchData,$value);
+
+				}
+
+			}
+
+    	}
+
 
 		$this->fetchData[$condition] = $fetchData;
 	    
@@ -452,6 +592,15 @@ class Content extends Component
 
 	 		$requests = ['color','clarity','cut','polish','symmetry','fluorescence','shape','location'];
 
+			if( array_search('Fancy',$this->fetchData['color']) > -1) {
+
+				$requests[] = 'fancy_color';
+		 		$requests[] = 'fancy_intensity';		 		
+	 			// dd($requests);
+
+	    	}
+	 			// dd($requests);
+	 	
 	 		$query = Diamond::orderBy('available','desc')->where(function($q){
 			        $q->whereNotNull('available');
 			      });
@@ -463,6 +612,7 @@ class Content extends Component
 	              $q->whereNotNull('starred');
 	            });
 	      	}
+
 
 	 		foreach ($requests as $req) {
 	 			if ($this->fetchData[$req]) {
@@ -520,11 +670,15 @@ class Content extends Component
 		      }
 		      
 
+    		
 
 		      $query = $query->orderBy($this->fetchData['column'], $this->fetchData['direction'])
 		      ->paginate($this->fetchData['per_page'])->withPath('')->toArray();
 
 		      
+		      // dd($query);
+		      // dd($this->fetchData['fancy_color']);
+			// dd($this->search_conditions['color']);
 
 		      return $this->diamonds = $query;
 
@@ -606,7 +760,7 @@ class Content extends Component
 
 	 		$this->fetchData = ['page' =>1,  'column' => 'price','direction' => 'asc',
 						 'per_page' => 20,
-						 'shape' => [], 'color' => [], 'clarity' => [], 'cut' => [], 'polish' => [], 
+						 'shape' => [], 'color' => [],'fancy_color' => [],'fancy_intensity' => [], 'clarity' => [], 'cut' => [], 'polish' => [], 
 						 'symmetry' => [], 'fluorescence' => [], 'price' => [1000, 50000000], 
 						 'weight' => [0.30,20], 'table_percent' => [0,0], 'depth_percent' => [0,0], 
 						 'crown_angle' => [0,0], 'parvilion_angle' => [0,0], 'length' => [0,0], 

@@ -145,7 +145,11 @@ return [
 	'starred' => '精選',
 	'certificate' => '證書編號',
 
-
+	'Fancy' => '彩鑽',
+	'White' => '白鑽',
+	'Intensity' => '濃度',
+	'fancy_color' => '顏色',
+	'fancy_intensity' => '濃度',
 
 
 

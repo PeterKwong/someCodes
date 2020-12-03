@@ -45,13 +45,25 @@
         <p class="card-text">
                 {{ $row['weight'] }}
                  <strong style="opacity: 0.3"> | </strong>
-                {{ $row['color'] }}
-                 <strong style="opacity: 0.3"> | </strong>                                        
-                {{ $row['clarity'] }} 
-                 <strong style="opacity: 0.3"> | </strong>                                        
 
-                {{ $row['cut'] == '0' ? '' : $row['cut'] }}
-                 <strong style="opacity: 0.3">  {{ $row['cut'] == '0' ? '' : '|' }} </strong>
+                @if(array_search('color',$columns) > -1)
+                  {{ $row['color'] }}
+                   <strong style="opacity: 0.3"> | </strong>                                        
+                  {{ $row['clarity'] }} 
+                   <strong style="opacity: 0.3"> | </strong>                                        
+                  {{ $row['cut'] == '0' ? '' : $row['cut'] }}
+                   <strong style="opacity: 0.3">  {{ $row['cut'] == '0' ? '' : '|' }} </strong>
+                @endif
+
+                @if(array_search('fancy_color',$columns) > -1)
+                  {{ $row['fancy_intensity'] }}
+                   <strong style="opacity: 0.3"> | </strong>                                        
+                  {{ $row['fancy_color'] }} 
+                   <strong style="opacity: 0.3"> | </strong>                                        
+                  {{ $row['clarity'] }}
+                   <strong style="opacity: 0.3"> | </strong>
+                @endif
+
                 {{ $row['polish'] }} 
                  <strong style="opacity: 0.3"> | </strong>
                 {{ $row['symmetry'] }}
