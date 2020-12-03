@@ -1,7 +1,9 @@
+
 module.exports = {
   purge: [   
     "./resources/views/**/*.blade.php", 
     "./resources/views/**/**/*.blade.php", 
+    "./resources/views/**/**/**/*.blade.php", 
     "./resources/js/components/**/*.vue", 
     ],
   theme: {
@@ -24,3 +26,4 @@ module.exports = {
   },
   plugins: [],
 }
+
