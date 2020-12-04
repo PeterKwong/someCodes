@@ -25,7 +25,7 @@ return [
 	                        ],
 	                'staffs'=>[
 	                		['name' => 'Nancy', 'number' => 52376008],
-	                		['name' => 'Jo', 'number' => 97339639],
+	                		['name' => 'Albee', 'number' => 97339639],
 	                	]
 				],
 
