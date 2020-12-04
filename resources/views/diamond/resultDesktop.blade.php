@@ -1,6 +1,6 @@
 
 
-<div class="relative overflow-hidden mb-8" x-data="destopSearch()">    
+<div class="relative overflow-hidden mb-8">    
     <div class="overflow-x-auto p-2 flex">  
         <table class="table-auto w-full flex-auto">
           <thead>
@@ -44,10 +44,10 @@
 
             </tr>
           </thead>
-          <tbody>
+          <tbody >
             @if( isset($diamonds['data']) )
             @foreach($diamonds['data'] as $row)
-                <tr class="text-center {{ in_array( $row['id'], $clickedRows) ? 'bg-gray-400':'' }}"  id="row-{{ $row['id'] }}" x-on:click="goto({{$row['id']}}); @this.goto({{$row['id']}})">
+                <tr x-data="destopSearch()" class="text-center {{ in_array( $row['id'], $clickedRows) ? 'bg-gray-400':'' }}"  x-on:click="goto({{$row['id']}}, '{{app()->getLocale()}}' ); @this.goto({{$row['id']}})">
                     <td class="border-b px-4 py-2" >
                         <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
 
