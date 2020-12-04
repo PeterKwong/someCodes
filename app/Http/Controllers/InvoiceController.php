@@ -361,7 +361,7 @@ class InvoiceController extends Controller
             $invoice->invoiceItems()
             ->where('invoice_itemable_type', 'App\Jewellery')
             ->where('invoice_itemable_id', $jewellery['id'])
-            ->update($jewelleryInvoiceItem) ;
+            ->updateOrCreate($jewelleryInvoiceItem) ;
             // dd($invoice);
             }
 
@@ -387,7 +387,7 @@ class InvoiceController extends Controller
             $invoice->invoiceItems()
             ->where('invoice_itemable_type', 'App\EngagementRing')
             ->where('invoice_itemable_id', $engagementRing['id'])
-            ->update($engagementRingInvoiceItem) ;
+            ->updateOrCreate($engagementRingInvoiceItem) ;
             }
 
         }
@@ -413,7 +413,7 @@ class InvoiceController extends Controller
             $invoice->invoiceItems()
             ->where('invoice_itemable_type', 'App\WeddingRing')
             ->where('invoice_itemable_id', $weddingRing['id'])
-            ->update($weddingRingInvoiceItem) ;
+            ->updateOrCreate($weddingRingInvoiceItem) ;
             }
 
             // dd($weddingRings);
