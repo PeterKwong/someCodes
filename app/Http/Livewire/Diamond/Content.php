@@ -300,7 +300,10 @@ class Content extends Component
     	$this->resetPartial();
 		// dd( $this->fetchData );
 	    $this->setClickedSearchConditions();
-	    $this->setFancyColumns();
+
+	    if ($this->search_conditions['color']['Fancy']['clicked']) {
+	    	$this->setFancyColumns();
+	    }
 	    // $this->checkCache();
     }
     public function setClickedSearchConditions(){
@@ -344,9 +347,7 @@ class Content extends Component
     } 
     public function setFancyColumns(){
 
-    	if ($this->search_conditions['color']['Fancy']['clicked']) {
-	    	array_splice($this->columns,4,3,['fancy_intensity','fancy_color','clarity']);
-    	}
+	    array_splice($this->columns,4,3,['fancy_intensity','fancy_color','clarity']);
 
     }
     public function setRequest(){
