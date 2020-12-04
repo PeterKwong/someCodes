@@ -219,8 +219,7 @@
 
     return {
        goto(id, locale){
-        console.log(locale)
-          window.open('/' + 'hk' + '/gia-loose-diamonds/' + id , '');
+          window.open('/' + locale + '/gia-loose-diamonds/' + id , '');
       },
     }
   }
