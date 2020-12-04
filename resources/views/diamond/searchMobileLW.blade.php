@@ -64,12 +64,13 @@
 
         <div class="border border-gray-300 p-2 mx-1">
           <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('color')">
-              <div class="font-light text-lg"  wire:click="toggleValue('color', 'Fancy' )">
+              <div class="font-light text-lg">
                 <p class="flex justify-center ">
-                  <span class="btn btn-primary" :class=" `${search_conditions.color.Fancy.clicked?'text-blue-400 bg-white box':''}` "  x-on:click="search_conditions.color.Fancy.clicked = !search_conditions.color.Fancy.clicked; resetFancyData(); displayColumn = '' ">
-                    {{trans('diamondSearch.White')}}
+                  <span class="btn btn-primary" :class=" `${search_conditions.color.Fancy.clicked?'text-blue-400 bg-white box':''}` "  x-on:click="search_conditions.color.Fancy.clicked = false ; resetFancyData(); displayColumn = '' ">
+                    <span wire:click="toggleValue('color', 'Fancy' )">{{trans('diamondSearch.White')}}</span>
                   </span>
-                  <span class="btn btn-primary" :class=" `${search_conditions.color.Fancy.clicked?'':'text-blue-400 bg-white box'}` "  x-on:click="search_conditions.color.Fancy.clicked = !search_conditions.color.Fancy.clicked; resetFancyData(); displayColumn = '' ">{{trans('diamondSearch.Fancy')}}
+                  <span class="btn btn-primary" :class=" `${search_conditions.color.Fancy.clicked?'':'text-blue-400 bg-white box'}` "  x-on:click="search_conditions.color.Fancy.clicked = true; resetFancyData(); displayColumn = '' ">
+                    <span wire:click="toggleValue('color', 'Fancy' )">{{trans('diamondSearch.Fancy')}}</span>
                   </span>
                 </p>
               </div>
