@@ -348,22 +348,31 @@ class InvoiceController extends Controller
 
        foreach (request()->jewelleries as $jewellery) {
             if (isset($jewellery['id'])) {
-            $jewelleries[] = $jewellery['id'];
+                $jewelleries[] = $jewellery['id'];
 
-            $jewelleryInvoiceItem = [
-            'customer_id' => request()->customer_id  ,
-            'invoice_itemable_id' =>  $jewellery['id'] ,
-            'invoice_itemable_type' =>  'App\Jewellery' ,
-            'title' =>  $jewellery['invoice_items'][0]['title'] ,
-            'unit_price' =>  $jewellery['invoice_items'][0]['unit_price'] ,
-            ];
-            
-            $invoice->invoiceItems()
-            ->where('invoice_itemable_type', 'App\Jewellery')
-            ->where('invoice_itemable_id', $jewellery['id'])
-            ->update($jewelleryInvoiceItem) ;
+                $jewelleryInvoiceItem = [
+                'customer_id' => request()->customer_id  ,
+                'invoice_itemable_id' =>  $jewellery['id'] ,
+                'invoice_itemable_type' =>  'App\Jewellery' ,
+                'title' =>  $jewellery['invoice_items'][0]['title'] ,
+                'unit_price' =>  $jewellery['invoice_items'][0]['unit_price'] ,
+                ];
+                
+                $done = $invoice->invoiceItems()
+                ->where('invoice_itemable_type', 'App\Jewellery')
+                ->where('invoice_itemable_id', $jewellery['id'])
+                ->update($jewelleryInvoiceItem) ;
+
+                if ($done == 0) {
+                    $invoice->invoiceItems()
+                ->where('invoice_itemable_type', 'App\Jewellery')
+                ->where('invoice_itemable_id', $jewellery['id'])
+                ->create($jewelleryInvoiceItem) ;
+                }
+
             // dd($invoice);
             }
+
 
         }
 
@@ -374,20 +383,27 @@ class InvoiceController extends Controller
 
         foreach (request()->engagement_rings as $engagementRing) {
             if (isset($engagementRing['id'])) {
-            $engagementRings[] = $engagementRing['id'];
+                $engagementRings[] = $engagementRing['id'];
 
-            $engagementRingInvoiceItem = [
-                'customer_id' => request()->customer_id ,
-                'invoice_itemable_id' =>  $engagementRing['id'] ,
-                'invoice_itemable_type' =>  'App\EngagementRing' ,
-                'title' =>  $engagementRing['invoice_items'][0]['title'] ,
-                'unit_price' =>  $engagementRing['invoice_items'][0]['unit_price'] ,
-            ];
-            
-            $invoice->invoiceItems()
-            ->where('invoice_itemable_type', 'App\EngagementRing')
-            ->where('invoice_itemable_id', $engagementRing['id'])
-            ->update($engagementRingInvoiceItem) ;
+                $engagementRingInvoiceItem = [
+                    'customer_id' => request()->customer_id ,
+                    'invoice_itemable_id' =>  $engagementRing['id'] ,
+                    'invoice_itemable_type' =>  'App\EngagementRing' ,
+                    'title' =>  $engagementRing['invoice_items'][0]['title'] ,
+                    'unit_price' =>  $engagementRing['invoice_items'][0]['unit_price'] ,
+                ];
+                
+                $done = $invoice->invoiceItems()
+                ->where('invoice_itemable_type', 'App\EngagementRing')
+                ->where('invoice_itemable_id', $engagementRing['id'])
+                ->update($engagementRingInvoiceItem) ;
+
+                if ($done == 0) {
+                $invoice->invoiceItems()
+                ->where('invoice_itemable_type', 'App\EngagementRing')
+                ->where('invoice_itemable_id', $engagementRing['id'])
+                ->create($engagementRingInvoiceItem) ;
+                }
             }
 
         }
@@ -400,20 +416,27 @@ class InvoiceController extends Controller
 
         foreach (request()->wedding_rings as $weddingRing) {
             if (isset($weddingRing['id'])) {            
-            $weddingRings[] = $weddingRing['id'];
+                $weddingRings[] = $weddingRing['id'];
 
-            $weddingRingInvoiceItem = [
-            'customer_id' => request()->customer_id ,
-            'invoice_itemable_id' =>  $weddingRing['id'] ,
-            'invoice_itemable_type' =>  'App\WeddingRing' ,
-            'title' =>  $weddingRing['invoice_items'][0]['title'] ,
-            'unit_price' =>  $weddingRing['invoice_items'][0]['unit_price'] ,
-            ];
-            
-            $invoice->invoiceItems()
-            ->where('invoice_itemable_type', 'App\WeddingRing')
-            ->where('invoice_itemable_id', $weddingRing['id'])
-            ->update($weddingRingInvoiceItem) ;
+                $weddingRingInvoiceItem = [
+                'customer_id' => request()->customer_id ,
+                'invoice_itemable_id' =>  $weddingRing['id'] ,
+                'invoice_itemable_type' =>  'App\WeddingRing' ,
+                'title' =>  $weddingRing['invoice_items'][0]['title'] ,
+                'unit_price' =>  $weddingRing['invoice_items'][0]['unit_price'] ,
+                ];
+                
+                $done = $invoice->invoiceItems()
+                ->where('invoice_itemable_type', 'App\WeddingRing')
+                ->where('invoice_itemable_id', $weddingRing['id'])
+                ->update($weddingRingInvoiceItem) ;
+
+                if ($done == 0) {
+                $invoice->invoiceItems()
+                ->where('invoice_itemable_type', 'App\WeddingRing')
+                ->where('invoice_itemable_id', $weddingRing['id'])
+                ->create($weddingRingInvoiceItem) ;
+                }
             }
 
             // dd($weddingRings);
