@@ -344,7 +344,7 @@ class Content extends Component
     } 
     public function setFancyColumns(){
 
-    	if ($this->search_conditions['color']['Fancy']) {
+    	if ($this->search_conditions['color']['Fancy']['clicked']) {
 	    	array_splice($this->columns,4,3,['fancy_intensity','fancy_color','clarity']);
     	}
 
