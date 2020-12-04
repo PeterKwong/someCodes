@@ -532,12 +532,14 @@ class Content extends Component
 	}
 	public function goto($id){
 
-		$url = '/' . app()->getLocale() . '/gia-loose-diamonds/'. $id ;
-		$this->dispatchBrowserEvent('new-tab', ['link' => $url]);
+		// $url = '/' . app()->getLocale() . '/gia-loose-diamonds/'. $id ;
+		// $this->dispatchBrowserEvent('new-tab', ['link' => $url]);
+		// dd($id);
 
 		$this->clickedRows[] = $id;
 		$this->setCookie();
-
+		return ;
+		dd('hi');
 
 
 	}

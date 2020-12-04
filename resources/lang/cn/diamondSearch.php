@@ -32,8 +32,8 @@ return [
 	'Learn More' => '查看更多',
 	'GIA Certificate' => 'GIA 证书',
 	'Appointment' => '预约',
-	'Next' => '上页',
-	'Previous' => '下页',
+	'Next' => '下页',
+	'Previous' => '前页',
 	'For more detailed information, can reach GIA website query' => '如要查询更多资料, 可到GIA官方网站',
 	'For more detailed information, can reach IGI website query' => '如要查询更多资料, 可到IGI官方网站',
 	'If you could not find diamonds as your inquiry' => '如果你找不到你想要的钻石',
@@ -48,7 +48,7 @@ return [
 	'Table Percent' => '枱面比例',
 	'Depth Percent' => '深度比例',
 	'Min' => '最小',
-	'Max' => '最大',	
+	'Max' => '最大',
 	'None' => '无',	
 	'Faint' => '微',	
 	'Medium' => '中度',	
@@ -59,6 +59,7 @@ return [
 	'MED' => '中度',	
 	'STG' => '强',	
 	'VST' => '非常强',	
+
 	
 	//cut
 	'cutEx' => '最高级的切割级别。能给予钻石最佳的火彩，闪烁及亮度。',
@@ -120,11 +121,37 @@ return [
 	'Total' => '总共',
 	'Order' => '需订货',
 	'1-2 Days' => '1-2天',
-	
+
 	'Stock no' => '货号',
-	'Only On Stock'=>'只選現貨',
+	'Only On Stock' => '只选现货',
 	'Sold' => '已售',
 	
 	'List' => '列表',
 	'Grid' => '图示',
+
+
+	'has_image' => '图像',
+	'shape' => '形状',
+	'price' => '价格',
+	'weight' => '重量',
+	'color' => '颜色',
+	'clarity' => '净度',
+	'cut' => '切割',
+	'polish' => '打磨',
+	'symmetry' => '对称',
+	'fluorescence' => '荧光反应',
+	'location' => '状态',
+	'lab' => '检验中心',
+	'starred' => '精选',
+	'certificate' => '证书编号',
+
+	'Fancy' => '彩钻',
+	'White' => '白钻',
+	'Intensity' => '浓度',
+	'fancy_color' => '颜色',
+	'fancy_intensity' => '浓度',
+
+
+
+
 ];

@@ -137,4 +137,27 @@ return [
 	
 	'Fancy' => 'Fancy',
 
+	
+	'has_image' => 'Image',
+	'shape' => 'shape',
+	'price' => 'price',
+	'weight' => 'weight',
+	'color' => 'color',
+	'clarity' => 'clarity',
+	'cut' => 'cut',
+	'polish' => 'polish',
+	'symmetry' => 'symmetry',
+	'fluorescence' => 'fluorescence',
+	'location' => 'location',
+	'lab' => 'lab',
+	'starred' => 'starred',
+	'certificate' => 'certificate',
+
+	'Fancy' => 'Fancy',
+	'White' => 'White',
+	'Intensity' => 'Intensity',
+	'fancy_color' => 'Fancy Color',
+	'fancy_intensity' => 'Fancy Intensity',
+
+
 ];

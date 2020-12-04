@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'previous' => '&laquo; Previous',
-    'next' => 'Next &raquo;',
-
+    'Next' => 'Next',
+    'Previous' => 'Previous',
+    'First Page' => 'First Page',
+    'Last Page' => 'Last Page',
+    'Per Page' => 'Per Page',
 ];

@@ -214,6 +214,17 @@
   }
 </script>
 
+<script >
+  function destopSearch(){
+
+    return {
+       goto(id){
+        window.open('/' + 'hk' + '/gia-loose-diamonds/' + id , '');
+      },
+    }
+  }
+</script>
+
 <script>
   function advanceSearch(){
 
@@ -324,9 +335,9 @@
 <script>
 
 
-window.addEventListener('new-tab', event => {
-    window.open(event.detail.link , '');
-})
+//window.addEventListener('new-tab', event => {
+//    window.open(event.detail.link , '');
+//})
 
 
   document.addEventListener("DOMContentLoaded", () => {
