@@ -39,7 +39,7 @@ return [
 	'For more detailed information, can reach GIA website query' => 'For more detailed information, can reach GIA website query',
 	'For more detailed information, can reach IGI website query' => 'For more detailed information, can reach IGI website query',
 	'If you could not find diamonds as your inquiry' => 'If you could not find diamonds as your inquiry',
-	'PLEASE（Whatsapp: Winnie－5484 4533， for the latest diamond Stock）' => 'PLEASE（Whatsapp: Nancy －5237 6008， for the latest diamond Stock）',
+	'PLEASE（Whatsapp: Winnie－5484 4533， for the latest diamond Stock）' => 'for the latest diamond Stock, PLEASE Whatsapp ',
 	'Per Page' => 'Per Page',
 	'Page is on update' => 'Page is on update',
 	'Width' => 'Width',

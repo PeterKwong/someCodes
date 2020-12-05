@@ -3,7 +3,7 @@
 return [
 	'title1' => 'Please choose few more diamonds, compare them all at the same time. If you do not know how to choose, you also can contact us.',
 	'para1' => '＊PS＊Before arrive, you can inquire via WHATSAPP:
-			5484 4533 ( WINNIE) / 5237 6008(Nancy) / 9733 9639(Jo) to see what diamonds in shop, what you can choose.',
+			 to see what diamonds in shop, what you can choose.',
 	'Quick Chat With' =>'Quick Chat With',
 	'British qualifier professional qualifications' =>'British qualified professional qualifications',
 	'para2' =>'Having Professional Gemologists, Pete And Winnie thier assist, every customer must be able to choose a perfect diamond for their lover.',

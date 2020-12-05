@@ -3,8 +3,7 @@
 return [
 	'title1' => '多選幾粒差不多價錢的鑽石，可以一次過作比較，如不清楚如何選擇，亦可聯絡我們。',
 	'para1' => '
-			＊注意＊光臨前，亦可查詢WHATSAPP:
-			 5237 6008(Nancy) / 9733 9639(Jo) 
+			＊注意＊光臨前，亦可同事聯絡， 
 			店內有什麼現貨，以便選擇。',
 	'Quick Chat With' =>'快速查詢',
 	'British qualifier professional qualifications' =>'英國鑑定師專業資格',

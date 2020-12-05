@@ -3,8 +3,7 @@
 return [
 	'title1' => '多选几粒差不多价钱的钻石，可以一次过作比较，如不清楚如何选择，亦可联络我们。',
 	'para1' => 'Ting Diamond Limited 钻石及珠宝有限公司｜钻石珠宝及首饰, 正货商户，全部钻石都经GIA鉴证，搜寻全球性价比最高钻石，务求为客人找到最好的钻石。
-			＊注意＊光临前，亦可查询WHATSAPP/ 微信:
-			00852 5237 6008(Nancy) / 00852 9733 9639(Jo)/ 00852 5484 4533 ( WINNIE)
+			＊注意＊光临前，亦可查询WHATSAPP/ 微信，
 			店内有什么现货，以便选择。',
 	'Quick Chat With' =>'快速查询',
 	'British qualifier professional qualifications' =>'英国鉴定师专业资格',
