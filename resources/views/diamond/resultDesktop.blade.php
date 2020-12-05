@@ -2,7 +2,7 @@
 
 <div class="relative overflow-hidden mb-8">    
     <div class="overflow-x-auto p-2 flex">  
-        <table class="table-auto w-full flex-auto" id="tableId">
+        <table class="table-auto w-full flex-auto">
           <thead>
             <tr class="text-center">
             @foreach($columns as $column)
