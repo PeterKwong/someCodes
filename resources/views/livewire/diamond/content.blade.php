@@ -347,6 +347,7 @@
 
 
 window.addEventListener('new-tab', event => {
+    console.log(event.detail.link)
     window.open(event.detail.link , '');
 })
 
