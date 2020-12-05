@@ -222,11 +222,17 @@
 
     return {
        goto(id, locale){
-          window.open('/' + locale + '/gia-loose-diamonds/' + id , '');
+        console.log(id)
+          // window.open('/' + locale + '/gia-loose-diamonds/' + id , '');
       },
     }
   }
+
+
 </script>
+
+
+
 
 <script>
   function advanceSearch(){
@@ -338,9 +344,9 @@
 <script>
 
 
-//window.addEventListener('new-tab', event => {
-//    window.open(event.detail.link , '');
-//})
+window.addEventListener('new-tab', event => {
+    window.open(event.detail.link , '');
+})
 
 
   document.addEventListener("DOMContentLoaded", () => {
