@@ -217,22 +217,6 @@
   }
 </script>
 
-<script >
-
- function destopSearch(){
-
-  return {
-     goto(id, locale){
-      console.log(id)
-         window.open('/' + locale + '/gia-loose-diamonds/' + id , '');
-    },
-  }
-}
-
-
-
-</script>
-
 
 
 
