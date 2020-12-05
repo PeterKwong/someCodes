@@ -535,12 +535,11 @@ class Content extends Component
 
 		$url = '/' . app()->getLocale() . '/gia-loose-diamonds/'. $id ;
 		$this->dispatchBrowserEvent('new-tab', ['link' => $url]);
-		// dd($id);
 
 		$this->clickedRows[] = $id;
 		$this->setCookie();
 		return ;
-		dd('hi');
+		// dd('hi');
 
 
 	}
