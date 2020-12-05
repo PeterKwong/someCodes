@@ -47,10 +47,9 @@
           <tbody>
             @if( isset($diamonds['data']) )
             @foreach($diamonds['data'] as $row)
-                <tr class="text-center {{ in_array( $row['id'], $clickedRows) ? 'bg-gray-400':'' }}"  wire:click="goto({{$row['id']}})">
+                <tr x-data="{dataId: {{$row['id']}} }" class="text-center {{ in_array( $row['id'], $clickedRows) ? 'bg-gray-400':'' }}"  x-on:click="window.open('/' + '{{app()->getLocale()}}' + '/gia-loose-diamonds/' + dataId , '') ;@this.goto(dataId)">
                     <td class="border-b px-4 py-2" >
                         <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
-
                         @if($row['image_cache'])
                             <div class="w-48">
                                 <img src="{{config('global.cache.' . config('global.cache.live') ) . 'public/diamond/' .'images/thm-' . $row['id'] . '.jpg'  }}" class="object-contain w-full h-auto" ></img>
