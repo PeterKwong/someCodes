@@ -100,8 +100,8 @@
   <div class="col-span-6">
     <div>
     <div class="grid grid-cols-12 items-center">
-      <div class="col-span-2 font-light text-lg" x-on:click="search_conditions.color.Fancy.clicked = !search_conditions.color.Fancy.clicked; resetFancyData()" >
-        <p class="flex justify-center " wire:click="toggleValue('color', 'Fancy' )">
+      <div class="col-span-2 font-light text-lg" x-on:click="search_conditions.color.Fancy.clicked = !search_conditions.color.Fancy.clicked; resetFancyData(); @this.toggleValue('color', 'Fancy' )" >
+        <p class="flex justify-center " >
           <span class="btn btn-primary" :class=" `${search_conditions.color.Fancy.clicked?'text-blue-400 bg-white box':''}` ">
             {{trans('diamondSearch.White')}}
           </span>
