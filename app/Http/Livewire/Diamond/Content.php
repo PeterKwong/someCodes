@@ -395,7 +395,7 @@ class Content extends Component
     				'/fancy-color/brown' => ['fancy_color'=>['Brown']],
     				'/fancy-color/green' => ['fancy_color'=>['Green']],
     				'/fancy-color/grey' => ['fancy_color'=>['Gray']],
-    				'/fancy-color/oragne' => ['fancy_color'=>['Oragne']],
+    				'/fancy-color/oragne' => ['fancy_color'=>['Orange']],
     				'/fancy-color/pink' => ['fancy_color'=>['Pink']],
     				'/fancy-color/purple' => ['fancy_color'=>['Purple']],
     				'/fancy-color/yellow' => ['fancy_color'=>['Yellow']],
