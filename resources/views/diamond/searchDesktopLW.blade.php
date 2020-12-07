@@ -198,7 +198,7 @@
                       </svg> 
                     @endif 
 
-                    <span class="text-xs">{{$key}}</span>
+                    <span class="text-xs">{{__('diamondSearch.' . $key )}}</span>
                 <div :class=" `border-2 mt-2 px-4 ${fancy_color.fancy_color['{{$key}}'].clicked?
                                 'border-yellow-600':'border-gray-600'}` " >
                 </div>

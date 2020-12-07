@@ -49,7 +49,7 @@
                     <span><b class="text-base sm:text-2xl">{{trans('diamond.metaTitle29')}} {{trans('diamondSearch.Search')}}</b>
                     </span>&nbsp;&nbsp;<br class=""> 
                     <span class="text-base">
-                    0.30- 20 鑽石 ( 克拉 / 卡數 )</span>
+                    {{__('diamondSearch.0.30- 20 Diamond ( Carat )')}}</span>
                   </div>
                 </div>
                 

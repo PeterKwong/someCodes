@@ -122,7 +122,7 @@ return [
 	'CUSHION' => 'Cushion',
 	'MARQUISE' => 'Marquise',
 	'RADIANT' => 'Radiant',
-	'PEAT' => 'Pear',
+	'PEAR' => 'Pear',
 	
 	'Total' => 'Total',
 	'Order' => 'Order',
@@ -131,6 +131,7 @@ return [
 	'Stock no' => 'Stock no',
 	'Only On Stock' => 'Only On Stock',
 	'Sold' => 'Sold',
+	'0.30- 20 Diamond ( Carat )' => '0.30- 20 Diamond ( Carat )',
 	
 	'List' => 'List',
 	'Grid' => 'Grid',
@@ -158,6 +159,18 @@ return [
 	'Intensity' => 'Intensity',
 	'fancy_color' => 'Fancy Color',
 	'fancy_intensity' => 'Fancy Intensity',
+
+	'Yellow' => 'Yellow',
+	'Pink' => 'Pink',
+	'Orange' => 'Orange',
+	'Purple' => 'Purple',
+	'Brown' => 'Brown',
+	'Green' => 'Green',
+	'Gray' => 'Grey',
+	'Blue' => 'Blue',
+	'Black' => 'Black',
+
+
 
 
 ];

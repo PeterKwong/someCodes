@@ -121,6 +121,7 @@ return [
 	'Total' => '總共',
 	'Order' => '需訂貨',
 	'1-2 Days' => '1-2天',
+	'0.30- 20 Diamond ( Carat )' => '0.30- 20 鑽石 ( 克拉 / 卡數 )',
 
 	'Stock no' => '貨號',
 	'Only On Stock' => '只選現貨',
@@ -150,6 +151,17 @@ return [
 	'Intensity' => '濃度',
 	'fancy_color' => '顏色',
 	'fancy_intensity' => '濃度',
+
+
+	'Yellow' => '黃色',
+	'Pink' => '粉紅色',
+	'Orange' => '橙色',
+	'Purple' => '紫色',
+	'Brown' => '啡色',
+	'Green' => '綠色',
+	'Gray' => '灰色',
+	'Blue' => '藍色',
+	'Black' => '黑色',
 
 
 

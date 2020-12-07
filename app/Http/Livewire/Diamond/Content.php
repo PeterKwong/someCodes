@@ -218,7 +218,6 @@ class Content extends Component
 
     public function render()
     {	 
-
         return view('livewire.diamond.content', [
             'diamonds' => $this->readyToLoad
                 ? $this->deferLoading()
@@ -390,6 +389,16 @@ class Content extends Component
     				'/fancy-cut-diamond/marquise-cut' => ['shape'=>['marquise']],
     				'/fancy-cut-diamond/radiant-cut' => ['shape'=>['radiant']],
     				'/fancy-cut-diamond/pear-shaped' => ['shape'=>['pear']],
+    				'/fancy-color' => ['color'=>['Fancy']],
+    				'/fancy-color/black' => ['fancy_color'=>['Black']],
+    				'/fancy-color/blue' => ['fancy_color'=>['Blue']],
+    				'/fancy-color/brown' => ['fancy_color'=>['Brown']],
+    				'/fancy-color/green' => ['fancy_color'=>['Green']],
+    				'/fancy-color/grey' => ['fancy_color'=>['Gray']],
+    				'/fancy-color/oragne' => ['fancy_color'=>['Oragne']],
+    				'/fancy-color/pink' => ['fancy_color'=>['Pink']],
+    				'/fancy-color/purple' => ['fancy_color'=>['Purple']],
+    				'/fancy-color/yellow' => ['fancy_color'=>['Yellow']],
     				];
 
     	foreach ($listUrls as $key => $value) {

@@ -2,7 +2,7 @@
 
 return [
 	'metaTitle1' => '彩色鑽石 | 彩鑽',
-	'metaDescription1' => 'Colored diamonds are valued almost primarily for the intensity and distribution of their color. All Blue Nile Colored Diamonds have natural color and are accompanied by a Gemological Institute of America (GIA) report. Our colored diamond education will help you understand the unique properties of colored diamonds and',
+	'metaDescription1' => '彩色鑽石幾乎主要是根據其顏色的強度和分佈來評估的。所有彩色鑽石均具有自然色，並附有美國寶石學院（GIA）的報告。我們的彩色鑽石教育將幫助您了解彩色鑽石和',
 
 	'metaTitle2' => '彩色鑽石 | 彩鑽 - 黑色鑽石',
 	'metaDescription2' => '彩色鑽石 | 彩鑽 - 黑色鑽石',
