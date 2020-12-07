@@ -1,6 +1,8 @@
 
 <link href="https://vjs.zencdn.net/7.8.3/video-js.css" rel="stylesheet" />
 
+<link rel="stylesheet" type="text/css" href="{{ asset('css/color.css') }}">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
