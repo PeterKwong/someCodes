@@ -54,19 +54,19 @@
 
                     <div class="grid grid-cols-12">
                         <div class="col-span-12 sm:col-span-4">
-                            <img class="" src="/images/front-end/sell_your_diamonds/diamond cert.jpg">
-                             <h2 class="p-2 text-xl text-gray-900">{{__('page.With GIA Certificate')}}</h2>
+                             <h2 class="p-2 text-xl text-gray-900">1. {{__('page.With GIA Certificate')}}</h2>
                             <p class="text-base text-gray-600">{{__('page.Loose diamond or diamond jewelry.')}}</p>
+                            <img class="" src="/images/front-end/sell_your_diamonds/diamond cert.jpg">
                         </div>
                         <div class="col-span-12 sm:col-span-4">
-                            <img class="" src="/images/front-end/sell_your_diamonds/diamond quote.jpg">
-                            <h2 class="p-2 text-xl text-gray-900">{{__('page.Valuation based on 4C info')}}</h2>
+                            <h2 class="p-2 text-xl text-gray-900">2. {{__('page.Valuation based on 4C info')}}</h2>
                             <p class="text-base text-gray-600">{{__('page.Inclusion plot, fluorescence effect will also affect the value.')}}</p>
                             <p class="text-base text-gray-600">{{__('page.Magnified diamond photo would help valuation.')}}</p>
+                            <img class="" src="/images/front-end/sell_your_diamonds/diamond quote.jpg">
                         </div>
                         <div class="col-span-12 sm:col-span-4">
-                            <img class="" src="/images/front-end/sell_your_diamonds/diamond cert.jpg">
-                            <h2 class="p-2 text-xl text-gray-900">{{__('page.Close the deal')}}</h2>
+<!--                             <img class="" src="/images/front-end/sell_your_diamonds/diamond cert.jpg">
+ -->                            <h2 class="p-2 text-xl text-gray-900">3. {{__('page.Close the deal')}}</h2>
                             <p class="text-base text-gray-600">{{__('page.For high clarity e.g. VS2 or above, GIA verification is required. The verification fee will be paid by us if the result is consistent with the GIA report.')}}</p>
                             <p class="text-base text-gray-600">{{__('page.Cash Payment')}}</p>
                         </div>
