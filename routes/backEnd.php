@@ -72,6 +72,9 @@ Route::group(['middleware'=> 'auth:admin'], function(){
         Route::get('orders/{id}', 'OrderController@admBladeShow');
         Route::get('order-to-invoice/{id}', 'OrderController@admBladeOrderToInvoice');
 
+        //Cache
+        Route::get('cache', 'cacheController@index');
+
         //purchase 
         Route::get('purchase/invoices', 'AccountingController@purchaseInvoices');
         Route::get('purchase/progress-invoices', 'AdminController@purchaseProgressInvoices');

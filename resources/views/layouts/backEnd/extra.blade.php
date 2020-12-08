@@ -19,6 +19,15 @@
             </ul>
         </li>
 
+        <li class="has-submenu">
+            <a href="/adm/cache">Info<div class="arrow-down"></div></a>
+            <ul class="submenu">
+                <li>
+                    <a href="/adm/cache">Data</a>
+                </li>                                
+            </ul>
+        </li>
+
         @if(auth()->guard('admin')->user()->roles()->first()->name == 'admin' || auth()->guard('admin')->user()->roles()->first()->name == 'purchase' )
 
         <li class="has-submenu">

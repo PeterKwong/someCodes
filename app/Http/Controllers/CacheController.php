@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Cache\Cache;
 use Illuminate\Http\Request;
 
 class CacheController extends Controller
 {
-    public function get(){
-    }
+	public function index(){
+		return view('backend.purchase.cache');
+	}
 }

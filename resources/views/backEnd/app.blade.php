@@ -25,6 +25,9 @@
         <link href="/admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="/admin/assets/css/{{isset($_COOKIE['theme'])?'light/':''}}app.min.css" rel="stylesheet" type="text/css" />
 
+        @livewireStyles
+
+
     </head>
 
     <body>
@@ -98,6 +101,8 @@
 
         <!-- App js-->
         <script src="/admin/assets/js/app.min.js"></script>
+        
+        @livewireScripts
 
     </body>
 </html>

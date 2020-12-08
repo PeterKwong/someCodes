@@ -13,8 +13,8 @@
     	],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "37"
+    "ratingValue": "{{ cache()->get('googleCommentRate') }}",
+    "reviewCount": "{{ cache()->get('googleCommentCount') }}"
   }
 }
 </script>
