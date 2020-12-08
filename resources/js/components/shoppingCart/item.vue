@@ -142,7 +142,7 @@
                         </div>
 
                     </div>
-                    <div class="col-span-6">
+                    <div class="col-span-6 text-right">
                         <div v-if="couponValid || calculatedDiscountRate != 1">
                             <del><p>HK$ {{subTotal}}</p></del>
                             <p style="color:red;">HK$ {{discountedSubTotal}}</p>
