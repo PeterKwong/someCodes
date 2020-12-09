@@ -92,7 +92,29 @@
                     <p class="text-base text-gray-600"> ． {{__('page.If 1ct or above diamond is without any certification, we will purchase your diamond on the condition customer is willing to apply for certification in GIA Lab.')}} </p>
                     <p class="text-base text-gray-600"> ． {{__('page.Ting Diamond Limited reserve the right to interpret these Terms of Use and decide on any questions or disputes arising under these Terms of Use.')}} </p>
 
+                    <div class="flex">
+                      @if(config('global.locale.' . app()->getLocale())  != '2')
+                        <a class="text-blue-600 hover:text-blue-800" href="{{ '/links/whatsapp/852' . config('global.company.staffs.' . rand(0, count(config('global.company.staffs'))-1 ) . '.number') }}" >
+                            <p><img class="h-4" src="/images/front-end/diamond/search/whatsapp.png" alt="">    
+                                    ( {{ config('global.company.staffs.' . rand(0, count(config('global.company.staffs'))-1 ) . '.name') }} :  {{ config('global.company.staffs.' . rand(0, count(config('global.company.staffs'))-1 ) . '.number') }} ) 
+
+                            </p>
+                        </a>
+                      @endif
+
+                      @if(config('global.locale.' . app()->getLocale())  == '2')
+
+                      <p >          
+                          <img width="100" src="/images/front-end/aboutUs/wechat.jpg">
+                      </p>
+
+                      @endif
+
+                    </div>
+
+
                 </div>
+
 
 
         </div>
