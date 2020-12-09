@@ -174,6 +174,7 @@ Route::prefix('{locale}')->middleware('locale')->group(function(){
     Route::get('/buying-procedure/custom-engagement-rings', 'AboutUsController@customEngagementRing');
     Route::get('/buying-procedure/full-satisfaction', 'AboutUsController@fullSatifaction');
     Route::get('/buying-procedure/diamond-inlay-engrave', 'AboutUsController@diamondInlayEngrave');
+    Route::get('/buying-procedure/faq', 'AboutUsController@frequentlyAskQuestion');
 
     //outbound
     // Route::get('/outbound/{link}', 'OutboundController@directTo');

@@ -43,5 +43,11 @@ class AboutUsController extends Controller
 
 	    return view('aboutUs.fullSatifaction');
 	}
+
+	public function frequentlyAskQuestion ($locale) {
+
+	    return view('aboutUs.frequentlyAskQuestion');
+	}
+	
 	
 }
