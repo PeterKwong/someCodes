@@ -44,8 +44,8 @@
                     <img src="/images/front-end/sell_your_diamonds/broken ring.jpg">
 
                     <h3 class="p-4 text-xl text-gray-800">{{__('page.Method')}} 3 : </h3>
-                    <p class="text-base text-gray-600">{{__('page.In case you think it’s time to say good bye to the old diamond, you can sell your diamond to jeweler or even upgrade your diamond. Ting Diamond provides free professional diamond valuation, you may contact us for more details.')}}
-                    </p>
+                    <a href="{{ '/links/whatsapp/852' .  config('global.company.staffs.' . rand(0, count(config('global.company.staffs'))-1 ) . '.number') . '?text=' . urlencode( url()->current() ) }} "  class="text-base text-blue-600 hover:text-blue-800">{{__('page.In case you think it’s time to say good bye to the old diamond, you can sell your diamond to jeweler or even upgrade your diamond. Ting Diamond provides free professional diamond valuation, you may contact us for more details.')}}
+                    </a>
 
                 </div>
 
@@ -53,22 +53,29 @@
                     <h2 class="p-2 text-xl text-gray-900">{{__('page.Diamond Resell Procedures')}} : </h2>
 
                     <div class="grid grid-cols-12">
-                        <div class="col-span-12 sm:col-span-4">
-                             <h2 class="p-2 text-xl text-gray-900">1. {{__('page.With GIA Certificate')}}</h2>
-                            <p class="text-base text-gray-600">{{__('page.Loose diamond or diamond jewelry.')}}</p>
-                            <img class="" src="/images/front-end/sell_your_diamonds/diamond cert.jpg">
+                        <div class="box p-2 col-span-12 sm:col-span-4">
+                            <div class="bg-rose-300 ...">
+                              <img class="object-cover h-64 w-full" src="/images/front-end/sell_your_diamonds/diamond cert.jpg">
+                            </div>
+                            <h2 class="p-2 text-xl text-gray-900">1. {{__('page.With GIA Certificate')}}</h2>
+                            <p class="text-base text-gray-600">．{{__('page.Loose diamond or diamond jewelry.')}}</p>
                         </div>
-                        <div class="col-span-12 sm:col-span-4">
+                        <div class="box p-2 col-span-12 sm:col-span-4">
+                            <div class="bg-rose-300 ...">
+                              <img class="object-cover h-64 w-full" src="/images/front-end/sell_your_diamonds/diamond quote.jpg">
+                            </div>                            
                             <h2 class="p-2 text-xl text-gray-900">2. {{__('page.Valuation based on 4C info')}}</h2>
-                            <p class="text-base text-gray-600">{{__('page.Inclusion plot, fluorescence effect will also affect the value.')}}</p>
-                            <p class="text-base text-gray-600">{{__('page.Magnified diamond photo would help valuation.')}}</p>
-                            <img class="" src="/images/front-end/sell_your_diamonds/diamond quote.jpg">
+                            <p class="text-base text-gray-600">．{{__('page.Inclusion plot, fluorescence effect will also affect the value.')}}</p>
+                            <p class="text-base text-gray-600">．{{__('page.Magnified diamond photo would help valuation.')}}</p>
                         </div>
-                        <div class="col-span-12 sm:col-span-4">
-<!--                             <img class="" src="/images/front-end/sell_your_diamonds/diamond cert.jpg">
- -->                            <h2 class="p-2 text-xl text-gray-900">3. {{__('page.Close the deal')}}</h2>
-                            <p class="text-base text-gray-600">{{__('page.For high clarity e.g. VS2 or above, GIA verification is required. The verification fee will be paid by us if the result is consistent with the GIA report.')}}</p>
-                            <p class="text-base text-gray-600">{{__('page.Cash Payment')}}</p>
+                        <div class="box p-2 col-span-12 sm:col-span-4">
+                            <div class="bg-rose-300 ...">
+                              <img class="object-cover h-64 w-full" src="/images/front-end/sell_your_diamonds/money HKD.jpg">
+                            </div>
+                            <h2 class="p-2 text-xl text-gray-900">3. {{__('page.Close the deal')}}</h2>
+                            <p class="text-base text-gray-600">．{{__('page.For high clarity e.g. VS2 or above, GIA verification is required. The verification fee will be paid by us if the result is consistent with the GIA report.')}}</p>
+                            <p class="text-base text-gray-600">．{{__('page.Cash Payment')}}</p>
+                            
                         </div>
                     </div>
                    
@@ -77,13 +84,15 @@
 
                 
 
-                
+                <div class="p-12">
+                    
+                    <h2 class="p-2 text-xl text-gray-900">{{__('page.Requirement')}} : </h2>
+                    <p class="text-base text-gray-600"> ． {{__('page.The diamond must be in its original condition with original diamond grading report.')}} </p>
+                    <p class="text-base text-gray-600"> ． {{__('page.Any damage to the original diamond will not be accepted.')}} </p>
+                    <p class="text-base text-gray-600"> ． {{__('page.If 1ct or above diamond is without any certification, we will purchase your diamond on the condition customer is willing to apply for certification in GIA Lab.')}} </p>
+                    <p class="text-base text-gray-600"> ． {{__('page.Ting Diamond Limited reserve the right to interpret these Terms of Use and decide on any questions or disputes arising under these Terms of Use.')}} </p>
 
-                <h2 class="p-2 text-xl text-gray-900">{{__('page.Requirement')}} : </h2>
-                <p class="text-base text-gray-600">{{__('page.The diamond must be in its original condition with original diamond grading report.')}} </p>
-                <p class="text-base text-gray-600">{{__('page.Any damage to the original diamond will not be accepted.')}} </p>
-                <p class="text-base text-gray-600">{{__('page.If 1ct or above diamond is without any certification, we will purchase your diamond on the condition customer is willing to apply for certification in GIA Lab.')}} </p>
-                <p class="text-base text-gray-600">{{__('page.Ting Diamond Limited reserve the right to interpret these Terms of Use and decide on any questions or disputes arising under these Terms of Use.')}} </p>
+                </div>
 
 
         </div>
