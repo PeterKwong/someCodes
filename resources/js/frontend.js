@@ -16,7 +16,7 @@ import JewelleryIndex from './views/frontEnd/jewellery/index'
 import JewelleryShow from './views/frontEnd/jewellery/show'
 
 //wedding Ring
-import CustomerJewelleryIndex from './views/frontEnd/customerJewellery/index'
+// import CustomerJewelleryIndex from './views/frontEnd/customerJewellery/index'
 import CustomerJewelleryShow from './views/frontEnd/customerJewellery/show'
 
 //wedding Ring
@@ -128,14 +128,17 @@ if (!pUrl.includes('/jewellery/necklaces') && !pUrl.includes('/jewellery/earring
     }
 
 //Customer share
-if (pUrl =='/customer-jewellery' || pUrl.includes('/engagement-tips')) {
-    const customerJewelleryIndex =  new Vue(CustomerJewelleryIndex);
-}
+
+// if (pUrl =='/customer-jewellery' || pUrl.includes('/engagement-tips')) {
+//     const customerJewelleryIndex =  new Vue(CustomerJewelleryIndex);
+// }
+
+
 if (window.location.pathname.slice(4,23) == 'customer-jewellery/') {
     const customerJewelleryShow =  new Vue(CustomerJewelleryShow);
 }
 
-if (pUrl.includes('/customer-moments')) {
+if (pUrl.includes('/customer-moments') || pUrl.includes('/engagement-tips')) {
     const customerMomentIndex =  new Vue(CustomerMomentIndex);
 }
 

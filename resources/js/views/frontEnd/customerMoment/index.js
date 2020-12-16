@@ -3,7 +3,6 @@ import { get } from '../../../helpers/api'
 import { transJs } from '../../../helpers/transJs'
 import langs from '../../../langs/customerJewellry'
 import ImageCarousel from '../../../components/imageCarousel.vue'
-import mutualVar from '../../../helpers/mutualVar'
 
 export default {
 		el: '#customerJewelleryIndex',

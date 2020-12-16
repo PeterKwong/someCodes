@@ -110,6 +110,7 @@ export default {
 		autoTitle(){
 
 			var list = ['App/EngagementRing','App/WeddingRing','App/Jewellery']
+			var tags 
 
 			for (var i = 0; list.length > i; i++) {
 				if (this.selectedItem.includes(list[i])){
@@ -122,7 +123,14 @@ export default {
 			for (var i=0; this.form.texts.length > i ; i++) {
 				for (var j = 0; this.option[0].invoice_diamonds.length > j; j++) {
 					if (this.selectedItem.includes('App/EngagementRing') && this.option[0].invoice_diamonds[j]) {
-						this.form.texts[i].content =  this.option[0].invoice_diamonds[j].weight +' '+ transJs('Carat Diamond Ring',this.langs,i) +', '+ this.option[0].invoice_diamonds[j].color +' '+ transJs('color',this.langs,i) +', '+this.option[0].invoice_diamonds[j].clarity +' '+ transJs('clarity',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].cut +' '+ transJs('cut',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].polish +' '+ transJs('polish',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].symmetry +' '+ transJs('symmetry',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].fluorescence +' '+ transJs('fluorescence',this.langs,i) + ', '
+						this.form.texts[i].content =  this.option[0].invoice_diamonds[j].weight +' '+ 
+													transJs('Carat Diamond Ring',this.langs,i) +', '+ this.option[0].invoice_diamonds[j].color +' '+ 
+													transJs('color',this.langs,i) +', '+this.option[0].invoice_diamonds[j].clarity +' '+ 
+													transJs('clarity',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].cut +' '+ 
+													transJs('cut',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].polish +' '+ 
+													transJs('polish',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].symmetry +' '+ 
+													transJs('symmetry',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].fluorescence +' '+ 
+													transJs('fluorescence',this.langs,i) + ', '
 					}
 				}
 				for (var j = 0; this.option[0].engagement_rings.length > j; j++) {

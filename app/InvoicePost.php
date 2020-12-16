@@ -64,6 +64,7 @@ class InvoicePost extends Model
                     ['content'=> '', 'locale'=>'hk', 'type'=>'title'],                     
                     ['content'=> '', 'locale'=>'cn', 'type'=>'title'], 
                         ],
+            'tags' => [],
         ];
     }
 }

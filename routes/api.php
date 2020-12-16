@@ -141,12 +141,15 @@ Route::group(['middleware' => 'auth:api'], function(){
 Route::get('invoice-diamonds-update-due-date/{id}', 'InvoiceDiamondController@setDiamondDueToday');
 Route::get('invoices-update-due-date/{id}', 'InvoiceController@setInvoiceDueToday');
 
+//Langs
+Route::get('langs', 'TextController@translateFetch');
+
 
 
 //Auth API token
 Route::group(['middleware' => 'auth:admin-api'], function(){
 
-	Route::get('test', 'TestController@test');
+	Route::get('test', 'TestController@postTags');
 
 	//Rap price
 	Route::post('diamonds/rap-discount-price', 'DiamondController@rapDiscountPrice');

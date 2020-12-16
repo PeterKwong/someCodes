@@ -70,7 +70,6 @@ class OrderController extends Controller
 
         $order->cartItems()->saveMany($items);
 
-        $this->toTelegramFormat($order, $user);
 
         \Mail::to([ $request->user['email'] ])->queue(new EmailOrder($order));
 
@@ -86,6 +85,7 @@ class OrderController extends Controller
 
         }
 
+        $this->toTelegramFormat($order, $user);
         // dd('done');  
 
 

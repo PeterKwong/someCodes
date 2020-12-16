@@ -11,8 +11,10 @@ use App\InvoiceItem;
 use App\InvoicePost;
 use App\Jewellery;
 use App\Mail\Appointment;
-use App\Support\DiamondImport;
+use App\Page;
 use App\Support\CronJob;
+use App\Support\DiamondImport;
+use App\Tag;
 use Illuminate\Http\Request;
 
 
@@ -67,6 +69,64 @@ class TestController extends Controller
       return 'reset images';
 
     }
+    public function postTags(){
+
+    	$invoicePosts = InvoicePost::with('invoice.invoiceDiamonds','invoice.engagementRings','invoice.weddingRings','invoice.jewelleries')->get();
+
+    	foreach ($invoicePosts as $post) {
+    		$page = Page::create(['url' => 'customer-jewellery/'.$post->id ,'paginable_id' => $post->id , 'paginable_type' => 'App\InvoicePost']);
+
+    		$post = $post->invoice;
+    		foreach ($post->invoiceDiamonds as $diamond) {
+
+    			if ($diamond->weight) {
+    				$weights = [
+    							[ 'value' =>0.3, 'range' => '0.3-0.49'],
+								[ 'value' =>0.5, 'range' => '0.5-0.79'],
+								[ 'value' =>0.8, 'range' => '0.8-0.99'],
+								[ 'value' =>1, 'range' => '1.0-1.19'],
+								[ 'value' =>1.2, 'range' => '1.2-1.49'],
+								[ 'value' =>1.5, 'range' => '1.5-1.99'],
+								[ 'value' =>2, 'range' => '2.0-2.99'],
+								[ 'value' =>3, 'range' => '3.0up'],
+								];
+
+    				$diamondWeight ;
+
+    				foreach ($weights as $w => $weight) {
+    				// dd(floatval($diamond->weight));
+    					if ( floatval($diamond->weight) >= $weight['value']) {
+    						$diamondWeight = $weight['range'];
+    							// dd($diamond->weight);
+    					}
+    					    						// $wei[] = $w;
+
+    				}
+
+    				// dd($diamondWeight);
+	    			$diamond->weight = $diamondWeight;
+
+	    			$columns = ['weight','shape','color','clarity'];
+	    			$tags = [];
+
+	    			foreach ($columns as $column) {
+	    				$tag = Tag::where('type','diamond')->where('content',$diamond->{$column} )->first();
+
+	    				if (isset($tag['id'])) {
+	    					$tags[] = $tag['id'] ;
+	    				}
+	    			}
+	    			// dd($tags);
+	    			$page->tags()->sync($tags);
+    			}
+
+    			
+    		}
+    		// dd($page);
+    	}
+    	// dd($invoicePosts);
+
+    } 
 
     public function testView(){
     	

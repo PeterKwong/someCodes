@@ -17,7 +17,8 @@ class CreateTagsTable extends Migration
             $table->id('id');
             $table->bigInteger('upper_id');
             $table->string('locale');
-            $table->text('content'); 
+            $table->string('type');
+            $table->string('content'); 
             $table->timestamps();
         });
 

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
+    protected $guarded = [];
+
     public function paginable()
     {
         return $this->morphTo();
@@ -18,5 +20,9 @@ class Page extends Model
     public function texts()
     {
         return $this->morphMany('App\Text', 'textable');
+    }
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

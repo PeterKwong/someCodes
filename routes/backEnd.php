@@ -85,7 +85,7 @@ Route::group(['middleware'=> 'auth:admin'], function(){
         //accounting
         Route::get('accounting/invoice-export', 'AdminController@invoiceExport');
 
-        Route::get('test', 'TestController@testView');
+        // Route::get('test', 'TestController@postTags');
 
 
         Route::get('theme', function(){

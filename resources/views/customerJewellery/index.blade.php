@@ -26,59 +26,8 @@
     @endSection
 
     @section('content')
-        <br>
-            <div class="row" >
-                <div class="col-12">
-                    <center>
-                        <h3 class="sm:text-xl font-semibold">{{__('customerMoment.Customer moments')}} - {{__('customerMoment.Customer Jewelrries')}}
-                        </h3>    
-
-                        <br>
-
-                        <h5>
-                        {{__('customerMoment.Thank you for customers support, so that we could share their precious moments.')}}
-                        </h5>
-                        
-                    
-                        <h5>
-                        {{__('customerMoment.Things worth celebrating in Life are too much. Know how to cherish, everthings now we had are the best.')}}
-                        </h5>          
-                    </center>
-                    
-                </div>
-            </div>
-
-        <br>
-
-        <div id="customerJewelleryIndex">
-
-            <div class="grid grid-cols-12 gap-4">
-                <div class="sm:col-span-4 col-span-6" v-for="(post,index) in posts.data">
-                    <div @click="clickRow(post)" >
-                        <a @mouseover="loopImages(index)" @mouseleave="loopImages(index,0)">
-                            <img :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${post.images[0].image}`" v-if="post.images[0]" width="100%">
-                                <center class="p-4">
-                                    <p v-if="post.texts[0]" class="truncate">@{{post.texts[locale].content }} </p>
-                                    </a>
-                                    <p v-if="post.created_at">@{{post.date}} </p>
-                                </center>
-                        </a>
-                    </div>
-                </div>
-            </div>
-                            
-
-            <div class="grid grid-cols-12">
-                <div class="col-span-12">
-                    <center>
-                        <button class="btn btn-primary" @click="more()">{{trans('engagementRing.More')}}</button>
-                    </center>
-                </div>
-            </div>
-
-
-            
-        </div>
+        
+        @livewire('post-fetch')
 
     @endSection
 
