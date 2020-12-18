@@ -41,6 +41,7 @@
                                 {{__('customerJewellery.' . $upperId[count($upperId)-1]['content'])}} 
                         </a>
                         <span class="bg-orange-500"></span>
+                        <span class="bg-orange-200"></span>
                         <p class="text-xl text-gray-500 mx-2">&#187;</p>
                     @endif
                     @foreach($tags as $index => $tag)
