@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\InvoicePost;
 use App\Tag;
+use App\Page;
 use Livewire\Component;
 
 class PostFetch extends Component
@@ -23,6 +24,10 @@ class PostFetch extends Component
     	$this->getPosts();
     	$this->getTags();
 
+    	cache()->remember('tagsCount', 1000, function () {
+		    return  $this->tagsCount();
+		});
+
         return view('livewire.post-fetch');
     }
     public function mount(){
@@ -35,17 +40,32 @@ class PostFetch extends Component
     	$this->posts = InvoicePost::where('published',1)->orderBy('date', 'desc');
 
         if (count($this->selectedTags)>0) {
+        	// dd($this->selectedTags);
 
-        	$tags = [];
+        	// $tags = [];
         	foreach ($this->selectedTags as $key => $value) {
-        		$tags[] = $value['id'];
+        		$tag = $value['id'];
+        		
+	        	$this->posts = $this->posts
+				->whereHas('pages.tags', function($query)use($tag){ 
+						$query = $query->where('tag_id',$tag);
+				
+				});
         	}
         	// dd($tags);
 
-        	$this->posts = $this->posts->whereHas('pages.tags', function($query)use($tags){ 
-        												$query->whereIn('tag_id',$tags);
-        										});
-        	// dd($this->posts->get());
+        	// $this->posts = $this->posts->whereHas('pages.tags', function($query)use($tags){ 
+
+        	// 											$query->whereIn('tag_id',$tags);
+        	// 									});
+
+
+       //  	$this->posts = $this->posts
+       //  					->whereHas('pages.tags', function($query)use($tags){ 
+       //  							$query = $query->where('tag_id',33);
+        					
+							// });
+        	// dd($this->posts);
 
         }
         
@@ -73,10 +93,67 @@ class PostFetch extends Component
 							->get();
 
 	}
-	
-	public function setUpperId($upperId, $content){
+	public function tagsCount(){
+		
+		$tags = Tag::all();
+		$upperIdList = [];
 
-		$this->upperId[] = ['id' => $upperId, 'content' => $content];
+		foreach ($tags as $tag) {
+			if (!in_array($tag->upper_id,$upperIdList)) {
+						 $upperIdList[] = $tag->upper_id;
+				}
+		}
+		// dd(array_reverse($upperIdList));
+
+		$count = [];
+
+		foreach ($tags as $tag) {
+			if (!in_array($tag->id,$upperIdList)) {
+
+					$invoicePosts = Page::where('paginable_type', 'App\InvoicePost')
+					->whereHas('tags', function($tags)use($tag){
+						$tags->where('id', $tag->id);
+					})->count();
+					$tag->update(['count' => $invoicePosts]);
+					// dd($invoicePosts);
+			}
+		}	
+
+		foreach (array_reverse($upperIdList) as $upperId) {
+
+				$tagsCount = Tag::where('upper_id',$upperId)->select('count')->get();
+
+				$count = 0;
+				foreach ($tagsCount as $t) {
+					$count += $t->count;
+				}
+
+				$upperIdUpdated = Tag::where('id',$upperId)->update(['count' => $count]);
+				// dd($upperIdUpdated);
+
+				// $invoicePosts = Page::where('paginable_type', 'App\InvoicePost')
+				// ->whereHas('tags', function($tags)use($tag){
+				// 	$tags->where('id', $tag->id);
+				// })->count();
+				// $tag->update(['count' => $invoicePosts]);
+
+				// dd($count);
+		}	
+
+		// dd($invoicePosts);
+
+		// $invoicePosts = Page::where('paginable_type', 'App\InvoicePost')
+		// 				->whereHas('tags', function($tags){
+		// 					$tags->where('type', 'wedding ring');
+		// 				})
+		// 				->with('tags')->count();
+
+		// dd($this->tags);
+
+	}
+	public function setUpperId($upperId, $content, $count){
+
+		$this->upperId[] = ['id' => $upperId, 'content' => $content, 'count' => $count];
 
 	}
 

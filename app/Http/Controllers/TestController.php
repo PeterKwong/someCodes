@@ -74,9 +74,115 @@ class TestController extends Controller
     	$invoicePosts = InvoicePost::with('invoice.invoiceDiamonds','invoice.engagementRings','invoice.weddingRings','invoice.jewelleries')->get();
 
     	foreach ($invoicePosts as $post) {
+
     		$page = Page::create(['url' => 'customer-jewellery/'.$post->id ,'paginable_id' => $post->id , 'paginable_type' => 'App\InvoicePost']);
 
     		$post = $post->invoice;
+	    	$tags = [];
+
+
+    		foreach ($post->jewelleries as $jewellery) {
+
+    				// dd($jewellery);
+
+    			if ($jewellery->prong) {
+
+
+    				// dd($jewellery);
+	    			// $diamond->weight = $diamondWeight;
+
+	    			$columns = [ 67 =>'style', 68 =>'metal', 69 => 'gemstone' ];
+
+	    			foreach ($columns as $key => $column) {
+
+	    			// dd($key);
+
+	    				$tag = Tag::where('type','Jewellery')
+	    							->where('upper_id', $key )
+	    							->where('content',$jewellery->{$column} )->first();
+
+	    				if (isset($tag['id'])) {
+	    					$tags[] = $tag['id'] ;
+	    				}
+	    			}
+	    			// dd($tags);
+	    			
+    			}
+
+    			
+    		}
+
+
+    		foreach ($post->weddingRings as $weddingRing) {
+
+    				// dd($engagementRing);
+
+    			if ($weddingRing->style) {
+
+
+    				// dd($engagementRing);
+	    			// $diamond->weight = $diamondWeight;
+
+	    			$columns = [ 78 =>'style', 79 =>'metal', 80 => 'sideStone' ];
+
+	    			foreach ($columns as $key => $column) {
+
+	    			// dd($key);
+
+	    				$tag = Tag::where('type','Wedding Ring')
+	    							->where('upper_id', $key )
+	    							->where('content',$weddingRing->{$column} )->first();
+
+	    				if ($column == 'sideStone') {
+
+		    				$tag = Tag::where('type','Wedding Ring')
+		    							->where('upper_id', $key )
+		    							->where('content',$weddingRing->{$column} ? 'sideStone': 'No Side-stone' )->first();
+	    				}
+
+	    				if (isset($tag['id'])) {
+	    					$tags[] = $tag['id'] ;
+	    				}
+	    			}
+	    			// dd($tags);
+	    			
+    			}
+
+    			
+    		}
+
+    		foreach ($post->engagementRings as $engagementRing) {
+
+    				// dd($engagementRing);
+
+    			if ($engagementRing->prong) {
+
+
+    				// dd($engagementRing);
+	    			// $diamond->weight = $diamondWeight;
+
+	    			$columns = [ 67 =>'style', 68 =>'shoulder', 69 => 'prong' ];
+
+	    			foreach ($columns as $key => $column) {
+
+	    			// dd($key);
+
+	    				$tag = Tag::where('type','Engagement Ring')
+	    							->where('upper_id', $key )
+	    							->where('content',$engagementRing->{$column} )->first();
+
+	    				if (isset($tag['id'])) {
+	    					$tags[] = $tag['id'] ;
+	    				}
+	    			}
+	    			// dd($tags);
+	    			
+    			}
+
+    			
+    		}
+
+    		
     		foreach ($post->invoiceDiamonds as $diamond) {
 
     			if ($diamond->weight) {
@@ -103,28 +209,44 @@ class TestController extends Controller
 
     				}
 
-    				// dd($diamondWeight);
+    				// dd($diamond);
 	    			$diamond->weight = $diamondWeight;
 
-	    			$columns = ['weight','shape','color','clarity'];
-	    			$tags = [];
+	    			$columns = [
+	    						5 =>'weight', 6 =>'shape',7 => 'color', 8 => 'clarity',
+	    						9 => 'cut', 10 => 'polish', 11 => 'symmetry', 12 => 'fluorescence'];
 
-	    			foreach ($columns as $column) {
-	    				$tag = Tag::where('type','diamond')->where('content',$diamond->{$column} )->first();
+	    			foreach ($columns as $key => $column) {
+
+	    			// dd($key);
+
+	    				$tag = Tag::where('type','diamond')
+	    							->where('upper_id', $key )
+	    							->where('content',$diamond->{$column} )->first();
 
 	    				if (isset($tag['id'])) {
 	    					$tags[] = $tag['id'] ;
 	    				}
 	    			}
 	    			// dd($tags);
+	    			
 	    			$page->tags()->sync($tags);
     			}
 
     			
     		}
-    		// dd($page);
+
+
+
+
+    		
+
+
+
     	}
-    	// dd($invoicePosts);
+
+
+
 
     } 
 

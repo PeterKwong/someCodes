@@ -28,23 +28,25 @@
                     {{trans('diamondSearch.Total')}}: {{ $posts['total'] }}
                 </a>
                 @foreach($selectedTags as $index => $selectedTag)
-                    <a wire:click="deleteSelectedTags( {{$index}} )" class="bg-green-500 hover:bg-green-200 text-white rounded-full py-1 px-2">
-                        {{ $selectedTag['content'] }} &#10006;
+                    <a wire:click="deleteSelectedTags( {{$index}} )" class="bg-green-500 hover:bg-green-300 text-white rounded-full py-1 px-2">
+                        {{ __('customerJewellery.' . $selectedTag['content'] )}} &#10006;
                     </a>
                 @endforeach
             </div>
 
             <div class="">
-                <div class="flex p-2">
+                <div class="flex p-2 text-center">
                     @if(count($upperId)>1)
                         <a wire:click="popLastArray()" class="bg-{{ count($tags)>0 ?'orange':'green' }}-500 hover:bg-{{ count($tags)>0 ?'orange':'green' }}-200 text-white rounded-full py-1 px-2">
-                                {{$upperId[count($upperId)-1]['content']}} 
+                                {{__('customerJewellery.' . $upperId[count($upperId)-1]['content'])}} 
                         </a>
+                        <span class="bg-orange-500"></span>
                         <p class="text-xl text-gray-500 mx-2">&#187;</p>
                     @endif
                     @foreach($tags as $index => $tag)
-                        <a wire:click="setUpperId( {{$tag['id']}}, '{{$tag['content']}}' ) " class="bg-blue-500 hover:bg-blue-200 text-white rounded-full py-1 px-2">
-                            {{ $tag['content'] }}
+                        <a wire:click="setUpperId( {{$tag['id']}}, '{{$tag['content']}}','{{$tag['count']}}' ) " class="bg-blue-500 hover:bg-blue-300 text-white rounded-full py-1 px-2">
+                            {{ __('customerJewellery.' . $tag['content'] )}} 
+                            <span class="text-blue-200 text-sm">({{$tag['count'] }})</span>
                         </a>
                     @endforeach
                 </div>

@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
 	protected $fillable = [
-    	'locale','content'
+    	'locale','content','count'
     ];
 
+    public function pages(){
+        return $this->belongsToMany(Page::class);
+    }
     public function invPosts(){
     	return $this->belongsToMany(InvPost::class);
     }
