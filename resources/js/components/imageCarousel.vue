@@ -28,11 +28,11 @@
 
                     <div class="flex justify-center">
                         <div class="">
-                            <button class="btn box" @click="currentSelectedItem(0)" >{{ 0 }}</button>
+                            <button class="btn box bg-blue-300 text-white" @click="currentSelectedItem(0)" >{{ 0 }}</button>
                             <button class="btn box" @click="prevItem()" >{{ currentIndex - 1 > 0 ? currentIndex - 1: 0 }}</button>
                             <button class="btn btn-primary"  >{{ currentIndex + 1 }}</button>
                             <button class="btn box" @click="nextItem()" >{{currentIndex + 2 < items.length ? currentIndex + 2: items.length }}</button>
-                            <button class="btn box" @click="currentSelectedItem(items.length )" >{{ items.length }}</button>
+                            <button class="btn box bg-blue-300 text-white" @click="currentSelectedItem(items.length -1)" >{{ items.length }}</button>
                     </div>
 
                     </div>
