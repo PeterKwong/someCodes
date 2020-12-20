@@ -93,10 +93,10 @@ class PostFetch extends Component
 							// ->where('locale', app()->getLocale())
 							->get();
 
-		// if (count($this->tags) == 0) {
-		// 	$this->popLastArray();
-		// }
-							
+		if (count($this->tags) == 0) {
+			$this->popLastArray();
+		}
+
 		// dd($this->tags);
 	}
 	public function tagsCount(){
@@ -169,6 +169,7 @@ class PostFetch extends Component
 
 			$this->selectedTags[] = $this->upperId[count($this->upperId)-1];
 			$this->resetUpperId();
+	    	$this->getTags();
 			return;
 
 		}
