@@ -157,11 +157,32 @@ class PostFetch extends Component
 		// dd($this->tags);
 
 	}
-	public function setUpperId($upperId, $content, $count){
+	public function setUpperId($upperId, $content, $count, $type){
+			// dd($this->checkSameType($type));
 
-		$this->upperId[] = ['id' => $upperId, 'content' => $content, 'count' => $count];
+		if (!$this->checkSameType($type)) {
+			// dd($this->checkSameType($type));
+			$this->selectedTags = [];
+		}
+		$this->upperId[] = ['id' => $upperId, 'content' => $content, 'count' => $count, 'type' => $type];
 
 	}
+	public function checkSameType($type){
+
+		$types = ['Diamond' => 1, 'Engagement Ring' => 1 , 'Wedding Ring' => 2, 'Jewelleries' => 3];
+		$boolean =  true;
+
+		foreach ($this->selectedTags as $key => $tag) {
+			// dd($types[$tag['type']]);
+			if ( $types[$tag['type']] !=  $types[$type] ) {
+				// dd($type);
+				return $boolean = false;
+			}
+			
+		}
+		
+		return $boolean;
+	} 
 
 	public function popLastArray(){
 
@@ -183,6 +204,6 @@ class PostFetch extends Component
 
 	public function resetUpperId(){
 		$this->upperId = [];
-		$this->upperId[] = ['id'=>0, 'content' => ''];
+		$this->upperId[] = ['id'=>0, 'content' => '', 'type'=>1];
 	} 
 }

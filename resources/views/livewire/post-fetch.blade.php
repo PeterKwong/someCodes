@@ -49,7 +49,7 @@
 
                     <div class="col-span-12 flex text-center justify-end">
                         @foreach($tags as $index => $tag)
-                            <a wire:click="setUpperId( {{$tag['id']}}, '{{$tag['content']}}','{{$tag['count']}}' ) " class="bg-blue-500 hover:bg-blue-300 text-white rounded-full py-1 px-2">
+                            <a wire:click="setUpperId( {{$tag['id']}}, '{{$tag['content']}}','{{$tag['count']}}','{{$tag['type']}}' ) " class="bg-blue-500 hover:bg-blue-300 text-white rounded-full py-1 px-2">
                                 {{ __('customerJewellery.' . $tag['content'] )}} 
                                 <span class="text-blue-200 text-sm">({{$tag['count'] }})</span>
                             </a>
