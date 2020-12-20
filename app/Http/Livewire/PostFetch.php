@@ -93,9 +93,10 @@ class PostFetch extends Component
 							// ->where('locale', app()->getLocale())
 							->get();
 
-		if (count($this->tags) == 0) {
-			$this->popLastArray();
-		}
+		// if (count($this->tags) == 0) {
+		// 	$this->popLastArray();
+		// }
+							
 		// dd($this->tags);
 	}
 	public function tagsCount(){
