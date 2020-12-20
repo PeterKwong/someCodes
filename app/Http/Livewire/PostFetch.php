@@ -21,8 +21,9 @@ class PostFetch extends Component
 
     public function render()
     {
-    	$this->getPosts();
+
     	$this->getTags();
+    	$this->getPosts();
 
     	cache()->remember('tagsCount', 36000, function () {
 		    return  $this->tagsCount();
@@ -92,6 +93,10 @@ class PostFetch extends Component
 							// ->where('locale', app()->getLocale())
 							->get();
 
+		if (count($this->tags) == 0) {
+			$this->popLastArray();
+		}
+		// dd($this->tags);
 	}
 	public function tagsCount(){
 		
