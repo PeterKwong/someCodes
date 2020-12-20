@@ -22,8 +22,8 @@
             </div>
         </div>
 
-        <div class="flex justify-between p-4">
-            <div class="">
+        <div class="grid grid-cols-12 justify-between p-4">
+            <div class="col-span-12 sm:col-span-6">
                 <a class="text-blue-600">
                     {{trans('diamondSearch.Total')}}: {{ $posts['total'] }}
                 </a>
@@ -34,22 +34,25 @@
                 @endforeach
             </div>
 
-            <div class="">
-                <div class="flex p-2 text-center">
-                    @if(count($upperId)>1)
-                        <a wire:click="popLastArray()" class="bg-orange-500 hover:bg-orange-200 text-white rounded-full py-1 px-2">
-                                {{__('customerJewellery.' . $upperId[count($upperId)-1]['content'])}} 
-                        </a>
-                        <span class="bg-orange-500"></span>
-                        <span class="bg-orange-200"></span>
-                        <p class="text-xl text-gray-500 mx-2">&#187;</p>
-                    @endif
-                    @foreach($tags as $index => $tag)
-                        <a wire:click="setUpperId( {{$tag['id']}}, '{{$tag['content']}}','{{$tag['count']}}' ) " class="bg-blue-500 hover:bg-blue-300 text-white rounded-full py-1 px-2">
-                            {{ __('customerJewellery.' . $tag['content'] )}} 
-                            <span class="text-blue-200 text-sm">({{$tag['count'] }})</span>
-                        </a>
-                    @endforeach
+            <div class="col-span-12 sm:col-span-6">
+                <div class="grid grid-cols-12">
+                    <div class="col-span-12 text-center justify-center">
+                        @if(count($upperId)>1)
+                            <a wire:click="popLastArray()" class="bg-orange-500 hover:bg-orange-200 text-white rounded-full py-1 px-2">
+                                    {{__('customerJewellery.' . $upperId[count($upperId)-1]['content'])}} 
+                            </a>
+                            <p class="text-xl text-gray-500 mx-2">&#10225;</p>
+                        @endif
+                    </div>
+                    <div class="col-span-12 flex text-center justify-end">
+                        @foreach($tags as $index => $tag)
+                            <a wire:click="setUpperId( {{$tag['id']}}, '{{$tag['content']}}','{{$tag['count']}}' ) " class="bg-blue-500 hover:bg-blue-300 text-white rounded-full py-1 px-2">
+                                {{ __('customerJewellery.' . $tag['content'] )}} 
+                                <span class="text-blue-200 text-sm">({{$tag['count'] }})</span>
+                            </a>
+                        @endforeach
+                    </div>
+
                 </div>
             </div>
 
@@ -87,37 +90,6 @@
 
 
 
-
-
-<!--     <div id="customerJewelleryIndex">
-
-        <div class="grid grid-cols-12 gap-4">
-            <div class="sm:col-span-4 col-span-6" v-for="(post,index) in posts.data">
-                <div @click="clickRow(post)" >
-                    <a @mouseover="loopImages(index)" @mouseleave="loopImages(index,0)">
-                        <img :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${post.images[0].image}`" v-if="post.images[0]" width="100%">
-                            <center class="p-4">
-                                <p v-if="post.texts[0]" class="truncate">@{{post.texts[locale].content }} </p>
-                                </a>
-                                <p v-if="post.created_at">@{{post.date}} </p>
-                            </center>
-                    </a>
-                </div>
-            </div>
-        </div>
-                        
-
-        <div class="grid grid-cols-12">
-            <div class="col-span-12">
-                <center>
-                    <button class="btn btn-primary" @click="more()">{{trans('engagementRing.More')}}</button>
-                </center>
-            </div>
-        </div>
-
-
-        
-    </div> -->
 
 
 	<div id="loading" wire:loading.class="loading">
