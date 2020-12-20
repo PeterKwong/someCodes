@@ -34,7 +34,7 @@
                 @endforeach
             </div>
 
-            <div class="col-span-12 sm:col-span-6">
+            <div class="col-span-12 sm:col-span-6 mt-2">
                 <div class="grid grid-cols-12 ">
                     <div class="col-span-12 flex text-center justify-end">
                         @if(count($upperId)>1)
