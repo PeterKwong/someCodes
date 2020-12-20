@@ -22,8 +22,8 @@
             </div>
         </div>
 
-        <div class="flex justify-between p-4">
-            <div class="">
+        <div class="grid grid-cols-12 justify-between p-4">
+            <div class="col-auto">
                 <a class="text-blue-600">
                     {{trans('diamondSearch.Total')}}: {{ $posts['total'] }}
                 </a>
@@ -34,7 +34,7 @@
                 @endforeach
             </div>
 
-            <div class="">
+            <div class="col-auto">
                 <div class="flex p-2 text-center">
                     @if(count($upperId)>1)
                         <a wire:click="popLastArray()" class="bg-orange-500 hover:bg-orange-200 text-white rounded-full py-1 px-2">
