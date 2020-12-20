@@ -94,7 +94,8 @@ class InvoicePostController extends Controller
             ->json([
                 'form' =>$form,
                 'option' => Invoice::with(['engagementRings','weddingRings','jewelleries','invoiceDiamonds'])->orderBy('id')
-                ->get()
+                ->get(),
+                'tag' => Tag::all(),
                 ]);
     }
 
@@ -196,7 +197,8 @@ class InvoicePostController extends Controller
                 ->json([
                     'form' =>$form,
                     'option' => Invoice::with(['engagementRings','weddingRings','jewelleries','invoiceDiamonds'])->orderBy('id')
-                        ->get()
+                        ->get(),
+                    'tag' => Tag::all(),
 
                     ]);
     }

@@ -34,4 +34,5 @@ mix.autoload({
 	// 		 ], 'public/css/all.css').version()
 	// .styles(['public/css/front-end/diamond.css', 
 	// 		 ], 'public/css/diamond.css').version()
+   .styles('public/css/color.scss', 'public/css').version()
    .sass('resources/sass/app.scss', 'public/css').version();
