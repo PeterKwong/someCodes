@@ -35,15 +35,18 @@
             </div>
 
             <div class="col-span-12 sm:col-span-6">
-                <div class="grid grid-cols-12">
-                    <div class="col-span-12 text-center justify-center">
+                <div class="grid grid-cols-12 ">
+                    <div class="col-span-12 flex text-center justify-end">
                         @if(count($upperId)>1)
-                            <a wire:click="popLastArray()" class="bg-orange-500 hover:bg-orange-200 text-white rounded-full py-1 px-2">
-                                    {{__('customerJewellery.' . $upperId[count($upperId)-1]['content'])}} 
-                            </a>
-                            <p class="text-xl text-gray-500 mx-2">&#10225;</p>
+                            <center>
+                                <a wire:click="popLastArray()" class="bg-orange-500 hover:bg-orange-200 text-white rounded-full py-1 px-2">
+                                        {{__('customerJewellery.' . $upperId[count($upperId)-1]['content'])}} 
+                                </a>
+                                <p class="text-xl text-gray-500 mx-2">&#10225;</p>
+                            </center>
                         @endif
                     </div>
+
                     <div class="col-span-12 flex text-center justify-end">
                         @foreach($tags as $index => $tag)
                             <a wire:click="setUpperId( {{$tag['id']}}, '{{$tag['content']}}','{{$tag['count']}}' ) " class="bg-blue-500 hover:bg-blue-300 text-white rounded-full py-1 px-2">
