@@ -89,6 +89,9 @@ class PostFetch extends Component
 	}
 	public function getTags(){
 
+		if (request()->has('tag')) {
+			$this->getRequestTags();
+		}
 		$this->tags = Tag::where('upper_id', $this->upperId[count($this->upperId)-1]['id'])
 							// ->where('locale', app()->getLocale())
 							->get();
@@ -99,6 +102,9 @@ class PostFetch extends Component
 
 		// dd($this->tags);
 	}
+	public function getRequestTags(){
+		request()->query('tag');
+	} 
 	public function tagsCount(){
 		
 		$tags = Tag::all();
@@ -135,26 +141,10 @@ class PostFetch extends Component
 				}
 
 				$upperIdUpdated = Tag::where('id',$upperId)->update(['count' => $count]);
-				// dd($upperIdUpdated);
 
-				// $invoicePosts = Page::where('paginable_type', 'App\InvoicePost')
-				// ->whereHas('tags', function($tags)use($tag){
-				// 	$tags->where('id', $tag->id);
-				// })->count();
-				// $tag->update(['count' => $invoicePosts]);
-
-				// dd($count);
 		}	
 
-		// dd($invoicePosts);
 
-		// $invoicePosts = Page::where('paginable_type', 'App\InvoicePost')
-		// 				->whereHas('tags', function($tags){
-		// 					$tags->where('type', 'wedding ring');
-		// 				})
-		// 				->with('tags')->count();
-
-		// dd($this->tags);
 
 	}
 	public function setUpperId($upperId, $content, $count, $type){
@@ -180,7 +170,6 @@ class PostFetch extends Component
 			}
 			
 		}
-		
 		return $boolean;
 	} 
 
