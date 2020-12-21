@@ -20,14 +20,16 @@ export default {
 	beforeMount(){
 		mutualVar.notification.contactMessage = { active: true,
 												  trans:false,
-												  data:['🌕中秋節🌕' + "\n" +
-														'🎉🎉2020年10月1 日(星期四)為中秋節假期，本公司營業時間將更改為1pm-6pm，敬請留意🤓' + "\n" +
-														'*如有任何查詢，歡迎FB inbox或 WhatsApp我們，我們會盡快於10月2日(星期五)回覆，謝謝支持🥳' + "\n" +
-														'💎祝大家中秋節快樂💎' + "\n" ],
+												  data:['Ting Diamond  祝大家冬至快樂、身體健康、團團圓圓!   ' + "\n" +
+														'今日辦公時間為 下午一點至六點' + "\n" +
+														'如需看指定4C條件的鑽石, 需提早1-2個工作天預約時間' + "\n" +
+														'*如有任何查詢，歡迎FB inbox或 WhatsApp 或者 可以到我們網站上查看，我們會盡快於回覆，謝謝支持🥳' + "\n" ],
 												  title: '溫馨提示',
 												  type: 'is-info',
 												  next:{ nextUrl: mutualVar.langs.locale + 'about-us', nextText: ' 如有問題，請查詢'},
 												}
+
+
 	},
 	computed:{
 			locale(){
