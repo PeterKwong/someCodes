@@ -16,6 +16,7 @@ class CreateTagsTable extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id('id');
             $table->bigInteger('upper_id');
+            $table->bigInteger('count');
             $table->string('locale');
             $table->string('type');
             $table->string('content'); 

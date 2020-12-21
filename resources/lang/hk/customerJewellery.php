@@ -79,6 +79,7 @@ return [
     '18KR' => '18K玫瑰金',
     'PT' => '鉑金',
     'Mixed' => '混金',
+    'Side-Stone' => '輔石',
     'sideStone' => '輔石',
     'No Side-stone' => '純金',
     'Gemstone' => '寶石',
