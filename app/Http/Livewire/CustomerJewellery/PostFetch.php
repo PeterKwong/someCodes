@@ -89,7 +89,7 @@ class PostFetch extends Component
 	}
 	public function getTags(){
 
-		if (request()->has('tag')) {
+		if (count(request()->input())) {
 			$this->getRequestTags();
 		}
 		$this->tags = Tag::where('upper_id', $this->upperId[count($this->upperId)-1]['id'])
@@ -103,7 +103,60 @@ class PostFetch extends Component
 		// dd($this->tags);
 	}
 	public function getRequestTags(){
-		request()->query('tag');
+
+		// $types = ['Shape','Weight','Color','Clarity','Cut','Symmetry','Polish','Fluorescence'];
+		$tags = request()->input();
+		$selectedTags;
+
+		// if (request()->input()) {
+		// 	$tags = explode(',', request()->query('tag'));
+		// }
+
+
+		if (request()->has('weight')) {
+		// dd(request()->query('weight'));
+			$weights = [
+						[ 'value' =>0.3, 'range' => '0.3-0.49'],
+						[ 'value' =>0.5, 'range' => '0.5-0.79'],
+						[ 'value' =>0.8, 'range' => '0.8-0.99'],
+						[ 'value' =>1, 'range' => '1.0-1.19'],
+						[ 'value' =>1.2, 'range' => '1.2-1.49'],
+						[ 'value' =>1.5, 'range' => '1.5-1.99'],
+						[ 'value' =>2, 'range' => '2.0-2.99'],
+						[ 'value' =>3, 'range' => '3.0up'],
+						];
+
+			$diamondRange ;
+
+			foreach ($weights as $w => $weight) {
+			// dd(floatval($diamond->weight));
+				if ( floatval(request()->query('weight')) >= $weight['value']) {
+					$diamondRange = $weight['range'];
+						// dd($diamond->weight);
+				}
+			}
+			$tags['weight'] = $diamondRange;
+						// dd($tags);
+
+		}
+
+		foreach ($tags as $key => $tag) {
+
+			$upperId = Tag::where('content', $key)
+							->first();
+
+			if ($upperId) {
+				$tagData = Tag::where('upper_id',$upperId->id)
+							->first();	
+			}
+			
+			$tagData = Tag::where('content', $tag)
+							->first();	
+			if ($tagData) {							
+				$this->selectedTags[] = $tagData->toArray();
+			}
+		}
+		// dd($this->selectedTags);
 	} 
 	public function tagsCount(){
 		

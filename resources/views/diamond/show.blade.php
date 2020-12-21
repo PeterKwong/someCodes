@@ -120,8 +120,14 @@
                         </a>
                        
                             <div class="grid grid-cols-12">
-                                <div class="col-span-6 p-2 border-b text-lg font-semibold">{{trans('diamondSearch.Diamond Info')}}</div>
-                                <div class="col-span-6 p-2 border-b"> ( {{__($diamond->shape)}} )</div>
+                                <div class="col-span-6 p-2 border-b text-lg font-semibold">
+                                    {{trans('diamondSearch.Diamond Info')}}
+                                </div>
+                                <div class="col-span-6 p-2 border-b"> 
+                                    <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?shape=' . $diamond->shape }}" target="_blank">
+                                        ( {{__($diamond->shape)}} )
+                                    </a>
+                                </div>
                             </div>
                             
                        
@@ -131,22 +137,40 @@
                                 <div class="col-span-6 p-2 border-b font-light"> TD-LD{{$diamond->location}}-{{$diamond->id}}</div>
                             </div>
                             <div class="grid grid-cols-12">
-                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Carat Weight')}}</div>
-                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->weight}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">
+                                    {{trans('diamondSearch.Carat Weight')}}
+                                </div>
+                                <div class="col-span-6 p-2 border-b font-light">
+                                     <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?weight=' . $diamond->weight }}" target="_blank">
+                                        {{$diamond->weight}}
+                                    </a>
+                                </div>
                             </div>
                             <div class="grid grid-cols-12">
                                 <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Color Grade')}}</div>
-                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->color}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">
+                                    <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?color=' . $diamond->color }}" target="_blank">
+                                        {{$diamond->color}}
+                                    </a>
+                                </div>
                             </div>
                             <div class="grid grid-cols-12">
                                 <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Clarity Grade')}}</div>
-                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->clarity}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">
+                                    <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?clarity=' . $diamond->clarity }}" target="_blank">
+                                        {{$diamond->clarity}}
+                                    </a>
+                                </div>
                             </div>
 
 
                             <div class="grid grid-cols-12">
                                 <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Cut Grade')}}</div>
-                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->cut}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">
+                                    <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?cut=' . $diamond->cut }}" target="_blank">
+                                        {{$diamond->cut}}
+                                    </a>
+                                </div>
                             </div>
                        
 
@@ -155,11 +179,19 @@
                         
                             <div class="grid grid-cols-12">
                                 <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Polish')}}</div>
-                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->polish}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">
+                                    <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?polish=' . $diamond->polish }}" target="_blank">
+                                        {{$diamond->polish}}
+                                    </a>
+                                </div>
                             </div>
                             <div class="grid grid-cols-12">
                                 <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Symmetry')}}</div>
-                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->symmetry}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">
+                                    <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?symmetry=' . $diamond->symmetry }}" target="_blank">
+                                        {{$diamond->symmetry}}
+                                    </a>
+                                </div>
                             </div>
                        
 
@@ -168,7 +200,11 @@
                         
                             <div class="grid grid-cols-12">
                                 <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Fluorescence')}}</div>
-                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->fluorescence}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">
+                                    <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?fluorescence=' . $diamond->fluorescence }}" target="_blank">
+                                        {{$diamond->fluorescence}}
+                                    </a>
+                                </div>
                             </div>
                        
 
