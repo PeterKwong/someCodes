@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\CustomerJewellery;
 
 use App\InvoicePost;
 use App\Tag;
@@ -29,7 +29,7 @@ class PostFetch extends Component
 		    return  $this->tagsCount();
 		});
 
-        return view('livewire.post-fetch');
+        return view('livewire.customer-jewellery.post-fetch');
     }
     public function mount(){
 
@@ -163,7 +163,7 @@ class PostFetch extends Component
 		$boolean =  true;
 
 		foreach ($this->selectedTags as $key => $tag) {
-			// dd($types[$tag['type']]);
+			// dd($type);
 			if ( $types[$tag['type']] !=  $types[$type] ) {
 				// dd($type);
 				return $boolean = false;
@@ -193,6 +193,6 @@ class PostFetch extends Component
 
 	public function resetUpperId(){
 		$this->upperId = [];
-		$this->upperId[] = ['id'=>0, 'content' => '', 'type'=>1];
+		$this->upperId[] = ['id'=>0, 'content' => '', 'type'=> 'Diamond'];
 	} 
 }

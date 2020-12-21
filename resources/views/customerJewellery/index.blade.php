@@ -27,7 +27,7 @@
 
     @section('content')
         
-        @livewire('post-fetch')
+        @livewire('customer-jewellery.post-fetch')
 
     @endSection
 

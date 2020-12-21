@@ -54,7 +54,7 @@
             </a>
           <span class="flex justify-between p-1 px-4">
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/yellow">
-              <svg class="fill-current w-6 text-yellow-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 text-yellow-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -86,7 +86,7 @@
                       {{trans('diamondSearch.Yellow')}}
             </a>
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/pink">
-              <svg class="fill-current w-6 text-pink-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 text-pink-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -120,7 +120,7 @@
           </span>
           <span class="flex justify-between p-1 px-4">
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/orange">
-              <svg class="fill-current w-6 text-orange-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 text-orange-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -153,7 +153,7 @@
 
             </a>
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/purple">
-              <svg class="fill-current w-6 text-purple-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 text-purple-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -188,7 +188,7 @@
 
           <span class="flex justify-between p-1 px-4">
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/brown">
-              <svg class="fill-current w-6 text-red-700" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 text-red-700" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -220,7 +220,7 @@
                       {{trans('diamondSearch.Brown')}}
             </a>
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/green">
-              <svg class="fill-current w-6 text-green-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 text-green-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -255,7 +255,7 @@
 
           <span class="flex justify-between p-1 px-4">
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/grey">
-              <svg class="fill-current w-6 text-gray-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 text-gray-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -287,7 +287,7 @@
                       {{trans('diamondSearch.Gray')}}
             </a>
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/blue">
-              <svg class="fill-current w-6 text-blue-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 text-blue-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -322,7 +322,7 @@
 
           <span class="flex justify-between p-1 px-4">
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/black">
-              <svg class="fill-current w-6 text-black-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 text-black-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
