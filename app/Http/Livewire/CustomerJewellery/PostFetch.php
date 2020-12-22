@@ -144,14 +144,19 @@ class PostFetch extends Component
 
 			$upperId = Tag::where('content', $key)
 							->first();
+			// dd($upperId->id);
 
-			if ($upperId) {
-				$tagData = Tag::where('upper_id',$upperId->id)
-							->first();	
-			}
 			
 			$tagData = Tag::where('content', $tag)
 							->first();	
+
+			if ($upperId && $tagData) {
+
+				$tagData = Tag::where('content', $tag)->where('upper_id',$upperId->id)
+							->first();
+							// dd($tagData->toArray());
+			}
+
 			if ($tagData) {							
 				$this->selectedTags[] = $tagData->toArray();
 			}
