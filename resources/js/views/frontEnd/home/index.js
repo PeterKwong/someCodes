@@ -18,7 +18,7 @@ export default {
 		'$route': 'fetchData'
 	},
 	beforeMount(){
-		mutualVar.notification.contactMessage = { active: true,
+		mutualVar.notification.contactMessage = { active: false,
 												  trans:false,
 												  data:['Ting Diamond  祝大家冬至快樂、身體健康、團團圓圓!   ' + "\n" +
 														'今日辦公時間為 下午一點至六點' + "\n" +
