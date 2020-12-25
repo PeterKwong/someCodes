@@ -149,7 +149,7 @@ Route::get('langs', 'TextController@translateFetch');
 //Auth API token
 Route::group(['middleware' => 'auth:admin-api'], function(){
 
-	Route::get('test', 'TestController@postTags');
+	Route::get('test', 'TestController@resetAllDiamonds');
 
 	//Rap price
 	Route::post('diamonds/rap-discount-price', 'DiamondController@rapDiscountPrice');

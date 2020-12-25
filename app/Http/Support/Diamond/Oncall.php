@@ -4,10 +4,11 @@ namespace App\Support\Diamond;
 
 use App\Diamond;
 use App\DiamondQuery;
+use App\InvoiceDiamond;
 use App\Supplier;
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request as Req;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\Request as Req;
 
 trait Oncall{
 
@@ -359,6 +360,7 @@ trait Oncall{
             if (!empty($diamond['certificate']) ) {
 
                   $d = Diamond::where('certificate',$diamond['certificate'])->first();
+                  $invoiceDiamond = InvoiceDiamond::where('certificate',$diamond['certificate'])->first();
 
                       if (!isset($d)) {
                         $d = new Diamond;
@@ -383,7 +385,7 @@ trait Oncall{
                       $d->fluorescence = $diamond['fluorescence']?$diamond['fluorescence']:'None'; 
                       $d->lab = $diamond['lab'];
                       $d->location = $diamond['location']; 
-                      $d->available = 1; 
+                      $d->available = $invoiceDiamond?NULL:1; 
                       $d->image_link = $diamond['image_link']?$diamond['image_link']:null;
                       $d->has_image = $diamond['has_image']?1:null;
                       $d->heart_image = $diamond['heart_image']?$diamond['heart_image']:null;

@@ -3,10 +3,11 @@
 namespace App\Support\Diamond;
 
 use App\Diamond;
+use App\InvoiceDiamond;
 use App\Supplier;
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request as Req;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\Request as Req;
 
 
 trait Rap{
@@ -267,6 +268,7 @@ trait Rap{
                 if (!empty($data->diamond->cert_num &&  is_numeric($data->diamond->cert_num))) {
 
                     $d = Diamond::where('certificate',$data->diamond->cert_num)->first();
+                    $invoiceDiamond = InvoiceDiamond::where('certificate',$diamond['certificate'])->first();
                     // dd(print_r($data['diamond']['cert_num']));
                     // dd(print_r($data->diamond->cert_num));
                     if (!isset($d)) {
@@ -294,7 +296,7 @@ trait Rap{
                       $d->lab = $data->diamond->lab;
                       $d->location = $data->diamond->country =='Hong Kong' && $this->isNotMemoSuppliers($s_id->id)
                                       ?'1'.$data->diamond->country:'2'; 
-                      $d->available = 1; 
+                      $d->available = $invoiceDiamond?NULL:1; 
                       $d->r_id = $data->diamond->diamond_id; 
                       $d->has_image = $this->allowImage($data->seller->account_id)?$data->diamond->has_image_file:0;        
                       // $d->image_link = $data->diamond->image_file_url; 
