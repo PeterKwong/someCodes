@@ -8,7 +8,7 @@
 				<div class="col-sm-3 p-2 border">
 					
 					<p>{{ $key }}</p>
-					<input class="form-control" type="text" name="" wire:model="cache.{{$key}}" >
+					<textarea wire:model="cache.{{$key}}" class="form-control"></textarea>
 					
 				</div>
 				

@@ -81,10 +81,8 @@
                               <br>
                             </p>
 
-
-                            <p class="text-lg p-1" :class="notification.contactMessage.type" v-for="dat in notification.contactMessage.data">
-                              {{dat }}
-                            </p>
+                            <span style="white-space: pre-line" class="text-lg p-1" :class="notification.contactMessage.type" v-for="dat in notification.contactMessage.data">
+                              {{dat }}</span>
 
 
                             <a  class="text-lg p-1" :href="notification.contactMessage.next.nextUrl" target="_blank">

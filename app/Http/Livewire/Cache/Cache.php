@@ -8,7 +8,9 @@ class Cache extends Component
 {	
 	public $cache = [
 						'googleCommentRate' => '',
-						'googleCommentCount' => '',
+                        'googleCommentCount' => '',
+                        'homePage' => '',
+                        'homePageShow' => '',
 					];
 
     public function render()

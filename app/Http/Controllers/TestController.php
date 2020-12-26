@@ -255,7 +255,7 @@ class TestController extends Controller
     	return view('test.index');
     }
 
-    public function cacheC(){
+    public function setCache(){
     	
     }
 

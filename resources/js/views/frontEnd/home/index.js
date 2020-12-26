@@ -18,12 +18,9 @@ export default {
 		'$route': 'fetchData'
 	},
 	beforeMount(){
-		mutualVar.notification.contactMessage = { active: false,
+		mutualVar.notification.contactMessage = { active: document.head.querySelector('meta[name="homePageShow"]').content == 1 ?true:false,
 												  trans:false,
-												  data:['Ting Diamond  祝大家冬至快樂、身體健康、團團圓圓!   ' + "\n" +
-														'今日辦公時間為 下午一點至六點' + "\n" +
-														'如需看指定4C條件的鑽石, 需提早1-2個工作天預約時間' + "\n" +
-														'*如有任何查詢，歡迎FB inbox或 WhatsApp 或者 可以到我們網站上查看，我們會盡快於回覆，謝謝支持🥳' + "\n" ],
+												  data:[`${document.head.querySelector('meta[name="homePage"]')?document.head.querySelector('meta[name="homePage"]').content:null}`],
 												  title: '溫馨提示',
 												  type: 'is-info',
 												  next:{ nextUrl: mutualVar.langs.locale + 'about-us', nextText: ' 如有問題，請查詢'},

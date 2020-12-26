@@ -16,6 +16,7 @@
         
         @include('layouts.metas.userApiToken')
         @include('layouts.metas.stripeHeaders')
+        @include('layouts.metas.cache')
 
         @livewireStyles
 </head>
