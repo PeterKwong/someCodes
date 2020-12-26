@@ -30,7 +30,7 @@
 
         <div id="home" class="p-4">
                        
-                <h1 class="text-2xl text-center">{{__('page.How to deal with some unwanted diamond jewelry')}} || {{trans('page.Hong Kong Sell Your Diamond Price')}}?</h1>
+                <h1 class="text-2xl text-center">{{__('page.How to deal with some unwanted diamond jewelry')}} || {{trans('page.Hong Kong Sell Your Diamond Price')}}!</h1>
                 <h3 class="p-2 text-xl text-gray-800 text-center">{{__('page.For some old-fashioned and broken diamond jewelry, it’s pity to leave them idle or throw them away. What about transforming them into new one or something valuable')}}?</h3>
 
                 <div class="p-4">
