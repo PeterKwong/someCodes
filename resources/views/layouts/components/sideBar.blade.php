@@ -111,14 +111,14 @@
         <div class="card-body">
             <a class="text-decoration-none {{ Str::contains(request()->segment(2), 'buying-procedure') && !request()->segment(3) ?'text-blue-600':'' }}" href="{{ url( app()->getLocale())}}/buying-procedure" >{{trans('buyingProcedure.Appointment First')}}</a>
             <br>
-            <a class="text-decoration-none {{ Str::contains(request()->segment(3), 'take-from-shop-or-gia') ?'text-blue-400':'' }}" href="{{ url( app()->getLocale())}}/buying-procedure/take-from-shop-or-gia" >
-            {{trans('buyingProcedure.Shop Or GIA Lab')}} </a>
-            <br>
             <a class="text-decoration-none {{ Str::contains(request()->segment(3), 'custom-engagement-rings') ?'text-blue-400':'' }}" href="{{ url( app()->getLocale())}}/buying-procedure/custom-engagement-rings" >
             {{trans('buyingProcedure.Choose Ring Setting')}}</a>
             <br>
             <a class="text-decoration-none {{ Str::contains(request()->segment(3), 'diamond-inlay-engrave') ?'text-blue-400':'' }}" href="{{ url( app()->getLocale())}}/buying-procedure/diamond-inlay-engrave">
             {{trans('buyingProcedure.Ring Inlay | Engrave')}}</a>
+            <br>
+            <a class="text-decoration-none {{ Str::contains(request()->segment(3), 'take-from-shop-or-gia') ?'text-blue-400':'' }}" href="{{ url( app()->getLocale())}}/buying-procedure/take-from-shop-or-gia" >
+            {{trans('buyingProcedure.Shop Or GIA Lab')}} </a>
             <br>
             <a class="text-decoration-none {{ Str::contains(request()->segment(3), 'full-satisfaction') ?'text-blue-400':'' }}" href="{{ url( app()->getLocale())}}/buying-procedure/full-satisfaction" >
             {{trans('buyingProcedure.Pay With Satisfaction')}} </a>

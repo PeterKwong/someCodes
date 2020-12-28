@@ -365,8 +365,6 @@ trait Oncall{
                       if (!isset($d)) {
                         $d = new Diamond;
                       }
-    
-
                       $d->certificate = $diamond['certificate'];
                       $d->shape = $diamond['shape'];
                       $d->weight = $diamond['weight']; 

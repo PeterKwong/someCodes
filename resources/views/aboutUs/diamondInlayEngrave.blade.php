@@ -48,13 +48,13 @@
                       <a class="text-blue-600 text-center px-2" href="{{ url( app()->getLocale() . '/buying-procedure' )}}" >{{trans('buyingProcedure.Appointment First')}}</a>
                     </li>
                     <li class="">
-                      <a class="text-blue-600 text-center px-2" href="{{ url( app()->getLocale() . '/buying-procedure/take-from-shop-or-gia' )}}" >{{trans('buyingProcedure.Shop Or GIA Lab')}} </a>
-                    </li> 
-                    <li class="">
                       <a class="text-blue-600 text-center px-2" href="{{ url( app()->getLocale() . '/buying-procedure/custom-engagement-rings' )}}" >{{trans('buyingProcedure.Choose Ring Setting')}}</a>
                     </li>
                       <li class="">
                       <a class="nav-link bg-blue-300 text-white" href="{{ url( app()->getLocale() . '/buying-procedure/diamond-inlay-engrave' )}}">{{trans('buyingProcedure.Ring Inlay | Engrave')}}</a>
+                    </li> 
+                    <li class="">
+                      <a class="text-blue-600 text-center px-2" href="{{ url( app()->getLocale() . '/buying-procedure/take-from-shop-or-gia' )}}" >{{trans('buyingProcedure.Shop Or GIA Lab')}} </a>
                     </li> 
                       <li class="">
                       <a class="text-blue-600 text-center px-2" href="{{ url( app()->getLocale() . '/buying-procedure/full-satisfaction' )}}" >{{trans('buyingProcedure.Pay With Satisfaction')}} </a>

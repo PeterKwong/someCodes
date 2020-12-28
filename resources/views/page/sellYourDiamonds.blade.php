@@ -44,9 +44,10 @@
                     <img src="/images/front-end/sell_your_diamonds/broken ring.jpg">
 
                     <h3 class="p-4 text-xl text-gray-800">{{__('page.Method')}} 3 : </h3>
-                    <a href="{{ '/links/whatsapp/852' .  config('global.company.staffs.' . rand(0, count(config('global.company.staffs'))-1 ) . '.number') . '?text=' . urlencode( url()->current() ) }} "  class="text-base text-blue-600 hover:text-blue-800">{{__('page.In case you think it’s time to say good bye to the old diamond, you can sell your diamond to jeweler or even upgrade your diamond. Ting Diamond provides free professional diamond valuation, you may contact us for more details.')}}
-                    </a>
-
+<!--                     <a href="{{ '/links/whatsapp/852' .  config('global.company.staffs.' . rand(0, count(config('global.company.staffs'))-1 ) . '.number') . '?text=' . urlencode( url()->current() ) }} "  class="text-base text-blue-600 hover:text-blue-800">
+ -->                        {{__('page.In case you think it’s time to say good bye to the old diamond, you can sell your diamond to jeweler or even upgrade your diamond. Ting Diamond provides free professional diamond valuation, you may contact us for more details.')}}
+<!--                     </a>
+ -->
                 </div>
 
                 <div class="p-8">
