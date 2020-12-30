@@ -45,7 +45,20 @@
 							<div class="control ">
 								<div class="control">
 									<label class="label">Color</label>
-										<input type="text" class="form-control" v-model="form.color" required>
+										<select class="form-control" v-model="form.color">
+											<option value="D">D</option>
+											<option value="E">E</option>
+											<option value="F">F</option>
+											<option value="G">G</option>
+											<option value="H">H</option>
+											<option value="I">I</option>
+											<option value="J">J</option>
+											<option value="K">K</option>
+											<option value="L">L</option>
+											<option value="M">M</option>
+											<option value="N">N</option>
+											<option value="Fancy">Fancy</option>
+										</select>
 										<small class="is-danger" v-if="errors.color">@{{errors.color[0]}}</small>
 								</div>
 							</div>
@@ -56,7 +69,18 @@
 							<div class="control has-icon-left">
 								<div class="control">
 									<label class="label">Clarity</label>
-										<input type="text" class="form-control" v-model="form.clarity" placeholder="clarity" required>
+										<select class="form-control" v-model="form.clarity">
+											<option value="FL">FL</option>
+											<option value="IF">IF</option>
+											<option value="VVS1">VVS1</option>
+											<option value="VVS2">VVS2</option>
+											<option value="VS1">VS1</option>
+											<option value="VS2">VS2</option>
+											<option value="SI1">SI1</option>
+											<option value="SI2">SI2</option>
+											<option value="I1">I1</option>
+											<option value="I2">I2</option>
+										</select>
 										<small class="is-danger" v-if="errors.clarity">@{{errors.clarity[0]}}</small>
 								</div>
 							</div>
@@ -81,7 +105,11 @@
 							<div class="control has-icon-left">
 								<div class="control">
 									<label class="label">Cut</label>
-										<input type="text" class="form-control" v-model="form.cut" placeholder="cut" required>
+										<select class="form-control"  v-model="form.cut">
+											<option value="EX">EX</option>
+											<option value="VG">VG</option>
+											<option value="GD">GD</option>											
+										</select>
 										<small class="is-danger" v-if="errors.cut">@{{errors.cut[0]}}</small>
 								</div>
 							</div>	
@@ -91,7 +119,11 @@
 							<div class="control has-icon-left">
 								<div class="control">
 									<label class="label">Polish</label>
-										<input type="text" class="form-control" v-model="form.polish" placeholder="polish" required>
+										<select class="form-control"  v-model="form.polish">
+											<option value="EX">EX</option>
+											<option value="VG">VG</option>
+											<option value="GD">GD</option>											
+										</select>									
 										<small class="is-danger" v-if="errors.polish">@{{errors.polish[0]}}</small>
 								</div>
 							</div>
@@ -101,7 +133,11 @@
 							<div class="control has-icon-left">
 								<div class="control">
 									<label class="label">Symmetry</label>
-										<input type="text" class="form-control" v-model="form.symmetry" placeholder="symmetry" required>
+										<select class="form-control"  v-model="form.symmetry">
+											<option value="EX">EX</option>
+											<option value="VG">VG</option>
+											<option value="GD">GD</option>											
+										</select>
 										<small class="is-danger" v-if="errors.symmetry">@{{errors.symmetry[0]}}</small>
 								</div>
 							</div>
@@ -110,7 +146,13 @@
 							<div class="control ">
 								<div class="control">
 									<label class="label">Fluorescence</label>
-										<input type="fluorescence" class="form-control" v-model="form.fluorescence" required>
+										<select class="form-control"  v-model="form.fluorescence">
+												<option value="NON">NON</option>
+												<option value="FNT">FNT</option>
+												<option value="MED">MED</option>
+												<option value="STG">STG</option>
+												<option value="VST">VST</option>
+										</select>
 										<small class="is-danger" v-if="errors.fluorescence">@{{errors.fluorescence[0]}}</small>
 								</div>
 							</div>
