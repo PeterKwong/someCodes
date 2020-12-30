@@ -141,7 +141,7 @@
                         
                             
                         <div>
-                            <a :href="`https://www.gia.edu/report-check?reportno=${post.invoice.invoice_diamonds[0].certificate}`">
+                            <a href="https://www.gia.edu/report-check?reportno={{$diamond['certificate'] }}" target="_blank">
                             <div class="grid grid-cols-12 p-2 text-light border-b">
                                 <div class="col-span-6">{{trans('diamondSearch.Certificate')}}</div>
                                 <div class="col-span-6">{{$diamond['certificate']}}</div>
@@ -156,24 +156,31 @@
                 </div>
             </div>
 
-            <div class="col-span-12 sm:col-span-8" v-for="image in post.images" v-if="image.type == 'cert'">
-                <div class="box">
-                    <a href="{{url(app()->getLocale() . '/gia-loose-diamonds')}}">
-                        <figure class="image">
-                        <img width="100%" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${image.image}`">
-                        </figure>
-                    </a>
-                </div>
-            </div>
+            @foreach( $meta->images as $image )
+            	@if($image['type'] == 'cert')
+		            <div class="col-span-12 sm:col-span-8">
+		                <div class="box">
+		                    <a href="{{url(app()->getLocale() . '/gia-loose-diamonds')}}">
+		                        <figure class="image">
+		                        <img width="100%" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $image->image}} ">
+		                        </figure>
+		                    </a>
+		                </div>
+		            </div>
+		        @endif
+		    @endforeach
+
 
         </div>
 
 
-        <div class="grid grid-cols-12 text-center p-8" v-for="image in post.images" v-if="image.type == 'gia_no'">
+        <div class="grid grid-cols-12 text-center pt-8" v-for="image in post.images" v-if="image.type == 'gia_no'">
 
             <div class="col-span-7">
                 <article>
-                    <figure><img width="100%" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${image.image}`"></figure>
+                    <figure>
+                    	<img width="100%" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${image.image}`">
+                    </figure>
                 </article>
                 
             </div>
@@ -182,14 +189,20 @@
                     <figure>
                         <img width="100%" src="/images/front-end/diamond/GIA-Laser-Inscription-girdle.jpg">
                     </figure>
+                </article>
+                
+            </div>            
+        </div>
+
+        <div class="grid grid-cols-12 text-center" v-for="image in post.images" v-if="image.type == 'gia_no'">
+
+            <div class="col-span-12">
+                
                     <p class="subtitle">
                     {{__('diamondSearch.Diamond waist number is like a person ID card, used to confirm the diamond 4Cs, what exactly those levels.')}}
                     </p>
-                </article>
                 
-            </div>
-                
-            
+            </div>            
         </div>
 
        @endforeach
@@ -197,7 +210,7 @@
 
 
 
-        <div class="grid grid-cols-12" v-if="published.engagementRings">
+        <div class="grid grid-cols-12 pt-2" v-if="published.engagementRings">
             <div class="col-span-6">
                     <div class="box">
                         <a :href=" langHref +'/engagement-rings/' + post.invoice.engagement_rings[0].id">
