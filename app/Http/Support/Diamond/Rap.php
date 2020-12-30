@@ -253,7 +253,26 @@ trait Rap{
 
     public function importDiamondToDatabase($data){
 
-
+      $trans = [
+                'ROUND'=>'Round',
+                'PRINCESS'=>'Prince',
+                'HEART'=>'Heart',
+                'EMERALD'=>'Emerald',
+                'PEAR'=>'Pear',
+                'MARQUISE'=>'Marquise',
+                'OVAL'=>'Oval',
+                'RADIANT'=>'Radiant',
+                'CUSHION'=>'Cushion',
+                'ASSCHER'=>'Asscher',
+                'Excellent'=>'EX',
+                'Very Good'=>'VG',
+                'Good'=>'GD',
+                'None'=>'NON',
+                'Faint'=>'FNT',
+                'Medium'=>'MED',
+                'Strong'=>'STG',
+                'Very Strong'=>'VST',
+              ];
       if (! Supplier::where('r_id',$data->seller->account_id)->count()) {
                   $n_s= new Supplier;
                   // dd($data->seller);
@@ -268,7 +287,7 @@ trait Rap{
                 if (!empty($data->diamond->cert_num &&  is_numeric($data->diamond->cert_num))) {
 
                     $d = Diamond::where('certificate',$data->diamond->cert_num)->first();
-                    $invoiceDiamond = InvoiceDiamond::where('certificate',$diamond['certificate'])->first();
+                    $invoiceDiamond = InvoiceDiamond::where('certificate',$data->diamond->cert_num)->first();
                     // dd(print_r($data['diamond']['cert_num']));
                     // dd(print_r($data->diamond->cert_num));
                     if (!isset($d)) {
@@ -284,15 +303,19 @@ trait Rap{
                       $d->weight = round($data->diamond->size, 3); 
                       $d->color = $data->diamond->color;
                       $d->clarity = $data->diamond->clarity; 
-                      $d->cut = $data->diamond->cut?$data->diamond->cut:0;
-                      $d->polish = $data->diamond->polish; 
-                      $d->symmetry = $data->diamond->symmetry;
+                      $d->cut = $data->diamond->cut?
+                                array_key_exists($data->diamond->cut, $trans)?$trans[$data->diamond->cut]:$data->diamond->cut
+                                :0;
+                      $d->polish = array_key_exists($data->diamond->polish, $trans)?$trans[$data->diamond->polish]:$data->diamond->polish; 
+                      $d->symmetry = array_key_exists($data->diamond->symmetry, $trans)?$trans[$data->diamond->symmetry]:$data->diamond->symmetry; 
                       $d->length = $data->diamond->meas_length;
                       $d->width = $data->diamond->meas_width;
                       $d->depth = $data->diamond->meas_depth;
                       $d->depth_percent = $data->diamond->depth_percent>0?$data->diamond->depth_percent:0;
                       $d->table_percent = $data->diamond->table_percent>0?$data->diamond->table_percent:0;
-                      $d->fluorescence = $data->diamond->fluor_intensity?$data->diamond->fluor_intensity:'None'; 
+                      $d->fluorescence = $data->diamond->fluor_intensity?
+                                        array_key_exists($data->diamond->fluor_intensity, $trans)?$trans[$data->diamond->fluor_intensity]:$data->diamond->fluor_intensity
+                                        :'None'; 
                       $d->lab = $data->diamond->lab;
                       $d->location = $data->diamond->country =='Hong Kong' && $this->isNotMemoSuppliers($s_id->id)
                                       ?'1'.$data->diamond->country:'2'; 

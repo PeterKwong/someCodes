@@ -351,10 +351,29 @@ class Content extends Component
     }
     public function setRequest(){
 		    	// dd( request()->all() );
+	      $trans = [
+            'EX'=>'Excellent',
+            'VG'=>'Very Good',
+            'GD'=>'Good',
+            'Non'=>'None',
+            'FNT'=>'Faint',
+            'MED'=>'Medium',
+            'STG'=>'Strong',
+            'VST'=>'Very Strong',
+          ];
+
+          $checkKeys = ['cut','symmetry','polsh','fluorescence'];
 
 		foreach (request()->all() as $key => $value) {
 			if (is_string( $value ) || is_int($value)) {
+				if (in_array($key, $checkKeys)) {
+					$value = array_key_exists($value, $trans)?$trans[$value]:$value;
+							    	// dd( $value );
+
+				}
     			$this->fetchData[$key] = explode(',',$value );
+		    	// dd( $this->fetchData[$key] );
+
 			}
 			// if(count($value)){
    			// $this->fetchData[$key] = $value ;    				
@@ -362,7 +381,7 @@ class Content extends Component
  		}
 		    	// dd( $this->fetchData );
 		$this->setCookie();
-
+		// $this->setClickedSearchConditions();
     }
     public function extraUrls(){
     	
@@ -380,6 +399,7 @@ class Content extends Component
     				'/fancy-cut-diamond' => ['shape'=>
     											['heart','princess','emerald','asscher','cushion',
     											'oval','marquise','radiant','pear']],
+    				'/fancy-cut-diamond/round-cut' => ['shape'=>['round']],
     				'/fancy-cut-diamond/heart-shaped' => ['shape'=>['heart']],
     				'/fancy-cut-diamond/princess-cut' => ['shape'=>['princess']],
     				'/fancy-cut-diamond/emerald-cut' => ['shape'=>['emerald']],
