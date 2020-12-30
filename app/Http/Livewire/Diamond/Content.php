@@ -352,14 +352,14 @@ class Content extends Component
     public function setRequest(){
 		    	// dd( request()->all() );
 	      $trans = [
-            'EX'=>'Excellent',
-            'VG'=>'Very Good',
-            'GD'=>'Good',
-            'Non'=>'None',
-            'FNT'=>'Faint',
-            'MED'=>'Medium',
-            'STG'=>'Strong',
-            'VST'=>'Very Strong',
+            'EX'=>'EX,Excellent',
+            'VG'=>'VG,Very Good',
+            'GD'=>'GD,Good',
+            'Non'=>'Non,None',
+            'FNT'=>'FNT,Faint',
+            'MED'=>'MED,Medium',
+            'STG'=>'STG,Strong',
+            'VST'=>'VST,Very Strong',
           ];
 
           $checkKeys = ['cut','symmetry','polsh','fluorescence'];
@@ -368,7 +368,6 @@ class Content extends Component
 			if (is_string( $value ) || is_int($value)) {
 				if (in_array($key, $checkKeys)) {
 					$value = array_key_exists($value, $trans)?$trans[$value]:$value;
-							    	// dd( $value );
 
 				}
     			$this->fetchData[$key] = explode(',',$value );
