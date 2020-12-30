@@ -141,12 +141,14 @@
                         
                             
                         <div>
-                            <a href="https://www.gia.edu/report-check?reportno={{$diamond['certificate'] }}" target="_blank">
                             <div class="grid grid-cols-12 p-2 text-light border-b">
                                 <div class="col-span-6">{{trans('diamondSearch.Certificate')}}</div>
-                                <div class="col-span-6">{{$diamond['certificate']}}</div>
+                                <div class="col-span-6">
+                                    <a href="https://www.gia.edu/report-check?reportno={{$diamond['certificate'] }}" target="_blank" class="text-blue-600">
+                                        {{$diamond['certificate']}}
+                                    </a>
+                                </div>
                             </div>
-                            </a>
                         </div>
 
                         </div>
