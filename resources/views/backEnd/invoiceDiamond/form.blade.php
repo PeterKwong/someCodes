@@ -109,6 +109,7 @@
 											<option value="EX">EX</option>
 											<option value="VG">VG</option>
 											<option value="GD">GD</option>											
+											<option value="0">0</option>											
 										</select>
 										<small class="is-danger" v-if="errors.cut">@{{errors.cut[0]}}</small>
 								</div>
