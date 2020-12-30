@@ -173,28 +173,31 @@
 
         </div>
 
+        @foreach( $meta->images as $image )
+            @if($image['type'] == 'gia_no')
+                <div class="grid grid-cols-12 text-center pt-8" >
 
-        <div class="grid grid-cols-12 text-center pt-8" v-for="image in post.images" v-if="image.type == 'gia_no'">
+                    <div class="col-span-7">
+                        <article>
+                            <figure>
+                            	<img width="100%" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $image->image}} ">
+                            </figure>
+                        </article>
+                        
+                    </div>
+                    <div class="col-span-5">
+                        <article>
+                            <figure>
+                                <img width="100%" src="/images/front-end/diamond/laser.jpg">
+                            </figure>
+                        </article>
+                        
+                    </div>            
+                </div>
+            @endif
+        @endforeach
 
-            <div class="col-span-7">
-                <article>
-                    <figure>
-                    	<img width="100%" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${image.image}`">
-                    </figure>
-                </article>
-                
-            </div>
-            <div class="col-span-5">
-                <article>
-                    <figure>
-                        <img width="100%" src="/images/front-end/diamond/GIA-Laser-Inscription-girdle.jpg">
-                    </figure>
-                </article>
-                
-            </div>            
-        </div>
-
-        <div class="grid grid-cols-12 text-center" v-for="image in post.images" v-if="image.type == 'gia_no'">
+        <div class="grid grid-cols-12 text-center" >
 
             <div class="col-span-12">
                 
