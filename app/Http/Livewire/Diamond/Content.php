@@ -352,6 +352,7 @@ class Content extends Component
     public function setRequest(){
 		    	// dd( request()->all() );
 	      $trans = [
+            '0'=>'',
             'EX'=>'EX,Excellent',
             'VG'=>'VG,Very Good',
             'GD'=>'GD,Good',
