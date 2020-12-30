@@ -160,7 +160,7 @@
             	@if($image['type'] == 'cert')
 		            <div class="col-span-12 sm:col-span-8">
 		                <div class="box">
-		                    <a href="{{url(app()->getLocale() . '/gia-loose-diamonds')}}">
+		                    <a href="{{url(app()->getLocale() . '/gia-loose-diamonds')}}" target="_blank">
 		                        <figure class="image">
 		                        <img width="100%" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $image->image}} ">
 		                        </figure>
