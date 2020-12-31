@@ -214,20 +214,19 @@
 
 
 
+        @foreach($meta->invoice->engagementRings as $key => $engagementRing )
 
-        <div class="grid grid-cols-12 pt-2" v-if="published.engagementRings">
+        <div class="grid grid-cols-12 pt-2">
             <div class="col-span-6">
                     <div class="box">
-                        <a :href=" langHref +'/engagement-rings/' + post.invoice.engagement_rings[0].id">
-                            <figure class="image" v-if="post.invoice.engagement_rings[0].images[0]">
-                            <img width="100%" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${post.invoice.engagement_rings[0].images[0].image}`">
-                            </figure>
-                        </a>
-                        <a :href=" langHref +'/engagement-rings/' + post.invoice.engagement_rings[0].id">
-                            <figure class="image" v-if="post.invoice.engagement_rings[0].images[1]">
-                            <img width="100%" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${post.invoice.engagement_rings[0].images[1].image}`">
-                            </figure>
-                        </a>
+                        @foreach($engagementRing->images as $image)
+                            <a href="/{{ app()->getLocale() . '/engagement-rings/' . $engagementRing->id }}">
+                                <figure class="image" >
+                                <img width="100%" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $image->image }}">
+                                </figure>
+                            </a>
+                        @endforeach
+                   
                     </div>
                 </div>
 
@@ -285,6 +284,8 @@
                 </div>
             </div>   
         </div>
+
+        @endforeach
 
         <div class="grid grid-cols-12 " v-if="published.jewellries">
             <div class="col-span-6">
