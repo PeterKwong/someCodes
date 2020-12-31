@@ -213,9 +213,8 @@
        @endforeach
 
 
-
         @foreach($meta->invoice->engagementRings as $key => $engagementRing )
-
+        @if($engagementRing->published)
         <div class="grid grid-cols-12 pt-2">
             <div class="col-span-6">
                     <div class="box">
@@ -284,7 +283,7 @@
                 </div>
             </div>   
         </div>
-
+        @endif
         @endforeach
 
         <div class="grid grid-cols-12 " v-if="published.jewellries">
