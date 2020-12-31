@@ -248,15 +248,15 @@
                         <div> 
                             <div class="grid grid-cols-12 p-2 text-light border-b">
                                 <div class="col-span-6">{{__('engagementRing.Shoulder')}}</div>
-                                <div class="col-span-6">@{{post.invoice.engagement_rings[0].shoulder | transJs(langs,locale)}}</div>
+                                <div class="col-span-6">{{__('customerJewellery.' .$engagementRing->shoulder )}}</div>
                             </div>
                             <div class="grid grid-cols-12 p-2 text-light border-b">
                                 <div class="col-span-6">{{__('engagementRing.Prong')}}</div>
-                                <div class="col-span-6">@{{post.invoice.engagement_rings[0].prong | transJs(langs,locale)}}</div>
+                                <div class="col-span-6">{{__('customerJewellery.' . $engagementRing->prong )}}</div>
                             </div>
                             <div class="grid grid-cols-12 p-2 text-light border-b">
                                 <div class="col-span-6">{{__('engagementRing.Side stone')}}</div>
-                                <div class="col-span-6">{{__('engagementRing.Around')}} @{{post.invoice.engagement_rings[0].ct}}ct</div>
+                                <div class="col-span-6">{{__('engagementRing.Around')}} {{ $engagementRing->ct }}ct</div>
                             </div>
 
                             <div>
@@ -266,15 +266,15 @@
                             </div>
                             <div class="grid grid-cols-12 p-2 text-light border-b">
                                 <div class="col-span-6">{{__('customerMoment.Stock No.')}}</div>
-                                <div class="col-span-6">@{{post.invoice.engagement_rings[0].stock}}</div>
+                                <div class="col-span-6">{{ $engagementRing->stock }}</div>
                             </div> 
                             <div class="grid grid-cols-12 p-2 text-light border-b">
                                 <div class="col-span-6">{{__('customerMoment.Title')}}</div>
-                                <div class="col-span-6">@{{post.invoice.engagement_rings[0].texts[locale].content}}</div>
+                                <div class="col-span-6">{{ $engagementRing->texts[config('global.locale.' . app()->getLocale())]->content}}</div>
                             </div>
                             <div class="grid grid-cols-12 p-2 text-light border-b">
                                 <div class="col-span-6">{{__('customerMoment.Description')}}</div>
-                                <div class="col-span-6">@{{post.invoice.engagement_rings[0].style | transJs(langs,locale)}},@{{post.invoice.engagement_rings[0].prong | transJs(langs,locale)}},@{{post.invoice.engagement_rings[0].shoulder | transJs(langs,locale)}},{{trans('engagementRing.setting')}}</div>
+                                <div class="col-span-6">{{__('customerJewellery.' . $engagementRing->style )}},{{__('customerJewellery.' . $engagementRing->prong )}},{{__('customerJewellery.' . $engagementRing->shoulder )}},{{trans('engagementRing.setting')}}</div>
                             </div>
                             
                         </div>
