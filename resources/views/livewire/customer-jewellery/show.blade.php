@@ -199,16 +199,20 @@
             @endif
         @endforeach
 
-        <div class="grid grid-cols-12 text-center" >
+        @foreach( $meta->images as $image )
+            @if($image['type'] == 'gia_no')
+            <div class="grid grid-cols-12 text-center" >
 
-            <div class="col-span-12">
-                
-                    <p class="subtitle">
-                    {{__('diamondSearch.Diamond waist number is like a person ID card, used to confirm the diamond 4Cs, what exactly those levels.')}}
-                    </p>
-                
-            </div>            
-        </div>
+                <div class="col-span-12">
+                    
+                        <p class="subtitle">
+                        {{__('diamondSearch.Diamond waist number is like a person ID card, used to confirm the diamond 4Cs, what exactly those levels.')}}
+                        </p>
+                    
+                </div>            
+            </div>
+            @endif
+        @endforeach
 
        @endforeach
 
