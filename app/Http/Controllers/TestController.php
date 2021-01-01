@@ -53,7 +53,7 @@ class TestController extends Controller
       // return $import->getDiamondsFromSunrise();
 
       $import = new DiamondImport();
-      return $import->getRapGuzzle();
+      return $import->getDiamondsFromSunrise();
       // return Cache::get('batchNumber');
       // return $import->getSupplierTotalStones();
       // return $import->preloadCerts();

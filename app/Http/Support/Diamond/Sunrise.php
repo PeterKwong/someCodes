@@ -18,7 +18,7 @@ trait Sunrise{
 
       $headers = ['Content-type'=>'application/x-www-form-urlencoded'];
 
-      $request = new Req('GET', 'https://www.sunrisediamonds.com.hk/inventory/TingBoni.JSON', $headers);
+      $request = new Req('GET', 'https://sunrisediam.com/Api/URL?UN=amlnbmVzaA==&PD=cGF0ZWw=&TransId=90', $headers);
 
       $data = [];
 
@@ -87,8 +87,8 @@ trait Sunrise{
               $d->lab = $diamond['Lab'];
               $d->location = $diamond['Location'] == 'Hong Kong' && $diamond['Cts'] > 1.0 && $diamond['Net Amt($)'] >3000 ?'1Hong Kong':'2'; 
               $d->available = 1; 
-              $d->image_link = $diamond['Other Image']?$diamond['Other Image']:null;
-              $d->has_image = $diamond['Other Image']?1:null;
+              // $d->image_link = $diamond['View Image']?$diamond['View Image']:null;
+              // $d->has_image = $diamond['View Image']?1:null;
 
               // $d->video_link = $diamond['Other Video']?$diamond['Other Video']:null; 
               // $d->has_video = $diamond['Other Video']?1:null; 
