@@ -75,168 +75,174 @@ class TestController extends Controller
 
     	foreach ($invoicePosts as $post) {
 
+
     		$page = Page::create(['url' => 'customer-jewellery/'.$post->id ,'paginable_id' => $post->id , 'paginable_type' => 'App\InvoicePost']);
+    		$postType = $post->postable_type;
+	    	// dd($postType);
 
     		$post = $post->invoice;
 	    	$tags = [];
 
+	    	if ($postType == 'App/Jewellery') {
+	    		foreach ($post->jewelleries as $jewellery) {
 
-    		foreach ($post->jewelleries as $jewellery) {
+	    				// dd($jewellery);
 
-    				// dd($jewellery);
-
-    			if ($jewellery->type != 'Misc') {
+	    			if ($jewellery->type != 'Misc') {
 
 
-    				// dd($jewellery);
-	    			// $diamond->weight = $diamondWeight;
+	    				// dd($jewellery);
+		    			// $diamond->weight = $diamondWeight;
 
-	    			$columns = [ 90 =>'type', 91 =>'metal', 92 => 'gemstone' ];
+		    			$columns = [ 90 =>'type', 91 =>'metal', 92 => 'gemstone' ];
 
-	    			foreach ($columns as $key => $column) {
+		    			foreach ($columns as $key => $column) {
 
-	    			// dd($key);
+		    			// dd($key);
 
-	    				$tag = Tag::where('type','Jewellery')
-	    							->where('upper_id', $key )
-	    							->where('content',$jewellery->{$column} )->first();
+		    				$tag = Tag::where('type','Jewellery')
+		    							->where('upper_id', $key )
+		    							->where('content',$jewellery->{$column} )->first();
 
-	    				if (isset($tag['id'])) {
-	    					$tags[] = $tag['id'] ;
-	    				}
+		    				if (isset($tag['id'])) {
+		    					$tags[] = $tag['id'] ;
+		    				}
+		    			}
+		    			// dd($tags);
+		    			
 	    			}
-	    			// dd($tags);
+
 	    			
-    			}
+	    		}
+	    	}
 
-    			
-    		}
+	    	if ($postType == 'App/WeddingRing') {
+	    		foreach ($post->weddingRings as $weddingRing) {
 
+	    				// dd($engagementRing);
 
-    		foreach ($post->weddingRings as $weddingRing) {
-
-    				// dd($engagementRing);
-
-    			if ($weddingRing->style) {
+	    			if ($weddingRing->style) {
 
 
-    				// dd($engagementRing);
-	    			// $diamond->weight = $diamondWeight;
+	    				// dd($engagementRing);
+		    			// $diamond->weight = $diamondWeight;
 
-	    			$columns = [ 78 =>'style', 79 =>'metal', 80 => 'sideStone' ];
+		    			$columns = [ 78 =>'style', 79 =>'metal', 80 => 'sideStone' ];
 
-	    			foreach ($columns as $key => $column) {
+		    			foreach ($columns as $key => $column) {
 
-	    			// dd($key);
-
-	    				$tag = Tag::where('type','Wedding Ring')
-	    							->where('upper_id', $key )
-	    							->where('content',$weddingRing->{$column} )->first();
-
-	    				if ($column == 'sideStone') {
+		    			// dd($key);
 
 		    				$tag = Tag::where('type','Wedding Ring')
 		    							->where('upper_id', $key )
-		    							->where('content',$weddingRing->{$column} ? 'sideStone': 'No Side-stone' )->first();
-	    				}
+		    							->where('content',$weddingRing->{$column} )->first();
 
-	    				if (isset($tag['id'])) {
-	    					$tags[] = $tag['id'] ;
-	    				}
+		    				if ($column == 'sideStone') {
+
+			    				$tag = Tag::where('type','Wedding Ring')
+			    							->where('upper_id', $key )
+			    							->where('content',$weddingRing->{$column} ? 'sideStone': 'No Side-stone' )->first();
+		    				}
+
+		    				if (isset($tag['id'])) {
+		    					$tags[] = $tag['id'] ;
+		    				}
+		    			}
+		    			// dd($tags);
+		    			
 	    			}
-	    			// dd($tags);
+
 	    			
-    			}
+	    		}
+	    	}
 
-    			
-    		}
+	    	if ($postType == 'App/EngagementRing') {
 
-    		foreach ($post->engagementRings as $engagementRing) {
+	    		foreach ($post->engagementRings as $engagementRing) {
 
-    				// dd($engagementRing);
+	    				// dd($engagementRing);
 
-    			if ($engagementRing->prong) {
+	    			if ($engagementRing->prong) {
 
 
-    				// dd($engagementRing);
-	    			// $diamond->weight = $diamondWeight;
+	    				// dd($engagementRing);
+		    			// $diamond->weight = $diamondWeight;
 
-	    			$columns = [ 67 =>'style', 68 =>'shoulder', 69 => 'prong' ];
+		    			$columns = [ 67 =>'style', 68 =>'shoulder', 69 => 'prong' ];
 
-	    			foreach ($columns as $key => $column) {
+		    			foreach ($columns as $key => $column) {
 
-	    			// dd($key);
+		    			// dd($key);
 
-	    				$tag = Tag::where('type','Engagement Ring')
-	    							->where('upper_id', $key )
-	    							->where('content',$engagementRing->{$column} )->first();
+		    				$tag = Tag::where('type','Engagement Ring')
+		    							->where('upper_id', $key )
+		    							->where('content',$engagementRing->{$column} )->first();
 
-	    				if (isset($tag['id'])) {
-	    					$tags[] = $tag['id'] ;
-	    				}
+		    				if (isset($tag['id'])) {
+		    					$tags[] = $tag['id'] ;
+		    				}
+		    			}
+		    			// dd($tags);
+		    			
 	    			}
-	    			// dd($tags);
+
 	    			
-    			}
+	    		}
 
-    			
-    		}
+	    		
+	    		foreach ($post->invoiceDiamonds as $diamond) {
 
-    		
-    		foreach ($post->invoiceDiamonds as $diamond) {
+	    			if ($diamond->weight) {
+	    				$weights = [
+	    							[ 'value' =>0.3, 'range' => '0.3-0.49'],
+									[ 'value' =>0.5, 'range' => '0.5-0.79'],
+									[ 'value' =>0.8, 'range' => '0.8-0.99'],
+									[ 'value' =>1, 'range' => '1.0-1.19'],
+									[ 'value' =>1.2, 'range' => '1.2-1.49'],
+									[ 'value' =>1.5, 'range' => '1.5-1.99'],
+									[ 'value' =>2, 'range' => '2.0-2.99'],
+									[ 'value' =>3, 'range' => '3.0up'],
+									];
 
-    			if ($diamond->weight) {
-    				$weights = [
-    							[ 'value' =>0.3, 'range' => '0.3-0.49'],
-								[ 'value' =>0.5, 'range' => '0.5-0.79'],
-								[ 'value' =>0.8, 'range' => '0.8-0.99'],
-								[ 'value' =>1, 'range' => '1.0-1.19'],
-								[ 'value' =>1.2, 'range' => '1.2-1.49'],
-								[ 'value' =>1.5, 'range' => '1.5-1.99'],
-								[ 'value' =>2, 'range' => '2.0-2.99'],
-								[ 'value' =>3, 'range' => '3.0up'],
-								];
+	    				$diamondWeight ;
 
-    				$diamondWeight ;
+	    				foreach ($weights as $w => $weight) {
+	    				// dd(floatval($diamond->weight));
+	    					if ( floatval($diamond->weight) >= $weight['value']) {
+	    						$diamondWeight = $weight['range'];
+	    							// dd($diamond->weight);
+	    					}
+	    					    						// $wei[] = $w;
 
-    				foreach ($weights as $w => $weight) {
-    				// dd(floatval($diamond->weight));
-    					if ( floatval($diamond->weight) >= $weight['value']) {
-    						$diamondWeight = $weight['range'];
-    							// dd($diamond->weight);
-    					}
-    					    						// $wei[] = $w;
-
-    				}
-
-    				// dd($diamond);
-	    			$diamond->weight = $diamondWeight;
-
-	    			$columns = [
-	    						5 =>'weight', 6 =>'shape',7 => 'color', 8 => 'clarity',
-	    						9 => 'cut', 10 => 'polish', 11 => 'symmetry', 12 => 'fluorescence'];
-
-	    			foreach ($columns as $key => $column) {
-
-	    			// dd($key);
-
-	    				$tag = Tag::where('type','diamond')
-	    							->where('upper_id', $key )
-	    							->where('content',$diamond->{$column} )->first();
-
-	    				if (isset($tag['id'])) {
-	    					$tags[] = $tag['id'] ;
 	    				}
+
+	    				// dd($diamond);
+		    			$diamond->weight = $diamondWeight;
+
+		    			$columns = [
+		    						5 =>'weight', 6 =>'shape',7 => 'color', 8 => 'clarity',
+		    						9 => 'cut', 10 => 'polish', 11 => 'symmetry', 12 => 'fluorescence'];
+
+		    			foreach ($columns as $key => $column) {
+
+		    			// dd($key);
+
+		    				$tag = Tag::where('type','diamond')
+		    							->where('upper_id', $key )
+		    							->where('content',$diamond->{$column} )->first();
+
+		    				if (isset($tag['id'])) {
+		    					$tags[] = $tag['id'] ;
+		    				}
+		    			}
+		    			// dd($tags);
+		    			
 	    			}
-	    			// dd($tags);
-	    			
-	    			$page->tags()->sync($tags);
-    			}
-
-    			
-    		}
+	    		}
+	    	}
 
 
+		    $page->tags()->sync($tags);
 
 
     		
