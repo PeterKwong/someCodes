@@ -97,9 +97,9 @@
 									<label class="label">Gemstone</label>
 										<select v-model="form.gemstone" class="form-control">
 											<option value="0">No</option>
-											<option value="fancy diamond">fancy diamond</option>
-											<option value="diamond">diamond</option>
-											<option value="pearl">pearl</option>
+											<option value="Fancy Diamond">Fancy Diamond</option>
+											<option value="Diamond">Diamond</option>
+											<option value="Pearl">Pearl</option>
 										</select>
 								</div>
 							</div>

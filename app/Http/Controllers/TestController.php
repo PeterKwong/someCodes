@@ -23,7 +23,7 @@ class TestController extends Controller
 
     public function test(){
 
-	    $this->resetAllDiamonds();
+	    $this->postTags();
 
 		return response()
 			->json(
@@ -53,7 +53,7 @@ class TestController extends Controller
       // return $import->getDiamondsFromSunrise();
 
       $import = new DiamondImport();
-      return $import->getDiamondsFromSunrise();
+      return $import->getRapGuzzle();
       // return Cache::get('batchNumber');
       // return $import->getSupplierTotalStones();
       // return $import->preloadCerts();
@@ -85,13 +85,13 @@ class TestController extends Controller
 
     				// dd($jewellery);
 
-    			if ($jewellery->prong) {
+    			if ($jewellery->type != 'Misc') {
 
 
     				// dd($jewellery);
 	    			// $diamond->weight = $diamondWeight;
 
-	    			$columns = [ 67 =>'style', 68 =>'metal', 69 => 'gemstone' ];
+	    			$columns = [ 90 =>'type', 91 =>'metal', 92 => 'gemstone' ];
 
 	    			foreach ($columns as $key => $column) {
 

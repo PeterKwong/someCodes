@@ -24,6 +24,7 @@ export default {
 			form: [],
 			langs: langsDia.concat(langsEnga,langsWedd, langsJew),
 			errors: {},
+			tags:[],
 			selectedItem: '',
 			redirect: '/adm',
 			isProcessing: false,
@@ -41,6 +42,7 @@ export default {
 		get(this.initializeURL)
 			.then((res)=>{
 			Vue.set(this.$data, 'form', res.data.form)
+			Vue.set(this.$data, 'tags', res.data.tags)
 			this.assignOption()
 			Vue.set(this.$data, 'option', res.data.option.filter((data)=>{return data.id == this.$data.form.invoice_id}))
 		})
@@ -107,10 +109,73 @@ export default {
 		addImage(){
 			this.form.images.push({'image':'',type:''})
 		},
+		diamondAssignTag(tagContent,type,batchNumber){
+			var vm = this
+			var selectedType 
+
+			if (batchNumber > 0) {
+				return 
+			}
+
+				selectedType = this.tags.filter((tag)=>{ 
+						return tag.content.toLowerCase() == type
+						})
+				console.log(selectedType)
+				this.tags.filter((tag)=>{
+					if (tag.content == tagContent && tag.upper_id == selectedType[0].id) {
+						vm.form.page.tags.push(tag)
+						console.log(tag)
+					}
+				}) 
+		},
+		assignTag(tagContent,type,batchNumber){
+			var vm = this
+
+			if (batchNumber > 0) {
+				return 
+			}
+
+			this.tags.filter((tag)=>{
+				if (tag.content == tagContent && tag.type == type) {
+					vm.form.page.tags.push(tag)
+					// console.log(tag)
+				}
+			}) 
+		},
+		priceRange(weight){
+			var weights = [
+						{ value:0.3, range: '0.3-0.49' },
+						{ value:0.5, range: '0.5-0.79' },
+						{ value:0.8, range: '0.8-0.99' },
+						{ value:1, range: '1.0-1.19' },
+						{ value:1.2, range: '1.2-1.49' },
+						{ value:1.5, range: '1.5-1.99' },
+						{ value:2, range: '2.0-2.99' },
+						{ value:3, range: '3.0up' },
+						]
+
+			var diamondRange 
+
+			for (var i = 0 ; weights.length > i; i++) {
+			// console.log(weights[i].value)
+			// console.log(weight)
+
+				if (weight >= weights[i].value) {
+					diamondRange = weights[i].range
+				}
+			}
+			// console.log(diamondRange)
+			return diamondRange
+
+		},
 		autoTitle(){
 
 			var list = ['App/EngagementRing','App/WeddingRing','App/Jewellery']
 			var tags 
+			var diamondConditions = ['color','clarity','cut','polish','symmetry','fluorescence']
+			var engagementConditions = ['style','shoulder','prong']
+			var weddingConditions = ['metal','style',]
+			var jewelleryConditions = ['metal','gemstone','type',]
 
 			for (var i = 0; list.length > i; i++) {
 				if (this.selectedItem.includes(list[i])){
@@ -119,38 +184,58 @@ export default {
 
 			}
 
+			this.form.page.tags = []
 
 			for (var i=0; this.form.texts.length > i ; i++) {
-				for (var j = 0; this.option[0].invoice_diamonds.length > j; j++) {
+				// for (var j = 0; this.option[0].invoice_diamonds.length > j; j++) {
+					var j = this.option[0].invoice_diamonds.length -1
 					if (this.selectedItem.includes('App/EngagementRing') && this.option[0].invoice_diamonds[j]) {
-						this.form.texts[i].content =  this.option[0].invoice_diamonds[j].weight +' '+ 
-													transJs('Carat Diamond Ring',this.langs,i) +', '+ this.option[0].invoice_diamonds[j].color +' '+ 
-													transJs('color',this.langs,i) +', '+this.option[0].invoice_diamonds[j].clarity +' '+ 
-													transJs('clarity',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].cut +' '+ 
-													transJs('cut',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].polish +' '+ 
-													transJs('polish',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].symmetry +' '+ 
-													transJs('symmetry',this.langs,i) + ', '+this.option[0].invoice_diamonds[j].fluorescence +' '+ 
-													transJs('fluorescence',this.langs,i) + ', '
+						this.form.texts[i].content =  this.option[0].invoice_diamonds[j].weight +' '+ transJs('Carat Diamond Ring',this.langs,i) +', '+ ''
+						this.diamondAssignTag(this.priceRange(this.option[0].invoice_diamonds[j].weight),'weight',i)
+
+							for (var k = 0 ; diamondConditions.length > k; k++) {
+								this.form.texts[i].content += this.option[0].invoice_diamonds[j][diamondConditions[k]] +' '+ transJs(diamondConditions[k],this.langs,i) +', '
+								this.diamondAssignTag(this.option[0].invoice_diamonds[j][diamondConditions[k]],diamondConditions[k],i)
+							}
+
 					}
-				}
-				for (var j = 0; this.option[0].engagement_rings.length > j; j++) {
+				// }
+				// for (var j = 0; this.option[0].engagement_rings.length > j; j++) {
+
+					j = this.option[0].engagement_rings.length -1
 					if (this.selectedItem.includes('App/EngagementRing') && this.option[0].engagement_rings[j] ) {
-					this.form.texts[i].content +=  transJs(this.option[0].engagement_rings[j].prong,this.langs,i) +', '+ transJs(this.option[0].engagement_rings[j].shoulder,this.langs,i) +', '+transJs(this.option[0].engagement_rings[j].style,this.langs,i) +', '+transJs( 'Engagement Ring Setting',this.langs,i) +' '
+
+						for (var k = 0 ; engagementConditions.length > k; k++) {
+							this.form.texts[i].content += this.option[0].engagement_rings[j][engagementConditions[k]] +' '+ transJs(engagementConditions[k],this.langs,i) +', '
+							this.assignTag(this.option[0].engagement_rings[j][engagementConditions[k]],'Engagement Ring',i)
+						}
+						this.form.texts[i].content += transJs( 'Engagement Ring Setting',this.langs,i) +' '
 					}
-				}
+				// }
 
 				if (this.selectedItem.includes('App/WeddingRing') && this.option[0].wedding_rings[0]) {
+					for (var k = 0 ; weddingConditions.length > k; k++) {
+						console.log(this.option[0].wedding_rings[0][weddingConditions[k]])
+						this.form.texts[i].content += transJs(this.option[0].wedding_rings[0][weddingConditions[k]],this.langs,i) +', '
+						this.assignTag(this.option[0].wedding_rings[0][weddingConditions[k]],'Wedding Ring',i)
+					}
+					this.assignTag(this.option[0].wedding_rings[0][weddingConditions[k]]?'sideStone':'No Side-stone','Wedding Ring',i)
+					this.form.texts[i].content += transJs(this.option[0].wedding_rings[0].gender,this.langs,i)  +', '
 
-					this.form.texts[i].content = transJs(this.option[0].wedding_rings[0].metal,this.langs,i) +' '+ transJs(this.option[0].wedding_rings[0].style,this.langs,i) +' '+ transJs(this.option[0].wedding_rings[0].gender,this.langs,i)  +' ' +', '
-
-							+ transJs(this.option[0].wedding_rings[1].metal,this.langs,i) +' '+ transJs(this.option[0].wedding_rings[1].style,this.langs,i) +' '+ transJs(this.option[0].wedding_rings[1].gender,this.langs,i)  +' ' 
+					for (var k = 0 ; weddingConditions.length > k; k++) {
+						this.form.texts[i].content += transJs(this.option[0].wedding_rings[1][weddingConditions[k]],this.langs,i) +', '
+					}
+					this.form.texts[i].content += transJs(this.option[0].wedding_rings[1].gender,this.langs,i)  
 					
 				}
 
 				for (var j = 0; this.option[0].jewelleries.length > j; j++) {	
 					if (this.selectedItem.includes('App/Jewellery') && this.option[0].jewelleries[j] && this.option[0].jewelleries[j].type != 'Misc' && this.selectedItem.includes('App/Jewellery')) {
+						for (var k = 0 ; jewelleryConditions.length > k; k++) {
+							this.form.texts[i].content +=  transJs(this.option[0].jewelleries[j][jewelleryConditions[k]],this.langs,i) +', '
+							this.assignTag(this.option[0].jewelleries[j][jewelleryConditions[k]],'Jewellery',i)
+						}
 
-						this.form.texts[i].content = transJs(this.option[0].jewelleries[j].metal,this.langs,i) +' '+ transJs(this.option[0].jewelleries[j].type,this.langs,i)  +' '
 						
 					}
 				}

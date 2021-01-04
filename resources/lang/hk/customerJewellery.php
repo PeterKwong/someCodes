@@ -92,6 +92,7 @@ return [
     'Diamond' => '鑽石',
     'Fancy Diamond' => '彩色鑽石',
     'Pearl' => '珍珠',
+    'Type' => ' 款式',
 
     '1' => '是',
     '0' => '否',

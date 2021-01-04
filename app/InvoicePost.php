@@ -25,8 +25,8 @@ class InvoicePost extends Model
         return $this->belongsTo(Invoice::class);
     }
     
-    public function pages(){
-        return $this->morphMany('App\Page', 'paginable');
+    public function page(){
+        return $this->morphOne('App\Page', 'paginable');
     }
 
     public function images()
@@ -64,7 +64,7 @@ class InvoicePost extends Model
                     ['content'=> '', 'locale'=>'hk', 'type'=>'title'],                     
                     ['content'=> '', 'locale'=>'cn', 'type'=>'title'], 
                         ],
-            'tags' => [],
+            'page' => ['tags'=>[]],
         ];
     }
 }

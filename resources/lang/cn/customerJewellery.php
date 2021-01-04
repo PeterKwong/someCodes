@@ -71,6 +71,7 @@ return [
     '4-prong' => '四爪',
     '6-prong' => '六爪',
     'Style' => '款式',
+    'Type' => '款式',
     'Metal' => '金属',
     'Classic' => '经典款式',
     'Japanese' => '日本款',

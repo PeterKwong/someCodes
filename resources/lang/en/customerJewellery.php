@@ -92,6 +92,7 @@ return [
     'Diamond' => 'Diamond',
     'Fancy Diamond' => 'Fancy Diamond',
     'Pearl' => 'Pearl',
+    'Type' => 'Type',
 
     '1' => 'Yes',
     '0' => 'No',

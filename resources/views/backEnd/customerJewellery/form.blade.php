@@ -110,7 +110,11 @@
 						</div>
 
 		            </div>
-					
+					<div class="row">
+						<div class="column">
+							<p class="btn btn-success" v-for="tag in form.page.tags" >@{{tag.content}}</p>
+						</div>
+					</div>
 					<div class="row">
 							<div class="column">
 								<p class="btn btn-primary" @click="addImage">Add Image</p>

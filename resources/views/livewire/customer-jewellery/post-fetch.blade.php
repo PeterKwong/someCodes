@@ -65,8 +65,8 @@
     	<div class="grid grid-cols-12 gap-4">
 
     		@foreach($posts['data'] as $index => $post)
-
-		            <div class="sm:col-span-4 col-span-6 hover:opacity-75 hover:text-blue-600" v-for="(post,index) in posts.data">
+                @if(count($post['images']))
+		            <div class="sm:col-span-4 col-span-6 hover:opacity-75 hover:text-blue-600" >
 	                    <a href="/{{ app()->getLocale() . '/customer-jewellery/' . $post['id'] }}" target="_blank" @mouseover="loopImages(index)" @mouseleave="loopImages(index,0)">
 	                        <img src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' .  $post['images'][0]['image'] }}" width="100%">
 	                            <center class="p-4">
@@ -76,6 +76,7 @@
 	                            </center>
 	                    </a>
 		            </div>
+                @endif
 		    @endforeach
 
         </div>

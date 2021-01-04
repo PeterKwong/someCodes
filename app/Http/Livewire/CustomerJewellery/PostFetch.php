@@ -48,21 +48,21 @@ class PostFetch extends Component
         		$tag = $value['id'];
         		
 	        	$this->posts = $this->posts
-				->whereHas('pages.tags', function($query)use($tag){ 
+				->whereHas('page.tags', function($query)use($tag){ 
 						$query = $query->where('tag_id',$tag);
 				
 				});
         	}
         	// dd($tags);
 
-        	// $this->posts = $this->posts->whereHas('pages.tags', function($query)use($tags){ 
+        	// $this->posts = $this->posts->whereHas('page.tags', function($query)use($tags){ 
 
         	// 											$query->whereIn('tag_id',$tags);
         	// 									});
 
 
        //  	$this->posts = $this->posts
-       //  					->whereHas('pages.tags', function($query)use($tags){ 
+       //  					->whereHas('page.tags', function($query)use($tags){ 
        //  							$query = $query->where('tag_id',33);
         					
 							// });
@@ -76,7 +76,7 @@ class PostFetch extends Component
 	                                    $query->where('type','cover');
 	                                    }, 
 	                        	'texts',
-	                        	// 'pages.tags',
+	                        	// 'page.tags',
 	                    ])->paginate($this->per_page)->toArray();
 
 
@@ -217,7 +217,7 @@ class PostFetch extends Component
 	}
 	public function checkSameType($type){
 
-		$types = ['Diamond' => 1, 'Engagement Ring' => 1 , 'Wedding Ring' => 2, 'Jewelleries' => 3];
+		$types = ['Diamond' => 1, 'Engagement Ring' => 1 , 'Wedding Ring' => 2, 'Jewellery' => 3];
 		$boolean =  true;
 
 		foreach ($this->selectedTags as $key => $tag) {

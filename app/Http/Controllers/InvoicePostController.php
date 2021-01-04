@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tag;
+use App\Page;
 use App\InvoicePost;
 use App\Invoice;
 use Illuminate\Http\Request;
@@ -95,7 +96,7 @@ class InvoicePostController extends Controller
                 'form' =>$form,
                 'option' => Invoice::with(['engagementRings','weddingRings','jewelleries','invoiceDiamonds'])->orderBy('id')
                 ->get(),
-                'tag' => Tag::all(),
+                'tags' => Tag::all(),
                 ]);
     }
 
@@ -124,7 +125,7 @@ class InvoicePostController extends Controller
 
     public function store(Request $request)
     {
-        // dd(print_r($request->all()));
+        // dd($request->all());
         $this->validate($request, [
             'invoice_id' => 'required | max:255',
             'images' => 'required | array',
@@ -134,6 +135,13 @@ class InvoicePostController extends Controller
 
         $invoicePost = InvoicePost::create($request->except(['video','texts','images']));
 
+        $page = Page::create(['url' => 'customer-jewellery/'.$invoicePost->id ,'paginable_id' => $invoicePost->id , 'paginable_type' => 'App\InvoicePost']);
+        $tags;
+        foreach ($request->tags as $key => $tag) {
+            $tags[]=$tag['id'];
+        }
+        $page->tags()->sync($tags);
+        // dd($page);
         // dd(print_r($invoicePost));
         return $invoicePost->storeItem($request);
 
@@ -179,7 +187,7 @@ class InvoicePostController extends Controller
     public function edit($id, Request $request)
     {
         
-    $form = InvoicePost::with(['images','texts','invoice.engagementRings','invoice.weddingRings','invoice.jewelleries','invoice.invoiceDiamonds'])
+    $form = InvoicePost::with(['images','texts','invoice.engagementRings','invoice.weddingRings','invoice.jewelleries','invoice.invoiceDiamonds','page.tags'])
             ->findOrFail($id);
 
 
@@ -198,7 +206,7 @@ class InvoicePostController extends Controller
                     'form' =>$form,
                     'option' => Invoice::with(['engagementRings','weddingRings','jewelleries','invoiceDiamonds'])->orderBy('id')
                         ->get(),
-                    'tag' => Tag::all(),
+                    'tags' => Tag::all(),
 
                     ]);
     }
@@ -212,9 +220,18 @@ class InvoicePostController extends Controller
             ]);
 
         $invoicePost = InvoicePost::with(['images','texts'])->findOrFail($id);
+        // dd($request->tags);
+        $tags=[];
+
+        if ($request->has('tags')) {
+            foreach ($request->tags as $tag) {
+                $tags[]=$tag['id'];
+            }
+        }
+        $invoicePost->page->tags()->sync($tags);
 
 
-        // dd(print_r($request->all()));
+        // dd($invoicePost->page()->tags());
         return $invoicePost->updateItem($request, 'App\InvoicePost');
 
     }
