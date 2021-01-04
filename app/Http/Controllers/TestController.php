@@ -23,7 +23,7 @@ class TestController extends Controller
 
     public function test(){
 
-	    $this->postTags();
+	    $this->resetAllDiamonds();
 
 		return response()
 			->json(
