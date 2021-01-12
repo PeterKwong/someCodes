@@ -396,18 +396,29 @@
       </a>
 
       <ul class="dropdown-menu absolute hidden text-gray-700 pt-1 text-left">
-        <li class="w-auto text-left p-2">
-           <a class="flex justify-start text-blue-500 px-1" href="{{url(app()->getLocale())}}/wedding-rings">{{trans('frontHeader.Wedding Rings')}}</a>
-            <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/classic">{{trans('frontHeader.Classic Ring')}}</a>
-        </li>
         <li class="border border-gray-300 text-left p-2">
           <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/japanese">
-                {{trans('frontHeader.Japanese Ring')}}
+                {{trans('weddingRing.Japanese')}}{{trans('weddingRing.Wedding Ring')}}
             </a>
         </li>
         <li class="border border-gray-300 text-left p-2">
-          <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/vintage">
-                  {{trans('frontHeader.Vintage Ring')}}
+          <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/angerosa">
+                  {{trans('weddingRing.angerosa')}}{{trans('weddingRing.Wedding Ring')}}
+            </a>
+        </li>
+        <li class="border border-gray-300 text-left p-2">
+          <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/angerosa">
+                  {{trans('weddingRing.feerie porte')}}{{trans('weddingRing.Wedding Ring')}}
+            </a>
+        </li>
+        <li class="border border-gray-300 text-left p-2">
+          <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/angerosa">
+                  {{trans('weddingRing.timeless ones')}}{{trans('weddingRing.Wedding Ring')}}
+            </a>
+        </li>
+        <li class="border border-gray-300 text-left p-2">
+          <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/angerosa">
+                  {{trans('weddingRing.forge')}}{{trans('weddingRing.Wedding Ring')}}
             </a>
         </li>
 
