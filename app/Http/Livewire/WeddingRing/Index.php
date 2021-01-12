@@ -20,7 +20,7 @@ class Index extends Component
 										'v-shape' => ['clicked'=>false,
 													  'value' => ['v-shape']],
 										'cross' => ['clicked'=>false,
-													  'value' => ['corss']],
+													  'value' => ['cross']],
 										],
                                     'finish'=>[
                                         'high polish' => ['clicked'=>false,
@@ -199,10 +199,14 @@ class Index extends Component
 
 
         if ( in_array($data,$this->fetchData[$condition]) ) {
+        // dd($condition, $data);
 
             foreach ($this->search_conditions[$condition][$data]['value'] as $key => $value) {
 
                 unset($this->fetchData[$condition][array_search($value,$this->fetchData[$condition])]);
+                
+                // dd($this->fetchData );
+
             }
 
 
