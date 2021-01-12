@@ -15,10 +15,10 @@ class Index extends Component
 									'shape'=>[
 										'straight' => ['clicked'=>false,
 													  'value' => ['straight']],
+                                        'wave' => ['clicked'=>false,
+                                                      'value' => ['wave']],
 										'v-shape' => ['clicked'=>false,
 													  'value' => ['v-shape']],
-										'wave' => ['clicked'=>false,
-													  'value' => ['wave']],
 										'cross' => ['clicked'=>false,
 													  'value' => ['corss']],
 										],
