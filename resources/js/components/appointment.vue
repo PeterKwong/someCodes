@@ -1,4 +1,59 @@
 <template>
+
+    <div  v-if="active" @click="$emit('active',null)">
+      <div >
+          <transition name="modal">
+            <div class="modal-mask">
+            <button tabindex="-1" class="modal-button"></button>
+              <div class="modal-wrapper">
+                <div class="modal-dialog modal-dialog-centered" role="document" @click="$emit('active',null)">
+                  <div class="modal-content">
+
+
+                    <div class="modal-header">
+                      <h5 class="modal-title"> </h5>
+
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" @click="$emit('active',null)">&times;</span>
+                      </button>
+                    </div>
+                      <div class="modal-body">
+                          <h1 class="text-xl text-blue-600">{{text.title | transJs(langs,locale) | capitalize}}</h1>
+                          <table class="table-auto">
+                            <tbody>
+                              <tr >
+                                <td v-for="column in columns">{{column | transJs(langs,locale) | capitalize }}</td>
+                              </tr>
+                              <tr >
+                                <td v-for="column in columns">{{ value[column] }}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <form @submit.prevent="save">
+                            <input type="text" name="name" class="input w-9/12" v-model="form.name" :placeholder="text.placeholderName | transJs(langs,locale)" required>
+                            <input type="number" name="tel" class="input w-9/12" v-model="form.phone" :placeholder="text.placeholderNo  | transJs(langs,locale)" required> 
+                            <textarea class="" v-model="form.remark" rows="5" cols="50"></textarea>
+                            <div>
+                              <button class="btn btn-outline" :href="hrefLangs + '/about-us'">
+                                {{ text.button  | transJs(langs,locale)}}
+                              </button>
+                              <button class="btn btn-outline " :class="{'is-loading': processing}" @submit.stop="save" >
+                                {{text.button1 | transJs(langs,locale)}}
+                              </button>
+                            </div>
+                          </form>
+
+                      </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </transition>          
+      </div>
+    </div>
+             
+<!-- 
   <div v-if="active" @click="$emit('active',null)">
       <transition name="modal">
         <div class="modal-mask">
@@ -46,69 +101,7 @@
     </transition>
   </div>    
 
-
-
-<!-- 
-
-
-	<div class="modal" :class="{'is-active': active} ">
-  <div class="modal-background" @click="$emit('active',null)"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">{{title}}</p>
-      <button class="delete" aria-label="close" @click="$emit('active', null)"></button>
-    </header>
-    <section class="modal-card-body">
-      <h1 class="title is-6">{{text.title | transJs(langs,locale) | capitalize}}</h1>
-      <table class="table">
-        <tr >
-          <td v-for="column in columns">{{column | transJs(langs,locale) | capitalize }}</td>
-        </tr>
-        <tr >
-          <td v-for="column in columns">{{ value[column] }}</td>
-        </tr>
-      </table>
-      <form @submit.prevent="save">
-      <input type="text" name="name" class="input" v-model="form.name" :placeholder="text.placeholderName | transJs(langs,locale)" required>
-      <input type="number" name="tel" class="input" v-model="form.phone" :placeholder="text.placeholderNo  | transJs(langs,locale)" required> 
-      <textarea  v-model="form.remark" rows="5" cols="80"></textarea>
-      <div>
-        <a class="button" :href="hrefLangs + '/about-us'">{{ text.button  | transJs(langs,locale)}}</a>
-      <button class="button is-success " :class="{'is-loading': processing}" @submit.stop="save" >{{text.button1 | transJs(langs,locale)}}</button>
-      </div>
-      </form>
-    </section>
-
-    </div>
-  </div>
  -->
-          <!-- <div>
-                <div class="modal" :class="{'is-active': flash.success}">
-                  <div class="modal-background" @click="flash.success=null"></div>
-                  <div class="modal-content">
-                    <div class="notification is-info" v-if="flash.success">
-                      {{flash.success}}
-                    </div>
-                  </div>
-                  
-                </div>
-
-                <div class="modal" :class="{'is-active': flash.error}">
-                  <div class="modal-background" @click="flash.error=null"></div>
-                  <div class="modal-content">
-                    <div class="notification is-danger" v-if="flash.error">
-                      {{flash.error}}
-                    </div>
-                  </div>
-                  
-                </div>
-            
-            <div class="notification is-info" v-if="flash.error">
-              <button class="delete"></button>
-              {{flash.error}}
-            </div>
-
-          </div> -->
 
 </template>
 

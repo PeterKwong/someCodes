@@ -25,16 +25,16 @@
                                 <div class="grid grid-cols-12 ">
                                     <div class="col-span-4">
                                         <div class="flex justify-center">
-                                            <a @click="directTo(pairItem.id)" :href="pairItem.url + pairItem.id ">
+                                            <a @click="directTo(pairItem.id)" :href="`${pairItem.url}${pairItem.type=='mountingFee'?'':pairItem.id}`">
                                                 <img class="arounded border w-32 sm:w-48" :src="pairItem.image" @click="selectingCarousel = pairItem.type">
                                             </a>
                                         </div>
                                     </div>
 
                                     <div class="col-span-8 text-center">
-                                        <a class="text-blue-600" @click="directTo(pairItem.id)" :href="pairItem.url + pairItem.id ">{{pairItem.title}}</a>
+                                        <a class="text-blue-600" @click="directTo(pairItem.id)" :href="`${pairItem.url}${pairItem.type=='mountingFee'?'':pairItem.id}`">{{pairItem.title}}</a>
                                         <div v-if="pairItem.type == 'engagementRings' ">    
-                                            <div class="flex justify-between">
+                                            <div class="flex justify-center">
                                               <div class="bg-gray-300 p-1 rounded">
                                                 <label class="" for="inputGroupSelect01">
                                                     {{ 'Ring Size' |transJs(langs, mutualVar.langs.localeCode) }}

@@ -396,9 +396,12 @@
       </a>
 
       <ul class="dropdown-menu absolute hidden text-gray-700 pt-1 text-left">
-        <li class="border border-gray-300 text-left p-2">
-          <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/japanese">
-                {{trans('weddingRing.Japanese')}}{{trans('weddingRing.Wedding Ring')}}
+        <li class="w-auto text-left p-2">
+           <a class="flex justify-start text-blue-500 px-1" href="{{url(app()->getLocale())}}/wedding-rings">
+            {{trans('weddingRing.Wedding Ring')}}
+          </a>
+            <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/japanese">
+              {{trans('weddingRing.Japanese')}}{{trans('weddingRing.Wedding Ring')}}
             </a>
         </li>
         <li class="border border-gray-300 text-left p-2">

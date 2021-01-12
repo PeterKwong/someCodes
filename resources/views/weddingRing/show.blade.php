@@ -99,8 +99,10 @@
                                 <div class="tile is-child">
                                 <article>
                                     <center>
-                                        <button class="btn btn-primary" @click="appointmentState=!appointmentState">{{trans('weddingRing.Appointment')}}</button>
+<!--                                         <button class="btn btn-primary" @click="appointmentState=!appointmentState">{{trans('weddingRing.Appointment')}}</button>
+ -->                                        
                                         <appointment v-model="weddingRing.wedding_rings[0]" :title="appointmentTitle" @active="appointmentState=!appointmentState" :active="appointmentState" :columns="columns"  :processing="false" :langs="langs" :locale="locale"></appointment>
+                                        
                                     </center>
                                     <br>
                                     <p>

@@ -24,6 +24,8 @@ return [
 	'Ring' => 'Ring',
 	'Earring' => 'Earring',
 	'18KW' => '18K White',	
+	'18KY' => '18K Yellow',	
+	'18KR' => '18K Rose Gold',	
 	'diamond' => 'diamond',	
 
 	'Rings' => 'Rings',
@@ -36,6 +38,18 @@ return [
 	'Jewellery' => 'Jewellery',
 	'Jewellery Info' => 'Jewellery Info',
 	'Pendants' => 'Pendants',
+
+	'Diamond Ring' => 'Diamond Ring',
+	'Fancy Diamond Ring' => 'Fancy Diamond Ring',
+	'Necklace' => 'Necklace',
+	'Bracelet' => 'Bracelet',
+	'Earring' => 'Earring',
+	'Pendant' => 'Pendant',
+	'Jewellery' => 'Jewellery',
+	'Jewellery Info' => 'Jewellery Info',
+	'Pendant' => 'Pendant',
+	'pearl' => 'pearl',
+	'Pearl' => 'Pearl',
 
 	'metaTitle1' => 'Jewellery | Diamond Rings ',
 	'metaDescription1' => 'Jewellery | Diamond Rings ',

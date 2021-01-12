@@ -24,6 +24,8 @@ return [
 	'Ring' => '戒指',
 	'Earring' => '耳环',
 	'18KW' => '18K白金',	
+	'18KY' => '18K黄金',	
+	'18KR' => '18K玫瑰金',	
 	'diamond' => '钻石',	
 
 	'Rings' => '戒指',
@@ -33,15 +35,25 @@ return [
 	'Bracelets' => '手链',
 	'Earrings' => '耳环',
 	'Pendants' => '吊咀',
+	'pendants' => '吊咀',
 	'Jewellery' => '首饰',
 	'Jewellery Info' => '首饰资料',
-	'Pendants' => '吊咀',
+
+	'Diamond Ring' => '钻石戒指',
+	'Fancy Diamond Ring' => '彩色钻石戒指',
+	'Necklace' => '项链',
+	'Bracelet' => '手链',
+	'Earring' => '耳环',
+	'Pendant' => '吊咀',
+	'pendant' => '吊咀',
+	'Pearl' => '珍珠',
+	'pearl' => '珍珠',
 
 	'metaTitle1' => '首饰 | 钻石戒指 – 求婚戒指',
 	'metaDescription1' => '托类 | 围圈钻石戒指 – 求婚戒指',
 	
-	'metaTitle2' => '戒指 | 钻石戒指 | 彩色钻石戒指| 颈链| 项链| 手链| 耳环| 吊咀- 价格',
-	'metaDescription2' => '戒指 | 钻石戒指 | 彩色钻石戒指| 颈链| 项链| 手链| 耳环| 吊咀 价格 - 钻石批发商，比大型珠宝店便宜50%，可订造专属戒指, 有不同材料：PT / 铂金, 18K黄金, 18K白金, 18K玫瑰金,18K混金',
+	'metaTitle2' => '戒指 | 钻石戒指 | 彩色钻石戒指| 颈链| 珍珠| 项链| 手链| 耳环| 吊咀 - 价格',
+	'metaDescription2' => '戒指 | 钻石戒指 | 彩色钻石戒指| 颈链| 珍珠| 项链| 手链| 耳环| 吊咀 价格 - 钻石批发商，比大型珠宝店便宜50%，可订造专属戒指, 有不同材料：PT / 铂金, 18K黄金, 18K白金, 18K玫瑰金,18K混金',
 	
 	'metaTitle3' => '托类 | 辅钻石戒指 - 求婚戒指',
 	'metaDescription3' => '托类 | 辅钻石戒指 - 求婚戒指',
