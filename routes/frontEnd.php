@@ -128,10 +128,11 @@ Route::prefix('{locale}')->middleware('locale')->group(function(){
     Route::get('/wedding-rings/timeless-ones', 'WeddingRingPairController@timelessOnes');
     Route::get('/wedding-rings/forge', 'WeddingRingPairController@forge');
     Route::get('/wedding-rings/japanese', 'WeddingRingPairController@japanese');
-    Route::get('/wedding-rings/{id}', 'WeddingRingPairController@bladeShow');
-    
+    //not use    
     Route::get('/wedding-rings/classic', 'WeddingRingPairController@bladeIndex');
     Route::get('/wedding-rings/vintage', 'WeddingRingPairController@bladeIndex');
+
+    Route::get('/wedding-rings/{id}', 'WeddingRingPairController@bladeShow');
 
     //CustomerMoment
     Route::get('/customer-moments/', 'CustomerMomentController@bladeIndex');

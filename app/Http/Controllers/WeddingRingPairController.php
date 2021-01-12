@@ -22,6 +22,7 @@ class WeddingRingPairController extends Controller
 
     public function bladeIndex($locale)
     {
+        // dd($locale);
       return view('weddingRing.index');
     }
 
