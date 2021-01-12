@@ -407,17 +407,17 @@
             </a>
         </li>
         <li class="border border-gray-300 text-left p-2">
-          <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/angerosa">
+          <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/feerie-porte">
                   {{trans('weddingRing.feerie porte')}}{{trans('weddingRing.Wedding Ring')}}
             </a>
         </li>
         <li class="border border-gray-300 text-left p-2">
-          <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/angerosa">
+          <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/timeless-ones">
                   {{trans('weddingRing.timeless ones')}}{{trans('weddingRing.Wedding Ring')}}
             </a>
         </li>
         <li class="border border-gray-300 text-left p-2">
-          <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/angerosa">
+          <a class="flex justify-start hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/forge">
                   {{trans('weddingRing.forge')}}{{trans('weddingRing.Wedding Ring')}}
             </a>
         </li>
