@@ -22,8 +22,9 @@ class TestController extends Controller
 {
 
     public function test(){
-
-	    $this->resetAllDiamonds();
+    	// dd('hi');
+	    $this->postTags();
+	    // $this->resetAllDiamonds();
 
 		return response()
 			->json(
@@ -73,6 +74,7 @@ class TestController extends Controller
 
     	$invoicePosts = InvoicePost::with('invoice.invoiceDiamonds','invoice.engagementRings','invoice.weddingRings','invoice.jewelleries')->get();
 
+
     	foreach ($invoicePosts as $post) {
 
 
@@ -94,7 +96,7 @@ class TestController extends Controller
 	    				// dd($jewellery);
 		    			// $diamond->weight = $diamondWeight;
 
-		    			$columns = [ 90 =>'type', 91 =>'metal', 92 => 'gemstone' ];
+		    			$columns = [ 104 =>'type', 105 => 'gemstone',106 =>'metal', ];
 
 		    			foreach ($columns as $key => $column) {
 
@@ -127,7 +129,7 @@ class TestController extends Controller
 	    				// dd($engagementRing);
 		    			// $diamond->weight = $diamondWeight;
 
-		    			$columns = [ 78 =>'style', 79 =>'metal', 80 => 'sideStone' ];
+		    			$columns = [ 78 =>'shape', 79 =>'finish', 80 => 'metal', 81 =>'style', 82 =>'brand', 83 =>'origin',  ];
 
 		    			foreach ($columns as $key => $column) {
 

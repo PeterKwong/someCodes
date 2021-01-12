@@ -123,10 +123,15 @@ Route::prefix('{locale}')->middleware('locale')->group(function(){
 
     //weddingRingPair 
     Route::get('/wedding-rings/', 'WeddingRingPairController@bladeIndex');
-    Route::get('/wedding-rings/classic', 'WeddingRingPairController@classic');
+    Route::get('/wedding-rings/feerie-porte', 'WeddingRingPairController@feeriePorte');
+    Route::get('/wedding-rings/angerosa', 'WeddingRingPairController@angerosa');
+    Route::get('/wedding-rings/timeless-ones', 'WeddingRingPairController@timelessOnes');
+    Route::get('/wedding-rings/forge', 'WeddingRingPairController@forge');
     Route::get('/wedding-rings/japanese', 'WeddingRingPairController@japanese');
-    Route::get('/wedding-rings/vintage', 'WeddingRingPairController@vintage');
     Route::get('/wedding-rings/{id}', 'WeddingRingPairController@bladeShow');
+    
+    Route::get('/wedding-rings/classic', 'WeddingRingPairController@bladeIndex');
+    Route::get('/wedding-rings/vintage', 'WeddingRingPairController@bladeIndex');
 
     //CustomerMoment
     Route::get('/customer-moments/', 'CustomerMomentController@bladeIndex');

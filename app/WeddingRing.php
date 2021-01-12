@@ -12,8 +12,7 @@ class WeddingRing extends Model
 	    protected $hidden = array('pivot');
 	    
 		protected $fillable =[
-		'id','stock' ,'texts' ,'style','images','sideStone','gender','customized','published', 'video','unit_price',
-		'metal','metal_weight','ct','cost','brand',
+		'id','stock' ,'texts' ,'shape','finish','metal','brand','style','origin','images','sideStone','gender','customized','published', 'video','unit_price','metal_weight','ct','cost','brand',
 		];
 
 	    protected $filter = [
@@ -64,9 +63,14 @@ class WeddingRing extends Model
 	    		'gender'=> 'm',
 	    		'stock' => '' , 
 	    		'texts' => '' , 
-	    		'unit_price' => '0',
+	    		'unit_price' => 0,
+	            'shape'=> 'straight',
+	            'finish'=> 'high polish',
 	            'metal'=> '18KW',
-	            'style' => 'Classic',
+	    		'metal_weight' => 0,
+	            'origin'=> 'local',
+	            'brand'=> '',
+	            'style' => '',
 	            'ct'=> '0',
 	            'customized'=> '0',
 	            'sideStone' =>'0',
@@ -91,7 +95,13 @@ class WeddingRing extends Model
 	    		'texts' => '' , 
 	    		'unit_price' => 0,
 	            'metal'=> '18KW',
-	            'style' => 'Classic',
+	            'shape'=> 'straight',
+	            'finish'=> 'high polish',
+	            'metal'=> '18KW',
+	    		'metal_weight' => 0,
+	            'origin'=> 'local',
+	            'brand'=> '',
+	            'style' => '',
 	            'ct'=> 0,
 	            'cost' => 0,
 	            'customized'=> 0,

@@ -88,11 +88,12 @@
 						<div class="col-2">
 							<div class="control has-icon-left">
 								<div class="control">
-									<label  class="label">Style</label>
-										<select v-model="form[0].style" class="form-control">
-											<option value="Classic">Classic</option>
-											<option value="Japanese">Japanese</option>
-											<option value="Vintage">Vintage</option>
+									<label  class="label">Shape</label>
+										<select class="form-control" v-model="form[0].shape">
+											<option value="straight">straight</option>
+											<option value="v-shape">v-shape</option>
+											<option value="wave">wave</option>
+											<option value="cross">cross</option>
 										</select>
 								</div>
 							</div>
@@ -100,14 +101,55 @@
 						<div class="col-2">
 							<div class="control has-icon-left">
 								<div class="control">
-									<label class="label">Customized</label>
-										<select v-model="form[0].customized" class="form-control">
-											<option value="1">Yes</option>
-											<option value="0">No</option>
+									<label class="label">Finish</label>
+										<select class="form-control" v-model="form[0].finish">
+											<option value="high polish">high polish</option>
+											<option value="matte">matte</option>
+											<option value="brushed">brushed</option>
+											<option value="hammered">hammered</option>
 										</select>
 								</div>
 							</div>
 						</div>
+						<div class="col-2">
+							<div class="control has-icon-left">
+								<div class="control">
+									<label  class="label">Origin</label>
+										<select class="form-control" v-model="form[0].origin">
+											<option value="local">local</option>
+											<option value="japan">japan</option>
+										</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-2">
+							<div class="control has-icon-left">
+								<div class="control">
+									<label  class="label">Style</label>
+										<select class="form-control" v-model="form[0].style">
+											<option value="milgrain">milgrain</option>
+											<option value="puzzle">puzzle</option>
+											<option value="forge">forge</option>
+										</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-2">
+							<div class="control has-icon-left">
+								<div class="control">
+									<label  class="label">Brand</label>
+										<select class="form-control" v-model="form[0].brand">
+											<option value="angerosa">angerosa</option>
+											<option value="feerie porte">feerie porte</option>
+											<option value="timeless ones">timeless ones</option>
+										</select>
+								</div>
+							</div>
+						</div>
+
+
+
 					</div>
 
 					<div class="row">
@@ -272,11 +314,36 @@
 						<div class="col-2">
 							<div class="control has-icon-left">
 								<div class="control">
-									<label  class="label">Style</label>
-										<select v-model="form[1].style" class="form-control">
-											<option value="Classic">Classic</option>
-											<option value="Japanese">Japanese</option>
-											<option value="Vintage">Vintage</option>
+									<label  class="label">Shape</label>
+										<select class="form-control" v-model="form[1].shape">
+											<option value="straight">straight</option>
+											<option value="v-shape">v-shape</option>
+											<option value="wave">wave</option>
+											<option value="cross">cross</option>
+										</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-2">
+							<div class="control has-icon-left">
+								<div class="control">
+									<label class="label">Finish</label>
+										<select class="form-control" v-model="form[1].finish">
+											<option value="high polish">high polish</option>
+											<option value="matte">matte</option>
+											<option value="brushed">brushed</option>
+											<option value="hammered">hammered</option>
+										</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-2">
+							<div class="control has-icon-left">
+								<div class="control">
+									<label  class="label">Origin</label>
+										<select class="form-control" v-model="form[1].origin">
+											<option value="local">local</option>
+											<option value="japan">japan</option>
 										</select>
 								</div>
 							</div>
@@ -285,14 +352,32 @@
 						<div class="col-2">
 							<div class="control has-icon-left">
 								<div class="control">
-									<label class="label">Customized</label>
-										<select v-model="form[1].customized" class="form-control">
-											<option value="1">Yes</option>
-											<option value="0">No</option>
+									<label  class="label">Style</label>
+										<select class="form-control" v-model="form[1].style">
+											<option value="milgrain">milgrain</option>
+											<option value="puzzle">puzzle</option>
+											<option value="forge">forge</option>
 										</select>
 								</div>
 							</div>
 						</div>
+						<div class="col-2">
+							<div class="control has-icon-left">
+								<div class="control">
+									<label  class="label">Brand</label>
+										<select class="form-control" v-model="form[1].brand">
+											<option value="angerosa">angerosa</option>
+											<option value="feerie porte">feerie porte</option>
+											<option value="timeless ones">timeless ones</option>
+										</select>
+								</div>
+							</div>
+						</div>
+
+
+
+
+
 					</div>
 
 					<div class="row">

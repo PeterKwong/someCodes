@@ -14,8 +14,12 @@ export default {
 			thead: [
 			{ title: 'ID', key: 'id', sort: true},
 			{ title: 'Stock', key: 'stock', sort: true},
+			{ title: 'shape', key: 'shape', sort: true},
+			{ title: 'finish', key: 'finish', sort: true},
 			{ title: 'metal', key: 'metal', sort: true},
+			{ title: 'origin', key: 'origin', sort: true},
 			{ title: 'style', key: 'style', sort: true},
+			{ title: 'brand', key: 'brand', sort: true},
 			{ title: 'side stone', key: 'ct', sort: true},
 			{ title: 'metal weight', key: 'metal_weight', sort: true},
 			{ title: 'Unit Price', key: 'unit_price', sort: true},

@@ -72,9 +72,6 @@ Route::group(['middleware'=> 'auth:admin'], function(){
         Route::get('orders/{id}', 'OrderController@admBladeShow');
         Route::get('order-to-invoice/{id}', 'OrderController@admBladeOrderToInvoice');
 
-        //Cache
-        Route::get('cache', 'CacheController@index');
-
         //purchase 
         Route::get('purchase/invoices', 'AccountingController@purchaseInvoices');
         Route::get('purchase/progress-invoices', 'AdminController@purchaseProgressInvoices');
@@ -85,7 +82,7 @@ Route::group(['middleware'=> 'auth:admin'], function(){
         //accounting
         Route::get('accounting/invoice-export', 'AdminController@invoiceExport');
 
-        // Route::get('test', 'TestController@postTags');
+        Route::get('test', 'TestController@testView');
 
 
         Route::get('theme', function(){

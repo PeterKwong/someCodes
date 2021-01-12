@@ -22,25 +22,37 @@ class WeddingRingPairController extends Controller
 
     public function bladeIndex($locale)
     {
-
-
       return view('weddingRing.index');
- 
     }
+
+
+    public function timelessOnes($locale)
+    {
+      return view('weddingRing.timelessOnes'); 
+    }
+    public function angerosa($locale)
+    {
+      return view('weddingRing.angerosa'); 
+    }
+    public function feeriePorte($locale)
+    {
+      return view('weddingRing.feeriePorte'); 
+    }
+    public function forge($locale)
+    {
+      return view('weddingRing.forge');
+    }
+    public function japanese($locale)
+    {
+      return view('weddingRing.japanese');
+    }
+
 
     public function classic($locale)
     {
 
 
       return view('weddingRing.classic');
- 
-    }
-
-    public function japanese($locale)
-    {
-
-
-      return view('weddingRing.japanese');
  
     }
 

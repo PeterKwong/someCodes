@@ -136,10 +136,10 @@ export default {
 		autoTitle(){
 
 			for (var i=0; this.form[0].texts.length > i ; i++) {
-				this.form[0].texts[i].content =  transJs(this.form[0].metal,this.langs,i) +' '+ transJs(this.form[0].style,this.langs,i) +' '+ transJs(this.form[0].gender,this.langs,i) 	
+				this.form[0].texts[i].content =  transJs(this.form[0].metal,this.langs,i) +' '+ transJs(this.form[0].shape,this.langs,i) +' '+ transJs(this.form[0].finish,this.langs,i) +' '+ transJs(this.form[0].gender,this.langs,i) 	
 			}
 			for (var i=0; this.form[1].texts.length > i ; i++) {
-				this.form[1].texts[i].content =  transJs(this.form[1].metal,this.langs,i) +' '+ transJs(this.form[1].style,this.langs,i) +' '+ transJs(this.form[1].gender,this.langs,i) 		
+				this.form[1].texts[i].content =  transJs(this.form[1].metal,this.langs,i) +' '+ transJs(this.form[1].shape,this.langs,i) +' '+ transJs(this.form[1].finish,this.langs,i) +' '+ transJs(this.form[1].gender,this.langs,i) 		
 			}
 			
 		},

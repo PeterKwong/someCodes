@@ -1,5 +1,3 @@
-
-import Vue from 'vue'
 import Flash from '../../../helpers/flash'
 import { get, post } from '../../../helpers/api'
 import {toMulipartedForm} from '../../../helpers/form'
@@ -174,7 +172,7 @@ export default {
 			var tags 
 			var diamondConditions = ['color','clarity','cut','polish','symmetry','fluorescence']
 			var engagementConditions = ['style','shoulder','prong']
-			var weddingConditions = ['metal','style',]
+			var weddingConditions = ['metal','shape','finish','origin','brand','style',]
 			var jewelleryConditions = ['metal','gemstone','type',]
 
 			for (var i = 0; list.length > i; i++) {

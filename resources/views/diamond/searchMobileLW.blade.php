@@ -2,7 +2,7 @@
 <div class="text-center text-gray-700" >
   <span x-data="mobileSearch()">
         <div class="border border-gray-300 p-2 mx-1">
-           <div  class="hover:text-blue-600 w-full" x-on:click="selectDisplayColumn('shape')">
+           <div  class="hover:text-blue-600 w-full flex justify-center" x-on:click="selectDisplayColumn('shape')">
               <a class="is-primary">{{trans('diamondSearch.Shape')}}</a>
                 <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('shape')">
                     <template x-for="(iItem, iIndex) in Object.entries(search_conditions.shape)" >
@@ -15,6 +15,15 @@
                     </template>
                 </a>
               <i class="fas fa-chevron-down"></i>
+              <a href="/{{app()->getLocale() . '/education-diamond-grading/anatomy/shape' }}" target="_blank">
+                <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                  <g>
+                    <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                    <rect x="241" y="353.5" width="30" height="30"/>
+                    <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                  </g>
+                </svg>
+              </a>
           </div>
 
             <a x-show="displayColumn == 'shape' ">
@@ -32,7 +41,7 @@
         </div>
 
         <div class="border border-gray-300 p-2 mx-1">
-          <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('price')">
+          <div class="hover:text-blue-600 flex justify-center" x-on:click="selectDisplayColumn('price')">
               <a class="is-primary">{{trans('diamondSearch.Price')}} </a>
                <button class="btn btn-outline"> HK$ {{$fetchData['price'][0]}} - {{$fetchData['price'][1]}} </button> 
               <i class="fas fa-chevron-down"></i> 
@@ -47,10 +56,19 @@
           </a>
         </div>
         <div class="border border-gray-300 p-2 mx-1">
-          <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('weight')">
+          <div class="hover:text-blue-600 flex justify-center" x-on:click="selectDisplayColumn('weight')">
               <a class="is-primary">{{trans('diamondSearch.Weight')}}</a>
                <button class="btn btn-outline"> {{$fetchData['weight'][0]}} - {{$fetchData['weight'][1]}} ct</button>
               <i class="fas fa-chevron-down"></i>
+              <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/carat' }}" target="_blank">
+                <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                  <g>
+                    <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                    <rect x="241" y="353.5" width="30" height="30"/>
+                    <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                  </g>
+                </svg>
+              </a>
           </div>
 
           <a x-show="displayColumn == 'weight' ">
@@ -63,7 +81,7 @@
         </div>
 
         <div class="border border-gray-300 p-2 mx-1">
-          <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('color')">
+          <div class="hover:text-blue-600 flex justify-center" x-on:click="selectDisplayColumn('color')">
               <div class="font-light text-lg">
                 <p class="flex justify-center ">
                   <span class="btn btn-primary" :class=" `${search_conditions.color.Fancy.clicked?'text-blue-400 bg-white box':''}` "  x-on:click="search_conditions.color.Fancy.clicked = !search_conditions.color.Fancy.clicked ; resetFancyData(); displayColumn = '' ; @this.toggleValue('color', 'Fancy' )">
@@ -158,6 +176,15 @@
              </a>
 
             <i class="fas fa-chevron-down"></i>
+            <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/color' }}" target="_blank">
+                <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                  <g>
+                    <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                    <rect x="241" y="353.5" width="30" height="30"/>
+                    <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                  </g>
+                </svg>
+              </a>
           </div>
 
           <a x-show="displayColumn == 'color' && !search_conditions.color.Fancy.clicked">
@@ -253,7 +280,7 @@
         </div>
 
         <div class="border border-gray-300 p-2 mx-1" x-show="search_conditions.color.Fancy.clicked">
-          <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('fancy_intensity')">
+          <div class="hover:text-blue-600 flex justify-center" x-on:click="selectDisplayColumn('fancy_intensity')">
             <a class="is-primary">{{trans('diamondSearch.Intensity')}}</a>
               <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('fancy_intensity')">
                 <template x-for="(iItem, iIndex) in Object.entries(fancy_color.fancy_intensity)" >
@@ -265,6 +292,15 @@
                 </template>
              </a>
             <i class="fas fa-chevron-down"></i>
+            <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/color' }}" target="_blank">
+                <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                  <g>
+                    <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                    <rect x="241" y="353.5" width="30" height="30"/>
+                    <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                  </g>
+                </svg>
+              </a>
           </div>
 
           <a x-show="displayColumn == 'fancy_intensity' ">
@@ -319,7 +355,7 @@
 
 
         <div class="border border-gray-300 p-2 mx-1">
-          <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('clarity')">
+          <div class="hover:text-blue-600 flex justify-center" x-on:click="selectDisplayColumn('clarity')">
             <a class="is-primary">{{trans('diamondSearch.Clarity')}}</a>
              <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('clarity')">
                 <template x-for="(iItem, iIndex) in Object.entries(search_conditions.clarity)" >
@@ -331,6 +367,15 @@
                 </template>
              </a>
               <i class="fas fa-chevron-down"></i>
+              <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/clarity' }}" target="_blank">
+                <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                  <g>
+                    <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                    <rect x="241" y="353.5" width="30" height="30"/>
+                    <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                  </g>
+                </svg>
+              </a>
           </div>
 
           <a x-show="displayColumn == 'clarity' ">
@@ -348,7 +393,7 @@
         </div>
 
         <div class="border border-gray-300 p-2 mx-1" x-show="!search_conditions.color.Fancy.clicked">
-          <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('cut')">
+          <div class="hover:text-blue-600 flex justify-center" x-on:click="selectDisplayColumn('cut')">
               <a class="is-primary">{{trans('diamondSearch.Cut')}}</a>
                <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('cut')">
                   <template x-for="(iItem, iIndex) in Object.entries(search_conditions.cut)" >
@@ -360,6 +405,15 @@
                   </template>
                </a>
               <i class="fas fa-chevron-down"></i>
+              <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/cut' }}" target="_blank">
+                <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                  <g>
+                    <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                    <rect x="241" y="353.5" width="30" height="30"/>
+                    <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                  </g>
+                </svg>
+              </a>
           </div>
 
           <a x-show="displayColumn == 'cut' ">
@@ -377,7 +431,7 @@
         </div>
 
         <div class="border border-gray-300 p-2 mx-1">
-           <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('polish')">
+           <div class="hover:text-blue-600 flex justify-center" x-on:click="selectDisplayColumn('polish')">
               <a class="is-primary">{{trans('diamondSearch.Polish')}}</a>
                <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('polish')">
                   <template x-for="(iItem, iIndex) in Object.entries(search_conditions.polish)" >
@@ -389,6 +443,15 @@
                   </template>
                </a>
               <i class="fas fa-chevron-down"></i>
+              <a href="/{{app()->getLocale() . '/education-diamond-grading/anatomy/polish' }}" target="_blank">
+                <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                  <g>
+                    <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                    <rect x="241" y="353.5" width="30" height="30"/>
+                    <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                  </g>
+                </svg>
+              </a>
           </div>
 
           <a x-show="displayColumn == 'polish' ">
@@ -406,7 +469,7 @@
         </div>
 
         <div class="border border-gray-300 p-2 mx-1">
-           <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('symmetry')">
+           <div class="hover:text-blue-600 flex justify-center" x-on:click="selectDisplayColumn('symmetry')">
               <a class="is-primary">{{trans('diamondSearch.Symmetry')}}</a>
                 <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('symmetry')">
                   <template x-for="(iItem, iIndex) in Object.entries(search_conditions.symmetry)" >
@@ -418,6 +481,15 @@
                   </template>
                </a>
               <i class="fas fa-chevron-down"></i>
+              <a href="/{{app()->getLocale() . '/education-diamond-grading/anatomy/symmetry' }}" target="_blank">
+                <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                  <g>
+                    <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                    <rect x="241" y="353.5" width="30" height="30"/>
+                    <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                  </g>
+                </svg>
+              </a>
           </div>
 
           <a x-show="displayColumn == 'symmetry' ">
@@ -435,7 +507,7 @@
         </div>
 
         <div class="border border-gray-300 p-2 mx-1">
-           <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('fluorescence')">
+           <div class="hover:text-blue-600 flex justify-center" x-on:click="selectDisplayColumn('fluorescence')">
               <a class="is-primary">{{trans('diamondSearch.Fluorescence')}}</a>
                 <a  class="hover:text-blue-600" x-on:click="selectDisplayColumn('fluorescence')">
                   <template x-for="(iItem, iIndex) in Object.entries(search_conditions.fluorescence)" >
@@ -447,6 +519,15 @@
                   </template>
                </a>
               <i class="fas fa-chevron-down"></i>
+              <a href="/{{app()->getLocale() . '/education-diamond-grading/anatomy/fluorescence' }}" target="_blank">
+                <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                  <g>
+                    <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                    <rect x="241" y="353.5" width="30" height="30"/>
+                    <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                  </g>
+                </svg>
+              </a>
           </div>
 
           <a x-show="displayColumn == 'fluorescence' ">
@@ -475,13 +556,22 @@
         @foreach($fetchAdvance as $key => $value)
 
         <div class="border border-gray-300 p-2 mx-1">
-          <div class="hover:text-blue-600" x-on:click="selectDisplayColumn('{{$key}}')">
+          <div class="hover:text-blue-600 flex justify-center" x-on:click="selectDisplayColumn('{{$key}}')">
               <p>{{trans('diamondSearch.' . $value)}}</p>
               <span x-show="advance_search_conditions['{{$key}}'].clicked" 
                     x-on:click=" advance_search_conditions[['{{$key}}'][0]].clicked = false ">
                 <button wire:click="setAdvanceToZero( '{{$key}}' )" :class=" `${advance_search_conditions['{{$key}}'].clicked?'btn btn-yellow':''}` "> {{ $fetchData[$key][0] }} - {{ $fetchData[$key][1] }}</button>
               </span>
               <i class="fas fa-chevron-down"></i>
+<!--               <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/carat' }}" target="_blank">
+                <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                  <g>
+                    <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                    <rect x="241" y="353.5" width="30" height="30"/>
+                    <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                  </g>
+                </svg>
+              </a> -->
           </div>
 
           <a x-show="displayColumn == '{{$key}}' " x-on:click=" advance_search_conditions[['{{$key}}'][0]].clicked = true  ">

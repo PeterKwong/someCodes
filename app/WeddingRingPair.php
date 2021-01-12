@@ -11,7 +11,7 @@ class WeddingRingPair extends Model
 	use WeddingRingFilter, StoreUpdateDestroy;
 	
 	protected $fillable =[
-	'id','stock' ,'texts' ,'metal','style','images','sideStone', 'ct', 'gender','customized','published', 'video','unit_price',
+	'id','stock' ,'texts' ,'shape','finish','metal','brand','style','origin','images','sideStone', 'ct', 'gender','customized','published', 'video','unit_price',
 	];
 	
     public function weddingRings(){

@@ -16,16 +16,20 @@ class CreateWeddingRingsTable extends Migration
         Schema::create('wedding_rings', function (Blueprint $table) {
             $table->id('id');
             $table->string('stock');
-            $table->string('style')->default('classic');
+            $table->string('shape')->default('straight');
+            $table->string('finish')->default('high polish');
+            $table->string('metal')->default('18kw');
+            $table->string('origin')->default('local');
+            $table->string('brand')->nullable();
+            $table->string('style')->nullable();
             $table->boolean('sideStone')->default(false);
             $table->string('video')->nullable();
             $table->string('video360')->nullable();
             $table->integer('unit_price');
-            $table->string('metal')->default('18kw')->nullable();
             $table->float('metal_weight')->default(0)->nullable();
-            $table->float('ct')->default(0)->nullable();
+            $table->float('width')->default(0);
+            $table->float('ct')->default(0);
             $table->integer('cost')->default(0)->nullable();
-            $table->string('brand')->nullable();
             $table->boolean('published')->default(false);
             $table->boolean('customized')->default(false);
             $table->string('gender')->default('m');

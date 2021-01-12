@@ -139,7 +139,7 @@
 
 
 <div class="grid grid-cols-12">
-    <div class="col-span-6 sm:col-span-3" v-for="(ring,index) in model.data">
+    <div class="col-span-6 sm:col-span-3 sm:p-8" v-for="(ring,index) in model.data">
         <div @click="clickRow(ring)">
             <a @mouseover="loopImages(index)" @mouseleave="loopImages(index,0)">
                 <img :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${ring.images[0].image}`" v-if="ring.images[0]" class="w-half">

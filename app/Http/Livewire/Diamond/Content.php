@@ -455,7 +455,7 @@ class Content extends Component
     {	
     	// dd($condition, $data);
 
-    	$this->fetchData[$condition] = $this->fetchData[$condition];
+    	// $this->fetchData[$condition] = $this->fetchData[$condition];
 
 		if ( in_array($data,$this->fetchData[$condition]) ) {
 

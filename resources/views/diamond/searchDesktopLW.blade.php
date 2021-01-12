@@ -17,7 +17,18 @@
   <div class="col-span-6">
     <div class="grid grid-cols-12 items-center">
       <div class="col-span-2 mx-8 font-light text-lg">
-        <p>{{trans('diamondSearch.Weight')}}</p>
+        <span class="flex">
+          <p>{{trans('diamondSearch.Weight')}}</p>
+          <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/carat' }}" target="_blank">
+            <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+              <g>
+                <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                <rect x="241" y="353.5" width="30" height="30"/>
+                <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+              </g>
+            </svg>
+          </a>
+        </span>
       </div>         
       <div class="col-span-5 mx-8">
           <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" wire:model.debounce.500ms="fetchData.weight.0" placeholder="ct">
@@ -35,7 +46,18 @@
     <div x-data="{ search_conditions: @entangle('search_conditions')}">
     <div class="grid grid-cols-12 items-center">
       <div class="col-span-2 mx-8 font-light text-lg">
-        <p>{{trans('diamondSearch.Shape')}}</p>
+        <span class="flex">
+          <p>{{trans('diamondSearch.Shape')}}</p>
+          <a href="/{{app()->getLocale() . '/education-diamond-grading/anatomy/shape' }}" target="_blank">
+            <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+              <g>
+                <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                <rect x="241" y="353.5" width="30" height="30"/>
+                <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+              </g>
+            </svg>
+          </a>
+        </span>
       </div>
       <div class="col-span-10 mx-8">
         <div class="flex justify-between flex-wrap">
@@ -101,13 +123,24 @@
     <div>
     <div class="grid grid-cols-12 items-center">
       <div class="col-span-2 font-light text-lg" x-on:click="search_conditions.color.Fancy.clicked = !search_conditions.color.Fancy.clicked; resetFancyData(); @this.toggleValue('color', 'Fancy' )" >
-        <p class="flex justify-center " >
-          <span class="btn btn-primary" :class=" `${search_conditions.color.Fancy.clicked?'text-blue-400 bg-white box':''}` ">
-            {{trans('diamondSearch.White')}}
-          </span>
-          <span class="btn btn-primary" :class=" `${search_conditions.color.Fancy.clicked?'':'text-blue-400 bg-white box'}` ">{{trans('diamondSearch.Fancy')}}
-          </span>
-        </p>
+        <span class="flex">
+          <p class="flex justify-center " >
+            <span class="btn btn-primary p-2" :class=" `${search_conditions.color.Fancy.clicked?'text-blue-400 bg-white box':''}` ">
+              {{trans('diamondSearch.White')}}
+            </span>
+            <span class="btn btn-primary p-2" :class=" `${search_conditions.color.Fancy.clicked?'':'text-blue-400 bg-white box'}` ">{{trans('diamondSearch.Fancy')}}
+            </span>
+          </p>
+          <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/color' }}" target="_blank">
+            <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+              <g>
+                <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                <rect x="241" y="353.5" width="30" height="30"/>
+                <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+              </g>
+            </svg>
+          </a>
+        </span>
       </div>
       <div class="col-span-10 mx-8">
         <div class="flex justify-between flex-wrap text-center" x-show="!search_conditions.color.Fancy.clicked">
@@ -219,9 +252,20 @@
   <div class="col-span-6" x-show="search_conditions.color.Fancy.clicked">
     <div class="grid grid-cols-12 items-center">
       <div class="col-span-2 mx-8 font-light text-lg">
-        <p x-on:click="search_conditions.color.Fancy.clicked = !search_conditions.color.Fancy.clicked" >
+        <span class="flex">
+          <p x-on:click="search_conditions.color.Fancy.clicked = !search_conditions.color.Fancy.clicked" >
            {{trans('diamondSearch.Intensity')}}
           </p>
+          <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/color' }}" target="_blank">
+            <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+              <g>
+                <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                <rect x="241" y="353.5" width="30" height="30"/>
+                <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+              </g>
+            </svg>
+          </a>
+        </span>
       </div>
       <div class="col-span-10 mx-8">
         <div class="flex justify-between flex-wrap text-center" x-show="!search_conditions.color.Fancy.clicked">
@@ -301,7 +345,18 @@
     <div >
       <div class="grid grid-cols-12 items-center">
         <div class="col-span-2 mx-8 font-light text-lg">
-          <p>{{trans('diamondSearch.Cut')}}</p>
+          <span class="flex">
+            <p>{{trans('diamondSearch.Cut')}}</p>
+            <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/cut' }}" target="_blank">
+              <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                <g>
+                  <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                  <rect x="241" y="353.5" width="30" height="30"/>
+                  <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                </g>
+              </svg>
+            </a>
+          </span>
         </div>         
         <div class="col-span-10 mx-8">
           <div class="flex justify-between text-center flex-wrap">
@@ -334,7 +389,18 @@
     <div x-data="{ search_conditions: @entangle('search_conditions')}">
     <div class="grid grid-cols-12 items-center">
       <div class="col-span-2 mx-8 font-light text-lg">
-        <p>{{trans('diamondSearch.Clarity')}}</p>
+        <span class="flex">
+          <p>{{trans('diamondSearch.Clarity')}}</p>
+          <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/clarity' }}" target="_blank">
+            <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+              <g>
+                <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                <rect x="241" y="353.5" width="30" height="30"/>
+                <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+              </g>
+            </svg>
+          </a>
+        </span>
       </div>
       <div class="col-span-10 mx-8">
         <div class="flex justify-between flex-wrap text-center">
@@ -361,7 +427,18 @@
     <div x-data="{ search_conditions: @entangle('search_conditions')}">
     <div class="grid grid-cols-12 items-center">
       <div class="col-span-2 mx-8 font-light text-lg">
-        <p>{{trans('diamondSearch.Polish')}}</p>
+        <span class="flex">
+          <p>{{trans('diamondSearch.Polish')}}</p>
+          <a href="/{{app()->getLocale() . '/education-diamond-grading/anatomy/polish' }}" target="_blank">
+            <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+              <g>
+                <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                <rect x="241" y="353.5" width="30" height="30"/>
+                <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+              </g>
+            </svg>
+          </a>
+        </span>
       </div>         
       <div class="col-span-10 mx-8">
         <div class="flex justify-between text-center flex-wrap">
@@ -392,7 +469,18 @@
     <div x-data="{ search_conditions: @entangle('search_conditions')}">
     <div class="grid grid-cols-12 items-center">
       <div class="col-span-2 mx-8 font-light text-lg">
-        <p>{{trans('diamondSearch.Fluorescence')}}</p>
+        <span class="flex">
+          <p>{{trans('diamondSearch.Fluorescence')}}</p>
+          <a href="/{{app()->getLocale() . '/education-diamond-grading/anatomy/fluorescence' }}" target="_blank">
+            <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+              <g>
+                <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                <rect x="241" y="353.5" width="30" height="30"/>
+                <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+              </g>
+            </svg>
+          </a>
+        </span>
       </div>
       <div class="col-span-10 mx-8">
         <div class="flex justify-between flex-wrap text-center">
@@ -418,7 +506,18 @@
     <div x-data="{ search_conditions: @entangle('search_conditions')}">
     <div class="grid grid-cols-12 items-center">
       <div class="col-span-2 mx-8 font-light text-lg">
-        <p>{{trans('diamondSearch.Symmetry')}}</p>
+        <span class="flex">
+          <p>{{trans('diamondSearch.Symmetry')}}</p>
+          <a href="/{{app()->getLocale() . '/education-diamond-grading/anatomy/symmetry' }}" target="_blank">
+            <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+              <g>
+                <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                <rect x="241" y="353.5" width="30" height="30"/>
+                <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+              </g>
+            </svg>
+          </a>
+        </span>
       </div>         
       <div class="col-span-10 mx-8">
         <div class="flex justify-between text-center flex-wrap">

@@ -98,11 +98,11 @@ if (!pUrl.includes('/engagement-rings/solitaire-ring-setting') &&
     }
 
 //wedding rings
-if (pUrl == '/wedding-rings' || pUrl == '/wedding-rings/' || pUrl.includes('/wedding-rings/classic') || 
-    pUrl.includes('/wedding-rings/japanese') || pUrl.includes('/wedding-rings/vintage')) 
-    {
-        const weddingRingIndex =  new Vue(WeddingRingIndex);
-    }
+// if (pUrl == '/wedding-rings' || pUrl == '/wedding-rings/' || pUrl.includes('/wedding-rings/classic') || 
+//     pUrl.includes('/wedding-rings/japanese') || pUrl.includes('/wedding-rings/vintage')) 
+//     {
+//         const weddingRingIndex =  new Vue(WeddingRingIndex);
+//     }
 
 if (!pUrl.includes('/wedding-rings/classic') && !pUrl.includes('/wedding-rings/japanese') && 
     !pUrl.includes('/wedding-rings/vintage') && window.location.pathname.slice(4,18) == 'wedding-rings/') 

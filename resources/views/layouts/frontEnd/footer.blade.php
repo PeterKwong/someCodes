@@ -108,8 +108,11 @@
      
     </a> 
       <a class="p-3 mb-2 text-white">|</a> 
-      <a class="p-3 mb-2 text-white" href="/sitemap_index.xml">Site Map</a> 
-      <a class="text-gray-700" ><small>粤ICP备19125751号-1</small></a> 
+      <a class="p-3 mb-2 text-white" href="/sitemap_index.xml" target="_blank">Site Map</a> 
+
+<!--       <a class="text-gray-700" ><small>粤ICP备19125751号-1</small></a> 
+ -->
+      <a class="text-gray-700" href="https://beian.miit.gov.cn/"><small>粤ICP备19125751号-1</small></pa> 
 
   </div> 
 
