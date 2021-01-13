@@ -388,17 +388,22 @@
       </div>
 
       <div v-if="headerSection == 3" class="block py-4 bg-gray-200">
-        <a class="flex justify-center text-blue-500" href="{{url(app()->getLocale())}}/wedding-rings">{{trans('frontHeader.Wedding Rings')}}
-        </a>
-        <a class="flex justify-center hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/classic">
-          {{trans('frontHeader.Classic Ring')}}
-        </a>
-        <a class="flex justify-center hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/japanese">
-          {{trans('frontHeader.Japanese Ring')}}
-        </a>
-        <a class="flex justify-center hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/vintage">
-          {{trans('frontHeader.Vintage Ring')}}
-        </a>
+
+          <a class="flex justify-center text-blue-500" href="{{url(app()->getLocale())}}/wedding-rings/japanese">
+            {{trans('weddingRing.Japanese')}}{{trans('weddingRing.Wedding Ring')}}
+          </a>
+          <a class="flex justify-center hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/angerosa">
+                  {{trans('weddingRing.angerosa')}}{{trans('weddingRing.Wedding Ring')}}
+          </a>
+          <a class="flex justify-center hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/feerie-porte">
+                  {{trans('weddingRing.feerie porte')}}{{trans('weddingRing.Wedding Ring')}}
+          </a>
+          <a class="flex justify-center hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/timeless-ones">
+                  {{trans('weddingRing.timeless ones')}}{{trans('weddingRing.Wedding Ring')}}
+          </a>
+          <a class="flex justify-center hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/wedding-rings/forge">
+                  {{trans('weddingRing.forge')}}{{trans('weddingRing.Wedding Ring')}}
+          </a>
         
       </div>
 
