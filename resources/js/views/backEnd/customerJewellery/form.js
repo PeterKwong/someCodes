@@ -39,10 +39,10 @@ export default {
 		}
 		get(this.initializeURL)
 			.then((res)=>{
-			Vue.set(this.$data, 'form', res.data.form)
-			Vue.set(this.$data, 'tags', res.data.tags)
+			this.$data.form = res.data.form
+			this.$data.tags = res.data.tags
 			this.assignOption()
-			Vue.set(this.$data, 'option', res.data.option.filter((data)=>{return data.id == this.$data.form.invoice_id}))
+			this.$data.option = res.data.option.filter((data)=>{return data.id == this.$data.form.invoice_id})
 		})
 
 	},
