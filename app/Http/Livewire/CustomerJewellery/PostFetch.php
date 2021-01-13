@@ -105,7 +105,12 @@ class PostFetch extends Component
 	public function getRequestTags(){
 
 		// $types = ['Shape','Weight','Color','Clarity','Cut','Symmetry','Polish','Fluorescence'];
-		$tags = request()->input();
+		$tags = request()->except(['type']);
+		$type = '';
+		if (request()->has('type')) {
+			$type = request()->query('type');
+		}
+
 		$selectedTags;
 
 		// if (request()->input()) {
@@ -142,7 +147,9 @@ class PostFetch extends Component
 
 		foreach ($tags as $key => $tag) {
 
-			$upperId = Tag::where('content', $key)
+			// dd($type);
+
+			$upperId = Tag::where('type',$type)->where('content', $key)
 							->first();
 			// dd($upperId->id);
 
@@ -152,7 +159,8 @@ class PostFetch extends Component
 
 			if ($upperId && $tagData) {
 
-				$tagData = Tag::where('content', $tag)->where('upper_id',$upperId->id)
+				$tagData = Tag::where('content', $tag)
+							->where('upper_id',$upperId->id)
 							->first();
 							// dd($tagData->toArray());
 			}

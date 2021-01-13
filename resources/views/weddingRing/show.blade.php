@@ -115,7 +115,9 @@
 
                                     <div class="grid grid-cols-12 border-b font-semibold p-2" >
                                         <div class="col-span-4 sm:text-lg">{{trans('weddingRing.Wedding Rings Info')}}</div>
-                                        <div class="col-span-4 sm:text-lg" v-if="weddingRing.wedding_rings[1]">@{{weddingRing.wedding_rings[0].gender | transJs(langs,locale)}}</div>
+                                        <div class="col-span-4 sm:text-lg" v-if="weddingRing.wedding_rings[1]">
+                                            @{{weddingRing.wedding_rings[0].gender | transJs(langs,locale)}}
+                                        </div>
                                         <div class="col-span-4 sm:text-lg" v-if="weddingRing.wedding_rings[1]">@{{weddingRing.wedding_rings[1].gender | transJs(langs,locale)}}</div>
                                     </div>
 
@@ -126,9 +128,49 @@
                                     </div>
 
                                     <div class="grid grid-cols-12 border-b font-light p-2" >
-                                        <div class="col-span-4">{{trans('weddingRing.Metal')}}</div>
-                                        <div class="col-span-4">@{{weddingRing.wedding_rings[0].metal | transJs(langs,locale)}}</div>
-                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">@{{weddingRing.wedding_rings[1].metal | transJs(langs,locale)}}</div>
+                                        <div class="col-span-4">
+                                            {{trans('weddingRing.shape')}}
+                                        </div>
+                                        <div class="col-span-4">
+                                            <a class="text-blue-600" target="_blank" :href="hrefLangs + '/customer-jewellery?shape=' + weddingRing.wedding_rings[0].shape + '&type=wedding ring'">
+                                                @{{weddingRing.wedding_rings[0].shape | transJs(langs,locale)}}
+                                            </a>
+                                        </div>
+                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">
+                                            <a class="text-blue-600" target="_blank" :href="hrefLangs + '/customer-jewellery?shape=' + weddingRing.wedding_rings[1].shape + '&type=wedding ring'">
+                                                @{{weddingRing.wedding_rings[1].shape | transJs(langs,locale)}}
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b font-light p-2" >
+                                        <div class="col-span-4">
+                                            {{trans('weddingRing.finish')}}
+                                        </div>
+                                        <div class="col-span-4">
+                                            <a class="text-blue-600" target="_blank" :href="hrefLangs + '/customer-jewellery?finish=' + weddingRing.wedding_rings[0].finish + '&type=wedding ring'">
+                                                @{{weddingRing.wedding_rings[0].finish | transJs(langs,locale)}}
+                                            </a>
+                                        </div>
+                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">
+                                            <a class="text-blue-600" target="_blank" :href="hrefLangs + '/customer-jewellery?finish=' + weddingRing.wedding_rings[1].finish + '&type=wedding ring'">
+                                                @{{weddingRing.wedding_rings[1].finish | transJs(langs,locale)}}
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b font-light p-2" >
+                                        <div class="col-span-4">
+                                            {{trans('weddingRing.Metal')}}
+                                        </div>
+                                        <div class="col-span-4">
+                                            <a class="text-blue-600" target="_blank" :href="hrefLangs + '/customer-jewellery?metal=' + weddingRing.wedding_rings[0].metal + '&type=wedding ring'">
+                                                @{{weddingRing.wedding_rings[0].metal | transJs(langs,locale)}}
+                                            </a>
+                                        </div>
+                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">
+                                            <a class="text-blue-600" target="_blank" :href="hrefLangs + '/customer-jewellery?metal=' + weddingRing.wedding_rings[1].metal + '&type=wedding ring'">
+                                                @{{weddingRing.wedding_rings[1].metal | transJs(langs,locale)}}
+                                            </a>
+                                        </div>
                                     </div>
 
                                     <div class="grid grid-cols-12 border-b font-light p-2" >
