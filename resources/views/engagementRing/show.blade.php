@@ -102,6 +102,14 @@
                                       <div class="col-span-6 p-2 font-light" >${{ $meta->unit_price }}</div>
                                     </div>
                                     <div class="grid grid-cols-12 border-b" >
+                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Style')}}</div>
+                                      <div class="col-span-6 p-2 font-light" >
+                                        <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?style=' . $meta->style .'&type=engagement ring'}}" target="_blank">
+                                          {{__('engagementRing.' .$meta->style )}}
+                                        </a>
+                                      </div>
+                                    </div>
+                                    <div class="grid grid-cols-12 border-b" >
                                       <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Shoulder')}}</div>
                                       <div class="col-span-6 p-2 font-light" >
                                         <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?shoulder=' . $meta->shoulder }}" target="_blank">
@@ -114,14 +122,6 @@
                                       <div class="col-span-6 p-2 font-light" >
                                         <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?prong=' . $meta->prong }}" target="_blank">
                                           {{__('engagementRing.' .$meta->prong )}}
-                                        </a>
-                                      </div>
-                                    </div>
-                                    <div class="grid grid-cols-12 border-b" >
-                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Metal')}}</div>
-                                      <div class="col-span-6 p-2 font-light" >
-                                        <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?metal=' . $meta->metal }}" target="_blank">
-                                          {{__('engagementRing.' .$meta->metal )}}
                                         </a>
                                       </div>
                                     </div>
