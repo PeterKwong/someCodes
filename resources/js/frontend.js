@@ -4,11 +4,11 @@
 import DiamondViewerShow from './views/frontEnd/diamondViewer/show'
 
 //Engagement Ring
-import EngagementRingIndex from './views/frontEnd/engagementRing/index'
+// import EngagementRingIndex from './views/frontEnd/engagementRing/index'
 import EngagementRingShow from './views/frontEnd/engagementRing/show'
 
 //wedding Ring
-import WeddingRingIndex from './views/frontEnd/weddingRing/index'
+// import WeddingRingIndex from './views/frontEnd/weddingRing/index'
 import WeddingRingShow from './views/frontEnd/weddingRing/show'
 
 //jewellry Ring
@@ -83,12 +83,12 @@ if (!pUrl.includes('/gia-loose-diamonds/round-cut') && !pUrl.includes('/gia-loos
     }
 
 //engagement rings
-if (pUrl == '/engagement-rings' || pUrl == '/engagement-rings/' || 
-    pUrl.includes('/engagement-rings/solitaire-ring-setting') || pUrl.includes('/engagement-rings/side-stones-setting') || 
-    pUrl.includes('/engagement-rings/halo-setting')) 
-    {
-        const engagementRingIndex =  new Vue(EngagementRingIndex);
-    }
+// if (pUrl == '/engagement-rings' || pUrl == '/engagement-rings/' || 
+//     pUrl.includes('/engagement-rings/solitaire-ring-setting') || pUrl.includes('/engagement-rings/side-stones-setting') || 
+//     pUrl.includes('/engagement-rings/halo-setting')) 
+//     {
+//         const engagementRingIndex =  new Vue(EngagementRingIndex);
+//     }
 
 if (!pUrl.includes('/engagement-rings/solitaire-ring-setting') && 
     !pUrl.includes('/engagement-rings/side-stones-setting') && !pUrl.includes('/engagement-rings/halo-setting') && 

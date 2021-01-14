@@ -23,6 +23,7 @@ return [
 	'Solitaire' => 'Solitaire',		
 	'solitaire' => 'solitaire',		
 	'Twisted' => 'Twisted',		
+	'twisted' => 'twisted',		
 	'Parallel' => 'Parallel',		
 	'parallel' => 'parallel',		
 	'Tapering' => 'Tapering',		
@@ -37,6 +38,12 @@ return [
 	'halo' => 'halo',		
 	'Side-stone' => 'Side-stone',		
 	'side-stone' => 'side-stone',		
+
+	'other styles' => 'Other Styles',		
+	'all' => 'All',
+	'enlarge' => 'Enlarge',
+	'hand-engraving' => 'Hand-Engraving',	
+
 
 
 	'metaTitle1' => 'Setting | Halo Diamond Ring– Engagement Ring',

@@ -179,7 +179,7 @@ class Index extends Component
         $query = WeddingRingPair::orderBy('updated_at', 'desc');
 
  		foreach ($requests as $req) {
- 			if (count($this->fetchData[$req]) && $this->fetchData[$req][0] != '' ) {
+ 			if (count($this->fetchData[$req]) && array_values($this->fetchData[$req])[0] != '' ) {
  				$query = $query->whereHas('weddingRings',function($q)use($req){
                     // dd($this->fetchData[$req]);
 	              $q->whereIn( $req , (array)$this->fetchData[$req] );

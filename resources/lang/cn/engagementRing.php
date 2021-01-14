@@ -23,6 +23,7 @@ return [
 	'Solitaire' => '单颗钻石',		
 	'solitaire' => '单颗钻石',		
 	'Twisted' => '扭臂',		
+	'twisted' => '扭臂',		
 	'Parallel' => '平臂',		
 	'parallel' => '平臂',		
 	'Tapering' => '尖臂',		

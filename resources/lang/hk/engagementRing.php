@@ -23,6 +23,7 @@ return [
 	'Solitaire' => '單顆鑽石',		
 	'solitaire' => '單顆鑽石',		
 	'Twisted' => '扭臂',		
+	'twisted' => '扭臂',		
 	'Parallel' => '平臂',		
 	'parallel' => '平臂',		
 	'Tapering' => '尖臂',		
@@ -36,6 +37,11 @@ return [
 	'Side-stone' => '輔鑽石/ 碎石',	
 	'side-stone' => '輔鑽石/ 碎石',		
 
+
+	'other styles' => '其他款式',		
+	'all' => '全部',
+	'enlarge' => '顯大',
+	'hand-engraving' => '人手批花',	
 
 	'metaTitle1' => '托類 | 圍圈鑽石戒指 – 求婚戒指',
 	'metaDescription1' => '托類 | 圍圈鑽石戒指 – 求婚戒指',
