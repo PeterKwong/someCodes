@@ -6,7 +6,7 @@
 	            <div>{{trans('engagementRing.Style')}}</div>
 	            @foreach($search_conditions['style'] as  $key => $style)
 	              <button class="btn btn-outline inline-flex items-center {{$search_conditions['style'][$key]['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('style', '{{$key}}' )">
-	                    <img src="/images/front-end/engagementRing/{{$key}}.png" height="30" width="55">
+	                    <img src="/images/front-end/engagementRing/{{ucfirst($key)}}.png" height="30" width="55">
 	                    {{__('engagementRing.' . $key)}}
 	              </button>
 	            @endforeach	       
@@ -16,7 +16,7 @@
 	            <div>{{trans('engagementRing.Shoulder')}}</div>
 	            @foreach($search_conditions['shoulder'] as  $key => $shoulder)
 	              <button class="btn btn-outline inline-flex items-center {{$search_conditions['shoulder'][$key]['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('shoulder', '{{$key}}' )">
-	                    <img src="/images/front-end/engagementRing/{{$key}}.png" height="30" width="55">
+	                    <img src="/images/front-end/engagementRing/{{ucfirst($key)}}.png" height="30" width="55">
 	                    {{__('engagementRing.' . $key)}}
 	              </button>
 	            @endforeach	   
@@ -53,7 +53,7 @@
               @foreach($search_conditions['style'] as  $key => $style)
 	             @if($style['clicked'])
 	              <button class="btn btn-outline inline-flex items-center"  type="button" wire:click="toggleValue('style', '{{$key}}' )">
-	                    <img src="/images/front-end/engagementRing/{{$key}}.png" height="30" width="55">
+	                    <img src="/images/front-end/engagementRing/{{ucfirst($key)}}.png" height="30" width="55">
 	                    {{__('engagementRing.' . $key)}}
 	              </button>
 	              @endif
@@ -66,7 +66,7 @@
         <div class="flex justify-center"  x-show="displayColumn == 'style' ">
             @foreach($search_conditions['style'] as  $key => $style)
               <button class="btn btn-outline inline-flex items-center {{$search_conditions['style'][$key]['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('style', '{{$key}}' )">
-                    <img src="/images/front-end/engagementRing/{{$key}}.png" height="30" width="55">
+                    <img src="/images/front-end/engagementRing/{{ucfirst($key)}}.png" height="30" width="55">
                     {{__('engagementRing.' . $key)}}
               </button>
             @endforeach	 
@@ -79,7 +79,7 @@
               @foreach($search_conditions['shoulder'] as  $key => $shoulder)
 	             @if($shoulder['clicked'])
 	              <button class="btn btn-outline inline-flex items-center"  type="button" wire:click="toggleValue('shoulder', '{{$key}}' )">
-	                    <img src="/images/front-end/engagementRing/{{$key}}.png" height="30" width="55">
+	                    <img src="/images/front-end/engagementRing/{{ucfirst($key)}}.png" height="30" width="55">
 	                    {{__('engagementRing.' . $key)}}
 	              </button>
 	              @endif
@@ -92,7 +92,7 @@
         <div class="flex justify-center"  x-show="displayColumn == 'shoulder' ">
             @foreach($search_conditions['shoulder'] as  $key => $shoulder)
               <button class="btn btn-outline inline-flex items-center {{$search_conditions['shoulder'][$key]['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('shoulder', '{{$key}}' )">
-                    <img src="/images/front-end/engagementRing/{{$key}}.png" height="30" width="55">
+                    <img src="/images/front-end/engagementRing/{{ucfirst($key)}}.png" height="30" width="55">
                     {{__('engagementRing.' . $key)}}
               </button>
             @endforeach	 
