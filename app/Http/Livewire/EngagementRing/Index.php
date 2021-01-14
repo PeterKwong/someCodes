@@ -142,14 +142,14 @@ class Index extends Component
     } 
     public function index()
     {	
-        // dd(in_array('', $this->fetchData['other']));
+        // dd($this->fetchData);
 
 	 	$requests = ['style','shoulder','prong','other'];
 
         $query = EngagementRing::orderBy('created_at','desc');
 
  		foreach ($requests as $req) {
- 			if (count($this->fetchData[$req]) && !in_array('', $this->fetchData[$req]) ) {
+ 			if (count((array)$this->fetchData[$req]) && !in_array('', (array)$this->fetchData[$req]) ) {
  				$query = $query->whereIn( $req , (array)$this->fetchData[$req] );
  			}
 

@@ -102,6 +102,7 @@ class Index extends Component
     public function mount(){
         $this->resetSettings();
 
+            // dd($this->fetchData );
         if (!isset($_COOKIE['weddingRing'])) {
             $this->setCookie();
         }
@@ -179,7 +180,7 @@ class Index extends Component
         $query = WeddingRingPair::orderBy('updated_at', 'desc');
 
  		foreach ($requests as $req) {
- 			if (count($this->fetchData[$req]) && !in_array('', $this->fetchData[$req]) ) {
+ 			if (count((array)$this->fetchData[$req]) && !in_array('', (array)$this->fetchData[$req]) ) {
  				$query = $query->whereHas('weddingRings',function($q)use($req){
                     // dd($this->fetchData[$req]);
 	              $q->whereIn( $req , (array)$this->fetchData[$req] );

@@ -5,14 +5,14 @@ return [
 	'shoulder' => '臂位',
 	'Shoulder' => '臂位',
 	'setting' => '戒指托',
-	'Search Engagement Rings' => '搜寻 ',
+	'Search Engagement Rings' => '搜寻选项 ',
 	'Submit' => '提交',
 	'indexDescription' => 'Thank you for customers support, so that we could share their precious moments.',
 	'Claw Prong' => '爪数',
 	'Custom-make' => '订造款式',
 	'More' => '更多',
 	'ct' => '克拉(ct)',
-	'Around' => '約',
+	'Around' => '约',
 	'indexDescription1' => 'For more detailed information, can reach GIA website query：',
 	'For more detailed information' => '如要查询更多资料',
 	'Make Appointment' => '预约',
@@ -38,11 +38,16 @@ return [
 	'side-stone' => '辅钻石/ 碎石',		
 
 
+	'other styles' => '其他款式',		
+	'all' => '全部',
+	'enlarge' => '显大',
+	'hand-engraving' => '人手批花',	
+
 	'metaTitle1' => '托类 | 围圈钻石戒指 – 求婚戒指',
 	'metaDescription1' => '托类 | 围圈钻石戒指 – 求婚戒指',
 	
 	'metaTitle2' => '戒指 | 求婚戒指 | 订婚戒指| 钻石戒指 - 价格',
-	'metaDescription2' => '戒指 | 求婚戒指 | 订婚戒指| 钻石戒指 价格 - 钻石批发商，比大型珠宝店便宜50%，可订造专属戒指,',
+	'metaDescription2' => '戒指 | 求婚戒指 | 订婚戒指｜ 钻石戒指 价格 - 钻石批发商，比大型珠宝店便宜50%，可订造专属戒指,',
 	
 	'metaTitle3' => '托类 | 辅钻石戒指 - 求婚戒指',
 	'metaDescription3' => '托类 | 辅钻石戒指 - 求婚戒指',
@@ -59,7 +64,7 @@ return [
 	'Stock' => '货号',
 	'Name' => '商品名称',
 	'Description' => '商品描述',
-	
+
 	'Metal' => '金属',
 	'18KW' => '18K 白金',
 	'18KY' => '18K 黄金',
