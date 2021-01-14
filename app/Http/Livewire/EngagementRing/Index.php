@@ -149,7 +149,7 @@ class Index extends Component
         $query = EngagementRing::orderBy('created_at','desc');
 
  		foreach ($requests as $req) {
- 			if (count($this->fetchData[$req]) && array_values($this->fetchData[$req])[0] != '' ) {
+ 			if (count($this->fetchData[$req]) && $this->fetchData[$req][0] != '' ) {
  				$query = $query->whereIn( $req , (array)$this->fetchData[$req] );
  			}
 
