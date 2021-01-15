@@ -121,10 +121,11 @@
 					<div class="col-2">
 						<div class="control has-icon-left">
 							<div class="control">
-								<label  class="label">Customized</label>
-									<select class="form-control" v-model="form.customized">
-										<option value="1">true</option>
-										<option value="0">false</option>
+								<label  class="label">other style</label>
+									<select class="form-control" v-model="form.other">
+										<option value=""></option>
+										<option value="enlarge">enlarge</option>
+										<option value="hand-engraving">hand-engraving</option>
 									</select>
 							</div>
 						</div>
