@@ -128,6 +128,7 @@
 								<div class="control">
 									<label  class="label">Style</label>
 										<select class="form-control" v-model="form[0].style">
+											<option value=""></option>
 											<option value="milgrain">milgrain</option>
 											<option value="puzzle">puzzle</option>
 											<option value="forge">forge</option>
@@ -140,6 +141,7 @@
 								<div class="control">
 									<label  class="label">Brand</label>
 										<select class="form-control" v-model="form[0].brand">
+											<option value=""></option>
 											<option value="angerosa">angerosa</option>
 											<option value="feerie porte">feerie porte</option>
 											<option value="timeless ones">timeless ones</option>
