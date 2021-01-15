@@ -48,7 +48,7 @@
 	<div class="block sm:hidden" >
 	<span x-data="mobileSearch()">
         <div class="flex box p-2 mx-1 text-center justify-center items-center" x-on:click="selectDisplayColumn('style')">
-            <a class="is-primary">{{trans('engagementRing.Style')}}</a>
+            <a class="px-2">{{trans('engagementRing.Style')}}</a>
             <a  x-on:click="selectDisplayColumn('style')">
               @foreach($search_conditions['style'] as  $key => $style)
 	             @if($style['clicked'])
@@ -74,7 +74,7 @@
         </div>
 
         <div class="flex box p-2 mx-1 text-center justify-center items-center" x-on:click="selectDisplayColumn('shoulder')">
-            <a class="is-primary">{{trans('engagementRing.Shoulder')}}</a>
+            <a class="px-2">{{trans('engagementRing.Shoulder')}}</a>
             <a  x-on:click="selectDisplayColumn('shoulder')">
               @foreach($search_conditions['shoulder'] as  $key => $shoulder)
 	             @if($shoulder['clicked'])
@@ -100,7 +100,7 @@
         </div>           
 	            
         <div class="flex box p-2 mx-1 text-center justify-center items-center" x-on:click="selectDisplayColumn('prong')">
-            <a class="is-primary">{{trans('engagementRing.Prong')}}</a>
+            <a class="px-2">{{trans('engagementRing.Prong')}}</a>
             <a  x-on:click="selectDisplayColumn('prong')">
               @foreach($search_conditions['prong'] as  $key => $prong)
 	             @if($prong['clicked'])
@@ -124,27 +124,14 @@
         </div>
 
         <div class="flex box p-2 mx-1 text-center justify-center items-center" x-on:click="selectDisplayColumn('other')">
-            <a class="is-primary">{{trans('engagementRing.other styles')}}</a>
-            <a  x-on:click="selectDisplayColumn('other')">
-              @foreach($search_conditions['other'] as  $key => $other)
-	             @if($other['clicked'])
-	              <button class="btn btn-outline inline-flex items-center"  type="button" wire:click="toggleValue('other', '{{$key}}' )">
-	                    {{__('engagementRing.' . $key)}}
-	              </button>
-	              @endif
-              @endforeach
-            </a>
-
-            <i class="fas fa-chevron-down"></i>
-        </div>
-
-        <div class="flex justify-center"  x-show="displayColumn == 'other' ">
-            @foreach($search_conditions['other'] as  $key => $other)
-              <button class="btn btn-outline inline-flex items-center {{$search_conditions['other'][$key]['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('other', '{{$key}}' )">
-                    {{__('engagementRing.' . $key)}}
-              </button>
-            @endforeach	 
-
+            <a class="px-2">{{trans('engagementRing.other styles')}}</a>
+		            <select class="btn btn-outline {{count($fetchData['other'])? 'btn-active':'' }}" wire:model="fetchData.other.0">
+		            	@foreach($search_conditions['other'] as  $key => $other)
+		            		<option value="{{$other['value'][0]}}">
+		            			<div wire:click="toggleValue('other', '{{$key}}' )">{{__('engagementRing.' . $key)}}</div>
+		            		</option>
+		            	@endforeach
+		            </select>      
         </div>
 
 	</span>         

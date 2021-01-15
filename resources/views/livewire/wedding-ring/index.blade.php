@@ -190,77 +190,37 @@
             </div>
 
 	        <div class="flex box justify-center p-2 mx-1 items-center" x-on:click="selectDisplayColumn('origin')">
-	            <a class="is-primary px-2">{{trans('weddingRing.origin')}}</a>
-	            <a >
-	             @foreach($search_conditions['origin'] as  $key => $origin)
-		             @if($origin['clicked'])
-		              <button class="btn btn-outline {{$origin['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('origin', '{{$key}}' )">
-		              	{{__('weddingRing.' . $key)}}
-
-		              </button>
-		             @endif
-	            @endforeach	
-	            </a>
-			            		
-	            <i class="fas fa-chevron-down"></i>
-	        </div>
-            <div class="flex justify-center"  x-show="displayColumn == 'origin' ">
-               	@foreach($search_conditions['origin'] as  $key => $origin)
-	              <button class="btn btn-outline {{$origin['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('origin', '{{$key}}' )">
-	              	{{__('weddingRing.' . $key)}}
-
-	              </button>
-	            @endforeach	
-                
+	            <a class="px-2">{{trans('weddingRing.origin')}}</a>
+	            <select class="btn btn-outline {{count($fetchData['origin'])? 'btn-active':'' }}" wire:model="fetchData.origin.0">
+	            	@foreach($search_conditions['origin'] as  $key => $origin)
+	            		<option value="{{$origin['value'][0]}}">
+	            			<div wire:click="toggleValue('origin', '{{$key}}' )">{{__('weddingRing.' . $key)}}</div>
+	            		</option>
+	      
+	            	@endforeach
+	            </select>
             </div>
 
 	        <div class="flex box justify-center p-2 mx-1 items-center" x-on:click="selectDisplayColumn('brand')">
-	            <a class="is-primary px-2">{{trans('weddingRing.brand')}}</a>
-	            <a >
-	             @foreach($search_conditions['brand'] as  $key => $brand)
-		             @if($brand['clicked'])
-		              <button class="btn btn-outline {{$brand['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('brand', '{{$key}}' )">
-		              	{{__('weddingRing.' . $key)}}
-
-		              </button>
-		             @endif
-	            @endforeach	
-	            </a>
-			            		
-	            <i class="fas fa-chevron-down"></i>
-	        </div>
-            <div class="flex justify-center"  x-show="displayColumn == 'brand' ">
-               	@foreach($search_conditions['brand'] as  $key => $brand)
-	              <button class="btn btn-outline {{$brand['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('brand', '{{$key}}' )">
-	              	{{__('weddingRing.' . $key)}}
-
-	              </button>
-	            @endforeach	
+	            <a class="px-2">{{trans('weddingRing.brand')}}</a>
+	            <select class="btn btn-outline {{count($fetchData['brand'])? 'btn-active':'' }}" wire:model="fetchData.brand.0">
+	            	@foreach($search_conditions['brand'] as  $key => $brand)
+	            		<option value="{{$brand['value'][0]}}">
+	            			<div wire:click="toggleValue('brand', '{{$key}}' )">{{__('weddingRing.' . $key)}}</div>
+	            		</option>
+	      
+	            	@endforeach
+	            </select>
                 
             </div>
 
 	        <div class="flex box justify-center p-2 mx-1 items-center" x-on:click="selectDisplayColumn('style')">
-	            <a class="is-primary px-2">{{trans('weddingRing.style')}}</a>
-	            <a >
-	             @foreach($search_conditions['style'] as  $key => $style)
-		             @if($style['clicked'])
-		              <button class="btn btn-outline {{$style['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('style', '{{$key}}' )">
-		              	{{__('weddingRing.' . $key)}}
-
-		              </button>
-		             @endif
-	            @endforeach	
-	            </a>
-			            		
-	            <i class="fas fa-chevron-down"></i>
-	        </div>
-            <div class="flex justify-center"  x-show="displayColumn == 'style' ">
-               	@foreach($search_conditions['style'] as  $key => $style)
-	              <button class="btn btn-outline {{$style['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('style', '{{$key}}' )">
-	              	{{__('weddingRing.' . $key)}}
-
-	              </button>
-	            @endforeach	
+	            <a class="px-2">{{trans('weddingRing.style')}}</a>
+	            <select class="btn btn-outline {{count($fetchData['style'])? 'btn-active':'' }}" wire:model="fetchData.style.0">
+	            	@foreach($search_conditions['style'] as  $key => $style)
+	            		<option value="{{$style['value'][0]}}">{{__('weddingRing.' . $key)}}</option>
+	            	@endforeach
+	            </select>
                 
             </div>
 
