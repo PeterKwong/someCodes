@@ -227,7 +227,15 @@ class Index extends Component
         $this->setCookie();
 
     }
+    public function resetAll(){
 
+        $this->resetCookies();
+        $this->resetSettings();
+        // dd('hi');
+        redirect(app()->getLocale() . '/wedding-rings');
+
+
+    }
     public function resetSettings(){
 
         $this->resetFetchData();

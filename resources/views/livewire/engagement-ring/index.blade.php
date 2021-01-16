@@ -159,11 +159,14 @@
 	</div>
 	                
 
-	<div class="row justify-content-center">
-	    <div class="col">
-	        <center>
-	            <button class="btn btn-primary" wire:click="addPage()">{{trans('engagementRing.More')}}</button>
-	        </center>
+	<div class="grid grid-cols-12 ">
+	    <div class="col-span-12 flex justify-center {{ isset($model['total']) && $model['total'] == 0 ? ' hidden' : ''}}">
+	           <button class="btn btn-primary" wire:click="addPage()">{{trans('engagementRing.More')}}</button>
+	    </div>
+	    <div class="col-span-12 flex justify-center {{ isset($model['total']) && $model['total'] == 0 ? '' : ' hidden'}}">
+	    	 <button class="btn btn-primary" wire:click="resetAll">
+		          {{ __('diamondSearch.No Result')}} ！ {{__('diamondSearch.reset')}} <i class="fas fa-undo"></i>
+		      </button>
 	    </div>
 	</div>
 

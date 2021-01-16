@@ -163,6 +163,7 @@ return [
 	'Blue' => '蓝色',
 	'Black' => '黑色',
 
+	'No Result' => '沒結果',
 
 
 

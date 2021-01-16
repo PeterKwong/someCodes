@@ -256,8 +256,14 @@ class PostFetch extends Component
 	public function deleteSelectedTags($index){
 		array_splice($this->selectedTags, $index ,1);
 	} 
+	public function resetAll(){
+		$this->selectedTags = [];
+		$this->resetUpperId();
+    	$this->getTags();
 
+	}
 	public function resetUpperId(){
+		// dd('hi');
 		$this->upperId = [];
 		$this->upperId[] = ['id'=>0, 'content' => '', 'type'=> 'Diamond'];
 	} 
