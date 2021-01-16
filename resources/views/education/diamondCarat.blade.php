@@ -34,7 +34,7 @@
                     <br>
 
                     <div class="grid grid-cols-12 justify-center text-center" >
-                        <div class="col-start-2 col-span-2">
+                        <div class="col-span-6 sm:col-start-2 sm:col-span-2">
                             <center>     
                                     <div>
                                         <img class=" img-thumbnail" :src="'/images/front-end/education/carat/pageImage.jpg'"  >
@@ -42,7 +42,7 @@
                             </center>
                             
                         </div>
-                        <div class="col-span-8">
+                        <div class="col-span-6 sm:col-span-8">
                             <center>
                                 <h3 class="sm:text-2xl">{{__('education.DIAMOND Carat | EDUCATION')}}</h3>
                                 {{trans('education.It increases the weight of a diamond, and looking up from the diameter of the surface will also increase, but add a lot of weight, just add a little diameter.')}}   

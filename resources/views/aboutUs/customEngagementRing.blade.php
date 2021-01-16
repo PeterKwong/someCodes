@@ -42,7 +42,7 @@
 
               <br>
               <div class="grid grid-cols-12">
-                <div class="col-span-10">
+                <div class="col-span-12">
                   <ul class="flex justify-center items-center border-b" id="myTab" role="tablist">
                     <li class="">
                       <a class="text-blue-600 text-center px-2" href="{{ url( app()->getLocale() . '/buying-procedure' )}}" >{{trans('buyingProcedure.Appointment First')}}</a>
@@ -63,33 +63,39 @@
 
                   
                   <div class="grid grid-cols-12" v-if="activedSubTab=='Choose Ring Setting'|| activedSubTab=='custom-engagement-rings'">
-                    <div class="col-span-5">
-                      <center>
-                        <p class="sm:text-xl font-semibold">{{trans('buyingProcedure.Choose')}} <a class="sm:text-xl font-semibold" href="">{{trans('buyingProcedure.On Stock Engagaement Ring')}}</a></p>
+                    <div class="col-span-12">
+                      <div class="grid grid-cols-12 items-center p-2">
+                          <div class="col-span-8 text-center">
+                            <p class="sm:text-xl font-semibold">1. {{trans('buyingProcedure.Choose')}} <a class="sm:text-xl font-semibold text-blue-600" href="/{{  app()->getLocale() }}/engagement-rings">{{trans('buyingProcedure.On Stock Engagaement Ring')}}</a></p>
 
-                        <p>{{trans('buyingProcedure.para5')}}</p>
+                            <p>{{trans('buyingProcedure.para5')}}</p>
 
-                          <figure class="image">
-                            
-                              <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/IMG_0108_1-e1473742419200.jpg">
-                          </figure>
-                      </center>
+                          </div>
+
+                          <div class="col-span-4">
+                            <img class="w-full" src="/images/front-end/aboutUs/buyingProcedure/IMG_0108_1-e1473742419200.jpg">
+                          </div>
+                      </div>
+                      
                     </div>
-                    <div class="col-span-7">
-                         <center>
-                        <p class="sm:text-xl font-semibold">{{trans('buyingProcedure.title4')}}</p>
-                        <li>{{trans('buyingProcedure.para6')}}</li>
-                        <li>{{trans('buyingProcedure.para7')}}</li>
-                        <p class="sm:text-xl font-semibold">{{trans('buyingProcedure.para7.1')}}</p>
-                        <figure class="image">
-                              <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/WhatsApp-Image-2017-01-04-at-7.26.31-PM_1.jpg">
-                          </figure>
-                        <li>{{trans('buyingProcedure.para8')}}</li>
 
-                        <figure class="image">
-                              <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/0.7-626x453.jpg">
-                          </figure>
-                        </center>
+
+                    <div class="col-span-12">
+                      <div class="grid grid-cols-12 items-center p-2">
+                        <div class="col-span-12 text-center">
+                          <p class="sm:text-xl font-semibold">2. {{trans('buyingProcedure.title4')}}</p>
+                          <li>{{trans('buyingProcedure.para6')}}</li>
+                          <li>{{trans('buyingProcedure.para7')}}</li>
+                          <p class="sm:text-xl font-semibold">{{trans('buyingProcedure.para7.1')}}</p>
+                        </div>
+                        <div class="col-span-6 text-center">
+                          <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/WhatsApp-Image-2017-01-04-at-7.26.31-PM_1.jpg">
+                        </div>
+                        <div class="col-span-6 text-center">
+                          <li>{{trans('buyingProcedure.para8')}}</li>
+                          <img class="img-fluid" src="/images/front-end/aboutUs/buyingProcedure/0.7-626x453.jpg">
+                        </div>
+                      </div>
                     </div>
                   </div>
 

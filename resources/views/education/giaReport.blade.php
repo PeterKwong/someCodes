@@ -34,7 +34,7 @@
                     <br>
 
                     <div class="grid grid-cols-12 text-center" >
-                        <div class="col-span-2 col-start-2">
+                        <div class="col-span-12 sm:col-span-2 sm:col-start-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" :src="'/images/front-end/education/' + activedSubTab +'/pageImage.jpg'" >
@@ -42,7 +42,7 @@
                             </center>
                             
                         </div>
-                        <div class="col-span-8">
+                        <div class="col-span-12 sm:col-span-8">
                             <center>
                                 <h3 class="sm:text-xl font-semibold">{{__('education.metaTitle13')}}</h3>
                                 {{__('education.You know how to interpret GIA Report, basically to see other diamond certification reports, such as: IGI or HRD, will not have any difficulty, but the main is that they are called, respectively, or a little different.')}} 
@@ -80,10 +80,10 @@
                                        
                                         <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle1')}}</p></center>
                                         <div class="grid grid-cols-12">
-                                            <div class="col-span-8">
+                                            <div class="col-span-12 sm:col-span-8">
                                                 <li>{{trans('education.giaPara1')}}</li>                                       
                                             </div>
-                                            <div class="col-span-4">
+                                            <div class="col-span-12 sm:col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure class="image">
@@ -102,10 +102,10 @@
                                         <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle2')}}</p></center>
                                         <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle3')}}</p></center>
                                         <div class="grid grid-cols-12">
-                                            <div class="col-span-8">
+                                            <div class="col-span-12 sm:col-span-8">
                                                 <li>{{trans('education.giaPara4')}}</li>                                    
                                             </div>
-                                            <div class="col-span-4">
+                                            <div class="col-span-12 sm:col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure >
@@ -124,10 +124,10 @@
                                         <hr>
                                         <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle4')}}</p></center>
                                         <div class="grid grid-cols-12">
-                                            <div class="col-span-8">
+                                            <div class="col-span-12 sm:col-span-8">
                                                 <li>{{trans('education.giaPara7')}}</li>                                
                                             </div>
-                                            <div class="col-span-4">
+                                            <div class="col-span-12 sm:col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure >
@@ -145,10 +145,10 @@
                                         <hr>
                                         <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle5')}}</p></center>
                                         <div class="grid grid-cols-12">
-                                            <div class="col-span-8">
+                                            <div class="col-span-12 sm:col-span-8">
                                                 <li>{{trans('education.giaPara8')}}</li>                                
                                             </div>
-                                            <div class="col-span-4">
+                                            <div class="col-span-12 sm:col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure >
@@ -166,10 +166,10 @@
                                         <hr>
                                         <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle6')}}</p></center>
                                         <div class="grid grid-cols-12">
-                                            <div class="col-span-8">
+                                            <div class="col-span-12 sm:col-span-8">
                                                 <li>{{trans('education.giaPara9')}}</li>                                
                                             </div>
-                                            <div class="col-span-4">
+                                            <div class="col-span-12 sm:col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure >
@@ -188,10 +188,10 @@
                                         <hr>
                                         <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle7')}}</p></center>
                                         <div class="grid grid-cols-12">
-                                            <div class="col-span-8">
+                                            <div class="col-span-12 sm:col-span-8">
                                                 <li>{{trans('education.giaPara11')}}</li>                                
                                             </div>
-                                            <div class="col-span-4">
+                                            <div class="col-span-12 sm:col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure >
@@ -209,10 +209,10 @@
                                         <hr>
                                         <center><p class="sm:text-xl font-semibold">{{trans('education.giaTitle8')}}</p></center>
                                         <div class="grid grid-cols-12">
-                                            <div class="col-span-8">
+                                            <div class="col-span-12 sm:col-span-8">
                                                 <li>{{trans('education.giaPara12')}}</li>                                
                                             </div>
-                                            <div class="col-span-4">
+                                            <div class="col-span-12 sm:col-span-4">
                                                 <a>
                                                 <center>  
                                                 <figure >
