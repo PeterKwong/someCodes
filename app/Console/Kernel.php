@@ -65,27 +65,23 @@ class Kernel extends ConsoleKernel
         //extra
         $schedule->call(function () use(&$CronJob) {
             $this->diamondOncall($CronJob);
-        })->cron('*/1 * * * *')->between('00:01', '00:30')->runInBackground();
+        })->cron('*/1 * * * *')->between('00:01', '01:00')->runInBackground();
 
         $schedule->call(function () use(&$CronJob) {
             $this->diamondOncall($CronJob);
-        })->cron('*/3 * * * *')->between('00:31', '01:00')->runInBackground();
+        })->cron('*/4 * * * *')->between('01:00', '01:30')->runInBackground();
 
         $schedule->call(function () use(&$CronJob) {
             $this->diamondOncall($CronJob);
-        })->cron('*/6 * * * *')->between('01:00', '01:30')->runInBackground();
+        })->cron('*/4 * * * *')->between('02:00', '02:30')->runInBackground();
 
         $schedule->call(function () use(&$CronJob) {
             $this->diamondOncall($CronJob);
-        })->cron('*/6 * * * *')->between('02:00', '02:30')->runInBackground();
+        })->cron('*/4 * * * *')->between('03:00', '03:30')->runInBackground();
 
         $schedule->call(function () use(&$CronJob) {
             $this->diamondOncall($CronJob);
-        })->cron('*/6 * * * *')->between('03:00', '03:30')->runInBackground();
-
-        $schedule->call(function () use(&$CronJob) {
-            $this->diamondOncall($CronJob);
-        })->cron('*/6 * * * *')->between('05:00', '05:30')->runInBackground();
+        })->cron('*/4 * * * *')->between('05:00', '05:30')->runInBackground();
 
 
          $schedule->call(function () use(&$CronJob) {
