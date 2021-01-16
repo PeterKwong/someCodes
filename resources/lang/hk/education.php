@@ -140,6 +140,7 @@ return [
 	'DIAMOND Carat | EDUCATION' => '鑽石4Cs | 鑽石重量',
 	'HOW TO INTERPRET GIA REPORT' => '什麼是鑽石證書',
 	'You know how to interpret GIA Report, basically to see other diamond certification reports, such as: IGI or HRD, will not have any difficulty, but the main is that they are called, respectively, or a little different.' => '鑽石的證書可核對鑽石的詳情，包括鑽石的顏色、重量、淨度、及它的切割等級，你永遠都不應該買沒有證書的鑽石。',
+	'Diamond Certficate' => '鑽石證書',
 	'Diamond certficate' => '鑽石證書',
 	'Eye Clean Diamond' => '肉眼乾淨鑽石',
 	'Gia Report' => 'GIA REPORT | GIA證書',

@@ -35,7 +35,7 @@
 
 
                     <div class="grid grid-cols-12 text-center" >
-                        <div class="col-span-2 col-start-2">
+                        <div class="col-span-12 sm:col-span-2 sm:col-start-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" src="/images/front-end/education/anatomy-fluorescence/pageImage.jpg" >
@@ -43,7 +43,7 @@
                             </center>
                             
                         </div>
-                        <div class="col-span-8">
+                        <div class="col-span-12 sm:col-span-8">
                             <center>
                                 <h3 class="sm:text-xl font-semibold">{{__('education.metaTitle7')}}</h3>
                                  {{__('education.Diamond fluorescence response is a natural reaction. Different gems will also appear fluorescence. Some diamonds when they are exposed to ultraviolet light, visible light will be emitted, this is the diamond fluorescence.')}}  

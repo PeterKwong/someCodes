@@ -34,7 +34,7 @@
                     <br>
 
                     <div class="grid grid-cols-12 text-center" >
-                        <div class="col-start-2 col-span-2">
+                        <div class="col-span-6 sm:col-start-2 sm:col-span-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" :src="'/images/front-end/education/' + activedSubTab +'/pageImage.jpg'"  >
@@ -42,7 +42,7 @@
                             </center>
                             
                         </div>
-                        <div class="col-span-8">
+                        <div class="col-span-6 sm:col-span-8">
                             <center>
                                 <h3 class="sm:text-xl font-semibold">{{__('education.HOW TO INTERPRET GIA REPORT')}} ?</h3>
                                 {{__('education.You know how to interpret GIA Report, basically to see other diamond certification reports, such as: IGI or HRD, will not have any difficulty, but the main is that they are called, respectively, or a little different.')}}' 
@@ -72,11 +72,11 @@
                         <br>
 
                         <div class="grid grid-cols-12">
-                            <div class="col-span-10">
+                            <div class="col-span-8 sm:col-span-10">
                                 <p class="sm:text-xl font-semibold">{{trans('education.certTitle1')}}</p>
                                 <li>{{trans('education.certPara1')}}</li>                            
                             </div>
-                            <div class="col-span-2">
+                            <div class="col-span-4 sm:col-span-2">
                                 <p>{{trans('education.Diamond Certficate')}}</p>
                                     <img class="img-fluid" src="/images/front-end/education/grading-certficate/pageImage.jpg">
                             </div>

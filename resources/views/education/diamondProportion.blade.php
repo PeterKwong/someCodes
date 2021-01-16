@@ -34,7 +34,7 @@
                     <br>
 
                     <div class="grid grid-cols-12 text-center" >
-                        <div class="col-span-2 col-start-2">
+                        <div class="col-span-6 sm:col-span-2 sm:col-start-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" :src="'/images/front-end/education/carat/pageImage.jpg'" >
@@ -42,7 +42,7 @@
                             </center>
                             
                         </div>
-                        <div class="col-span-8">
+                        <div class="col-span-6 sm:col-span-8">
                             <center>
                                 <h3 class="sm:text-xl font-semibold">{{__('diamondProportion.WHAT IS DIAMOND PROPORTION ?')}}</h3>
                                 {{__('diamondProportion.Excellent cut diamond will show three different qualities: brightness, fire and scintillation.')}}   
@@ -84,7 +84,7 @@
                                         <div class="level is-centered">
                                         
                                         <div class="grid grid-cols-12">
-                                              <div class="col-span-10">
+                                              <div class="col-span-12 sm:col-span-10">
                                             
                                                     <div class="text-center">
                                                         <p class="sm:text-xl font-semibold">{{trans('diamondProportion.DIAMOND PROPORTION – UNDERSTAND BRILLIANT, FIRE AND SCITILLATION')}}</p>
@@ -97,13 +97,13 @@
                                                      
                                               </div>
 
-                                          <div class="tile">
+                                          <div class="col-span-12 sm:col-span-2">
 
                                              <a class="">
                                                 <center>  
                                                     <figure class="image">
                                                       <p>{{__('diamondProportion.UNDERSTAND BRILLIANT, FIRE AND SCITILLATION')}}</p>
-                                                        <img class="img-fluid" src="/images/front-end/education/anatomy-proportion/pageImage.jpg">
+                                                        <img class="w-full" src="/images/front-end/education/anatomy-proportion/pageImage.jpg">
                                                     </figure>
                                                 </center>
                                             </a>

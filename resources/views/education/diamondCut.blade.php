@@ -35,7 +35,7 @@
 
 
                     <div class="grid grid-cols-12 text-center" >
-                        <div class="col-span-2 col-start-2">
+                        <div class="col-span-6 sm:col-span-2 sm:col-start-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" :src="'/images/front-end/education/cut/pageImage.jpg'"   >
@@ -43,7 +43,7 @@
                             </center>
                             
                         </div>
-                        <div class="col-span-8">
+                        <div class="col-span-6 sm:col-span-8">
                             <center>
                                 <h3 class="sm:text-xl font-semibold">{{__('education.DIAMOND Cut | EDUCATION')}}</h3>
                                 {{__('education.It refers not only to diamond cutting diamond cutting shape, but more importantly, through the process of cutting the diamond light refraction perfect presents the viewer’s eyes.')}} 
@@ -76,7 +76,7 @@
                               <br>
 
                               <div class="grid grid-cols-12 text-center">
-                                <div class="col-span-8">
+                                <div class="col-span-12 sm:col-span-8">
                                     <p class="sm:text-xl font-semibold">{{trans('education.cutTitle1')}}</p>
                                     <li>{{trans('education.cutPara1')}}</li>
                                     <br>
@@ -84,7 +84,7 @@
                                     <br>
                                     <li>{{trans('education.cutPara3')}}</li>
                                 </div>
-                                <div class="col-span-4">
+                                <div class="col-span-12 sm:col-span-4">
                                     <figure class="image is-128x128">
                                       <p>Diamond Cut</p>
                                       <img class="img-fluid" src="/images/front-end/education/cut/cut.jpg">

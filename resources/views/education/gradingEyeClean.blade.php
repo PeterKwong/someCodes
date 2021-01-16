@@ -34,7 +34,7 @@
                     <br>
 
                     <div class="grid grid-cols-12 text-center" >
-                        <div class="col-span-2 col-start-2">
+                        <div class="col-span-6 sm:col-span-2 sm:col-start-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" :src="'/images/front-end/education/' + activedSubTab +'/pageImage.jpg'"  >
@@ -42,7 +42,7 @@
                             </center>
                             
                         </div>
-                        <div class="col-span-8">
+                        <div class="col-span-6 sm:col-span-8">
                             <center>
                                 <h3 class="title is-5">{{__('education.eyeCleanTitle1')}}</h3>
                                 {{__('education.According to their ratings, GIA diamond gradings of clarity in Flawless (FL), within Internal Flawless (IF), very very slight (VVS), and slight (VS) are eye clean visually')}}
@@ -76,10 +76,10 @@
 
                                 <center><p class="title is-6">{{trans('education.eyeCleanTitle1')}}</p></center>
                                 <div class="grid grid-cols-12">
-                                    <div class="col-span-10">
+                                    <div class="col-span-12 sm:col-span-10">
                                         <li>{{trans('education.eyeCleanPara1')}}</li>
                                     </div>
-                                    <div class="col-span-2">
+                                    <div class="col-span-12 sm:col-span-2">
                                         <a>
                                         <center>  
                                           <p>{{__('education.Eye Clean Diamond')}}</p>

@@ -34,14 +34,14 @@
                     <br>
 
                     <div class="grid grid-cols-12" >
-                        <div class="col-span-2 col-start-2">
+                        <div class="col-span-6 sm:col-span-2 sm:col-start-2">
                             <center>
                               <img class="box img-thumbnail" :src="'/images/front-end/education/shape/pageImage.jpg'" class="">
                               
                             </center>
                             
                         </div>
-                        <div class="col-span-8">
+                        <div class="col-span-6 sm:col-span-8">
                             <center><h3 class="sm:text-xl font-semibold">{{__('diamondShape.HOW TO INTERPRET DIAMOND SHAPE ?')}}</h3>   
                                     {{__('diamondShape.Diamonds can have many different shapes, each a diamond shape has its own unique properties.')}}
                             </center>
@@ -82,7 +82,7 @@
                                 <div class="level is-centered">
                                 
                                 <div class="grid grid-cols-12 justify-center">
-                                      <div class="col-span-10">
+                                      <div class="col-span-12 sm:col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
@@ -100,7 +100,7 @@
                                              
                                       </div>
 
-                                  <div class="col-span-2">
+                                  <div class="col-span-12 sm:col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -120,7 +120,7 @@
                                 <div class="level is-centered">
                                 
                                 <div class="grid grid-cols-12 justify-center">
-                                      <div class="col-span-10">
+                                      <div class="col-span-12 sm:col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
@@ -138,7 +138,7 @@
                                              
                                       </div>
 
-                                  <div class="col-span-2">
+                                  <div class="col-span-12 sm:col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -158,7 +158,7 @@
                                 <div class="level is-centered">
                                 
                                 <div class="grid grid-cols-12 justify-center">
-                                      <div class="col-span-10">
+                                      <div class="col-span-12 sm:col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
@@ -176,7 +176,7 @@
                                              
                                       </div>
 
-                                  <div class="col-span-2">
+                                  <div class="col-span-12 sm:col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -195,7 +195,7 @@
                                 <div class="level is-centered">
                                 
                                 <div class="grid grid-cols-12 justify-center">
-                                      <div class="col-span-10">
+                                      <div class="col-span-12 sm:col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
@@ -213,7 +213,7 @@
                                              
                                       </div>
 
-                                  <div class="col-span-2">
+                                  <div class="col-span-12 sm:col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -233,7 +233,7 @@
                                 <div class="level is-centered">
                                 
                                 <div class="grid grid-cols-12 justify-center">
-                                      <div class="col-span-10">
+                                      <div class="col-span-12 sm:col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
@@ -251,7 +251,7 @@
                                              
                                       </div>
 
-                                  <div class="col-span-2">
+                                  <div class="col-span-12 sm:col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -271,7 +271,7 @@
                                 <div class="level is-centered">
                                 
                                 <div class="grid grid-cols-12 justify-center">
-                                      <div class="col-span-10">
+                                      <div class="col-span-12 sm:col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
@@ -289,7 +289,7 @@
                                              
                                       </div>
 
-                                  <div class="col-span-2">
+                                  <div class="col-span-12 sm:col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -309,7 +309,7 @@
                                 <div class="level is-centered">
                                 
                                 <div class="grid grid-cols-12 justify-center">
-                                      <div class="col-span-10">
+                                      <div class="col-span-12 sm:col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
@@ -327,7 +327,7 @@
                                              
                                       </div>
 
-                                  <div class="col-span-2">
+                                  <div class="col-span-12 sm:col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -347,7 +347,7 @@
                                 <div class="level is-centered">
                                 
                                 <div class="grid grid-cols-12 justify-center">
-                                      <div class="col-span-10">
+                                      <div class="col-span-12 sm:col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
@@ -365,7 +365,7 @@
                                              
                                       </div>
 
-                                  <div class="col-span-2">
+                                  <div class="col-span-12 sm:col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -385,7 +385,7 @@
                                 <div class="level is-centered">
                                 
                                 <div class="grid grid-cols-12 justify-center">
-                                      <div class="col-span-10">
+                                      <div class="col-span-12 sm:col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
@@ -403,7 +403,7 @@
                                              
                                       </div>
 
-                                  <div class="col-span-2">
+                                  <div class="col-span-12 sm:col-span-2">
 
                                  <a class="">
                                     <center>  
@@ -423,7 +423,7 @@
                                 <div class="level is-centered">
                                 
                                 <div class="grid grid-cols-12 justify-center">
-                                      <div class="col-span-10">
+                                      <div class="col-span-12 sm:col-span-10">
                                     
                                             <div class="message-body">
                                             <center>
@@ -441,7 +441,7 @@
                                              
                                       </div>
 
-                                  <div class="col-span-2">
+                                  <div class="col-span-12 sm:col-span-2">
 
                                  <a class="">
                                     <center>  

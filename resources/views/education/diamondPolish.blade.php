@@ -34,7 +34,7 @@
                     <br>
 
                     <div class="grid grid-cols-12 text-center" >
-                        <div class="col-span-2 col-start-2">
+                        <div class="col-span-6 sm:col-span-2 sm:col-start-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" :src="'/images/front-end/education/carat/pageImage.jpg'" >
@@ -42,7 +42,7 @@
                             </center>
                             
                         </div>
-                        <div class="col-span-8">
+                        <div class="col-span-6 sm:col-span-8">
                             <center>
                                 <h3 class="sm:text-xl font-semibold">{{__('diamondPolish.WHAT IS DIAMOND POLISH ?')}}</h3>
                                 {{__('diamondPolish.The diamond polish affects the ability of light coming out from the diamond. The integration of brilliant in the diamond is a very very important factor.')}}   
@@ -82,7 +82,7 @@
                                     <div class="level is-centered">
                                     
                                     <div class="grid grid-cols-12 text-left">
-                                          <div class="col-span-10">
+                                          <div class="col-span-8 sm:col-span-10">
                                         
                                                 <div class="">
 
@@ -109,7 +109,7 @@
                                                  
                                           </div>
 
-                                      <div class="col-span-2">
+                                      <div class="col-span-4 sm:col-span-2">
 
                                          <a class="">
                                             <center>  

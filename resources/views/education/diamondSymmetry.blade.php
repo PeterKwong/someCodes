@@ -34,7 +34,7 @@
                     <br>
 
                     <div class="grid grid-cols-12 text-center" >
-                        <div class="col-span-2 col-start-2">
+                        <div class="col-span-6 sm:col-span-2 sm:col-start-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" src="/images/front-end/education/anatomy-symmetry/pageImage.jpg" >
@@ -42,7 +42,7 @@
                             </center>
                             
                         </div>
-                        <div class="col-span-8">
+                        <div class="col-span-6 sm:col-span-8">
                             <center>
                                 <h3 class="title is-5">{{__('diamondSymmetry.WHAT IS DIAMOND SYMMETRY ?')}}</h3>
                                 {{__('diamondSymmetry.In round diamond, the tip of main pavilion facets should be accurately aligned with the main facets. For examples: we can see the facets of a diamond their crown and pavilion should be asymmetry.')}}
@@ -84,7 +84,7 @@
                                   <div class="level is-centered">
                                   
                                   <div class="grid grid-cols-12">
-                                        <div class="col-span-10">
+                                        <div class="col-span-12 sm:col-span-10">
                                       
                                               <div class="message-body">
                                               <center>
@@ -100,7 +100,7 @@
                                                
                                         </div>
 
-                                    <div class="col-span-2">
+                                    <div class="col-span-12 sm:col-span-2">
 
                                        <a class="">
                                           <center>  
@@ -120,7 +120,7 @@
                                   <div class="level is-centered">
                                   
                                   <div class="grid grid-cols-12">
-                                        <div class="col-span-10">
+                                        <div class="col-span-12 sm:col-span-10">
                                       
                                               <div class="message-body">
                                               <center>
@@ -136,7 +136,7 @@
                                                
                                         </div>
 
-                                    <div class="col-span-2">
+                                    <div class="col-span-12 sm:col-span-2">
 
                                        <a class="">
                                           <center>  
@@ -156,7 +156,7 @@
                                   <div class="level is-centered">
                                   
                                   <div class="grid grid-cols-12">
-                                        <div class="col-span-10">
+                                        <div class="col-span-12 sm:col-span-10">
                                       
                                               <div class="message-body">
                                               <center>
@@ -172,7 +172,7 @@
                                                
                                         </div>
 
-                                    <div class="col-span-2">
+                                    <div class="col-span-12 sm:col-span-2">
 
                                        <a class="">
                                           <center>  

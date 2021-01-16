@@ -34,7 +34,7 @@
                     <br>
 
                     <div class="grid grid-cols-12 text-center" >
-                        <div class="col-span-2 col-start-2">
+                        <div class="col-span-6 sm:col-span-2 sm:col-start-2">
                             <center>     
                                     <figure>
                                         <img class=" img-thumbnail" :src="'/images/front-end/education/clarity/pageImage.jpg'" >
@@ -42,7 +42,7 @@
                             </center>
                             
                         </div>
-                        <div class="col-span-8">
+                        <div class="col-span-6 sm:col-span-8">
                             <center>
                                 <h3 class="sm:text-xl font-semibold">{{__('education.DIAMOND Clarity | EDUCATION')}}</h3>
                                 {{__('education.To select a diamond, and its inclusions will not affect the overall beauty of the diamond, which is very important.')}} 
@@ -77,11 +77,11 @@
                           <br>
 
                           <div class="grid grid-cols-12 text-center">
-                            <div class="col-span-8">
+                            <div class="col-span-6 sm:col-span-8">
                                 <p class="sm:text-xl font-semibold">{{trans('education.clarityTitle1')}}</p>
                                 <li>{{trans('education.clarityPara1')}}</li>
                             </div>
-                            <div class="col-span-4 flex justify-center">
+                            <div class="col-span-6 sm:col-span-4 flex justify-center">
                                 <figure class="image is-128x128">
                                   <p>{{__('education.Diamond Clarity')}}</p>
                                   <img class="img-fluid" src="/images/front-end/education/clarity/pageImage.jpg">
@@ -90,7 +90,7 @@
                           </div>
 
                           <div class="grid grid-cols-12 text-center">
-                            <div class="col-span-8">
+                            <div class="col-span-12">
                                 <p class="sm:text-xl font-semibold">{{trans('education.clarityPara2')}}</p>
                             </div>
                           </div>
