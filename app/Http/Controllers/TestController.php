@@ -23,8 +23,8 @@ class TestController extends Controller
 
     public function test(){
     	// dd('hi');
-	    $this->postTags();
-	    // $this->resetAllDiamonds();
+	    // $this->postTags();
+	    $this->resetAllDiamonds();
 
 		return response()
 			->json(
@@ -54,7 +54,7 @@ class TestController extends Controller
       // return $import->getDiamondsFromSunrise();
 
       $import = new DiamondImport();
-      return $import->getRapGuzzle();
+      return $import->importFancyDiamondFromAPI_1000_PerBatch(1);
       // return Cache::get('batchNumber');
       // return $import->getSupplierTotalStones();
       // return $import->preloadCerts();

@@ -38,7 +38,7 @@ trait Oncall{
                                         "lotno"=>"",
                                         "certificate_no"=>"",
                                         "shape"=>"Round,Pear,Princess,Marquise,Oval,Radiant,Emerald,Heart,Cushion,Asscher",
-                                        "color"=>"d,e,f,g,h,i,j,k,l,m,fancy",
+                                        "color"=>"d,e,f,g,h,i,j,k,l,m",
                                         "clarity"=>"fl,if,vvs1,vvs2,vs1,vs2,si1,si2,i1",
                                         "cut"=>"ex,vg,gd,",
                                         "polish"=>"ex,vg,gd",
@@ -66,7 +66,47 @@ trait Oncall{
                                         "size"=>"",
                                         "lab"=>"gia"  ]
                               ],
-                            
+                          'fancy_color' =>
+                            ['r_id' =>'99194', 
+                              'extraImport' => 1,
+                              'url' => 'https://www.diamondsoncall.com/API/action.php',
+                              'method' => 'post',
+                              'header' => [],
+                              'data' => ["action"=>"diamond_stock_list_fancy",
+                                        "email"=> env('OCID') ,
+                                        "password"=>env('OCPW') ,
+                                        "startindex"=>1,
+                                        "lotno"=>"",
+                                        "certificate_no"=>"",
+                                        "shape"=>"",
+                                        "color"=>"fancy",
+                                        "clarity"=>"",
+                                        "cut"=>"",
+                                        "polish"=>"",
+                                        "symmetry"=>"",
+                                        "fluorescence"=>"",
+                                        "diamond_width_from"=> "",
+                                        "diamond_width_to"=> "",
+                                        "diamond_length_from"=> "",
+                                        "diamond_length_to"=> "",
+                                        "depth_per_from"=>"",
+                                        "depth_per_to"=>"",
+                                        "table_from"=>"",
+                                        "table_to"=>"",
+                                        "total_depth_from"=>"",
+                                        "total_depth_to"=>"",
+                                        "pav_angle_from"=>"",
+                                        "pav_angle_to"=>"",
+                                        "pavilion_depth_from"=>"",
+                                        "pavilion_depth_to"=> "",
+                                        "crown_height_from"=> "",
+                                        "crown_height_to"=> "",
+                                        "crown_angle_from"=> "",
+                                        "crown_angle_to"=> "",
+                                        "key_symbols"=>"",
+                                        "size"=>"",
+                                        "lab"=>"gia"  ]
+                              ],                            
                         ];
     }
                         
@@ -97,6 +137,14 @@ trait Oncall{
 
 
     public function importDiamondFromAPI_1000_PerBatch($countingPage, $selectedID = 'VRU STAR (HK) LIMITED'){
+          $data = $this->guzzleRequest($this->diamondSource,$selectedID,$countingPage);
+          $extractedDiamonds = $this->importDiamondsFromWebJson($data,$selectedID);   
+
+          return $extractedDiamonds;
+    }
+
+
+    public function importFancyDiamondFromAPI_1000_PerBatch($countingPage, $selectedID = 'fancy_color'){
           $data = $this->guzzleRequest($this->diamondSource,$selectedID,$countingPage);
           $extractedDiamonds = $this->importDiamondsFromWebJson($data,$selectedID);   
 
@@ -176,27 +224,6 @@ trait Oncall{
 
     public function importDiamondsFromWebJson($data){
 
-      $source =  ['pre'=>'DATA',
-                  'image_link_url' => 'http://diamondsoncall.com/assets/rkgia_image/',
-                  'success' => 'CODE',
-                  'stock'=>'LOT_NO', 
-                  'price'=>'AMOUNT', 
-                  'shape'=>'SHAPE', 
-                  'weight'=>'CARAT', 
-                  'color'=>'COLOR', 
-                  'clarity'=>'CLARITY', 
-                  'cut'=>'CUT', 
-                  'polish'=>'POLISH', 
-                  'symmetry'=>'SYMM', 
-                  'fluorescence'=>'FLURO', 
-                  'lab'=>'LAB', 
-                  'certificate'=> 'CERTIFICATE_NO',
-                  'image_link'=>'IMAGE',
-                  'video_link'=>'VIDEO', 
-                  'cert_link'=>'CERTIFICATE', 
-                  'location' => 'LOCATION',
-                  'milky' => 'MILKY',
-                ];
       $success = 0;
 
       if (!$data == 0) {

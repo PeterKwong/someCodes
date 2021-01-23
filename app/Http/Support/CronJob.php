@@ -157,6 +157,27 @@ class CronJob
 
 	}
 
+	public function runImportFancyDiamondAPIPerBatch($p = 0){
+
+		$diamondImport = new DiamondImport();
+
+		$p = $p *1000 +1;
+
+		// $appoint = new AppointmentController();
+		// $jobs = [ $this->ip . 'start working on api import at ' . $p => now()];
+		// $appoint->cronDone($jobs);
+
+		// $api = $diamondImport->importDiamondFromAPI($p = 1);
+		$api = $diamondImport->importFancyDiamondFromAPI_1000_PerBatch($p);
+
+		if ($api != 1) {
+			// $jobs = [ $this->ip . 'api import ' . $p =>'fail'];
+			// $appoint->cronDone($jobs);
+		}
+
+
+	}
+
 	public function runResetAllApiDiamonds(){
 
 		$appoint = new AppointmentController();
