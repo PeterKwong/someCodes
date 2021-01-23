@@ -54,7 +54,7 @@ class TestController extends Controller
       // return $import->getDiamondsFromSunrise();
 
       $import = new DiamondImport();
-      return $import->importFancyDiamondFromAPI_1000_PerBatch(1);
+      return $import->importDiamondFromAPI_1000_PerBatch(1);
       // return Cache::get('batchNumber');
       // return $import->getSupplierTotalStones();
       // return $import->preloadCerts();

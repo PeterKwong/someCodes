@@ -25,7 +25,7 @@ trait Oncall{
                               'header' => [],
                               'data' => []
                             ],
-                          'VRU STAR (HK) LIMITED' =>
+                          'white_diamond' =>
                             ['r_id' =>'99194', 
                               'extraImport' => 1,
                               'url' => 'https://www.diamondsoncall.com/API/action.php',
@@ -110,7 +110,7 @@ trait Oncall{
                         ];
     }
                         
-    public function getSupplierTotalStones($selectedID = 'VRU STAR (HK) LIMITED'){
+    public function getSupplierTotalStones($selectedID = 'white_diamond'){
 
       $data = $this->guzzleRequest($this->diamondSource,$selectedID,1);
 
@@ -119,7 +119,7 @@ trait Oncall{
 
     public function importDiamondFromAPI($startindex=1){
 
-    $suppliers = ['VRU STAR (HK) LIMITED'];
+    $suppliers = ['white_diamond'];
 
     foreach ($suppliers as $s) {
       $this->importDiamondFromWebJson($s , $startindex);
@@ -136,7 +136,7 @@ trait Oncall{
     }
 
 
-    public function importDiamondFromAPI_1000_PerBatch($countingPage, $selectedID = 'VRU STAR (HK) LIMITED'){
+    public function importDiamondFromAPI_1000_PerBatch($countingPage, $selectedID = 'white_diamond'){
           $data = $this->guzzleRequest($this->diamondSource,$selectedID,$countingPage);
           $extractedDiamonds = $this->importDiamondsFromWebJson($data,$selectedID);   
 
@@ -361,7 +361,7 @@ trait Oncall{
 
         if ($data->MESSAGE == 'DATA FOUND') {
 
-            $this->importDiamondsFromWebJson($data,'VRU STAR (HK) LIMITED');
+            $this->importDiamondsFromWebJson($data,'white_diamond');
 
             $diamond->update(['available' => 1]);
 
