@@ -27,14 +27,13 @@
 
     @section('content')
         <br>
-            <div class="row" >
-                <div class="col-span-12">
-                    <center><h3 class="sm:text-lg font-semibold">{{trans('aboutUs.About Us')}}</h3>                 {{trans('buyingProcedure.First to buy diamonds, then buy ring setting')}}     
-                    </center>
-                    
-                </div>
+        <div class="row" >
+            <div class="col-span-12">
+                <center><h3 class="sm:text-lg font-semibold">{{trans('aboutUs.About Us')}}</h3>                 {{trans('buyingProcedure.First to buy diamonds, then buy ring setting')}}     
+                </center>
+                
             </div>
-
+        </div>
 
         <div id="aboutUs">
           <div class="">

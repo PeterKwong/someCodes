@@ -38,7 +38,7 @@
 
         <div id="aboutUs">
           <div class="grid grid-cols-12">
-            <div class="col-span-12">
+            <div class="col-span-12 sm:col-span-10">
               <br>
                 <div class="grid grid-cols-12">
                   <div class="col-span-12">

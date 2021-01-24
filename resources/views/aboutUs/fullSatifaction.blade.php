@@ -41,7 +41,7 @@
             <div class="col-span-12">
               <br>
                 <div class="grid grid-cols-12">
-                  <div class="col-span-12">
+                  <div class="col-span-12 sm:col-span-10">
                     <ul class="flex justify-center items-center border-b" id="myTab" role="tablist">
                       <li class="">
                         <a class="text-blue-600 text-center px-2" href="{{ url( app()->getLocale() . '/buying-procedure' )}}" >{{trans('buyingProcedure.Appointment First')}}</a>
