@@ -123,7 +123,7 @@ class TestController extends Controller
 
 	    				// dd($engagementRing);
 
-	    			if ($weddingRing->style) {
+	    			if ($weddingRing->shape) {
 
 
 	    				// dd($engagementRing);
