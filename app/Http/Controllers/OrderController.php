@@ -350,11 +350,15 @@ class OrderController extends Controller
 
     public function finalize(){
 
+      // dd(request()->all());
+
       $emailFinalize = Order::where('finalize_code', request()->code)->where('id', request()->id)->firstOrFail();
+      // dd($emailFinalize);
+
       $emailFinalize->update(['verified' => true]);
 
       return view('shoppingCart.finalize', compact('emailFinalize'));
-      // dd(request()->all());
+      dd(request()->all());
     }
 
     public function couponCodeOrders($code){
