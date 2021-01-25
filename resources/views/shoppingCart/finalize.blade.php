@@ -40,7 +40,7 @@
                     <p>{{__('shoppingCart.Congratulations, you have successfully confirmed your order!')}}</p>
 
                     <div class="btn btn-primary m-4">
-                            <a href="/login">{{__('shoppingCart.Login/Sign up to track your order.')}}</a>
+                            <a href="/{{app()->getLocale()}}/login">{{__('shoppingCart.Login/Sign up to track your order.')}}</a>
                     </div>
                 </div>
 
