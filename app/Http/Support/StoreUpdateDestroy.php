@@ -57,8 +57,9 @@ trait StoreUpdateDestroy{
             foreach ($request->video360 as $key => $video360File) {
 
                 if (!empty($video360File['path'])) {
-                    
-                    $this->saveSequentImages($video360Code, $video360File['path'], $key);
+                    $pos = stripos($video360File['name'] , '.jpg');
+                    $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;                    
+                    $this->saveSequentImages($video360Code, $video360File['path'], $pos);
 
                 }
             }
@@ -171,7 +172,7 @@ trait StoreUpdateDestroy{
                 if (!empty($video360File['path'])) {
                     // dd($video360File);
                     $pos = stripos($video360File['name'] , '.jpg');
-                    $pos = intval( substr($video360File['name'], $pos-3, -4));
+                    $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;
                     $this->saveSequentImages($this->video360, $video360File['path'], $pos);
 
                 }
