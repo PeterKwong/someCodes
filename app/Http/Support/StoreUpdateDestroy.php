@@ -170,7 +170,9 @@ trait StoreUpdateDestroy{
 
                 if (!empty($video360File['path'])) {
                     // dd($video360File);
-                    $this->saveSequentImages($this->video360, $video360File['path'], $key);
+                    $pos = stripos($video360File['name'] , '.jpg');
+                    $pos = intval( substr($video360File['name'], $pos-3, -4));
+                    $this->saveSequentImages($this->video360, $video360File['path'], $pos);
 
                 }
             }

@@ -172,8 +172,8 @@ class CronJob
 		$api = $diamondImport->importFancyDiamondFromAPI_1000_PerBatch($p);
 
 		if ($api != 1) {
-			$jobs = [ $this->ip . 'fancy api import ' . $p =>'fail'];
-			$appoint->cronDone($jobs);
+			// $jobs = [ $this->ip . 'fancy api import ' . $p =>'fail'];
+			// $appoint->cronDone($jobs);
 		}
 
 
