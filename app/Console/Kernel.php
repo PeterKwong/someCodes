@@ -52,6 +52,31 @@ class Kernel extends ConsoleKernel
 
         })->dailyAt('00:01')->runInBackground();
 
+
+
+        $schedule->call(function () use(&$CronJob) {
+
+            if ( Cache::get('diamondQueryState')  == 2 ) {
+            
+                Cache::increment('diamondQueryState');
+                $CronJob->copyToDiamondQuery();
+                // $CronJob->runImportDiamondSunrise();
+
+                // $CronJob->runDiamondQueryCopy();
+            }
+
+        })->cron('*/1 * * * *')->between('00:01', '23:59')->runInBackground();
+
+
+        $schedule->call(function () use(&$CronJob) {
+            $CronJob->runImages();
+        })->cron('1 */1 * * *')->between('12:01', '23:59')->runInBackground();
+
+        $schedule->call(function () use(&$CronJob) {
+            $CronJob->runCerts();
+        })->cron('1 */1 * * *')->between('14:01', '23:59')->runInBackground();
+
+
         //regular
         $schedule->call(function () use(&$CronJob) {
             $this->diamondOncall($CronJob);
@@ -87,28 +112,9 @@ class Kernel extends ConsoleKernel
             $this->diamondOncall($CronJob);
         })->cron('*/5 * * * *')->between('05:00', '05:30')->runInBackground();
 
-         $schedule->call(function () use(&$CronJob) {
-            $CronJob->runImages();
-        })->cron('1 */1 * * *')->between('12:01', '23:59')->runInBackground();
-
-        $schedule->call(function () use(&$CronJob) {
-            $CronJob->runCerts();
-        })->cron('1 */1 * * *')->between('14:01', '23:59')->runInBackground();
 
 
 
-         $schedule->call(function () use(&$CronJob) {
-
-            if ( Cache::get('diamondQueryState')  == 2 ) {
-            
-                Cache::increment('diamondQueryState');
-                $CronJob->copyToDiamondQuery();
-                // $CronJob->runImportDiamondSunrise();
-
-                // $CronJob->runDiamondQueryCopy();
-            }
-
-        })->cron('*/1 * * * *')->between('00:01', '23:59')->runInBackground();
 
 
         // $schedule->command('inspire')->dailyAt('20:20')->runInBackground()->pingBefore('https://tingdiamond.com/big-sitemap/diamonds/');

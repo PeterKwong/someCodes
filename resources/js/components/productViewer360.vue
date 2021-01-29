@@ -94,7 +94,7 @@
         // console.log('clear')
       },
       nextImage(moved){
-        console.log(moved)
+        // console.log(moved)
       	this.rotateDirection(moved)
 
       },
@@ -102,7 +102,7 @@
 
         this.viewer.progress +=  moved
 
-        console.log(this.viewer.progress)
+        // console.log(this.viewer.progress)
 
         this.drawImg()
 
@@ -134,7 +134,7 @@
   			  ctx.drawImage(img,0, 0, 1080 ,720); // Or at whatever offset you like
   			};
         
-        console.log(this.viewer.progress)
+        // console.log(this.viewer.progress)
 
       },
 
