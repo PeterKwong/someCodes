@@ -145,9 +145,9 @@ class Kernel extends ConsoleKernel
         if ( $batchNumber >= $counter) {
 
             $counter = Cache::increment('counter');
-
-            $CronJob->runImportDiamondAPIPerBatch($counter);
+            
             $CronJob->runImportFancyDiamondAPIPerBatch($counter);
+            $CronJob->runImportDiamondAPIPerBatch($counter);
             
         }
 
