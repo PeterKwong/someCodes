@@ -43,7 +43,8 @@ return [
 	'all' => 'All',
 	'enlarge' => 'Enlarge',
 	'hand-engraving' => 'Hand-Engraving',	
-
+	'shape' => 'Shape',				
+	'Shape' => 'Shape',	
 
 
 	'metaTitle1' => 'Setting | Halo Diamond Ring– Engagement Ring',

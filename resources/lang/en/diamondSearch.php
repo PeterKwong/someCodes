@@ -113,6 +113,17 @@ return [
 	'Radiant' => 'Radiant',
 	'Pear' => 'Pear',
 
+	'round' => 'Round',
+	'heart' => 'Heart',
+	'princess' => 'Princess',
+	'emerald' => 'Emerald',
+	'asscher' => 'Asscher',
+	'oval' => 'Oval',
+	'cushion' => 'Cushion',
+	'marquise' => 'Marquise',
+	'radiant' => 'Radiant',
+	'pear' => 'Pear',
+
 	'ROUND' => 'Round',
 	'HEART' => 'Heart',
 	'PRINCESS' => 'Princess',

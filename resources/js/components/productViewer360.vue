@@ -38,7 +38,7 @@
 				width:1080,
 				height:720,
 				viewer:{ width:1080,heigh:720,progress:0,stage:'',},
-        rotatingTime:100,
+        rotatingTime:80,
 				interval:'',
 
 			}
@@ -102,7 +102,7 @@
 
         this.viewer.progress +=  moved
 
-        // console.log(this.viewer.progress)
+        console.log(this.viewer.progress)
 
         this.drawImg()
 
@@ -134,7 +134,7 @@
   			  ctx.drawImage(img,0, 0, 1080 ,720); // Or at whatever offset you like
   			};
         
-        // console.log(this.viewer.progress)
+        console.log(this.viewer.progress)
 
       },
 

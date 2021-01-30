@@ -121,6 +121,25 @@
 					<div class="col-2">
 						<div class="control has-icon-left">
 							<div class="control">
+								<label  class="label">Shape</label>
+									<select class="form-control" v-model="form.shape">
+										<option value="round">round</option>
+										<option value="heart">heart</option>
+										<option value="princess">princess</option>
+										<option value="emerald">emerald</option>
+										<option value="asscher">asscher</option>
+										<option value="cushion">cushion</option>
+										<option value="oval">oval</option>
+										<option value="marquise">marquise</option>
+										<option value="radiant">radiant</option>
+										<option value="pear">pear</option>
+									</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-2">
+						<div class="control has-icon-left">
+							<div class="control">
 								<label  class="label">other style</label>
 									<select class="form-control" v-model="form.other">
 										<option value=""></option>

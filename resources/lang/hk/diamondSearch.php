@@ -107,6 +107,17 @@ return [
 	'Radiant' => '雷地恩形',
 	'Pear' => '梨形',
 
+	'round' => '圓形',
+	'heart' => '心形',
+	'princess' => '公主方形',
+	'emerald' => '祖母綠形',
+	'asscher' => '上丁方形',
+	'oval' => '橢圓形',
+	'cushion' => '枕形',
+	'marquise' => '馬眼形',
+	'radiant' => '雷地恩形',
+	'pear' => '梨形',
+
 	'ROUND' => '圓形',
 	'HEART' => '心形',
 	'PRINCESS' => '公主方形',

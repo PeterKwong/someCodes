@@ -35,6 +35,28 @@ class Index extends Component
 										'6-prong' => ['clicked'=>false,
 													  'value' => ['6-prong']],
 										],
+                                    'shape'=>[
+                                        'round' => ['clicked'=>false,
+                                                      'value' => ['round']],
+                                        'heart' => ['clicked'=>false,
+                                                      'value' => ['heart']],
+                                        'princess' => ['clicked'=>false,
+                                                      'value' => ['princess']],
+                                        'emerald' => ['clicked'=>false,
+                                                      'value' => ['emerald']],
+                                        'asscher' => ['clicked'=>false,
+                                                      'value' => ['asscher']],
+                                        'oval' => ['clicked'=>false,
+                                                      'value' => ['oval']],
+                                        'cushion' => ['clicked'=>false,
+                                                      'value' => ['cushion']],
+                                        'marquise' => ['clicked'=>false,
+                                                      'value' => ['marquise']],
+                                        'radiant' => ['clicked'=>false,
+                                                      'value' => ['radiant']],
+                                        'pear' => ['clicked'=>false,
+                                                      'value' => ['pear']],
+                                        ],
 									'other'=>[
                                         'all' => ['clicked'=>false,
                                                       'value' => ['']],
@@ -50,7 +72,7 @@ class Index extends Component
         if ( isset($_COOKIE['engagementRing']) ) {
 
             $same = true ;
-            $columns = ['style','shoulder','prong','other'];
+            $columns = ['style','shoulder','prong','shape','other'];
 
             
             $cookie = (array)json_decode($_COOKIE['engagementRing']) ;
@@ -144,7 +166,7 @@ class Index extends Component
     {	
         // dd($this->fetchData);
 
-	 	$requests = ['style','shoulder','prong','other'];
+	 	$requests = ['style','shoulder','prong','shape','other'];
 
         $query = EngagementRing::orderBy('created_at','desc');
 
@@ -223,7 +245,7 @@ class Index extends Component
 
             $this->fetchData = ['page' =>1,  'column' => 'price','direction' => 'asc',
                          'per_page' => 15,
-                         'style' => [], 'shoulder' => [], 'prong' => [], 'other' => [], 
+                         'style' => [], 'shoulder' => [], 'prong' => [],'shape' => [], 'other' => [], 
                     ];
             $this->preset = $this->fetchData;
     } 

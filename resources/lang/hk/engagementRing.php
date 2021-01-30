@@ -36,6 +36,8 @@ return [
 	'halo' => '圍圈碎鑽石',		
 	'Side-stone' => '輔鑽石/ 碎石',	
 	'side-stone' => '輔鑽石/ 碎石',		
+	'shape' => '形狀',				
+	'Shape' => '形狀',				
 
 
 	'other styles' => '其他款式',		

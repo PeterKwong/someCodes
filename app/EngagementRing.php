@@ -13,12 +13,12 @@ class EngagementRing extends Model
 	    protected $hidden = array('pivot');
 	    
 		protected $fillable =[
-		'id','stock' ,'texts','prong','shoulder','style','images','video','customized','other','published','unit_price',
+		'id','stock' ,'texts','prong','shoulder','style','shape','images','video','customized','other','published','unit_price',
 		'metal','metal_weight','ct','cost','brand','video360',
 		];
 
 	    protected $filter = [
-	    'id','stock' ,'texts','prong','shoulder','style','ct','images','video','customized','other','published','unit_price',
+	    'id','stock' ,'texts','prong','shoulder','style','shape','ct','images','video','customized','other','published','unit_price',
 	    ];
 					
 		public function pages()
@@ -62,6 +62,7 @@ class EngagementRing extends Model
 	            'prong'=> '4-prong',
 	            'shoulder'=> 'Tapering',
 	            'style' => 'Solitaire',
+	            'shape' => 'round',
 	            'customized' => 0,
 	            'published'=> 0,
 	            'metal'=> '18KW',

@@ -118,6 +118,17 @@ return [
 	'RADIANT' => '雷地恩形',
 	'PEAR' => '梨形',
 
+	'round' => '圆形',
+	'heart' => '心形',
+	'princess' => '公主方形',
+	'emerald' => '祖母绿形',
+	'asscher' => '上丁方形',
+	'oval' => '椭圆形',
+	'cushion' => '枕形',
+	'marquise' => '马眼形',
+	'radiant' => '雷地恩形',
+	'pear' => '梨形',
+
 	'Total' => '总共',
 	'Order' => '需订货',
 	'1-2 Days' => '1-2天',

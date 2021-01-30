@@ -2,43 +2,61 @@
    <div class="hidden sm:block p-4">
 	    <div class="grid grid-cols-12">
 
-	        <div class="col-span-5">
-	            <div>{{trans('engagementRing.Style')}}</div>
-	            @foreach($search_conditions['style'] as  $key => $style)
-	              <button class="btn btn-outline inline-flex items-center {{$search_conditions['style'][$key]['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('style', '{{$key}}' )">
-	                    <img src="/images/front-end/engagementRing/{{ucfirst($key)}}.png" height="30" width="55">
-	                    {{__('engagementRing.' . $key)}}
-	              </button>
-	            @endforeach	       
+	        <div class="col-span-8">
+			    <div class="grid grid-cols-12">
+			        <div class="col-span-6">
+			            <div>{{trans('engagementRing.Style')}}</div>
+			            @foreach($search_conditions['style'] as  $key => $style)
+			              <button class="btn btn-outline inline-flex items-center {{$search_conditions['style'][$key]['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('style', '{{$key}}' )">
+			                    <img src="/images/front-end/engagementRing/{{ucfirst($key)}}.png" height="30" width="55">
+			                    {{__('engagementRing.' . $key)}}
+			              </button>
+			            @endforeach
+			        </div>
+			        <div class="col-span-6">
+			            <div>{{trans('engagementRing.Shoulder')}}</div>
+			            @foreach($search_conditions['shoulder'] as  $key => $shoulder)
+			              <button class="btn btn-outline inline-flex items-center {{$search_conditions['shoulder'][$key]['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('shoulder', '{{$key}}' )">
+			                    <img src="/images/front-end/engagementRing/{{ucfirst($key)}}.png" height="30" width="55">
+			                    {{__('engagementRing.' . $key)}}
+			              </button>
+			            @endforeach	   
+			        </div> 			        
+			    </div>    
+	        </div>
+	        <div class="col-span-4">
+			    <div class="grid grid-cols-12">
+			        <div class="col-span-6">
+			            <div>{{trans('engagementRing.Claw Prong')}}</div>
+			            @foreach($search_conditions['prong'] as  $key => $prong)
+			              <button class="btn btn-outline inline-flex items-center {{$search_conditions['prong'][$key]['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('prong', '{{$key}}' )">
+			                    {{__('engagementRing.' . $key)}}
+			              </button>
+			            @endforeach	         
+			        </div> 
+<!-- 			         <div class="col-span-4">
+			            <div>{{trans('engagementRing.Shape')}}</div>
+				            <select class="btn btn-outline {{count($fetchData['shape'])? 'btn-active':'' }}" wire:model="fetchData.shape.0">
+				            	@foreach($search_conditions['shape'] as  $key => $shape)
+				            		<option value="{{$shape['value'][0]}}">
+				            			<div wire:click="toggleValue('shape', '{{$key}}' )">{{__('diamondSearch.' . $key)}}</div>
+				            		</option>
+				            	@endforeach
+				            </select>      
+			        </div>  -->
+			         <div class="col-span-6">
+			            <div>{{trans('engagementRing.other styles')}}</div>
+				            <select class="btn btn-outline {{count($fetchData['other'])? 'btn-active':'' }}" wire:model="fetchData.other.0">
+				            	@foreach($search_conditions['other'] as  $key => $other)
+				            		<option value="{{$other['value'][0]}}">
+				            			<div wire:click="toggleValue('other', '{{$key}}' )">{{__('engagementRing.' . $key)}}</div>
+				            		</option>
+				            	@endforeach
+				            </select>      
+			        </div> 
+			    </div>
 	        </div>
 
-	        <div class="col-span-3">
-	            <div>{{trans('engagementRing.Shoulder')}}</div>
-	            @foreach($search_conditions['shoulder'] as  $key => $shoulder)
-	              <button class="btn btn-outline inline-flex items-center {{$search_conditions['shoulder'][$key]['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('shoulder', '{{$key}}' )">
-	                    <img src="/images/front-end/engagementRing/{{ucfirst($key)}}.png" height="30" width="55">
-	                    {{__('engagementRing.' . $key)}}
-	              </button>
-	            @endforeach	   
-	        </div> 
-	        <div class="col-span-2">
-	            <div>{{trans('engagementRing.Claw Prong')}}</div>
-	            @foreach($search_conditions['prong'] as  $key => $prong)
-	              <button class="btn btn-outline inline-flex items-center {{$search_conditions['prong'][$key]['clicked']? 'btn-active':'' }}"  type="button" wire:click="toggleValue('prong', '{{$key}}' )">
-	                    {{__('engagementRing.' . $key)}}
-	              </button>
-	            @endforeach	         
-	        </div> 
-	         <div class="col-span-2">
-	            <div>{{trans('engagementRing.other styles')}}</div>
-		            <select class="btn btn-outline {{count($fetchData['other'])? 'btn-active':'' }}" wire:model="fetchData.other.0">
-		            	@foreach($search_conditions['other'] as  $key => $other)
-		            		<option value="{{$other['value'][0]}}">
-		            			<div wire:click="toggleValue('other', '{{$key}}' )">{{__('engagementRing.' . $key)}}</div>
-		            		</option>
-		            	@endforeach
-		            </select>      
-	        </div> 
 
 	    </div>    
 	</div>
