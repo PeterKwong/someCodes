@@ -44,6 +44,7 @@ class Kernel extends ConsoleKernel
             Cache::put('diamondQueryState',0,90000);
             
             $CronJob->runImportDiamondRap();
+            $CronJob->runImportFancyDiamondAPIPerBatch();
             $CronJob->runImportDiamondSunrise();
 
             Cache::increment('diamondQueryState');
@@ -146,7 +147,6 @@ class Kernel extends ConsoleKernel
 
             $counter = Cache::increment('counter');
             
-            $CronJob->runImportFancyDiamondAPIPerBatch($counter);
             $CronJob->runImportDiamondAPIPerBatch($counter);
             
         }

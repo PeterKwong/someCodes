@@ -38,7 +38,9 @@ class PostFetch extends Component
 
     public function getPosts(){
     	
-    	$this->posts = InvoicePost::where('published',1)->orderBy('date', 'desc');
+    	$this->posts = InvoicePost::where('published',1)
+    					->whereDate('date','<', now())
+    					->orderBy('date', 'desc');
 
         if (count($this->selectedTags)>0) {
         	// dd($this->selectedTags);
