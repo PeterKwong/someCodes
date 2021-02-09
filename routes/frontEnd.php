@@ -197,6 +197,7 @@ Route::prefix('{locale}')->middleware('locale')->group(function(){
     Route::get('/diamond-ring-review', 'ShoppingCartController@diamondRingReview');
     Route::get('/shopping-cart', 'ShoppingCartController@bladeIndex');
     Route::get('/shop-bag-bill', 'ShoppingCartController@shopBagBill');
+    Route::get('/thank-you', 'ShoppingCartController@thankYouPage');
 
     Route::get('/shop-bag-bill-test', function(){
         return view('shoppingCart.shopBagBillTest');

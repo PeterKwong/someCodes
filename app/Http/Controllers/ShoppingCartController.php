@@ -32,6 +32,12 @@ class ShoppingCartController extends Controller
       
     }
 
+    public function thankYouPage(){
+
+      return view('shoppingCart.thankYouPage');
+      
+    }
+
     public function fetchCartItems(Request $request){ 
 
       $user = User::where('api_token',$request->api_token)->firstOrFail();

@@ -243,16 +243,17 @@ export default {
             
         },
         receivedPayment(mes){
-                var message = mutualVar.notification.contactMessage
-                message.title = 'message'
-                message.type = 'is-danger'
-                message.data.push(mes)
-                message.next = { nextUrl: mutualVar.langs.locale + '/account/pending', nextText: 'check your pending order'} 
-                message.active = true
+                // var message = mutualVar.notification.contactMessage
+                // message.title = 'message'
+                // message.type = 'is-danger'
+                // message.data.push(mes)
+                // message.next = { nextUrl: mutualVar.langs.locale + '/account/pending', nextText: 'check your pending order'} 
+                // message.active = true
                 this.cookies.shoppingCart.items = []
                 this.cookies.shoppingCart.selectingIndex = 0
                 this.sendCookies()
                 this.updateCartItems()
+                window.open( mutualVar.langs.locale + '/thank-you','_self')                
         },
         checkOrderPaymentStatus(){
 
