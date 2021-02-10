@@ -213,17 +213,19 @@ export default {
                 // console.log(res.data)
                 if (res.data.saved ) {
                     this.receivedPayment(res.data.message)
+                    this.isProcessing = false
                 }
                 if (this.formData.depositPaymentMethod ==  "Alipay(-1%)" ) {
                     this.responseToJson(res)
                     this.checkOrderPaymentStatus()
+                    this.isProcessing = false
                 }
                 if (this.formData.depositPaymentMethod ==  "Wechat(-1%)" ) {
                     this.responseToJson(res)
                     this.checkOrderPaymentStatus()
+                    this.isProcessing = false
                 }
                 // window.open( window.location.pathname ,'_self')
-                this.isProcessing = false
 
             })
             .catch((err)=>{

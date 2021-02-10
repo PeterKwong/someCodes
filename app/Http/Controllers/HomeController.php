@@ -36,6 +36,7 @@ class HomeController extends Controller
         $customer_post = Cache::remember('home_page_customer_post', 10, function(){
 
             return  $customer_post = InvoicePost::where('published', 1)
+                                    ->whereDate('date','<', now())
                                     ->with(['images','texts'])->orderBy('date','desc')
                                     ->take(10)->get();
 

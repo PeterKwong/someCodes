@@ -78,16 +78,17 @@ import { get,post, } from '../../helpers/api'
 				})
 			},
 	        receivedPayment(mes){
-	                var message = mutualVar.notification.contactMessage
-	                message.title = 'message'
-	                message.type = 'is-danger'
-	                message.data.push(mes)
-	                message.next = { nextUrl: mutualVar.langs.locale + '/account/pending', nextText: 'check your pending order'} 
-	                message.active = true
+	                // var message = mutualVar.notification.contactMessage
+	                // message.title = 'message'
+	                // message.type = 'is-danger'
+	                // message.data.push(mes)
+	                // message.next = { nextUrl: mutualVar.langs.locale + '/account/pending', nextText: 'check your pending order'} 
+	                // message.active = true
 	                mutualVar.cookiesInfo.shoppingCart.items = []
                  	mutualVar.cookiesInfo.shoppingCart.selectingIndex = 0
 	                this.$parent.sendCookies()
 	                this.$parent.updateCartItems()
+	                window.open( mutualVar.langs.locale + '/thank-you','_self') 
 	        },
 		}
 
