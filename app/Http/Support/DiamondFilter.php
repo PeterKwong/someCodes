@@ -39,7 +39,6 @@ trait DiamondFilter{
       "fluorescence" => "",
       "shape" => "",
       "location" => "",
-      "supplier_id" => "",
       "price" => "1000,50000000",
       "weight" => "0.3,20",
     ];
@@ -119,6 +118,16 @@ trait DiamondFilter{
 
 	 		}
 
+		      if (request()->starred) {
+		      		$query = $query->where(function($q){
+		              $q->whereNotNull('starred');
+		            });
+		      }
+		      if (request()->supplier_id) {
+		      		$query = $query->where(function($q){
+		              $q->whereIn('supplier_id', explode(',', request()->supplier_id));
+		            });
+		      }
 		      if (request()->table_percent) {
 		      		$query = $query->where(function($q){
 		              $q->whereBetween('table_percent', explode(',', request()->table_percent));
