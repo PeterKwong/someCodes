@@ -102,7 +102,7 @@ trait DiamondFilter{
 
 	public function queryDiamonds($query) {
 	 		
-	 		$requests = ['color','clarity','cut','polish','symmetry','fluorescence','shape','location','supplier_id'];
+	 		$requests = ['color','clarity','cut','polish','symmetry','fluorescence','shape','location',];
 
 	 		$query = $query->orderBy('available','desc')->where(function($q){
 			        $q->whereNotNull('available');
