@@ -82,6 +82,8 @@ Route::group(['middleware'=> 'auth:admin'], function(){
         //accounting
         Route::get('accounting/invoice-export', 'AdminController@invoiceExport');
 
+        Route::get('cache', 'CacheController@index');
+
         Route::get('test', 'TestController@testView');
 
 
