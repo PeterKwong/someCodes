@@ -31,6 +31,7 @@ class Show extends Component
         foreach ($this->meta->invoice->invoiceDiamonds as $diamondWeight) {
 
             $weights = [
+                        [ 'value' =>0, 'url' => ''],
                         [ 'value' =>0.3, 'url' => '/0-30-0-49-carat-weight'],
                         [ 'value' =>0.5, 'url' => '/0-50-0-79-carat-weight'],
                         [ 'value' =>0.8, 'url' => '/0-80-0-99-carat-weight'],
@@ -41,7 +42,7 @@ class Show extends Component
                         [ 'value' =>3, 'url' => '/3-00-up-carat-weight'],
                         ];
 
-            $diamondRange ;
+            $diamondRange = 0;
 
             foreach ($weights as $w => $weight) {
             // dd(floatval($diamond->weight));
