@@ -185,7 +185,6 @@
 
 import Carousel from '../carousel.vue'
 
-import { get,authGet,post, } from '../../helpers/api'
 import { getLocale , getLocaleCode} from '../../helpers/locale'
 import { setCookie, getCookie, } from '../../helpers/cookie'
 import { extraWorkingDates } from '../../helpers/helperFunctions'
@@ -501,7 +500,7 @@ export default {
 
         },
         checkCouponCodeValid(){
-            authGet('/api/coupon/valid?code=' + mutualVar.cookiesInfo.coupon_code )
+            get('/api/coupon/valid?code=' + mutualVar.cookiesInfo.coupon_code )
             .then((res)=>{
                 this.couponValid = res.data.valid
                 this.discountRate = res.data.model
@@ -512,7 +511,7 @@ export default {
             this.sendCookies()
         },
         authGetCouponCode(){
-            authGet('/api/fetch-customer-coupon-code')
+            get('/api/fetch-customer-coupon-code')
             .then((res)=>{
                 if (res.data.valid) {
                     this.couponValid = res.data.valid

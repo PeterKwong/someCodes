@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\CustomerJewellery;
 
-use App\InvoicePost;
+use App\Models\InvoicePost;
 use Illuminate\Session\SessionManager;
 use Livewire\Component;
 
@@ -42,7 +42,7 @@ class Show extends Component
                         [ 'value' =>3, 'url' => '/3-00-up-carat-weight'],
                         ];
 
-            $diamondRange = 0;
+            $diamondRange =null;
 
             foreach ($weights as $w => $weight) {
             // dd(floatval($diamond->weight));

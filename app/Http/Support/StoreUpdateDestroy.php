@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Support;
+namespace App\Http\Support;
 
 use File;
 use App\Text;

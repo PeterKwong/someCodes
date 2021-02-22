@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\CartItem;
-use App\Customer;
+use App\Models\User;
+use App\Models\CartItem;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +14,7 @@ class ShoppingCartController extends Controller
     {
 
 
-      return view('shoppingCart.index');
+      return view('frontend.shoppingCart.index');
  
     }
 
@@ -22,25 +22,25 @@ class ShoppingCartController extends Controller
     {
 
 
-      return view('shoppingCart.diamondRingReview');
+      return view('frontend.shoppingCart.diamondRingReview');
  
     }
 
     public function shopBagBill(){
 
-      return view('shoppingCart.shopBagBill');
+      return view('frontend.shoppingCart.shopBagBill');
       
     }
-
+    
     public function thankYouPage(){
 
-      return view('shoppingCart.thankYouPage');
+      return view('frontend.shoppingCart.thankYouPage');
       
     }
 
     public function fetchCartItems(Request $request){ 
 
-      $user = User::where('api_token',$request->api_token)->firstOrFail();
+      $user = $request->user();
 
       $cart = CartItem::where('user_id',$user->id)->where('order_id',null)->get();
       return response()->json([
@@ -51,7 +51,7 @@ class ShoppingCartController extends Controller
 
     public function loganUserUpdateCart(Request $request){
 
-      $user = User::where('api_token',$request->api_token)->firstOrFail();
+      $user = $request->user();
 
       $this->dataToCartItem($request->data, $user);
 
@@ -121,11 +121,11 @@ class ShoppingCartController extends Controller
     }
     public function updateCustomerInfo(Request $request){
 
-      $user = User::where('api_token',$request->api_token)->firstOrFail();
+      $user = $request->user();
       // dd($request);
       $this->validate($request , [
           'data.name' => 'required',
-          'data.address' => 'required',
+          // 'data.address' => 'required', 
           'data.phone' => 'required | numeric | min:9999999',
           'data.email' => 'required | email',
       ]);

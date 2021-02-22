@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\CartItem;
-use App\Coupon;
-use App\Customer;
-use App\Diamond;
-use App\EngagementRing;
-use App\Invoice;
-use App\Jewellery;
+use App\Models\CartItem;
+use App\Models\Coupon;
+use App\Models\Customer;
+use App\Models\Diamond;
+use App\Models\EngagementRing;
+use App\Models\Invoice;
+use App\Models\Jewellery;
 use App\Mail\Order as EmailOrder;
 use App\Mail\ReferralOrder;
-use App\Order;
-use App\Support\Telegram;
-use App\User;
-use App\WeddingRing;
+use App\Models\Order;
+use App\Http\Support\Telegram;
+use App\Models\User;
+use App\Models\WeddingRing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -357,7 +357,7 @@ class OrderController extends Controller
 
       $emailFinalize->update(['verified' => true]);
 
-      return view('shoppingCart.finalize', compact('emailFinalize'));
+      return view('frontend.shoppingCart.finalize', compact('emailFinalize'));
       dd(request()->all());
     }
 
@@ -372,7 +372,7 @@ class OrderController extends Controller
 
     public function bladePendingShow($locale){
 
-        return view('account.pendingShow');
+        return view('frontend.account.pendingShow');
 
     }
 
@@ -441,7 +441,7 @@ class OrderController extends Controller
 
     public function bladeInvoiceShow($locale){
 
-        return view('account.invoiceShow');
+        return view('frontend.account.invoiceShow');
 
     }
 

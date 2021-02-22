@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Support;
+namespace App\Http\Support;
 
-use App\Diamond;
+use App\Models\Diamond;
 use App\Route\DiamondSitemap;
 use App\Support\DiamondImport;
 use App\Http\Controllers\DiamondController;

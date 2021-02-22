@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
@@ -56,6 +56,7 @@ class LoginController extends Controller
     public function redirectToProvider($provider)
     {   
         // return request();
+        // dd($provider);
         return Socialite::driver($provider)->redirect();
     }
 
@@ -143,8 +144,8 @@ class LoginController extends Controller
 
     private function getAccessTokenWechat() {
         
-        $envData = ['appid' => config('services.WECHAT_OPEN_PLATFORM_APPID'),
-                                'secret' => config('services.WECHAT_OPEN_PLATFORM_SECRET'),
+        $envData = ['appid' => config('global.WECHAT_OPEN_PLATFORM_APPID'),
+                                'secret' => config('global.WECHAT_OPEN_PLATFORM_SECRET'),
                                 ];
 
           $request = request()->all();

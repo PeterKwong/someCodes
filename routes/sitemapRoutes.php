@@ -4,7 +4,7 @@ use Carbon\Carbon;
 
     $sitemap = App::make('sitemap');
 
-
+    
 	// set cache key (string), duration in minutes (Carbon|Datetime|int), turn on/off (boolean)
 	// by default cache is disabled
 	$sitemap->setCache('tingdiamond.sitemap', 10);

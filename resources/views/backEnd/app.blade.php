@@ -5,13 +5,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="api-token" content="{{ Auth::guard('admin')->check()
-                ?Auth::guard('admin')->user()->api_token:'' }}">
-        <meta name="user-role" content="{{ Auth::guard('admin')->check()
-                ?Auth::guard('admin')->user()->roles()->first()->name:'' }}"> 
-
-        <meta name="admin-data" content="{{ Auth::guard('admin')->check()
-                ?json_encode(config('global.cache')) :'' }}"> 
 
         <title>Ting Diamond</title>
 
@@ -34,7 +27,7 @@
 
         <!-- Navigation Bar-->
 
-        @if(auth()->guard('admin')->user() && !strpos(url()->current(), 'invoices/pdf'))
+        @if( !strpos(url()->current(), 'invoices/pdf'))
 
             @include('layouts.backEnd.header')
 
@@ -87,7 +80,6 @@
 
             
         <script type="text/javascript" src="{{mix('js/backend.js')}}"></script>
-        <script type="text/javascript" src="{{mix('js/burgers.js')}}"></script>
        <!-- Vendor js -->
         <script src="/admin/assets/js/vendor.min.js"></script>
 

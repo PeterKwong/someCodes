@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\CustomerJewellery;
 
-use App\InvoicePost;
-use App\Tag;
-use App\Page;
+use App\Models\InvoicePost;
+use App\Models\Tag;
+use App\Models\Page;
 use Livewire\Component;
 
 class PostFetch extends Component

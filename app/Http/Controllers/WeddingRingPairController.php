@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Image;
+use App\Models\Image;
 use App\Support\ResizeImage;
-use App\Text;
-use App\WeddingRing;
-use App\WeddingRingPair;
+use App\Models\Text;
+use App\Models\WeddingRing;
+use App\Models\WeddingRingPair;
 use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -23,29 +23,29 @@ class WeddingRingPairController extends Controller
     public function bladeIndex($locale)
     {
         // dd($locale);
-      return view('weddingRing.index');
+      return view('frontend.weddingRing.index');
     }
 
 
     public function timelessOnes($locale)
     {
-      return view('weddingRing.timelessOnes'); 
+      return view('frontend.weddingRing.timelessOnes'); 
     }
     public function angerosa($locale)
     {
-      return view('weddingRing.angerosa'); 
+      return view('frontend.weddingRing.angerosa'); 
     }
     public function feeriePorte($locale)
     {
-      return view('weddingRing.feeriePorte'); 
+      return view('frontend.weddingRing.feeriePorte'); 
     }
     public function forge($locale)
     {
-      return view('weddingRing.forge');
+      return view('frontend.weddingRing.forge');
     }
     public function japanese($locale)
     {
-      return view('weddingRing.japanese');
+      return view('frontend.weddingRing.japanese');
     }
 
 
@@ -53,7 +53,7 @@ class WeddingRingPairController extends Controller
     {
 
 
-      return view('weddingRing.classic');
+      return view('frontend.weddingRing.classic');
  
     }
 
@@ -61,7 +61,7 @@ class WeddingRingPairController extends Controller
     {
 
 
-      return view('weddingRing.vintage');
+      return view('frontend.weddingRing.vintage');
  
     }
 
@@ -74,7 +74,7 @@ class WeddingRingPairController extends Controller
       // dd(print_r($meta->weddingRings[0]->metal));
       $meta = $meta->weddingRings[0];
 
-      return view('weddingRing.show', compact('meta'));
+      return view('frontend.weddingRing.show', compact('meta'));
  
     }
 

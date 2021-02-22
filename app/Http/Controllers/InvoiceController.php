@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Customer;
-use App\Diamond;
-use App\EngagementRing;
-use App\Invoice;
-use App\InvoiceDiamond;
-use App\InvoiceItem;
-use App\InvoicePost;
-use App\Jewellery;
-use App\Order;
-use App\WeddingRing;
+use App\Models\Customer;
+use App\Models\Diamond;
+use App\Models\EngagementRing;
+use App\Models\Invoice;
+use App\Models\InvoiceDiamond;
+use App\Models\InvoiceItem;
+use App\Models\InvoicePost;
+use App\Models\Jewellery;
+use App\Models\Order;
+use App\Models\WeddingRing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 

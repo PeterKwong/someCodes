@@ -1,5 +1,5 @@
 <script >
 	var StripeVariables = {
-		stripeKey: "{{ config('services.stripe.key' . config('services.paymentMode') ) }}"
+		stripeKey: "{{ config('global.stripe.key' . config('global.paymentMode') ) }}"
 	}
 </script>

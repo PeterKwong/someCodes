@@ -1,5 +1,4 @@
 import { get, post } from '../../../helpers/api'
-import router from '../../../router'
 
 import DataViewer from '../../../components/DataViewer.vue'
 import Auth from '../../../store/auth'
@@ -7,7 +6,6 @@ import Auth from '../../../store/auth'
 export default {
 
 	el: '#orderIndex',
-	router,	
 	components: {  DataViewer },
 
 	data(){

@@ -11,7 +11,7 @@ class EducationController extends Controller
     {
 
 
-      return view('education.4cs');
+      return view('frontend.education.4cs');
  
     }
 
@@ -20,7 +20,7 @@ class EducationController extends Controller
     {
 
 
-      return view('education.4cs');
+      return view('frontend.education.4cs');
  
     }
 
@@ -28,7 +28,7 @@ class EducationController extends Controller
     {
 
 
-      return view('education.diamondCarat');
+      return view('frontend.education.diamondCarat');
  
     }
 
@@ -36,21 +36,21 @@ class EducationController extends Controller
     {
 
 
-      return view('education.diamondColor');
+      return view('frontend.education.diamondColor');
  
     }
     public function diamondCut($locale)
     {
 
 
-      return view('education.diamondCut');
+      return view('frontend.education.diamondCut');
  
     }
     public function diamondClarity($locale)
     {
 
 
-      return view('education.diamondClarity');
+      return view('frontend.education.diamondClarity');
  
     }
 
@@ -59,7 +59,7 @@ class EducationController extends Controller
     {
 
 
-      return view('education.diamondShape');
+      return view('frontend.education.diamondShape');
  
     }
 
@@ -67,7 +67,7 @@ class EducationController extends Controller
     {
 
 
-      return view('education.diamondHeartAndArrow');
+      return view('frontend.education.diamondHeartAndArrow');
  
     }
 
@@ -75,7 +75,7 @@ class EducationController extends Controller
     {
 
 
-      return view('education.diamondProportion');
+      return view('frontend.education.diamondProportion');
  
     }
 
@@ -83,7 +83,7 @@ class EducationController extends Controller
     {
 
 
-      return view('education.diamondSymmetry');
+      return view('frontend.education.diamondSymmetry');
  
     }
 
@@ -91,7 +91,7 @@ class EducationController extends Controller
     {
 
 
-      return view('education.diamondPolish');
+      return view('frontend.education.diamondPolish');
  
     }
 
@@ -99,7 +99,7 @@ class EducationController extends Controller
     {
 
 
-      return view('education.diamondFluorescence');
+      return view('frontend.education.diamondFluorescence');
  
     }
 
@@ -108,7 +108,7 @@ class EducationController extends Controller
 
 
 
-      return view('education.gradingEyeClean');
+      return view('frontend.education.gradingEyeClean');
       
     }
     
@@ -116,7 +116,7 @@ class EducationController extends Controller
     {
 
 
-      return view('education.giaReport');
+      return view('frontend.education.giaReport');
  
     }
 
@@ -124,7 +124,7 @@ class EducationController extends Controller
     {
 
 
-      return view('education.diamondCertificate');
+      return view('frontend.education.diamondCertificate');
  
     }
 

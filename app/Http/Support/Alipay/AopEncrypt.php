@@ -1,5 +1,6 @@
 <?php
-namespace App\Support\Alipay;
+
+namespace App\Http\Support\Alipay;
 
 /**
  *   加密工具类
@@ -14,7 +15,7 @@ namespace App\Support\Alipay;
  * @param string $str
  * @return string
  */
-class AopEbcrypt{
+class AopEncrypt{
 
 	 function alipayEncrypt($str,$screct_key){
 		//AES, 128 模式加密数据 CBC

@@ -1,7 +1,8 @@
-import axios from 'axios'
 import Auth from '../store/auth'
 import Locale from '../helpers/locale'
+import {getCookie }from '../helpers/cookie'
 
+var header = {'Authorization' : `Bearer ${decodeURI( getCookie('api-token'))}`,}
 
 export function curlGet(url){
 	// lang = this.$route.fullPath.slice(0,3)
@@ -29,30 +30,14 @@ export function rapPost(url, data){
 }
 
 
+
 export function get(url){
 	// lang = this.$route.fullPath.slice(0,3)
 	// Locale.setLastUrl(url)
 	return axios({
 		method: 'GET',
 		url: url,
-		headers: {
-			'Authorization' : `Bearer ${Auth.state.api_token}`,
-			'api_token' : Auth.state.api_token,
-			'X-localization' : window.location.pathname.slice(1,3)
-		}
-	})
-}
-
-export function authGet(url){
-	// lang = this.$route.fullPath.slice(0,3)
-	// Locale.setLastUrl(url)
-	return axios({
-		method: 'GET',
-		url: url,
-		headers: {
-			'Authorization' : `Bearer ${document.head.querySelector('meta[name="api-token"]')?document.head.querySelector('meta[name="api-token"]').content:null}`,
-			'X-localization' : window.location.pathname.slice(1,3)
-		}
+		headers: header
 	})
 }
 
@@ -61,11 +46,7 @@ export function post(url, data){
 		method: 'POST',
 		url: url,
 		data: data,
-		headers: {
-			'Authorization' : `Bearer ${Auth.state.api_token}`,
-			'X-localization' : window.location.pathname.slice(1,3)
-			 // 'Content-Type': 'application/json',
-		}
+		headers: header
 	})
 
 }
@@ -76,9 +57,7 @@ export function put(url, data){
 		method: 'PUT',
 		url: url,
 		data: data,
-		headers: {
-			'Authorization' : `Bearer ${Auth.state.api_token}`
-		}
+		headers: header
 	})
 
 }
@@ -88,8 +67,6 @@ export function del(url){
 		method: 'DELETE',
 		url: url,
 		// data: data,
-		headers: {
-			'Authorization' : `Bearer ${Auth.state.api_token}`
-		}
+		headers: header
 	})
 }

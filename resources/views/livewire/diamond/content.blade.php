@@ -6,14 +6,14 @@
  -->   
   <div class="section-3 hidden sm:block">
 
-    @include('diamond.searchDesktopLW')
+    @include('frontend.diamond.searchDesktopLW')
 
 
   </div>
 
   <div class="sm:hidden">
 
-     @include('diamond.searchMobileLW')
+     @include('frontend.diamond.searchMobileLW')
    
 
   </div>
@@ -113,7 +113,7 @@
 
   <div class="overflow-x-auto {{ $showInGrid ? 'sm:hidden' : 'hidden sm:block' }}">
 
-    @include('diamond.resultDesktop')
+    @include('frontend.diamond.resultDesktop')
          
   </div>
 
@@ -122,7 +122,7 @@
 
   <div class="{{ $showInGrid ? 'hidden sm:block' : 'sm:hidden'}}">
 
-    @include('diamond.resultMobile')
+    @include('frontend.diamond.resultMobile')
 
   </div>
 

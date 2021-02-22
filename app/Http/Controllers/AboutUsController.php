@@ -8,45 +8,45 @@ class AboutUsController extends Controller
 {
     public function aboutUs ($locale) {
 
-	    return view('aboutUs.index');
+	    return view('frontend.aboutUs.index');
 	}
     public function guarantee ($locale) {
 
-	    return view('aboutUs.guarantee');
+	    return view('frontend.aboutUs.guarantee');
 	}
     public function commitment ($locale) {
 
-	    return view('aboutUs.commitment');
+	    return view('frontend.aboutUs.commitment');
 	}
 
 	// buying procedure//
 
 	public function buyingProcedure ($locale) {
 
-	    return view('aboutUs.buyingProcedure');
+	    return view('frontend.aboutUs.buyingProcedure');
 	}
 
 	public function takeFromShopOrGIA ($locale) {
 
-	    return view('aboutUs.takeFromShopOrGIA');
+	    return view('frontend.aboutUs.takeFromShopOrGIA');
 	}
 
 	public function customEngagementRing ($locale) {
 
-	    return view('aboutUs.customEngagementRing');
+	    return view('frontend.aboutUs.customEngagementRing');
 	}
 		public function diamondInlayEngrave ($locale) {
 
-	    return view('aboutUs.diamondInlayEngrave');
+	    return view('frontend.aboutUs.diamondInlayEngrave');
 	}
 	public function fullSatifaction ($locale) {
 
-	    return view('aboutUs.fullSatifaction');
+	    return view('frontend.aboutUs.fullSatifaction');
 	}
 
 	public function frequentlyAskQuestion ($locale) {
 
-	    return view('aboutUs.frequentlyAskQuestion');
+	    return view('frontend.aboutUs.frequentlyAskQuestion');
 	}
 	
 	

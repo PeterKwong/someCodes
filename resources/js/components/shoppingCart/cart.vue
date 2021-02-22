@@ -52,7 +52,6 @@
 
 <script type="text/javascript">
 
-import { get,post, } from '../../helpers/api'
 import { setCookie, getCookie, } from '../../helpers/cookie'
 import { getLocale, getLocaleCode } from '../../helpers/locale'
 

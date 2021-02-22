@@ -9,8 +9,8 @@
       <a href="{{url( app()->getLocale() . '/account/invoices')}}" class="block box p-2 bg-gray-100 hover:bg-gray-300">{{__('account.Invoices')}}</a>
     
     
-      @if(auth()->user()->roles()->get()->filter( function($data){ return $data['name'] == 'promoter' ; })->map(function($data){ return $data['name'];})->first())
-      @include('layouts.account.asidePromoter')
+      @if(auth()->user()->current_team_id )
+        @include('layouts.account.asidePromoter')
       @endif
 
       <a class="block btn btn-primary" href="{{ route('logout') }}">{{__('account.Logout')}}</a>

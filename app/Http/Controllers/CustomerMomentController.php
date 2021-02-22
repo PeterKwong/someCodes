@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use File;
-use App\Text;
-use App\Image;
+use App\Models\Text;
+use App\Models\Image;
 use Carbon\Carbon;
-use App\CustomerMoment;
+use App\Models\CustomerMoment;
 use App\Support\ResizeImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +17,7 @@ class CustomerMomentController extends Controller
     {
 
 
-      return view('customerMoment.index');
+      return view('frontend.customerMoment.index');
  
     }
 
@@ -69,7 +69,7 @@ class CustomerMomentController extends Controller
     public function engagementTips($locale){
 
   
-      return view('customerMoment.engagementTips');
+      return view('frontend.customerMoment.engagementTips');
         
     }
 

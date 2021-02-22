@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Support\Diamond;
+namespace App\Http\Support\Diamond;
 
 use App\Diamond;
 use App\InvoiceDiamond;

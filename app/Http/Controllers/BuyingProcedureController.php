@@ -10,7 +10,7 @@ class BuyingProcedureController extends Controller
 
 	public function BladeIndex ($locale) {
 
-	    return view('buyingProcedure.index');
+	    return view('fronend.buyingProcedure.index');
 	}
 
     public function index(){

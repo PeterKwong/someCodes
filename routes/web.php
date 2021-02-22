@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\CouponController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PurchasesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
 //sitemap
-Route::get('/sitemap_index_2018.xml', function(){
-    
-$d = include 'sitemapRoutes.php';
-
-return $d;
-    
-});
 
 Route::get('/sitemap_index.xml', function(){
     
@@ -40,39 +36,33 @@ Route::get('/big-sitemap/diamonds', function() {
 	return $d;
 });
 
-Route::get('whatsapp-testing', 'MessageController@whatsappMessage');
-Route::get('whatsapp-two-way-testing', 'MessageController@twoWayMessage');
-
 
 //payments
-Route::post('payment-callback/alipay', 'PurchasesController@callbackAlipay');
-Route::post('payment-callback/wechat', 'PurchasesController@callbackWechat');
-Route::post('payment-callback/stripe', 'PurchasesController@callbackStripe');
+Route::post('payment-callback/alipay', [PurchasesController::class, 'callbackAlipay']);
+Route::post('payment-callback/wechat', [PurchasesController::class, 'callbackWechat']);
+Route::post('payment-callback/stripe', [PurchasesController::class, 'callbackStripe']);
+
+// JetStream
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 
-// Password Reset Routes...
-Route::get('registeremail', 'Auth\RegisterEmail@showLinkRequestForm')->name('register.request');
-Route::post('registeremail/email', 'Auth\RegisterEmail@sendResetLinkEmail')->name('register.email');
-Route::get('registeremail/{token}', 'Auth\RegisterEmail@showResetForm')->name('register.reset');
-Route::post('registeremail', 'Auth\RegistEremail@reset');
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/webfinalizeorder', [OrderController::class, 'finalize']);
 
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/webfinalizeorder', 'OrderController@finalize');
-
-
-//Auth Socialite
-Auth::routes();
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 include 'userAccount.php' ;
 
 //Coupon Code
-Route::get('/coupon', 'CouponController@applyCouponCodeAndLogin');
+Route::get('/coupon', [CouponController::class, 'applyCouponCodeAndLogin']);
 
 Route::get('/order-sample', function(){
-    return view('email.referral.order');
+    return view('frontend.email.referral.order');
 });
+
 
 include 'backEnd.php';
 
@@ -82,8 +72,26 @@ Route::Post('api/td-login', 'AdminController@login');
 include 'frontEnd.php' ;
 
 
+// Route::get('/sitemap_index_2018.xml', function(){
+    
+// $d = include 'sitemapRoutes.php';
+
+// return $d;
+    
+// });
 
 
+// Password Reset Routes...
+// Route::get('registeremail', 'Auth\RegisterEmail@showLinkRequestForm')->name('register.request');
+// Route::post('registeremail/email', 'Auth\RegisterEmail@sendResetLinkEmail')->name('register.email');
+// Route::get('registeremail/{token}', 'Auth\RegisterEmail@showResetForm')->name('register.reset');
+// Route::post('registeremail', 'Auth\RegistEremail@reset');
+
+
+
+
+// Route::get('whatsapp-testing', [MessageController::class, 'whatsappMessage']);
+// Route::get('whatsapp-two-way-testing', [MessageController::class, 'twoWayMessage']);
 
 
 //test Auth
@@ -103,38 +111,38 @@ include 'frontEnd.php' ;
 
 
 //wechat
-Route::any('/wechat1', function(){return view('auth.login');});
-Route::any('/wechat', 'WeChatController@serve');
+// Route::any('/wechat1', function(){return view('frontend.auth.login');});
+// Route::any('/wechat', 'WeChatController@serve');
 
-Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
-    Route::get('auth_wechat', 'WeChatController@wechatLogin');
-    Route::get('/user', function () {
+// Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+//     Route::get('auth_wechat', 'WeChatController@wechatLogin');
+//     Route::get('/user', function () {
         
-        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+//         $user = session('wechat.oauth_user'); // 拿到授权用户资料
 
-        dd($user);
-    });
-});
+//         dd($user);
+//     });
+// });
 
 
 
-Route::group(['middleware' => ['wechat.oauth:snsapi_userinfo']], function () {
-      Route::get('/user1', function () {
-        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+// Route::group(['middleware' => ['wechat.oauth:snsapi_userinfo']], function () {
+//       Route::get('/user1', function () {
+//         $user = session('wechat.oauth_user'); // 拿到授权用户资料
 
-        dd($user);
-    });
-});
+//         dd($user);
+//     });
+// });
 
-// 或者指定账户的同时指定 scopes:
-Route::group(['middleware' => ['wechat.oauth:default,snsapi_userinfo']], function () {
-      Route::get('/user2', function () {
-        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+// // 或者指定账户的同时指定 scopes:
+// Route::group(['middleware' => ['wechat.oauth:default,snsapi_userinfo']], function () {
+//       Route::get('/user2', function () {
+//         $user = session('wechat.oauth_user'); // 拿到授权用户资料
 
-        dd($user);
-    });
+//         dd($user);
+//     });
 
-  });
+//   });
 
 
 
@@ -150,12 +158,10 @@ Route::get('/verify/{emailToken}', 'VerifyController@verify')->name('verify');
 
 
 
+
 Route::get('/{vue_capture?}', function () {
 	App::setLocale('hk');
     return view('layouts.section.frontend');
 })->where('vue_capture', '[\/\w\.-]*');
-
-
-
 
 

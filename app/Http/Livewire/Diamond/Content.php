@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Diamond;
 
-use App\Diamond;
+use App\Models\Diamond;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Component;

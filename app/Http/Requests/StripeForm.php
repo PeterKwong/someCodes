@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Stripe\{Stripe, Customer, Charge};
-use App\Order;
+use App\Models\Order;
 
 class StripeForm extends FormRequest
 {
@@ -28,7 +28,7 @@ class StripeForm extends FormRequest
      */
 
     public function setApiKey(){
-        return  Stripe::setApiKey( config('services.stripe.secret' . config('services.paymentMode') ));
+        return  Stripe::setApiKey( config('global.stripe.secret' . config('global.paymentMode') ));
 
     }
     
@@ -44,6 +44,7 @@ class StripeForm extends FormRequest
 
         $this->setApiKey();
 
+        // dd('hi');
         $stripeCustomer = Customer::create([
 
             'email' => $email,

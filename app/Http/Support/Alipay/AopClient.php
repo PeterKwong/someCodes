@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Support\Alipay;
+namespace App\Http\Support\Alipay;
 
 use Exception;
 use GuzzleHttp\Client;

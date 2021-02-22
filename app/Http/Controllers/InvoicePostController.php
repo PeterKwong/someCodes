@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Tag;
-use App\Page;
-use App\InvoicePost;
-use App\Invoice;
+use App\Models\Tag;
+use App\Models\Page;
+use App\Models\InvoicePost;
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -21,7 +21,7 @@ class InvoicePostController extends Controller
     {
 
 
-      return view('customerJewellery.index');
+      return view('frontend.customerJewellery.index');
  
     }
 
@@ -65,7 +65,7 @@ class InvoicePostController extends Controller
                     $texts->where('locale',app()->getLocale());
                 }])->findOrFail($id);
 
-      return view('customerJewellery.show', compact('meta'));
+      return view('frontend.customerJewellery.show', compact('meta'));
  
     }
 

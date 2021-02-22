@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use File;
 use Illuminate\Http\Request;
 use App\Support\WeddingRingFilter;
-use App\WeddingRing;
+use App\Models\WeddingRing;
 
 class WeddingRingController extends Controller
 {

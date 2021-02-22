@@ -14,12 +14,14 @@ class Locale
      * @param  \Closure  $next
      * @return mixed
      */
+    protected $locales = ['hk','cn','en'];
+
     public function handle($request, Closure $next)
     {
         if ($request->method() === 'GET') {
             $segment = $request->segment(1);
 
-            if (!in_array($segment, config('app.locales'))) {
+            if (!in_array($segment, $this->locales )) {
                 $segments = $request->segments();
                 $fallback = session('locale') ?: config('app.fallback_locale');
                 $segments = Arr::prepend($segments, $fallback);

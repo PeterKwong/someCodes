@@ -10,11 +10,12 @@
 
         @include('layouts.head.twitter')
 
+        @include('layouts.metas.userApiToken')
+
         @include('layouts.head.asset')
 
         @yield('meta')
 
-        @include('layouts.metas.userApiToken')
 
         <script type="text/javascript" src="{{mix('js/userAccount.js')}}" defer></script> 
 

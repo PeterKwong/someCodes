@@ -6,7 +6,7 @@
  * @since 1.0, 2018-06-13 16:34:04
  */
 
-namespace App\Support\Alipay;
+namespace App\Http\Support\Alipay;
 
 class AlipayUserInfoShareRequest
 {

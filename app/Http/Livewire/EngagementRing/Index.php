@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\EngagementRing;
 
-use App\EngagementRing;
+use App\Models\EngagementRing;
 use Livewire\Component;
 
 class Index extends Component

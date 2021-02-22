@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Page;
+use App\Models\Page;
 
 class PageController extends Controller
 {
@@ -19,22 +19,22 @@ class PageController extends Controller
 
     public function hca($locale){
 
-	    return view('page.HCA');
+	    return view('frontend.page.HCA');
     }
 
     public function characteristics($locale){
 
-        return view('page.characteristics');
+        return view('frontend.page.characteristics');
     }
 
     public function hkLabs($locale){
 
-        return view('page.hkLabs');
+        return view('frontend.page.hkLabs');
     }
 
     public function sellYourDiamonds($locale){
 
-        return view('page.sellYourDiamonds');
+        return view('frontend.page.sellYourDiamonds');
 
     }
 

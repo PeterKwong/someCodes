@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\WeddingRing;
 
-use App\WeddingRingPair;
+use App\Models\WeddingRingPair;
 use Livewire\Component;
 
 class Index extends Component

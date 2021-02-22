@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StripeForm;
-use App\Order;
-use App\Support\Telegram;
+use App\Models\Order;
+use App\Http\Support\Telegram;
 
 use PaymentCN\Request;
 
@@ -62,7 +62,7 @@ class PurchasesController extends Controller
         //isHK 是否使用支付宝香港钱包，取值"TRUE"/"FALSE"，默认值为"FALSE"
         //$isCNY 是否采用人民币(CNY)计价，取值"TRUE"/"FALSE"，默认值为"FALSE"
         
-        // var_dump(die(($param))); 
+        // dd($param); 
 
         $alipay = new Request();
 

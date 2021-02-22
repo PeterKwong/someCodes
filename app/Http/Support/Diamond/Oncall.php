@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Support\Diamond;
+namespace App\Http\Support\Diamond;
 
-use App\Diamond;
-use App\DiamondQuery;
-use App\InvoiceDiamond;
-use App\Supplier;
+use App\Models\Diamond;
+use App\Models\DiamondQuery;
+use App\Models\InvoiceDiamond;
+use App\Models\Supplier;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request as Req;

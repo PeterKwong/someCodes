@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Invoice;
-use App\Item;
-use App\Diamond;
-use App\Jewellry;
+use App\Models\Invoice;
+use App\Models\Item;
+use App\Models\Diamond;
+use App\Models\Jewellry;
 
 class ItemController extends Controller
 {

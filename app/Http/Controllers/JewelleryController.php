@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\InvDiamond;
-use App\Jewellery;
+use App\Models\InvDiamond;
+use App\Models\Jewellery;
 use App\Support\ResizeImage;
 
 class JewelleryController extends Controller
@@ -13,7 +13,7 @@ class JewelleryController extends Controller
      public function bladeIndex($locale)
     {
 
-      return view('jewellery.index');
+      return view('frontend.jewellery.index');
  
     }
 
@@ -97,7 +97,7 @@ class JewelleryController extends Controller
                     $texts->where('locale',app()->getLocale());
                 }])->findOrFail($id);
 
-      return view('jewellery.show', compact('meta'));
+      return view('frontend.jewellery.show', compact('meta'));
  
     }
 
@@ -166,7 +166,7 @@ class JewelleryController extends Controller
     {
 
 
-      return view('jewellery.ring');
+      return view('frontend.jewellery.ring');
  
     }
 
@@ -174,7 +174,7 @@ class JewelleryController extends Controller
     {
 
 
-      return view('jewellery.diamondRing');
+      return view('frontend.jewellery.diamondRing');
  
     }
 
@@ -182,7 +182,7 @@ class JewelleryController extends Controller
     {
 
 
-      return view('jewellery.fancyDiamondRing');
+      return view('frontend.jewellery.fancyDiamondRing');
  
     }
 
@@ -190,7 +190,7 @@ class JewelleryController extends Controller
     {
 
 
-      return view('jewellery.necklace');
+      return view('frontend.jewellery.necklace');
  
     }
 
@@ -198,7 +198,7 @@ class JewelleryController extends Controller
     {
 
 
-      return view('jewellery.earring');
+      return view('frontend.jewellery.earring');
  
     }
 
@@ -206,7 +206,7 @@ class JewelleryController extends Controller
     {
 
 
-      return view('jewellery.bracelet');
+      return view('frontend.jewellery.bracelet');
  
     }
 
@@ -214,7 +214,7 @@ class JewelleryController extends Controller
     {
 
 
-      return view('jewellery.pendant');
+      return view('frontend.jewellery.pendant');
  
     }
 

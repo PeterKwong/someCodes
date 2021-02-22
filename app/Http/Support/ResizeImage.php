@@ -1,5 +1,5 @@
 <?php
-namespace App\Support;
+namespace App\Http\Support;
 use Image;
 use Storage;
 use Illuminate\Support\Str;

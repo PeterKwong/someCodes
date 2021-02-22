@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Support\EngagementRingFilter;
-use App\EngagementRing;
+use App\models\EngagementRing;
 
 class EngagementRingController extends Controller
 {
@@ -14,7 +14,7 @@ class EngagementRingController extends Controller
     {
 
 
-      return view('engagementRing.index');
+      return view('frontend.engagementRing.index');
  
     }
 
@@ -22,7 +22,7 @@ class EngagementRingController extends Controller
 
   
 
-          return view('engagementRing.solitaireRingSetting');
+          return view('frontend.engagementRing.solitaireRingSetting');
         
     }
 
@@ -30,7 +30,7 @@ class EngagementRingController extends Controller
 
   
 
-          return view('engagementRing.sideStonesSetting');
+          return view('frontend.engagementRing.sideStonesSetting');
         
     }
 
@@ -38,7 +38,7 @@ class EngagementRingController extends Controller
 
   
 
-          return view('engagementRing.haloSetting');
+          return view('frontend.engagementRing.haloSetting');
         
     }
 
@@ -49,7 +49,7 @@ class EngagementRingController extends Controller
                         $texts->where('locale',app()->getLocale());
                     }, 'images'])->findOrFail($id);
 
-        return view('engagementRing.show', ['meta'=>$meta] );
+        return view('frontend.engagementRing.show', ['meta'=>$meta] );
  
     }
 

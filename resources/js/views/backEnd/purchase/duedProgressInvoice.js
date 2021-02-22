@@ -1,5 +1,4 @@
 import { get, post } from '../../../helpers/api'
-import router from '../../../router'
 
 import vueChart from '../../../components/vueChart'
 
@@ -9,7 +8,6 @@ import Auth from '../../../store/auth'
 export default {
 
 	el: '#duedProgressInvoice',
-	router,	
 	components: { vueChart, DataViewer },
 
 	data(){

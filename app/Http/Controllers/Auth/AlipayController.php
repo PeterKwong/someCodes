@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Support\Alipay\AopClient;
@@ -11,9 +11,9 @@ class AlipayController extends Controller
 {
     public function getAccessTokenAlipay() {
         
-        $envData = ['appid' => config('services.ALIPAY_APPID'),
-                                'private' => config('services.ALIPAY_PRIVATE'),
-                                'public' => config('services.ALIPAY_PUBLIC'),
+        $envData = ['appid' => config('global.ALIPAY_APPID'),
+                                'private' => config('global.ALIPAY_PRIVATE'),
+                                'public' => config('global.ALIPAY_PUBLIC'),
                                 ];
 
           $request = request()->all();

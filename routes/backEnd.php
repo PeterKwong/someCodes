@@ -1,90 +1,106 @@
 <?php
 
+use App\Http\Controllers\AccountingController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CacheController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CustomerMomentController;
+use App\Http\Controllers\DiamondController;
+use App\Http\Controllers\EngagementRingController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\InvoiceDiamondController;
+use App\Http\Controllers\InvoicePostController;
+use App\Http\Controllers\JewelleryController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\WeddingRingPairController;
+use App\Http\Middleware\TeamTingDiamond;
 //admin 
-Route::group(['middleware'=> 'auth:admin'], function(){
 
+Route::prefix('/adm/')
+        ->middleware('auth:sanctum')->middleware(TeamTingDiamond::class)
+        ->group(function(){
 
-    Route::prefix('/adm/')->group(function(){
-
+        // dd('login');
         //Customer
-        Route::get('customers', 'CustomerController@admBladeIndex');
-        Route::get('customers/create', 'CustomerController@admBladeForm');
-        Route::get('customers/{id}', 'CustomerController@admBladeShow');        
-        Route::get('customers/{id}/edit', 'CustomerController@admBladeForm'); 
+        Route::get('customers', [CustomerController::class,'admBladeIndex']);
+        Route::get('customers/create', [CustomerController::class,'admBladeForm']);
+        Route::get('customers/{id}', [CustomerController::class,'admBladeShow']);        
+        Route::get('customers/{id}/edit', [CustomerController::class,'admBladeForm']); 
 
         //Invoice
-        Route::get('invoices', 'InvoiceController@admBladeIndex');
-        Route::get('invoices/create', 'InvoiceController@admBladeForm');
-        Route::get('invoices/pdf/{id}', 'InvoiceController@admBladePrint');        
-        Route::get('invoices/{id}', 'InvoiceController@admBladeShow');        
-        Route::get('invoices/{id}/edit', 'InvoiceController@admBladeForm'); 
+        Route::get('invoices', [InvoiceController::class,'admBladeIndex']);
+        Route::get('invoices/create', [InvoiceController::class,'admBladeForm']);
+        Route::get('invoices/pdf/{id}', [InvoiceController::class,'admBladePrint']);        
+        Route::get('invoices/{id}', [InvoiceController::class,'admBladeShow']);        
+        Route::get('invoices/{id}/edit', [InvoiceController::class,'admBladeForm']); 
 
         //invoice diamond
-        Route::get('invoice-diamonds', 'InvoiceDiamondController@admBladeIndex');
-        Route::get('invoice-diamonds/create', 'InvoiceDiamondController@admBladeForm');
-        Route::get('invoice-diamonds/{id}', 'InvoiceDiamondController@admBladeShow');        
-        Route::get('invoice-diamonds/{id}/edit', 'InvoiceDiamondController@admBladeForm'); 
-        Route::get('invoice-diamonds/create-from-diamond/{id}', 'InvoiceDiamondController@admBladeForm');
+        Route::get('invoice-diamonds', [InvoiceDiamondController::class,'admBladeIndex']);
+        Route::get('invoice-diamonds/create', [InvoiceDiamondController::class,'admBladeForm']);
+        Route::get('invoice-diamonds/{id}', [InvoiceDiamondController::class,'admBladeShow']);        
+        Route::get('invoice-diamonds/{id}/edit', [InvoiceDiamondController::class,'admBladeForm']); 
+        Route::get('invoice-diamonds/create-from-diamond/{id}', [InvoiceDiamondController::class,'admBladeForm']);
 
         //Diamond
-        Route::get('diamonds', 'DiamondController@admBladeIndex');
-        Route::get('diamonds/create', 'DiamondController@admBladeForm');
-        Route::get('diamonds/{id}/edit', 'DiamondController@admBladeForm'); 
-        Route::get('diamonds/batch-create', 'DiamondController@admBladeBatchForm');
-        Route::get('diamonds/disc-price', 'DiamondController@diamondDiscPrice');
-        Route::get('diamonds/print-label', 'DiamondController@printLabel');
-        Route::get('diamonds/toggle-starred-diamond/{id}', 'DiamondController@toggleStarredDiamond');
+        Route::get('diamonds', [DiamondController::class,'admBladeIndex']);
+        Route::get('diamonds/create', [DiamondController::class,'admBladeForm']);
+        Route::get('diamonds/{id}/edit', [DiamondController::class,'admBladeForm']); 
+        Route::get('diamonds/batch-create', [DiamondController::class,'admBladeBatchForm']);
+        Route::get('diamonds/disc-price', [DiamondController::class,'diamondDiscPrice']);
+        Route::get('diamonds/print-label', [DiamondController::class,'printLabel']);
+        Route::get('diamonds/toggle-starred-diamond/{id}', [DiamondController::class,'toggleStarredDiamond']);
 
         //Engagement Ring
-        Route::get('engagement-rings', 'EngagementRingController@admBladeIndex');
-        Route::get('engagement-rings/create', 'EngagementRingController@admBladeForm');
-        Route::get('engagement-rings/{id}', 'EngagementRingController@admBladeShow');        
-        Route::get('engagement-rings/{id}/edit', 'EngagementRingController@admBladeForm'); 
+        Route::get('engagement-rings', [EngagementRingController::class,'admBladeIndex']);
+        Route::get('engagement-rings/create', [EngagementRingController::class,'admBladeForm']);
+        Route::get('engagement-rings/{id}', [EngagementRingController::class,'admBladeShow']);        
+        Route::get('engagement-rings/{id}/edit', [EngagementRingController::class,'admBladeForm']); 
 
         //wedding Ring
-        Route::get('wedding-rings', 'WeddingRingPairController@admBladeIndex');
-        Route::get('wedding-rings/create', 'WeddingRingPairController@admBladeForm');
-        Route::get('wedding-rings/{id}', 'WeddingRingPairController@admBladeShow');        
-        Route::get('wedding-rings/{id}/edit', 'WeddingRingPairController@admBladeForm'); 
+        Route::get('wedding-rings', [WeddingRingPairController::class,'admBladeIndex']);
+        Route::get('wedding-rings/create', [WeddingRingPairController::class,'admBladeForm']);
+        Route::get('wedding-rings/{id}', [WeddingRingPairController::class,'admBladeShow']);        
+        Route::get('wedding-rings/{id}/edit', [WeddingRingPairController::class,'admBladeForm']); 
 
         //Jewellery
-        Route::get('jewellery', 'JewelleryController@admBladeIndex');
-        Route::get('jewellery/create', 'JewelleryController@admBladeForm');
-        Route::get('jewellery/{id}', 'JewelleryController@admBladeShow');        
-        Route::get('jewellery/{id}/edit', 'JewelleryController@admBladeForm'); 
+        Route::get('jewellery', [JewelleryController::class,'admBladeIndex']);
+        Route::get('jewellery/create', [JewelleryController::class,'admBladeForm']);
+        Route::get('jewellery/{id}', [JewelleryController::class,'admBladeShow']);        
+        Route::get('jewellery/{id}/edit', [JewelleryController::class,'admBladeForm']); 
 
         //Customer Jewellery
-        Route::get('customer-jewelleries', 'InvoicePostController@admBladeIndex');
-        Route::get('customer-jewelleries/{id}/create', 'InvoicePostController@admBladeForm');
-        Route::get('customer-jewelleries/{id}', 'InvoicePostController@admBladeShow');        
-        Route::get('customer-jewelleries/{id}/edit', 'InvoicePostController@admBladeForm'); 
+        Route::get('customer-jewelleries', [InvoicePostController::class,'admBladeIndex']);
+        Route::get('customer-jewelleries/{id}/create', [InvoicePostController::class,'admBladeForm']);
+        Route::get('customer-jewelleries/{id}', [InvoicePostController::class,'admBladeShow']);        
+        Route::get('customer-jewelleries/{id}/edit', [InvoicePostController::class,'admBladeForm']); 
 
 
         //Customer Moment
-        Route::get('customer-moments', 'CustomerMomentController@admBladeIndex');
-        Route::get('customer-moments/create', 'CustomerMomentController@admBladeForm');
-        Route::get('customer-moments/{id}', 'CustomerMomentController@admBladeShow');        
-        Route::get('customer-moments/{id}/edit', 'CustomerMomentController@admBladeForm'); 
+        Route::get('customer-moments', [CustomerMomentController::class,'admBladeIndex']);
+        Route::get('customer-moments/create', [CustomerMomentController::class,'admBladeForm']);
+        Route::get('customer-moments/{id}', [CustomerMomentController::class,'admBladeShow']);        
+        Route::get('customer-moments/{id}/edit', [CustomerMomentController::class,'admBladeForm']); 
 
 
         //Order
-        Route::get('orders', 'OrderController@admBladeIndex');
-        Route::get('orders/{id}', 'OrderController@admBladeShow');
-        Route::get('order-to-invoice/{id}', 'OrderController@admBladeOrderToInvoice');
+        Route::get('orders', [OrderController::class,'admBladeIndex']);
+        Route::get('orders/{id}', [OrderController::class,'admBladeShow']);
+        Route::get('order-to-invoice/{id}', [OrderController::class,'admBladeOrderToInvoice']);
 
         //purchase 
-        Route::get('purchase/invoices', 'AccountingController@purchaseInvoices');
-        Route::get('purchase/progress-invoices', 'AdminController@purchaseProgressInvoices');
-        Route::get('purchase/dued-progress-invoices', 'AdminController@duedProgressInvoices');
-        Route::get('purchase/on-stock-diamonds', 'AdminController@onStockDiamond');
-        Route::get('purchase/starred-diamonds-export', 'AdminController@starredDiamondsExport');
+        Route::get('purchase/invoices', [AccountingController::class,'purchaseInvoices']);
+        Route::get('purchase/progress-invoices', [AdminController::class,'purchaseProgressInvoices']);
+        Route::get('purchase/dued-progress-invoices', [AdminController::class,'duedProgressInvoices']);
+        Route::get('purchase/on-stock-diamonds', [AdminController::class,'onStockDiamond']);
+        Route::get('purchase/starred-diamonds-export', [AdminController::class,'starredDiamondsExport']);
 
         //accounting
-        Route::get('accounting/invoice-export', 'AdminController@invoiceExport');
+        Route::get('accounting/invoice-export', [AdminController::class,'invoiceExport']);
 
-        Route::get('cache', 'CacheController@index');
+        Route::get('cache', [CacheController::class, 'index']);
 
-        Route::get('test', 'TestController@testView');
+        Route::get('test', [TestController::class,'testView']);
 
 
         Route::get('theme', function(){
@@ -97,10 +113,9 @@ Route::group(['middleware'=> 'auth:admin'], function(){
             return redirect('/adm');
         });
 
-        Route::get('{vue_capture?}', 'AdminController@index')
+        Route::get('{vue_capture?}', [AdminController::class,'index'])
                 ->where('vue_capture', '[\/\w\.-]*')->name('admin.backend');
 
-    });
 
 
 }); 

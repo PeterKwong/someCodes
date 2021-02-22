@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Support\Diamond;
+namespace App\Http\Support\Diamond;
 
-use App\Diamond;
-use App\Supplier;
+use App\Models\Diamond;
+use App\Models\Supplier;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request as Req;
 use GuzzleHttp\Exception\RequestException;
@@ -61,7 +61,7 @@ trait Sunrise{
               }
 
               $d->stock = 's'.$s_id->id .'-'. $diamond['Stock ID'] .'-c'. strrev( substr(strval( ceil( $diamond['Net Amt($)'] ) ), 0,-1) );
-              $d->price = $this->markPrice($diamond['Net Amt($)']*1.0);
+              $d->price = $this->markPrice($diamond['Net Amt($)']*1.03);
               $d->certificate = $diamond['Certi No.'];
               $d->shape = $diamond['Shape'];
               $d->weight = $diamond['Cts']; 
@@ -85,8 +85,7 @@ trait Sunrise{
               $d->parvilion_angle = $diamond['PavAng']?$diamond['PavAng']:null;
               $d->fluorescence = $diamond['Fls']?$diamond['Fls']:'None'; 
               $d->lab = $diamond['Lab'];
-              $d->location = 2; 
-              // $d->location = $diamond['Location'] == 'Hong Kong' && $diamond['Cts'] > 1.0 && $diamond['Net Amt($)'] >3000 ?'1Hong Kong':'2'; 
+              $d->location = $diamond['Location'] == 'Hong Kong' && $diamond['Cts'] > 1.0 && $diamond['Net Amt($)'] >3000 ?'1Hong Kong':'2'; 
               $d->available = 1; 
               // $d->image_link = $diamond['View Image']?$diamond['View Image']:null;
               // $d->has_image = $diamond['View Image']?1:null;

@@ -326,7 +326,7 @@ export default {
 
         },
         fetchUserInfo(){
-            authGet('/api/fetch-customer-info')
+            get('/api/fetch-customer-info')
             .then((res)=>{
                 if (res.data.model != null) {
                     this.form.user = res.data.model                    

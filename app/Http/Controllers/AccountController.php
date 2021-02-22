@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -15,14 +15,14 @@ class AccountController extends Controller
 
 	public function __construct()
 	{
-		$this->middleware('auth') ;
+        // Auth::user()->remember_token = Str::random(60);
 
 	}
 
     public function index(){
 
-        Auth::user()->api_token = Str::random(60);
-        Auth::user()->update();
+        // Auth::user()->remember_token = Str::random(60);
+        // Auth::user()->update();
 
         if (isset($_COOKIE['coupon_code']) && Auth::user()->coupon_id == Null) {
 
@@ -35,48 +35,48 @@ class AccountController extends Controller
 
     public function indexLang ($locale) {
 
-    	return view('account.index');
+    	return view('frontend.account.index');
     }
 
     public function setting ($locale) {
-
-    	return view('account.setting');
+    	return view('frontend.account.setting');
     }
 
     public function pending ($locale) {
 
-        return view('account.pending');
+        return view('frontend.account.pending');
     }
     public function invoices ($locale) {
 
-        return view('account.invoices');
+        return view('frontend.account.invoices');
     }
     public function getAuthUser(){
 
-		$this->user = Auth::guard('api')->user();
+		$this->user = Auth::user();
+        // dd($this->user->id);
 
     }
 
     //referral
     public function couponCode(){
 
-        return view('account.referral.promoteCode');
+        return view('frontend.account.referral.promoteCode');
     }
 
     public function refundBlade(){
 
-       return view('account.referral.refund');
+       return view('frontend.account.referral.refund');
 
     }
 
     public function recordBlade(){
         
-       return view('account.referral.record');
+       return view('frontend.account.referral.record');
 
     }
 
     public function getUserInfo(){
-
+        // dd('api');
 		$this->getAuthUser();
 
         $user = User::where('id',$this->user->id)->with('customers')->first();

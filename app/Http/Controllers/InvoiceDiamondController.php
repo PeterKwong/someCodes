@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\InvoiceDiamond;
-use App\Diamond;
+use App\Models\InvoiceDiamond;
+use App\Models\Diamond;
 
 
 class InvoiceDiamondController extends Controller

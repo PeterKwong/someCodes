@@ -28,7 +28,7 @@
             </ul>
         </li>
 
-        @if(auth()->guard('admin')->user()->roles()->first()->name == 'admin' || auth()->guard('admin')->user()->roles()->first()->name == 'purchase' )
+       @canany(['admin','purchase'])
 
         <li class="has-submenu">
             <a href="/adm/purchase/dued-progress-invoices"> Purchase <div class="arrow-down"></div></a>
@@ -39,9 +39,9 @@
             </ul>
         </li>
 
-        @endif
+        @endcanany
 
-        @if(auth()->guard('admin')->user()->roles()->first()->name == 'admin' )
+       @canany(['admin','purchase'])
 
         <li class="has-submenu">
             <a href="/adm/accounting/invoice-export">Invoice Export <div class="arrow-down"></div></a>
@@ -61,7 +61,7 @@
             </ul>
         </li>   
 
-        @endif
+        @endcanany
 
     </ul>                        
 </li> 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Log;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Overtrue\Socialite\SocialiteManager;
 

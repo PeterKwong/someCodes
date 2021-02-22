@@ -1,4 +1,3 @@
-import { get } from '../../../helpers/api'
 
 
 import langsJew from '../../../langs/jewelleries'

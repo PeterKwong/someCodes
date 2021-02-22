@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Support;
+namespace App\Http\Support;
 
 use App\Support\ResizeImage;
 use Illuminate\Support\Facades\Storage;

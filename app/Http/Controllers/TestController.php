@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Customer;
-use App\Diamond;
-use App\EngagementRing;
-use App\Invoice;
-use App\InvoiceDiamond;
-use App\InvoiceItem;
-use App\InvoicePost;
-use App\Jewellery;
+use App\Models\Customer;
+use App\Models\Diamond;
+use App\Models\EngagementRing;
+use App\Models\Invoice;
+use App\Models\InvoiceDiamond;
+use App\Models\InvoiceItem;
+use App\Models\InvoicePost;
+use App\Models\Jewellery;
 use App\Mail\Appointment;
-use App\Page;
+use App\Models\Page;
 use App\Support\CronJob;
 use App\Support\DiamondImport;
-use App\Tag;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 
@@ -23,8 +23,8 @@ class TestController extends Controller
 
     public function test(){
     	// dd('hi');
-	    // $this->postTags();
-	    $this->resetAllDiamonds();
+	    $this->postTags();
+	    // $this->resetAllDiamonds();
 
 		return response()
 			->json(
@@ -260,7 +260,7 @@ class TestController extends Controller
 
     public function testView(){
     	
-    	return view('test.index');
+    	return view('frontend.test.index');
     }
 
     public function setCache(){

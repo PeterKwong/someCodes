@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\InvoicePost;
-use App\CustomerMoment;
+use App\Models\InvoicePost;
+use App\Models\CustomerMoment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function authIndex()
     {
-        return view('home');
+        return view('frontend.home');
     }
 
     public function index () {
@@ -36,7 +36,6 @@ class HomeController extends Controller
         $customer_post = Cache::remember('home_page_customer_post', 10, function(){
 
             return  $customer_post = InvoicePost::where('published', 1)
-                                    ->whereDate('date','<', now())
                                     ->with(['images','texts'])->orderBy('date','desc')
                                     ->take(10)->get();
 
@@ -53,7 +52,7 @@ class HomeController extends Controller
         // dd($customer_post);     
 
         // dd(print_r($jewellery));
-        return view('home.index', compact('customer_post','jewellery'));
+        return view('frontend.home.index', compact('customer_post','jewellery'));
         
     }
 
@@ -83,6 +82,6 @@ class HomeController extends Controller
         // dd($jewellery);     
 
 
-        return view('home.index', compact('customer_post','jewellery'));
+        return view('frontend.home.index', compact('customer_post','jewellery'));
     }
 }

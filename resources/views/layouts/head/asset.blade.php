@@ -33,6 +33,8 @@
 
 <script defer="" type="application/javascript" src="{{ mix('js/langs.js') }}" ></script>
 
+<script defer="" type="application/javascript" src="{{ mix('js/main.js') }}" ></script>
+
 <script defer="" type="application/javascript" src="{{ mix('js/app.js') }}" ></script>
 
 <script defer="" type="application/javascript" src="{{ mix('js/frontend.js') }}" ></script>

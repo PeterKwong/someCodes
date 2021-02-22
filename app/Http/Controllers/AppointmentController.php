@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\Appointment;
 use App\Mail\CronJob;
-use App\Support\Telegram;
+use App\Http\Support\Telegram;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller

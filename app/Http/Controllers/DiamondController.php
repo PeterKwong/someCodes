@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Diamond;
-use App\DiamondQuery;
-use App\Supplier;
+use App\Models\Diamond;
+use App\Models\DiamondQuery;
+use App\Models\Supplier;
 use App\Support\CronJob;
 use App\Support\DiamondImport;
 use App\Support\ResizeImage;
@@ -21,7 +21,7 @@ class DiamondController extends Controller
   public function bladeIndex($locale)
   {
 
-    return view('diamond.index');
+    return view('frontend.diamond.index');
 
   }
 
@@ -34,7 +34,7 @@ class DiamondController extends Controller
     }
     //$diamond  = DiamondQuery::findOrFail($id);
 
-    return view('diamond.show', ['diamond' => $diamond]);
+    return view('frontend.diamond.show', ['diamond' => $diamond]);
 
   }
   public function showLoadingImage($id){
@@ -355,7 +355,7 @@ class DiamondController extends Controller
 
     // $this->guzzleRequest();
 
-      return view('diamond.video', compact('diamond'));
+      return view('frontend.diamond.video', compact('diamond'));
     }
    
 
@@ -387,7 +387,7 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.roundCut');
+      return view('frontend.diamond.roundCut');
  
     }
     
@@ -395,7 +395,7 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.p03roundCut');
+      return view('frontend.diamond.p03roundCut');
  
     }
 
@@ -403,7 +403,7 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.p05roundCut');
+      return view('frontend.diamond.p05roundCut');
  
     }
     
@@ -412,7 +412,7 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.p08roundCut');
+      return view('frontend.diamond.p08roundCut');
  
     }
 
@@ -420,7 +420,7 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.p10roundCut');
+      return view('frontend.diamond.p10roundCut');
  
     }
 
@@ -428,7 +428,7 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.p12roundCut');
+      return view('frontend.diamond.p12roundCut');
  
     }
 
@@ -436,7 +436,7 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.p15roundCut');
+      return view('frontend.diamond.p15roundCut');
  
     }
 
@@ -444,7 +444,7 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.p20roundCut');
+      return view('frontend.diamond.p20roundCut');
  
     }
 
@@ -452,7 +452,7 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.p30roundCut');
+      return view('frontend.diamond.p30roundCut');
  
     }
 
@@ -462,7 +462,7 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.fancyCutDiamond');
+      return view('frontend.diamond.fancyCutDiamond');
  
     }
 
@@ -470,63 +470,63 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.fancyCutHeart');
+      return view('frontend.diamond.fancyCutHeart');
  
     }
     public function fancyCutPrincess($locale)
     {
 
 
-      return view('diamond.fancyCutPrincess');
+      return view('frontend.diamond.fancyCutPrincess');
  
     }
     public function fancyCutEmerald($locale)
     {
 
 
-      return view('diamond.fancyCutEmerald');
+      return view('frontend.diamond.fancyCutEmerald');
  
     }
     public function fancyCutAsscher($locale)
     {
 
 
-      return view('diamond.fancyCutAsscher');
+      return view('frontend.diamond.fancyCutAsscher');
  
     }
     public function fancyCutOval($locale)
     {
 
 
-      return view('diamond.fancyCutOval');
+      return view('frontend.diamond.fancyCutOval');
  
     }
     public function fancyCutRadiant($locale)
     {
 
 
-      return view('diamond.fancyCutRadiant');
+      return view('frontend.diamond.fancyCutRadiant');
  
     }
     public function fancyCutPear($locale)
     {
 
 
-      return view('diamond.fancyCutPear');
+      return view('frontend.diamond.fancyCutPear');
  
     }
     public function fancyCutMarquise($locale)
     {
 
 
-      return view('diamond.fancyCutMarquise');
+      return view('frontend.diamond.fancyCutMarquise');
  
     }
     public function fancyCutCushion($locale)
     {
 
 
-      return view('diamond.fancyCutCushion');
+      return view('frontend.diamond.fancyCutCushion');
  
     }
     
@@ -535,7 +535,7 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.fancyColor');
+      return view('frontend.diamond.fancyColor');
  
     }
 
@@ -543,7 +543,7 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.fancyColorYellow');
+      return view('frontend.diamond.fancyColorYellow');
  
     }
 
@@ -551,56 +551,56 @@ class DiamondController extends Controller
     {
 
 
-      return view('diamond.fancyColorPink');
+      return view('frontend.diamond.fancyColorPink');
  
     }
     public function fancyColorPurple($locale)
     {
 
 
-      return view('diamond.fancyColorPurple');
+      return view('frontend.diamond.fancyColorPurple');
  
     }
     public function fancyColorBlue($locale)
     {
 
 
-      return view('diamond.fancyColorBlue');
+      return view('frontend.diamond.fancyColorBlue');
  
     }
     public function fancyColorGreen($locale)
     {
 
 
-      return view('diamond.fancyColorGreen');
+      return view('frontend.diamond.fancyColorGreen');
  
     }
     public function fancyColorOrange($locale)
     {
 
 
-      return view('diamond.fancyColorOrange');
+      return view('frontend.diamond.fancyColorOrange');
  
     }
     public function fancyColorBrown($locale)
     {
 
 
-      return view('diamond.fancyColorBrown');
+      return view('frontend.diamond.fancyColorBrown');
  
     }
     public function fancyColorBlack($locale)
     {
 
 
-      return view('diamond.fancyColorBlack');
+      return view('frontend.diamond.fancyColorBlack');
  
     }
     public function fancyColorGrey($locale)
     {
 
 
-      return view('diamond.fancyColorGrey');
+      return view('frontend.diamond.fancyColorGrey');
  
     }
 }

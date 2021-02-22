@@ -10,13 +10,14 @@
 
         @include('layouts.head.twitter')
 
+        @include('layouts.metas.userApiToken')
+        @include('layouts.metas.stripeHeaders')
+        @include('layouts.metas.cache')
+
         @include('layouts.head.asset')
 
         @yield('meta')
         
-        @include('layouts.metas.userApiToken')
-        @include('layouts.metas.stripeHeaders')
-        @include('layouts.metas.cache')
 
         @livewireStyles
 </head>

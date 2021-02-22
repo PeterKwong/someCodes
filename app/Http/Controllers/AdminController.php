@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Hash;
-use App\Role;
-use App\Admin;
+use App\Models\Role;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +12,7 @@ class AdminController extends Controller
 {
     	public function __construct()
 	    {
-	    	// $this->middleware('guest:admin')
+	    	// $this->middleware('can:view,team')
 	    	// 	->except(['logout','loginBlade','login']);
 	    }   
 
@@ -80,7 +80,7 @@ class AdminController extends Controller
 
 		public function loginBlade(){
 
-			return view('admin.login');
+			return view('backEnd.admin.login');
 		}	
 
 		public function purchaseProgressInvoices(){

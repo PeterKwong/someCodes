@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'TingDiamond'),
+    'name' => env('APP_NAME', 'Ting Diamond'),
 
     /*
     |--------------------------------------------------------------------------
@@ -40,67 +40,6 @@ return [
     */
 
     'debug' => (bool) env('APP_DEBUG', false),
-
-    'debug_blacklist' => [
-        '_ENV' => [
-            'APP_KEY',
-            'DB_PASSWORD',
-            'REDIS_PASSWORD',
-            'MAIL_PASSWORD',
-            'PUSHER_APP_KEY',
-            'PUSHER_APP_SECRET',
-            'MAILGUN_SECRET',
-            'DO_SPACES_SECRET',
-            'FACEBOOK_SECRET',
-            'GOOGLE_SECRET',
-            'TWITTER_SECRET',
-            'WECHAT_OPEN_PLATFORM_SECRET',
-            'ALIPAY_PRIVATE',
-            'ALIPAY_PUBLIC',
-            'WECHAT_OFFICIAL_ACCOUNT_SECRET',
-            'WECHAT_OFFICIAL_ACCOUNT_AES_KEY',
-            'STRIPE_SECRET',
-            'AWS_SECRET',
-            'HIPOPAY_PRIVATE',
-            'RID',
-            'RPW',
-            'OCID',
-            'OCPW',
-            'PAYMENTCN_KEY',
-            'AWS_SECRET_ACCESS_KEY',
-            'TELEGRAM_TOKEN',
-
-        ],
-        '_SERVER' => [
-            'APP_KEY',
-            'DB_PASSWORD',
-            'REDIS_PASSWORD',
-            'MAIL_PASSWORD',
-            'PUSHER_APP_KEY',
-            'PUSHER_APP_SECRET',
-            'MAILGUN_SECRET',
-            'DO_SPACES_SECRET',
-            'FACEBOOK_SECRET',
-            'GOOGLE_SECRET',
-            'TWITTER_SECRET',
-            'WECHAT_OPEN_PLATFORM_SECRET',
-            'ALIPAY_PRIVATE',
-            'ALIPAY_PUBLIC',
-            'WECHAT_OFFICIAL_ACCOUNT_SECRET',
-            'WECHAT_OFFICIAL_ACCOUNT_AES_KEY',
-            'STRIPE_SECRET',
-            'AWS_SECRET',
-            'HIPOPAY_PRIVATE',
-            'RID',
-            'RPW',
-            'OCID',
-            'OCPW',
-            'PAYMENTCN_KEY',
-            'AWS_SECRET_ACCESS_KEY',
-            'TELEGRAM_TOKEN',
-
-        ],    
-    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -142,7 +81,7 @@ return [
     */
 
     'locale' => 'hk',
-    'locales' => ['hk','cn','en'],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -154,7 +93,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'hk',
 
     /*
     |--------------------------------------------------------------------------
@@ -235,6 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\FortifyServiceProvider::class,
+        App\Providers\JetstreamServiceProvider::class,
 
     ],
 
@@ -276,7 +217,7 @@ return [
         'Password' => Illuminate\Support\Facades\Password::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,
         'Redirect' => Illuminate\Support\Facades\Redirect::class,
-        'Redis' => Illuminate\Support\Facades\Redis::class,
+        // 'Redis' => Illuminate\Support\Facades\Redis::class,
         'Request' => Illuminate\Support\Facades\Request::class,
         'Response' => Illuminate\Support\Facades\Response::class,
         'Route' => Illuminate\Support\Facades\Route::class,
