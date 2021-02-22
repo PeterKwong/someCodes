@@ -35,7 +35,6 @@
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
-        "platform-check": false
     },
     "extra": {
         "laravel": {
