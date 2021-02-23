@@ -4,15 +4,15 @@ namespace App\Http\Support;
 
 use App\Models\Diamond;
 use App\Http\Controllers\DiamondController;
-use App\Support\CronJob;
-use App\Support\Diamond\Oncall;
-use App\Support\Diamond\Rap;
-use App\Support\Diamond\Sunrise;
-use App\Support\Diamond\Reset;
-use App\Support\Diamond\Query;
+use App\Http\Support\CronJob;
+use App\Http\Support\Diamond\Oncall;
+use App\Http\Support\Diamond\Rap;
+use App\Http\Support\Diamond\Sunrise;
+use App\Http\Support\Diamond\Reset;
+use App\Http\Support\Diamond\Query;
 use Carbon\Carbon;
 use Storage;
-use App\Support\Telegram;
+use App\Http\Support\Telegram;
 /**
 * 
 */

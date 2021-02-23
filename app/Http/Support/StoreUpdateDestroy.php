@@ -3,9 +3,9 @@
 namespace App\Http\Support;
 
 use File;
-use App\Text;
-use App\Image;
-use App\Support\ResizeImage;
+use App\Models\Text;
+use App\Models\Image;
+use App\Http\Support\ResizeImage;
 use Illuminate\Support\Facades\Storage;
 
 trait StoreUpdateDestroy{
