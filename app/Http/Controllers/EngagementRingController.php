@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Support\EngagementRingFilter;
-use App\models\EngagementRing;
+use App\Models\EngagementRing;
 
 class EngagementRingController extends Controller
 {
