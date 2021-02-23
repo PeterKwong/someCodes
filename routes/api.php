@@ -62,9 +62,11 @@ Route::get('weddingRings/{id}', [WeddingRingPairController::class,'show']);
 	Route::resource('jewellery', JewelleryController::class);
 	Route::get('jewellery/{id}', [JewelleryController::class,'show']);
 
-Route::get('invoicePosts/{id}', [InvoicePostController::class,'show']);
+	Route::resource('customerMoments', CustomerMomentController::class);
+	Route::get('invoicePosts/{id}', [InvoicePostController::class,'show']);
 
-Route::get('customerMoments/{id}', [CustomerMomentController::class,'show']);
+	Route::resource('customerMoments', CustomerMomentController::class);
+	Route::get('customerMoments/{id}', [CustomerMomentController::class,'show']);
 
 
 // Route::resource('weddingRings', WeddingRingController::class);
