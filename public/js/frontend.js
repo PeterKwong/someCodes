@@ -5041,9 +5041,9 @@ __webpack_require__.r(__webpack_exports__);
   watch: {},
   created: function created() {
     this.fetchCookies();
+    this.apiToken = _helpers_getAuthUser__WEBPACK_IMPORTED_MODULE_2__.default.api_token;
   },
   mounted: function mounted() {
-    this.apiToken = _helpers_getAuthUser__WEBPACK_IMPORTED_MODULE_2__.default.api_token;
     this.checkOnProgress();
   },
   computed: {

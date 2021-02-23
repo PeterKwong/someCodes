@@ -62,9 +62,9 @@ export default {
     },
     created(){
         this.fetchCookies()
+        this.apiToken = getAuthUser.api_token
     },
     mounted(){
-        this.apiToken = getAuthUser.api_token
         this.checkOnProgress()
     },
     computed:{
