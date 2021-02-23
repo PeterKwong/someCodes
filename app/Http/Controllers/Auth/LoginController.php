@@ -99,7 +99,7 @@ class LoginController extends Controller
           
             $authUser->name = $user->name;
             $authUser->image_url = isset($user->img)?$user->img:'';
-            $authUser->api_token = Str::random('60');
+            // $authUser->api_token = Str::random('60');
             $authUser->save();
 
             return $authUser;
@@ -108,7 +108,7 @@ class LoginController extends Controller
         $user = [
                   'name'     => $user->name,
                   'email'    => $user->email,
-                  'api_token' => Str::random('60'),
+                  // 'api_token' => Str::random('60'),
                   'provider' => $provider,
                   'provider_id' => $user->id,
                   'image_url' => isset($user->img)?$user->img:'',
