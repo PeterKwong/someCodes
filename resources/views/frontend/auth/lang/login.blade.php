@@ -45,7 +45,83 @@
                   </div>
               </div>
               
-               <form method="POST" action="{{ route('login') }}">
+              <div class="grid grid-cols-12">
+                <div class="col-span-12">
+                      <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+
+                                      {{ csrf_field() }}
+                              <div class="grid grid-cols-12 p-8">
+                                  <div class="col-span-12">
+
+                                      <div class="p-2" >
+                                        <label for="email" class="control-label">{{__('login.E-Mail Address')}}</label>
+
+                                        <p class="">
+                                          <input id="email" type="email" class="input w-9/12" name="email" value="{{ old('email') }}" required autofocus placeholder="{{__('login.E-Mail Address')}}">
+                                          <span class="icon is-small is-left">
+                                            <i class="fas fa-envelope"></i>
+                                          </span>
+                                          <span class="icon is-small is-right">
+                                            <i class="fas fa-check"></i>
+                                          </span>
+                                        </p>
+
+                                          @if ($errors->has('email'))
+                                              <span class="help-block" >
+                                                  <strong><p style="color: red">{{ $errors->first('email') }}</p></strong>
+                                              </span>
+                                          @endif
+
+                                      </div>
+                                      
+                                      <div class="p-2">
+                                          <label for="password" class="control-label">{{__('login.Password')}}</label>
+
+                                        <p class="">
+                                          <input id="password" type="password" class="input w-9/12" name="password" placeholder="{{__('login.Password')}}" required>
+                                          <span class="icon is-small is-left">
+                                            <i class="fas fa-lock"></i>
+                                          </span>
+                                        </p>
+
+                                          @if ($errors->has('password'))
+                                              <span class="help-block" >
+                                                  <strong><p style="color: red">{{ $errors->first('password') }}</p></strong>
+                                              </span>
+                                          @endif
+                                      </div>
+
+                                      <div class="p-2">
+                                          <div class="control">
+                                              <div class="checkbox">
+                                                  <label>
+                                                      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{__('login.Remember Me')}}
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+
+                                      <div class="p-2">
+                                        <p class="control">
+                                          <button class="btn btn-primary bg-green-400">
+                                            {{__('login.Login')}}
+                                          </button>
+                                        </p>
+
+                                          <a class="text-blue-600" href="{{ url(app()->getLocale()) }}/password/request">
+                                              {{__('login.Forgot Your Password?')}}
+                                          </a>
+                                      </div>
+
+                                  </div>
+                              </div>
+
+
+                            </form>
+
+                  </div>
+                </div>
+              <!--  <form method="POST" action="{{ route('login') }}">
                     @csrf
 
                     <div>
@@ -76,7 +152,7 @@
                             {{ __('login.Login') }}
                         </x-jet-button>
                     </div>
-                </form>
+                </form> -->
             </div>
           </div>
 

@@ -229,13 +229,13 @@ Route::prefix('{locale}')->middleware('locale')->group(function(){
             return view('frontend.auth.lang.login');
         })->name('lang.login');
 
-        // Route::get('/register', function () {
-        //     return view('frontend.auth.lang.register');
-        // })->name('lang.register');
+        Route::get('/register', function () {
+            return view('frontend.auth.lang.register');
+        })->name('lang.register');
 
-        // Route::get('/password/request', function () {
-        //     return view('frontend.auth.lang.passwords.email');
-        // })->name('lang.reset');
+        Route::get('/password/request', function () {
+            return view('frontend.auth.lang.passwords.email');
+        })->name('lang.reset');
 
     });
 
