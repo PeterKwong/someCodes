@@ -400,7 +400,8 @@ class OrderController extends Controller
 
     public function pendingIndex(){
       
-      $user = auth()->user();
+      $user = request()->user();
+      dd($user);
       $customer = $user->customers()->first()->orders()->with('cartItems')->paginate('10');
 
       return response()->json(['model' => $customer]);
