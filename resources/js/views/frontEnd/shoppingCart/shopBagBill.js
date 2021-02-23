@@ -45,7 +45,7 @@ export default {
                     ],
             langs,
             isProcessing: false,
-            apiToken: getAuthUser.api_token,
+            apiToken: '',
             customerInfo: {'email': '',
                             },
             showCheckout:0,
@@ -64,7 +64,8 @@ export default {
         this.fetchCookies()
     },
     mounted(){
-        this.checkOnProgress()        
+        this.apiToken = getAuthUser.api_token
+        this.checkOnProgress()
     },
     computed:{
         shortenName(){
@@ -313,7 +314,7 @@ export default {
         },
         checkOnProgress(){
 
-            if ( getAuthUser.api_token != '') {
+            if ( this.api_token != '') {
                 this.form.onProgress.login = true
                 this.fetchUserInfo()
             }else{

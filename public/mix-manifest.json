@@ -1,9 +1,9 @@
 {
-    "/js/app.js": "/js/app.js?id=0c317dd939b0f7311216",
-    "/js/main.js": "/js/main.js?id=6d55efeeef65ea657beb",
-    "/js/frontend.js": "/js/frontend.js?id=87cd549a76ec81c05a4b",
-    "/js/langs.js": "/js/langs.js?id=5afbde1f66e9d372f4d7",
-    "/js/userAccount.js": "/js/userAccount.js?id=4340bc2284443d1b5e5a",
-    "/js/backend.js": "/js/backend.js?id=92186b20479938410324",
-    "/css/app.css": "/css/app.css?id=105dded273fc6a7f5b03"
+    "/js/app.js": "/js/app.js",
+    "/js/main.js": "/js/main.js",
+    "/js/frontend.js": "/js/frontend.js",
+    "/js/langs.js": "/js/langs.js",
+    "/js/userAccount.js": "/js/userAccount.js",
+    "/js/backend.js": "/js/backend.js",
+    "/css/app.css": "/css/app.css"
 }

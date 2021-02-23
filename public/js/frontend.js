@@ -5022,7 +5022,7 @@ __webpack_require__.r(__webpack_exports__);
       }],
       langs: langs,
       isProcessing: false,
-      apiToken: _helpers_getAuthUser__WEBPACK_IMPORTED_MODULE_2__.default.api_token,
+      apiToken: '',
       customerInfo: {
         'email': ''
       },
@@ -5043,6 +5043,7 @@ __webpack_require__.r(__webpack_exports__);
     this.fetchCookies();
   },
   mounted: function mounted() {
+    this.apiToken = _helpers_getAuthUser__WEBPACK_IMPORTED_MODULE_2__.default.api_token;
     this.checkOnProgress();
   },
   computed: {
@@ -5293,7 +5294,7 @@ __webpack_require__.r(__webpack_exports__);
       };
     },
     checkOnProgress: function checkOnProgress() {
-      if (_helpers_getAuthUser__WEBPACK_IMPORTED_MODULE_2__.default.api_token != '') {
+      if (this.api_token != '') {
         this.form.onProgress.login = true;
         this.fetchUserInfo();
       } else {
