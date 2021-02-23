@@ -94,7 +94,7 @@ class LoginController extends Controller
 
         $authUser = User::where('provider_id', $user->id)->first();
 
-        dd($authUser);
+        // dd($authUser);
         if ($authUser) {
           
             $authUser->name = $user->name;
@@ -114,14 +114,47 @@ class LoginController extends Controller
                   'image_url' => isset($user->img)?$user->img:'',
               ];
 
-        $register = new RegisterController();
+        // $register = new RegisterController();
 
-        $user = $register->create($user);
+        $user = $this->create($user);
 
         return $user;
 
         // return User::create();
 
+    }
+
+    public function create(array $data)
+    {
+                // dd(Coupon::where('code',$_COOKIE['coupon_code'])->first()->id);
+        $coupon = false ;
+        if (isset($_COOKIE['coupon_code'])) {
+            if ($_COOKIE['coupon_code'] !='') {
+            $coupon = Coupon::where('code',$_COOKIE['coupon_code'])->first()->id;
+            }
+        }
+
+        // dd($coupon);
+
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'provider' => isset($data['provider'])?$data['provider']:'email',
+            'provider_id' => isset($data['provider_id'])?$data['provider_id']:0,
+            'image_url' => isset($data['image_url'])?$data['image_url']:NULL,
+            'coupon_id' => $coupon?$coupon:NULL,
+            // 'api_token' => Str::random('60'),
+            'email_token' => Str::random('60'),
+            'password' => isset($data['password'])?bcrypt($data['password']):NULL,
+        ]);
+
+        return $user;
+
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
     }
 
     public function logout(){
