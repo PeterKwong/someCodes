@@ -15,8 +15,8 @@ use App\Models\Page;
 use App\Models\Tag;
 use App\Support\CronJob;
 use App\Support\DiamondImport;
-use Illuminate\Cache\Cache;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 
 class TestController extends Controller
