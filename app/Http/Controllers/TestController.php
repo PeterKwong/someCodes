@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\Appointment;
 use App\Models\Customer;
 use App\Models\Diamond;
 use App\Models\EngagementRing;
@@ -11,12 +10,12 @@ use App\Models\InvoiceDiamond;
 use App\Models\InvoiceItem;
 use App\Models\InvoicePost;
 use App\Models\Jewellery;
+use App\Mail\Appointment;
 use App\Models\Page;
-use App\Models\Tag;
 use App\Support\CronJob;
 use App\Support\DiamondImport;
+use App\Models\Tag;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 
 
 class TestController extends Controller
@@ -24,7 +23,6 @@ class TestController extends Controller
 
     public function test(){
     	// dd('hi');
-           return  dd(Cache::put('counter',1, 90000));
 	    $this->postTags();
 	    // $this->resetAllDiamonds();
 
