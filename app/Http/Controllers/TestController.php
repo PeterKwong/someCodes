@@ -24,7 +24,7 @@ class TestController extends Controller
 
     public function test(){
     	// dd('hi');
-        return Cache::put('batchNumber', $batchNumber, 90000);
+           return  Cache::put('counter',1, 90000);
 	    $this->postTags();
 	    // $this->resetAllDiamonds();
 
