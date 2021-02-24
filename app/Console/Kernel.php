@@ -52,7 +52,7 @@ class Kernel extends ConsoleKernel
             $CronJob->runResetAllRapDiamonds();
 
 
-        })->dailyAt('19:37')->runInBackground();
+        })->dailyAt('00:01')->runInBackground();
 
 
 
