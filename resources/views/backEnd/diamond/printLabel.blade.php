@@ -133,8 +133,8 @@
 
             
         <script type="text/javascript" src="{{mix('js/backend.js')}}"></script>
-        <script type="text/javascript" src="{{mix('js/burgers.js')}}"></script>
-       <!-- Vendor js -->
+<!--         <script type="text/javascript" src="{{mix('js/burgers.js')}}"></script>
+ -->       <!-- Vendor js -->
         <script src="/admin/assets/js/vendor.min.js"></script>
 
         <!-- fullcalendar plugins -->

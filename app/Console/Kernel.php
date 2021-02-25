@@ -58,7 +58,7 @@ class Kernel extends ConsoleKernel
 
             $CronJob->runImportFancyDiamondAPIPerBatch();
 
-        })->dailyAt('00:02')->runInBackground();
+        })->dailyAt('00:03')->runInBackground();
 
 
         $schedule->call(function () use(&$CronJob) {
@@ -73,17 +73,13 @@ class Kernel extends ConsoleKernel
         //regular
         $schedule->call(function () use(&$CronJob) {
             $this->diamondOncall($CronJob);
-        })->cron('*/10 * * * *')->between('00:01', '23:59')->runInBackground();
-
-        $schedule->call(function () use(&$CronJob) {
-            $this->diamondOncall($CronJob);
-        })->cron('*/10 * * * *')->between('00:03', '23:59')->runInBackground();
+        })->cron('*/5 * * * *')->between('00:02', '23:59')->runInBackground();
 
 
         //extra
         $schedule->call(function () use(&$CronJob) {
             $this->diamondOncall($CronJob);
-        })->cron('*/1 * * * *')->between('00:01', '00:35')->runInBackground();
+        })->cron('*/1 * * * *')->between('00:02', '00:35')->runInBackground();
 
         $schedule->call(function () use(&$CronJob) {
             $this->diamondOncall($CronJob);
