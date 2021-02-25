@@ -144,7 +144,7 @@ class LoginController extends Controller
             'image_url' => isset($data['image_url'])?$data['image_url']:NULL,
             'coupon_id' => $coupon?$coupon:NULL,
             // 'api_token' => Str::random('60'),
-            'email_token' => Str::random('60'),
+            // 'email_token' => Str::random('60'),
             'password' => isset($data['password'])?bcrypt($data['password']):NULL,
         ]);
 
