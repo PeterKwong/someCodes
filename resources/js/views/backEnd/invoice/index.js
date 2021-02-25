@@ -27,10 +27,10 @@ export default {
 		thead(){
 			var data = [
 			{ title: 'ID', key: 'id', sort: true},
-			{ title: 'Draft No', key: 'draft_no', sort: true},
 			{ title: 'Invoice No', key: 'invoice_no', sort: true},
 			{ title: 'account balance', key: 'account_balance', sort: true},
 			{ title: 'account total', key: 'account_total', sort: true},
+			{ title: 'Draft No', key: 'draft_no', sort: true},
 			{ title: 'Date', key: 'date', sort: true},
 			{ title: 'Customer', key: 'customer', sort: false},
 			{ title: 'title', key: 'title', sort: true},

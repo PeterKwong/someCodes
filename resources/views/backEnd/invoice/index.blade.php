@@ -12,9 +12,12 @@
 				<tr @click="clickRow(props.item)">
 					<td>@{{props.item.id}}</td>
 					<td>@{{props.item.draft_no}}</td>
-					<td v-if="adminVar.user.role == 'admin' ">@{{props.item.invoice_no}}</td>
-					<td v-if="adminVar.user.role == 'admin' ">@{{props.item.account_balance}}</td>
-					<td v-if="adminVar.user.role == 'admin' ">@{{props.item.account_total}}</td>					<td>@{{props.item.date}}</td>
+					@canany(['admin'])
+						<td>@{{props.item.invoice_no}}</td>
+						<td>@{{props.item.account_balance}}</td>
+						<td>@{{props.item.account_total}}</td>		
+					@endcanany
+					<td>@{{props.item.date}}</td>
 					<td>@{{props.item.customer.name}}</td>
 					<td>@{{props.item.title}}</td>
 					<td>@{{props.item.deposit}}</td>
