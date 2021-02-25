@@ -12,7 +12,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
-use App\Http\Controllers\AlipayController;
+use App\Http\Controllers\Auth\AlipayController;
 use App\Http\Controllers\Auth\RegisterController;
 
 class LoginController extends Controller
