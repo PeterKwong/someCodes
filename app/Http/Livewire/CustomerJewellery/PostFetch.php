@@ -190,7 +190,7 @@ class PostFetch extends Component
 		foreach ($tags as $tag) {
 			if (!in_array($tag->id,$upperIdList)) {
 
-					$invoicePosts = Page::where('paginable_type', 'App\InvoicePost')
+					$invoicePosts = Page::where('paginable_type', 'App\Models\InvoicePost')
 					->whereHas('tags', function($tags)use($tag){
 						$tags->where('id', $tag->id);
 					})->count();
