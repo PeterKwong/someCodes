@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
-use App\Support\Alipay\AopClient;
+use App\Http\Support\Alipay\AopClient;
 use App\Http\Controllers\Controller;
-use App\Support\Alipay\AlipayUserInfoShareRequest;
-use App\Support\Alipay\AlipaySystemOauthTokenRequest;
+use App\Http\Support\Alipay\AlipayUserInfoShareRequest;
+use App\Http\Support\Alipay\AlipaySystemOauthTokenRequest;
 
 class AlipayController extends Controller
 {
