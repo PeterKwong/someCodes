@@ -4,7 +4,7 @@ namespace App\Http\Support\Alipay;
 
 use Exception;
 use GuzzleHttp\Client;
-use App\Support\Alipay\SignData;
+use App\Http\Support\Alipay\SignData;
 use GuzzleHttp\Psr7\Request as Req;
 use App\Http\Controllers\Auth\LoginController;
 
