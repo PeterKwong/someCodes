@@ -29,7 +29,7 @@ return [
 	                	]
 				],
 
-	'paymentMode' => '',
+	'paymentMode' => '1',
     // 'paymentMode' => '_test',
 
     'stripe' => [
