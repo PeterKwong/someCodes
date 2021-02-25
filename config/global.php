@@ -29,8 +29,8 @@ return [
 	                	]
 				],
 
-	'paymentMode' => '',
-    // 'paymentMode' => '_test',
+	// 'paymentMode' => '',
+    'paymentMode' => '_test',
 
     'stripe' => [
         'model' => App\Models\User::class,
