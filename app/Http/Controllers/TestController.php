@@ -22,7 +22,7 @@ class TestController extends Controller
 {
 
     public function test(){
-    	// dd('hi');
+    	dd( config('global.paymentMode'));
 	    $this->postTags();
 	    // $this->resetAllDiamonds();
 
