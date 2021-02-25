@@ -8,8 +8,8 @@
         <div class="form-ground">
             <center>
               <a href="{{ url('/auth/google') }}" class="btn btn-primary "><i class="fab fa-google"></i> google</a>
-              <a href="{{ url('/auth/twitter') }}" class="btn btn-primary "><i class="fab fa-twitter"></i> Twitter</a>
               <a href="{{ url('/auth/facebook') }}" class="btn btn-primary "><i class="fab fa-facebook"></i> Facebook</a>
+              <a href="{{ url('/auth/twitter') }}" class="btn btn-primary "><i class="fab fa-twitter"></i> Twitter</a>
             </center>
         </div>
 
