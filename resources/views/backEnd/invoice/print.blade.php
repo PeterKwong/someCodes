@@ -116,7 +116,7 @@
 			       </div>
 					<table class="table">
 							<thead>
-								<tr class="text-white bg-primary">
+								<tr class="text-white" style="background-color: #3490dc;">
 									<th>Items</th>
 									<th>Description</th>
 									<th>Quantity</th>
