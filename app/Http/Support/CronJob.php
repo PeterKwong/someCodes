@@ -154,7 +154,7 @@ class CronJob
 			// $jobs = [ $this->ip . 'api import ' . $p =>'fail'];
 			// $appoint->cronDone($jobs);
 		}
-
+		return;
 
 	}
 
@@ -175,7 +175,7 @@ class CronJob
 			// $jobs = [ $this->ip . 'fancy api import ' . $p =>'fail'];
 			// $appoint->cronDone($jobs);
 		}
-
+		return;
 
 	}
 	public function runResetAllApiDiamonds(){

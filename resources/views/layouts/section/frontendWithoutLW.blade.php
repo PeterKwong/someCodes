@@ -19,22 +19,20 @@
         @yield('meta')
         
 
-        @livewireStyles
 </head>
 <body>
     <div class="container-fluid">
 
-        @livewire('header')
+	    @livewire('header')
 
-            @yield('content')
+	      	@yield('content')
 
-        @include('layouts.frontEnd.footer')
+	    @include('layouts.frontEnd.footer')
 
 
 
     </div>
 
 
-        @livewireScripts
   </body>
 </html>

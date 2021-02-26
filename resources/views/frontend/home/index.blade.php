@@ -1,4 +1,4 @@
-@extends('layouts.section.frontend')
+@extends('layouts.section.frontendWithoutLW')
 
     @section('meta')
 
@@ -13,7 +13,7 @@
 
         <!-- Schema.org markup for Google+ --> 
         <meta itemprop="name" content="{{trans('home.webTitle')}}"> 
-        <meta name="Keywords" content="{{trans('home.keywords')}}">   
+        <meta name="keywords" content="{{trans('home.keywords')}}"> 
         <meta itemprop="description" content="{{trans('home.meta1')}}""> 
         <meta itemprop="image" content="{{url("/images/front-end/home/h1_300-1.png")}}">
 
