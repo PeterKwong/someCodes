@@ -4,16 +4,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="api-token" content="{{ Auth::guard('admin')->check()?Auth::guard('admin')->user()->api_token:'' }}">
-        <meta name="user-role" content="{{ Auth::guard('admin')->check()
-                ?Auth::guard('admin')->user()->roles()->first()->name:'' }}">         
+        <meta name="csrf-token" content="{{ csrf_token() }}">     
         <title>Ting Diamond</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="{{mix('css/app.css')}}">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
 		<!-- Custome -->
 		<link href="{{ asset('css/all.css') }}" rel="stylesheet">  
@@ -36,7 +34,7 @@
     <body>
         <div>
 
-        @if(auth()->guard('admin')->user() && !strpos(url()->current(), 'invoices/pdf'))
+        @if(auth()->guard('sanctum')->user() && !strpos(url()->current(), 'invoices/pdf'))
 
             @include('layouts.backEnd.header')
 
@@ -210,6 +208,5 @@
             </div>
             
         <script type="text/javascript" src="{{mix('js/backend.js')}}"></script>
-        <script type="text/javascript" src="{{mix('js/burgers.js')}}"></script>
     </body>
 </html>
