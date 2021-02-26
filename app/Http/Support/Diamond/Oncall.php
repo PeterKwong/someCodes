@@ -112,7 +112,7 @@ trait Oncall{
                         
     public function getSupplierTotalStones($selectedID = 'white_diamond'){
 
-      // dd($data);
+      dd(env('OCID'));
 
       $data = $this->guzzleRequest($this->diamondSource,$selectedID,1);
       dd($data);
@@ -204,7 +204,7 @@ trait Oncall{
       $diamondSource[$selectedID]['data']['startindex'] = $p;
       $client = new Client();
 
-      dd(print_r($diamondSource[$selectedID]['data']['password']));
+      // dd(print_r($diamondSource[$selectedID]['data']['password']));
       $request = new Req($diamondSource[$selectedID]['method'], $diamondSource[$selectedID]['url'], $diamondSource[$selectedID]['header'] ,json_encode($diamondSource[$selectedID]['data']));
 
       $data = 0;
