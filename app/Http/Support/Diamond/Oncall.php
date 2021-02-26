@@ -113,7 +113,7 @@ trait Oncall{
     public function getSupplierTotalStones($selectedID = 'white_diamond'){
 
       $data = $this->guzzleRequest($this->diamondSource,$selectedID,1);
-      // dd($data);
+      dd($data);
 
       return $data->SUMMARY->TOTAL_PAGES;
     }
