@@ -12,8 +12,8 @@ use App\Models\InvoicePost;
 use App\Models\Jewellery;
 use App\Mail\Appointment;
 use App\Models\Page;
-use App\Support\CronJob;
-use App\Support\DiamondImport;
+use App\Http\Support\CronJob;
+use App\Http\Support\DiamondImport;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -23,8 +23,8 @@ class TestController extends Controller
 
     public function test(){
     	// dd( config('global.paymentMode'));
-	    $this->postTags();
-	    // $this->resetAllDiamonds();
+	    // $this->postTags();
+	    return $this->resetAllDiamonds();
 
 		return response()
 			->json(
@@ -54,9 +54,9 @@ class TestController extends Controller
       // return $import->getDiamondsFromSunrise();
 
       $import = new DiamondImport();
-      return $import->importFancyDiamondFromAPI_1000_PerBatch(1);
+      // return $import->importFancyDiamondFromAPI_1000_PerBatch(1);
       // return Cache::get('batchNumber');
-      // return $import->getSupplierTotalStones();
+      return $import->getSupplierTotalStones();
       // return $import->preloadCerts();
       // return $import->preloadImages();
 
