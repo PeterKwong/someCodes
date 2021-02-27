@@ -2,9 +2,9 @@
 
 namespace App\Http\Support\Diamond;
 
-use App\Diamond;
-use App\InvoiceDiamond;
-use App\Supplier;
+use App\Models\Diamond;
+use App\Models\InvoiceDiamond;
+use App\Models\Supplier;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request as Req;
