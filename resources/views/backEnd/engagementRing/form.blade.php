@@ -241,7 +241,7 @@
 					<div class="col">
 							<div class="box">
 								<label> video 360</label>
-								<p class="btn btn-primary" >form.video306</p>
+								<p>@{{form.video306}}</p>
 								<small class="error__control" v-if="errors.cover">@{{errors.cover[0]}}</small>
 							</div>
 					</div>
