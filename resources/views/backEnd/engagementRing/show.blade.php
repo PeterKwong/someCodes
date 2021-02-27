@@ -85,9 +85,13 @@
 		
 		<hr>
 		<div class="row">
-			<div class="col-4" >
+			<div class="col" >
 				<label>video</label>
 				<p class="subtitle is-5">@{{model.video}}</p>
+			</div>
+			<div class="col" >
+				<label>video 360</label>
+				<p class="subtitle is-5">@{{model.video360}}</p>
 			</div>
 		</div>
 		
