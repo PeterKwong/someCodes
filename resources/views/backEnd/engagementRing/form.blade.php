@@ -213,7 +213,7 @@
 						
 				</div>
 				<div class="row" >
-					<div class="col-4" v-for="(image,index) in form.images">
+					<div class="col" v-for="(image,index) in form.images">
 							<div class="box" v-if="form.images[0]">
 								<label> Image </label>
 								<image-upload :name="'images' + index" v-model="form.images[index].image" ></image-upload>
@@ -230,7 +230,7 @@
 				</div>	
 				<div class="row" >
 
-					<div class="col-4">
+					<div class="col">
 							<div class="box">
 								<label> video</label>
 								<video-upload v-model="form.video" ></video-upload>
@@ -238,6 +238,13 @@
 							</div>
 					</div>
 
+					<div class="col">
+							<div class="box">
+								<label> video 360</label>
+								<p class="btn btn-primary" >form.video306</p>
+								<small class="error__control" v-if="errors.cover">@{{errors.cover[0]}}</small>
+							</div>
+					</div>
 
 					
 				</div>		
