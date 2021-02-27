@@ -438,7 +438,7 @@ class Content extends Component
 
 		$this->showAdvance = !$this->showAdvance;
 
-	}	
+	}
 	public function setAdvanceToZero($column){
         
 		$this->fetchData[$column] = [0, 0];
