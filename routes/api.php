@@ -55,6 +55,16 @@ Route::get('/notification', [NotificationController::class,'index']);
 //page
 Route::get('buyingProcedure', [BuyingProcedureController::class,'index']);
 
+
+	//engagement rings
+	Route::resource('engagementRings', EngagementRingController::class);
+	Route::get('engagementRingsInd', [EngagementRingController::class,'admIndex']);
+	Route::get('engagementRingsShow/{id}', [EngagementRingController::class,'admShow']);
+
+	Route::resource('weddingRings', WeddingRingPairController::class);
+	Route::get('weddingRingsInd', [WeddingRingPairController::class,'admIndex']);
+	Route::get('weddingRingsShow/{id}', [WeddingRingPairController::class,'admShow']);
+
 Route::get('engagementRings/{id}', [EngagementRingController::class,'show']);
 
 Route::get('weddingRings/{id}', [WeddingRingPairController::class,'show']);
@@ -151,15 +161,6 @@ Route::get('langs', [TextController::class,'translateFetch']);
 //Auth Ting Diamond token
 Route::middleware(['auth:sanctum','ApiTingDiamond'])->group(function(){
 
-
-	//engagement rings
-	Route::resource('engagementRings', EngagementRingController::class);
-	Route::get('engagementRingsInd', [EngagementRingController::class,'admIndex']);
-	Route::get('engagementRingsShow/{id}', [EngagementRingController::class,'admShow']);
-
-	Route::resource('weddingRings', WeddingRingPairController::class);
-	Route::get('weddingRingsInd', [WeddingRingPairController::class,'admIndex']);
-	Route::get('weddingRingsShow/{id}', [WeddingRingPairController::class,'admShow']);
 
 	//jewellery
 	// Route::resource('jewellery', JewelleryController::class);,

@@ -39,9 +39,15 @@
 
 <script defer="" type="application/javascript" src="{{ mix('js/frontend.js') }}" ></script>
 
+<!-- <script defer >
+	window.mutualVar.storage.cfront = '{{ config('global.cache.' . config('global.cache.live') ) }}'
+</script> 
+ -->
+ 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
- 
+
+
 <style>
 	*.sticker {
     top:90%;
