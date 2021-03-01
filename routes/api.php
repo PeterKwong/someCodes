@@ -56,27 +56,26 @@ Route::get('/notification', [NotificationController::class,'index']);
 Route::get('buyingProcedure', [BuyingProcedureController::class,'index']);
 
 
-	//engagement rings
-	Route::resource('engagementRings', EngagementRingController::class);
-	Route::get('engagementRingsInd', [EngagementRingController::class,'admIndex']);
-	Route::get('engagementRingsShow/{id}', [EngagementRingController::class,'admShow']);
-
-	Route::resource('weddingRings', WeddingRingPairController::class);
-	Route::get('weddingRingsInd', [WeddingRingPairController::class,'admIndex']);
-	Route::get('weddingRingsShow/{id}', [WeddingRingPairController::class,'admShow']);
-
 Route::get('engagementRings/{id}', [EngagementRingController::class,'show']);
 
 Route::get('weddingRings/{id}', [WeddingRingPairController::class,'show']);
 
-	Route::resource('jewellery', JewelleryController::class);
-	Route::get('jewellery/{id}', [JewelleryController::class,'show']);
+Route::get('jewellery/{id}', [JewelleryController::class,'show']);
 
-	Route::resource('customerMoments', CustomerMomentController::class);
-	Route::get('invoicePosts/{id}', [InvoicePostController::class,'show']);
+Route::get('invoicePosts/{id}', [InvoicePostController::class,'show']);
 
-	Route::resource('customerMoments', CustomerMomentController::class);
-	Route::get('customerMoments/{id}', [CustomerMomentController::class,'show']);
+Route::get('customerMoments/{id}', [CustomerMomentController::class,'show']);
+
+Route::resources([
+			'engagementRings' => EngagementRingController::class,
+			'weddingRings' => WeddingRingPairController::class,
+			'jewellery' => JewelleryController::class,
+			'customerMoments' => CustomerMomentController::class,
+			'customerMoments' => CustomerMomentController::class,
+			]);
+
+
+
 
 
 // Route::resource('weddingRings', WeddingRingController::class);
@@ -162,13 +161,25 @@ Route::get('langs', [TextController::class,'translateFetch']);
 Route::middleware(['auth:sanctum','ApiTingDiamond'])->group(function(){
 
 
+	Route::resources([
+				'invoicePosts' => InvoicePostController::class,
+				'customerMoments' => CustomerMomentController::class,
+				'customers' => CustomerController::class,
+				'invoices' => InvoiceController::class,
+				'invoiceDiamonds' => InvoiceDiamondController::class,
+				]);
+
+	Route::get('engagementRingsInd', [EngagementRingController::class,'admIndex']);
+	Route::get('engagementRingsShow/{id}', [EngagementRingController::class,'admShow']);
+
+	Route::get('weddingRingsInd', [WeddingRingPairController::class,'admIndex']);
+	Route::get('weddingRingsShow/{id}', [WeddingRingPairController::class,'admShow']);
+
 	//jewellery
 	// Route::resource('jewellery', JewelleryController::class);,
 	Route::get('jewelleryInd', [JewelleryController::class,'admIndex']);
 	Route::get('jewelleryShow/{id}', [JewelleryController::class,'admShow']);
 
-	// customer Jewellery
-	Route::resource('invoicePosts', InvoicePostController::class);
 
 	Route::get('test', [TestController::class,'test']);
 
@@ -176,7 +187,6 @@ Route::middleware(['auth:sanctum','ApiTingDiamond'])->group(function(){
 	Route::post('diamonds/rap-discount-price', [DiamondController::class,'rapDiscountPrice']);
 
 	//customer-moments
-	Route::resource('customerMoments', CustomerMomentController::class);
 	Route::get('customerMomentsInd', [CustomerMomentController::class,'admIndex']);
 
 
@@ -184,11 +194,8 @@ Route::middleware(['auth:sanctum','ApiTingDiamond'])->group(function(){
 	// Route::post('video360/{code}', [ImageController::class,'storeVideo360Image']);
 	
 	//backend
-	Route::resource('customers', CustomerController::class);
-	Route::resource('invoices', InvoiceController::class);
 
 	//Invoice Diamond
-	Route::resource('invoiceDiamonds', InvoiceDiamondController::class);
 	Route::get('invoice-diamonds/create-from-diamond/{id}', [InvoiceDiamondController::class,'createFormDiamond']);
 
 	//Order
