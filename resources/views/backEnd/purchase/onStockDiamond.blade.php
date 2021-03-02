@@ -6,7 +6,7 @@
 
             <br>
             
-       @if(auth()->guard('admin')->user()->roles()->first()->name == 'admin' )      
+       @if(auth()->user()->roles()->first() == 'admin' )      
 
 
             <div class="columns is-mobiled" > 
@@ -23,7 +23,7 @@
 
       @endif
 
-      @if(auth()->guard('admin')->user()->roles()->first()->name == 'admin' || auth()->guard('admin')->user()->roles()->first()->name == 'purchase' )      
+      @if(auth()->user()->roles()->first() == 'admin' || auth()->user()->roles()->first() == 'purchase' )      
 
 
             <div class="columns is-mobiled" > 

@@ -121,8 +121,8 @@ Route::prefix('/adm/')
 }); 
 
 
-Route::get('/td-login', function () {
+// Route::get('/td-login', function () {
 
-    return view('backEnd.auth.login');
+//     return view('backEnd.auth.login');
 
-})->where('vue_capture', '[\/\w\.-]*')->name('admin.login');
+// })->where('vue_capture', '[\/\w\.-]*')->name('admin.login');

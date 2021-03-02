@@ -15,6 +15,8 @@
     
             <h5><a href="javascript: void(0);">Nowak Helme</a> </h5>
             <p class="text-muted mb-0"><small>Admin Head</small></p>
+            <a href="logout"><h5 class="pl-3">Logout</h5></a>
+
         </div>
 
         <!-- Settings -->

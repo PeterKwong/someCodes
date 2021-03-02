@@ -7,6 +7,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Ting Diamond</title>
+        
+        @include('layouts.metas.userApiToken')
+
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="/front_end/company/logo_2019_white.png">   
