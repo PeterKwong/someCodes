@@ -50,6 +50,15 @@ Route::get('/home', [HomeController::class,'index']);
 
 //Front
 
+Route::resources([
+			'engagementRings' => EngagementRingController::class,
+			'weddingRings' => WeddingRingPairController::class,
+			'jewellery' => JewelleryController::class,
+			'customerMoments' => CustomerMomentController::class,
+			'customerMoments' => CustomerMomentController::class,
+			]);
+
+
 Route::get('/notification', [NotificationController::class,'index']);
 
 //page
@@ -66,13 +75,6 @@ Route::get('invoicePosts/{id}', [InvoicePostController::class,'show']);
 
 Route::get('customerMoments/{id}', [CustomerMomentController::class,'show']);
 
-Route::resources([
-			'engagementRings' => EngagementRingController::class,
-			'weddingRings' => WeddingRingPairController::class,
-			'jewellery' => JewelleryController::class,
-			'customerMoments' => CustomerMomentController::class,
-			'customerMoments' => CustomerMomentController::class,
-			]);
 
 
 
