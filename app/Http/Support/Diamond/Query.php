@@ -6,8 +6,8 @@ namespace App\Http\Support\Diamond;
  * 
  */
 
-use App\Diamond;
-use App\DiamondQuery;
+use App\Models\Diamond;
+use App\Models\DiamondQuery;
 use Carbon\Carbon;
 use Cache;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

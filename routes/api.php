@@ -48,124 +48,38 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/home', [HomeController::class,'index']);
 
 
-//Front
-
-Route::resources([
-			'engagementRings' => EngagementRingController::class,
-			'weddingRings' => WeddingRingPairController::class,
-			'jewellery' => JewelleryController::class,
-			'customerMoments' => CustomerMomentController::class,
-			'customerMoments' => CustomerMomentController::class,
-			]);
-
-
-Route::get('/notification', [NotificationController::class,'index']);
-
-//page
-Route::get('buyingProcedure', [BuyingProcedureController::class,'index']);
-
-
-Route::get('engagementRings/{id}', [EngagementRingController::class,'show']);
-
-Route::get('weddingRings/{id}', [WeddingRingPairController::class,'show']);
-
-Route::get('jewellery/{id}', [JewelleryController::class,'show']);
-
-Route::get('invoicePosts/{id}', [InvoicePostController::class,'show']);
-
-Route::get('customerMoments/{id}', [CustomerMomentController::class,'show']);
-
-
-
-
-
-
-// Route::resource('weddingRings', WeddingRingController::class);
-
-
-
-// Route::resource('posts', PostController::class);
-
-
-
-//diamonds
-Route::resource('diamonds', DiamondController::class);
-Route::get('diamondsCreate', [DiamondController::class,'info']);
-Route::get('diamondsLoadingImage/{id}', [DiamondController::class,'showLoadingImage']);
-Route::get('diamondsLoadingCert/{id}', [DiamondController::class,'showLoadingCert']);
-Route::post('diamondsCreate', [DiamondController::class,'getDiamondJson']);
-
-
-Route::get('diamondsInd', [DiamondController::class,'admIndex']);
-
-Route::post('appointment', [AppointmentController::class,'appointment']);
-
-
-Route::resource('items', ItemController::class);
-
-//front
-// Route::resource('posts', PostController::class);
-
-//social media
-Route::get('xiaohungshu', [SocialMedia::class,'xiaoHungShu']);
-
-//session
-Route::post('cookies', [CookiesController::class,'store']);
-Route::get('cookies', [CookiesController::class,'index']);
-
-
-//payment
-Route::post('payment-cn-callback', [PurchasesController::class,'callbackByWechat']);
-
-Route::middleware('auth:sanctum')->group(function(){
-	// dd(request()->user());
-	Route::get('account/user', [AccountController::class,'getUserInfo']);
-	Route::post('account/user', [AccountController::class,'userUpdate']);
-	Route::get('account/pending', [OrderController::class,'pendingIndex']);
-	Route::get('account/pending/{id}', [OrderController::class,'pendingShow']);
-	Route::get('account/orders', [OrderController::class,'index']);
-	Route::get('account/orders/{id}', [OrderController::class,'show']);
-	
-	Route::get('account/invoices', [InvoiceController::class,'APIindex']);
-	Route::get('account/invoices/{id}', [InvoiceController::class,'APIshow']);
-	
-	Route::get('fetch-customer-coupon-code', [CouponController::class,'getAuthUserCouponCode']);
-	Route::get('fetch-customer-info', [ShoppingCartController::class,'fetchCustomerInfo']);
-
-	Route::get('referral/code', [CouponController::class,'getReferralCode']);
-	Route::get('referral/refund-rate', [CouponController::class,'getRefundRate']);
-
-	// Referral
-	Route::get('referral/records', [InvoiceController::class,'records']);
-	Route::get('referral/refund', [InvoiceController::class,'refund']);
-
-	//order
-	Route::post('place-order', [OrderController::class,'placeOrder']);
-	Route::get('order/payment-status/{id}', [OrderController::class,'fetchOrderStatus']);
-
-	//shopping cart
-	Route::get('coupon/valid', [CouponController::class,'checkAndApplyCouponCode']);
-	Route::post('update-cart-items', [ShoppingCartController::class,'loganUserUpdateCart']);
-	Route::post('fetch-cart-items', [ShoppingCartController::class,'fetchCartItems']);
-
-	Route::post('update-customer-info', [ShoppingCartController::class,'updateCustomerInfo']);
-});
-
-Route::get('invoice-diamonds-update-due-date/{id}', [InvoiceDiamondController::class,'setDiamondDueToday']);
-Route::get('invoices-update-due-date/{id}', [InvoiceController::class,'setInvoiceDueToday']);
-
-//Langs
-Route::get('langs', [TextController::class,'translateFetch']);
-
-
 
 //Auth Ting Diamond token
 Route::middleware(['auth:sanctum','ApiTingDiamond'])->group(function(){
 
+	Route::resource('engagementRings', EngagementRingController::class)
+		->only(['create', 'store', 'update', 'destroy']);
+
+	Route::resource('weddingRings', WeddingRingPairController::class)
+		->only(['create', 'store', 'update', 'destroy']);
+
+	Route::resource('jewellery', JewelleryController::class)
+		->only(['create', 'store', 'update', 'destroy']);
+
+	Route::resource('invoicePosts', InvoicePostController::class)
+		->only(['create', 'store', 'update', 'destroy']);
+
+	Route::resource('customerMoments', JewelleryController::class)
+		->only(['create', 'store', 'update', 'destroy']);
+
+
+// Route::resources([
+// 			'engagementRings' => EngagementRingController::class,
+// 			'weddingRings' => WeddingRingPairController::class,
+// 			'jewellery' => JewelleryController::class,
+// 			'customerMoments' => CustomerMomentController::class,
+// 			'customerMoments' => CustomerMomentController::class,
+// 			])->except(['show']);
+
 
 	Route::resources([
-				'invoicePosts' => InvoicePostController::class,
-				'customerMoments' => CustomerMomentController::class,
+				// 'invoicePosts' => InvoicePostController::class,
+				// 'customerMoments' => CustomerMomentController::class,
 				'customers' => CustomerController::class,
 				'invoices' => InvoiceController::class,
 				'invoiceDiamonds' => InvoiceDiamondController::class,
@@ -244,3 +158,104 @@ Route::middleware(['auth:sanctum','ApiTingDiamond'])->group(function(){
 	Route::post('diamonds/resetDiamonds', [DiamondController::class,'resetAllDiamonds']);
 
 });
+
+//Front
+
+
+Route::get('/notification', [NotificationController::class,'index']);
+
+//page
+Route::get('buyingProcedure', [BuyingProcedureController::class,'index']);
+
+
+Route::get('engagementRings/{id}', [EngagementRingController::class,'show']);
+
+Route::get('weddingRings/{id}', [WeddingRingPairController::class,'show']);
+
+Route::get('jewellery', [JewelleryController::class,'index']);
+Route::get('jewellery/{id}', [JewelleryController::class,'show']);
+
+Route::get('invoicePosts/{id}', [InvoicePostController::class,'show']);
+
+Route::get('customerMoments', [CustomerMomentController::class,'index']);
+Route::get('customerMoments/{id}', [CustomerMomentController::class,'show']);
+
+
+
+
+
+
+// Route::resource('posts', PostController::class);
+
+
+
+//diamonds
+Route::resource('diamonds', DiamondController::class);
+Route::get('diamondsCreate', [DiamondController::class,'info']);
+Route::get('diamondsLoadingImage/{id}', [DiamondController::class,'showLoadingImage']);
+Route::get('diamondsLoadingCert/{id}', [DiamondController::class,'showLoadingCert']);
+Route::post('diamondsCreate', [DiamondController::class,'getDiamondJson']);
+
+
+Route::get('diamondsInd', [DiamondController::class,'admIndex']);
+
+Route::post('appointment', [AppointmentController::class,'appointment']);
+
+
+Route::resource('items', ItemController::class);
+
+//front
+// Route::resource('posts', PostController::class);
+
+//social media
+Route::get('xiaohungshu', [SocialMedia::class,'xiaoHungShu']);
+
+//session
+Route::post('cookies', [CookiesController::class,'store']);
+Route::get('cookies', [CookiesController::class,'index']);
+
+
+//payment
+Route::post('payment-cn-callback', [PurchasesController::class,'callbackByWechat']);
+
+Route::middleware('auth:sanctum')->group(function(){
+	// dd(request()->user());
+	Route::get('account/user', [AccountController::class,'getUserInfo']);
+	Route::post('account/user', [AccountController::class,'userUpdate']);
+	Route::get('account/pending', [OrderController::class,'pendingIndex']);
+	Route::get('account/pending/{id}', [OrderController::class,'pendingShow']);
+	Route::get('account/orders', [OrderController::class,'index']);
+	Route::get('account/orders/{id}', [OrderController::class,'show']);
+	
+	Route::get('account/invoices', [InvoiceController::class,'APIindex']);
+	Route::get('account/invoices/{id}', [InvoiceController::class,'APIshow']);
+	
+	Route::get('fetch-customer-coupon-code', [CouponController::class,'getAuthUserCouponCode']);
+	Route::get('fetch-customer-info', [ShoppingCartController::class,'fetchCustomerInfo']);
+
+	Route::get('referral/code', [CouponController::class,'getReferralCode']);
+	Route::get('referral/refund-rate', [CouponController::class,'getRefundRate']);
+
+	// Referral
+	Route::get('referral/records', [InvoiceController::class,'records']);
+	Route::get('referral/refund', [InvoiceController::class,'refund']);
+
+	//order
+	Route::post('place-order', [OrderController::class,'placeOrder']);
+	Route::get('order/payment-status/{id}', [OrderController::class,'fetchOrderStatus']);
+
+	//shopping cart
+	Route::get('coupon/valid', [CouponController::class,'checkAndApplyCouponCode']);
+	Route::post('update-cart-items', [ShoppingCartController::class,'loganUserUpdateCart']);
+	Route::post('fetch-cart-items', [ShoppingCartController::class,'fetchCartItems']);
+
+	Route::post('update-customer-info', [ShoppingCartController::class,'updateCustomerInfo']);
+});
+
+Route::get('invoice-diamonds-update-due-date/{id}', [InvoiceDiamondController::class,'setDiamondDueToday']);
+Route::get('invoices-update-due-date/{id}', [InvoiceController::class,'setInvoiceDueToday']);
+
+//Langs
+Route::get('langs', [TextController::class,'translateFetch']);
+
+
