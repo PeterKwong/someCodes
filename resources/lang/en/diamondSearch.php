@@ -99,6 +99,10 @@ return [
 	'colorH' => '"Nearly colorless" levels, the color may be in contrast to the more advanced colors, in order to detect the very slight color, very worth buying.',
 	'colorI' => 'The "near-colorless" final level, the color may be in very close range, perceive a very slight color, worth buying.',
 	'colorJ' => 'Slight color may be seen with slight help, especially with special tools, especially fancy cut diamonds / miscellaneous diamonds over 1 card.',
+	
+	'Style' => 'Style',
+	'Style' => 'Style',
+	'Style' => 'Style',
 	'Style' => 'Style',
 	'Style' => 'Style',
 
@@ -183,5 +187,6 @@ return [
 
 	'No Result' => 'No Result',
 
+	'price below $80000 diamond, pay by cash would have 1.7~2% discount' => 'price below $80000 diamond, pay by cash would have 1.7~2% discount',
 
 ];

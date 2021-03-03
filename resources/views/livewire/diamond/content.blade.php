@@ -42,6 +42,9 @@
 
       @endif
 
+       <p class="text-gray-500">{{trans('diamondSearch.price below $80000 diamond, pay by cash would have 1.7~2% discount')}}        
+       </p>
+
       </center>
     </div>
   </div>

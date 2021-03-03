@@ -175,6 +175,7 @@ return [
 	'Black' => '黑色',
 
 	'No Result' => '沒結果',
+	'price below $80000 diamond, pay by cash would have 1.7~2% discount' => '8萬元以下，現金支付有1.7～2%折扣',
 
 
 

@@ -9,15 +9,19 @@
           <div class="">
             <div class="card-body">
               <h5 class="pt-2 text-2xl">{{ $staff['name'] }}</h5>
-              <p class="pt-2 card-text">{{__('aboutUs.@Wechat')}}</p>
-              <p class="pt-2 card-text">
-                <small class="pt-2 text-muted">
-                  {{__('aboutUs.or contact her via')}}
-                    <a class="text-blue-600" href="{{ '/links/whatsapp/852' .  $staff['number'] }}">whatsapp
-                      <img width="28" src="/images/front-end/aboutUs/whatsapp.jpg">
-                    </a>
-                </small>
-              </p>
+              @if(app()->getLocale() != 'cn')
+                <p class="pt-2 card-text">
+                  <small class="pt-2 text-muted">
+                    {{__('aboutUs.or contact her via')}}
+                      <a class="text-blue-600" href="{{ '/links/whatsapp/852' .  $staff['number'] }}">whatsapp
+                        <img width="28" src="/images/front-end/aboutUs/whatsapp.jpg">
+                      </a>
+                  </small>
+                </p>
+              @endif
+              @if(app()->getLocale() == 'cn')
+                <p class="pt-2 card-text">{{__('aboutUs.@Wechat')}}</p>
+              @endif
             </div>
           </div>
         </div>
