@@ -53,33 +53,22 @@ Route::get('/home', [HomeController::class,'index']);
 Route::middleware(['auth:sanctum','ApiTingDiamond'])->group(function(){
 
 	Route::resource('engagementRings', EngagementRingController::class)
-		->only(['create', 'store', 'update', 'destroy']);
+		->only(['create', 'store', 'edit', 'update', 'destroy']);
 
 	Route::resource('weddingRings', WeddingRingPairController::class)
-		->only(['create', 'store', 'update', 'destroy']);
+		->only(['create', 'store', 'edit', 'update', 'destroy']);
 
 	Route::resource('jewellery', JewelleryController::class)
-		->only(['create', 'store', 'update', 'destroy']);
+		->only(['create', 'store', 'edit', 'update', 'destroy']);
 
 	Route::resource('invoicePosts', InvoicePostController::class)
-		->only(['create', 'store', 'update', 'destroy']);
+		->only(['create', 'store', 'edit', 'update', 'destroy']);
 
 	Route::resource('customerMoments', JewelleryController::class)
-		->only(['create', 'store', 'update', 'destroy']);
-
-
-// Route::resources([
-// 			'engagementRings' => EngagementRingController::class,
-// 			'weddingRings' => WeddingRingPairController::class,
-// 			'jewellery' => JewelleryController::class,
-// 			'customerMoments' => CustomerMomentController::class,
-// 			'customerMoments' => CustomerMomentController::class,
-// 			])->except(['show']);
+		->only(['create', 'store', 'edit', 'update', 'destroy']);
 
 
 	Route::resources([
-				// 'invoicePosts' => InvoicePostController::class,
-				// 'customerMoments' => CustomerMomentController::class,
 				'customers' => CustomerController::class,
 				'invoices' => InvoiceController::class,
 				'invoiceDiamonds' => InvoiceDiamondController::class,
