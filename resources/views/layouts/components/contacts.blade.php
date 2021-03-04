@@ -3,17 +3,30 @@
     <div class="col-span-12 sm:col-span-6 box mx-4">
       <div class="card " style="max-width: 540px;">
         <div class="flex justify-center">
-          <div class="">
-            <img src="{{ '/images/front-end/contact/wechat/' . $staff['name'] . '.png' }}" class="w-48" alt="...">
+          <div class="p-2">
+            @if(app()->getLocale() != 'cn')
+            <div class="w-24 h-24">
+              <img src="{{ '/images/front-end/contact/' . $staff['name'] . '.png' }}" class="w-24 h-24 rounded-full flex items-center justify-center" alt="...">
+            </div>
+            @endif
+
+            @if(app()->getLocale() == 'cn')
+            <div class="w-24 h-24">
+              <img src="{{ '/images/front-end/contact/wechat/' . $staff['name'] . '.png' }}" class="" alt="...">
+            </div>
+            @endif
+
           </div>
           <div class="">
             <div class="card-body">
-              <h5 class="pt-2 text-2xl">{{ $staff['name'] }}</h5>
+              <h5 class="pt-2 text-2xl text-gray-600">{{ $staff['name'] }}</h5>
               @if(app()->getLocale() != 'cn')
                 <p class="pt-2 card-text">
                   <small class="pt-2 text-muted">
-                    {{__('aboutUs.or contact her via')}}
-                      <a class="text-blue-600" href="{{ '/links/whatsapp/852' .  $staff['number'] }}">whatsapp
+                      <a class="text-blue-600" href="{{ '/links/whatsapp/852' .  $staff['number'] }}">
+                        {{__('aboutUs.or contact her via')}}
+                        whatsapp
+
                         <img width="28" src="/images/front-end/aboutUs/whatsapp.jpg">
                       </a>
                   </small>

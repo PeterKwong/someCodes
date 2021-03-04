@@ -236,31 +236,6 @@
                 </div>
             </div>
 
-            <div class="flex justify-center p-4">
-                <div class="flex-auto">
-                    <div class="image-background" style="background-image: url('/images/front-end/diamond_show/diamond_cut.jpg'); background-repeat: no-repeat; background-size: cover;">
-                        <div class="p-8 sm:p-24 lg:p-56">
-                            <h3 class="text-white border-b border-white sm:text-2xl">{{trans('diamondSearch.Cut Grade')}}: @{{diamond.cut}}</h3>
-                            <span class="text-white" v-if="diamond.cut == 'EX' || diamond.cut == 'Excellent'">{{trans('diamondSearch.cutEx')}}
-                            <br>
-                            </span>
-                            <span class="text-white" v-if="diamond.cut == 'VG' || diamond.cut == 'Very Good'">{{trans('diamondSearch.cutVg')}}
-                            <br>
-                            </span>
-                            <span class="text-white" v-if="diamond.cut == 'GD' || diamond.cut == 'Good'">{{trans('diamondSearch.cutGd')}}
-                            <br>
-                            </span>
-                            <span class="text-white">{{trans('diamondSearch.Want to learn even more about cut')}}? 
-                               <a class="text-blue-400" :href=" localeHref+ 'education-diamond-grading/4cs/cut/'">{{__('diamondSearch.Learn More')}}<br>
-                               </a>
-                            </span>
-                            <span class="text-white">
-                                {{trans('diamondSearch.cutDesrciption')}}
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="flex justify-center p-4">
                 <div class="flex-auto">
@@ -285,10 +260,11 @@
                                 
                     <img class="w-auto" src="/images/front-end/diamond_show/diamond_weight.jpg" width="100%">
                         
+                    <x-invoice-post-fetch type="Diamond" upper-type="weight" :query="$diamond->weight" />
 
                 </div>
             </div>
-                
+
             <div class="flex justify-center p-4">
                 <div class="flex-auto">
                     <article>
@@ -354,9 +330,13 @@
                             <br>
                         </div>
                         <img class="w-auto" src="/images/front-end/diamond_show/diamond_color.jpg" width="100%">
+
+                        <x-invoice-post-fetch type="Diamond" upper-type="color" :query="$diamond->color" />
+
                     </article>
                 </div>
             </div>
+
 
             <div class="flex justify-center p-4">
                 <div class="flex-auto">
@@ -397,15 +377,44 @@
                                 {{trans('diamondSearch.clarityDescription2')}}</li>
                             </span>
                         </div>
+                        <x-invoice-post-fetch type="Diamond" upper-type="clarity" :query="$diamond->clarity" />
+
                     </div>  
                 </div>
             </div>
-                
+                            
+            <div class="flex justify-center p-4">
+                <div class="flex-auto">
+                    <div class="image-background" style="background-image: url('/images/front-end/diamond_show/diamond_cut.jpg'); background-repeat: no-repeat; background-size: cover;">
+                        <div class="p-8 sm:p-24 lg:p-56">
+                            <h3 class="text-white border-b border-white sm:text-2xl">{{trans('diamondSearch.Cut Grade')}}: @{{diamond.cut}}</h3>
+                            <span class="text-white" v-if="diamond.cut == 'EX' || diamond.cut == 'Excellent'">{{trans('diamondSearch.cutEx')}}
+                            <br>
+                            </span>
+                            <span class="text-white" v-if="diamond.cut == 'VG' || diamond.cut == 'Very Good'">{{trans('diamondSearch.cutVg')}}
+                            <br>
+                            </span>
+                            <span class="text-white" v-if="diamond.cut == 'GD' || diamond.cut == 'Good'">{{trans('diamondSearch.cutGd')}}
+                            <br>
+                            </span>
+                            <span class="text-white">{{trans('diamondSearch.Want to learn even more about cut')}}? 
+                               <a class="text-blue-400" :href=" localeHref+ 'education-diamond-grading/4cs/cut/'">{{__('diamondSearch.Learn More')}}<br>
+                               </a>
+                            </span>
+                            <span class="text-white">
+                                {{trans('diamondSearch.cutDesrciption')}}
+                            </span>
+                        </div>
+                        <x-invoice-post-fetch type="Diamond" upper-type="cut" :query="$diamond->cut" />
+                    </div>
+                </div>
+            </div>
+
+
 
 
 
         </div>
-
     @endSection
 
         <script>document.write()</script>

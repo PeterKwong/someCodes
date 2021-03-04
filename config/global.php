@@ -24,8 +24,8 @@ return [
 	                    'logo' => '/images/front-end/company/logo_PNG_sq_60x60_1.png',
 	                        ],
 	                'staffs'=>[
-	                		['name' => 'Nancy', 'number' => 52376008],
-	                		['name' => 'Albee', 'number' => 97339639],
+	                		['name' => 'Rhea', 'number' => 97339639],
+                            ['name' => 'Nancy', 'number' => 52376008],
 	                	]
 				],
 
