@@ -267,6 +267,51 @@
 
             <div class="flex justify-center p-4">
                 <div class="flex-auto">
+                    <div style="background-image: url('/images/front-end/diamond_show/diamond_clarity.jpg'); background-repeat: no-repeat; background-size: cover;">
+                        <div class="p-8 sm:p-24 lg:p-56">
+                            <h3 class="text-white">{{trans('diamondSearch.Clarity')}}: @{{diamond.clarity}}</h3>
+                            <hr style="border: 0.2px solid white; ">
+                                <span class="text-white" v-if="diamond.clarity == 'I1' ">{{trans('diamondSearch.clarityI')}}
+                                <br>
+                                </span>
+                                <span class="text-white" v-if="diamond.clarity == 'SI1' || diamond.clarity == 'SI2'">{{trans('diamondSearch.claritySi')}}
+                                <br>
+                                </span>
+                                <span class="text-white" v-if="diamond.clarity == 'VS2' ||diamond.clarity == 'VS1' ">
+                                    {{trans('diamondSearch.clarityVs')}}
+                                <br>
+                                </span>
+                                <span class="text-white" v-if="diamond.clarity == 'VVS1' || diamond.clarity == 'VVS2'">{{trans('diamondSearch.clarityVvs')}}
+                                <br>
+                                </span>
+                                <span class="text-white" v-if="diamond.clarity == 'IF' ">
+                                    {{trans('diamondSearch.clarityIf')}}
+                                <br>
+                                </span>
+                            <hr>
+                            
+                            <span class="text-white">
+                                {{trans('diamondSearch.clarityDescription')}}?
+                                <br>
+                                <a class="text-blue-400" :href="localeHref+ 'education-diamond-grading/4cs/clarity/'">
+                                    {{trans('diamondSearch.Learn More')}}
+                                </a>
+                            </span>
+                            <span class="text-white">
+                                <li>{{trans('diamondSearch.clarityDescription1')}}
+                                </li>
+                                <li>
+                                {{trans('diamondSearch.clarityDescription2')}}</li>
+                            </span>
+                        </div>
+                        <x-invoice-post-fetch type="Diamond" upper-type="clarity" :query="$diamond->clarity" />
+
+                    </div>  
+                </div>
+            </div>
+
+            <div class="flex justify-center p-4">
+                <div class="flex-auto">
                     <article>
                         <div class="">
                         
@@ -337,51 +382,6 @@
                 </div>
             </div>
 
-
-            <div class="flex justify-center p-4">
-                <div class="flex-auto">
-                    <div style="background-image: url('/images/front-end/diamond_show/diamond_clarity.jpg'); background-repeat: no-repeat; background-size: cover;">
-                        <div class="p-8 sm:p-24 lg:p-56">
-                            <h3 class="text-white">{{trans('diamondSearch.Clarity')}}: @{{diamond.clarity}}</h3>
-                            <hr style="border: 0.2px solid white; ">
-                                <span class="text-white" v-if="diamond.clarity == 'I1' ">{{trans('diamondSearch.clarityI')}}
-                                <br>
-                                </span>
-                                <span class="text-white" v-if="diamond.clarity == 'SI1' || diamond.clarity == 'SI2'">{{trans('diamondSearch.claritySi')}}
-                                <br>
-                                </span>
-                                <span class="text-white" v-if="diamond.clarity == 'VS2' ||diamond.clarity == 'VS1' ">
-                                    {{trans('diamondSearch.clarityVs')}}
-                                <br>
-                                </span>
-                                <span class="text-white" v-if="diamond.clarity == 'VVS1' || diamond.clarity == 'VVS2'">{{trans('diamondSearch.clarityVvs')}}
-                                <br>
-                                </span>
-                                <span class="text-white" v-if="diamond.clarity == 'IF' ">
-                                    {{trans('diamondSearch.clarityIf')}}
-                                <br>
-                                </span>
-                            <hr>
-                            
-                            <span class="text-white">
-                                {{trans('diamondSearch.clarityDescription')}}?
-                                <br>
-                                <a class="text-blue-400" :href="localeHref+ 'education-diamond-grading/4cs/clarity/'">
-                                    {{trans('diamondSearch.Learn More')}}
-                                </a>
-                            </span>
-                            <span class="text-white">
-                                <li>{{trans('diamondSearch.clarityDescription1')}}
-                                </li>
-                                <li>
-                                {{trans('diamondSearch.clarityDescription2')}}</li>
-                            </span>
-                        </div>
-                        <x-invoice-post-fetch type="Diamond" upper-type="clarity" :query="$diamond->clarity" />
-
-                    </div>  
-                </div>
-            </div>
                             
             <div class="flex justify-center p-4">
                 <div class="flex-auto">
