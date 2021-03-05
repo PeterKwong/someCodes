@@ -45,7 +45,7 @@ class InvoicePostFetch extends Component
     }
 
     public function getPosts(){
-
+        
         $tag = $this->tagId;
 
         if (isset($tag->id)) {
