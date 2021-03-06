@@ -52,7 +52,7 @@ export default {
     storage:{
         live: 'cfront',
         s3:'https://s3.tingdiamond.com/',
-        cfront:'https://image.tingdiamond.com/',
+        cfront:'https://dxbn815ay10jb.cloudfront.net/',
 
     },
     screen:{x:0, y: 0, scrollable:false },
