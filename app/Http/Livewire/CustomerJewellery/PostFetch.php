@@ -123,6 +123,7 @@ class PostFetch extends Component
 		if (request()->has('weight')) {
 		// dd(request()->query('weight'));
 			$weights = [
+						[ 'value' =>0.01, 'range' => ''],
 						[ 'value' =>0.3, 'range' => '0.3-0.49'],
 						[ 'value' =>0.5, 'range' => '0.5-0.79'],
 						[ 'value' =>0.8, 'range' => '0.8-0.99'],
