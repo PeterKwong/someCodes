@@ -4,7 +4,7 @@ return [
 
 	'cache' => [
 		'live' => 'cfront',
-		'cfront' => 'https://dxbn815ay10jb.cloudfront.net/',
+		'cfront' => 'https://image.tingdiamond.com/',
 		's3' => 'https://s3.tingdiamond.com/',
 		],
 

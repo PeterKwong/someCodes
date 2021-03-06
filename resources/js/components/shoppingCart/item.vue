@@ -188,7 +188,6 @@ import Carousel from '../carousel.vue'
 import { getLocale , getLocaleCode} from '../../helpers/locale'
 import { setCookie, getCookie, } from '../../helpers/cookie'
 import { extraWorkingDates } from '../../helpers/helperFunctions'
-import getAuthUser from '../../helpers/getAuthUser'
 
 import { transJs } from '../../helpers/transJs'
 
@@ -212,7 +211,7 @@ export default {
                             { 'name': 'Alipay(-1%)', 'discount':0.99},
                             { 'name': 'Wechat(-1%)', 'discount':0.99},
                             { 'name': 'Cash(-2%)', 'discount':0.98}],
-            apiToken: getAuthUser.api_token,
+            apiToken: getMeta('api-token'),
             shortenName:mutualVar.cookiesInfo.shoppingCart.items,
             model:'',
 

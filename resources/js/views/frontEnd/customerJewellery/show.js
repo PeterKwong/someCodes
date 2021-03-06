@@ -1,12 +1,11 @@
 // import Auth from '../../store/auth'
-	import { get, del } from '../../../helpers/api'
+	// import { get, del } from '../../../helpers/api'
 	// import Flash from '../../helpers/flash'
 
 	import { transJs } from '../../../helpers/transJs'
 	import langsDia from '../../../langs/diamondViewer'
 	import langsEnga from '../../../langs/engagementRings'
 	import langsWedd from '../../../langs/weddingRings'
-	import mutualVar from '../../../helpers/mutualVar'
 	// import langs from '../../../langs/customerJewellry'
 
 	import {videoPlayer} from '../../../../../node_modules/vue-video-player/dist/vue-video-player'

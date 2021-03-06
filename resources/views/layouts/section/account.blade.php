@@ -11,6 +11,7 @@
         @include('layouts.head.twitter')
 
         @include('layouts.metas.userApiToken')
+        @include('layouts.metas.mutualVar')
 
         @include('layouts.head.asset')
 

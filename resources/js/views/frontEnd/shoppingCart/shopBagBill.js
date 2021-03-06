@@ -3,8 +3,6 @@
 import shoppingCartItem from '../../../components/shoppingCart/item.vue'
 import stripeCheckoutForm from '../../../components/shoppingCart/stripeCheckoutForm.vue'
 
-import getAuthUser from '../../../helpers/getAuthUser'
-import { authGet, get,post, } from '../../../helpers/api'
 import { getLocale , getLocaleCode} from '../../../helpers/locale'
 import { setCookie, getCookie, } from '../../../helpers/cookie'
 
@@ -62,7 +60,7 @@ export default {
     },
     created(){
         this.fetchCookies()
-        this.apiToken = getAuthUser.api_token
+        this.apiToken = getMeta('api-token')
     },
     mounted(){
         this.checkOnProgress()

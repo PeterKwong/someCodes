@@ -9,6 +9,7 @@
         <title>Ting Diamond</title>
         
         @include('layouts.metas.userApiToken')
+        @include('layouts.metas.mutualVar')
 
 
         <!-- App favicon -->

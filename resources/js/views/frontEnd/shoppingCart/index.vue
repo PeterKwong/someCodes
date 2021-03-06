@@ -11,7 +11,6 @@ import { get,post, } from '../../../helpers/api'
 import { getLocale , getLocaleCode} from '../../../helpers/locale'
 import { setCookie, getCookie, } from '../../../helpers/cookie'
 import { extraWorkingDates } from '../../../helpers/helperFunctions'
-import getAuthUser from '../../../helpers/getAuthUser'
 
 import stripeCheckoutForm from '../../../components/shoppingCart/stripeCheckoutForm.vue'
 

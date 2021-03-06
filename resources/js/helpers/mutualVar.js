@@ -1,4 +1,8 @@
 import { getLocale, getLocaleCode, getCurrentURl } from './locale'
+
+import {getMeta} from './getMeta'
+window.getMeta = getMeta
+
 export default {
 	cookiesInfo:{
 			cookieLast: 60,
@@ -52,7 +56,7 @@ export default {
     storage:{
         live: 'cfront',
         s3:'https://s3.tingdiamond.com/',
-        cfront:'https://dxbn815ay10jb.cloudfront.net/',
+        cfront: getMeta('meta-js-' + 'cfront'),
 
     },
     screen:{x:0, y: 0, scrollable:false },

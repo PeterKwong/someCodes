@@ -49,27 +49,26 @@ import './jqueryPlugin/owlCarousel'
 import './jqueryPlugin/rangeslider'
 
 import Vue from 'vue'
+window.Vue = Vue;
 
 //home
 
 import mutualVar from './helpers/mutualVar'
+window.mutualVar = mutualVar
 
 // Langs
 import transJS from './helpers/transJs1'
+Vue.filter('transJs', transJS.transJs)
+
 import { get,post } from './helpers/api'
+window.get = get
+window.post = post
+
+
 
 import HomeIndex from './views/frontEnd/home/index'
 
-
-window.Vue = Vue;
-window.mutualVar = mutualVar
-window.get = get
-window.post = post
 window.pUrl = window.location.pathname.slice(3)
-
-
-Vue.filter('transJs', transJS.transJs)
-
 
 
 if (window.location.pathname == '/' || window.location.pathname == '/en' || 
