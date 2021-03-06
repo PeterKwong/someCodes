@@ -419,6 +419,7 @@ class Content extends Component
     				'/fancy-color/pink' => ['fancy_color'=>['Pink']],
     				'/fancy-color/purple' => ['fancy_color'=>['Purple']],
     				'/fancy-color/yellow' => ['fancy_color'=>['Yellow']],
+    				'/on-stock' => ['location'=>['1Hong Kong']],
     				];
 
     	foreach ($listUrls as $key => $value) {
