@@ -31,7 +31,6 @@
                 <div class="col-span-12">
                     <center><h3 class="title is-5">{{trans('aboutUs.About Us')}}</h3>                 {{trans('buyingProcedure.First to buy diamonds, then buy ring setting')}}     
                     </center>
-                    
                 </div>
             </div>
 
@@ -64,8 +63,11 @@
                             </center>
                             <br>
                             <div class="level">
-                            <li>{{trans('aboutUs.para1')}}</li>
-                               
+                            <li>
+                              <a class="text-blue-600" href="{{url(app()->getLocale() . '/gia-loose-diamonds/on-stock') }}">{{trans('aboutUs.para1')}}
+                              </a>
+                             </li>
+
                             </div>
                         
                         </center>

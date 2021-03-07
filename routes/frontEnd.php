@@ -72,6 +72,8 @@ Route::prefix('{locale}')->middleware('locale')->group(function(){
     //round
     Route::prefix('/gia-loose-diamonds')->group(function(){
 
+        Route::get('/on-stock', [DiamondController::class, 'roundCut']);
+
         Route::prefix('/round-cut')->group(function(){
 
             Route::get('', [DiamondController::class, 'roundCut']);

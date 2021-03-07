@@ -64,20 +64,19 @@
                   <br>
                         
                   <div class="grid grid-cols-12" >
-                    <div class="col-span-9">
-                      <center>
+                    <div class="col-span-9 p-4">
                         <p class="sm:text-xl font-semibold">{{trans('buyingProcedure.title1')}}</p>
                         <p>{{trans('buyingProcedure.para1')}}</p>
-                        <p>{{trans('buyingProcedure.para1.1')}}</p>
-                        <p>{{trans('buyingProcedure.para1.2')}}</p>
-                        <p>{{trans('buyingProcedure.para1.3')}}</p>
-                      </center>
+                        <p class="text-gray-700">1. {{trans('buyingProcedure.para1.1')}}</p>
+                        <p class="text-gray-700">2. {{trans('buyingProcedure.para1.2')}}</p>
+                        <p class="text-gray-700">3. {{trans('buyingProcedure.para1.3')}}</p>
                     </div>
                     <div class="col-span-3 ">
                      <center>
                         <p class="sm:text-xl font-semibold">{{trans('buyingProcedure.title2')}}：</p>
                         <p class="sm:text-xl font-semibold">{{trans('buyingProcedure.title3')}}</p>
-                        <p >{{trans('buyingProcedure.para2')}}</p>
+                        <a class="text-blue-600" 
+                          href="{{url(app()->getLocale() . '/gia-loose-diamonds?starred=true') }}">{{trans('buyingProcedure.para2')}}</a>
                       </center>
                     </div>
                   </div>
