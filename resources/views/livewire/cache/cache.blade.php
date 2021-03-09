@@ -18,6 +18,9 @@
 		</div>
 
        @canany(['admin','purchase'])
+
+		<p class="text-2xl py-2">Purchase</p>
+
 		<div class="row">
 			@foreach($purchase as $key => $value)
 

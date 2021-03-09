@@ -12,6 +12,8 @@
         @include('layouts.metas.cacheAdmin')
         @include('layouts.metas.mutualVar')
 
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="/front_end/company/logo_2019_white.png">   
@@ -99,6 +101,7 @@
         <!-- App js-->
         <script src="/admin/assets/js/app.min.js"></script>
         
+
         @livewireScripts
 
     </body>

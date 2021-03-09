@@ -113,8 +113,10 @@
   <notification></notification>
 
  @include('layouts.components.floatingContact')
+ @include('layouts.components.loading')
 
 </div>
+
 
 
 

@@ -1,4 +1,4 @@
-  <div class="relative z-10" wire:loading >
+  <div class="relative z-10" v-if="mutualVar.status.isProcessing" >
     <button tabindex="1" class="fixed inset-0 bg-black opacity-25 h-full w-full cursor-default">
       <div class="flex justify-center z-20">
         <svg width="100" height="100" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
