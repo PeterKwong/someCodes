@@ -1,6 +1,8 @@
 import { setCookie, getCookie, } from './cookie'
 import {queryString, queryStringArray} from './queryString'
-import { getGoldPrice } from'./APIs/goldPrice'
+
+import {getMeta} from './getMeta'
+window.getMeta = getMeta
 
 export default{
     storage:{
@@ -19,15 +21,19 @@ export default{
                     queryArray:queryStringArray,
                 },
 	theme:{dark:'', light:'light/'},
-	user:{role: document.head.querySelector('meta[name="user-role"]')?document.head.querySelector('meta[name="user-role"]').content:'' },
+	user:{role: getMeta('user-role')},
 	setCookie,
 	getCookie,
     backendFetch:{},
     params:{},
     APIs:{
-        goldPrice:getGoldPrice(),
+        goldPrice:{
+                metal18KW: getMeta('meta-js-' + 'goldPrice18K') * getMeta('meta-js-' + 'priceFactor'),
+                metal18KY: getMeta('meta-js-' + 'goldPrice18K') * getMeta('meta-js-' + 'priceFactor'),
+                metal18KR: getMeta('meta-js-' + 'goldPrice18K') * getMeta('meta-js-' + 'priceFactor'),
+                metalMixed: getMeta('meta-js-' + 'goldPrice18K') * getMeta('meta-js-' + 'priceFactor'),
+                metalPT:getMeta('meta-js-' + 'goldPricePT') * getMeta('meta-js-' + 'priceFactor')},
     },
     form:{},
     
-
 }

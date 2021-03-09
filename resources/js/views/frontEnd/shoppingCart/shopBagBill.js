@@ -42,7 +42,6 @@ export default {
                     {data : 'email', display : 'Email', errorName: 'data.email', type: 'text'},
                     ],
             langs,
-            isProcessing: false,
             apiToken: '',
             customerInfo: {'email': '',
                             },
@@ -72,13 +71,16 @@ export default {
         locale(){
                 return getLocale()
         },
+        isProcessing(){
+            return mutualVar.status.isProcessing
+        },
         checkoutClickable(){
             var items = this.cookies.shoppingCart.items
             var allItemsClickable = true
 
             for( var i = 0; items.length > i ; i++){
                 for( var j = 0; items[i]['pairItems'].length > j; j++){
-                    if (items[i]['pairItems'][j].available == 0) {
+                    if (items[i]['pairItems'][j].available != 1) {
                         allItemsClickable = false
                         }
 
@@ -87,6 +89,10 @@ export default {
             if (items.length <1) {
                 allItemsClickable = false       
             }
+            if (this.isProcessing) {
+                allItemsClickable = false       
+            }
+
 
             return allItemsClickable
         },

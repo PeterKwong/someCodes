@@ -120,40 +120,40 @@ class PurchasesController extends Controller
 
     }
 
-    public function alipayOld($deposit, $random, $title, $orderID){
+    // public function alipayOld($deposit, $random, $title, $orderID){
         
-        // dd('ok'); 
+    //     // dd('ok'); 
 
-        $param = [
-            'out_trade_id' => $random,        # 商户交易流水号  Y
-            'amount' => $deposit,                        # 支付单金额，单位为元，精度最多小数点后两位(如果是JPY和KRW，单位为分) Y
-            'currency' => 'HKD',                      # 结算币种 Y
-            'auth_code' => '',                        # 二维码内容 Y
-            'product_info' => $title,         # 商品信息 Y
-            'client_ip' => '0.0.0.0',                 # 客户端设备IP地址 Y
-            // 'notify_url' => 'https://webhook.site/674d17bd-d4b9-4709-b50f-5221f709c644',        # 异步通知地址  N
-            'notify_url' => $this->testIP . '/payment-callback/alipay',        # 异步通知地址  N
-        ];
+    //     $param = [
+    //         'out_trade_id' => $random,        # 商户交易流水号  Y
+    //         'amount' => $deposit,                        # 支付单金额，单位为元，精度最多小数点后两位(如果是JPY和KRW，单位为分) Y
+    //         'currency' => 'HKD',                      # 结算币种 Y
+    //         'auth_code' => '',                        # 二维码内容 Y
+    //         'product_info' => $title,         # 商品信息 Y
+    //         'client_ip' => '0.0.0.0',                 # 客户端设备IP地址 Y
+    //         // 'notify_url' => 'https://webhook.site/674d17bd-d4b9-4709-b50f-5221f709c644',        # 异步通知地址  N
+    //         'notify_url' => $this->testIP . '/payment-callback/alipay',        # 异步通知地址  N
+    //     ];
 
-        //isHK 是否使用支付宝香港钱包，取值"TRUE"/"FALSE"，默认值为"FALSE"
-        //$isCNY 是否采用人民币(CNY)计价，取值"TRUE"/"FALSE"，默认值为"FALSE"
+    //     //isHK 是否使用支付宝香港钱包，取值"TRUE"/"FALSE"，默认值为"FALSE"
+    //     //$isCNY 是否采用人民币(CNY)计价，取值"TRUE"/"FALSE"，默认值为"FALSE"
         
-        $alipay = new Alipay($isHK = false, $isCNY = false);
-        $response = $alipay->consumerScanWeb($param);
+    //     $alipay = new Alipay($isHK = false, $isCNY = false);
+    //     $response = $alipay->consumerScanWeb($param);
 
-        // $response =  trim($response);
-        $response =  json_decode($response);
-        $response->response->pay_url =  urlencode($response->response->pay_url);
-        // dd( $response );
-        // $response =  json_encode($response);
+    //     // $response =  trim($response);
+    //     $response =  json_decode($response);
+    //     $response->response->pay_url =  urlencode($response->response->pay_url);
+    //     // dd( $response );
+    //     // $response =  json_encode($response);
 
-        // return $response;
-        // dd( $response );
+    //     // return $response;
+    //     // dd( $response );
 
-        return response()->json(['orderID'=> $orderID]);
+    //     return response()->json(['orderID'=> $orderID]);
 
 
-    }
+    // }
 
     public function visa($deposit, $stripeToken, $email, $order){
 
@@ -234,6 +234,9 @@ class PurchasesController extends Controller
 
         return dd(request());
 
+    }
+    public function disableDiamond(){
+        
     }
 
 

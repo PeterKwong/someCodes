@@ -17,6 +17,22 @@
 
 		</div>
 
+       @canany(['admin','purchase'])
+		<div class="row">
+			@foreach($purchase as $key => $value)
+
+				<div class="col-sm-3 p-2 border">
+					
+					<p>{{ $key }}</p>
+					<textarea wire:model="purchase.{{$key}}" class="form-control"></textarea>
+					
+				</div>
+				
+
+			@endforeach
+
+		</div>
+		@endcanany
 
 		<button type="submit" class="btn btn-primary">Save</button>
 		

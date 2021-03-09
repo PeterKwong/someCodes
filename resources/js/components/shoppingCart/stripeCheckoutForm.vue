@@ -61,11 +61,13 @@ export default {
 					console.log(this.billformdata)
 					this.billformdata.depositPaymentMethod = 'VISA'
 					this.billformdata.stripeToken = token.id
+					mutualVar.status.isProcessing = true
 
 					post('/api/place-order', this.billformdata)
 					.then( (res) => { 
 						if (res.data.saved) {
 		                    this.receivedPayment(res.data.message)
+							mutualVar.status.isProcessing = false
 		                }
 	                })
 					.catch((error)=>{

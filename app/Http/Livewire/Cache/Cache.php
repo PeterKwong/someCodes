@@ -13,6 +13,12 @@ class Cache extends Component
                         'homePageShow' => '',
 					];
 
+    public $purchase = [
+                        'goldPrice18K' => 0,
+                        'goldPricePT' => 0,
+                        'priceFactor' => 1.9,
+                ];   
+
     public function render()
     {	
 
@@ -31,8 +37,14 @@ class Cache extends Component
     		$this->cache[$key] =  cache()->get($key) ;
 
     	}
+
+        foreach ($this->purchase as $key => $value) {
+
+            $this->purchase[$key] =  cache()->get($key) ;
+
+        }
     	// dd($this->cache);
-    	return $this->cache;
+    	// return $this->cache;
     }
 
     public function save(){
@@ -42,6 +54,13 @@ class Cache extends Component
     		cache()->put($key, $value); 
 
     	}
+
+        foreach ($this->purchase as $key => $value) {
+
+            cache()->put($key, $value); 
+
+        }
+
     }
 
 }

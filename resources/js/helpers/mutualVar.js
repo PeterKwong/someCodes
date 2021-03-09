@@ -65,7 +65,8 @@ export default {
         jsReady:true,
         innerWidth:0,
     },
-    tabs:{sideBar:'4cs'}
+    tabs:{ sideBar:'4cs'},
+    status:{ isProcessing: false},
 
 
 }
