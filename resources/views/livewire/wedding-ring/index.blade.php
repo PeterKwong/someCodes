@@ -237,7 +237,7 @@
 	                <img src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $data['wedding_rings'][0]['images'][0]['image']}}" width="100%">
 	                    <center>
 	                        <div class="grid grid-cols-12">
-	                            <div class="col-span-6">
+	                            <div class="col-span-6 p-1">
 	                            	<p  class="text-gray-600" >HK${{$data['wedding_rings'][0]['unit_price']}} 
 		                            ({{__('weddingRing.' . $data['wedding_rings'][0]['gender'])}})
 		                        	</p>
@@ -247,7 +247,7 @@
 		                        		{{__('frontHeader.Wedding Rings') }} 
 		                        	</p>
 		                        </div>
-	                            <div class="col-span-6" > 
+	                            <div class="col-span-6 p-1" > 
 	                            	<p  class="text-gray-600" >HK${{$data['wedding_rings'][1]['unit_price']}}
 		                            ({{__('weddingRing.' . $data['wedding_rings'][1]['gender'])}})
 		                            </p>
