@@ -167,7 +167,8 @@
                             </p>
                             <p class="text-blue-600 text-sm">
                             	{{$data['style']? __('engagementRing.Side stone') :''}} 
-                            	{{__('engagementRing.' . $data['prong']) }} {{__('engagementRing.' . $data['shoulder']) }} 
+                            	{{__('engagementRing.' . $data['prong']) }} {{__('engagementRing.' . $data['shoulder']) }} {{__('frontHeader.Engagement Rings') }} 
+                            </p>
                 
 	                        
 	                    </center>
