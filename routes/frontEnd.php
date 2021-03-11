@@ -217,6 +217,8 @@ Route::prefix('{locale}')->middleware('locale')->group(function(){
     Route::get('/diamond-ring-review', [ShoppingCartController::class, 'diamondRingReview']);
     Route::get('/shopping-cart', [ShoppingCartController::class, 'bladeIndex']);
     Route::get('/shop-bag-bill', [ShoppingCartController::class, 'shopBagBill']);
+    Route::get('/shop-bag-bill-login', [ShoppingCartController::class, 'shopBagBillLogin']);
+    Route::get('/shop-bag-bill-customer', [ShoppingCartController::class, 'shopBagBillCustomer']);
     Route::get('/thank-you', [ShoppingCartController::class, 'thankYouPage']);
 
     Route::get('/shop-bag-bill-test', function(){

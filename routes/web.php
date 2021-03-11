@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PurchasesController;
+use App\Http\Controllers\VerifyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -66,10 +67,33 @@ Route::get('/order-sample', function(){
 
 include 'backEnd.php';
 
-Route::Post('api/td-login', 'AdminController@login');
+// Route::Post('api/td-login', 'AdminController@login');
 
 
 include 'frontEnd.php' ;
+
+
+
+
+//all others
+Route::get('/{locale}/{vue_capture?}', function ($locale) {
+    App::setLocale($locale);
+    return view('layouts.section.frontend');
+})->where('vue_capture', '[\/\w\.-]*');
+
+
+//email verify
+Route::get('/verify/{emailToken}', [VerifyController::class, 'verify'])->name('verify');
+
+
+
+
+Route::get('/{vue_capture?}', function () {
+    App::setLocale('hk');
+    return view('layouts.section.frontend');
+})->where('vue_capture', '[\/\w\.-]*');
+
+
 
 
 // Route::get('/sitemap_index_2018.xml', function(){
@@ -145,23 +169,5 @@ include 'frontEnd.php' ;
 //   });
 
 
-
-//all others
-Route::get('/{locale}/{vue_capture?}', function ($locale) {
-	App::setLocale($locale);
-    return view('layouts.section.frontend');
-})->where('vue_capture', '[\/\w\.-]*');
-
-
-//email verify
-Route::get('/verify/{emailToken}', 'VerifyController@verify')->name('verify');
-
-
-
-
-Route::get('/{vue_capture?}', function () {
-	App::setLocale('hk');
-    return view('layouts.section.frontend');
-})->where('vue_capture', '[\/\w\.-]*');
 
 

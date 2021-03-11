@@ -83,9 +83,9 @@
 
 
         <div class="grid grid-cols-12 p-1">
-            <div class="col-span-6 sm:col-span-8">
+            <div class="col-span-12 sm:col-span-8">
                 <div class="grid grid-cols-12">
-                    <div class="col-span-10">
+                    <div class="col-span-12 p-2">
                         <p>{{ 'Precautions'|transJs(langs, mutualVar.langs.localeCode) }}：</p>                    
                         <small>
                             <p>{{ 'All amounts of the company are subject to Hong Kong dollar settlement' |transJs(langs, mutualVar.langs.localeCode) }}</p>                    
@@ -104,7 +104,7 @@
                 </div>
             </div>
             
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-12 sm:col-span-4">
                 <div class="grid grid-cols-12">
                     <div class="col-span-12">
                         <div class="flex">
@@ -127,32 +127,33 @@
                     <div class="col-span-6">
                         <div v-if="couponValid || calculatedDiscountRate != 1">
                             <p>{{'Total' |transJs(langs, mutualVar.langs.localeCode) }} </p>
-                            <p>{{'Disounted Total' |transJs(langs, mutualVar.langs.localeCode) }}</p>
+                            <p class="text-red-500">{{'Disounted Total' |transJs(langs, mutualVar.langs.localeCode) }}</p>
                         </div>
                         <div v-else="!couponValid ">
                             <p>{{'Total' |transJs(langs, mutualVar.langs.localeCode) }} </p>
                         </div>
-                        <p class="text-lg text-blue-600">{{'Deposit (20%)' |transJs(langs, mutualVar.langs.localeCode) }}</p>
+                        <p class="text-lg text-gray-700">{{'Deposit (20%)' |transJs(langs, mutualVar.langs.localeCode) }}</p>
                         <div class="">
                             <p class="text-lg text-blue-600">{{'Balance (80%)'|transJs(langs, mutualVar.langs.localeCode) }}
                             </p>
-                            <select class="border-2 border-gray-500" v-model="mutualVar.cookiesInfo.checkout.balancePaymentMethod">
-                                    <option v-for="paymentOption in paymentOptions" :value="paymentOption.name"> {{paymentOption.name |transJs(langs, mutualVar.langs.localeCode) }}</option>
-                            </select>   
+                            <select class="border-2 border-gray-700" v-model="mutualVar.cookiesInfo.checkout.balancePaymentMethod">
+                                <option v-for="paymentOption in paymentOptions" :value="paymentOption.name"> {{paymentOption.name |transJs(langs, mutualVar.langs.localeCode) }}</option>
+                            </select>  
+ 
                         </div>
 
                     </div>
                     <div class="col-span-6 text-right">
                         <div v-if="couponValid || calculatedDiscountRate != 1">
                             <del><p>HK$ {{subTotal}}</p></del>
-                            <p style="color:red;">HK$ {{discountedSubTotal}}</p>
+                            <p class="text-red-500">HK$ {{discountedSubTotal}}</p>
                             <p></p>
-                            <p><strong> HK$ {{mutualVar.cookiesInfo.checkout.discountedDeposit}} </strong></p>
+                            <p class="text-lg text-gray-700"><strong> HK$ {{mutualVar.cookiesInfo.checkout.discountedDeposit}} </strong></p>
                         </div>
                         <div v-else="!couponValid ">
                             <p>HK$ {{subTotal}}</p>
                             <p></p>
-                            <p class="text-lg text-blue-600"><strong> HK$ {{mutualVar.cookiesInfo.checkout.deposit}} </strong></p>
+                            <p class="text-lg text-gray-500"><strong> HK$ {{mutualVar.cookiesInfo.checkout.deposit}} </strong></p>
                         </div>
                         <p class="text-lg text-blue-600"><strong> HK$ {{balance}} </strong></p>
                     </div>

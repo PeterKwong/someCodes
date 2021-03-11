@@ -32,8 +32,9 @@ class Customer extends Model
     	return [
     	'name' => '',
         'phone' => '',
-        'wechat' => '',
-    	'email' => '' 
+        'email' => '', 
+        'country' => 'HK', 
+        'address' => '', 
     	];
     }
 

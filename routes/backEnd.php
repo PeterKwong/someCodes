@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AccountingController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CacheController;
 use App\Http\Controllers\CustomerController;
@@ -89,7 +88,7 @@ Route::prefix('/adm/')
         Route::get('order-to-invoice/{id}', [OrderController::class,'admBladeOrderToInvoice']);
 
         //purchase 
-        Route::get('purchase/invoices', [AccountingController::class,'purchaseInvoices']);
+        // Route::get('purchase/invoices', [AccountingController::class,'purchaseInvoices']);
         Route::get('purchase/progress-invoices', [AdminController::class,'purchaseProgressInvoices']);
         Route::get('purchase/dued-progress-invoices', [AdminController::class,'duedProgressInvoices']);
         Route::get('purchase/on-stock-diamonds', [AdminController::class,'onStockDiamond']);

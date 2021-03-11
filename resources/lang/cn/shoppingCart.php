@@ -59,5 +59,12 @@ return [
 	'Payment Methods' => '付款方式',
 	'Credit Card' => '信月卡',
 	'Invoices' => '收据',
-	'Invoices' => '收据',
+
+	'Name' => '名称',
+	'Email' => '电邮地址',
+	'Address' => '地址',
+	'Phone' => '电话号码',
+	'Area' => '地区',
+
+
 ];

@@ -107,7 +107,7 @@ Route::middleware(['auth:sanctum','ApiTingDiamond'])->group(function(){
 	Route::get('orders', [OrderController::class,'adminAllOrders']);
 	Route::get('orders/{id}', [OrderController::class,'adminShow']);
 	Route::get('order-to-invoice/{id}', [OrderController::class,'APIOrderToInvoice']);
-	Route::get('order-next-status/{id}',  'OrderController@updateStatus' );
+	Route::get('order-next-status/{id}',  [OrderController::class,'updateStatus']);
     Route::get('order/charge-by-customer-stripe/{id}', [PurchasesController::class,'chargeByCustomerStripe']);
 
 	// customer Jewellery

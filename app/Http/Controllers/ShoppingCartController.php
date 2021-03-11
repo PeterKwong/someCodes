@@ -27,11 +27,30 @@ class ShoppingCartController extends Controller
     }
 
     public function shopBagBill(){
+      
+      if (!auth()->user()) {
+        return redirect(app()->getLocale() . '/shop-bag-bill-login');
+      }
+      if ( !count(auth()->user()->customers) ) {
+        return redirect(app()->getLocale() . '/shop-bag-bill-customer');
+      }
 
       return view('frontend.shoppingCart.shopBagBill');
       
     }
-    
+
+    public function shopBagBillLogin(){
+
+      return view('frontend.shoppingCart.shopBagBillLogin');
+      
+    }
+
+    public function shopBagBillCustomer(){
+      
+      return view('frontend.shoppingCart.shopBagBillCustomer');
+      
+    }
+
     public function thankYouPage(){
 
       return view('frontend.shoppingCart.thankYouPage');

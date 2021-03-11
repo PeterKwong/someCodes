@@ -59,5 +59,12 @@ return [
 	'Payment Methods' => '付款方式',
 	'Credit Card' => '信用卡',
 	'Invoices' => '收據',
-	'Invoices' => '收據',
+
+	'Name' => '名稱',
+	'Email' => '電郵地址',
+	'Address' => '地址',
+	'Phone' => '電話號碼',
+	'Area' => '地區',
+
+
 ];

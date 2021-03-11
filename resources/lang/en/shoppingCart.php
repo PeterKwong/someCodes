@@ -58,9 +58,11 @@ return [
 	'select payment' => 'select payment',
 	'Payment Methods' => 'Payment Methods',
 	'Credit Card' => 'Credit Card',
-	'Date' => 'Date',
-	'Date' => 'Date',
-	'Date' => 'Date',
-	'Date' => 'Date',
+
+	'Name' => 'Name',
+	'Email' => 'Email',
+	'Address' => 'Address',
+	'Phone' => 'Phone',
+	'Area' => 'Area',
 
 ];
