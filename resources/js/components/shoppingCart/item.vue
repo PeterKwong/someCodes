@@ -132,11 +132,11 @@
                         <div v-else="!couponValid ">
                             <p>{{'Total' |transJs(langs, mutualVar.langs.localeCode) }} </p>
                         </div>
-                        <p class="text-lg text-gray-700">{{'Deposit (20%)' |transJs(langs, mutualVar.langs.localeCode) }}</p>
+                        <p class="text-lg text-gray-600">{{'Deposit (20%)' |transJs(langs, mutualVar.langs.localeCode) }}</p>
                         <div class="">
                             <p class="text-lg text-blue-600">{{'Balance (80%)'|transJs(langs, mutualVar.langs.localeCode) }}
                             </p>
-                            <select class="border-2 border-gray-700" v-model="mutualVar.cookiesInfo.checkout.balancePaymentMethod">
+                            <select class="border-2 border-gray-600" v-model="mutualVar.cookiesInfo.checkout.balancePaymentMethod">
                                 <option v-for="paymentOption in paymentOptions" :value="paymentOption.name"> {{paymentOption.name |transJs(langs, mutualVar.langs.localeCode) }}</option>
                             </select>  
  
@@ -148,12 +148,12 @@
                             <del><p>HK$ {{subTotal}}</p></del>
                             <p class="text-red-500">HK$ {{discountedSubTotal}}</p>
                             <p></p>
-                            <p class="text-lg text-gray-700"><strong> HK$ {{mutualVar.cookiesInfo.checkout.discountedDeposit}} </strong></p>
+                            <p class="text-lg text-gray-600"><strong> HK$ {{mutualVar.cookiesInfo.checkout.discountedDeposit}} </strong></p>
                         </div>
                         <div v-else="!couponValid ">
                             <p>HK$ {{subTotal}}</p>
                             <p></p>
-                            <p class="text-lg text-gray-500"><strong> HK$ {{mutualVar.cookiesInfo.checkout.deposit}} </strong></p>
+                            <p class="text-lg text-gray-600"><strong> HK$ {{mutualVar.cookiesInfo.checkout.deposit}} </strong></p>
                         </div>
                         <p class="text-lg text-blue-600"><strong> HK$ {{balance}} </strong></p>
                     </div>
