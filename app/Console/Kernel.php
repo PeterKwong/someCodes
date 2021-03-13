@@ -44,7 +44,7 @@ class Kernel extends ConsoleKernel
             Cache::put('counter',1, 90000);
             Cache::put('diamondQueryState',0,90000);
             
-        })->dailyAt('00:00')->runInBackground();
+        })->dailyAt('14:06')->runInBackground();
 
 
         $schedule->call(function () use(&$CronJob) {
@@ -56,7 +56,7 @@ class Kernel extends ConsoleKernel
             $CronJob->runResetAllRapDiamonds();
 
 
-        })->dailyAt('00:01')->runInBackground();
+        })->dailyAt('00:02')->runInBackground();
 
 
         $schedule->call(function () use(&$CronJob) {
