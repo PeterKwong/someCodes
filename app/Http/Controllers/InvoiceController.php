@@ -17,6 +17,7 @@ use Illuminate\Support\Arr;
 
 class InvoiceController extends Controller
 {
+    public $fileDir = "App\Models\\";
 
     public function index()
     {
@@ -162,7 +163,7 @@ class InvoiceController extends Controller
             $invoiceItem = [
             'customer_id' => request()->customer_id  ,
             'invoice_itemable_id' =>  $jewellery['id'] ,
-            'invoice_itemable_type' =>  'App\Models\Jewellery' ,
+            'invoice_itemable_type' =>  $this->fileDir . 'Jewellery' ,
             'title' =>  $jewellery['texts'][0]['content'] ,
             'unit_price' =>  $jewellery['unit_price'] ,
             ];
@@ -177,7 +178,7 @@ class InvoiceController extends Controller
             $invoiceItem = [
                 'customer_id' => request()->customer_id ,
                 'invoice_itemable_id' =>  $engagementRing['id'] ,
-                'invoice_itemable_type' =>  'App\Models\EngagementRing' ,
+                'invoice_itemable_type' =>  $this->fileDir . 'EngagementRing' ,
                 'title' =>  $engagementRing['texts'][0]['content'] ,
                 'unit_price' =>  $engagementRing['unit_price'] ,
             ];
@@ -192,7 +193,7 @@ class InvoiceController extends Controller
             $invoiceItem = [
             'customer_id' => request()->customer_id ,
             'invoice_itemable_id' =>  $weddingRing['id'] ,
-            'invoice_itemable_type' =>  'App\Models\WeddingRing' ,
+            'invoice_itemable_type' =>  $this->fileDir . 'WeddingRing' ,
             'title' =>  $weddingRing['texts'][0]['content'] ,
             'unit_price' =>  $weddingRing['unit_price'] ,
             ];
@@ -353,19 +354,19 @@ class InvoiceController extends Controller
                 $jewelleryInvoiceItem = [
                 'customer_id' => request()->customer_id  ,
                 'invoice_itemable_id' =>  $jewellery['id'] ,
-                'invoice_itemable_type' =>  'App\Models\Jewellery' ,
+                'invoice_itemable_type' =>  $this->fileDir . 'Jewellery' ,
                 'title' =>  $jewellery['invoice_items'][0]['title'] ,
                 'unit_price' =>  $jewellery['invoice_items'][0]['unit_price'] ,
                 ];
                 
                 $done = $invoice->invoiceItems()
-                ->where('invoice_itemable_type', 'App\Models\Jewellery')
+                ->where('invoice_itemable_type', $this->fileDir . 'Jewellery')
                 ->where('invoice_itemable_id', $jewellery['id'])
                 ->update($jewelleryInvoiceItem) ;
 
                 if ($done == 0) {
                     $invoice->invoiceItems()
-                ->where('invoice_itemable_type', 'App\Models\Jewellery')
+                ->where('invoice_itemable_type', $this->fileDir . 'Jewellery')
                 ->where('invoice_itemable_id', $jewellery['id'])
                 ->create($jewelleryInvoiceItem) ;
                 }
@@ -377,7 +378,7 @@ class InvoiceController extends Controller
         }
 
         $invoice->invoiceItems()
-         ->where('invoice_itemable_type', 'App\Models\Jewellery')
+         ->where('invoice_itemable_type', $this->fileDir . 'Jewellery')
          ->whereNotIn('invoice_itemable_id', $jewelleries)
          ->delete();
 
@@ -388,19 +389,19 @@ class InvoiceController extends Controller
                 $engagementRingInvoiceItem = [
                     'customer_id' => request()->customer_id ,
                     'invoice_itemable_id' =>  $engagementRing['id'] ,
-                    'invoice_itemable_type' =>  'App\Models\EngagementRing' ,
+                    'invoice_itemable_type' =>  $this->fileDir . 'EngagementRing' ,
                     'title' =>  $engagementRing['invoice_items'][0]['title'] ,
                     'unit_price' =>  $engagementRing['invoice_items'][0]['unit_price'] ,
                 ];
                 
                 $done = $invoice->invoiceItems()
-                ->where('invoice_itemable_type', 'App\Models\EngagementRing')
+                ->where('invoice_itemable_type', $this->fileDir . 'EngagementRing')
                 ->where('invoice_itemable_id', $engagementRing['id'])
                 ->update($engagementRingInvoiceItem) ;
 
                 if ($done == 0) {
                 $invoice->invoiceItems()
-                ->where('invoice_itemable_type', 'App\Models\EngagementRing')
+                ->where('invoice_itemable_type', $this->fileDir . 'EngagementRing')
                 ->where('invoice_itemable_id', $engagementRing['id'])
                 ->create($engagementRingInvoiceItem) ;
                 }
@@ -409,7 +410,7 @@ class InvoiceController extends Controller
         }
 
         $invoice->invoiceItems()
-        ->where('invoice_itemable_type', 'App\Models\EngagementRing')
+        ->where('invoice_itemable_type', $this->fileDir . 'EngagementRing')
         ->whereNotIn('invoice_itemable_id', $engagementRings)
         ->delete();
 
@@ -421,19 +422,19 @@ class InvoiceController extends Controller
                 $weddingRingInvoiceItem = [
                 'customer_id' => request()->customer_id ,
                 'invoice_itemable_id' =>  $weddingRing['id'] ,
-                'invoice_itemable_type' =>  'App\Models\WeddingRing' ,
+                'invoice_itemable_type' =>  $this->fileDir . 'WeddingRing' ,
                 'title' =>  $weddingRing['invoice_items'][0]['title'] ,
                 'unit_price' =>  $weddingRing['invoice_items'][0]['unit_price'] ,
                 ];
                 
                 $done = $invoice->invoiceItems()
-                ->where('invoice_itemable_type', 'App\Models\WeddingRing')
+                ->where('invoice_itemable_type', $this->fileDir . 'WeddingRing')
                 ->where('invoice_itemable_id', $weddingRing['id'])
                 ->update($weddingRingInvoiceItem) ;
 
                 if ($done == 0) {
                 $invoice->invoiceItems()
-                ->where('invoice_itemable_type', 'App\Models\WeddingRing')
+                ->where('invoice_itemable_type', $this->fileDir . 'WeddingRing')
                 ->where('invoice_itemable_id', $weddingRing['id'])
                 ->create($weddingRingInvoiceItem) ;
                 }
@@ -444,7 +445,7 @@ class InvoiceController extends Controller
 
         }
         $invoice->invoiceItems()
-        ->where('invoice_itemable_type', 'App\Models\WeddingRing')
+        ->where('invoice_itemable_type', $this->fileDir . 'WeddingRing')
         ->whereNotIn('invoice_itemable_id',$weddingRings)
         ->delete();
 
