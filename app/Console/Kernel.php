@@ -58,7 +58,7 @@ class Kernel extends ConsoleKernel
 
             Cache::put('batchNumber', $batchNumber, 90000);
             
-        })->cron('* */1 * * *')->between('14:44', '14:45')->runInBackground();
+        })->cron('* */1 * * *')->between('14:45', '14:46')->runInBackground();
 
 
         $schedule->call(function () use(&$CronJob) {
