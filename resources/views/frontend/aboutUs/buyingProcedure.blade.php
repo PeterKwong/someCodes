@@ -76,7 +76,7 @@
                         <p class="sm:text-xl font-semibold">{{trans('buyingProcedure.title2')}}：</p>
                         <p class="sm:text-xl font-semibold">{{trans('buyingProcedure.title3')}}</p>
                         <a class="text-blue-600" 
-                          href="{{url(app()->getLocale() . '/gia-loose-diamonds?starred=true') }}">{{trans('buyingProcedure.para2')}}</a>
+                          href="{{url(app()->getLocale() . '/gia-loose-diamonds/on-stock') }}">{{trans('buyingProcedure.para2')}}</a>
                       </center>
                     </div>
                   </div>
