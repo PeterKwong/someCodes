@@ -36,12 +36,14 @@
 				langHref : '/' + window.location.pathname.slice(1,3),				
 				storeURL: '',
 				customerItems: '',
+				combinedUpperWeddingRings:'',
+				combinedLowerWeddingRings:'',
 			}
 		},
 		watch:{
 			'$route':'fetchData'
 		},
-		beforeMount(){
+		created(){
 			this.fetchData()
 			
 		},
@@ -49,41 +51,6 @@
 			appointmentTitle(){
 				return transJs(this.weddingRing.wedding_rings[0].style,this.langs,this.locale)  + ' ' + transJs(this.weddingRing.wedding_rings[0].metal,this.langs,this.locale)  + transJs(this.text.weddingRing,this.langs,this.locale) 
 			},
-			combinedUpperWeddingRings(){ 
-				var obj = {images: [],
-							video: []
-					}
-
-				for (var i =0 ;this.weddingRing.wedding_rings[0].images.length > i; i++) {
-					obj.images.push(this.weddingRing.wedding_rings[0].images[i])
-					console.log(obj)
-
-					if (this.weddingRing.wedding_rings[1].images[i]) {
-					obj.images.push(this.weddingRing.wedding_rings[1].images[i])
-					}
-				}
-				obj.video.push(this.weddingRing.wedding_rings[0].video)
-				
-				return obj
-			},
-			combinedLowerWeddingRings(){ 
-				var obj = []
-				if (this.customerItems.wedding_rings[0].invoices.length > 0) {
-					for (var i =0 ;this.customerItems.wedding_rings[0].invoices.length > i; i++) {
-						if (this.customerItems.wedding_rings[0].invoices[i].invoice_posts.length >0) {
-							if(this.customerItems.wedding_rings[0].invoices[i].invoice_posts[0].postable_type == 'App/WeddingRing' && this.customerItems.wedding_rings[0].invoices[i].invoice_posts[0].published != 0 ){					
-							obj.push(this.customerItems.wedding_rings[0].invoices[i].invoice_posts[0])
-							console.log(obj)
-							}
-						}
-						
-					}
-				}
-				
-				
-				return obj
-			},
-
 			locale(){
 				
 				if (window.location.pathname.slice(1,3) == 'en') {
@@ -106,11 +73,45 @@
 				.then((res)=>{
 					this.weddingRing = res.data.model
 					this.customerItems = res.data.posts
+					this.UpperWeddingRings()
+					this.LowerWeddingRings()
 				})
 			},
-			transJsMet(data,ori,langs){
-				return transJs(data,ori,langs)
+			UpperWeddingRings(){ 
+				var obj = {images: [],
+							video: []
+					}
+
+				for (var i =0 ;this.weddingRing.wedding_rings[0].images.length > i; i++) {
+					obj.images.push(this.weddingRing.wedding_rings[0].images[i])
+					console.log(obj)
+
+					if (this.weddingRing.wedding_rings[1].images[i]) {
+					obj.images.push(this.weddingRing.wedding_rings[1].images[i])
+					}
+				}
+				obj.video.push(this.weddingRing.wedding_rings[0].video)
+				
+				return this.combinedUpperWeddingRings = obj
 			},
+			LowerWeddingRings(){ 
+				var obj = []
+				if (this.customerItems.wedding_rings[0].invoices.length > 0) {
+					for (var i =0 ;this.customerItems.wedding_rings[0].invoices.length > i; i++) {
+						if (this.customerItems.wedding_rings[0].invoices[i].invoice_posts.length >0) {
+							if(this.customerItems.wedding_rings[0].invoices[i].invoice_posts[0].postable_type == 'App/WeddingRing' && this.customerItems.wedding_rings[0].invoices[i].invoice_posts[0].published != 0 ){					
+							obj.push(this.customerItems.wedding_rings[0].invoices[i].invoice_posts[0])
+							console.log(obj)
+							}
+						}
+						
+					}
+				}
+				
+				
+				return this.combinedLowerWeddingRings = obj
+			},
+	
 			
 		}
 	}

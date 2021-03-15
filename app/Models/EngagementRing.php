@@ -53,6 +53,17 @@ class EngagementRing extends Model
 	    {
 	        return $this->morphMany('App\Models\InvoicePost', 'postable');
 	    }
+	    public function title(){
+
+	    	$title = trans('engagementRing.' .$this->style) 
+	    			. ' '. trans('engagementRing.' .$this->prong)
+	    			. ' '. trans('engagementRing.' .$this->shoulder) 
+	    			. ' '. trans('engagementRing.Engagement Ring')
+	    			;
+
+	    	return $title;
+	    			
+	    }
 
 
 	    public static function form()

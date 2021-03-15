@@ -68,13 +68,16 @@ class WeddingRingPairController extends Controller
 
     public function bladeShow($locale, $id)
     {
-      $meta = WeddingRingPair::with(['weddingRings.texts'=>function($texts){
+      $weddingRings = WeddingRingPair::with(['weddingRings.texts'=>function($texts){
                     $texts->where('locale',app()->getLocale());
                 }])->findOrFail($id);
-      // dd(print_r($meta->weddingRings[0]->metal));
-      $meta = $meta->weddingRings[0];
+      // dd($weddingRings->weddingRings[0]->title());
+      $weddingRings = $weddingRings;
+      $meta = $weddingRings->weddingRings[0];
 
-      return view('frontend.weddingRing.show', compact('meta'));
+      $title = $meta->title();
+
+      return view('frontend.weddingRing.show', compact('meta', 'title' ,'weddingRings'));
  
     }
 

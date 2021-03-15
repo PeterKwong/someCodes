@@ -20,6 +20,7 @@ return [
 	'contact us' => 'contact us',
 	'for further' => 'for further',
 	'Engagement Ring Setting' => 'Engagement Ring Setting',
+	'Engagement Ring' => 'Engagement Ring',
 	'Solitaire' => 'Solitaire',		
 	'solitaire' => 'solitaire',		
 	'Twisted' => 'Twisted',		

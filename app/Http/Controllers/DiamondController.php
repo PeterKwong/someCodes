@@ -28,11 +28,11 @@ class DiamondController extends Controller
   public function bladeShow($locale, $id)
   {
     $diamond  = Diamond::find($id);
-    // dd($diamond);
+    // dd($diamond->title());
     if(!isset($diamond)){
       return redirect( $locale . '/gia-loose-diamonds');
     }
-    //$diamond  = DiamondQuery::findOrFail($id);
+    // $diamond  = DiamondQuery::findOrFail($id);
 
     return view('frontend.diamond.show', ['diamond' => $diamond]);
 

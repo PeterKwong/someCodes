@@ -54,6 +54,19 @@ class Jewellery extends Model
         return $this->morphMany('App\Models\InvoicePost', 'postable');
     }
 
+    public function title(){
+
+        $title = trans('jewellery.' .$this->metal);
+
+        $title .=  $this->gemstone == 0 ?  '' :' '.trans('jewellery.' .$this->gemstone);
+        $title .=  $this->setting == 1 ? ' '.trans('jewellery.setting'): '';
+
+        $title .=  ' '. trans('jewellery.' .$this->type);
+
+        return $title;
+                
+    }
+
 
     public static function form()
     	{

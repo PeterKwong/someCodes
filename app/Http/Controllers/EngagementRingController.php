@@ -48,6 +48,7 @@ class EngagementRingController extends Controller
         $meta = EngagementRing::with(['texts'=>function($texts){
                         $texts->where('locale',app()->getLocale());
                     }, 'images'])->findOrFail($id);
+        // dd($meta);
 
         return view('frontend.engagementRing.show', ['meta'=>$meta] );
  

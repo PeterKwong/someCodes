@@ -23,48 +23,6 @@
         <meta property="article:tag" content="@include('frontend.jewellery.keywords')" /> 
 
 
-        <script type="application/ld+json" defer="">
-
-                {
-
-                 "@context":"https://schema.org",
-
-                 "@type":"Product",
-
-                 "productID": "{{ $meta->stock }}" ,
-
-                 "name": "{{ $meta->texts[0]->content }}" ,
-
-                 "description": "{{ $meta->texts[0]->content }}",
-
-                 "url": "{{ url()->current() }}" ,
-
-                 "image": "{{ config('global.CF_s3') }}{{'public/images/'. $meta->images[0]->image }}" ,
-
-                 "brand":"Ting Diamond Limited",
-
-                 "offers":[
-
-                 {
-
-                 "@type":"Offer",
-
-                 "price": {{ $meta->unit_price }} ,
-
-                 "priceCurrency":"HKD",
-
-                 "itemCondition":"https://schema.org/NewCondition",
-
-                 "availability":"https://schema.org/InStock"
-
-                 }
-
-                 ]
-
-                }
-         </script>
-
-
     @endSection
 
     @section('content')
@@ -78,7 +36,7 @@
 
                     <div class="flex justify-center p-4" >
                         <div class="">
-                            <h3 class="sm:text-2xl">@{{jewellery.metal | transJs(langs,locale)}} @{{jewellery.gemstone==0?'': jewellery.gemstone | transJs(langs,locale)}} @{{jewellery.type | transJs(langs,locale)}} @{{jewellery.setting==0?'': 'setting' | transJs(langs,locale)}}</h3>        
+                            <h3 class="sm:text-2xl">{{$title}}</h3>        
                         </div>
                     </div>
 
@@ -121,38 +79,38 @@
                                     </div>
                                     <div class="grid grid-cols-12 border-b p-2 font-light">
                                         <div class="col-span-6">{{__('jewellery.Unit Price')}}</div>
-                                        <div class="col-span-6">$@{{jewellery.unit_price }}</div>
+                                        <div class="col-span-6">${{ $jewellery->unit_price }}</div>
                                     </div>
                                     <div class="grid grid-cols-12 border-b p-2 font-light">
                                         <div class="col-span-6">{{__('jewellery.Type')}}</div>
-                                        <div class="col-span-6">@{{jewellery.type | transJs(langs,locale)}}</div>
+                                        <div class="col-span-6">{{ __('jewellery.' . $jewellery->type) }}</div>
                                     </div>
                                     <div class="grid grid-cols-12 border-b p-2 font-light">
                                         <div class="col-span-6">{{__('jewellery.Gemstone')}}</div>
-                                        <div class="col-span-6">@{{jewellery.gemstone | transJs(langs,locale)}}</div>
+                                        <div class="col-span-6">{{ __('jewellery.' . $jewellery->gemstone) }}</div>
                                     </div>
                                     <div class="grid grid-cols-12 border-b p-2 font-light">
                                         <div class="col-span-6">{{__('jewellery.Metal')}}</div>
-                                        <div class="col-span-6">@{{jewellery.metal | transJs(langs,locale)}}</div>
+                                        <div class="col-span-6">{{ __('jewellery.' . $jewellery->metal) }}</div>
                                     </div>
                                     <div class="grid grid-cols-12 border-b p-2 font-light">
                                         <div class="col-span-6">{{__('jewellery.Side Stone')}}</div>
-                                        <div class="col-span-6">{{__('engagementRing.Around')}} @{{jewellery.ct}} {{trans('jewellery.ct')}}</div>
+                                        <div class="col-span-6">{{__('engagementRing.Around')}} {{ $jewellery->ct}} {{trans('jewellery.ct')}}</div>
                                     </div>
                                     <div class="grid grid-cols-12 border-b p-2 font-semibold sm:text-lg">
                                         <div class="col-span-6">{{__('jewellery.More Details')}}</div>
                                     </div>
                                     <div class="grid grid-cols-12 border-b p-2 font-light">
                                         <div class="col-span-6">{{__('jewellery.Stock')}}</div>
-                                        <div class="col-span-6">@{{jewellery.stock}}</div>
+                                        <div class="col-span-6">{{ $jewellery->stock}}</div>
                                     </div>
                                     <div class="grid grid-cols-12 border-b p-2 font-light">
                                         <div class="col-span-6">{{__('jewellery.Name')}}</div>
-                                        <div class="col-span-6" v-if="jewellery.texts">@{{jewellery.texts[locale].content}}</div>
+                                        <div class="col-span-6" v-if="jewellery.texts">{{ $title }}</div>
                                     </div>
                                     <div class="grid grid-cols-12 border-b p-2 font-light">
                                         <div class="col-span-6">{{__('jewellery.Description')}}</div>
-                                        <div class="col-span-6">@{{jewellery.type | transJs(langs,locale)}} @{{jewellery.metal | transJs(langs,locale)}} @{{jewellery.setting==0?'': 'setting' | transJs(langs,locale)}}</div>
+                                        <div class="col-span-6">{{ __('jewellery.' . $jewellery->type) }} {{ __('jewellery.' . $jewellery->metal) }} {{ $jewellery->setting==0?'': __('jewellery.setting') }}</div>
                                     </div>
                            
                             </article>

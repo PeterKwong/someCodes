@@ -12,7 +12,7 @@ import EngagementRingShow from './views/frontEnd/engagementRing/show'
 import WeddingRingShow from './views/frontEnd/weddingRing/show'
 
 //jewellry Ring
-import JewelleryIndex from './views/frontEnd/jewellery/index'
+// import JewelleryIndex from './views/frontEnd/jewellery/index'
 import JewelleryShow from './views/frontEnd/jewellery/show'
 
 //wedding Ring
@@ -111,13 +111,13 @@ if (!pUrl.includes('/wedding-rings/classic') && !pUrl.includes('/wedding-rings/j
     }
 
 //jewellery
-if (pUrl == '/jewellery' || pUrl == '/jewellery/' || pUrl.includes('/jewellery/necklaces') || 
-    pUrl.includes('/jewellery/earrings') || pUrl.includes('/jewellery/pendants') || 
-    pUrl.includes('/jewellery/rings') || pUrl.includes('/jewellery/diamond-rings') || 
-    pUrl.includes('/jewellery/fancy-diamond-rings') || pUrl.includes('/jewellery/bracelets')) 
-    {
-        const jewelleryIndex =  new Vue(JewelleryIndex);
-    }
+// if (pUrl == '/jewellery' || pUrl == '/jewellery/' || pUrl.includes('/jewellery/necklaces') || 
+//     pUrl.includes('/jewellery/earrings') || pUrl.includes('/jewellery/pendants') || 
+//     pUrl.includes('/jewellery/rings') || pUrl.includes('/jewellery/diamond-rings') || 
+//     pUrl.includes('/jewellery/fancy-diamond-rings') || pUrl.includes('/jewellery/bracelets')) 
+//     {
+//         const jewelleryIndex =  new Vue(JewelleryIndex);
+//     }
 
 if (!pUrl.includes('/jewellery/necklaces') && !pUrl.includes('/jewellery/earrings') && 
     !pUrl.includes('/jewellery/rings') && !pUrl.includes('/jewellery/diamond-rings') && 

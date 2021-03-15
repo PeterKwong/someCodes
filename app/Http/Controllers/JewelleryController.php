@@ -96,8 +96,11 @@ class JewelleryController extends Controller
      $meta = Jewellery::with(['texts'=>function($texts){
                     $texts->where('locale',app()->getLocale());
                 }])->findOrFail($id);
+     $jewellery = $meta;
+     $title = $meta->title();
 
-      return view('frontend.jewellery.show', compact('meta'));
+
+      return view('frontend.jewellery.show', compact('meta','title','jewellery'));
  
     }
 

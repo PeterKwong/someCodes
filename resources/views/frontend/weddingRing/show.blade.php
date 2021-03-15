@@ -23,48 +23,6 @@
         <meta property="article:modified_time" content="2013-09-16T19:08:47+01:00" />
         <meta property="article:tag" content="@include('frontend.weddingRing.keywords')" /> 
 
-        <script type="application/ld+json" defer="">
-
-            {
-
-             "@context":"https://schema.org",
-
-             "@type":"Product",
-
-             "productID": "{{ $meta->stock }}" ,
-
-             "name": "{{ $meta->texts[0]->content }}" ,
-
-             "description": "{{ $meta->texts[0]->content }} {{trans('engagementRing.setting')}}" ,
-
-             "url": "{{ url()->current() }}" ,
-
-             "image": "{{ config('global.CF_s3') }}{{'public/images/'. $meta->images[0]->image }}" ,
-
-             "brand":"Ting Diamond Limited",
-
-             "offers":[
-
-             {
-
-             "@type":"Offer",
-
-             "price": {{ $meta->unit_price }} ,
-
-             "priceCurrency":"HKD",
-
-             "itemCondition":"https://schema.org/NewCondition",
-
-             "availability":"https://schema.org/InStock"
-
-             }
-
-             ]
-
-            }
-     </script>
- 
-
     @endSection
 
     @section('content')
@@ -75,8 +33,7 @@
                     <div class="flex justify-center p-4">
                         <div class="col-span-9">
                                 <h3 class="text-center sm:text-2xl">
-                                @{{weddingRing.wedding_rings[0].style | transJs(langs,locale)}} @{{weddingRing.wedding_rings[0].metal | transJs(langs,locale)}} @{{weddingRing.wedding_rings[0].sideStone? transJsMet(columns[2],langs,locale):''}} 
-                                {{trans('weddingRing.Wedding Ring')}}
+                                {{$title}}
                                 </h3>
                         </div>       
                     </div>
@@ -101,7 +58,7 @@
                                     <center>
 <!--                                         <button class="btn btn-primary" @click="appointmentState=!appointmentState">{{trans('weddingRing.Appointment')}}</button>
  -->                                        
-                                        <appointment v-model="weddingRing.wedding_rings[0]" :title="appointmentTitle" @active="appointmentState=!appointmentState" :active="appointmentState" :columns="columns"  :processing="false" :langs="langs" :locale="locale"></appointment>
+                                     <!--    <appointment v-model="weddingRing.wedding_rings[0]" :title="appointmentTitle" @active="appointmentState=!appointmentState" :active="appointmentState" :columns="columns"  :processing="false" :langs="langs" :locale="locale"></appointment> -->
                                         
                                     </center>
                                     <br>
@@ -116,15 +73,15 @@
                                     <div class="grid grid-cols-12 border-b font-semibold p-2" >
                                         <div class="col-span-4 sm:text-lg">{{trans('weddingRing.Wedding Rings Info')}}</div>
                                         <div class="col-span-4 sm:text-lg" v-if="weddingRing.wedding_rings[1]">
-                                            @{{weddingRing.wedding_rings[0].gender | transJs(langs,locale)}}
+                                            {{ __('weddingRing.' . $weddingRings->weddingRings[0]->gender) }}
                                         </div>
-                                        <div class="col-span-4 sm:text-lg" v-if="weddingRing.wedding_rings[1]">@{{weddingRing.wedding_rings[1].gender | transJs(langs,locale)}}</div>
+                                        <div class="col-span-4 sm:text-lg" v-if="weddingRing.wedding_rings[1]">{{ __('weddingRing.' . $weddingRings->weddingRings[1]->gender) }}</div>
                                     </div>
 
                                     <div class="grid grid-cols-12 border-b font-light p-2" >
                                         <div class="col-span-4">{{trans('weddingRing.Unit Price')}}</div>
-                                        <div class="col-span-4">$@{{weddingRing.wedding_rings[0].unit_price}}</div>
-                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">$@{{weddingRing.wedding_rings[1].unit_price}}</div>
+                                        <div class="col-span-4">${{ $weddingRings->weddingRings[0]->unit_price}}</div>
+                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">${{ $weddingRings->weddingRings[1]->unit_price}}</div>
                                     </div>
 
                                     <div class="grid grid-cols-12 border-b font-light p-2" >
@@ -133,12 +90,12 @@
                                         </div>
                                         <div class="col-span-4">
                                             <a class="text-blue-600" target="_blank" :href="hrefLangs + '/customer-jewellery?shape=' + weddingRing.wedding_rings[0].shape + '&type=wedding ring'">
-                                                @{{weddingRing.wedding_rings[0].shape | transJs(langs,locale)}}
+                                                {{ __('weddingRing.' . $weddingRings->weddingRings[0]->shape) }}
                                             </a>
                                         </div>
                                         <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">
                                             <a class="text-blue-600" target="_blank" :href="hrefLangs + '/customer-jewellery?shape=' + weddingRing.wedding_rings[1].shape + '&type=wedding ring'">
-                                                @{{weddingRing.wedding_rings[1].shape | transJs(langs,locale)}}
+                                                {{ __('weddingRing.' . $weddingRings->weddingRings[1]->shape) }}
                                             </a>
                                         </div>
                                     </div>
@@ -148,12 +105,12 @@
                                         </div>
                                         <div class="col-span-4">
                                             <a class="text-blue-600" target="_blank" :href="hrefLangs + '/customer-jewellery?finish=' + weddingRing.wedding_rings[0].finish + '&type=wedding ring'">
-                                                @{{weddingRing.wedding_rings[0].finish | transJs(langs,locale)}}
+                                                {{ __('weddingRing.' . $weddingRings->weddingRings[0]->finish) }}
                                             </a>
                                         </div>
                                         <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">
                                             <a class="text-blue-600" target="_blank" :href="hrefLangs + '/customer-jewellery?finish=' + weddingRing.wedding_rings[1].finish + '&type=wedding ring'">
-                                                @{{weddingRing.wedding_rings[1].finish | transJs(langs,locale)}}
+                                                {{ __('weddingRing.' . $weddingRings->weddingRings[1]->finish) }}
                                             </a>
                                         </div>
                                     </div>
@@ -163,20 +120,20 @@
                                         </div>
                                         <div class="col-span-4">
                                             <a class="text-blue-600" target="_blank" :href="hrefLangs + '/customer-jewellery?metal=' + weddingRing.wedding_rings[0].metal + '&type=wedding ring'">
-                                                @{{weddingRing.wedding_rings[0].metal | transJs(langs,locale)}}
+                                                {{ __('weddingRing.' . $weddingRings->weddingRings[0]->metal) }}
                                             </a>
                                         </div>
                                         <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">
                                             <a class="text-blue-600" target="_blank" :href="hrefLangs + '/customer-jewellery?metal=' + weddingRing.wedding_rings[1].metal + '&type=wedding ring'">
-                                                @{{weddingRing.wedding_rings[1].metal | transJs(langs,locale)}}
+                                                {{ __('weddingRing.' . $weddingRings->weddingRings[1]->metal) }}
                                             </a>
                                         </div>
                                     </div>
 
                                     <div class="grid grid-cols-12 border-b font-light p-2" >
                                         <div class="col-span-4">{{trans('weddingRing.Side Stone')}}</div>
-                                        <div class="col-span-4">{{__('engagementRing.Around')}} @{{weddingRing.wedding_rings[0].ct}}ct</div>
-                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">{{__('engagementRing.Around')}} @{{weddingRing.wedding_rings[1].ct}}ct</div>
+                                        <div class="col-span-4">{{__('engagementRing.Around')}} {{ $weddingRings->weddingRings[0]->ct}}ct</div>
+                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">{{__('engagementRing.Around')}} {{ $weddingRings->weddingRings[1]->ct}}ct</div>
                                     </div>
 
                                     <div>
@@ -185,23 +142,29 @@
 
                                     <div class="grid grid-cols-12 border-b font-light p-2" >
                                         <div class="col-span-4">{{trans('weddingRing.Stock')}}</div>
-                                        <div class="col-span-4">@{{weddingRing.wedding_rings[0].stock}}</div>
-                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">@{{weddingRing.wedding_rings[1].stock}}</div>
+                                        <div class="col-span-4">{{ $weddingRings->weddingRings[0]->stock}}</div>
+                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">{{ $weddingRings->weddingRings[1]->stock}}</div>
                                     </div>
 
                                     <div class="grid grid-cols-12 border-b font-light p-2" >
                                         <div class="col-span-4">{{trans('weddingRing.Name')}}</div>
-                                        <div class="col-span-4">@{{weddingRing.wedding_rings[0].name}}</div>
-                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">@{{weddingRing.wedding_rings[1].name}}</div>
+                                        <div class="col-span-4">{{ $weddingRings->weddingRings[0]->name}}</div>
+                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">{{ $weddingRings->weddingRings[1]->name}}</div>
                                     </div>
 
                                     <div class="grid grid-cols-12 border-b font-light p-2" >
                                         <div class="col-span-4 sm:text-lg">{{trans('weddingRing.Description')}}</div>
-                                        <div class="col-span-4">@{{weddingRing.wedding_rings[0].style | transJs(langs,locale)}},@{{weddingRing.wedding_rings[0].metal | transJs(langs,locale)}},@{{weddingRing.wedding_rings[0].sideStone? transJsMet(columns[2],langs,locale):''}}
+                                        <div class="col-span-4">
+                                            {{ __('weddingRing.' . $weddingRings->weddingRings[0]->style) }},
+                                            {{ __('weddingRing.' . $weddingRings->weddingRings[0]->metal) }},
+                                            {{ $weddingRings->weddingRings[0]->ct > 0 ? __('weddingRing.' .'Side stone') :'' }}
                                         {{trans('weddingRing.Wedding Ring')}}
 
                                         </div>
-                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">@{{weddingRing.wedding_rings[1].style | transJs(langs,locale)}},@{{weddingRing.wedding_rings[1].metal | transJs(langs,locale)}},@{{weddingRing.wedding_rings[1].sideStone? transJsMet(columns[2],langs,locale):''}}
+                                        <div class="col-span-4" v-if="weddingRing.wedding_rings[1]">
+                                            {{ __('weddingRing.' . $weddingRings->weddingRings[1]->style) }},
+                                            {{ __('weddingRing.' . $weddingRings->weddingRings[1]->metal) }},
+                                            {{ $weddingRings->weddingRings[1]->ct > 0 ? __('weddingRing.' .'Side stone') :'' }}
                                         {{trans('weddingRing.Wedding Ring')}}
                                         </div>
                                     </div>

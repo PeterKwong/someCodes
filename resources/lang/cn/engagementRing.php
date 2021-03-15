@@ -20,6 +20,7 @@ return [
 	'contact us' => '联络我们',
 	'for further' => '更多资讯',
 	'Engagement Ring Setting' => '求婚戒指托',
+	'Engagement Ring' => '求婚戒指',
 	'Solitaire' => '单颗钻石',		
 	'solitaire' => '单颗钻石',		
 	'Twisted' => '扭臂',		
