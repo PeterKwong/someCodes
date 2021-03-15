@@ -47,9 +47,9 @@
           <tbody>
             @if( isset($diamonds['data']) )
             @foreach($diamonds['data'] as $row)
-                <tr x-data="{ dataId: {{$row['id']}} }" class="text-center {{ in_array( $row['id'], $clickedRows) ? 'bg-gray-400':'' }}"  x-on:click="window.open('/' + '{{app()->getLocale()}}' + '/gia-loose-diamonds/' + dataId , '') ; @this.goto(dataId)">
+                <tr x-data="{ dataId: {{$row['id']}} }" class="text-center {{ in_array( $row['id'], $clickedRows) ? 'bg-gray-400':'' }}"  x-on:click.prevent="window.open('/' + '{{app()->getLocale()}}' + '/gia-loose-diamonds/' + dataId , '') ; @this.goto(dataId)">
                     <td class="border-b px-4 py-2" >
-                        <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                        <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                         @if($row['image_cache'])
                             <div class="w-48">
                                 <img src="{{config('global.cache.' . config('global.cache.live') ) . 'public/diamond/' .'images/thm-' . $row['id'] . '.jpg'  }}" class="object-contain w-full h-auto" ></img>
@@ -61,7 +61,7 @@
                     </td>
 
                     <td class="border-b px-4 py-2" >
-                        <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                        <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
 
                         @if($row['plot'])                        
                             <div class="w-48">
@@ -79,28 +79,28 @@
                         </a>
                     </td> 
                     <td class="border-b px-4 py-2" >
-                        <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                        <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                     HK${{ $row['price'] }}
                         </a>
                     </td>
                     <td class="border-b px-4 py-2" >
-                        <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                        <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                      {{ $row['weight'] }}
                         </a>
                     </td>
                     @if(array_search('color',$columns) > -1)
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{ $row['color'] }}
                             </a>
                         </td>
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{ $row['clarity'] }}
                             </a>
                         </td>
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{ $row['cut'] }}
                             </a>
                         </td>
@@ -108,17 +108,17 @@
 
                     @if(array_search('fancy_color',$columns) > -1)
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{ $row['fancy_intensity'] }}
                             </a>
                         </td>
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{ $row['fancy_color'] }}
                             </a>
                         </td>
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{ $row['clarity'] }}
                             </a>
                         </td>
@@ -126,48 +126,48 @@
 
 
                     <td class="border-b px-4 py-2" >
-                        <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                        <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                      {{ $row['polish'] }}
                         </a>
                     </td>
                     <td class="border-b px-4 py-2" >
-                        <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                        <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                      {{ $row['symmetry'] }}
                         </a>
                     </td>
                     <td class="border-b px-4 py-2" >
-                        <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                        <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                      {{ $row['fluorescence'] }}
                         </a>
                     </td>
 
                     @if($row['location'] == '1Hong Kong')
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{__('diamondSearch.1-2 Days')}}
                             </a>
                         </td>
                     @else
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{__('diamondSearch.Order')}}
                             </a>
                         </td>
 
                     @endif
                     <td class="border-b px-4 py-2" >
-                        <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                        <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                      {{ $row['certificate'] }}
                         </a>
                     </td>
                     <td class="border-b px-4 py-2" >
-                        <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                        <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                      {{ $row['lab'] }}
                         </a>
                     </td>
 
                     <td class="border-b px-4 py-2" >
-                        <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                        <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                             @if($row['starred'] != 0)
                             <i class="fa fa-star" aria-hidden="true"></i>
                             @endif
@@ -176,7 +176,7 @@
 
                     @if($fetchData['table_percent'][0] != 0)
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{ $row['table_percent'] }}%
                             </a>
                         </td>
@@ -184,42 +184,42 @@
                     
                     @if($fetchData['depth_percent'][0] != 0)
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{ $row['depth_percent'] }}%
                             </a>
                         </td>
                     @endif
                     @if($fetchData['crown_angle'][0] != 0)
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{ $row['crown_angle'] }}°
                             </a>
                         </td>
                     @endif
                     @if($fetchData['parvilion_angle'][0] != 0)
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{ $row['parvilion_angle'] }}°
                             </a>
                         </td>
                     @endif
                     @if($fetchData['length'][0] != 0)
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{ $row['length'] }}mm
                             </a>
                         </td>
                     @endif
                     @if($fetchData['width'][0] != 0)
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{ $row['width'] }}mm
                             </a>
                         </td>
                     @endif
                     @if($fetchData['depth'][0] != 0)
                         <td class="border-b px-4 py-2" >
-                            <a  href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" wire:click.prevent="">
+                            <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                          {{ $row['depth'] }}mm
                             </a>
                         </td>
