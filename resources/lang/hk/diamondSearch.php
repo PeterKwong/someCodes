@@ -130,12 +130,12 @@ return [
 	'PEAR' => '梨形',
 
 	'Total' => '總共',
-	'Order' => '需訂貨',
-	'1-2 Days' => '1-2天',
+	'Order' => '海外',
+	'1-2 Days' => '香港',
 	'0.30- 20 Diamond ( Carat )' => '0.30- 20 鑽石 ( 克拉 / 卡數 )',
 
 	'Stock no' => '貨號',
-	'Only On Stock' => '只選現貨',
+	'Only On Stock' => '香港',
 	'Sold' => '已售',
 	
 	'List' => '列表',

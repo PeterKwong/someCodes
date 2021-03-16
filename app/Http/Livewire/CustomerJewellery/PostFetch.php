@@ -55,29 +55,29 @@ class PostFetch extends Component
 				
 				});
         	}
-        	// dd($tags);
 
-        	// $this->posts = $this->posts->whereHas('page.tags', function($query)use($tags){ 
-
-        	// 											$query->whereIn('tag_id',$tags);
-        	// 									});
-
-
-       //  	$this->posts = $this->posts
-       //  					->whereHas('page.tags', function($query)use($tags){ 
-       //  							$query = $query->where('tag_id',33);
-        					
-							// });
-        	// dd($this->posts);
 
         }
         
         $this->posts = $this->posts
 
-        				->with(['images' => function($query){ 
+        				->with([
+	                        	'texts',        						
+        						'images' => function($query){ 
 	                                    $query->where('type','cover');
 	                                    }, 
-	                        	'texts',
+	                        	// 'invoice.invoiceDiamonds' => function($query){
+	                        	// 			dd( $query->first()->title()  );
+	                        	// 		},
+	                        	// 'invoice.engagementRings' => function($query){
+	                        	// 			return $query->first()->title() ;
+	                        	// 		},
+	                        	// 'invoice.weddingRings' => function($query){
+	                        	// 			return $query->first()->title() ;
+	                        	// 		},
+	                        	// 'invoice.jewelleries' => function($query){
+	                        	// 			return $query->first()->title() ;
+	                        	// 		},
 	                        	// 'page.tags',
 	                    ])->paginate($this->per_page)->toArray();
 

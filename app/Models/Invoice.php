@@ -79,11 +79,16 @@ class Invoice extends Model
         'account_balance' => 0,
         'account_total' => 0,
         'invoice_diamonds' =>[],
-        // 'inv_diamonds' =>[ InvoiceDiamond::form()],
         'engagement_rings' => [],
         'wedding_rings' => [],
         'jewelleries' => []
     	];
+    }
+
+
+    public function turnHiddenToEmpty(){
+        $this->hidden = [];
+        return $this;
     }
 }
 

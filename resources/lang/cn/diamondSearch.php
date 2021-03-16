@@ -37,7 +37,7 @@ return [
 	'For more detailed information, can reach GIA website query' => '如要查询更多资料, 可到GIA官方网站',
 	'For more detailed information, can reach IGI website query' => '如要查询更多资料, 可到IGI官方网站',
 	'If you could not find diamonds as your inquiry' => '如果你找不到你想要的钻石',
-	'PLEASE（Whatsapp: Winnie－5484 4533， for the latest diamond Stock）' => '请联络（微信号: Nancy－00852 5237 6008， 索取最新的钻石报价）',
+	'PLEASE（Whatsapp: Winnie－5484 4533， for the latest diamond Stock）' => ' 索取最新的钻石报价，请联络',
 	'Per Page' => '每页',
 	'Page is on update' => '版面正在更新',
 	'Width' => '阔度',
@@ -107,17 +107,6 @@ return [
 	'Radiant' => '雷地恩形',
 	'Pear' => '梨形',
 
-	'ROUND' => '圆形',
-	'HEART' => '心形',
-	'PRINCESS' => '公主方形',
-	'EMERALD' => '祖母绿形',
-	'ASSCHER' => '上丁方形',
-	'OVAL' => '椭圆形',
-	'CUSHION' => '枕形',
-	'MARQUISE' => '马眼形',
-	'RADIANT' => '雷地恩形',
-	'PEAR' => '梨形',
-
 	'round' => '圆形',
 	'heart' => '心形',
 	'princess' => '公主方形',
@@ -129,13 +118,24 @@ return [
 	'radiant' => '雷地恩形',
 	'pear' => '梨形',
 
+	'ROUND' => '圆形',
+	'HEART' => '心形',
+	'PRINCESS' => '公主方形',
+	'EMERALD' => '祖母绿形',
+	'ASSCHER' => '上丁方形',
+	'OVAL' => '椭圆形',
+	'CUSHION' => '枕形',
+	'MARQUISE' => '马眼形',
+	'RADIANT' => '雷地恩形',
+	'PEAR' => '梨形',
+
 	'Total' => '总共',
-	'Order' => '需订货',
-	'1-2 Days' => '1-2天',
+	'Order' => '海外',
+	'1-2 Days' => '香港',
 	'0.30- 20 Diamond ( Carat )' => '0.30- 20 钻石 ( 克拉 / 卡数 )',
 
 	'Stock no' => '货号',
-	'Only On Stock' => '只选现货',
+	'Only On Stock' => '香港',
 	'Sold' => '已售',
 	
 	'List' => '列表',
@@ -163,7 +163,7 @@ return [
 	'fancy_color' => '颜色',
 	'fancy_intensity' => '浓度',
 
-	
+
 	'Yellow' => '黄色',
 	'Pink' => '粉红色',
 	'Orange' => '橙色',
@@ -174,10 +174,9 @@ return [
 	'Blue' => '蓝色',
 	'Black' => '黑色',
 
-	'No Result' => '沒結果',
-	'price below $80000 diamond, pay by cash would have 1.7~2% discount' => '8萬元以下，現金支付有1.7～2%折扣',
+	'No Result' => '无结果',
 
-
+	'price below $80000 diamond, pay by cash would have 1.7~2% discount' => '8万元以下，现金付款有1.7～2%折扣',
 
 
 ];

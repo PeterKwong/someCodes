@@ -140,11 +140,11 @@ return [
 	'PEAR' => 'Pear',
 	
 	'Total' => 'Total',
-	'Order' => 'Order',
-	'1-2 Days' => '1-2 Days',
+	'Order' => 'overeas',
+	'1-2 Days' => 'HK',
 	
 	'Stock no' => 'Stock no',
-	'Only On Stock' => 'Only On Stock',
+	'Only On Stock' => 'HK Stock',
 	'Sold' => 'Sold',
 	'0.30- 20 Diamond ( Carat )' => '0.30- 20 Diamond ( Carat )',
 	

@@ -12,8 +12,8 @@
         @include('layouts.metas.cacheAdmin')
         @include('layouts.metas.mutualVar')
 
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-
+<!--         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+ -->
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="/front_end/company/logo_2019_white.png">   
