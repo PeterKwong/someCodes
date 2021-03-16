@@ -68,7 +68,7 @@
           type="button"  >{{__('diamondSearch.Only On Stock')}}
           </button> 
         </span>
-        <button class="btn btn-primary" wire:click="resetAll">
+        <button class="btn btn-outline bg-green-300 text-white" wire:click="resetAll">
             {{__('diamondSearch.reset')}} <i class="fas fa-undo"></i>
         </button>
       </div>
