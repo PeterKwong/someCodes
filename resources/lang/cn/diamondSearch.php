@@ -135,7 +135,7 @@ return [
 	'0.30- 20 Diamond ( Carat )' => '0.30- 20 钻石 ( 克拉 / 卡数 )',
 
 	'Stock no' => '货号',
-	'Only On Stock' => '香港',
+	'Only On Stock' => '香港现货',
 	'Sold' => '已售',
 	
 	'List' => '列表',
