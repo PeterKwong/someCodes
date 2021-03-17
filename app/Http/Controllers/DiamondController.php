@@ -32,9 +32,11 @@ class DiamondController extends Controller
     if(!isset($diamond)){
       return redirect( $locale . '/gia-loose-diamonds');
     }
+    $title = $diamond->title();
+    $tags = $diamond->tags();
     // $diamond  = DiamondQuery::findOrFail($id);
 
-    return view('frontend.diamond.show', ['diamond' => $diamond]);
+    return view('frontend.diamond.show', ['diamond' => $diamond, 'title' => $title, 'tags' => $tags]);
 
   }
   public function showLoadingImage($id){

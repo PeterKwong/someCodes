@@ -8,24 +8,24 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- Place this data between the <head> tags of your website --> 
-        <title>@include('frontend.diamond.meta') - {{trans('home.webTitle')}}</title>
-        <meta name="description" content="@include('frontend.diamond.meta') {{trans('diamond.metaDescription30')}} - {{trans('home.meta2')}}" />
-        <meta itemprop="keywords" content="@include('frontend.diamond.keywords')"> 
+        <title>{{ $title }} - {{trans('home.webTitle')}}</title>
+        <meta name="description" content="{{ $title }} {{trans('diamond.metaDescription30')}} - {{trans('home.meta2')}}" />
+        <meta itemprop="keywords" content="{{ $tags }}"> 
 
         <!-- Schema.org markup for Google+ --> 
-        <meta itemprop="name" content="@include('frontend.diamond.meta') {{trans('diamond.metaTitle30')}} - {{trans('home.webTitle')}}"> 
-        <meta itemprop="description" content="@include('frontend.diamond.meta') {{trans('diamond.metaDescription30')}} - {{trans('home.meta2')}}""> 
-        <meta itemprop="image" content="{{url("/images/front-end/home/h1_300-1.png")}}">
+        <meta itemprop="name" content="{{ $title }} {{trans('diamond.metaTitle30')}} - {{trans('home.webTitle')}}"> 
+        <meta itemprop="description" content="{{ $title }} {{trans('diamond.metaDescription30')}} - {{trans('home.meta2')}}"> 
+        <meta itemprop="image" content="{{url('/images/front-end/home/h1_300-1.png')}}">
 
         <!-- Open Graph data --> 
-        <meta property="og:title" content="@include('frontend.diamond.meta') {{trans('diamond.metaTitle30')}} - {{trans('home.webTitle')}}" /> 
-        <meta property="og:url" content="{{url("/")}}" />
+        <meta property="og:title" content="{{ $title }} {{trans('diamond.metaTitle30')}} - {{trans('home.webTitle')}}" /> 
+        <meta property="og:url" content="{{url()->current()}}" />
         <meta property="og:image" content="{{url("/images/front-end/home/h1_300-1.png")}}" />
-        <meta property="og:description" content="@include('frontend.diamond.meta') {{trans('diamond.metaDescription30')}} - {{trans('home.meta2')}}" /> 
-        <meta property="og:site_name" content="@include('frontend.diamond.meta') {{trans('diamond.metaTitle30')}} - {{trans('home.webTitle')}}" /> 
+        <meta property="og:description" content="{{ $title }} {{trans('diamond.metaDescription30')}} - {{trans('home.meta2')}}" /> 
+        <meta property="og:site_name" content="{{ $title }} {{trans('diamond.metaTitle30')}} - {{trans('home.webTitle')}}" /> 
         <meta property="article:published_time" content="2013-09-17T05:59:00+01:00" /> 
         <meta property="article:modified_time" content="2013-09-16T19:08:47+01:00" />
-        <meta property="article:tag" content="@include('frontend.diamond.keywords')" /> 
+        <meta property="article:tag" content="{{ $tags }}" /> 
 
 
         <!-- Fonts -->
@@ -39,11 +39,7 @@
 
             <div class="flex justify-center p-6" >
                     <center> 
-                    <h1 class="text-gray-600 sm:text-2xl">{{$diamond->weight}} {{trans('diamondSearch.carat')}}
-                            {{$diamond->clarity}} {{trans('diamondSearch.Clarity')}} 
-                            {{$diamond->color}} {{trans('diamondSearch.Color')}} 
-                            {{$diamond->cut?$diamond->cut:''}}  {{$diamond->cut?trans('diamondSearch.Cut'):''}} 
-                            {{trans('diamondSearch.' . $diamond->shape)}} {{trans('diamondSearch.diamond')}}</h1>                        
+                    <h1 class="text-gray-600 sm:text-2xl">{{ $title }}</h1>                        
                     </center>
             </div>
 

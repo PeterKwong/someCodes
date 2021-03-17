@@ -145,7 +145,7 @@
                                     </div>
                                     <div class="grid grid-cols-12 border-b" >
                                       <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Description')}}</div>
-                                      <div class="col-span-6 p-2 font-light" >{{__('engagementRing.' .$meta->style )}},{{__('engagementRing.' .$meta->prong )}},{{__('engagementRing.' .$meta->shoulder )}},{{trans('engagementRing.setting')}}</div>
+                                      <div class="col-span-6 p-2 font-light" >{{ $tags }}</div>
                                     </div>
            
                            
