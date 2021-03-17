@@ -58,7 +58,7 @@ class PostFetch extends Component
 
 
         }
-        
+
         $this->posts = $this->posts
 
         				->with([
@@ -66,20 +66,17 @@ class PostFetch extends Component
         						'images' => function($query){ 
 	                                    $query->where('type','cover');
 	                                    }, 
-	                        	// 'invoice.invoiceDiamonds' => function($query){
-	                        	// 			dd( $query->first()->title()  );
-	                        	// 		},
-	                        	// 'invoice.engagementRings' => function($query){
-	                        	// 			return $query->first()->title() ;
-	                        	// 		},
-	                        	// 'invoice.weddingRings' => function($query){
-	                        	// 			return $query->first()->title() ;
-	                        	// 		},
-	                        	// 'invoice.jewelleries' => function($query){
-	                        	// 			return $query->first()->title() ;
-	                        	// 		},
-	                        	// 'page.tags',
-	                    ])->paginate($this->per_page)->toArray();
+	                    ])->paginate($this->per_page);
+
+        $titles = $this->posts;
+
+		$this->posts = $this->posts->toArray();
+
+        foreach ($titles as $key => $title) {
+
+        	$this->posts['data'][$key]['invoice'] = $title->title($title->id);
+
+        }
 
 
     }

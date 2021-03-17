@@ -20,10 +20,41 @@ class Show extends Component
 
     public function mount(){
 
-		$this->meta = InvoicePost::with(['texts'=>function($texts){
-            $texts->where('locale',app()->getLocale());
-        },'images','invoice.invoiceDiamonds'])->findOrFail(request()->segment(3));
+        $title =  (new InvoicePost)->title(request()->segment(3)) ;
+
+        $this->meta = InvoicePost::with([
+                        'texts'=>function($texts){
+                            $texts->where('locale',app()->getLocale());
+                        },
+                        'images',
+                        'invoice.invoiceDiamonds',
+                        'invoice.engagementRings',
+                        'invoice.weddingRings',
+                        'invoice.jewelleries',
+                    ])->findOrFail(request()->segment(3));
+
         $this->weightRange();
+
+
+        // $title = '';
+        // if (count( $this->meta->invoice->invoiceDiamonds) ) {
+        //     $title .= $this->meta->invoice->invoiceDiamonds->first()->title();
+        // }
+        // if (count( $this->meta->invoice->engagementRings) ) {
+        //     $title .=  $title ? ' | ' :''; 
+        //     $title .=  $this->meta->invoice->engagementRings->first()->title();
+        // }
+        // if (count( $this->meta->invoice->weddingRings) ) {
+        //     $title .=  $title ? ' | ' :''; 
+        //     $title .=  $this->meta->invoice->weddingRings->first()->title();
+        // }
+        // if (count( $this->meta->invoice->jewelleries) && $this->meta->invoice->jewelleries->first()->type != 'Misc') {
+        //     $title .=  $title ? ' | ' :'';             
+        //     $title .=  $this->meta->invoice->jewelleries->first()->title();
+        // }
+        $this->meta->invoice->title = $title;
+
+        // dd($this->meta);
 
     }
     public function weightRange(){

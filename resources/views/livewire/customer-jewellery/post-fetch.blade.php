@@ -70,7 +70,7 @@
 	                    <a href="/{{ app()->getLocale() . '/customer-jewellery/' . $post['id'] }}" target="_blank" @mouseover="loopImages(index)" @mouseleave="loopImages(index,0)">
 	                        <img src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' .  $post['images'][0]['image'] }}" width="100%">
 	                            <center class="p-4">
-	                                <p class="truncate">{{$post['texts'][config( 'global.locale.' . app()->getLocale())]['content'] }} </p>
+	                                <p class="truncate">{{$post['invoice']}} </p>
 	                                </a>
 	                                <p v-if="post.created_at">{{$post['date']}} </p>
 	                            </center>
