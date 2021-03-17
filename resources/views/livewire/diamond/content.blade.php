@@ -114,7 +114,7 @@
   </div>
 
 
-  <div >
+  <div wire:init="loadDiamonds">
 
     <div class="overflow-x-auto {{ $showInGrid ? 'sm:hidden' : 'hidden sm:block' }}" >
       @include('frontend.diamond.resultDesktop')   
