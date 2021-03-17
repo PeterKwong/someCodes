@@ -210,7 +210,7 @@ class Content extends Component
 							'table_percent'=>'Table Percent', 'depth_percent'=>'Depth Percent', 
 							'length'=>'Length', 'width'=>'Width', 'depth'=>'Depth'];
 	
-	public $readyToLoad = true;
+	public $readyToLoad = false;
 
 	public $firstTimeFetch = true;
 
@@ -218,11 +218,10 @@ class Content extends Component
 
     public function render()
     {	 
-    	$this->deferLoading();
-
         return view('livewire.diamond.content', [
-            'diamonds' => $this->diamonds
-                
+            'diamonds' => $this->readyToLoad
+                ? $this->deferLoading()
+                : $this->diamonds
         ]);
     }
     public function loadDiamonds()
@@ -231,8 +230,6 @@ class Content extends Component
         // dd('done');
     }
     public function isDiamondQuery(){
-
-    	$same = false;
 
       	if ( isset($_COOKIE['diamondSearch']) ) {
 
@@ -402,7 +399,7 @@ class Content extends Component
     				'/fancy-cut-diamond' => ['shape'=>
     											['heart','princess','emerald','asscher','cushion',
     											'oval','marquise','radiant','pear']],
-    				'/fancy-cut-diamond/round-cut' => ['shape'=>['round']],
+    				'/round-cut' => ['shape'=>['round']],
     				'/fancy-cut-diamond/heart-shaped' => ['shape'=>['heart']],
     				'/fancy-cut-diamond/princess-cut' => ['shape'=>['princess']],
     				'/fancy-cut-diamond/emerald-cut' => ['shape'=>['emerald']],
