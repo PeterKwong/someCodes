@@ -114,23 +114,16 @@
   </div>
 
 
-  <div wire:init="loadDiamonds">
+  <div >
 
     <div class="overflow-x-auto {{ $showInGrid ? 'sm:hidden' : 'hidden sm:block' }}" >
-
-      @include('frontend.diamond.resultDesktop')
-           
+      @include('frontend.diamond.resultDesktop')   
     </div>
 
-
-
-
     <div class="{{ $showInGrid ? 'hidden sm:block' : 'sm:hidden'}}">
-
       @include('frontend.diamond.resultMobile')
-
     </div>    
-    
+
   </div>
 
 

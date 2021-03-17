@@ -218,18 +218,20 @@ class Content extends Component
 
     public function render()
     {	 
+    	$this->deferLoading();
+
         return view('livewire.diamond.content', [
-            'diamonds' => $this->readyToLoad
-                ? $this->deferLoading()
-                : $this->diamonds
+            'diamonds' => $this->diamonds
         ]);
     }
-    public function loadDiamonds()
-    {
-        $this->readyToLoad = true;
-        // dd('done');
-    }
+    // public function loadDiamonds()
+    // {
+    //     $this->readyToLoad = true;
+    //     // dd('done');
+    // }
     public function isDiamondQuery(){
+    	
+    	$same = false ;
 
       	if ( isset($_COOKIE['diamondSearch']) ) {
 
