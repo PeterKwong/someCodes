@@ -66,13 +66,14 @@ class WeddingRing extends Model
         }
         public function generateTitle($separator){
 
-	    	$title  = $this->brand ? trans('weddingRing.' .$this->brand) . $separator :'' ;
+	    	$title  = $this->brand ? '('.trans('weddingRing.' .$this->brand) .')'. $separator :'' ;
 	    	$title .= trans('weddingRing.' .$this->metal) 
 	    			. $separator . trans('weddingRing.' .$this->shape) 
 	    			. $separator . trans('weddingRing.' .$this->finish)
 	    			;
 	    	$title .= $this->style ? $separator . trans('weddingRing.' .$this->style) :'' ;
-	    	$title .= $separator . trans('weddingRing.Wedding Ring');
+	    	$title .= $separator . trans('weddingRing.Wedding Rings');
+	    	$title .= '｜' . trans('weddingRing.Couple Rings');
 
 	    	return $title;
 	    			
