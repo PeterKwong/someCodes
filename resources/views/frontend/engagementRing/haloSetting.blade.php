@@ -14,7 +14,7 @@
 
         <!-- Schema.org markup for Google+ --> 
         <meta itemprop="name" content="{{trans('engagementRing.metaTitle1')}} - {{trans('home.webTitle')}}"> 
-        <meta itemprop="description" content="{{trans('engagementRing.metaDescription1')}} - {{trans('home.meta2')}}""> 
+        <meta itemprop="description" content="{{trans('engagementRing.metaDescription1')}} - {{trans('home.meta2')}}"> 
         <meta itemprop="image" content="{{url("/front_end/home/h1_300-1.png")}}">
 
         <!-- Open Graph data --> 

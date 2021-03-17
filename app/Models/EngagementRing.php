@@ -58,13 +58,25 @@ class EngagementRing extends Model
 	    	$title = trans('engagementRing.' .$this->style) 
 	    			. ' '. trans('engagementRing.' .$this->prong)
 	    			. ' '. trans('engagementRing.' .$this->shoulder) 
-	    			. ' '. trans('engagementRing.Engagement Ring')
+	    			. ' '. trans('engagementRing.Diamond Ring')
+	    			. '｜'. trans('engagementRing.Engagement Ring Setting')
 	    			;
 
 	    	return $title;
 	    			
 	    }
+	    public function tags(){
 
+	    	$title = trans('engagementRing.' .$this->style) 
+	    			. ', '. trans('engagementRing.' .$this->prong)
+	    			. ', '. trans('engagementRing.' .$this->shoulder) 
+	    			. ', '. trans('engagementRing.Diamond Ring')
+	    			. ', '. trans('engagementRing.Engagement Ring Setting')
+	    			;
+
+	    	return $title;
+	    			
+	    }
 
 	    public static function form()
 	    	{

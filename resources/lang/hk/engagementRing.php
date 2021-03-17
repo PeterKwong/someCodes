@@ -20,6 +20,7 @@ return [
 	'contact us' => '聯絡我們',
 	'for further' => '更多資訊',
 	'Engagement Ring Setting' => '求婚戒指托',
+	'Diamond Ring' => '鑽石戒指',
 	'Engagement Ring' => '求婚戒指',
 	'Solitaire' => '單顆鑽石',		
 	'solitaire' => '單顆鑽石',		

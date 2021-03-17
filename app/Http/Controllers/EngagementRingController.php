@@ -49,8 +49,10 @@ class EngagementRingController extends Controller
                         $texts->where('locale',app()->getLocale());
                     }, 'images'])->findOrFail($id);
         // dd($meta);
+        $title = $meta->title();
+        $tags = $meta->tags();
 
-        return view('frontend.engagementRing.show', ['meta'=>$meta] );
+        return view('frontend.engagementRing.show', ['meta'=>$meta, 'title' => $title, 'tags' => $tags] );
  
     }
 

@@ -73,6 +73,21 @@ class Diamond extends Model
             return $title;
                     
         }
+        public function tags(){
+
+            $title = $this->weight . trans('diamondSearch.carat') 
+                    . ', '. $this->color . trans('diamondSearch.color') 
+                    . ', '. $this->clarity . trans('diamondSearch.clarity') 
+                    . ', '. $this->cut . trans('diamondSearch.cut') 
+                    . ', '. $this->polish . trans('diamondSearch.polish') 
+                    . ', '. $this->symmetry . trans('diamondSearch.symmetry') 
+                    . ', '. $this->fluorescence . trans('diamondSearch.fluorescence') 
+                    . ', '. trans('diamondSearch.diamond')
+                    ;
+
+            return $title;
+                    
+        }
 
     	public static function form()
     	{
