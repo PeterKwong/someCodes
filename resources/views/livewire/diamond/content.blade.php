@@ -20,7 +20,7 @@
 
 
 
-  <div class="flex justify-center text-center items-center border border-gray-400 p-2 pt-4 m-4" wire:init="loadDiamonds">
+  <div class="flex justify-center text-center items-center border border-gray-400 p-2 pt-4 m-4" >
 
     <div class="flex-1">
       <center>
@@ -114,20 +114,25 @@
   </div>
 
 
-  <div class="overflow-x-auto {{ $showInGrid ? 'sm:hidden' : 'hidden sm:block' }}">
+  <div wire:init="loadDiamonds">
 
-    @include('frontend.diamond.resultDesktop')
-         
+    <div class="overflow-x-auto {{ $showInGrid ? 'sm:hidden' : 'hidden sm:block' }}" >
+
+      @include('frontend.diamond.resultDesktop')
+           
+    </div>
+
+
+
+
+    <div class="{{ $showInGrid ? 'hidden sm:block' : 'sm:hidden'}}">
+
+      @include('frontend.diamond.resultMobile')
+
+    </div>    
+    
   </div>
 
-
-
-
-  <div class="{{ $showInGrid ? 'hidden sm:block' : 'sm:hidden'}}">
-
-    @include('frontend.diamond.resultMobile')
-
-  </div>
 
 
   <div class="flex justify-center m-2 {{ isset($diamonds['total']) && $diamonds['total'] == 0 ? '' : 'hidden'}}">
