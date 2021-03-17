@@ -21,6 +21,7 @@ return [
 	'for further' => '更多资讯',
 	'Engagement Ring Setting' => '求婚戒指托',
 	'Engagement Ring' => '求婚戒指',
+	'Diamond Ring' => '钻石戒指',
 	'Solitaire' => '单颗钻石',		
 	'solitaire' => '单颗钻石',		
 	'Twisted' => '扭臂',		

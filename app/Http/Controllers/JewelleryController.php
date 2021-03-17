@@ -98,9 +98,10 @@ class JewelleryController extends Controller
                 }])->findOrFail($id);
      $jewellery = $meta;
      $title = $meta->title();
+     $tags = $meta->tags();
 
 
-      return view('frontend.jewellery.show', compact('meta','title','jewellery'));
+      return view('frontend.jewellery.show', compact('meta','title','tags','jewellery'));
  
     }
 

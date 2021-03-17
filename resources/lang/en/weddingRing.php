@@ -5,6 +5,7 @@ return [
 	'wedding Rings' => 'Wedding Rings',	
 	'Wedding Rings - Classic' => 'Wedding Rings - Classic',
 	'Wedding Ring' => 'Wedding Ring',
+	'Couple Rings' => 'Couple Rings',
 	'Style' => 'Style',
 	'style' => 'Style',
 	'Metal' => 'Metal',

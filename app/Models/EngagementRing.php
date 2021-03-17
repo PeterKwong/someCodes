@@ -53,29 +53,30 @@ class EngagementRing extends Model
 	    {
 	        return $this->morphMany('App\Models\InvoicePost', 'postable');
 	    }
+	    
+		//Title
 	    public function title(){
 
-	    	$title = trans('engagementRing.' .$this->style) 
-	    			. ' '. trans('engagementRing.' .$this->prong)
-	    			. ' '. trans('engagementRing.' .$this->shoulder) 
-	    			. ' '. trans('engagementRing.Diamond Ring')
-	    			. '｜'. trans('engagementRing.Engagement Ring Setting')
-	    			;
-
-	    	return $title;
+	    	return $this->generateTitle(' ');
 	    			
 	    }
 	    public function tags(){
 
+	    	return $this->generateTitle(', ');
+	    			
+	    }
+	    public function generateTitle($separator){
+
 	    	$title = trans('engagementRing.' .$this->style) 
-	    			. ', '. trans('engagementRing.' .$this->prong)
-	    			. ', '. trans('engagementRing.' .$this->shoulder) 
-	    			. ', '. trans('engagementRing.Diamond Ring')
-	    			. ', '. trans('engagementRing.Engagement Ring Setting')
+	    			. $separator . trans('engagementRing.' .$this->prong)
+	    			. $separator . trans('engagementRing.' .$this->shoulder) 
 	    			;
+	    	$title .= $this->other ?  $separator . trans('engagementRing.' .$this->other):'' ;
+	    	$title .= $separator . trans('engagementRing.Diamond Ring')
+	    			. '｜'. trans('engagementRing.Engagement Ring Setting');
 
 	    	return $title;
-	    			
+	    	
 	    }
 
 	    public static function form()
@@ -86,6 +87,7 @@ class EngagementRing extends Model
 	            'shoulder'=> 'Tapering',
 	            'style' => 'Solitaire',
 	            'shape' => 'round',
+	            'other'=> '',
 	            'customized' => 0,
 	            'published'=> 0,
 	            'metal'=> '18KW',

@@ -54,14 +54,25 @@ class WeddingRing extends Model
 	    {
     		return $this->belongsToMany(WeddingRingPair::class);
     	}
+        public function title(){
 
-	    public function title(){
+            return $this->generateTitle(' ');
+                    
+        }
+        public function tags(){
 
-	    	$title = trans('weddingRing.' .$this->metal) 
-	    			. ' '. trans('weddingRing.' .$this->shape) 
-	    			. ' '. trans('weddingRing.' .$this->finish)
-	    			. ' '. trans('weddingRing.Wedding Ring')
+            return $this->generateTitle(', ');
+                    
+        }
+        public function generateTitle($separator){
+
+	    	$title  = $this->brand ? trans('weddingRing.' .$this->brand) . $separator :'' ;
+	    	$title .= trans('weddingRing.' .$this->metal) 
+	    			. $separator . trans('weddingRing.' .$this->shape) 
+	    			. $separator . trans('weddingRing.' .$this->finish)
 	    			;
+	    	$title .= $this->style ? $separator . trans('weddingRing.' .$this->style) :'' ;
+	    	$title .= $separator . trans('weddingRing.Wedding Ring');
 
 	    	return $title;
 	    			

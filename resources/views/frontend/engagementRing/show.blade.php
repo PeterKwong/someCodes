@@ -20,9 +20,10 @@
 
         <!-- Open Graph data --> 
         <meta property="og:title" content="{{ $title }} - {{trans('home.webTitle')}}" /> 
-        <meta property="og:url" content="{{url()->current()}}" />
-        <meta property="og:image" content="{{url("/front_end/home/h1_300-1.png")}}" />
-        <meta property="og:description" content="{{trans('engagementRing.'.$meta->style)}} {{trans('engagementRing.'.$meta->prong)}} {{trans('engagementRing.'.$meta->shoulder)}}  {{trans('engagementRing.Engagement Ring Setting')}} {{trans('engagementRing.metaDescription1')}} - {{trans('home.meta2')}}" /> 
+        <meta property="og:url" content="{{ url()->current() }}" />
+        <meta property="og:image" content="{{ config('global.cache.' . config('global.cache.live') ) 
+                                          . 'public/images/' . $meta->images[0]->image }}" />
+        <meta property="og:description" content="{{ $title )}} {{trans('engagementRing.metaDescription1')}} - {{trans('home.meta2')}}" /> 
         <meta property="og:site_name" content="{{ $title }} - {{trans('home.webTitle')}}" /> 
         <meta property="article:published_time" content="2013-09-17T05:59:00+01:00" /> 
         <meta property="article:modified_time" content="2013-09-16T19:08:47+01:00" />

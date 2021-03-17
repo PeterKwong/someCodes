@@ -60,33 +60,27 @@ class Diamond extends Model
 
         public function title(){
 
-            $title = $this->weight . trans('diamondSearch.carat') 
-                    . ' '. $this->color . trans('diamondSearch.color') 
-                    . ' '. $this->clarity . trans('diamondSearch.clarity') 
-                    . ' '. $this->cut . trans('diamondSearch.cut') 
-                    . ' '. $this->polish . trans('diamondSearch.polish') 
-                    . ' '. $this->symmetry . trans('diamondSearch.symmetry') 
-                    . ' '. $this->fluorescence . trans('diamondSearch.fluorescence') 
-                    . ' '. trans('diamondSearch.diamond')
-                    ;
-
-            return $title;
+            return $this->generateTitle(' ');
                     
         }
         public function tags(){
 
-            $title = $this->weight . trans('diamondSearch.carat') 
-                    . ', '. $this->color . trans('diamondSearch.color') 
-                    . ', '. $this->clarity . trans('diamondSearch.clarity') 
-                    . ', '. $this->cut . trans('diamondSearch.cut') 
-                    . ', '. $this->polish . trans('diamondSearch.polish') 
-                    . ', '. $this->symmetry . trans('diamondSearch.symmetry') 
-                    . ', '. $this->fluorescence . trans('diamondSearch.fluorescence') 
-                    . ', '. trans('diamondSearch.diamond')
-                    ;
-
-            return $title;
+            return $this->generateTitle(', ');
                     
+        }
+        public function generateTitle($separator){
+
+            $title = $this->weight . trans('diamondSearch.carat') 
+                    . $separator . $this->color  .' '.  trans('diamondSearch.color') 
+                    . $separator . $this->clarity  .' '.  trans('diamondSearch.clarity') 
+                    . $separator . $this->cut  .' '.  trans('diamondSearch.cut') 
+                    . $separator . $this->polish  .' '.  trans('diamondSearch.polish') 
+                    . $separator . $this->symmetry  .' '.  trans('diamondSearch.symmetry') 
+                    . $separator . $this->fluorescence  .' '.  trans('diamondSearch.fluorescence') 
+                    . $separator . trans('diamondSearch.diamond')
+                    ;
+                    
+            return $title;
         }
 
     	public static function form()

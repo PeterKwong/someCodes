@@ -21,6 +21,7 @@ return [
 	'for further' => 'for further',
 	'Engagement Ring Setting' => 'Engagement Ring Setting',
 	'Engagement Ring' => 'Engagement Ring',
+	'Diamond Ring' => 'Diamond Ring',
 	'Solitaire' => 'Solitaire',		
 	'solitaire' => 'solitaire',		
 	'Twisted' => 'Twisted',		

@@ -72,12 +72,16 @@ class WeddingRingPairController extends Controller
                     $texts->where('locale',app()->getLocale());
                 }])->findOrFail($id);
       // dd($weddingRings->weddingRings[0]->title());
-      $weddingRings = $weddingRings;
+
       $meta = $weddingRings->weddingRings[0];
 
       $title = $meta->title();
+      $tags =[];
+      foreach ($weddingRings->weddingRings as $key => $tag) {
+            $tags[] = $tag->tags();
+      }
 
-      return view('frontend.weddingRing.show', compact('meta', 'title' ,'weddingRings'));
+      return view('frontend.weddingRing.show', compact('meta', 'title' ,'weddingRings','tags'));
  
     }
 
