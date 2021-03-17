@@ -210,7 +210,7 @@ class Content extends Component
 							'table_percent'=>'Table Percent', 'depth_percent'=>'Depth Percent', 
 							'length'=>'Length', 'width'=>'Width', 'depth'=>'Depth'];
 	
-	public $readyToLoad = false;
+	public $readyToLoad = true;
 
 	public $firstTimeFetch = true;
 
@@ -218,10 +218,11 @@ class Content extends Component
 
     public function render()
     {	 
+    	$this->deferLoading();
+
         return view('livewire.diamond.content', [
-            'diamonds' => $this->readyToLoad
-                ? $this->deferLoading()
-                : $this->diamonds
+            'diamonds' => $this->diamonds
+                
         ]);
     }
     public function loadDiamonds()
@@ -230,6 +231,8 @@ class Content extends Component
         // dd('done');
     }
     public function isDiamondQuery(){
+
+    	$same = false;
 
       	if ( isset($_COOKIE['diamondSearch']) ) {
 

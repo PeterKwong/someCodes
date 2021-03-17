@@ -22,46 +22,46 @@ trait EngagementRingFilter{
 		'color' => [''],
 		];
 
-	public function scopeSearchPaginateAndOrder($query)
-	{
-		// request() = app()->make(request()');
-		// dd(request());
-		$v = Validator::make(request()->only([
-			'column', 'direction', 'per_page', 
-			'search_column', 'search_operator', 'search_input'
-			]), [
-			'column' => 'required | alpha_dash | in:' . implode(',' , $this->filter),
-			'direction' => 'required | in:asc,desc',
-			'per_page' => 'integer | min:1',
-			'search_column' =>'required | alpha_dash | in:' . implode(',' , $this->filter),
-			'search_operator' => 'required | alpha_dash | in:' . implode(',' , array_keys($this->operators)),
-			'search_input' => 'max:255'
-			]);
+	// public function scopeSearchPaginateAndOrder($query)
+	// {
+	// 	// request() = app()->make(request()');
+	// 	// dd(request());
+	// 	$v = Validator::make(request()->only([
+	// 		'column', 'direction', 'per_page', 
+	// 		'search_column', 'search_operator', 'search_input'
+	// 		]), [
+	// 		'column' => 'required | alpha_dash | in:' . implode(',' , $this->filter),
+	// 		'direction' => 'required | in:asc,desc',
+	// 		'per_page' => 'integer | min:1',
+	// 		'search_column' =>'required | alpha_dash | in:' . implode(',' , $this->filter),
+	// 		'search_operator' => 'required | alpha_dash | in:' . implode(',' , array_keys($this->operators)),
+	// 		'search_input' => 'max:255'
+	// 		]);
 
-		if($v->fails()){
-			dd($v->messages());
-		}
+	// 	if($v->fails()){
+	// 		dd($v->messages());
+	// 	}
 
 
-		// dd(request());
+	// 	// dd(request());
 
-		return  $query
-			->orderBy(request()->column, request()->direction)
-			->where(function($query){
-				$this->hasSearchInput($query);
-			})
-			->whereIn('customized', explode(',',request()->customized))
-			->whereIn('style', explode(',', request()->style))
-			->whereIn('prong', explode(',', request()->prong))
-			->whereIn('shoulder', explode(',', request()->shoulder))
-			->with('images')
-			->has('images', '>=', 1)
-			->paginate(request()->per_page);
+	// 	return  $query
+	// 		->orderBy(request()->column, request()->direction)
+	// 		->where(function($query){
+	// 			$this->hasSearchInput($query);
+	// 		})
+	// 		->whereIn('customized', explode(',',request()->customized))
+	// 		->whereIn('style', explode(',', request()->style))
+	// 		->whereIn('prong', explode(',', request()->prong))
+	// 		->whereIn('shoulder', explode(',', request()->shoulder))
+	// 		->with('images')
+	// 		->has('images', '>=', 1)
+	// 		->paginate(request()->per_page);
 		
 		
 		
 
-	}
+	// }
 
 	protected function hasSearchInput($query)
 	{
