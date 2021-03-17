@@ -155,10 +155,7 @@
                         	<p  class="text-gray-600" >HK${{$data['unit_price']}}
                             </p>
 	                            <p class="text-blue-600 text-sm p-1">
-	                            	{{__('jewellery.' . $data['gemstone']) }} 
-	                            	{{__('jewellery.' . $data['metal']) }} 
-	                            	{{__('jewellery.'.$data['type']) }} 
-	                            	{{$data['setting']? __('jewellery.Setting') :''}} 
+	                            	{{ $data['title'] }} 
 	                            </p>	                			
 	                        
 	                    </center>

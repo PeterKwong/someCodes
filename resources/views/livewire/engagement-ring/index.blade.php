@@ -166,8 +166,7 @@
                         	<p  class="text-gray-600" >HK${{$data['unit_price']}}
                             </p>
 	                            <p class="text-blue-600 text-sm p-1">
-	                            	{{$data['style']? __('engagementRing.Side stone') :''}} 
-	                            	{{__('engagementRing.' . $data['prong']) }} {{__('engagementRing.' . $data['shoulder']) }} {{__('frontHeader.Engagement Rings') }} 
+	                            	{{ $data['title'] }} 
 	                            </p>	                			
 	                        
 	                    </center>

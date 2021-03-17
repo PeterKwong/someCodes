@@ -242,9 +242,7 @@
 		                            ({{__('weddingRing.' . $data['wedding_rings'][0]['gender'])}})
 		                        	</p>
 		                        	<p class="text-blue-600 text-sm">
-		                        		{{$data['wedding_rings'][0]['sideStone']? __('weddingRing.Side stone') :''}} 
-		                        		{{__('weddingRing.' . $data['wedding_rings'][0]['shape']) }} {{__('weddingRing.' . $data['wedding_rings'][0]['finish']) }}  {{__('weddingRing.' . $data['wedding_rings'][0]['metal']) }} 
-		                        		{{__('frontHeader.Wedding Rings') }} 
+		                        		{{ $data['wedding_rings'][0]['title'] }} 
 		                        	</p>
 		                        </div>
 	                            <div class="col-span-6 p-1" > 
@@ -252,10 +250,7 @@
 		                            ({{__('weddingRing.' . $data['wedding_rings'][1]['gender'])}})
 		                            </p>
 		                            <p class="text-blue-600 text-sm">
-		                            	{{$data['wedding_rings'][1]['sideStone']? __('weddingRing.Side stone') :''}} 
-		                            	{{__('weddingRing.' . $data['wedding_rings'][1]['shape']) }} {{__('weddingRing.' . $data['wedding_rings'][1]['finish']) }} {{__('weddingRing.' . $data['wedding_rings'][1]['metal']) }} 
-		                        		{{__('frontHeader.Wedding Rings') }} 
-
+		                        		{{ $data['wedding_rings'][0]['title'] }}	
 		                            </p>
 		                        </div>
 	                        </div>

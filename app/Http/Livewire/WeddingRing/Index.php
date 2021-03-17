@@ -191,7 +191,18 @@ class Index extends Component
 
 	     $this->model = $query->where('published',1)
                         ->with('weddingRings.images')
-			            ->paginate($this->fetchData['per_page'])->toArray();
+			            ->paginate($this->fetchData['per_page']);
+
+        $data =  $this->model->toArray();
+
+        foreach ($this->model as $k => $da) {
+            foreach ($da->weddingRings as $key => $d) {
+
+                $data['data'][$k]['wedding_rings'][$key]['title'] = $d->title();
+            }
+        }
+
+        $this->model = $data ;
 
     }
     public function toggleValue($condition, $data)
