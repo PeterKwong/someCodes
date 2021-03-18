@@ -82,7 +82,7 @@
                   </div>
                           
                   <div class="p-4" >
-                    @include('layouts.components.contacts')
+                    <x-contacts/>
                   </div>
 
                 </div>

@@ -86,10 +86,8 @@
 
                       </div>
                     </div>
-
                     
-                    @include('layouts.components.contacts')
-
+                    <x-contacts/>
                       
                      <div class="grid grid-cols-12 p-2">
                       <div class="col-span-5">
