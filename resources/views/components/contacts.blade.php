@@ -27,7 +27,7 @@
 			        </div>
 		    	</div>
 		     </a>
-         @endif
+        @endif
 
         @if(app()->getLocale() == 'cn')
 	      <div class="p-2">
