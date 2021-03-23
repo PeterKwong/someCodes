@@ -1,4 +1,4 @@
-<div id="customerJewelleryShow" class="p-8">
+<div class="p-8">
     <div class="grid grid-cols-12">
         <div class="col-span-12">
 
@@ -559,23 +559,25 @@
  -->
 
 
+        <div id="customerJewelleryShow">
+            <div class="grid grid-cols-12" v-if="post.video">
 
-        <div class="grid grid-cols-12" v-if="post.video">
-
-            <div class="col-span-10 col-start-2">
-                <div class="box">
-                    <article>
-                        <div>
-                          <center><p class="title is-5">{{__('customerMoment.Product Video')}}</p></center>
-                            <video-player :options="videoOpts[3].videoPost" v-if="post.video"></video-player> 
+                <div class="col-span-10 col-start-2">
+                    <div class="box">
+                        <article>
+                            <div>
+                              <center><p class="title is-5">{{__('customerMoment.Product Video')}}</p></center>
+                                <video-player :options="videoOpts[3].videoPost" v-if="post.video"></video-player> 
+                              
+                             </div>
                           
-                         </div>
-                      
-                    </article>                            
+                        </article>                            
+                    </div>
                 </div>
-            </div>
 
+            </div>            
         </div>
+
 
 
 
