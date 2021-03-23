@@ -460,7 +460,9 @@
                             </div>
                         </div>
                         </div>
-                      @include('layouts.components.sideBar')
+
+                      <x-side-bar/>
+                      
                     </div>
 
 

@@ -2,8 +2,7 @@
 
 <div id="diamondHeight">
 
-<!--     @include('layouts.components.loading')
- -->   
+
   <div class="section-3 hidden sm:block">
 
     @include('frontend.diamond.searchDesktopLW')
@@ -303,41 +302,7 @@
   }
 </script>
 
-<!-- <script>
 
-    document.addEventListener("DOMContentLoaded", () => {
-        Livewire.hook('message.processed', (message, component) => {
-
-          var w = '' 
-          var i = 0 
-          var total = parseInt(document.getElementById('diamondsTotal').className);
-
-          for (var h = total-1; h >= 0; h--) {
-            var maxW = 0
-            console.log(h)
-
-            for (var i = 21 ; i >= 0; i--) {
-
-                console.log(document.getElementById("row1-"+ i ).clientWidth)
-                
-                w = document.getElementById("row" + h + "-"+ i ).clientWidth
-
-                if (w > maxW) {
-                  console.log(maxW)
-                  document.getElementById("row" + h + "-"+ i).style.width = w + 'px'; 
-                }
-
-                i += 1
-            };
-
-          };
-
-
-        })
-    });
-
-
-</script> -->
 
 <script>
 
@@ -354,13 +319,13 @@ window.addEventListener('new-tab', event => {
       window.addEventListener("scroll", function(event) {
 
           if (window.mutualVar.screen.y == 0) {
-            window.mutualVar.screen.y = document.getElementById('diamondHeight').clientHeight * 0.98
+            window.mutualVar.screen.y = document.getElementById('diamondHeight').clientHeight * 0.95
           }
 
           var top = this.scrollY,
           y = window.mutualVar.screen.y,
           loading = document.getElementById('loading').className,
-          height = document.getElementById('diamondHeight').clientHeight * 0.98;
+          height = document.getElementById('diamondHeight').clientHeight * 0.95;
 
 
           if (top > y ) {
@@ -382,11 +347,6 @@ window.addEventListener('new-tab', event => {
 
       })
   });
-
-
-
-
-
 
 
 </script>

@@ -112,9 +112,9 @@
   <shopping-cart-progress></shopping-cart-progress>
   <notification></notification>
 
- @include('layouts.components.floatingContact')
- @include('layouts.components.loading')
-
+  <x-floating-contact/>
+  <x-loading/>
+  
 </div>
 
 

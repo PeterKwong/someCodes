@@ -1,4 +1,4 @@
-@extends('layouts.section.frontendWithoutLW')
+@extends('layouts.section.frontend')
 
     @section('meta')
 

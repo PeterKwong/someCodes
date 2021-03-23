@@ -197,7 +197,7 @@
   }
 </script>
 
-@include('layouts.components.infinityAddPage')
+<x-infinity-add-page/>
 
 
 

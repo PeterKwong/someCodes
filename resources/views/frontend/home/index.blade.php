@@ -1,4 +1,4 @@
-@extends('layouts.section.frontendWithoutLW')
+@extends('layouts.section.frontend')
 
     @section('meta')
 
@@ -681,7 +681,7 @@
 
         <div class="grid grid-cols-3 gap-4 relative smalldot items-center text-center p-4">
           <div class="col-span-2 ">
-              @include('layouts.components.giaVideo')
+            <x-gia-video/>
           </div>
           <div class="col-span-1 ">
             <span>

@@ -171,13 +171,15 @@
                         <div class="grid grid-cols-12 text-center">
                             <div class="col-span-12 sm:col-span-10">
                                 <h2 class="sm:text-xl font-semibold"><span>&nbsp;</span><strong><a>{{trans('home.Must Watch')}} : </a></strong><small>{{trans('home.GIA Teaches You 4Cs')}} - {{trans('home.How To Choose Giamond')}}</small></h2>
-                                @include('layouts.components.giaVideo')
+                                <x-gia-video/>
                             </div>
                         </div>
 
 
                         </div>
-                      @include('layouts.components.sideBar')
+                      
+                        <x-side-bar/>
+
                       </div>
 
 
