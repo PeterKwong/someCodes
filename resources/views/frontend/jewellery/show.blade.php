@@ -60,10 +60,11 @@
                             <div class="">
                             <article>
                                 <center>
+                                  <x-appointment v-if="appointmentState"/>
+
 <!--                                     <button class="btn btn-primary" @click="appointmentState=!appointmentState">{{__('jewellery.Appointment')}}</button>
- -->                                    
                                     <appointment v-model="jewellery" :title="appointmentTitle" @active="appointmentState=!appointmentState" :active="appointmentState" :columns="columns"  :processing="false" :langs="langs" :locale="locale"></appointment>
-                                    
+ -->                                    
                                 </center>
                                 <br>
                                 <p>

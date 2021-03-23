@@ -77,11 +77,13 @@
                       <div class="col-span-12 sm:col-span-5 box px-4">
                         <article>
                               <center class="p-2">
+
                                   
                                  <!--  <button class="button is-info" @click="appointmentState=!appointmentState">{{__('engagementRing.Appointment')}}</button>
                                   <appointment v-model="engagementRing" :title="appointmentTitle" @active="appointmentState=!appointmentState" :active="appointmentState" :columns="columns"  :processing="false" :langs="langs" :locale="locale"></appointment> -->
                                   
                                   <shopping-cart :item="engagementRing" :type="shoppingCartType" :title="appointmentTitle" :carousel-item="carouselItem" ></shopping-cart>
+                                  <x-appointment v-if="appointmentState"/>
 
                               </center>
 
