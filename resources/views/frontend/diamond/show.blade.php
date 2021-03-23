@@ -96,7 +96,9 @@
                         <center>
                             
                             <shopping-cart :item="diamond" :type="shoppingCartType" :title="appointmentTitle" ></shopping-cart>
-                            <x-appointment v-if="appointmentState"/>
+                            @if($diamond->location == '1Hong Kong')
+                                <x-appointment/>
+                            @endif
                             
 <!--                             <button  v-if="diamond.location == '1Hong Kong' " class="btn btn-primary" @click="appointmentState=!appointmentState">{{trans('diamondSearch.Appointment')}}</button>
                             <appointment  v-model="diamond" :title="appointmentTitle" @active="appointmentState=!appointmentState" :active="appointmentState" :columns="columns" :processing="false" :langs="langs" :locale="locale"></appointment>
