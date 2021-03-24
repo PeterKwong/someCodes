@@ -88,6 +88,7 @@ class InvoicePost extends Model
             'published' => '0',
             'postable_id' => 0,
             'postable_type' => 0,
+            'video360'=> [],
             'date' => Carbon::now()->toDateString(),
             'images' => [['image'=>'',
                                 'type' => 'cover'],] , 

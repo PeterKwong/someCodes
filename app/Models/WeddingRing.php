@@ -129,6 +129,7 @@ class WeddingRing extends Model
 	            'cost' => 0,
 	            'customized'=> 0,
 	            'sideStone' =>0,
+	            'video360'=> [],
 	            'published'=> 0,
 	            'images' => [['image'=>'',
 								'type' => 'cover'],

@@ -89,6 +89,7 @@ class Jewellery extends Model
             'cost'=> 0,
             'setting' => 0,
             'sideStone' => 0,
+            'video360'=> [],
             'images' => [['image'=>'',
                                 'type' => 'cover'],] , 
             'video'=> '',
