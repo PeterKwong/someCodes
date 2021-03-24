@@ -165,6 +165,13 @@
 			</form>
 				
 
+			<div class="row">
+		       
+		        <div class="col-12">
+				<upload-multi-image></upload-multi-image>
+				</div>
+			</div>
+
 
 		</div>
 

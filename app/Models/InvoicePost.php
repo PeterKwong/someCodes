@@ -14,7 +14,7 @@ class InvoicePost extends Model
     protected $hidden = array('');
 
     protected $fillable = [
-        'invoice_id','video','texts','images','date','published','postable_id','postable_type'
+        'invoice_id','video','texts','images','date','published','postable_id','postable_type','video360',
     ];
 
     protected $filter =[

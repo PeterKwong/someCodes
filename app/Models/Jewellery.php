@@ -15,7 +15,7 @@ class Jewellery extends Model
     
 	protected $fillable =[
 	'id','stock' ,'texts' ,'type','gemstone' ,'setting','sideStone','images','video','published','unit_price',
-    'metal','metal_weight','ct','cost','brand',
+    'metal','metal_weight','ct','cost','brand','video360',
 
 	];
 

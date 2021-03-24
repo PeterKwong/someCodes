@@ -3,6 +3,7 @@ import { get, post } from '../../../helpers/api'
 import {toMulipartedForm} from '../../../helpers/form'
 import ImageUpload from '../../../components/ImageUpload.vue'
 import VideoUpload from '../../../components/VideoUpload.vue'
+import UploadMultiImage from '../../../components/UploadMultiImage.vue'
 
 import { transJs } from '../../../helpers/transJs'
 import langsJew from '../../../langs/jewelleries'
@@ -15,6 +16,7 @@ export default {
 	components: {
 		ImageUpload,
 		VideoUpload,
+		UploadMultiImage,
 	},
 	data(){
 		return{
