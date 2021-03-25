@@ -219,7 +219,7 @@ class InvoicePostController extends Controller
             ]);
 
         $invoicePost = InvoicePost::with(['images','texts'])->findOrFail($id);
-        dd($request->all());
+        // dd($request->all());
         $tags=[];
 
         if ($request->has('tags')) {
