@@ -55,19 +55,16 @@ trait StoreUpdateDestroy{
             $this->video360 = $video360Code;
             $this->save();
 
-
-            $sorted = array_values( Arr::sort($request->video360, fn($value) => $value['name'] ));
-
-            foreach ($sorted as $key => $video360File) {
+            foreach ($request->video360 as $key => $video360File) {
 
                 if (!empty($video360File['path'])) {
-                    // dd($video360File);
-                    // $pos = stripos($video360File['name'] , '.jpg');
-                    // $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;
-                    $this->saveSequentImages($this->video360, $video360File['path'], $key);
+                    $pos = stripos($video360File['name'] , '.jpg');
+                    $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;                    
+                    $this->saveSequentImages($video360Code, $video360File['path'], $pos);
 
                 }
             }
+
 
         }
 
@@ -159,6 +156,10 @@ trait StoreUpdateDestroy{
         
         if (is_array($request->video360)) {
 
+            $sorted = array_values( Arr::sort($request->video360, fn($value) => $value['name']
+                        
+                    ));
+
             if (!$this->video360) {
                 $video360Code= ResizeImage::generateUniqueCode();
 
@@ -170,15 +171,14 @@ trait StoreUpdateDestroy{
                     // dd('deleted');                
             }
 
-            $sorted = array_values( Arr::sort($request->video360, fn($value) => $value['name'] ));
 
-            foreach ($sorted as $key => $video360File) {
+            foreach ($request->video360 as $key => $video360File) {
 
                 if (!empty($video360File['path'])) {
                     // dd($video360File);
-                    // $pos = stripos($video360File['name'] , '.jpg');
-                    // $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;
-                    $this->saveSequentImages($this->video360, $video360File['path'], $key);
+                    $pos = stripos($video360File['name'] , '.jpg');
+                    $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;
+                    $this->saveSequentImages($this->video360, $video360File['path'], $pos);
 
                 }
             }
