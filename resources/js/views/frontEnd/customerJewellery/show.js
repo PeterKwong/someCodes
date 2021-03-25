@@ -98,7 +98,12 @@
 			},
 			setVideo360(){
 				this.video360 = {
-					src:this.post.video360, type:"video360", thumb: mutualVar.storage[mutualVar.storage.live] + 'public/video360/' + this.post.video360 +'/thm-0.jpg', size:120 , rotate:1}
+					src:this.post.video360, type:"video360", 
+					thumb: mutualVar.storage[mutualVar.storage.live] + 'public/video360/' + this.post.video360 +'/thm-0.jpg', 
+					size:120 , 
+					rotate:1,
+					fileName: mutualVar.css.innerWidth<500 ? 'thm-' :'',
+					}
 			},
 			setPublished(){
 				if (this.post.invoice.engagement_rings[0]) {

@@ -102,7 +102,7 @@
 
         this.viewer.progress +=  moved
 
-        console.log(this.viewer.progress)
+        // console.log(this.viewer.progress)
 
         this.drawImg()
 
