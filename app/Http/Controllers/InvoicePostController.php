@@ -125,7 +125,6 @@ class InvoicePostController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $this->validate($request, [
             'invoice_id' => 'required | max:255',
             'images' => 'required | array',
@@ -133,7 +132,7 @@ class InvoicePostController extends Controller
             ]);
 
 
-        $invoicePost = InvoicePost::create($request->except(['video','texts','images']));
+        $invoicePost = InvoicePost::create($request->except(['video','texts','images','video360']));
 
         $page = Page::create(['url' => 'customer-jewellery/'.$invoicePost->id ,'paginable_id' => $invoicePost->id , 'paginable_type' => 'App\InvoicePost']);
         $tags;
@@ -220,7 +219,7 @@ class InvoicePostController extends Controller
             ]);
 
         $invoicePost = InvoicePost::with(['images','texts'])->findOrFail($id);
-        // dd($request->tags);
+        dd($request->all());
         $tags=[];
 
         if ($request->has('tags')) {

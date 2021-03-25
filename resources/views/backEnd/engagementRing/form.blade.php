@@ -239,9 +239,9 @@
 					</div>
 
 					<div class="col">
-							<div class="box">
+							<div class="box" v-if="form.video360">
 								<label> video 360</label>
-								<p>@{{form.video360}}</p>
+								<p >@{{form.video360[0]}}</p>
 								<small class="error__control" v-if="errors.cover">@{{errors.cover[0]}}</small>
 							</div>
 					</div>

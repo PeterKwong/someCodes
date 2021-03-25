@@ -20,6 +20,7 @@ export default {
 	},
 	data(){
 		return{
+			adminVar,
 			option:[],
 			form: [],
 			langs: langsDia.concat(langsEnga,langsWedd, langsJew),
@@ -45,6 +46,7 @@ export default {
 			this.$data.tags = res.data.tags
 			this.assignOption()
 			this.$data.option = res.data.option.filter((data)=>{return data.id == this.$data.form.invoice_id})
+			adminVar.form = this.form
 		})
 
 	},
