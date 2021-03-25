@@ -571,18 +571,18 @@
                               
                               <div>
                                   
-                              <div v-if="video360.src">
-                                <product-viewer 
-                                :folder=" mutualVar.storage[mutualVar.storage.live] + 'public/video360/' + video360.src +'/'" 
-                                :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate"></product-viewer>
-
-                             </div>
-                          
                         </article>                            
                     </div>
                 </div>
 
-            </div>            
+            </div>    
+            
+            <div v-if="video360.src">
+                <product-viewer 
+                :folder=" mutualVar.storage[mutualVar.storage.live] + 'public/video360/' + video360.src +'/'" 
+                :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate"></product-viewer>
+             </div>
+        
         </div>
 
 
