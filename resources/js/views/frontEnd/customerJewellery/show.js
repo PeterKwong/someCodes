@@ -9,12 +9,14 @@
 	// import langs from '../../../langs/customerJewellry'
 
 	import {videoPlayer} from '../../../../../node_modules/vue-video-player/dist/vue-video-player'
+	import ProductViewer from '../../../components/productViewer360.vue'
 
 	
 	export default {
 		el: '#customerJewelleryShow',
 		components:{
         videoPlayer,
+        ProductViewer,
     	},
 		data(){
 			return {
@@ -49,6 +51,7 @@
 				invoice: '',
 				published: {engagementRings:0, weddingRings:0, jewelleries:0},
 				langHref : '/' + window.location.pathname.slice(1,3),
+				video360:'',
 			}
 		},
 		watch:{
@@ -90,7 +93,12 @@
 					this.ProceedVideoJew()
 					this.ProceedVideoPost()
 					this.setPublished()
+					this.setVideo360()
 				})
+			},
+			setVideo360(){
+				this.video360 = {
+					src:this.post.video360, type:"video360", thumb: mutualVar.storage[mutualVar.storage.live] + 'public/video360/' + this.post.video360 +'/thm-0.jpg', size:120 , rotate:1}
 			},
 			setPublished(){
 				if (this.post.invoice.engagement_rings[0]) {
