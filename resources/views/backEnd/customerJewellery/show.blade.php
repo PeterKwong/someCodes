@@ -16,8 +16,8 @@
 				</div>
 				<div class="col-3">
 					<a :href="'/adm/customer-jewelleries/' + model.id + '/edit'" class="btn btn-primary">Edit </a>
-					<button class="btn btn-primary" @click="remove">Delete</button>
-				</div>
+<!-- 					<button class="btn btn-primary" @click="remove">Delete</button>
+ -->				</div>
 			</div>
 			<div class="row">
 				<div class="col-3">
