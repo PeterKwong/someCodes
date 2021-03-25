@@ -569,10 +569,10 @@
                               <center><p class="title is-5">{{__('customerMoment.Product Video')}}</p></center>
                                 <video-player :options="videoOpts[3].videoPost" v-if="post.video"></video-player> 
                               
-                                <product-viewer v-if="video360" 
+<!--                                 <product-viewer v-if="video360" 
                                 :folder=" mutualVar.storage[mutualVar.storage.live] + 'public/video360/' + video360.src +'/'" 
                                 filename="" :size="video360.size" :rotate="video360.rotate"></product-viewer>
-
+ -->
                              </div>
                           
                         </article>                            
