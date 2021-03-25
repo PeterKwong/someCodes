@@ -72,7 +72,8 @@
 					<p class="subtitle is-5">@{{model.video}}</p>
 				</div>
 				<div class="col-3">
-					
+					<label>video 360</label>
+					<p class="subtitle is-5">@{{model.video360}}</p>
 				</div>
 				<div class="col-5">
 					

@@ -134,7 +134,7 @@
   			  ctx.drawImage(img,0, 0, 1080 ,720); // Or at whatever offset you like
   			};
         
-        console.log(this.viewer.progress)
+        // console.log(this.viewer.progress)
 
       },
 
