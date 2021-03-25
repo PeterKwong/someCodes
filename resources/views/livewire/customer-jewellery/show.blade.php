@@ -23,6 +23,32 @@
             </div>       
         </div>
 
+          <div id="customerJewelleryShow">
+            <div class="grid grid-cols-12 p-1" v-if="post.video">
+
+                <div class="col-span-10 col-start-2">
+                    <div class="box">
+                        <article>
+                            <div>
+                              <center><p class="title is-5">{{__('customerMoment.Product Video')}}</p></center>
+                                <video-player :options="videoOpts[3].videoPost" v-if="post.video"></video-player> 
+                              
+                              <div>
+                                  
+                        </article>                            
+                    </div>
+                </div>
+
+            </div>    
+            
+            <div v-if="video360.src" class=" p-1">
+                <product-viewer 
+                :folder=" mutualVar.storage[mutualVar.storage.live] + 'public/video360/' + video360.src +'/'" 
+                :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate"></product-viewer>
+             </div>
+        
+        </div>
+
         @foreach($meta->invoice->invoiceDiamonds as $key => $diamond )
 
         <div class="grid grid-cols-12 " >
@@ -559,31 +585,6 @@
  -->
 
 
-        <div id="customerJewelleryShow">
-            <div class="grid grid-cols-12" v-if="post.video">
-
-                <div class="col-span-10 col-start-2">
-                    <div class="box">
-                        <article>
-                            <div>
-                              <center><p class="title is-5">{{__('customerMoment.Product Video')}}</p></center>
-                                <video-player :options="videoOpts[3].videoPost" v-if="post.video"></video-player> 
-                              
-                              <div>
-                                  
-                        </article>                            
-                    </div>
-                </div>
-
-            </div>    
-            
-            <div v-if="video360.src">
-                <product-viewer 
-                :folder=" mutualVar.storage[mutualVar.storage.live] + 'public/video360/' + video360.src +'/'" 
-                :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate"></product-viewer>
-             </div>
-        
-        </div>
 
 
 
