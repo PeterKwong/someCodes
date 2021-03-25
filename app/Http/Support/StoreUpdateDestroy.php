@@ -2,11 +2,10 @@
 
 namespace App\Http\Support;
 
-use App\Http\Support\ResizeImage;
-use App\Models\Image;
-use App\Models\Text;
 use File;
-use Illuminate\Support\Arr;
+use App\Models\Text;
+use App\Models\Image;
+use App\Http\Support\ResizeImage;
 use Illuminate\Support\Facades\Storage;
 
 trait StoreUpdateDestroy{
@@ -155,10 +154,6 @@ trait StoreUpdateDestroy{
         }
         
         if (is_array($request->video360)) {
-
-            $sorted = array_values( Arr::sort($request->video360, fn($value) => $value['name']
-                        
-                    ));
 
             if (!$this->video360) {
                 $video360Code= ResizeImage::generateUniqueCode();
