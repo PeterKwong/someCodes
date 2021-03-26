@@ -523,6 +523,7 @@ class InvoiceController extends Controller
         $invoice = Invoice::whereYear('date',$request['year'])
                     ->whereMonth('date', $request['month'])
                     ->with('jewelleries', 'invoiceDiamonds','weddingRings','engagementRings')
+                    ->withCasts(['created_at'=>'datetime:Y-m-d'])
                     ->get();
 
 
