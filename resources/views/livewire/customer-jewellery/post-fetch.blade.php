@@ -102,10 +102,6 @@
 	</div>
 </div>
 
-
-
-<x-infinity-add-page/>
-
-
+@include('layouts.js.infinityAddPage')
 
 

@@ -211,7 +211,7 @@
   }
 </script>
 
-<x-infinity-add-page/>
+@include('layouts.js.infinityAddPage')
 
 
 
