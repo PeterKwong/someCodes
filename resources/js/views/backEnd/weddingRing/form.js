@@ -4,6 +4,7 @@ import {get, post, put} from '../../../helpers/api'
 import {toMulipartedForm} from '../../../helpers/weddingRingForm'	
 import ImageUpload from '../../../components/ImageUpload.vue'
 import VideoUpload from '../../../components/VideoUpload.vue'
+import UploadMultiImage from '../../../components/UploadMultiImage.vue'
 
 import { transJs } from '../../../helpers/transJs'
 import langs from '../../../langs/weddingRings'
@@ -13,7 +14,8 @@ export default {
 	el:'#weddingRingForm',
 	components: {
 		ImageUpload,
-		VideoUpload
+		VideoUpload,
+		UploadMultiImage,		
 	},
 	data(){
 		return {
@@ -98,6 +100,7 @@ export default {
 				.then((response)=>{
 					Vue.set(this.$data, 'form', response.data.form)
 					Vue.set(this.$data, 'option', response.data.option)
+					adminVar.form = this.form
 				})
 				.catch(function(error){
 					console.log(error)

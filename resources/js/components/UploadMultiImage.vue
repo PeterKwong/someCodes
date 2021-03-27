@@ -28,8 +28,8 @@
 import VueUploadMultipleImage from 'vue-upload-multiple-image'
 import axios from 'axios'
 export default {
-
-  data () {
+  props:{type:''},
+  data(){
     return {
       images: [],
       index:'',
@@ -46,6 +46,11 @@ export default {
       console.log('data', formData, index, fileList)
       this.fileList = fileList
       adminVar.form.video360 = this.fileList  
+      
+      if (this.type == 'weddingRingForm') {
+        adminVar.form[0].video360 = this.fileList          
+      }
+
       this.index = index +1
       // Upload image api
       // axios.post('http://your-url-upload', formData).then(response => {

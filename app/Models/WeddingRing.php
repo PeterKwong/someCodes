@@ -97,6 +97,7 @@ class WeddingRing extends Model
 	            'ct'=> '0',
 	            'customized'=> '0',
 	            'sideStone' =>'0',
+	            'video360'=> [],
 	            'images' => [['image'=>'',
 								'type' => 'cover'],
 							['image'=>'',
