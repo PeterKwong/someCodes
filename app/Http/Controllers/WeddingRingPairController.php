@@ -18,6 +18,7 @@ class WeddingRingPairController extends Controller
 
     public $videoPath = 'public/videos';
     public $imagePath = 'public/images';
+    public $video360Path = 'public/video360';
 
 
     public function bladeIndex($locale)
@@ -195,7 +196,7 @@ class WeddingRingPairController extends Controller
         $weddingRings = [];
 
         foreach ($requestAll as $req) {
-            $weddingRings [] = WeddingRing::create(Arr::except($req, ['video','texts','images']));
+            $weddingRings [] = WeddingRing::create(Arr::except($req, ['video','texts','images','video360']));
         }
   
         $weddingRingPair = WeddingRingPair::create();
@@ -247,6 +248,17 @@ class WeddingRingPairController extends Controller
             }
             
 
+            if ($req['video360']) {
+
+                $video360Code= ResizeImage::generateUniqueCode();
+
+                $this->video360 = $video360Code;
+                $this->save();
+
+                $this->saveVideo360($req['video360']);
+
+
+            }
 
             
             if ($req['video']) {
@@ -421,7 +433,23 @@ class WeddingRingPairController extends Controller
             $weddingRingPair->weddingRings[$key]->images()->saveMany($images);
 
 
-            
+            if (!empty($req['video360']) && !is_string($req['video360'])) {
+
+                if (!$this->video360) {
+                    $video360Code= ResizeImage::generateUniqueCode();
+
+                    $this->video360 = $video360Code;
+                    $this->save();
+                }else{
+
+                    Storage::disk('s3')->deleteDirectory($this->video360Path .'/'. $this->video360);
+                        // dd('deleted');                
+                }
+
+                $this->saveVideo360($req['video360']);
+
+            }
+
 
         }
 
@@ -485,4 +513,29 @@ class WeddingRingPairController extends Controller
                 'deleted' => true
                 ]);
     }
+
+    public function saveVideo360($video360){
+        
+        $sorted = array_values(Arr::sort($video360, function ($value) {
+                    return $value['name'];
+        }));
+
+        foreach ($sorted as $key => $video360File) {
+
+            if (!empty($video360File['path'])) {
+                // dd($video360File);
+                // $pos = stripos($video360File['name'] , '.jpg');
+                // $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;
+                $this->saveSequentImages($this->video360, $video360File['path'], $key);
+
+            }
+        }
+
+    }
+
+    public function saveSequentImages($folderName, $file,$key){
+        ResizeImage::setBase64ImageToThumb($folderName,$file,$key);
+        ResizeImage::setBase64ImageToLarge($folderName,$file,$key);
+
+    } 
 }

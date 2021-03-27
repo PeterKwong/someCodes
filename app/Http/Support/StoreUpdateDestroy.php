@@ -55,21 +55,8 @@ trait StoreUpdateDestroy{
             $this->video360 = $video360Code;
             $this->save();
 
+            $this->saveVideo360($request->video360);
 
-            $sorted = array_values(Arr::sort($request->video360, function ($value) {
-                return $value['name'];
-            }));
-
-            foreach ($sorted as $key => $video360File) {
-
-                if (!empty($video360File['path'])) {
-                    // dd($video360File);
-                    // $pos = stripos($video360File['name'] , '.jpg');
-                    // $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;
-                    $this->saveSequentImages($this->video360, $video360File['path'], $key);
-
-                }
-            }
 
         }
 
@@ -172,20 +159,7 @@ trait StoreUpdateDestroy{
                     // dd('deleted');                
             }
 
-            $sorted = array_values(Arr::sort($request->video360, function ($value) {
-                return $value['name'];
-            }));
-
-            foreach ($sorted as $key => $video360File) {
-
-                if (!empty($video360File['path'])) {
-                    // dd($video360File);
-                    // $pos = stripos($video360File['name'] , '.jpg');
-                    // $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;
-                    $this->saveSequentImages($this->video360, $video360File['path'], $key);
-
-                }
-            }
+            $this->saveVideo360($request->video360);
 
 
         }
@@ -251,6 +225,25 @@ trait StoreUpdateDestroy{
         }
     }
 
+    public function saveVideo360($video360){
+        
+        $sorted = array_values(Arr::sort($video360, function ($value) {
+            return $value['name'];
+        }));
+
+        foreach ($sorted as $key => $video360File) {
+
+            if (!empty($video360File['path'])) {
+                // dd($video360File);
+                // $pos = stripos($video360File['name'] , '.jpg');
+                // $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;
+                $this->saveSequentImages($this->video360, $video360File['path'], $key);
+
+            }
+        }
+
+    }
+
     public function saveSequentImages($folderName, $file,$key){
         ResizeImage::setBase64ImageToThumb($folderName,$file,$key);
         ResizeImage::setBase64ImageToLarge($folderName,$file,$key);
@@ -263,6 +256,7 @@ trait StoreUpdateDestroy{
         Storage::disk('s3')->delete($this->imagePath .'/thm-'. $oriImg[0]['image']);
         Storage::disk('s3')->delete($this->imagePath .'/sq-'. $oriImg[0]['image']);
     }
+
 
 
 }
