@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
-use App\Support\ResizeImage;
+use App\Http\Support\ResizeImage;
 use App\Models\Text;
 use App\Models\WeddingRing;
 use App\Models\WeddingRingPair;
@@ -252,10 +252,10 @@ class WeddingRingPairController extends Controller
 
                 $video360Code= ResizeImage::generateUniqueCode();
 
-                $this->video360 = $video360Code;
+                $weddingRingPair->weddingRings[$key]->video360 = $video360Code;
                 $this->save();
 
-                $this->saveVideo360($req['video360']);
+                $this->saveVideo360($req['video360'],$weddingRingPair->weddingRings[$key]->video360);
 
 
             }
@@ -327,7 +327,7 @@ class WeddingRingPairController extends Controller
 
 
         $requestAll = array_slice($request->all(),0,2);
-        // dd(print_r($requestAll));
+        // dd($requestAll);
 
 
         foreach ($requestAll as $key=>$req) {
@@ -337,22 +337,22 @@ class WeddingRingPairController extends Controller
             }
 
 
-                if (is_array($req)) {
+            if (is_array($req)) {
 
-                        $texts = [];
-                        
-                        // print_r($req);
-                            foreach ($req['texts'] as $k=>$text) {
-                                if (isset($text['content'])) {
-                                    // dd(print_r($text));
-                                    Text::where('textable_id', $weddingRingPair->weddingRings[$key]->id)
-                                        ->where('textable_type', 'App\WeddingRing')
-                                        ->where('locale', $text['locale'])
-                                        ->update(['content' => $text['content']]);
-                                }
-                                
+                    $texts = [];
+                    
+                    // print_r($req);
+                        foreach ($req['texts'] as $k=>$text) {
+                            if (isset($text['content'])) {
+                                // dd(print_r($text));
+                                Text::where('textable_id', $weddingRingPair->weddingRings[$key]->id)
+                                    ->where('textable_type', 'App\WeddingRing')
+                                    ->where('locale', $text['locale'])
+                                    ->update(['content' => $text['content']]);
                             }
-                    }
+                            
+                        }
+                }
             // dd(print_r($texts));
 
             $images =[];
@@ -429,24 +429,24 @@ class WeddingRingPairController extends Controller
             }
             
                 // dd(Arr::except($req,['texts','images','video']));
-            $weddingRingPair->weddingRings[$key]->update(Arr::except($req,['texts','images','video']));
+            $weddingRingPair->weddingRings[$key]->update(Arr::except($req,['texts','images','video','video360']));
             $weddingRingPair->weddingRings[$key]->images()->saveMany($images);
 
-
+            // dd($reg['video360']);
             if (!empty($req['video360']) && !is_string($req['video360'])) {
 
-                if (!$this->video360) {
+                if (!$weddingRingPair->weddingRings[$key]->video360) {
                     $video360Code= ResizeImage::generateUniqueCode();
 
-                    $this->video360 = $video360Code;
-                    $this->save();
+                    $weddingRingPair->weddingRings[$key]->video360 = $video360Code;
+                    $weddingRingPair->weddingRings[$key]->save();
                 }else{
 
-                    Storage::disk('s3')->deleteDirectory($this->video360Path .'/'. $this->video360);
+                    Storage::disk('s3')->deleteDirectory($weddingRingPair->weddingRings[$key]->video360Path .'/'. $weddingRingPair->weddingRings[$key]->video360);
                         // dd('deleted');                
                 }
 
-                $this->saveVideo360($req['video360']);
+                $this->saveVideo360($req['video360'],$weddingRingPair->weddingRings[$key]->video360);
 
             }
 
@@ -514,7 +514,7 @@ class WeddingRingPairController extends Controller
                 ]);
     }
 
-    public function saveVideo360($video360){
+    public function saveVideo360($video360,$query){
         
         $sorted = array_values(Arr::sort($video360, function ($value) {
                     return $value['name'];
@@ -526,7 +526,7 @@ class WeddingRingPairController extends Controller
                 // dd($video360File);
                 // $pos = stripos($video360File['name'] , '.jpg');
                 // $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;
-                $this->saveSequentImages($this->video360, $video360File['path'], $key);
+                $this->saveSequentImages($query, $video360File['path'], $key);
 
             }
         }
