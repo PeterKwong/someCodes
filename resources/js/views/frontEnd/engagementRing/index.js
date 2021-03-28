@@ -1,6 +1,6 @@
-import { get } from '../../../helpers/api'
+// import { get } from '../../../helpers/api'
 
-import langs from '../../../langs/engagementRings'
+// import langs from '../../../langs/engagementRings'
 
 import { setCookie, getCookie, } from '../../../helpers/cookie'
 import ProductViewer from '../../../components/productViewer360.vue'
@@ -31,7 +31,7 @@ import ProductViewer from '../../../components/productViewer360.vue'
 				},
 				scrolled: false,
 				originY: 500,	
-				langs,
+				// langs,
 				showModal:false,
 				showAdvance:false,
 				opened: [],

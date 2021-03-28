@@ -1,10 +1,7 @@
 
 import Carousel from '../../../components/carousel.vue'
 
-import { get,post, } from '../../../helpers/api'
-import { getLocale , getLocaleCode} from '../../../helpers/locale'
-import { setCookie, getCookie, } from '../../../helpers/cookie'
-import { extraWorkingDates } from '../../../helpers/helperFunctions'
+import { extraWorkingDates } from '../../../helpers/extraWorkingDates'
 
 	
 export default {
@@ -41,9 +38,6 @@ export default {
         shoppingCart(){
             return this.mutualVar.cookiesInfo.shoppingCart
         },
-   		locale(){
-				return getLocaleCode()
-		},
         subTotal(){
             var subTotal = 0
             for (var i = 0 ; this.shortenName.length >i ; i++) {
@@ -112,7 +106,7 @@ export default {
                     urlId  = '/shopping-cart/'
                 }
 
-        		urlId = getLocale() + urlId
+        		urlId = mutualVar.langs.locale + urlId
         	}
 
         	window.open(urlId,'_self')

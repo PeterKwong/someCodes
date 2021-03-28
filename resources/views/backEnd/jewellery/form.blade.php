@@ -222,19 +222,18 @@
 						
 					</div>		
 			
-					<div class="row">
-				        <div class="col-12">
-						<upload-multi-image></upload-multi-image>
-						</div>
-					</div>
 
-					
 					<div class="row">
 						<div class="column">
 							<button class="btn btn-primary" @submit="save" :disabled="isProcessing">Save</button>
 						</div>
 					</div>
 				
+					<div class="row">
+				        <div class="col-12">
+						<upload-multi-image></upload-multi-image>
+						</div>
+					</div>
 			</div>
 			</form>
 		</div>

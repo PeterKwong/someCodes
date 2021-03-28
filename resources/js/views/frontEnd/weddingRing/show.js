@@ -1,38 +1,37 @@
 
 	// import Auth from '../../store/auth'
-	import { get, del } from '../../../helpers/api'
-	import Appointment from '../../../components/appointment.vue'
+	// import Appointment from '../../../components/appointment.vue'
 	import Carousel from '../../../components/carousel.vue'
 	// import Flash from '../../helpers/flash'
-	import { transJs } from '../../../helpers/transJs'
-	import langs from '../../../langs/weddingRings'
+	// import { transJs } from '../../../helpers/transJs'
+	// import langs from '../../../langs/weddingRings'
 
 		
 	export default {
 		el:'#weddingRingsShow',
-		components: {Appointment, Carousel},
+		components: { Carousel},
 		data(){
 			return {
 				// auth: Auth.state,
-				isRemoving: false,
+				// isRemoving: false,
 				carouselState: false,
 				appointmentState: false,
 				title: '',
-				langs,
+				// langs,
 				weddingRing:'',
 				hrefLangs: window.location.pathname.slice(0,3),
-				columns:[
-				'unit_price',
-                'metal',
-                'ct',
-                'stock',
-                'name',
-                'description',
-                ]
-				,
-				text:{
-					weddingRing: 'Wedding Ring', 
-				},
+				// columns:[
+				// 'unit_price',
+    //             'metal',
+    //             'ct',
+    //             'stock',
+    //             'name',
+    //             'description',
+    //             ]
+				// ,
+				// text:{
+				// 	weddingRing: 'Wedding Ring', 
+				// },
 				langHref : '/' + window.location.pathname.slice(1,3),				
 				storeURL: '',
 				customerItems: '',
@@ -48,25 +47,25 @@
 			
 		},
 		computed: {
-			appointmentTitle(){
-				return transJs(this.weddingRing.wedding_rings[0].style,this.langs,this.locale)  + ' ' + transJs(this.weddingRing.wedding_rings[0].metal,this.langs,this.locale)  + transJs(this.text.weddingRing,this.langs,this.locale) 
-			},
-			locale(){
+			// appointmentTitle(){
+			// 	return transJs(this.weddingRing.wedding_rings[0].style,this.langs,this.locale)  + ' ' + transJs(this.weddingRing.wedding_rings[0].metal,this.langs,this.locale)  + transJs(this.text.weddingRing,this.langs,this.locale) 
+			// },
+			// locale(){
 				
-				if (window.location.pathname.slice(1,3) == 'en') {
-					return 0
-				}
-				if (window.location.pathname.slice(1,3) == 'hk') {
-					return 1
-				}
-				if (window.location.pathname.slice(1,3) == 'cn') {
-					return 2
-				}
-			}
+			// 	if (window.location.pathname.slice(1,3) == 'en') {
+			// 		return 0
+			// 	}
+			// 	if (window.location.pathname.slice(1,3) == 'hk') {
+			// 		return 1
+			// 	}
+			// 	if (window.location.pathname.slice(1,3) == 'cn') {
+			// 		return 2
+			// 	}
+			// }
 		},
-		filters:{
-			transJs,
-		},
+		// filters:{
+		// 	transJs,
+		// },
 		methods: {
 			fetchData(){
 				get(`/api/weddingRings/${window.location.pathname.slice(18)}`)

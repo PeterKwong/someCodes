@@ -1,6 +1,7 @@
 <?php
 
 return [
+	'langAttr' => 'en-us',
 	'EN' => 'EN',
 	'HK' => '繁體',
 	'CN' => '简体',

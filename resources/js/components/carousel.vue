@@ -242,7 +242,7 @@ export default {
                     arr.push({src:this.upperitems.video360, type:"video360", thumb:this.folder + this.upperitems.video360 +'/thm-0.jpg', size:120 , rotate:1})
                 }
 
-            if (this.upperitems.video) {
+            if (!this.upperitems.video360 && this.upperitems.video) {
                     arr.push({src:this.upperitems.video, type:"video", thumb:this.upperitems.images[0].image})
                 }
 
@@ -284,7 +284,7 @@ export default {
 
         carouselItemsToArray(){
 
-               var arr = []
+            var arr = []
 
             this.items.reverse()
             

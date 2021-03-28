@@ -188,7 +188,7 @@ import Carousel from '../carousel.vue'
 
 import { getLocale , getLocaleCode} from '../../helpers/locale'
 import { setCookie, getCookie, } from '../../helpers/cookie'
-import { extraWorkingDates } from '../../helpers/helperFunctions'
+import { extraWorkingDates } from '../../helpers/extraWorkingDates'
 
 import { transJs } from '../../helpers/transJs'
 

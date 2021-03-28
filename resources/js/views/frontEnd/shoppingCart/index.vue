@@ -4,13 +4,7 @@
 
 
 
-import Carousel from '../../../components/carousel.vue'
 import shoppingCartItem from '../../../components/shoppingCart/item.vue'
-
-import { get,post, } from '../../../helpers/api'
-import { getLocale , getLocaleCode} from '../../../helpers/locale'
-import { setCookie, getCookie, } from '../../../helpers/cookie'
-import { extraWorkingDates } from '../../../helpers/helperFunctions'
 
 import stripeCheckoutForm from '../../../components/shoppingCart/stripeCheckoutForm.vue'
 
