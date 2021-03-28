@@ -66,9 +66,6 @@
 			locale(){
 				return getLocaleCode()
 			},
-			carouselItem(){
-
-			},
 		},
 		methods: {
 			fetchData(){

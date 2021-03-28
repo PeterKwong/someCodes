@@ -78,7 +78,7 @@ class JewelleryController extends Controller
             'unit_price' => 'required | numeric |min:0',
     		]);
 
-        $jewellery = Jewellery::create($request->except(['video','texts','images']));
+        $jewellery = Jewellery::create($request->except(['video','texts','images','video360']));
 
         return $jewellery->storeItem($request);
         

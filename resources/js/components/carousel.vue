@@ -315,10 +315,10 @@ export default {
                 var chunk2 = []
                 var chunk3 = []
                 
-                if (!this.items) {
+            if (!this.items) {
                 return chunk1
             }
-                if (this.currentIndex<=1) {
+            if (this.currentIndex<=1) {
                  chunk1 = this.carouselItemsToArray.slice(0,3)
                  chunk2 = this.carouselItemsToArray.slice(3,this.carouselItemsToArray.length).fill('')
                  return chunk1.concat(chunk2)

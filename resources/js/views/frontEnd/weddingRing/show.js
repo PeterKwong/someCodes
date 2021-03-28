@@ -79,7 +79,8 @@
 			},
 			UpperWeddingRings(){ 
 				var obj = {images: [],
-							video: []
+							video: null,
+							video360: null,
 					}
 
 				for (var i =0 ;this.weddingRing.wedding_rings[0].images.length > i; i++) {
@@ -90,7 +91,15 @@
 					obj.images.push(this.weddingRing.wedding_rings[1].images[i])
 					}
 				}
-				obj.video.push(this.weddingRing.wedding_rings[0].video)
+				if (this.weddingRing.wedding_rings[0].video) {
+					obj.video = []
+					obj.video.push(this.weddingRing.wedding_rings[0].video)
+				}
+				// console.log(this.weddingRing.wedding_rings[0].video360 == null)
+				if (this.weddingRing.wedding_rings[0].video360) {
+					obj.video360 = []
+					obj.video360.push(this.weddingRing.wedding_rings[0].video360)
+				}
 				
 				return this.combinedUpperWeddingRings = obj
 			},
