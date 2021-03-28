@@ -217,7 +217,11 @@ class Content extends Component
 	public $selectedColor = 'yellow';
 
     public function render()
-    {	 
+    {	
+    	if (Cache::has('queryPreset')) {
+		    $this->diamonds = Cache::get('queryPreset');
+		}
+		
         return view('livewire.diamond.content', [
             'diamonds' => $this->readyToLoad
                 ? $this->deferLoading()
