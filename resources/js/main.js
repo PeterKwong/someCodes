@@ -38,12 +38,12 @@
 // import router from './router'
 // import ActiveTab from './helpers/session'
 
-try {
-    window.Popper = require('popper.js').default;
-    window.$ = window.jQuery = require('jquery');
+// try {
+//     window.Popper = require('popper.js').default;
+//     window.$ = window.jQuery = require('jquery');
 
-    require('bootstrap');
-} catch (e) {}
+//     require('bootstrap');
+// } catch (e) {}
 
 import './jqueryPlugin/owlCarousel'
 import './jqueryPlugin/rangeslider'
