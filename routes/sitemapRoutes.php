@@ -24,7 +24,7 @@ use Carbon\Carbon;
 
 
 		$translations = [
-			['language' => 'en', 'url' => secure_url('/en/'), ],
+			['language' => 'en-us', 'url' => secure_url('/en/'), ],
 			['language' => 'zh-Hant', 'url' => secure_url('/hk/')],
 			['language' => 'zh-Hans', 'url' => secure_url('/cn/')],
 		];
