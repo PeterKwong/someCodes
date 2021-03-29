@@ -218,9 +218,15 @@ class Content extends Component
 
     public function render()
     {	
-    	if (Cache::has('queryPreset')) {
-		    $this->diamonds = Cache::get('queryPreset');
+    	if (! Cache::has('diamondDayCache')) {
+
+			$this->diamonds =  Cache::remember('diamondDayCache', $seconds = 86400, function(){
+				// dd($this->preset);
+				return $this->queryDiamonds();
+			});
 		}
+
+		$this->diamonds = Cache::get('diamondDayCache');
 		
         return view('livewire.diamond.content', [
             'diamonds' => $this->readyToLoad
