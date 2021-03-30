@@ -5,6 +5,8 @@ export function setCookie(cname, cvalue, mins) {
         d.setTime(d.getTime() + (mins *60 * 1000));
         var expires = "expires=" + d.toGMTString();
         // console.info(cname + "=" + cvalue + "; " + expires + "; path=/");
+        console.log(cname + "=" + cvalue + "; " + expires + "; path=/")
+        window.location.pathname
         document.cookie = cname + "=" + cvalue + "; " + expires + "; path=/";
         // console.info(document.cookie);
 }

@@ -300,7 +300,7 @@ class Content extends Component
     	if (!isset($_COOKIE['diamondSearch'])) {
 			$this->setCookie();
     	}
-    	if (isset($_COOKIE['diamondSearch'])) {
+    	if (isset($_COOKIE['diamondSearch']) && isset($_COOKIE['diamondSearchShowAdvance']) && isset($_COOKIE['clickedRows'])) {
     		$this->getCookie();
 
     	}    	
@@ -750,7 +750,7 @@ class Content extends Component
 	}
 	public function setCookie(){
 
-		$time = time() + (12 * config('global.cookie.time') );
+		$time = time() + ( 48 * config('global.cookie.time') );
 
 		setcookie('diamondSearch', json_encode($this->fetchData), $time , "/");
 		setcookie('diamondSearchShowAdvance', json_encode($this->showAdvance), $time , "/");
