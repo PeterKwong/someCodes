@@ -1,8 +1,10 @@
 @if(cache()->get('homePageShow') == 2)
+	{{ session()->put('notification', cache()->get('homePage')) }}
+@endif
 
-<!-- {{ session()->put('cache.homePage', cache()->get('homePage')) }}
-{{dd( session()->get('cache.homePage') )}}
- -->
+
+@if( session()->has('notification'))
+
   <div class="z-10" x-data="{ open: false }">
     <div x-on:click="open = true" >
       <transition name="modal">
@@ -20,7 +22,7 @@
                   </button>
                 </div>
                 <div class="modal-body p-2">
-                  <div class="grid grid-cols-12" v-if="notification.contactMessage.active">
+                  <div class="grid grid-cols-12">
                     <div class="col-span-4">
                       <img width="128" src="/images/front-end/aboutUs/wechat.jpg">
                     </div>
@@ -28,11 +30,11 @@
                       <div class="content">
                           <div v-if="notification.contactMessage.trans">
                             <p class="text-2xl p-1">
-                              <strong>{{notification.contactMessage.title |transJs(langs) }}</strong> <small>@Admin</small>
+                              <strong>{{ __('home.Please Note') }}</strong> <small>@Admin</small>
                               <br>
                             </p> 
-                            <p :class="notification.contactMessage.type" v-for="dat in notification.contactMessage.data">
-                              {{dat  |transJs(langs) }}
+                            <p class="is-info">
+                              {{ session()->get('notification') }}
                             </p>
                             <a :href="notification.contactMessage.next.nextUrl" target="_blank">
                               <i class="fas fa-search-plus"></i>

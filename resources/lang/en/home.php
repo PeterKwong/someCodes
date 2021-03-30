@@ -51,4 +51,5 @@ return [
 	'Check Now' => 'Check Now',
 	'Every moment worth sharing' => 'Every moment worth sharing',
 	'Discover together' => 'Discover together',
+	'Please Note' => 'Please Note',
 ];

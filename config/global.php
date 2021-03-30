@@ -7,8 +7,8 @@ return [
 		'cfront' => 'https://image.tingdiamond.com/',
 		's3' => 'https://s3.tingdiamond.com/',
 		],
-
-	'cookie'=>['time' => 1440 ],
+    
+	'cookie'=>['time' => 60*60 ],
 
 	'locale'=>[
 		'en'=>0,
