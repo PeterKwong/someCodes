@@ -750,7 +750,7 @@ class Content extends Component
 	}
 	public function setCookie(){
 
-		$time = time() + (60 * config('global.cookie.time') );
+		$time = time() + (12 * config('global.cookie.time') );
 
 		setcookie('diamondSearch', json_encode($this->fetchData), $time , "/");
 		setcookie('diamondSearchShowAdvance', json_encode($this->showAdvance), $time , "/");
