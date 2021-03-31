@@ -46,8 +46,8 @@
           </thead>
           <tbody>
             @if( isset($diamonds['data']) )
-            @foreach($diamonds['data'] as $row)
-                <tr x-data="{ dataId: {{$row['id']}} }" class="text-center {{ in_array( $row['id'], $clickedRows) ? 'bg-gray-400':'' }}"  x-on:click.prevent="window.open('/' + '{{app()->getLocale()}}' + '/gia-loose-diamonds/' + dataId , '') ; ">
+            @foreach($diamonds['data'] as $id => $row)
+                <tr class="text-center"  :class="{ ' bg-gray-400':clickedRows.includes( {{$row['id']}} )}"  x-on:click.prevent="goto( {{$row['id']}}, {{$id}} )">
                     <td class="border-b px-4 py-2" >
                         <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                         @if($row['image_cache'])

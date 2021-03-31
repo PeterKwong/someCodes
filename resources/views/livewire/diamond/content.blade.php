@@ -113,7 +113,7 @@
   </div>
 
 
-  <div wire:init="loadDiamonds">
+  <div wire:init="loadDiamonds"  x-data="result()" x-init="init()">
 
     <div class="overflow-x-auto {{ $showInGrid ? 'sm:hidden' : 'hidden sm:block' }}" >
       @include('frontend.diamond.resultDesktop')   
@@ -307,10 +307,9 @@
   function result(){
 
     return {
-        id:'',
+        diamonds:@entangle('diamonds'), 
         clickedRows:[],
-        init(id){
-            this.id =id
+        init(){
             if (localStorage.getItem('clickedRows')) {
                 this.clickedRows = JSON.parse(decodeURIComponent(localStorage.getItem('clickedRows')))
             }
@@ -318,13 +317,14 @@
         sendCookies(){
             localStorage.setItem('clickedRows', encodeURIComponent(JSON.stringify(this.clickedRows)))
         },
-        goto(id){
-          this.clickedRows.push(this.id)
-          window.open('/' + '{{app()->getLocale()}}' + '/gia-loose-diamonds/' + this.id , '')
-          console.log(this.id)
+        goto(id,i){
+          row = this.diamonds.data[i].id
+          this.clickedRows.push(row)
+          window.open('/' + '{{app()->getLocale()}}' + '/gia-loose-diamonds/' + row , '')
           this.sendCookies()
         }
     }
+    
   }
 </script>
 
