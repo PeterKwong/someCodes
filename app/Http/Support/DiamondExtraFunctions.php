@@ -4,7 +4,7 @@ namespace App\Http\Support;
 
 use App\Http\Support\ResizeImage;
 use Illuminate\Support\Facades\Storage;
-use Imagick;
+use \Imagick;
 
 trait DiamondExtraFunctions{
 

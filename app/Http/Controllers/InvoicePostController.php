@@ -214,12 +214,13 @@ class InvoicePostController extends Controller
     public function update($id, Request $request)
     {
         
+        // dd($id);
         $this->validate($request, [
             'texts' => 'required',
             ]);
 
         $invoicePost = InvoicePost::with(['images','texts'])->findOrFail($id);
-        // dd($request->all());
+        // dd($request->video);
         $tags=[];
 
         if ($request->has('tags')) {
