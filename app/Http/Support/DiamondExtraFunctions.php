@@ -4,7 +4,7 @@ namespace App\Http\Support;
 
 use App\Http\Support\ResizeImage;
 use Illuminate\Support\Facades\Storage;
-// use \Imagick;
+use Imagick;
 
 trait DiamondExtraFunctions{
 
@@ -104,7 +104,7 @@ trait DiamondExtraFunctions{
     	            }
 
                    // create Imagick object
-                   $im = new \Imagick();
+                   $im = new Imagick();
 
                    // Reads image from PDF
                    $im->setResolution(180,180);
@@ -192,7 +192,7 @@ trait DiamondExtraFunctions{
 
   public function checkFancyCert($url){
 
-      $image = new \Imagick();
+      $image = new Imagick();
 
                    // Reads image from PDF
                    $image->setResolution(180,180);
