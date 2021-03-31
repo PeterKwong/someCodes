@@ -300,11 +300,11 @@ class Content extends Component
     	if (!isset($_COOKIE['diamondSearch'])) {
 			$this->setCookie();
     	}
-    	if (isset($_COOKIE['diamondSearch']) && isset($_COOKIE['diamondSearchShowAdvance']) && isset($_COOKIE['clickedRows'])) {
+    	if (isset($_COOKIE['diamondSearch'])) {
     		$this->getCookie();
-
     	}    	
-		    	// dd( $this->fetchData );
+		
+		// dd( $this->fetchData );
 	    $this->extraUrls();
     	$this->setRequest();
     	$this->resetPartial();

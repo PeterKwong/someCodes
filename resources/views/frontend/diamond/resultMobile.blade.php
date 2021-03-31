@@ -2,9 +2,9 @@
 
 @foreach($diamonds['data'] as  $row)
 
-<div class="border border-gray-400 {{ in_array( $row['id'], $clickedRows) ? 'bg-gray-400':'' }}">
+<div class="border border-gray-400" :class="{ ' bg-gray-400':clickedRows.includes( {{$row['id']}} )}">
   <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" target="_blanck" 
-      wire:click="goto({{$row['id']}})">
+      x-on:click="goto({{$row['id']}})">
       <div class="flex items-center">
             @if($row['image_cache'])  
               <div class="flex-auto" >

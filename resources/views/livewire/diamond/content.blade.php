@@ -113,7 +113,7 @@
   </div>
 
 
-  <div wire:init="loadDiamonds">
+  <div wire:init="loadDiamonds" x-data="result()" x-init="init()">
 
     <div class="overflow-x-auto {{ $showInGrid ? 'sm:hidden' : 'hidden sm:block' }}" >
       @include('frontend.diamond.resultDesktop')   
@@ -303,15 +303,29 @@
 </script>
 
 
+<script >
+  function result(){
+
+    return {
+        clickedRows:[],
+        init(){
+            if (localStorage.getItem('clickedRows')) {
+                this.clickedRows = JSON.parse(decodeURIComponent(localStorage.getItem('clickedRows')))
+            }
+        },
+        sendCookies(){
+            localStorage.setItem('clickedRows', encodeURIComponent(JSON.stringify(this.clickedRows)))
+        },
+        goto(id){
+          this.clickedRows.push(id)
+          this.sendCookies()
+        }
+    }
+  }
+</script>
+
 
 <script>
-
-
-window.addEventListener('new-tab', event => {
-    console.log(event.detail.link)
-    window.open(event.detail.link , '');
-})
-
 
   document.addEventListener("DOMContentLoaded", () => {
       Livewire.hook('message.processed', (message, component) => {
