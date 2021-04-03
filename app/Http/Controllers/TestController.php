@@ -39,7 +39,7 @@ class TestController extends Controller
       $diamonds = Diamond::where('available',1)->where('has_cert',1)->where('cert_cache', NULL)->chunk(500, function($diams){
             
             foreach ($diams as $dia) {
-            	$url = file_get_html($dia->certificate);
+            	$url = file_get_contents($dia->certificate);
             	dd($url);
                 $dia->loadCachedCert();
               // dd($dia->id);
