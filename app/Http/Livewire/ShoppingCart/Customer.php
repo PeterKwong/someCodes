@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\Customer;
+namespace App\Http\Livewire\ShoppingCart;
 
-use App\Models\Customer;
+use App\Models\Customer as ModelCustomer;
 use Livewire\Component;
 
-class Edit extends Component
+class Customer extends Component
 {
 	public $user;
 	public $customer;
@@ -22,12 +22,17 @@ class Edit extends Component
 
     public function mount(){
 
+        if (!auth()->check()) {
+            return redirect(app()->getLocale() . '/shop-bag-bill');
+        }
+        
     	$this->user =auth()->user();
+
     	$this->customer =auth()->user()->customers;
 
     	if ( !count($this->customer) ) {
 
-    		$this->customer = new Customer();
+    		$this->customer = new ModelCustomer();
     		$this->customer = $this->customer->form();
     		$this->customer['email'] = $this->user->email;
     		$this->customer['user_id'] = $this->user->id;
@@ -46,7 +51,7 @@ class Edit extends Component
     	$customer = auth()->user()->customers;
 
     	if ( !count($customer) ) {
-    		$customer = Customer::create($this->customer);
+    		$customer = ModelCustomer::create($this->customer);
     	}else{
     		$customer = $customer->first();
     		$customer->update($this->customer);

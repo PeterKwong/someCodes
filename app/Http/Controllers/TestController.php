@@ -24,12 +24,33 @@ class TestController extends Controller
     public function test(){
     	// dd( config('global.paymentMode'));
 	    // $this->postTags();
-	    return $this->resetAllDiamonds();
+	    // return $this->resetAllDiamonds();
+
+	    return $this->crawlCScr();
 
 		return response()
 			->json(
 			['sent' => true]
 		);
+
+    }
+    public function crawlCScr(){
+
+      $diamonds = Diamond::where('available',1)->where('has_cert',1)->where('cert_cache', NULL)->chunk(500, function($diams){
+            
+            foreach ($diams as $dia) {
+            	$url = file_get_html($dia->certificate);
+            	dd($url);
+                $dia->loadCachedCert();
+              // dd($dia->id);
+            }  
+
+            // sleep($this->sleepSeconds);
+
+      });
+
+
+      return 1;
 
     }
     public function resetAllDiamonds(){

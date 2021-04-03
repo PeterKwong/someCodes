@@ -84,9 +84,7 @@
                        
 
                       <div>
-                        @livewire('customer.edit')
-
-
+                        @livewire('shopping-cart.customer')
                       </div>
 
 
