@@ -324,7 +324,8 @@ trait Rap{
                       $d->has_image = $this->allowImage($data->seller->account_id)?$data->diamond->has_image_file:0;        
                       // $d->image_link = $data->diamond->image_file_url; 
                       $d->has_cert = $data->diamond->has_cert_file; 
-                      $d->cert_link = $data->diamond->has_cert_file?'http://www.diamondselections.com/GetCertificatePath.aspx?diamondid='. $data->diamond->diamond_id:''; 
+                      $d->cert_link = ''; 
+                      // $d->cert_link = $data->diamond->has_cert_file?'https://www.diamondselections.com/GetCertificate.aspx?diamondid='. $data->diamond->diamond_id:''; 
                       // $d->imageLink = $diamond['imagelink'];
 
                       // $newDiamonds[]= $d;

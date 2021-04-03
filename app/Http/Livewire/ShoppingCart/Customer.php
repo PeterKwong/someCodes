@@ -17,7 +17,7 @@ class Customer extends Component
 
     public function render()
     {
-        return view('livewire.customer.edit');
+        return view('livewire.shopping-cart.customer');
     }
 
     public function mount(){
