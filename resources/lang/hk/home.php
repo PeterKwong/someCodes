@@ -52,4 +52,6 @@ return [
 	'Every moment worth sharing' => '值得分享的每一刻',
 	'Discover together' => '一起發掘',
 	'Please Note' => '溫馨提示',
+	'Any inquiry, please contact' => '如有問題，請查詢',
+
 ];

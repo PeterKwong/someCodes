@@ -110,12 +110,11 @@
 
  
   <shopping-cart-progress></shopping-cart-progress>
-<!--   <notification></notification>
- -->
+  
   <x-notification/>
   <x-floating-contact/>
-  <x-loading/>
-  
+<!--   <x-loading/>
+ -->  
 </div>
 
 

@@ -79,11 +79,14 @@
 	}
 
 	.modal-wrapper{
-		@apply fixed z-20 bg-white top-0 m-12 mt-40 max-w-xl rounded-lg 
+		@apply fixed z-20 bg-white top-0 m-2 mt-4 sm:m-12 sm:mt-40 max-w-xl rounded-lg 
 	}
 
 	.modal-header{
 		@apply flex justify-end p-1
+	}
+	.modal-body{
+		@apply overflow-y-auto
 	}
 
 	.close{

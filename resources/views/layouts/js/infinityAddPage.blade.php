@@ -4,11 +4,11 @@
 
     window.addEventListener("scroll", function(event) {
 
-        x = document.getElementById('totalHeigh').clientHeight * 0.75
+        x = document.getElementById('totalHeigh').clientHeight * 0.70
 
         var top = this.scrollY,
         loading = document.getElementById('loading').className,
-        height = document.getElementById('totalHeigh').clientHeight * 0.75;
+        height = document.getElementById('totalHeigh').clientHeight * 0.70;
 
         if (top > x ) {
 

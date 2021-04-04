@@ -52,4 +52,5 @@ return [
 	'Every moment worth sharing' => 'Every moment worth sharing',
 	'Discover together' => 'Discover together',
 	'Please Note' => 'Please Note',
+	'Any inquiry, please contact' => 'Any inquiry, please contact',
 ];
