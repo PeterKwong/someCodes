@@ -100,8 +100,10 @@
 
 	<div id="loading" wire:loading.class="loading">
 	</div>
+
 </div>
 
 @include('layouts.js.infinityAddPage')
+
 
 

@@ -194,6 +194,8 @@
 
 </div>
 
+@include('layouts.js.infinityAddPage')
+
 
 <script >
   function mobileSearch(){
@@ -211,7 +213,6 @@
   }
 </script>
 
-@include('layouts.js.infinityAddPage')
 
 
 

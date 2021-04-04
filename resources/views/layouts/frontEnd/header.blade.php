@@ -25,7 +25,7 @@
         </a>
 
         @else
-        @include('layouts.account.loginIcon')
+          @include('layouts.account.loginIcon')
         @endguest
 
         <button @click="burgerOpen = !burgerOpen" type="button" class="hover:text-gray-400 focus:text-gray-600 focus:outline-none text-lg px-4">
@@ -67,7 +67,7 @@
         </a>
 
         @else
-        @include('layouts.account.loginIcon')
+          @include('layouts.account.loginIcon')
         @endguest
 
         <div class="dropdown hidden sm:block">
@@ -110,8 +110,7 @@
 
  
   <shopping-cart-progress></shopping-cart-progress>
-<!--   <notification/>
- -->  
+
   <x-notification/>
   <x-floating-contact/>
   
