@@ -1,3 +1,4 @@
+
 <template>
   <div class="z-10">
 
@@ -140,9 +141,9 @@
   // import Auth from '../store/auth'
   // import Images from './helpers/images'
   // import Locale from './helpers/locale'
-    // import {get} from './helpers/api'
+  // import {get} from './helpers/api'
 
-  export default {
+export default {
     
     created(){
       // Auth.initialize()

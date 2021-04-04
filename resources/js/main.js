@@ -79,7 +79,7 @@ if (window.location.pathname == '/' || window.location.pathname == '/en' ||
 
 
 
-// import Notification from './components/notification.vue'
+import Notification from './components/notification.vue'
 // import contactMessage from './components/contactMessage.vue'
 
 import ShoppingCartProgress from './components/shoppingCart/progress.vue'
@@ -121,7 +121,7 @@ const header = new Vue({
     destroyed () {
         window.removeEventListener('scroll', this.updateYOffset);
     },
-    components:{ ShoppingCartProgress, ShoppingCartIcon },
+    components:{ ShoppingCartProgress, ShoppingCartIcon, Notification },
     computed:{
         shoppingCartNumber(){
             return mutualVar.cookiesInfo.shoppingCart.items.filter((data)=>{return data.addedCart == 1}).length

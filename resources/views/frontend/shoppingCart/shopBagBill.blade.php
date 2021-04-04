@@ -32,6 +32,7 @@
     @endSection
 
     @section('content')
+
         <br>
         <div class="row" >
             <div class="col-span-12">
@@ -48,6 +49,7 @@
                     <br>
 
                       <div id="shopBagBill">
+                      <x-loading/>
                          <ul class="grid grid-cols-12 px-4 text-center">
                           <li class="col-span-4 text-lg border ">
                             <a class="p-1" href="/{{app()->getLocale()}}/shop-bag-bill-login" >
