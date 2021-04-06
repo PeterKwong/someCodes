@@ -11,36 +11,36 @@
       <div v-if="headerSection == 1" class="block py-4 bg-gray-200">
         <a class="flex justify-center text-blue-500" href="{{url(app()->getLocale())}}/gia-loose-diamonds">{{trans('frontHeader.Loose Diamonds')}}</a>
         <a class="flex justify-center hover:text-blue-300 p-1" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut">
-          <img class="w-6" src="/images/front-end/diamond_shapes/RD.png" > {{trans('frontHeader.Round')}}
+          <img class="w-6 h-6" src="/images/front-end/diamond_shapes/RD.png" > {{trans('frontHeader.Round')}}
         </a>
 
         <a class="flex justify-center text-blue-500 p-1" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond">{{trans('frontHeader.Fancy Cut Diamonds')}}</a>
        </a>
-          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/heart-shaped"><img class="w-6" src="/images/front-end/diamond_shapes/HT.png" > {{trans('frontHeader.Heart')}}
+          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/heart-shaped"><img class="w-6 h-6" src="/images/front-end/diamond_shapes/HT.png" > {{trans('frontHeader.Heart')}}
           </a>
 
-          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/princess-cut"><img class="w-6" src="/images/front-end/diamond_shapes/PR.png" > {{trans('frontHeader.Princess')}}
+          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/princess-cut"><img class="w-6 h-6" src="/images/front-end/diamond_shapes/PR.png" > {{trans('frontHeader.Princess')}}
           </a>
 
-          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/emerald-cut"><img src="/images/front-end/diamond_shapes/EM.png" class="w-6"> {{trans('frontHeader.Emerald')}}
+          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/emerald-cut"><img src="/images/front-end/diamond_shapes/EM.png" class="w-6 h-6"> {{trans('frontHeader.Emerald')}}
           </a>
-          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/asscher-cut"><img src="/images/front-end/diamond_shapes/AC.png" class="w-6"> {{trans('frontHeader.Asscher')}}
+          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/asscher-cut"><img src="/images/front-end/diamond_shapes/AC.png" class="w-6 h-6"> {{trans('frontHeader.Asscher')}}
           </a>
 
 
-          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/cushion-cut"><img src="/images/front-end/diamond_shapes/CU.png" class="w-6"> {{trans('frontHeader.Cushion')}}
+          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/cushion-cut"><img src="/images/front-end/diamond_shapes/CU.png" class="w-6 h-6"> {{trans('frontHeader.Cushion')}}
           </a>
-          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/oval-cut"><img src="/images/front-end/diamond_shapes/OV.png" class="w-6"> {{trans('frontHeader.Oval')}}
+          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/oval-cut"><img src="/images/front-end/diamond_shapes/OV.png" class="w-6 h-6"> {{trans('frontHeader.Oval')}}
           </a>                 
 
 
-          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/marquise-cut"><img src="/images/front-end/diamond_shapes/MQ.png" class="w-6"> {{trans('frontHeader.Marquise')}}
+          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/marquise-cut"><img src="/images/front-end/diamond_shapes/MQ.png" class="w-6 h-6"> {{trans('frontHeader.Marquise')}}
           </a>
-          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/radiant-cut"><img src="/images/front-end/diamond_shapes/RA.png" class="w-6"> {{trans('frontHeader.Radiant')}}
+          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/radiant-cut"><img src="/images/front-end/diamond_shapes/RA.png" class="w-6 h-6"> {{trans('frontHeader.Radiant')}}
           </a>                 
 
 
-          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/pear-shaped"><img src="/images/front-end/diamond_shapes/PS.png" class="w-6"> {{trans('frontHeader.Pear')}}
+          <a class="flex justify-center hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/pear-shaped"><img src="/images/front-end/diamond_shapes/PS.png" class="w-6 h-6"> {{trans('frontHeader.Pear')}}
           </a>                 
 
 
@@ -54,7 +54,7 @@
             </a>
           <span class="flex justify-between p-1 px-4">
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/yellow">
-              <svg class="fill-current w-6 h-6 text-yellow-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 h-6 text-yellow-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -86,7 +86,7 @@
                       {{trans('diamondSearch.Yellow')}}
             </a>
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/pink">
-              <svg class="fill-current w-6 h-6 text-pink-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 h-6 text-pink-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -120,7 +120,7 @@
           </span>
           <span class="flex justify-between p-1 px-4">
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/orange">
-              <svg class="fill-current w-6 h-6 text-orange-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 h-6 text-orange-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -153,7 +153,7 @@
 
             </a>
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/purple">
-              <svg class="fill-current w-6 h-6 text-purple-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 h-6 text-purple-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -188,7 +188,7 @@
 
           <span class="flex justify-between p-1 px-4">
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/brown">
-              <svg class="fill-current w-6 h-6 text-red-700" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 h-6 text-red-700" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -220,7 +220,7 @@
                       {{trans('diamondSearch.Brown')}}
             </a>
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/green">
-              <svg class="fill-current w-6 h-6 text-green-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 h-6 text-green-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -255,7 +255,7 @@
 
           <span class="flex justify-between p-1 px-4">
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/grey">
-              <svg class="fill-current w-6 h-6 text-gray-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 h-6 text-gray-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -287,7 +287,7 @@
                       {{trans('diamondSearch.Gray')}}
             </a>
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/blue">
-              <svg class="fill-current w-6 h-6 text-blue-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 h-6 text-blue-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078
@@ -322,7 +322,7 @@
 
           <span class="flex justify-between p-1 px-4">
             <a class="flex justify-start hover:text-blue-300" href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-color/black">
-              <svg class="fill-current w-6 h-6 text-black-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              <svg class="fill-current w-6 h-6 h-6 text-black-300" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 295.82 295.82" style="enable-background:new 0 0 295.82 295.82;" xml:space="preserve">
                         <g>
                           <path d="M85.06,140.048c-0.905-2.492-3.389-4.138-6.041-4.138H10.706c-2.251,0-4.195,1.121-5.072,3.078

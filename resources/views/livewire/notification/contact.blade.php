@@ -1,4 +1,5 @@
-
+<div>
+    
 @if(cache()->get('homePageShow') == 1)
 	{{ session()->put('notification', cache()->get('homePage')) }}
 @endif
@@ -67,3 +68,5 @@
 @endif
 
 
+
+</div>

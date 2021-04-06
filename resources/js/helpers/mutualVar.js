@@ -38,15 +38,7 @@ export default {
     notification:   {
                 state: {
                     success: null,
-                    error: null
-                    },
-                contactMessage:{
-                        active: false,
-                        title:'',
-                        data:[],
-                        type:'',
-                        trans: true,
-                        next:{nextUrl:'', nextText:''},
+                    error: null,
                     },
             },
     langs:{

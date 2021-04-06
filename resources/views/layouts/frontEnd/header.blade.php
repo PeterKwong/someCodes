@@ -111,10 +111,12 @@
  
   <shopping-cart-progress></shopping-cart-progress>
 
-  <x-notification/>
   <x-floating-contact/>
   
 </div>
+
+  @livewire('notification.flash')
+  @livewire('notification.contact')
 
 
 

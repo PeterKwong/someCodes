@@ -1,9 +1,6 @@
 export default[
 
 	{'Select this Item':['Select this Item','選擇商品','选择商品']},
-	{'message':['message','信息','信息']},
-	{'same diamond on the list':['same diamond on the list','相同商品已在購物車中','相同商品已在购物车中']},
-	{'find other diamond':['find other diamond','尋找其他鑽石','寻找其他钻石']},
 	{'diamonds':['diamonds','鑽石','钻石']},
 	{'engagementRings':['engagementRings','求婚戒指','求婚戒指']},
 	{'Back to':['Back to','回到','回到']},

@@ -1,6 +1,6 @@
 <?php
 
 return [
-	'hello' => 'hello',
-	'diamond' => 'diamond'
+	'Same diamond on the list' => 'Same diamond on the list',
+	'Find other diamond' => 'Find other diamond'
 ];
