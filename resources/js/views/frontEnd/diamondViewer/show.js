@@ -1,6 +1,6 @@
 // import Auth from '../../store/auth'
 import { get, del } from '../../../helpers/api'
-import xiaohungshu from '../../../components/xiaohungshu.vue'
+// import xiaohungshu from '../../../components/xiaohungshu.vue'
 import Appointment from '../../../components/appointment.vue'
 import ShoppingCart from '../../../components/shoppingCart/cart.vue'
 // import Carousel from '../../../components/carousel.vue'
@@ -11,7 +11,7 @@ import langs from '../../../langs/diamondViewer'
 	
 export default {
 	el:'#diamondViewerShow',
-	components: {Appointment, xiaohungshu, ShoppingCart },
+	components: {Appointment, ShoppingCart },
 	data(){
 		return {
 			// auth: Auth.state,
@@ -104,6 +104,9 @@ export default {
 				this.loadingStatus.image = res.data.loading.image
 				if (res.data.diamond.image_cache) {
 					this.selectingShowType = 'image'					
+				}
+				if (res.data.diamond.video_link) {
+					this.selectingShowType = 'video'					
 				}
 				mutualVar.viewer.src = this.diamond.video_link.includes('http')?this.diamond.video_link.replace('http','https'):this.diamond.video_link 
 
