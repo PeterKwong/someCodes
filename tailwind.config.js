@@ -34,6 +34,7 @@ module.exports = {
         textColor:['responsive', 'hover','focus','active'],
         translate: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
         transitionTimingFunction: ['responsive', 'hover', 'focus'],
+        scale: ['active', 'hover', 'group-hover'],
     },
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],

@@ -70,7 +70,7 @@
 
                         <div class="flex items-center w-2/6">
                                 <img v-if="diamond.video_link" @click="selectingShowType = 'video'"  :src="`/images/front-end/diamond_show/d360_degree.png`" class="p-2 w-auto" :class="{ ' border border-blue-500': selectingShowType == 'video'}"></img>
-                                <img v-if="diamond.image_cache" @click="selectingShowType = 'image'"  :src="storageURL + 'images/' + diamond.id + '.jpg' " class="p-2 w-auto" :class="{ ' border border-blue-500': selectingShowType == 'imgage'}"></img>
+                                <img v-if="diamond.image_cache" @click="selectingShowType = 'image'"  :src="storageURL + 'images/' + diamond.id + '.jpg' " class="p-2 w-auto" :class="{ ' border border-blue-500': selectingShowType == 'image'}"></img>
                                 <img v-if="diamond.plot" :src="storageURL + 'plots/' + diamond.id + '.jpg' " @click="selectingShowType = 'plot'" class="p-2 w-auto" :class="{ ' border border-blue-500': selectingShowType == 'plot'}"></img>
                                 
                         </div>

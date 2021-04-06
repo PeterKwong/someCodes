@@ -51,7 +51,7 @@
                     <td class="border-b px-4 py-2" >
                         <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                         @if($row['image_cache'])
-                            <div class="w-48">
+                            <div class="w-48 hover:scale-150">
                                 <img src="{{config('global.cache.' . config('global.cache.live') ) . 'public/diamond/' .'images/thm-' . $row['id'] . '.jpg'  }}" class="object-contain w-full h-auto" ></img>
                             </div>
                         @endif
@@ -64,7 +64,7 @@
                         <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
 
                         @if($row['plot'])                        
-                            <div class="w-48">
+                            <div class="w-48 hover:scale-150">
                                 <img src="{{config('global.cache.' . config('global.cache.live') ) . 'public/diamond/' .'plots/' . $row['id'] . '.jpg'  }}" class="object-contain w-full h-auto" ></img>
                             </div>
                         @else
