@@ -231,7 +231,7 @@ export default {
                   buttered:[0.00, 3.46],
                   preload:"auto",
                   readyState: 1,
-                  autoplay: false,
+                  autoplay: true,
 
                 }
         },

@@ -32,6 +32,7 @@
       return {
         playerOptions: {
           // videojs options
+          autoplay: true,
           muted: true,
           language: 'en',
           playbackRates: [0.7, 1.0, 1.5, 2.0],
