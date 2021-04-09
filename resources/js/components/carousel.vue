@@ -17,35 +17,33 @@
         </div>
 
 
-        <div class="">
-            <div class="grid grid-cols-12">
-                <div class="col-span-4 relative" v-for="(img, index) in chunkedUpperItems" 
-                       @click="currentSelectedItem(index,'upper')" v-if="img.thumb"  >
-                    <img :src="images+img.thumb"  v-if="img.type=='img' || img.type=='video'"  width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentIndex == index}"></img>
-                    <img :src="img.thumb"  v-if="img.type=='video360'"  width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentIndex == index}"></img>
-                    <div class="absolute top-0" v-if="img.type=='video'" >
-                        <i class="hidden sm:block far fa-play-circle text-blue-600 fa-3x" style="opacity: 0.5"  aria-hidden="true" ></i>
-                        <i class="sm:hidden far fa-play-circle text-blue-600 " style="opacity: 0.5"  aria-hidden="true" ></i>
-                    </div>
+        <div class="grid grid-cols-12">
+            <div class="col-span-4 relative" v-for="(img, index) in chunkedUpperItems" 
+                   @click="currentSelectedItem(index,'upper')" v-if="img.thumb"  >
+                <img :src="images+img.thumb"  v-if="img.type=='img' || img.type=='video'"  width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentIndex == index}"></img>
+                <img :src="img.thumb"  v-if="img.type=='video360'"  width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentIndex == index}"></img>
+                <div class="absolute top-0" v-if="img.type=='video'" >
+                    <i class="hidden sm:block far fa-play-circle text-blue-600 fa-3x" style="opacity: 0.5"  aria-hidden="true" ></i>
+                    <i class="sm:hidden far fa-play-circle text-blue-600 " style="opacity: 0.5"  aria-hidden="true" ></i>
                 </div>
-            </div>            
-        </div>
+            </div>
+        </div>            
   
 
-        <div class="" @click="$emit('active', null)">
+        <div class="grid grid-cols-12" @click="$emit('active', null)">
 
-            <div class="w-full">
+            <div class="col-span-12">
                 <img :src="images+currentItem.src" v-if="currentItem.type=='img'" class="w-auto" @click="nextItem">
                 <video-player :options="videoOptions" autoplay="false" v-if="currentItem.type=='video'"></video-player>
                 
                 <product-viewer v-if="currentItem.type=='video360'" :folder="folder + upperitems.video360 +'/'" 
                 :filename="fileName " :size="currentItem.size" :rotate="currentItem.rotate"></product-viewer>
             
-            <p v-if="chunkedItems.length && !showUpper" class="text-primary text-center p-4">{{chunkedItems[currentIndex].text}}</p>
-
-                        <p class="text-xl font-light">{{ currentItem.title }}</p>
-                        <p class="text-lg font-light"> {{ currentItem.desc }} </p>
-                        <span v-html="currentItem.other"></span>
+                <p v-if="chunkedItems.length && !showUpper" class="text-primary text-center p-4">{{chunkedItems[currentIndex].text}}</p>
+                <p class="text-xl font-light">{{ currentItem.title }}</p>
+                <p class="text-lg font-light"> {{ currentItem.desc }} </p>
+                <span v-html="currentItem.other"></span>
+                
             </div>
 
         </div>
@@ -53,18 +51,16 @@
 
         <center v-if="chunkedItems.length">
                 <a>{{ 'Customer Jewelleries' |transJs(langs) }}</a>
-         </center>
+        </center>
 
-         <div class="">
-            <div class="grid grid-cols-12 justify-center">
-                 <div class="col-span-4 relative" v-for="(img, index) in chunkedItems" 
-                                    @click="currentSelectedItem(index,'lower')"  v-if="img.thumb">
-                     <img :src="images+img.thumb" width="100%" class="rounded mx-auto d-block image-background p-2" :class="{' border border-primary rounded':currentIndex == index}" ></img>
-                    <div class="absolute top-0" v-if="img.type=='video'" >
-                        <i class="hidden sm:block far fa-play-circle text-blue-600 fa-3x" style="opacity: 0.5"  aria-hidden="true" ></i>
-                        <i class="sm:hidden far fa-play-circle text-blue-600 " style="opacity: 0.5"  aria-hidden="true" ></i>
-                    </div>
-                 </div>
+        <div class="grid grid-cols-12 justify-center">
+             <div class="col-span-4 relative" v-for="(img, index) in chunkedItems" 
+                                @click="currentSelectedItem(index,'lower')"  v-if="img.thumb">
+                 <img :src="images+img.thumb" width="100%" class="rounded mx-auto d-block image-background p-2" :class="{' border border-primary rounded':currentIndex == index}" ></img>
+                <div class="absolute top-0" v-if="img.type=='video'" >
+                    <i class="hidden sm:block far fa-play-circle text-blue-600 fa-3x" style="opacity: 0.5"  aria-hidden="true" ></i>
+                    <i class="sm:hidden far fa-play-circle text-blue-600 " style="opacity: 0.5"  aria-hidden="true" ></i>
+                </div>
              </div>
          </div>
 

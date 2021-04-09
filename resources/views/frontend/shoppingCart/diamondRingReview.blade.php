@@ -49,9 +49,9 @@
 
                     <div class="grid grid-cols-12">
                         <div class="col-span-12 sm:col-span-7 items-center">
-                            <div  v-if="selectingCarousel== 'engagementRings'">
+                            <div  v-if="selectingCarousel== 'engagementRings'" height="auto" width="100%" >
                                     <keep-alive>
-                                    <carousel :active="carouselItem.active" :height="'500'" :width="'100%'" :upperitems="carouselItem.upperitems" :items="carouselItem.items" title="customer jewellries"></carousel></keep-alive>
+                                    <carousel :active="carouselItem.active" :upperitems="carouselItem.upperitems" :items="carouselItem.items" title="customer jewellries"></carousel></keep-alive>
                             </div>
                             <div class="tile is-child box" v-if="selectingCarousel== 'diamonds'">
                                     <figure class="image">
