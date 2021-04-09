@@ -1,47 +1,28 @@
 
-    <template>
-    <div class="video-player">
+<template>
+    <div v-if="options" class="h-full w-full" :poster="options.poster" :autoplay="autoplay?autoplay:false"> 
         <video
-        id="myVideo"
-        class="video-js"
+        id="my-video"
+        class="h-full w-full video-js vjs-big-play-centered vjs-paused preview-player-dimensions vjs-controls-enabled vjs-workinghover vjs-v7 vjs-user-active vjs-mux"
+        controls
+        :autoplay="autoplay?autoplay:false"
+        preload="auto"
+        :poster="options.poster"
+        data-setup='{"fluid": true}'
+        :src="options.sources[0].src"
         >
-        <source
-            src="//vjs.zencdn.net/v/oceans.mp4"
-            type="video/mp4"
-        >
+        <source :src="options.sources[0].src" type="video/mp4" />
         </video>
     </div>
-    </template>
+</template>
 
-    <script>
-    /* eslint-disable */
+<script>
     export default {
-    name: "videoPlayer",
-    data() {
-        return {};
-    },
-    mounted() { 
-        this.initVideo();
-    },
-    methods: {
-        initVideo() {
-        //初始化视频方法
-        let myPlayer = this.$video(myVideo, {
-            //确定播放器是否具有用户可以与之交互的控件。没有控件，启动视频播放的唯一方法是使用autoplay属性或通过Player API。
-            controls: true,
-            //自动播放属性,muted:静音播放
-            autoplay: "muted",
-            //建议浏览器是否应在<video>加载元素后立即开始下载视频数据。
-            preload: "auto",
-            //设置视频播放器的显示宽度（以像素为单位）
-            width: "800px",
-            //设置视频播放器的显示高度（以像素为单位）
-            height: "400px"
-        });
-        }
-    }
-    };
-    </script>
 
-    <style scoped>
-    </style>
+    name: "videoPlayer",
+    props:{
+        'options':false,
+        'autoplay':false,
+        },
+    };
+</script>

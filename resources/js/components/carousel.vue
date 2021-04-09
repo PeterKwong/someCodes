@@ -36,7 +36,7 @@
 
             <div class="w-full">
                 <img :src="images+currentItem.src" v-if="currentItem.type=='img'" class="w-auto" @click="nextItem">
-                <video-player :options="videoOptions" v-if="currentItem.type=='video'"></video-player>
+                <video-player :options="videoOptions" autoplay="false" v-if="currentItem.type=='video'"></video-player>
                 
                 <product-viewer v-if="currentItem.type=='video360'" :folder="folder + upperitems.video360 +'/'" 
                 :filename="fileName " :size="currentItem.size" :rotate="currentItem.rotate"></product-viewer>
@@ -52,7 +52,7 @@
 
 
         <center v-if="chunkedItems.length">
-                <a>{{title}}</a>
+                <a>{{ 'Customer Jewelleries' |transJs(langs) }}</a>
          </center>
 
          <div class="">
@@ -99,8 +99,9 @@
 <script>
 
 
-import {videoPlayer} from '../../../node_modules/vue-video-player/dist/vue-video-player'
+// import {videoPlayer} from '../../../node_modules/vue-video-player/dist/vue-video-player'
 import ProductViewer from '../components/productViewer360'
+import videoPlayer from '../components/videoPlayer.vue'
 
 // import VideoPlayer from './VueVideoPlayer.vue'
 
@@ -133,7 +134,6 @@ export default {
         return {
             currentIndex : 0,
             showUpper: true,
-            youtube:'http://www.youtube.com/embed/',
             rel: '?rel=0',
             images: mutualVar.storage[mutualVar.storage.live] + 'public/images/',
             carouselUpperItems:'',
@@ -142,6 +142,7 @@ export default {
             currentUpperIndex:0,
             videoPath: mutualVar.storage[mutualVar.storage.live] + 'public/videos/' ,
             mutualVar,
+            langs,
             fileName:'',
             folder: mutualVar.storage[mutualVar.storage.live] + 'public/video360/', 
 
@@ -187,6 +188,7 @@ export default {
             if (index >= 0) {
                 if (upper == 'upper') {
                     this.currentIndex = index
+                     ++ this.currentIndex
                     return this.showUpper = true
                 }
                 this.showUpper = false
@@ -204,18 +206,6 @@ export default {
             }
             return this.carouselItemsToArray[this.currentIndex];
         },
-        title(){
-                
-                if (window.location.pathname.slice(1,3) == 'en') {
-                    return 'Customer Jewellires'
-                }
-                if (window.location.pathname.slice(1,3) == 'hk') {
-                    return '客人首飾'
-                }
-                if (window.location.pathname.slice(1,3) == 'cn') {
-                    return '客人首饰'
-                }
-            },
         videoOptions(){
             return {
                   // videojs options

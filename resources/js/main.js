@@ -65,17 +65,15 @@ window.get = get
 window.post = post
 
 
-
-import HomeIndex from './views/frontEnd/home/index'
-
 window.pUrl = window.location.pathname.slice(3)
 
+// import HomeIndex from './views/frontEnd/home/index'
 
-if (window.location.pathname == '/' || window.location.pathname == '/en' || 
-    window.location.pathname == '/hk' || window.location.pathname == '/cn') 
-    {
-        const home =  new Vue(HomeIndex);
-    }
+// if (window.location.pathname == '/' || window.location.pathname == '/en' || 
+//     window.location.pathname == '/hk' || window.location.pathname == '/cn') 
+//     {
+//         const home =  new Vue(HomeIndex);
+//     }
 
 
 

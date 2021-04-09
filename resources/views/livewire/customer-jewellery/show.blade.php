@@ -30,10 +30,14 @@
                     <div class="box">
                         <article>
                             <div>
-                              <center><p class="title is-5">{{__('customerMoment.Product Video')}}</p></center>
-                                <video-player :options="videoOpts[3].videoPost" v-if="post.video"></video-player> 
-                              
-                              <div>
+                              <center>
+                                <p class="title is-5">{{__('customerMoment.Product Video')}}</p>
+<!--                                 <video-player :options="videoOpts[3].videoPost" v-if="post.video"></video-player> 
+ -->
+                                <video-player :options="videoOpts[3].videoPost" autoplay="false" v-if="post.video"></video-player> 
+                              </center>
+                                
+                            <div>
                                   
                         </article>                            
                     </div>
@@ -265,6 +269,7 @@
                         <div>
                           <p>
                             <video-player :options="videoOpts[0].videoEng" v-if="post.invoice.engagement_rings[0].video"></video-player> 
+
                           </p>
                          </div>
                         <div class="">
