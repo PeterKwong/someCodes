@@ -23,7 +23,7 @@
             </div>       
         </div>
 
-          <div id="customerJewelleryShow">
+        <span id="customerJewelleryShow">
             <div class="grid grid-cols-12 p-1" v-if="post.video">
 
                 <div class="col-span-10 col-start-2">
@@ -51,7 +51,6 @@
                 :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate"></product-viewer>
              </div>
         
-        </div>
 
         @foreach($meta->invoice->invoiceDiamonds as $key => $diamond )
 
@@ -594,6 +593,7 @@
 
 
 
+        </span>
 
 
         </div>
