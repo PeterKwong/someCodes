@@ -84,10 +84,10 @@
           <div class="hover:text-blue-600 flex justify-center" x-on:click="selectDisplayColumn('color')">
               <div class="font-light text-lg">
                 <p class="flex justify-center ">
-                  <span class="btn btn-primary" :class=" `${search_conditions.color.Fancy.clicked?'text-blue-400 bg-white box':''}` "  x-on:click="search_conditions.color.Fancy.clicked = !search_conditions.color.Fancy.clicked ; resetFancyData(); displayColumn = '' ; @this.toggleValue('color', 'Fancy' )">
+                  <span class="btn" :class=" `${search_conditions.color.Fancy.clicked?'text-blue-400 bg-white box':' btn-primary'}` "  x-on:click="search_conditions.color.Fancy.clicked = !search_conditions.color.Fancy.clicked ; resetFancyData(); displayColumn = '' ; @this.toggleValue('color', 'Fancy' )">
                     <span>{{trans('diamondSearch.White')}}</span>
                   </span>
-                  <span class="btn btn-primary" :class=" `${search_conditions.color.Fancy.clicked?'':'text-blue-400 bg-white box'}` "  x-on:click="search_conditions.color.Fancy.clicked = !search_conditions.color.Fancy.clicked; resetFancyData(); displayColumn = '' ; @this.toggleValue('color', 'Fancy' )">
+                  <span class="btn" :class=" `${search_conditions.color.Fancy.clicked?' btn-primary':'text-blue-400 bg-white box'}` "  x-on:click="search_conditions.color.Fancy.clicked = !search_conditions.color.Fancy.clicked; resetFancyData(); displayColumn = '' ; @this.toggleValue('color', 'Fancy' )">
                     <span >{{trans('diamondSearch.Fancy')}}</span>
                   </span>
                 </p>
