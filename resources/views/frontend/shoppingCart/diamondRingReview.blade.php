@@ -43,16 +43,17 @@
 
 
         <div id="diamondRingReview">
-            <div class="grid grid-cols-12 justify-content-center">
+            <div class="grid grid-cols-12 justify-center">
                 <div class="col-span-12">
                     <br>
 
                     <div class="grid grid-cols-12">
                         <div class="col-span-12 sm:col-span-7 items-center">
-                            <div  v-if="selectingCarousel== 'engagementRings'" height="auto" width="100%" >
-                                    <keep-alive>
-                                    <carousel :active="carouselItem.active" :upperitems="carouselItem.upperitems" :items="carouselItem.items" title="customer jewellries"></carousel></keep-alive>
-                            </div>
+                            <figure class="" v-if="selectingCarousel== 'engagementRings'" >
+                                <keep-alive >
+                                    <carousel :active="carouselItem.active" :upperitems="carouselItem.upperitems" :items="carouselItem.items" :height="'500'" :width="'100%'"  title="customer jewellries"></carousel>
+                                </keep-alive>
+                            </figure>
                             <div class="tile is-child box" v-if="selectingCarousel== 'diamonds'">
                                     <figure class="image">
                                     <img :src="shortenName.filter((data)=>{return data.type == 'diamonds'})[0].image">
@@ -62,64 +63,59 @@
 
                         <div class="col-span-12 sm:col-span-5">
                             <article>
-                                    <center>
-                                        <p class="sm:text-lg font-light">{{__('shoppingCart.Diamond Arrival')}}</p>
-                                        <p class="font-light">{{__('shoppingCart.Today Order, Get Free shipment')}}
-                                            <strong class="sm:text-lg font-semibold">{{__('shoppingCart.on')}} <a> @{{ extraWorkingDates( maxDeliveryDate ,'months') |transJs() }} @{{ extraWorkingDates( maxDeliveryDate ) }} @{{ 'day' |transJs() }},  @{{ extraWorkingDates( maxDeliveryDate ,'dates') |transJs() }}</a></strong> 
-                                        </p>
+                                <center>
+                                    <p class="sm:text-lg font-light">{{__('shoppingCart.Diamond Arrival')}}</p>
+                                    <p class="font-light">{{__('shoppingCart.Today Order, Get Free shipment')}}
+                                        <strong class="sm:text-lg font-semibold">{{__('shoppingCart.on')}} <a> @{{ extraWorkingDates( maxDeliveryDate ,'months') |transJs() }} @{{ extraWorkingDates( maxDeliveryDate ) }} @{{ 'day' |transJs() }},  @{{ extraWorkingDates( maxDeliveryDate ,'dates') |transJs() }}</a></strong> 
+                                    </p>
 
-                                    </center>
-                                    <hr>
-                                    <div v-for="item in shortenName">
-                                        <div class="grid grid-cols-12 text-blue-600" >
-
-                                          <div class="col-span-4">
-                                            <img class="rounded border p-2" width="128" :src="item.image" @click="selectingCarousel = item.type">
-                                          </div>
-
-                                          <div class="col-span-6">
-                                            <a :href="item.url + item.id ">@{{item.title}}</a>
-                                            <a class="sm:text-lx font-semibold" :href="item.url"><u>{{__('shoppingCart.change')}}</u></a>
-                                          </div>
-
-                                          <div class="col-span-2"  @click="selectingCarousel = item.type">
-                                            <img class="rounded" width="64" :src=" '/images/front-end/shoppingCart/' + item.type + '.png' ">
-                                            <a>$@{{item.unit_price}}</a>
-                                          </div>
-                                          
-                                        </div>
-
+                                </center>
+                                <hr>
+                                <div v-for="item in shortenName">
+                                    <div class="grid grid-cols-12" :class="{' text-blue-600' : selectingCarousel == item.type}" >
+                                      <div class="col-span-4">
+                                        <img class="rounded border p-2" :class="{' border-blue-600' : selectingCarousel == item.type}" width="128" :src="item.image" @click="selectingCarousel = item.type">
+                                      </div>
+                                      <div class="col-span-6">
+                                        <a :href="item.url + item.id ">@{{item.title}}</a>
+                                        <a class="sm:text-lx font-semibold" :href="item.url"><u>{{__('shoppingCart.change')}}</u></a>
+                                      </div>
+                                      <div class="col-span-2"  @click="selectingCarousel = item.type">
+                                        <img class="rounded" width="64" :src=" '/images/front-end/shoppingCart/' + item.type + '.png' ">
+                                        <a>$@{{item.unit_price}}</a>
+                                      </div>
                                     </div>
+                                </div>
 
-                                    <hr>
+                                <hr>
 
-                                    <div class="grid grid-cols-12">
-                                        <div class="col-span-6 col-start-7">
-                                            <div class="grid grid-cols-12 p-4">
-                                                <div class="col-span-4">
-                                                    <p>{{__('shoppingCart.Total')}} </p>
-                                                </div>
-                                                <div class="col-span-8 text-center">
-                                                    <p class="text-2xl font-semibold text-blue-600">HK$ @{{subTotal}}</p>
-                                                </div>
-                                                
+                                <div class="grid grid-cols-12">
+                                    <div class="col-span-6 col-start-7">
+                                        <div class="grid grid-cols-12 p-4">
+                                            <div class="col-span-4">
+                                                <p>{{__('shoppingCart.Total')}} </p>
                                             </div>
-
-                                            <div class="grid grid-cols-12 text-center">
-                                                <div class="col-span-8 col-start-5 col-end-11">
-                                                    <p class="btn btn-primary" @click="addItemToCart()">{{__('shoppingCart.Add Cart')}}</p>
-                                                </div>
-
-
+                                            <div class="col-span-8 text-center">
+                                                <p class="text-2xl font-semibold text-blue-600">HK$ @{{subTotal}}</p>
                                             </div>
                                             
                                         </div>
+
+                                        <div class="grid grid-cols-12 text-center">
+                                            <div class="col-span-8 col-start-5 col-end-11">
+                                                <p class="btn btn-primary" @click="addItemToCart()">{{__('shoppingCart.Add Cart')}}</p>
+                                            </div>
+
+
+                                        </div>
+                                        
                                     </div>
+                                </div>
 
-                                    <br>
-                                    
+                                <br>
+                                
 
-                                </article>
+                            </article>
                         </div>
                     </div>
                     

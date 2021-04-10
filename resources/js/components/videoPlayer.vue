@@ -3,7 +3,7 @@
     <div v-if="options" :poster="options.poster" :autoplay="autoplay?autoplay:false"> 
         <video
         id="my-video"
-        class="h-full w-full video-js vjs-big-play-centered "
+        class="w-full h-auto video-js vjs-big-play-centered "
         controls
         :autoplay="autoplay?autoplay:false"
         preload="auto"
