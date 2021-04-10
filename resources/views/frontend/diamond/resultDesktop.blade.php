@@ -6,7 +6,7 @@
           <thead>
             <tr class="text-center">
             @foreach($columns as $column)
-              <th class="bg-yellow-600 text-white px-4 py-2" wire:click="toggleOrder( '{{$column}}' )">
+              <th class="bg-yellow-500 text-white px-4 py-2" wire:click="toggleOrder( '{{$column}}' )">
                     <span>{{ __('diamondSearch.'.$column)}}</span>
                     @if($column == $fetchData['column'])   
                         <span class="dv-table-column">
@@ -24,7 +24,7 @@
             @foreach($fetchAdvance as $key => $value)
 
                 @if($fetchData[$key][0] != 0)
-		          <th class="bg-yellow-600 text-white px-4 py-2" wire:click="toggleOrder( '{{$key}}' )">
+		          <th class="bg-yellow-500 text-white px-4 py-2" wire:click="toggleOrder( '{{$key}}' )">
 		                <span>{{ __('diamondSearch.'.$value)}}</span>
 		                @if($key == $fetchData['column'])   
 		                    <span class="dv-table-column">

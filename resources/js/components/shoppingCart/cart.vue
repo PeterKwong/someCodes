@@ -201,7 +201,12 @@ export default {
                      })
 
                     if (item.length > 0) {
-                        window.livewire.emit('notifiication-flash','error,Find other diamond,Same diamond on the list')
+                        var message = mutualVar.notification.contactMessage
+                        message.active = true
+                        message.title = 'message'
+                        message.type = 'is-danger'
+                        message.data = ['same diamond on the list']
+                        message.next = { nextUrl: getLocale() + '/gia-loose-diamonds/', nextText: 'find other diamond'}
                         return 1
                     }
                 }

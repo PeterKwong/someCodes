@@ -96,7 +96,7 @@
                       <div class="p-2">
                         <center>
                             
-                            <shopping-cart :item="diamond" :type="shoppingCartType" :title="appointmentTitle" ></shopping-cart>
+                            <shopping-cart :item="diamond" :type="shoppingCartType" title="{{$title}}" ></shopping-cart>
                             @if($diamond->location == '1Hong Kong')
                                 <x-appointment/>
                             @endif
@@ -421,44 +421,3 @@
         <script>document.write()</script>
 
 
-
-<!-- <script type="text/javascript">
-
-function Test1() {
-
-    var ctx = document.getElementById('test1');
-    if (ctx.getContext) {
-
-        ctx = ctx.getContext('2d');
-
-        //Loading of the home test image - img1
-        var img1 = new Image();
-
-        //drawing of the test image - img1
-        img1.onload = function () {
-            //draw background image
-            ctx.drawImage(img1, 0, 0);
-            //draw a box over the top
-            ctx.fillStyle = "rgba(200, 0, 0, 0.5)";
-            ctx.fillRect(0, 0, 500, 500);
-
-        };
-
-        console.log(mutualVar.viewer.src)
-        img1.src = 'https://diamondgirl.website/videoanother.php?refno=1505220' ;
-    }
-}
-
-
-</script>
-
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
-<script type="text/javascript">
-$(function(){
-    $('#button').click(function(){ 
-        if(!$('#iframe').length) {
-                $('#iframeHolder').html('<iframe id="iframe" src="https://diamondgirl.website/videoanother.php?refno=1505220" width="700" height="450"></iframe>');
-        }
-    });   
-});
-</script> -->

@@ -1,20 +1,20 @@
 	// import Auth from '../../store/auth'
-	import { get, del } from '../../../helpers/api'
-	import Appointment from '../../../components/appointment.vue'
+	// import { get, del } from '../../../helpers/api'
+	// import Appointment from '../../../components/appointment.vue'
 	import Carousel from '../../../components/carousel.vue'
 
-	// import Flash from '../../helpers/flash'
-	import { transJs } from '../../../helpers/transJs'
-	import langsJew from '../../../langs/jewelleries'
-	import langsDia from '../../../langs/diamondViewer'
-	import langsEnga from '../../../langs/engagementRings'
-	import langsWedd from '../../../langs/weddingRings'
+	// // import Flash from '../../helpers/flash'
+	// import { transJs } from '../../../helpers/transJs'
+	// import langsJew from '../../../langs/jewelleries'
+	// import langsDia from '../../../langs/diamondViewer'
+	// import langsEnga from '../../../langs/engagementRings'
+	// import langsWedd from '../../../langs/weddingRings'
 
 
 		
 	export default {
 		el: '#jewellery',
-		components: {Appointment, Carousel},
+		components: { Carousel},
 		data(){
 			return {
 				// auth: Auth.state,
@@ -22,11 +22,10 @@
 				carouselState: false,
 				appointmentState: false,
 				title: '',
-				langs: langsDia.concat(langsEnga,langsWedd, langsJew),
+				langs,
 				text:{
 					jewellery: 'jewellery',
 				},
-				hrefLangs: window.location.pathname.slice(0,3),
 				jewellery:'',
 				columns:[
 				'unit_price',
@@ -49,26 +48,6 @@
 		beforeMount(){
 			this.fetchData()
 			
-		},
-		filters:{
-			transJs,
-		},
-		computed: {
-			appointmentTitle(){
-				return transJs(this.jewellery.metal,this.langs,this.locale)  +' ' + transJs(this.jewellery.type,this.langs,this.locale)  +' '+ transJs(this.text.jewellery,this.langs,this.locale) 
-			},
-			locale(){
-				
-				if (window.location.pathname.slice(1,3) == 'en') {
-					return 0
-				}
-				if (window.location.pathname.slice(1,3) == 'hk') {
-					return 1
-				}
-				if (window.location.pathname.slice(1,3) == 'cn') {
-					return 2
-				}
-			}
 		},
 		methods: {
 			fetchData(){

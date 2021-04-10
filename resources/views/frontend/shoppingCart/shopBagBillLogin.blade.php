@@ -91,7 +91,7 @@
                                         </div>
 
                                         <div class="col-span-12 p-8">
-                                            <a href="/{{app()->getLocale()}}/login" class="btn btn-primary bg-green-400">{{__('shoppingCart.Create New Account/Login') }}</a>
+                                            <a href="/{{app()->getLocale()}}/login" class="btn btn-success">{{__('shoppingCart.Create New Account/Login') }}</a>
                                         </div>                                        
                                     </div>
                                 </div>                                

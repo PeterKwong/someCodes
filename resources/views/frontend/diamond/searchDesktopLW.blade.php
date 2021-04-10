@@ -68,7 +68,7 @@
             <div class="p-2" wire:click="toggleValue('shape', '{{$key}}' )">
               <img class="h-8" src=" {{'/images/front-end/diamond_shapes/' . $key . '.png' }}" alt="">
               <div :class=" `border-2 mt-2 ${search_conditions.shape['{{$key}}'].clicked?
-                              'border-yellow-600':'border-gray-600'}` "   >
+                              'border-yellow-500':'border-gray-600'}` "   >
                 </div>
 
             </div>
@@ -87,28 +87,28 @@
       </div>         
       <div class="col-span-10 mx-8">
         <div class="flex justify-between flex-wrap">
-          <div class="m-2 bg-yellow-600 rounded">
+          <div class="m-2 bg-yellow-500 rounded">
             <a class="mx-1 text-white text-xs" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/0-30-0-49-carat-weight">0.3-0.49</a>
           </div>
-          <div class="m-2 bg-yellow-600 rounded">
+          <div class="m-2 bg-yellow-500 rounded">
             <a class="mx-1 text-white text-xs" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/0-50-0-79-carat-weight">0.5-0.79</a>
           </div>
-          <div class="m-2 bg-yellow-600 rounded">
+          <div class="m-2 bg-yellow-500 rounded">
             <a class="mx-1 text-white text-xs" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/0-80-0-99-carat-weight">0.8-0.99</a>
           </div>
-          <div class="m-2 bg-yellow-600 rounded">
+          <div class="m-2 bg-yellow-500 rounded">
             <a class="mx-1 text-white text-xs" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-00-1-19-carat-weight">1.0-1.19</a>
           </div>
-          <div class="m-2 bg-yellow-600 rounded">
+          <div class="m-2 bg-yellow-500 rounded">
             <a class="mx-1 text-white text-xs" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-20-1-49-carat-weight">1.2-1.49</a>
           </div>
-          <div class="m-2 bg-yellow-600 rounded">
+          <div class="m-2 bg-yellow-500 rounded">
             <a class="mx-1 text-white text-xs" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-50-1-99-carat-weight">1.5-1.99</a>
           </div>
-          <div class="m-2 bg-yellow-600 rounded">
+          <div class="m-2 bg-yellow-500 rounded">
             <a class="mx-1 text-white text-xs" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/2-00-2-99-carat-weight">2.0-2.99</a>
           </div>
-          <div class="m-2 bg-yellow-600 rounded">
+          <div class="m-2 bg-yellow-500 rounded">
             <a class="mx-1 text-white text-xs" href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/3-00-up-carat-weight">
             3.0 up</a>  
           </div>
@@ -125,10 +125,10 @@
       <div class="col-span-2 font-light text-lg" x-on:click="search_conditions.color.Fancy.clicked = !search_conditions.color.Fancy.clicked; resetFancyData(); @this.toggleValue('color', 'Fancy' )" >
         <span class="flex">
           <p class="flex justify-center " >
-            <span class="btn btn-primary p-2" :class=" `${search_conditions.color.Fancy.clicked?'text-blue-400 bg-white box':''}` ">
+            <span class="btn p-2" :class=" `${search_conditions.color.Fancy.clicked?'text-blue-400 bg-white box':' btn-primary'}` ">
               {{trans('diamondSearch.White')}}
             </span>
-            <span class="btn btn-primary p-2" :class=" `${search_conditions.color.Fancy.clicked?'':'text-blue-400 bg-white box'}` ">{{trans('diamondSearch.Fancy')}}
+            <span class="btn p-2" :class=" `${search_conditions.color.Fancy.clicked?' btn-primary':'text-blue-400 bg-white box'}` ">{{trans('diamondSearch.Fancy')}}
             </span>
           </p>
           <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/color' }}" target="_blank">
@@ -151,7 +151,7 @@
               <div class="p-2" wire:click="toggleValue('color', '{{$key}}' )">
                     {{$key}}
                   <div :class=" `border-2 mt-2 px-4 ${search_conditions.color['{{$key}}'].clicked?
-                                  'border-yellow-600':'border-gray-600'}` " >
+                                  'border-yellow-500':'border-gray-600'}` " >
                   </div>
 
               </div>
@@ -233,7 +233,7 @@
 
                     <span class="text-xs">{{__('diamondSearch.' . $key )}}</span>
                 <div :class=" `border-2 mt-2 px-4 ${fancy_color.fancy_color['{{$key}}'].clicked?
-                                'border-yellow-600':'border-gray-600'}` " >
+                                'border-yellow-500':'border-gray-600'}` " >
                 </div>
               </center>
 
@@ -276,7 +276,7 @@
               <div class="p-2" wire:click="toggleValue('color', '{{$key}}' )">
                     {{$key}}
                   <div :class=" `border-2 mt-2 px-4 ${search_conditions.color['{{$key}}'].clicked?
-                                  'border-yellow-600':'border-gray-600'}` " >
+                                  'border-yellow-500':'border-gray-600'}` " >
                   </div>
 
               </div>
@@ -326,7 +326,7 @@
 
                     <span class="text-xs">{{$key}}</span>
                 <div :class=" `border-2 mt-2 px-4 ${fancy_color.fancy_intensity['{{$key}}'].clicked?
-                                'border-yellow-600':'border-gray-600'}` " >
+                                'border-yellow-500':'border-gray-600'}` " >
                 </div>
               </center>
 
@@ -368,7 +368,7 @@
               <div class="p-2" wire:click="toggleValue('cut', '{{$key}}' )">
                     {{$key}}
                   <div :class=" `border-2 mt-2 px-12 ${search_conditions.cut['{{$key}}'].clicked?
-                              'border-yellow-600':'border-gray-600'}` "  >
+                              'border-yellow-500':'border-gray-600'}` "  >
                   </div>
               </div>
             </div>
@@ -410,7 +410,7 @@
             <div class="p-2" wire:click="toggleValue('clarity', '{{$key}}' )">
                   {{$key}}
                 <div :class=" `border-2 mt-2 px-4 ${search_conditions.clarity['{{$key}}'].clicked?
-                              'border-yellow-600':'border-gray-600'}` "  >
+                              'border-yellow-500':'border-gray-600'}` "  >
                 </div>
 
             </div>
@@ -448,7 +448,7 @@
             <div class="p-2" wire:click="toggleValue('polish', '{{$key}}' )">
                   {{$key}}
                 <div :class=" `border-2 mt-2 px-12 ${search_conditions.polish['{{$key}}'].clicked?
-                              'border-yellow-600':'border-gray-600'}` " >
+                              'border-yellow-500':'border-gray-600'}` " >
                 </div>
 
             </div>
@@ -490,7 +490,7 @@
             <div class="p-2" wire:click="toggleValue('fluorescence', '{{$key}}' )">
                   {{$key}}
                 <div :class=" `border-2 mt-2 px-12 ${search_conditions.fluorescence['{{$key}}'].clicked?
-                              'border-yellow-600':'border-gray-600'}` " >
+                              'border-yellow-500':'border-gray-600'}` " >
                 </div>
 
             </div>
@@ -527,7 +527,7 @@
             <div class="p-2" wire:click="toggleValue('symmetry', '{{$key}}' )">
                   {{$key}}
                 <div :class=" `border-2 mt-2 px-12 ${search_conditions.symmetry['{{$key}}'].clicked?
-                              'border-yellow-600':'border-gray-600'}` " >
+                              'border-yellow-500':'border-gray-600'}` " >
                 </div>
 
             </div>

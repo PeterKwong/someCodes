@@ -1,7 +1,7 @@
 // import Auth from '../../store/auth'
 import { get, del } from '../../../helpers/api'
 // import xiaohungshu from '../../../components/xiaohungshu.vue'
-import Appointment from '../../../components/appointment.vue'
+// import Appointment from '../../../components/appointment.vue'
 import ShoppingCart from '../../../components/shoppingCart/cart.vue'
 // import Carousel from '../../../components/carousel.vue'
 
@@ -11,12 +11,12 @@ import langs from '../../../langs/diamondViewer'
 	
 export default {
 	el:'#diamondViewerShow',
-	components: {Appointment, ShoppingCart },
+	components: { ShoppingCart },
 	data(){
 		return {
 			// auth: Auth.state,
 			isRemoving: false,
-			appointmentState: false,
+			// appointmentState: false,
 			title: '',
 			langs,
 			text:{
@@ -67,23 +67,6 @@ export default {
 		transJs,
 	},
 	computed: {
-		appointmentTitle(){
-			return this.diamond.weight + transJs(this.text.carat,this.langs,this.locale) +' ' + this.diamond.color +' '
-			+ transJs(this.columns[3],this.langs,this.locale)+' ' + transJs(this.text.diamond,this.langs,this.locale) 
-			+' GIA:' + this.diamond.certificate 
-		},
-		locale(){
-			
-			if (window.location.pathname.slice(1,3) == 'en') {
-				return 0
-			}
-			if (window.location.pathname.slice(1,3) == 'hk') {
-				return 1
-			}
-			if (window.location.pathname.slice(1,3) == 'cn') {
-				return 2
-			}
-		},
 		localeHref(){
 			
 			return window.location.pathname.slice(0,4)

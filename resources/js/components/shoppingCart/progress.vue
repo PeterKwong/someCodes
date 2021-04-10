@@ -6,18 +6,18 @@
 		 	<div v-if="mutualVar.cookiesInfo.shoppingCart.items.length">
                  <div class="grid grid-cols-12">
 
-					    <div class="col-span-4 relative" :class="{' border-blue-600 border-b-2': selectingType == shortenName[0].type }"  v-if="shortenName[0]"  @click="directTo(0)" >
+					    <div class="col-span-4 relative" :class="{' border-blue-400 border-b-2': selectingType == shortenName[0].type }"  v-if="shortenName[0]"  @click="directTo(0)" >
 
-					      <div class="flex justify-center items-center text-center"  :class="{'text-blue-600': selectingType == shortenName[0].type }" v-if="shortenName[0]">
+					      <div class="flex justify-center items-center text-center"  :class="{'text-blue-400': selectingType == shortenName[0].type }" v-if="shortenName[0]">
 
-					      	<span class="hidden sm:flex flex-shrink-0 w-10 h-10 flex items-center justify-center bg-blue-600 rounded-full group-hover:bg-blue-800" v-if="selectingType != shortenName[0].type ">
+					      	<span class="hidden sm:flex flex-shrink-0 w-10 h-10 flex items-center justify-center bg-blue-400 rounded-full group-hover:bg-blue-800" v-if="selectingType != shortenName[0].type ">
 					            <!-- Heroicon name: solid/check -->
 					            <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 					              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 					            </svg>
 					          </span>	
-				            <span class="hidden sm:flex flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-blue-600 rounded-full" v-else>
-					          <span class="text-blue-600">01</span>
+				            <span class="hidden sm:flex flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-blue-400 rounded-full" v-else>
+					          <span class="text-blue-400">01</span>
 					        </span>
 
 
@@ -46,19 +46,19 @@
 
 <!-- 					    <div :class="{[$style.arrow] : selectingType == shortenName[0].type }"></div>
  -->
-					    <div class="col-span-4 relative" :class="{' border-blue-600 border-b-2': selectingType == shortenName[0].type?0:1 &&
+					    <div class="col-span-4 relative" :class="{' border-blue-400 border-b-2': selectingType == shortenName[0].type?0:1 &&
 					    		!currentUrl.includes('diamond-ring-review') }" v-if="shortenName[0]" @click="directTo(1)" >
-					      <div class="flex justify-center items-center text-center" :class="{'text-blue-600': selectingType == shortenName[0].type?0:1 &&
+					      <div class="flex justify-center items-center text-center" :class="{'text-blue-400': selectingType == shortenName[0].type?0:1 &&
 					    		!currentUrl.includes('diamond-ring-review') }">
 
-					      	<span class="hidden sm:flex flex-shrink-0 w-10 h-10 flex items-center justify-center bg-blue-600 rounded-full group-hover:bg-blue-800" v-if="currentUrl.includes('diamond-ring-review')">
+					      	<span class="hidden sm:flex flex-shrink-0 w-10 h-10 flex items-center justify-center bg-blue-400 rounded-full group-hover:bg-blue-800" v-if="currentUrl.includes('diamond-ring-review')">
 					            <!-- Heroicon name: solid/check -->
 					            <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 					              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
 					            </svg>
 					          </span>	
-				            <span class="hidden sm:flex flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-blue-600 rounded-full" v-else>
-					          <span class="text-blue-600">02</span>
+				            <span class="hidden sm:flex flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-blue-400 rounded-full" v-else>
+					          <span class="text-blue-400">02</span>
 					        </span>
 
 
@@ -87,12 +87,12 @@
 <!-- 					    <div :class="{[$style.arrow] : selectingType == shortenName[0].type }"></div>
  -->
 
-					    <div class="col-span-4 flex items-center justify-center" :class=" {' border-blue-600 border-b-2': currentUrl.includes('diamond-ring-review') }" @click="directToUrl('/diamond-ring-review')" v-if="shortenName.filter((data)=>{return data.id}).length" >
+					    <div class="col-span-4 flex items-center justify-center" :class=" {' border-blue-400 border-b-2': currentUrl.includes('diamond-ring-review') }" @click="directToUrl('/diamond-ring-review')" v-if="shortenName.filter((data)=>{return data.id}).length" >
 					      <div class="flex justify-center items-center text-center" >
-				      		<span class="hidden sm:flex flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-blue-600 rounded-full" >
-					          <span class="text-blue-600">03</span>
+				      		<span class="hidden sm:flex flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-blue-400 rounded-full" >
+					          <span class="text-blue-400">03</span>
 					        </span>
-					      	<p :class="{'text-blue-600': currentUrl.includes('diamond-ring-review') }" v-if="shortenName.filter((data)=>{return data.id}).length" >
+					      	<p :class="{'text-blue-400': currentUrl.includes('diamond-ring-review') }" v-if="shortenName.filter((data)=>{return data.id}).length" >
 					      		<img width="48" src="/images/front-end/shoppingCart/review.png">
 						         {{'Review' | transJs(langs,locale)}}
 					      	</p>

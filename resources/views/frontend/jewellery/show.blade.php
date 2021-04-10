@@ -61,16 +61,13 @@
                             <article>
                                 <center>
                                   <x-appointment v-if="appointmentState"/>
-
-<!--                                     <button class="btn btn-primary" @click="appointmentState=!appointmentState">{{__('jewellery.Appointment')}}</button>
-                                    <appointment v-model="jewellery" :title="appointmentTitle" @active="appointmentState=!appointmentState" :active="appointmentState" :columns="columns"  :processing="false" :langs="langs" :locale="locale"></appointment>
- -->                                    
+                          
                                 </center>
                                 <br>
                                 <p>
                                 {{trans('jewellery.For more detailed information')}}, 
                                 <br>
-                                <a @click="appointmentState=!appointmentState">{{trans('jewellery.Make Appointment')}}</a> or <a :href="hrefLangs + '/about-us'">{{trans('jewellery.contact us')}}</a> {{trans('jewellery.for further')}}：
+                                <a @click="appointmentState=!appointmentState">{{trans('jewellery.Make Appointment')}}</a> or <a href="{{app()->getLocale()}}/about-us">{{trans('jewellery.contact us')}}</a> {{trans('jewellery.for further')}}：
                                 </p>
                             </article>
                             </div>

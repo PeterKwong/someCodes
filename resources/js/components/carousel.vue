@@ -3,14 +3,14 @@
     <div class="p-2">
 
         <div class="nav-item" @click="$emit('active', null)" v-for="(img, index) in upperitems.images" >
-            <a class="nav-link" :class="{ 'active' : currentIndex == index }" v-if="!upperitems.images" @click="currentSelectedItem(index,'upper')">
+            <a class="nav-link" :class="{ 'active' : currentUpperIndex == index }" v-if="!upperitems.images" @click="currentSelectedItem(index,'upper')">
                    {{ index+1 }}
             </a>
         </div>
 
         <div class="flex justify-center p-2">
             <div class="box " @click="$emit('btn-primary', null)" v-for="(img, index) in chunkedUpperItems" >
-                <a class="btn" :class="{ 'btn-primary' : currentIndex == index }"  @click="currentSelectedItem(index,'upper')" >
+                <a class="btn" :class="{ 'btn-primary' : currentUpperIndex == index }"  @click="currentSelectedItem(index,'upper')" >
                        {{ index+1 }}
                 </a>
             </div>
@@ -20,11 +20,11 @@
         <div class="grid grid-cols-12">
             <div class="col-span-4 relative" v-for="(img, index) in chunkedUpperItems" 
                    @click="currentSelectedItem(index,'upper')" v-if="img.thumb"  >
-                <img :src="images+img.thumb"  v-if="img.type=='img' || img.type=='video'"  width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentIndex == index}"></img>
-                <img :src="img.thumb"  v-if="img.type=='video360'"  width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentIndex == index}"></img>
-                <div class="absolute top-0" v-if="img.type=='video'" >
-                    <i class="hidden sm:block far fa-play-circle text-blue-600 fa-3x" style="opacity: 0.5"  aria-hidden="true" ></i>
-                    <i class="sm:hidden far fa-play-circle text-blue-600 " style="opacity: 0.5"  aria-hidden="true" ></i>
+                <img :src="images+img.thumb"  v-if="img.type=='img' || img.type=='video'"  width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentUpperIndex == index}"></img>
+                <img :src="img.thumb"  v-if="img.type=='video360'"  width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentUpperIndex == index}"></img>
+                <div class="video-icon" v-if="img.type=='video'" >
+                    <i class="hidden sm:block fa fa-play text-white fa-2x" aria-hidden="true" ></i>
+                    <i class="sm:hidden fa fa-play text-white " aria-hidden="true" ></i>
                 </div>
             </div>
         </div>            
@@ -57,9 +57,9 @@
              <div class="col-span-4 relative" v-for="(img, index) in chunkedItems" 
                                 @click="currentSelectedItem(index,'lower')"  v-if="img.thumb">
                  <img :src="images+img.thumb" width="100%" class="rounded mx-auto d-block image-background p-2" :class="{' border border-primary rounded':currentIndex == index}" ></img>
-                <div class="absolute top-0" v-if="img.type=='video'" >
-                    <i class="hidden sm:block far fa-play-circle text-blue-600 fa-3x" style="opacity: 0.5"  aria-hidden="true" ></i>
-                    <i class="sm:hidden far fa-play-circle text-blue-600 " style="opacity: 0.5"  aria-hidden="true" ></i>
+                <div class="video-icon" v-if="img.type=='video'" >
+                    <i class="hidden sm:block fa fa-play text-white fa-2x"  aria-hidden="true" ></i>
+                    <i class="sm:hidden fa fa-play text-white " aria-hidden="true" ></i>
                 </div>
              </div>
          </div>
@@ -129,13 +129,13 @@ export default {
     data () {
         return {
             currentIndex : 0,
+            currentUpperIndex : 0,
             showUpper: true,
             rel: '?rel=0',
             images: mutualVar.storage[mutualVar.storage.live] + 'public/images/',
             carouselUpperItems:'',
             chunkedUpperItemsData:'',
             videoType:'video/mp4',
-            currentUpperIndex:0,
             videoPath: mutualVar.storage[mutualVar.storage.live] + 'public/videos/' ,
             mutualVar,
             langs,
@@ -155,21 +155,26 @@ export default {
         //     event.target.className = 'disabled';
         // },
         nextItem () {
-            if(this.currentIndex == this.carouselUpperItemsToArray.length-1){
-                this.currentIndex = 0;
+            var index = this.currentIndex
+            if (this.showUpper) {
+                index = this.currentUpperIndex
+            }
+            if(this.index == this.carouselUpperItemsToArray.length-1){
+                this.index = 0;
             }else{
-                this.currentIndex++;  
+                this.index++;  
             }
         },
         prevItem () {
-            if(this.currentIndex == 0){
-                this.currentIndex = this.carouselUpperItemsToArray.length-1;
-            }else{
-                this.currentIndex--;  
+            var index = this.currentIndex
+            if (this.showUpper) {
+                index = this.currentUpperIndex
             }
-        },
-        showAtIndex(index){
-            this.currentIndex = index;
+            if(this.index == 0){
+                this.index = this.carouselUpperItemsToArray.length-1;
+            }else{
+                this.index--;  
+            }
         },
         currentSelectedItem(index,upper){
             
@@ -183,8 +188,7 @@ export default {
             // }
             if (index >= 0) {
                 if (upper == 'upper') {
-                    this.currentIndex = index
-                     ++ this.currentIndex
+                    this.currentUpperIndex = index
                     return this.showUpper = true
                 }
                 this.showUpper = false
@@ -198,7 +202,7 @@ export default {
     computed: {
         currentItem(){
             if (this.showUpper) {
-            return this.carouselUpperItemsToArray[this.currentIndex];                
+            return this.carouselUpperItemsToArray[this.currentUpperIndex];                
             }
             return this.carouselItemsToArray[this.currentIndex];
         },
@@ -250,19 +254,20 @@ export default {
                 var chunk1 = []
                 var chunk2 = []
                 var chunk3 = []
-                
+                var index = this.currentUpperIndex
+
                 if (!this.carouselUpperItemsToArray) {
                 return chunk1
                 }
-                if (this.currentIndex<=1) {
+                if (index<=1) {
                  chunk1 = this.carouselUpperItemsToArray.slice(0,3)
                  chunk2 = this.carouselUpperItemsToArray.slice(3,this.carouselUpperItemsToArray.length).fill('')
                  return chunk1.concat(chunk2)
                 }
 
-                chunk1 = this.carouselUpperItemsToArray.slice(0,this.currentIndex-1).fill('')
-                chunk2 = this.carouselUpperItemsToArray.slice(this.currentIndex-1,this.currentIndex+2)
-                chunk3 = this.carouselUpperItemsToArray.slice(this.currentIndex+2,this.carouselUpperItemsToArray.length).fill('')
+                chunk1 = this.carouselUpperItemsToArray.slice(0,index-1).fill('')
+                chunk2 = this.carouselUpperItemsToArray.slice(index-1,index+2)
+                chunk3 = this.carouselUpperItemsToArray.slice(index+2,this.carouselUpperItemsToArray.length).fill('')
                 
                 return chunk1.concat(chunk2,chunk3)
             },

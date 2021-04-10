@@ -5,8 +5,8 @@
 <head>
 
         @include('layouts.head.schema')
-        @include('layouts.head.google'
-        @include('layouts.head.twitter'
+        @include('layouts.head.google')
+        @include('layouts.head.twitter')
         
         @include('layouts.metas.userApiToken')
         @include('layouts.metas.mutualVar')

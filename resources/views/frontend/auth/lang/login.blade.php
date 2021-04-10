@@ -27,13 +27,13 @@
 
     @section('content')
         <br>
-          <div class="flex justify-between text-white bg-blue-400 border p-2 px-2">
+          <div class="flex justify-between text-white bg-blue-400 border p-2 px-4">
             <div class="">
                <strong><p >{{__('login.Login')}}</p></strong>
                       
             </div>
             <div class="">
-              <a class="btn btn-primary bg-green-400" href="{{ url(app()->getLocale()) }}/register">{{__('login.Register')}}</a>
+              <a class="btn btn-success" href="{{ url(app()->getLocale()) }}/register">{{__('login.Register')}}</a>
             </div>
           </div>
 
