@@ -28,7 +28,7 @@ class DiamondSitemap
 
 		// get all diamonds from db (or wherever you store them)
 		$diamonds = DB::table('diamonds')->whereAvailable(1)->orderBy('created_at', 'desc')
-			->chunk(3000,function($diamonds) use (&$sitemap,$translations,$url){
+			->chunk(1000,function($diamonds) use (&$sitemap,$translations,$url){
 
 				// $counter = cache()->get('sitemap.counter');
 				$sitemapCounter = cache()->get('sitemap.sitemapCounter');
