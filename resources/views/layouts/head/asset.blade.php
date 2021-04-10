@@ -17,7 +17,7 @@
 <!-- Styles -->
 <!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
  -->
-<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" type="text/css" href="{{  mix('css/app.css') }}">
 
 <!--  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
  -->
