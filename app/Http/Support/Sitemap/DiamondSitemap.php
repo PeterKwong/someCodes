@@ -15,20 +15,20 @@ class DiamondSitemap
 
 	$sitemap = app()->make('sitemap');
 
-	$url = 'https://www.tingdiamond.com/';
+	// $url = 'https://www.tingdiamond.com/';
 
 	cache()->put('sitemap.sitemapCounter', 0);
 
 	$translations = [
-				['language' => 'en', 'url' => $url. 'en'],
-				['language' => 'zh-Hant', 'url' => $url. 'hk'],
-				['language' => 'zh-Hans', 'url' => $url. 'cn'],
+				['language' => 'en', 'url' => url()->to('en')],
+				['language' => 'zh-Hant', 'url' => url()->to('hk')],
+				['language' => 'zh-Hans', 'url' => url()->to('cn')],
 			];
 
 
 		// get all diamonds from db (or wherever you store them)
 		$diamonds = DB::table('diamonds')->whereAvailable(1)->orderBy('created_at', 'desc')
-			->chunk(3000,function($diamonds) use (&$sitemap,$translations,$url){
+			->chunk(1000,function($diamonds) use (&$sitemap,$translations,$url){
 
 				// $counter = cache()->get('sitemap.counter');
 				$sitemapCounter = cache()->get('sitemap.sitemapCounter');
@@ -50,7 +50,7 @@ class DiamondSitemap
 				// dd($sitemap);
 				$sitemap->store('xml', 'vendor/sitemap/big-sitemap/diamonds/sitemap-' . $sitemapCounter);
 				// add the file to the sitemaps array
-				$sitemap->addSitemap( $url . 'vendor/sitemap/big-sitemap/diamonds/sitemap-' . $sitemapCounter . '.xml');
+				$sitemap->addSitemap(url()->to('/vendor/sitemap/big-sitemap/diamonds/sitemap-' . $sitemapCounter . '.xml'));
 				// reset items array (clear memory)
 				$sitemap->model->resetItems();
 				// reset the counter
