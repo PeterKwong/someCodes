@@ -120,12 +120,13 @@
 	    background: black;
 	    background: -webkit-gradient(linear, 0 0, 100% 0, from(#3D3D3D), to(#3D3D3D), color-stop(50%, white));
 	}
-	.video-icon{
+	
+/*	.video-icon{
 		@apply absolute border border-white border-2 bg-black p-1 px-4 rounded-lg;
 		top:35%; left:35%; opacity:50% ;
 	}
 	.video-icon:hover{
 		@apply bg-gray-700
-	}
+	}*/
 
 }

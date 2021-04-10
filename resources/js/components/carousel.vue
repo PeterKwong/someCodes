@@ -22,7 +22,7 @@
                    @click="currentSelectedItem(index,'upper')" v-if="img.thumb"  >
                 <img :src="images+img.thumb"  v-if="img.type=='img' || img.type=='video'"  width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentUpperIndex == index}"></img>
                 <img :src="img.thumb"  v-if="img.type=='video360'"  width="100%" class="rounded mx-auto p-2" :class="{'border border-primary rounded':currentUpperIndex == index}"></img>
-                <div class="video-icon" v-if="img.type=='video'" >
+                <div class="absolute border border-white border-2 bg-black p-1 px-4 rounded-lg hover:bg-gray-700" style="top:35%; left:35%; opacity:50% ;" v-if="img.type=='video'" >
                     <i class="hidden sm:block fa fa-play text-white fa-2x" aria-hidden="true" ></i>
                     <i class="sm:hidden fa fa-play text-white " aria-hidden="true" ></i>
                 </div>
@@ -57,7 +57,7 @@
              <div class="col-span-4 relative" v-for="(img, index) in chunkedItems" 
                                 @click="currentSelectedItem(index,'lower')"  v-if="img.thumb">
                  <img :src="images+img.thumb" width="100%" class="rounded mx-auto d-block image-background p-2" :class="{' border border-primary rounded':currentIndex == index}" ></img>
-                <div class="video-icon" v-if="img.type=='video'" >
+                <div class="absolute border border-white border-2 bg-black p-1 px-4 rounded-lg hover:bg-gray-700" style="top:35%; left:35%; opacity:50% ;" v-if="img.type=='video'" >
                     <i class="hidden sm:block fa fa-play text-white fa-2x"  aria-hidden="true" ></i>
                     <i class="sm:hidden fa fa-play text-white " aria-hidden="true" ></i>
                 </div>
