@@ -34,7 +34,7 @@ $diamonds = DB::table('diamonds')->whereAvailable(1)->orderBy('created_at', 'des
 
 				foreach ($translations as $trans) {
 
-					$sitemap->add($trans['url'] . '/gia-loose-diamonds/' . $p->id, $p->updated_at.$sitemapCounter, '0.5', 'monthly');
+					$sitemap->add($trans['url'] . '/gia-loose-diamonds/' . $p->id, $p->updated_at, '0.5', 'monthly');
 
 				}
 
