@@ -48,7 +48,7 @@ class DiamondSitemap
 				// dd($sitemap);
 				$sitemap->store('xml', 'vendor/sitemap/big-sitemap/diamonds/sitemap-' . $sitemapCounter);
 				// add the file to the sitemaps array
-				$sitemap->addSitemap(url()->to('vendor/sitemap/big-sitemap/diamonds/sitemap-' . $sitemapCounter . '.xml'));
+				$sitemap->addSitemap(url()->to('/vendor/sitemap/big-sitemap/diamonds/sitemap-' . $sitemapCounter . '.xml'));
 				// reset items array (clear memory)
 				$sitemap->model->resetItems();
 				// reset the counter
