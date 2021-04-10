@@ -3,7 +3,7 @@
 namespace App\Http\Support;
 
 use App\Models\Diamond;
-use App\Route\DiamondSitemap;
+use App\Http\Support\Sitemap\DiamondSitemap;
 use App\Http\Support\DiamondImport;
 use App\Http\Controllers\DiamondController;
 use App\Http\Controllers\AppointmentController;
