@@ -19,9 +19,9 @@ class DiamondSitemap
 	cache()->put('sitemap.sitemapCounter', 0);
 
 	$translations = [
-				['language' => 'en', 'url' => url()->to('/en/')],
-				['language' => 'zh-Hant', 'url' => url()->to('/hk/')],
-				['language' => 'zh-Hans', 'url' => url()->to('/cn/')],
+				['language' => 'en', 'url' => url('/en/')],
+				['language' => 'zh-Hant', 'url' => url('/hk/')],
+				['language' => 'zh-Hans', 'url' => url('/cn/')],
 			];
 
 
