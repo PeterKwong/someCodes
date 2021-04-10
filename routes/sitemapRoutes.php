@@ -106,7 +106,7 @@ use Carbon\Carbon;
 			}
 		}
 		
-		// $sitemap->add(secure_url('/diamonds-sitemap'), Carbon::now(), '1.0', 'daily');
+		$sitemap->add(secure_url('/big-sitemap/diamonds'), Carbon::now(), '1.0', 'daily');
 
 
 	// }
