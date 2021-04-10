@@ -39,9 +39,9 @@
                 <product-viewer v-if="currentItem.type=='video360'" :folder="folder + upperitems.video360 +'/'" 
                 :filename="fileName " :size="currentItem.size" :rotate="currentItem.rotate"></product-viewer>
             
-                <p v-if="chunkedItems.length && !showUpper" class="text-primary text-center p-4">{{chunkedItems[currentIndex].text}}</p>
-                <p class="text-xl font-light">{{ currentItem.title }}</p>
-                <p class="text-lg font-light"> {{ currentItem.desc }} </p>
+                <p v-if="chunkedItems.length && !showUpper" class="bg-blue-300 text-white text-center p-4">{{chunkedItems[currentIndex].text}}</p>
+                <p class="text-xl font-light bg-blue-400 text-white">{{ currentItem.title }}</p>
+                <p class="text-lg font-light bg-blue-400 text-white"> {{ currentItem.desc }} </p>
                 <span v-html="currentItem.other"></span>
                 
             </div>
