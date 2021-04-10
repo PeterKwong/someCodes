@@ -15,13 +15,14 @@ class DiamondSitemap
 
 	$sitemap = app()->make('sitemap');
 
+	$url = 'https://www.tingdiamond.com/';
 
 	cache()->put('sitemap.sitemapCounter', 0);
 
 	$translations = [
-				['language' => 'en', 'url' => url('/en/')],
-				['language' => 'zh-Hant', 'url' => url('/hk/')],
-				['language' => 'zh-Hans', 'url' => url('/cn/')],
+				['language' => 'en', 'url' => $url. 'en/'],
+				['language' => 'zh-Hant', 'url' => $url. 'hk/'],
+				['language' => 'zh-Hans', 'url' => $url. 'cn/'],
 			];
 
 
