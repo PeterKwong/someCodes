@@ -25,7 +25,7 @@ $translations = [
 
 // get all diamonds from db (or wherever you store them)
 $diamonds = DB::table('diamonds')->whereAvailable(1)->orderBy('created_at', 'desc')
-	->chunk(1000,function($diamonds) use (&$sitemap,$translations){
+	->chunk(3000,function($diamonds) use (&$sitemap,$translations){
 
 		// $counter = Cache::get('sitemap.counter');
 		$sitemapCounter = Cache::get('sitemap.sitemapCounter');
