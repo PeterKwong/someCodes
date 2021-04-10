@@ -122,6 +122,12 @@ class Kernel extends ConsoleKernel
 
         })->cron('*/1 * * * *')->between('00:01', '23:59')->runInBackground();
 
+        $schedule->call(function () use(&$CronJob) {
+
+            $CronJob->generateDiamondSitemap();
+
+        })->dailyAt('00:02')->runInBackground();
+
 
 
         // $schedule->command('inspire')->dailyAt('20:20')->runInBackground()->pingBefore('https://tingdiamond.com/big-sitemap/diamonds/');
