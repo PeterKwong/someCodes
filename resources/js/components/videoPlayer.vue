@@ -2,7 +2,7 @@
     <div class="test_two_box">
         <video
             id="myVideo"
-            class="video-js vjs-fluid vjs-big-play-centered"
+            class="w-full h-auto video-js vjs-fluid vjs-big-play-centered"
         >
         <source
             :src="options.sources[0].src"
@@ -24,10 +24,15 @@ export default {
         return {};
     },
     mounted() { 
-        this.initVideo();
+        // console.log(this.hasLoaded())
+        if(!this.hasLoaded()){
+            this.initVideo();
+        }
+        this.updateVideo()
+
     },
     watch:{
-        'options': 'removeVideo'
+        'options': 'updateVideo'
         },
     methods: {
         initVideo() {
@@ -36,7 +41,7 @@ export default {
                 //确定播放器是否具有用户可以与之交互的控件。没有控件，启动视频播放的唯一方法是使用autoplay属性或通过Player API。
                 controls: true,
                 //自动播放属性,muted:静音播放
-                autoplay: "false",
+                autoplay: this.autoplay,
                 //建议浏览器是否应在<video>加载元素后立即开始下载视频数据。
                 preload: "auto",
                 //设置视频播放器的显示宽度（以像素为单位）
@@ -44,14 +49,19 @@ export default {
 
             });
         },
-        removeVideo(){
+        updateVideo(){
             videojs('myVideo').poster(this.options.poster);
             videojs('myVideo').src(this.options.sources[0].src);
             videojs('myVideo').autoplay(false);
         },
         hasLoaded(){
-            console.log(videojs('myVideo').ready())
-            return videojs('myVideo').ready()
+            // console.log(videojs.getPlayer('myVideo'))
+            return videojs.getPlayer('myVideo') != undefined
+        }
+    },
+    beforeDestroy() {
+        if (this.hasLoaded()) {
+            videojs.getPlayer('myVideo').dispose()
         }
     }
 };
@@ -60,48 +70,3 @@ export default {
 <style scoped>
 </style>
 
-
-<!-- 
-<template>
-    <div v-if="show"> 
-        <video
-        id="my-video"
-        class="w-full h-auto video-js vjs-big-play-centered"
-        controls
-        preload="auto"
-        :poster="options.poster"
-        data-setup='{"fluid": true}'
-        :src="options.sources[0].src"
-        >
-        </video>
-    </div>
-</template>
-
-<script>
-    export default {
-
-    name: "videoPlayer",
-    props:[
-        'options',
-        'auto',
-        ],
-    data(){
-        return{
-            show:true
-        }
-    },
-    watch:{
-        'options': 'refresh'
-        },
-    methods:{
-            refresh(){
-                this.show = false
-                console.log('update')
-                this.$forceUpdate();
-                this.show = true
-
-            }
-        }
-    };
-</script>
- -->

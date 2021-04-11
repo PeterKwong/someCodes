@@ -34,7 +34,7 @@
 
             <div class="col-span-12">
                 <img :src="images+currentItem.src" v-if="currentItem.type=='img'" class="w-auto" @click="nextItem">
-                <video-player :options="videoOptions" autoplay="false" :class="{'hidden': currentItem.type !='video'}"></video-player>
+                <video-player :options="videoOptions" autoplay="false" v-if="currentItem.type=='video'"></video-player>
                 
                 <product-viewer v-if="currentItem.type=='video360'" :folder="folder + upperitems.video360 +'/'" 
                 :filename="fileName " :size="currentItem.size" :rotate="currentItem.rotate"></product-viewer>
@@ -221,7 +221,7 @@ export default {
                   buttered:[0.00, 3.46],
                   preload:"auto",
                   readyState: 1,
-                  autoplay: true,
+                  autoplay: false,
 
                 }
         },
