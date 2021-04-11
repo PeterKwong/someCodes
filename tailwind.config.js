@@ -38,6 +38,7 @@ module.exports = {
         translate: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
         transitionTimingFunction: ['responsive', 'hover', 'focus'],
         scale: ['active', 'hover', 'group-hover'],
+        zIndex: ['responsive', 'focus-within', 'focus', 'hover', 'group-hover']
     },
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
