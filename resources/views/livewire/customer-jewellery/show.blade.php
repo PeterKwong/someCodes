@@ -407,10 +407,10 @@
                         class="video-js vjs-fluid vjs-big-play-centered"
                         controls
                         preload="auto"
-                        poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $Jewellry->images[0]->image}}"
+                        poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $jewellery->images[0]->image}}"
                         data-setup='{"fluid": true}'
                         >
-                        <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $Jewellry->video}}" type="video/mp4">
+                        <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $jewellery->video}}" type="video/mp4">
                         </video>
                     </div>
                 </div>
@@ -420,7 +420,7 @@
                         <div class="">
                         <div>
                             <div>
-                                <div class="text-xl px-2 font-semibold">{{__('customerMoment.Jewellry Info')}}</div>
+                                <div class="text-xl px-2 font-semibold">{{__('customerMoment.jewellery Info')}}</div>
                             </div>
                         </div>
                             
@@ -480,7 +480,7 @@
                         <div class="">
                         <div>
                             <div>
-                                <div class="text-xl px-2 font-semibold">{{__('customerMoment.Jewellry Info')}}</div>
+                                <div class="text-xl px-2 font-semibold">{{__('customerMoment.jewellery Info')}}</div>
                             </div>
                         </div>
                             
