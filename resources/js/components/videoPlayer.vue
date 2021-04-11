@@ -18,7 +18,7 @@ export default {
     name: "TestTwo",
     props:[
             'options',
-            'auto',
+            'autoplay',
             ],
     data() {
         return {};
@@ -48,7 +48,10 @@ export default {
             videojs('myVideo').poster(this.options.poster);
             videojs('myVideo').src(this.options.sources[0].src);
             videojs('myVideo').autoplay(false);
-            this.initVideo()
+        },
+        hasLoaded(){
+            console.log(videojs('myVideo').ready())
+            return videojs('myVideo').ready()
         }
     }
 };
