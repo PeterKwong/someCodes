@@ -23,8 +23,52 @@
             </div>       
         </div>
 
+
+        <div class="grid grid-cols-12 p-1">
+
+            <div class="col-span-10 col-start-2">
+                <div class="box">
+                    <article>
+                        <div>
+                          <center>
+                            <p class="title is-5">{{__('customerMoment.Product Video')}}</p>     
+
+                <div class="flex">
+                    <div class="w-full h-full">  
+                        <video
+                        id="invoice-post-1"
+                        class="video-js vjs-fluid vjs-big-play-centered"
+                        controls
+                        preload="auto"
+                        poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $meta->images[0]->image}}"
+                        data-setup='{"fluid": true}'
+                        >
+                        <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $meta->video}}" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                            </center>
+                                
+                            <div>
+                                  
+                        </article>                            
+                    </div>
+                </div>
+
+            </div>   
+
+
         <span id="customerJewelleryShow">
-            <div class="grid grid-cols-12 p-1" v-if="post.video">
+            
+            <div v-if="video360.src" class=" p-1">
+                <product-viewer 
+                :folder=" mutualVar.storage[mutualVar.storage.live] + 'public/video360/' + video360.src +'/'" 
+                :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate"></product-viewer>
+             </div>
+        
+        </span>
+
+<!--             <div class="grid grid-cols-12 p-1" v-if="post.video">
 
                 <div class="col-span-10 col-start-2">
                     <div class="box">
@@ -32,9 +76,13 @@
                             <div>
                               <center>
                                 <p class="title is-5">{{__('customerMoment.Product Video')}}</p>
-<!--                                 <video-player :options="videoOpts[3].videoPost" v-if="post.video"></video-player> 
- -->
-                                <video-player :options="videoOpts[3].videoPost" autoplay="false" v-if="post.video"></video-player> 
+                                <video-player videoId="video-" :options="videoOpts[3].videoPost" v-if="post.video"></video-player> 
+
+
+
+
+
+                                <video-player videoId="videoOne" :options="videoOpts[3].videoPost" autoplay="false" v-if="post.video"></video-player> 
                               </center>
                                 
                             <div>
@@ -43,14 +91,8 @@
                     </div>
                 </div>
 
-            </div>    
-            
-            <div v-if="video360.src" class=" p-1">
-                <product-viewer 
-                :folder=" mutualVar.storage[mutualVar.storage.live] + 'public/video360/' + video360.src +'/'" 
-                :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate"></product-viewer>
-             </div>
-        
+            </div>  -->   
+
 
         @foreach($meta->invoice->invoiceDiamonds as $key => $diamond )
 
@@ -267,8 +309,23 @@
                     <article>
                         <div>
                           <p>
-                            <video-player :options="videoOpts[0].videoEng" v-if="post.invoice.engagement_rings[0].video"></video-player> 
 
+                <div class="flex">
+                    <div class="w-full h-full">  
+                        <video
+                        id="invoice-post-2"
+                        class="video-js vjs-fluid vjs-big-play-centered"
+                        controls
+                        preload="auto"
+                        poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $engagementRing->images[0]->image}}"
+                        data-setup='{"fluid": true}'
+                        >
+                        <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $engagementRing->video}}" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+<!--                             <video-player videoId="videoTwo" :options="videoOpts[0].videoEng" v-if="post.invoice.engagement_rings[0].video"></video-player> 
+ -->
                           </p>
                          </div>
                         <div class="">
@@ -342,8 +399,23 @@
                     <article>
                         <div v-if="published.jewelleries">
                           <p>
-                            <video-player :options="videoOpts[2].videoJew" v-if="post.invoice.jewelleries[0].video"></video-player> 
-                          </p>
+
+                <div class="flex">
+                    <div class="w-full h-full">  
+                        <video
+                        id="invoice-post-2"
+                        class="video-js vjs-fluid vjs-big-play-centered"
+                        controls
+                        preload="auto"
+                        poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $Jewellry->images[0]->image}}"
+                        data-setup='{"fluid": true}'
+                        >
+                        <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $Jewellry->video}}" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+<!--                             <video-player videoId="videoThree" :options="videoOpts[2].videoJew" v-if="post.invoice.jewelleries[0].video"></video-player> 
+ -->                          </p>
                          </div>
                         <div class="">
                         <div>
@@ -402,7 +474,7 @@
                     <article>
                         <div>
                           <p>
-                            <video-player :options="videoOpts[2].videoJew" v-if="post.invoice.jewellries[0].video"></video-player> 
+                            <video-player videoId="video-" :options="videoOpts[2].videoJew" v-if="post.invoice.jewellries[0].video"></video-player> 
                           </p>
                          </div>
                         <div class="">
@@ -459,8 +531,23 @@
                 <div class="box">
                     <article>
                         <div v-if="published.weddingRings">
-                            <video-player :options="videoOpts[1].videoWed" v-if="wedding_ring.video"></video-player> 
-                          <p>
+
+                <div class="flex">
+                    <div class="w-full h-full">  
+                        <video
+                        id="invoice-post-2"
+                        class="video-js vjs-fluid vjs-big-play-centered"
+                        controls
+                        preload="auto"
+                        poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $weddingRing->images[0]->image}}"
+                        data-setup='{"fluid": true}'
+                        >
+                        <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $weddingRing->video}}" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+<!--                             <video-player videoId="videoFour" :options="videoOpts[1].videoWed" v-if="wedding_ring.video"></video-player> 
+ -->                          <p>
                             
                           </p>
                          </div>
@@ -542,7 +629,7 @@
                 <div class="box">
                     <article>
                         <div>
-                            <video-player :options="videoOpts[1].videoWed" v-if="wedding_ring.video"></video-player> 
+                            <video-player videoId="video-" :options="videoOpts[1].videoWed" v-if="wedding_ring.video"></video-player> 
                           <p>
                             
                           </p>
@@ -593,7 +680,6 @@
 
 
 
-        </span>
 
 
         </div>

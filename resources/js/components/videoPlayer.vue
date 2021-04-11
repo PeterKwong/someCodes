@@ -1,5 +1,5 @@
 <template>
-    <div class="test_two_box">
+    <div class="videoPlayer">
         <video
             id="myVideo"
             class="w-full h-auto video-js vjs-fluid vjs-big-play-centered"
@@ -15,7 +15,7 @@
 <script>
 /* eslint-disable */
 export default {
-    name: "TestTwo",
+    name: "videPlayer",
     props:[
             'options',
             'autoplay',

@@ -13,7 +13,7 @@ class Show extends Component
 
     public function render()
     {	
-    	// dd($this->meta->images);
+    	// dd($this->meta);
 
         return view('livewire.customer-jewellery.show');
     }
@@ -28,9 +28,10 @@ class Show extends Component
                         },
                         'images',
                         'invoice.invoiceDiamonds',
-                        'invoice.engagementRings',
-                        'invoice.weddingRings',
-                        'invoice.jewelleries',
+                        'invoice.engagementRings.images',
+                        'invoice.weddingRings.images',
+                        'invoice.jewelleries.images',
+                        // 'invoice.invoicePosts.images',
                     ])->findOrFail(request()->segment(3));
 
         $this->weightRange();

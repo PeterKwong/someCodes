@@ -1,14 +1,17 @@
+@props(['poster','videoId', 'src'])
+		{{ $meta }}
 <div class="flex">
 	<div class="w-full h-full">  
+		{{ $src }}
         <video
-        id="gia-video"
+        id="{{ $videoId  }}"
         class="video-js vjs-fluid vjs-big-play-centered"
         controls
         preload="auto"
-	    poster="/images/front-end/home/gia_video.jpg"
+	    poster="{{ $poster  }}"
         data-setup='{"fluid": true}'
         >
-	    <source src="{{url('/videos/GIA_10mins-'. app()->getLocale() . '.mp4' )}}" type="video/mp4">
+	    <source src="{{ $src }}" type="video/mp4">
         </video>
     </div>
 </div>
