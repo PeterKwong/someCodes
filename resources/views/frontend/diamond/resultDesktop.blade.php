@@ -47,7 +47,7 @@
           <tbody>
             @if( isset($diamonds['data']) )
             @foreach($diamonds['data'] as $id => $row)
-                <tr class="text-center"  :class="{ ' bg-gray-400':clickedRows.includes( {{$row['id']}} )}"  x-on:click.prevent="goto( {{$row['id']}}, {{$id}} )">
+                <tr class="text-center"  :class="{ ' bg-gray-200':clickedRows.includes( {{$row['id']}} )}"  x-on:click.prevent="goto( {{$row['id']}}, {{$id}} )">
                     <td class="border-b px-4 py-2" >
                         <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
                         @if($row['image_cache'])
