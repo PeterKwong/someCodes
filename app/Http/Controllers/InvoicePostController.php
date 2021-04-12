@@ -134,7 +134,7 @@ class InvoicePostController extends Controller
 
         $invoicePost = InvoicePost::create($request->except(['video','texts','images','video360']));
 
-        $page = Page::create(['url' => 'customer-jewellery/'.$invoicePost->id ,'paginable_id' => $invoicePost->id , 'paginable_type' => 'App\InvoicePost']);
+        $page = Page::create(['url' => 'customer-jewellery/'.$invoicePost->id ,'paginable_id' => $invoicePost->id , 'paginable_type' => 'App\Models\InvoicePost']);
         $tags;
         foreach ($request->tags as $key => $tag) {
             $tags[]=$tag['id'];
@@ -232,7 +232,7 @@ class InvoicePostController extends Controller
 
 
         // dd($invoicePost->page()->tags());
-        return $invoicePost->updateItem($request, 'App\InvoicePost');
+        return $invoicePost->updateItem($request, 'App\Models\InvoicePost');
 
     }
 
@@ -240,7 +240,7 @@ class InvoicePostController extends Controller
     {
         $invoicePost = InvoicePost::with(['images','texts'])->findOrFail($id);
 
-        return $invoicePost->destroyItem('App\InvoicePost');
+        return $invoicePost->destroyItem('App\Models\InvoicePost');
 
     }
 
