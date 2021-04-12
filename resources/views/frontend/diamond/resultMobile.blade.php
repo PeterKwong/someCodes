@@ -4,7 +4,7 @@
 
 <div class="border border-gray-400" :class="{ ' bg-gray-400':clickedRows.includes( {{$row['id']}} )}">
   <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" target="_blanck" 
-      x-on:click="goto( {{$row['id']}}, {{$id}} )">
+      x-on:click.prevent="goto( {{$row['id']}}, {{$id}} )">
       <div class="flex items-center">
             @if($row['image_cache'])  
               <div class="flex-auto" >

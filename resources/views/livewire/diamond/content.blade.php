@@ -320,7 +320,7 @@
         goto(id,i){
           row = this.diamonds.data[i].id
           this.clickedRows.push(row)
-          console.log('hi')
+          // console.log('hi')
           window.open('/' + '{{app()->getLocale()}}' + '/gia-loose-diamonds/' + row , '')
           this.sendCookies()
         }

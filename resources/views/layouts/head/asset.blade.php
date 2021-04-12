@@ -42,12 +42,6 @@
 <script defer type="application/javascript" src="{{ mix('js/app.js') }}" ></script>
 
 <script defer type="application/javascript" src="{{ mix('js/frontend.js') }}" ></script>
-
-
-<!-- <script defer >
-	window.mutualVar.storage.cfront = '{{ config('global.cache.' . config('global.cache.live') ) }}'
-</script> 
- -->
  
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
