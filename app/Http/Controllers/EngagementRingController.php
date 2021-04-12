@@ -126,15 +126,25 @@ class EngagementRingController extends Controller
     {   
         $locale = app()->getLocale();
     	$engagementRing = EngagementRing::where('published',1)->with(['images','texts'])->findOrFail($id);
-        $posts = EngagementRing::where('published',1)->findOrFail($id)->invoices()->with(
-                    ['invoicePosts'=>function($inv){
+        $posts = EngagementRing::where('published',1)->findOrFail($id)->invoices()->with([
+                    'invoicePosts'=>function($inv){
                             return $inv->where('published',1);},
-                    'invoicePosts.texts' 
-                    ,'invoicePosts.images',])->orderBy('created_at','desc')->get();
+                    'invoicePosts.texts',
+                    'invoicePosts.images',])->orderBy('created_at','desc')->get();
 
         $invoicePosts = [];
 
-        // dd(count($posts)); 
+        // $titles = $posts;
+
+        // $this->posts = $this->posts->toArray();
+
+        // foreach ($titles as $key => $title) {
+
+        //     $this->posts['data'][$key]['invoice'] = $title->title($title->id);
+
+        // }
+
+        // dd($posts->invoicePosts[0]); 
         
         
         foreach ($posts as $p ) {

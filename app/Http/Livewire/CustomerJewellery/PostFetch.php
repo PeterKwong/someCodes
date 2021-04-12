@@ -62,7 +62,7 @@ class PostFetch extends Component
         $this->posts = $this->posts
 
         				->with([
-	                        	'texts',        						
+	                        	// 'texts',        						
         						'images' => function($query){ 
 	                                    $query->where('type','cover');
 	                                    }, 
