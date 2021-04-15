@@ -6,6 +6,7 @@ use App\Models\EngagementRing;
 use App\Support\EngagementRingFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class EngagementRingController extends Controller
 {
@@ -125,8 +126,15 @@ class EngagementRingController extends Controller
 
     public function show($id)
     {   
+        return Cache::remember('engagementRing.show.'.$id, 3600, 
+                    function()use($id){ 
+                           return $this->hasCachedShow($id);
+                    });
 
-    	$engagementRing = EngagementRing::where('published',1)->with(['images','texts'])->findOrFail($id);
+    }
+    public function hasCachedShow($id){
+        
+        $engagementRing = EngagementRing::where('published',1)->with(['images','texts'])->findOrFail($id);
         $posts = EngagementRing::where('published',1)->findOrFail($id)
                     ->invoices()->whereHas('invoicePosts',function(Builder $inv){
                             return $inv->where('published',1);})
@@ -163,11 +171,11 @@ class EngagementRingController extends Controller
             }
         }
 
-    	return response()
-    		->json([
-    			'model' => $engagementRing,
+        return response()
+            ->json([
+                'model' => $engagementRing,
                 'posts' => $invoicePosts,
-    			]);
+                ]);
     }
 
     public function admShow($id)
