@@ -126,10 +126,10 @@ class EngagementRingController extends Controller
 
     public function show($id)
     {   
-        return Cache::remember('engagementRing.show.'.$id, 3600, 
-                    function()use($id){ 
+        // return Cache::remember('engagementRing.show.'.$id.'.'.app()->getLocale(), 3600, 
+        //             function()use($id){ 
                            return $this->hasCachedShow($id);
-                    });
+                    // });
 
     }
     public function hasCachedShow($id){
@@ -140,7 +140,7 @@ class EngagementRingController extends Controller
                             return $inv->where('published',1);})
                     ->with([
                     'invoicePosts',
-                    // 'invoicePosts.texts',
+                    'invoicePosts.texts',
                     'invoicePosts.images',
                     ])->orderBy('created_at','desc')->get();
 
@@ -162,7 +162,7 @@ class EngagementRingController extends Controller
         foreach ($posts as $key => $p ) {
             if (isset($p->invoicePosts[0])) {
                 $post = $p->invoicePosts[0];
-                $post['texts'][0]['content'] = $post->title($post->id);
+                // $post['texts'][config( 'global.locale.'. dd(app()->getLocale()) )]['content'] = $post->title($post->id);
                 // dd($post);
                 $invoicePosts['invoicePosts'][] = $post;
                 // dd($invoicePosts['invoicePosts'][$post->id]['texts']);

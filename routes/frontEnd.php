@@ -61,7 +61,8 @@ Route::prefix('/redirect')->group(function(){
 
 Route::prefix('{locale}')->middleware('locale')->group(function(){
 
-
+    // dd(app()->getLocale());
+    // app()->setlocale(request()->segment(1));
 
     // Route::get('/{locale}', [HomeController::class, 'indexLang']);
     Route::get('/', [HomeController::class, 'indexLang']);

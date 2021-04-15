@@ -138,7 +138,7 @@ class WeddingRingPairController extends Controller
                             return $inv->where('published',1);})
                     ->with([
                     'invoicePosts',
-                    // 'invoicePosts.texts',
+                    'invoicePosts.texts',
                     'invoicePosts.images',
                     ])->orderBy('created_at','desc')->get();
 
@@ -159,7 +159,7 @@ class WeddingRingPairController extends Controller
             if (isset($p->invoicePosts[0])) {
                 $post = $p->invoicePosts[0];
                 // dd($post);
-                $post['texts'][0]['content'] = $post->title($post->id);
+                // $post['texts'][0]['content'] = $post->title($post->id);
                 // dd($post);
                 $invoicePosts['invoicePosts'][] = $post;
                 // dd($invoicePosts['invoicePosts'][$post->id]['texts']);
