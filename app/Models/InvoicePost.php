@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Carbon;
-use App\Http\Support\StoreUpdateDestroy;
 use App\Http\Support\FilterPaginateOrder;
+use App\Http\Support\StoreUpdateDestroy;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Cache;
 
 class InvoicePost extends Model
 {
@@ -47,12 +48,10 @@ class InvoicePost extends Model
     public function postable(){
         return $this->morphTo('');
     }
+    public function hasCachedTitle($id){
 
-    public function title($id){
-
-        $data = $this;
         $title = '';
-        $data = $data->with(['invoice.invoiceDiamonds',
+        $data = $this->with(['invoice.invoiceDiamonds',
                     'invoice.engagementRings',
                     'invoice.weddingRings',
                     'invoice.jewelleries',
@@ -63,11 +62,11 @@ class InvoicePost extends Model
         foreach ($types as $key => $type) {
             // dd($data);
             if (count( $data->invoice->{$type}) && $type != 'jewelleries') {
-                    $title .=  $title ? ' | ' :''; 
+                    $title .=  $title ? ' |' :''; 
                     $title .= $data->invoice->{$type}->first()->title();
             }else{
                 if ( count( $data->invoice->{$type}) && $data->invoice->{$type}->first()->type != 'Misc') {
-                    $title .=  $title ? ' | ' :''; 
+                    $title .=  $title ? ' |' :''; 
                     $title .= $data->invoice->{$type}->first()->title();                        
                 }
             }
@@ -76,7 +75,14 @@ class InvoicePost extends Model
         // dd($data);
         $data->invoice->title = $title;
 
-        return $title;
+        return $title;            
+    } 
+
+    public function title($id){
+
+        return Cache::remember('jewellerPost.title.'.$id, 3600, function()use($id){ 
+                                    return $this->hasCachedTitle($id);
+                                });
                     
     } 
 

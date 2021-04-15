@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Support\EngagementRingFilter;
 use App\Models\EngagementRing;
+use App\Support\EngagementRingFilter;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 
 class EngagementRingController extends Controller
 {
@@ -124,13 +125,16 @@ class EngagementRingController extends Controller
 
     public function show($id)
     {   
-        $locale = app()->getLocale();
+
     	$engagementRing = EngagementRing::where('published',1)->with(['images','texts'])->findOrFail($id);
-        $posts = EngagementRing::where('published',1)->findOrFail($id)->invoices()->with([
-                    'invoicePosts'=>function($inv){
-                            return $inv->where('published',1);},
-                    'invoicePosts.texts',
-                    'invoicePosts.images',])->orderBy('created_at','desc')->get();
+        $posts = EngagementRing::where('published',1)->findOrFail($id)
+                    ->invoices()->whereHas('invoicePosts',function(Builder $inv){
+                            return $inv->where('published',1);})
+                    ->with([
+                    'invoicePosts',
+                    // 'invoicePosts.texts',
+                    'invoicePosts.images',
+                    ])->orderBy('created_at','desc')->get();
 
         $invoicePosts = [];
 
@@ -144,12 +148,18 @@ class EngagementRingController extends Controller
 
         // }
 
-        // dd($posts->invoicePosts[0]); 
+        // dd($posts->toArray()); 
         
         
-        foreach ($posts as $p ) {
+        foreach ($posts as $key => $p ) {
             if (isset($p->invoicePosts[0])) {
-                $invoicePosts['invoicePosts'][] = $p->invoicePosts[0];
+                $post = $p->invoicePosts[0];
+                $post['texts'][0]['content'] = $post->title($post->id);
+                // dd($post);
+                $invoicePosts['invoicePosts'][] = $post;
+                // dd($invoicePosts['invoicePosts'][$post->id]['texts']);
+                // $invoicePosts['invoicePosts'][$post->id]['texts'] = $post->title($post->id);
+
             }
         }
 

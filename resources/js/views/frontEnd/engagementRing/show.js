@@ -42,13 +42,13 @@
 				// ,
 				// storeURL: '',
 				
-				customerItems: '',
+				customerItems:[],
 				shoppingCartType: 'engagementRings',
 				carouselItem:{
 					active: '',
 					upperitems: '',
 					items: '',
-					title: 'customer jewellries'}
+					title: 'customer jewellries'},
 
 			}
 		},
@@ -72,7 +72,8 @@
 				get(`/api/engagementRings/${window.location.pathname.slice(21)}`)
 				.then((res)=>{
 					this.engagementRing = res.data.model
-					this.filterNotPostable(res.data.posts.invoicePosts)
+					this.customerItems = res.data.posts.invoicePosts?res.data.posts.invoicePosts:[]
+					// this.filterNotPostable(res.data.posts.invoicePosts)
 					this.assignCarouselItem()
 				})
 			},

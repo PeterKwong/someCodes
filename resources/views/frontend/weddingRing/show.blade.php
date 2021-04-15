@@ -46,7 +46,8 @@
                         <div class="col-span-12 sm:col-span-7">
                                 <div class="tile is-child">
                                         <figure class="image box" @click="carouselState=!carouselState">
-                                        <carousel @active="carouselState=!carouselState" :active="carouselState"  :height="'500'" :width="'100%'" :upperitems="combinedUpperWeddingRings" :items="combinedLowerWeddingRings" title="customer jewellries"></carousel>
+              <!--                           <carousel @active="carouselState=!carouselState" :active="carouselState"  :height="'500'" :width="'100%'" :upperitems="combinedUpperWeddingRings" :items="combinedLowerWeddingRings" title="customer jewellries"></carousel> -->
+                                        <carousel @active="carouselState=!carouselState" :active="carouselState" :height="'500'" :width="'100%'" :upperitems="combinedUpperWeddingRings" :items="customerItems" title="customer jewellries"></carousel>
                                         </figure>
                                 </div>
                             </div>

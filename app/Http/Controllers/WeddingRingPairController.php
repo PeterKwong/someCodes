@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
 use App\Http\Support\ResizeImage;
+use App\Models\Image;
 use App\Models\Text;
 use App\Models\WeddingRing;
 use App\Models\WeddingRingPair;
 use File;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
@@ -132,7 +133,17 @@ class WeddingRingPairController extends Controller
             ,'weddingRings.images','weddingRings.texts'])->findOrFail($id);
 
         // dd(print_r($weddingRingPairs->weddingRings));
-        $invoicePosts = WeddingRingPair::with(['weddingRings.invoices.invoicePosts.images','weddingRings.invoices.invoicePosts.texts'])->findOrFail($id);
+        $posts = WeddingRingPair::where('published',1)->findOrFail($id)->weddingRings()->first()
+                    ->invoices()->whereHas('invoicePosts',function(Builder $inv){
+                            return $inv->where('published',1);})
+                    ->with([
+                    'invoicePosts',
+                    // 'invoicePosts.texts',
+                    'invoicePosts.images',
+                    ])->orderBy('created_at','desc')->get();
+
+        $invoicePosts = [];
+
         // $invoicePosts = $invoicePosts->weddingRings;
         
         // $posts = [];
@@ -142,6 +153,20 @@ class WeddingRingPairController extends Controller
         //     }
             
         // }
+        // dd($posts->toArray()); 
+        
+        foreach ($posts as $key => $p ) {
+            if (isset($p->invoicePosts[0])) {
+                $post = $p->invoicePosts[0];
+                // dd($post);
+                $post['texts'][0]['content'] = $post->title($post->id);
+                // dd($post);
+                $invoicePosts['invoicePosts'][] = $post;
+                // dd($invoicePosts['invoicePosts'][$post->id]['texts']);
+                // $invoicePosts['invoicePosts'][$post->id]['texts'] = $post->title($post->id);
+
+            }
+        }
         
         return response()
             ->json([
