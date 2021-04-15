@@ -80,9 +80,9 @@ class InvoicePost extends Model
 
     public function title($id){
 
-        return Cache::remember('jewellerPost.title.'.$id, 3600, function()use($id){ 
+        // return Cache::remember('jewellerPost.title.'.$id, 3600, function()use($id){ 
                                     return $this->hasCachedTitle($id);
-                                });
+                                // });
                     
     } 
 
