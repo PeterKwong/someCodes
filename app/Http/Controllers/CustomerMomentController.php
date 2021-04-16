@@ -132,14 +132,14 @@ class CustomerMomentController extends Controller
 
         $customerMoment = CustomerMoment::with(['images','texts'])->findOrFail($id);
 
-        return $customerMoment->updateItem($request,'App\CustomerMoment',['toSquare']);
+        return $customerMoment->updateItem($request,'App\Model\CustomerMoment',['toSquare']);
     }
 
     public function destroy($id)
     {
         $customerMoment = CustomerMoment::with(['images','texts'])->findOrFail($id);
         
-        return $customerMoment->destroyItem('App\CustomerMoment');
+        return $customerMoment->destroyItem('App\Model\CustomerMoment');
 
     }
 }
