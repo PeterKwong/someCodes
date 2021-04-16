@@ -20,10 +20,10 @@
         </li>
 
         <li class="has-submenu">
-            <a href="/adm/cache">Info<div class="arrow-down"></div></a>
+            <a href="/adm/company-info">Info<div class="arrow-down"></div></a>
             <ul class="submenu">
                 <li>
-                    <a href="/adm/cache">Data</a>
+                    <a href="/adm/company-info">Data</a>
                 </li>                                
             </ul>
         </li>
