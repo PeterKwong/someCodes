@@ -97,7 +97,7 @@ class CustomerMomentController extends Controller
 
     }
 
-      protected function getFileName($file)
+    protected function getFileName($file)
     {
             return Carbon::now()->toDateString().'_' . str_random(). '.' .$file->extension();
     }
@@ -132,14 +132,14 @@ class CustomerMomentController extends Controller
 
         $customerMoment = CustomerMoment::with(['images','texts'])->findOrFail($id);
 
-        return $customerMoment->updateItem($request,'App\Model\CustomerMoment',['toSquare']);
+        return $customerMoment->updateItem($request,'App\Models\CustomerMoment',['toSquare']);
     }
 
     public function destroy($id)
     {
         $customerMoment = CustomerMoment::with(['images','texts'])->findOrFail($id);
         
-        return $customerMoment->destroyItem('App\Model\CustomerMoment');
+        return $customerMoment->destroyItem('App\Models\CustomerMoment');
 
     }
 }
