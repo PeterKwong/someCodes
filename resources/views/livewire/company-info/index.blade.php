@@ -3,16 +3,15 @@
 	<form wire:submit.prevent="save">
 
 		<div class="row">
-			@foreach($sales as $key => $value)
-
+			@foreach($companyInfo as $index => $value)
+				@if($value->type == 'sales')
 				<div class="col-sm-3 p-2 border">
 					
-					<p>{{ $key }}</p>
-					<textarea wire:model="sales.{{$key}}" class="form-control"></textarea>
+					<p>{{ $value->key }}</p>
+					<textarea wire:model.lazy="companyInfo.{{ $index }}.value" class="form-control"></textarea>
 					
 				</div>
-				
-
+				@endif
 			@endforeach
 
 		</div>
@@ -22,16 +21,15 @@
 		<p class="text-2xl py-2">Purchase</p>
 
 		<div class="row">
-			@foreach($purchase as $key => $value)
-
+			@foreach($companyInfo as $index => $value)
+				@if($value->type == 'purchase')
 				<div class="col-sm-3 p-2 border">
 					
-					<p>{{ $key }}</p>
-					<textarea wire:model="purchase.{{$key}}" class="form-control"></textarea>
+					<p>{{ $value->key }}</p>
+					<textarea wire:model.lazy="companyInfo.{{ $index }}.value" class="form-control"></textarea>
 					
 				</div>
-				
-
+				@endif
 			@endforeach
 
 		</div>

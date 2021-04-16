@@ -19,7 +19,12 @@ class Index extends Component
                         'goldPricePT' => 0,
                         'priceFactor' => 1.9,
                 ]; 
+    public $companyInfo;
 
+    protected $rules = [
+        'companyInfo.*.key' => '',
+        'companyInfo.*.value' => '',
+    ];
 
     public function mount(){
     	 
@@ -28,34 +33,18 @@ class Index extends Component
     }
     public function get(){
 
-    	foreach ($this->sales as $key => $value) {
-
-    		$this->sales[$key] =  CompanyInfo::whereKey($key)->first() ;
-
-    	}
-
-        foreach ($this->purchase as $key => $value) {
-
-            $this->purchase[$key] =  CompanyInfo::whereKey($key)->first() ;
-
-        }
-    	// dd($this->sales);
+            $this->companyInfo =  CompanyInfo::all() ;
+    	// dd($this->companyInfo);
     	// return $this->sales;
     }
 
     public function save(){
+    	
+    	$this->validate();
 
-    	foreach ($this->sales as $key => $value) {
-
-    		CompanyInfo::where($key, $value)->save(); 
-
+    	foreach ($this->companyInfo as $key => $info) {
+    		$info->save();
     	}
-
-        foreach ($this->purchase as $key => $value) {
-
-            CompanyInfo::where($key, $value)->save(); 
-
-        }
 
     }
     public function render()
