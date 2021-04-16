@@ -39,7 +39,7 @@
                     <div class="col-span-12 flex text-center justify-end">
                         @if(count($upperId)>1)
                             <center>
-                                <a wire:click="popLastArray()" class="bg-orange-500 hover:bg-orange-200 text-white rounded-full py-1 px-2">
+                                <a wire:click="popLastArray()" class="bg-yellow-500 hover:bg-yellow-200 text-white rounded-full py-1 px-2">
                                         {{__('customerJewellery.' . $upperId[count($upperId)-1]['content'])}} 
                                 </a>
                                 <p class="text-xl text-gray-500 mx-2">&#10225;</p>
@@ -72,8 +72,8 @@
 	                            <center class="p-4">
 	                                <p class="truncate">{{$post['invoice']}} </p>
 	                                </a>
-	                                <p v-if="post.created_at">{{$post['date']}} </p>
-	                            </center>
+<!-- 	                                <p v-if="post.created_at">{{$post['date']}} </p>
+ -->	                            </center>
 	                    </a>
 		            </div>
                 @endif
