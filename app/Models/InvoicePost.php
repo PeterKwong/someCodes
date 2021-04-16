@@ -79,7 +79,7 @@ class InvoicePost extends Model
     } 
 
     public function title($id){
-
+        
         return $this->hasCachedTitle($id);
                     
     } 

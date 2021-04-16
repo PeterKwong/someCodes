@@ -1,0 +1,46 @@
+<div class="m-4">
+
+	<form wire:submit.prevent="save">
+
+		<div class="row">
+			@foreach($sales as $key => $value)
+
+				<div class="col-sm-3 p-2 border">
+					
+					<p>{{ $key }}</p>
+					<textarea wire:model="sales.{{$key}}" class="form-control"></textarea>
+					
+				</div>
+				
+
+			@endforeach
+
+		</div>
+
+       @canany(['admin','purchase'])
+
+		<p class="text-2xl py-2">Purchase</p>
+
+		<div class="row">
+			@foreach($purchase as $key => $value)
+
+				<div class="col-sm-3 p-2 border">
+					
+					<p>{{ $key }}</p>
+					<textarea wire:model="purchase.{{$key}}" class="form-control"></textarea>
+					
+				</div>
+				
+
+			@endforeach
+
+		</div>
+		@endcanany
+
+		<button type="submit" class="btn btn-primary">Save</button>
+		
+	</form>
+	
+</div>
+
+

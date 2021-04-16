@@ -83,7 +83,8 @@ class CustomerMomentController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
+        // dd('gu');
         $this->validate($request, [
             'images' => 'required | array',
             'texts' => 'required | array | min:1',

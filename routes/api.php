@@ -64,7 +64,7 @@ Route::middleware(['auth:sanctum','ApiTingDiamond'])->group(function(){
 	Route::resource('invoicePosts', InvoicePostController::class)
 		->only(['create', 'store', 'edit', 'update', 'destroy']);
 
-	Route::resource('customerMoments', JewelleryController::class)
+	Route::resource('customerMoments', CustomerMomentController::class)
 		->only(['create', 'store', 'edit', 'update', 'destroy']);
 
 

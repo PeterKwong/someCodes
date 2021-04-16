@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CacheController;
+use App\Http\Controllers\CompanyInfoController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CustomerMomentController;
 use App\Http\Controllers\DiamondController;
@@ -97,6 +98,7 @@ Route::prefix('/adm/')
         //accounting
         Route::get('accounting/invoice-export', [AdminController::class,'invoiceExport']);
 
+        Route::get('company-info', [CompanyInfoController::class, 'index']);
         Route::get('cache', [CacheController::class, 'index']);
 
         Route::get('test', [TestController::class,'testView']);
