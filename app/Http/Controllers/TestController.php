@@ -15,8 +15,11 @@ use App\Models\InvoicePost;
 use App\Models\Jewellery;
 use App\Models\Page;
 use App\Models\Tag;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
 
 
 class TestController extends Controller
@@ -27,12 +30,34 @@ class TestController extends Controller
 	    // $this->postTags();
 	    // return $this->resetAllDiamonds();
 
-	    return $this->bigSitemap();
+	    return $this->spatieSiteMap();
 
 		return response()
 			->json(
 			['sent' => true]
 		);
+
+    }
+    public function spatieSiteMap(){
+
+		$sitemap = Sitemap::create();
+
+		$sitemap = Page::all()->each(function (Page $page) use ($sitemap) {
+		    $sitemap->add(Url::create("/page/{$page->id}"));
+		});
+
+		$sitemap = $sitemap
+		    // ->add($post)
+		    // ->add(Page::all())
+		    ->add(Url::create('/')
+	        ->setLastModificationDate(Carbon::yesterday())
+	        ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
+	        ->setPriority(0.1))
+			// ->writeToFile(public_path('/public/sitemap_index.xml'));
+
+		->writeToDisk('public', 'sitemap.xml');		    
+
+		// dd($siteMap);
 
     }
     public function bigSitemap(){
