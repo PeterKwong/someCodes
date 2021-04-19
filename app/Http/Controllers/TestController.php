@@ -133,7 +133,7 @@ class TestController extends Controller
 	cache()->put('sitemap.sitemapCounter', 0);
 
 
-	$engagementRings = DB::table('engagement_rings')->orderBy('created_at', 'desc')
+	$engagementRings = DB::table('engagement_rings')->where('published',1)->orderBy('created_at', 'desc')
 		->chunk(1000,function($engagementRings) use (&$sitemap,$translations){
 
 			// $counter = cache()->get('sitemap.counter');
@@ -143,7 +143,7 @@ class TestController extends Controller
 
 					foreach ($translations as $trans) {
 
-						$sitemap->add($trans['url'] . '/' . $p->url, now(), '0.9', 'daily');
+						$sitemap->add($trans['url'] . '/engagement-rings/' . $p->id, now(), '0.8', 'daily');
 
 					}
 
