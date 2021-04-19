@@ -93,6 +93,85 @@ class TestController extends Controller
 
 	});
 
+	cache()->put('sitemap.sitemapCounter', 0);
+
+	$pages = DB::table('pages')->orderBy('created_at', 'desc')
+		->chunk(1000,function($pages) use (&$sitemap,$translations){
+
+			// $counter = cache()->get('sitemap.counter');
+			$sitemapCounter = cache()->get('sitemap.sitemapCounter');
+				// add every product to multiple sitemaps with one sitemap index
+				foreach ($pages as $p) {
+
+					foreach ($translations as $trans) {
+
+						$sitemap->add($trans['url'] . '/' . $p->url, now(), '0.9', 'daily');
+
+					}
+
+					// count number of elements
+						// dd($sitemap);
+				}
+			
+			// dd($sitemap->model->getItems());
+
+			// dd($sitemap);
+			$sitemap->store('xml', 'vendor/sitemap/pages/sitemap-' . $sitemapCounter);
+			// add the file to the sitemaps array
+			$sitemap->addSitemap(secure_url('vendor/sitemap/pages/sitemap-' . $sitemapCounter . '.xml'));
+			// reset items array (clear memory)
+			$sitemap->model->resetItems();
+			// reset the counter
+			// $counter = 0;
+			// count generated sitemap
+
+			cache()->put('sitemap.sitemapCounter', $sitemapCounter + 1);
+
+
+	});
+
+	cache()->put('sitemap.sitemapCounter', 0);
+
+
+	$engagementRings = DB::table('engagement_rings')->orderBy('created_at', 'desc')
+		->chunk(1000,function($engagementRings) use (&$sitemap,$translations){
+
+			// $counter = cache()->get('sitemap.counter');
+			$sitemapCounter = cache()->get('sitemap.sitemapCounter');
+				// add every product to multiple sitemaps with one sitemap index
+				foreach ($engagementRings as $p) {
+
+					foreach ($translations as $trans) {
+
+						$sitemap->add($trans['url'] . '/' . $p->url, now(), '0.9', 'daily');
+
+					}
+
+					// count number of elements
+						// dd($sitemap);
+				}
+			
+			// dd($sitemap->model->getItems());
+
+			// dd($sitemap);
+			$sitemap->store('xml', 'vendor/sitemap/engagement-ring/sitemap-' . $sitemapCounter);
+			// add the file to the sitemaps array
+			$sitemap->addSitemap(secure_url('vendor/sitemap/engagement-ring/sitemap-' . $sitemapCounter . '.xml'));
+			// reset items array (clear memory)
+			$sitemap->model->resetItems();
+			// reset the counter
+			// $counter = 0;
+			// count generated sitemap
+
+			cache()->put('sitemap.sitemapCounter', $sitemapCounter + 1);
+
+
+	});
+
+	cache()->put('sitemap.sitemapCounter', 0);
+
+
+
 		// $pages = DB::table('pages')
   //               ->orderBy('updated_at','desc')
   //                   ->get();
