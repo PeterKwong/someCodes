@@ -15,11 +15,8 @@ use App\Models\InvoicePost;
 use App\Models\Jewellery;
 use App\Models\Page;
 use App\Models\Tag;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Spatie\Sitemap\Sitemap;
-use Spatie\Sitemap\Tags\Url;
 
 
 class TestController extends Controller
@@ -30,34 +27,12 @@ class TestController extends Controller
 	    // $this->postTags();
 	    // return $this->resetAllDiamonds();
 
-	    return $this->spatieSiteMap();
+	    return $this->bigSitemap();
 
 		return response()
 			->json(
 			['sent' => true]
 		);
-
-    }
-    public function spatieSiteMap(){
-
-		$sitemap = Sitemap::create();
-
-		$sitemap = Page::all()->each(function (Page $page) use ($sitemap) {
-		    $sitemap->add(Url::create("/page/{$page->id}"));
-		});
-
-		$sitemap = $sitemap
-		    // ->add($post)
-		    // ->add(Page::all())
-		    ->add(Url::create('/')
-	        ->setLastModificationDate(Carbon::yesterday())
-	        ->setChangeFrequency(Url::CHANGE_FREQUENCY_YEARLY)
-	        ->setPriority(0.1))
-			// ->writeToFile(public_path('/public/sitemap_index.xml'));
-
-		->writeToDisk('public', 'sitemap.xml');		    
-
-		// dd($siteMap);
 
     }
     public function bigSitemap(){
@@ -66,67 +41,114 @@ class TestController extends Controller
 	// create new sitemap object
 	$sitemap = app()->make('sitemap');
 
+	$sitemap->setCache('tingdiamond.sitemap', 10);
 
 	// dd($diamonds);
 	// counters
 	// $counter = 0;
 	// $sitemapCounter = 0;
 
-	// Cache::put('sitemap.counter', 0);
+	$translations = [
+			['language' => 'en', 'url' => url()->to('/en/')],
+			['language' => 'zh-Hant', 'url' => url()->to('/hk/')],
+			['language' => 'zh-Hans', 'url' => url()->to('/cn/')],
+		];
+
+
 	cache()->put('sitemap.sitemapCounter', 0);
-	// $cachedDiamond = cache()->get('sitemap.counter');
-
-	// dd(cache()->get('sitemap.counter'));
-
-		$translations = [
-				['language' => 'en', 'url' => url()->to('/en/')],
-				['language' => 'zh-Hant', 'url' => url()->to('/hk/')],
-				['language' => 'zh-Hans', 'url' => url()->to('/cn/')],
-			];
 
 
-		// get all diamonds from db (or wherever you store them)
-		$diamonds = DB::table('diamonds')->whereAvailable(1)->orderBy('created_at', 'desc')
-			->chunk(1000,function($diamonds) use (&$sitemap,$translations){
+	$pages = DB::table('pages')->orderBy('created_at', 'desc')
+		->chunk(1000,function($pages) use (&$sitemap,$translations){
 
-				// $counter = cache()->get('sitemap.counter');
-				$sitemapCounter = cache()->get('sitemap.sitemapCounter');
-					// add every product to multiple sitemaps with one sitemap index
-					foreach ($diamonds as $p) {
+			// $counter = cache()->get('sitemap.counter');
+			$sitemapCounter = cache()->get('sitemap.sitemapCounter');
+				// add every product to multiple sitemaps with one sitemap index
+				foreach ($pages as $p) {
 
-						foreach ($translations as $trans) {
+					foreach ($translations as $trans) {
 
-							$sitemap->add($trans['url'] . '/gia-loose-diamonds/' . $p->id, $p->updated_at, '0.5', 'monthly');
+						$sitemap->add($trans['url'] . '/' . $p->url, now(), '0.9', 'daily');
 
-						}
-
-						// count number of elements
-							// dd($sitemap);
 					}
-				
-				// dd($sitemap->model->getItems());
 
-				// dd($sitemap);
-				$sitemap->store('xml', 'vendor/sitemap/big-sitemap/diamonds/sitemap-' . $sitemapCounter);
-				// add the file to the sitemaps array
-				$sitemap->addSitemap(secure_url('vendor/sitemap/big-sitemap/diamonds/sitemap-' . $sitemapCounter . '.xml'));
-				// reset items array (clear memory)
-				$sitemap->model->resetItems();
-				// reset the counter
-				// $counter = 0;
-				// count generated sitemap
+					// count number of elements
+						// dd($sitemap);
+				}
+			
+			// dd($sitemap->model->getItems());
 
-				cache()->put('sitemap.sitemapCounter', $sitemapCounter + 1);
+			// dd($sitemap);
+			$sitemap->store('xml', 'vendor/sitemap/pages/sitemap-' . $sitemapCounter);
+			// add the file to the sitemaps array
+			$sitemap->addSitemap(secure_url('vendor/sitemap/pages/sitemap-' . $sitemapCounter . '.xml'));
+			// reset items array (clear memory)
+			$sitemap->model->resetItems();
+			// reset the counter
+			// $counter = 0;
+			// count generated sitemap
+
+			cache()->put('sitemap.sitemapCounter', $sitemapCounter + 1);
 
 
-		});
+	});
 
+		// $pages = DB::table('pages')
+  //               ->orderBy('updated_at','desc')
+  //                   ->get();
 
+  //       if ($pages != '') {
+  //       	foreach ($translations as $translation ) {
+
+		// 		foreach ($pages as $page ) {
+		// 		$sitemap->add(secure_url($translation['url'] .'/'. $page->url), now(), '0.9', 'daily', [], null, $translations);
+		// 		}
+		// 	}
+
+  //       }
 		// generate new sitemapindex that will contain all generated sitemaps above
 
-		$sitemap->store('sitemapindex', 'vendor/sitemap/big-sitemap/diamonds/sitemap');
 
-		return 'done';
+		// // get all diamonds from db (or wherever you store them)
+		// $diamonds = DB::table('diamonds')->whereAvailable(1)->orderBy('created_at', 'desc')
+		// 	->chunk(1000,function($diamonds) use (&$sitemap,$translations){
+
+		// 		// $counter = cache()->get('sitemap.counter');
+		// 		$sitemapCounter = cache()->get('sitemap.sitemapCounter');
+		// 			// add every product to multiple sitemaps with one sitemap index
+		// 			foreach ($diamonds as $p) {
+
+		// 				foreach ($translations as $trans) {
+
+		// 					$sitemap->add($trans['url'] . '/gia-loose-diamonds/' . $p->id, $p->updated_at, '0.5', 'monthly');
+
+		// 				}
+
+		// 				// count number of elements
+		// 					// dd($sitemap);
+		// 			}
+				
+		// 		// dd($sitemap->model->getItems());
+
+		// 		// dd($sitemap);
+		// 		$sitemap->store('xml', 'vendor/sitemap/big-sitemap/diamonds/sitemap-' . $sitemapCounter);
+		// 		// add the file to the sitemaps array
+		// 		$sitemap->addSitemap(secure_url('vendor/sitemap/big-sitemap/diamonds/sitemap-' . $sitemapCounter . '.xml'));
+		// 		// reset items array (clear memory)
+		// 		$sitemap->model->resetItems();
+		// 		// reset the counter
+		// 		// $counter = 0;
+		// 		// count generated sitemap
+
+		// 		cache()->put('sitemap.sitemapCounter', $sitemapCounter + 1);
+
+
+		// });
+
+		$sitemap->store('sitemapindex', 'sitemap_index1');
+
+
+		return redirect('sitemap_index1.xml');
 
     }
     public function crawlCScr(){

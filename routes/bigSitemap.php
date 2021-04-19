@@ -65,4 +65,4 @@ $diamonds = DB::table('diamonds')->whereAvailable(1)->orderBy('created_at', 'des
 $sitemap->store('sitemapindex', 'vendor/sitemap/big-sitemap/diamonds/sitemap');
 
 
-return redirect('vendor/sitemap/big-sitemap/diamonds/sitemap.xml');
+return $sitemap->render('xml');

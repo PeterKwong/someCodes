@@ -23,7 +23,6 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "league/flysystem-cached-adapter": "^1.1",
         "livewire/livewire": "^2.0",
-        "spatie/laravel-sitemap": "^5.9",
         "stripe/stripe-php": "^7.74"
     },
     "require-dev": {
