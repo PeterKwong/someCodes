@@ -7,4 +7,13 @@
 	<sitemap>
 		<loc>https://td8.test/vendor/sitemap/engagement-rings/sitemap-0.xml</loc>
 		</sitemap>
+	<sitemap>
+		<loc>https://td8.test/vendor/sitemap/wedding-rings/sitemap-0.xml</loc>
+		</sitemap>
+	<sitemap>
+		<loc>https://td8.test/vendor/sitemap/jewelleries/sitemap-0.xml</loc>
+		</sitemap>
+	<sitemap>
+		<loc>https://td8.test/vendor/sitemap/customer-posts/sitemap-0.xml</loc>
+		</sitemap>
 </sitemapindex>

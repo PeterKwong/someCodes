@@ -133,8 +133,118 @@ class TestController extends Controller
 
 	cache()->put('sitemap.sitemapCounter', 0);
 
+	$weddingRings = DB::table('wedding_rings')->where('published',1)->orderBy('created_at', 'desc')
+		->chunk(1000,function($weddingRings) use (&$sitemap,$translations){
+
+			// $counter = cache()->get('sitemap.counter');
+			$sitemapCounter = cache()->get('sitemap.sitemapCounter');
+				// add every product to multiple sitemaps with one sitemap index
+				foreach ($weddingRings as $p) {
+
+					foreach ($translations as $trans) {
+
+						$sitemap->add($trans['url'] . '/wedding-rings/' . $p->id, now(), '0.8', 'daily');
+
+					}
+
+					// count number of elements
+						// dd($sitemap);
+				}
+			
+			// dd($sitemap->model->getItems());
+
+			// dd($sitemap);
+			$sitemap->store('xml', 'vendor/sitemap/wedding-rings/sitemap-' . $sitemapCounter);
+			// add the file to the sitemaps array
+			$sitemap->addSitemap(secure_url('vendor/sitemap/wedding-rings/sitemap-' . $sitemapCounter . '.xml'));
+			// reset items array (clear memory)
+			$sitemap->model->resetItems();
+			// reset the counter
+			// $counter = 0;
+			// count generated sitemap
+
+			cache()->put('sitemap.sitemapCounter', $sitemapCounter + 1);
 
 
+	});
+
+	cache()->put('sitemap.sitemapCounter', 0);
+
+
+	$jewelleries = DB::table('jewelleries')->where('published',1)->orderBy('created_at', 'desc')
+		->chunk(1000,function($jewelleries) use (&$sitemap,$translations){
+
+			// $counter = cache()->get('sitemap.counter');
+			$sitemapCounter = cache()->get('sitemap.sitemapCounter');
+				// add every product to multiple sitemaps with one sitemap index
+				foreach ($jewelleries as $p) {
+
+					foreach ($translations as $trans) {
+
+						$sitemap->add($trans['url'] . '/jewelleries/' . $p->id, now(), '0.8', 'daily');
+
+					}
+
+					// count number of elements
+						// dd($sitemap);
+				}
+			
+			// dd($sitemap->model->getItems());
+
+			// dd($sitemap);
+			$sitemap->store('xml', 'vendor/sitemap/jewelleries/sitemap-' . $sitemapCounter);
+			// add the file to the sitemaps array
+			$sitemap->addSitemap(secure_url('vendor/sitemap/jewelleries/sitemap-' . $sitemapCounter . '.xml'));
+			// reset items array (clear memory)
+			$sitemap->model->resetItems();
+			// reset the counter
+			// $counter = 0;
+			// count generated sitemap
+
+			cache()->put('sitemap.sitemapCounter', $sitemapCounter + 1);
+
+
+	});
+
+	cache()->put('sitemap.sitemapCounter', 0);
+
+	$customerPosts = DB::table('invoice_posts')->where('published',1)->orderBy('created_at', 'desc')
+		->chunk(1000,function($customerPosts) use (&$sitemap,$translations){
+
+			// $counter = cache()->get('sitemap.counter');
+			$sitemapCounter = cache()->get('sitemap.sitemapCounter');
+				// add every product to multiple sitemaps with one sitemap index
+				foreach ($customerPosts as $p) {
+
+					foreach ($translations as $trans) {
+
+						$sitemap->add($trans['url'] . '/customer-posts/' . $p->id, now(), '0.8', 'daily');
+
+					}
+
+					// count number of elements
+						// dd($sitemap);
+				}
+			
+			// dd($sitemap->model->getItems());
+
+			// dd($sitemap);
+			$sitemap->store('xml', 'vendor/sitemap/customer-posts/sitemap-' . $sitemapCounter);
+			// add the file to the sitemaps array
+			$sitemap->addSitemap(secure_url('vendor/sitemap/customer-posts/sitemap-' . $sitemapCounter . '.xml'));
+			// reset items array (clear memory)
+			$sitemap->model->resetItems();
+			// reset the counter
+			// $counter = 0;
+			// count generated sitemap
+
+			cache()->put('sitemap.sitemapCounter', $sitemapCounter + 1);
+
+
+	});
+
+	cache()->put('sitemap.sitemapCounter', 0);
+	
 		// $pages = DB::table('pages')
   //               ->orderBy('updated_at','desc')
   //                   ->get();
