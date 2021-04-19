@@ -4,4 +4,7 @@
 	<sitemap>
 		<loc>https://td8.test/vendor/sitemap/pages/sitemap-0.xml</loc>
 		</sitemap>
+	<sitemap>
+		<loc>https://td8.test/vendor/sitemap/engagement-rings/sitemap-0.xml</loc>
+		</sitemap>
 </sitemapindex>
