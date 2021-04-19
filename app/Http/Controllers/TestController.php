@@ -244,7 +244,7 @@ class TestController extends Controller
 	});
 
 	cache()->put('sitemap.sitemapCounter', 0);
-	
+
 		// $pages = DB::table('pages')
   //               ->orderBy('updated_at','desc')
   //                   ->get();
@@ -296,6 +296,8 @@ class TestController extends Controller
 
 
 		// });
+		
+		$sitemap->addSitemap(secure_url('vendor/sitemap/big-sitemap/diamonds/sitemap.xml'));
 
 		$sitemap->store('sitemapindex', 'sitemap_index1');
 
