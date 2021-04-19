@@ -16,4 +16,7 @@
 	<sitemap>
 		<loc>https://td8.test/vendor/sitemap/customer-posts/sitemap-0.xml</loc>
 		</sitemap>
+	<sitemap>
+		<loc>https://td8.test/vendor/sitemap/big-sitemap/diamonds/sitemap.xml</loc>
+		</sitemap>
 </sitemapindex>

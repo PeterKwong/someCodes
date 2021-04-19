@@ -299,10 +299,10 @@ class TestController extends Controller
 		
 		$sitemap->addSitemap(secure_url('vendor/sitemap/big-sitemap/diamonds/sitemap.xml'));
 
-		$sitemap->store('sitemapindex', 'sitemap_index1');
+		$sitemap->store('sitemapindex', 'sitemap_index');
 
 
-		return redirect('sitemap_index1.xml');
+		return redirect('sitemap_index.xml');
 
     }
     public function crawlCScr(){
