@@ -13,7 +13,7 @@ class BigSitemap
 	public function create(){
 		
 
-	$combinedSitemap = app()->make('sitemap');
+	$sitemap = app()->make('sitemap');
 
 	$url = config('global.company.info.url');
 
@@ -26,32 +26,32 @@ class BigSitemap
 
 
 	$this->sitemapIndex('pages',$translations,$url,'/','url',
-						0.9,'daily','pages');
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/pages/sitemap.xml');
+						0.9,'daily','pages',$sitemap);
+	// $sitemap->addSitemap( $url . 'vendor/sitemap/pages/sitemap.xml');
 
 
 	$this->sitemapIndex('engagement_rings',$translations,$url,'/engagement-rings/','id',
-						0.8,'daily','engagement-rings');
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/engagement-rings/sitemap.xml');
+						0.8,'daily','engagement-rings',$sitemap);
+	// $sitemap->addSitemap( $url . 'vendor/sitemap/engagement-rings/sitemap.xml');
 
 	$this->sitemapIndex('wedding_ring_pairs',$translations,$url,'/wedding-rings/','id',
-						0.8,'daily','wedding-rings');
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/wedding-rings/sitemap.xml');
+						0.8,'daily','wedding-rings',$sitemap);
+	// $sitemap->addSitemap( $url . 'vendor/sitemap/wedding-rings/sitemap.xml');
 
 	$this->sitemapIndex('jewelleries',$translations,$url,'/jewelleries/','id',
-						0.8,'daily','jewelleries');
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/jewelleries/sitemap.xml');
+						0.8,'daily','jewelleries',$sitemap);
+	// $sitemap->addSitemap( $url . 'vendor/sitemap/jewelleries/sitemap.xml');
 
 	$this->sitemapIndex('invoice_posts',$translations,$url,'/customer-posts/','id',
-						0.8,'daily','customer-posts');
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/customer-posts/sitemap.xml');
+						0.8,'daily','customer-posts',$sitemap);
+	// $sitemap->addSitemap( $url . 'vendor/sitemap/customer-posts/sitemap.xml');
 
 	$this->sitemapIndex('diamonds',$translations,$url,'/gia-loose-diamonds/','id',
-						0.5,'monthly','diamonds');
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/diamonds/sitemap.xml');
+						0.5,'monthly','diamonds',$sitemap);
+	// $sitemap->addSitemap( $url . 'vendor/sitemap/diamonds/sitemap.xml');
 
 
-	$combinedSitemap->store('sitemapindex', 'sitemap_index');
+	$sitemap->store('sitemapindex', 'sitemap_index');
 
 
 	return redirect('sitemap_index.xml');
@@ -59,9 +59,9 @@ class BigSitemap
 
 	} 
 
-	public function sitemapIndex($table,$translations,$url,$segmentUrl,$queryType,$priority,$updateFrequency,$filename){
+	public function sitemapIndex($table,$translations,$url,$segmentUrl,$queryType,$priority,$updateFrequency,$filename,$sitemap){
 
-	$sitemap = app()->make('sitemap');
+	// $sitemap = app()->make('sitemap');
 
 	cache()->put('sitemap.sitemapCounter', 0);
 
@@ -105,7 +105,7 @@ class BigSitemap
 		});
 
 
-		$sitemap->store('sitemapindex', 'vendor/sitemap/' . $filename .'/sitemap');
+		// $sitemap->store('sitemapindex', 'vendor/sitemap/' . $filename .'/sitemap');
 
 
 		

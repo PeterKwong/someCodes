@@ -2,32 +2,32 @@
 
 use Carbon\Carbon;
 
-    $combinedSitemap = App::make('sitemap');
+ //    $combinedSitemap = App::make('sitemap');
 
-	$url = config('global.company.info.url');
+	// $url = config('global.company.info.url');
 
-	$translations = [
-			['language' => 'en', 'url' => url()->to('/en/')],
-			['language' => 'zh-Hant', 'url' => url()->to('/hk/')],
-			['language' => 'zh-Hans', 'url' => url()->to('/cn/')],
-		];
+	// $translations = [
+	// 		['language' => 'en', 'url' => url()->to('/en/')],
+	// 		['language' => 'zh-Hant', 'url' => url()->to('/hk/')],
+	// 		['language' => 'zh-Hans', 'url' => url()->to('/cn/')],
+	// 	];
 
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/pages/sitemap.xml');
+	// $combinedSitemap->addSitemap( $url . 'vendor/sitemap/pages/sitemap.xml');
 
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/engagement-rings/sitemap.xml');
+	// $combinedSitemap->addSitemap( $url . 'vendor/sitemap/engagement-rings/sitemap.xml');
 
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/engagement-rings/sitemap.xml');
+	// $combinedSitemap->addSitemap( $url . 'vendor/sitemap/engagement-rings/sitemap.xml');
 
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/wedding-rings/sitemap.xml');
+	// $combinedSitemap->addSitemap( $url . 'vendor/sitemap/wedding-rings/sitemap.xml');
 
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/jewelleries/sitemap.xml');
+	// $combinedSitemap->addSitemap( $url . 'vendor/sitemap/jewelleries/sitemap.xml');
 
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/customer-posts/sitemap.xml');
+	// $combinedSitemap->addSitemap( $url . 'vendor/sitemap/customer-posts/sitemap.xml');
 
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/diamonds/sitemap.xml');
+	// $combinedSitemap->addSitemap( $url . 'vendor/sitemap/diamonds/sitemap.xml');
 
 
-	return $sitemap->render('xml');
+	// return $sitemap->render('xml');
 
 
 
@@ -119,5 +119,5 @@ use Carbon\Carbon;
 
 
 
-	return $sitemap->render('xml');
+	// return $sitemap->render('xml');
 
