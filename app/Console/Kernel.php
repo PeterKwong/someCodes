@@ -126,7 +126,7 @@ class Kernel extends ConsoleKernel
 
             $CronJob->generateSitemap();
 
-        })->dailyAt('16:02')->runInBackground();
+        })->dailyAt('16:07')->runInBackground();
 
 
 
