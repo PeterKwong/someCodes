@@ -34,11 +34,7 @@ class BigSitemap
 						0.8,'daily','engagement-rings');
 	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/engagement-rings/sitemap.xml');
 
-	$this->sitemapIndex('engagement_rings',$translations,$url,'/engagement-rings/','id',
-						0.8,'daily','engagement-rings');
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/engagement-rings/sitemap.xml');
-
-	$this->sitemapIndex('wedding_rings',$translations,$url,'/wedding-rings/','id',
+	$this->sitemapIndex('wedding_ring_pairs',$translations,$url,'/wedding-rings/','id',
 						0.8,'daily','wedding-rings');
 	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/wedding-rings/sitemap.xml');
 
