@@ -101,11 +101,11 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function () use(&$CronJob) {
             $CronJob->runImages();
-        })->cron('1 */1 * * *')->between('12:01', '23:59')->runInBackground();
+        })->cron('1 */15 * * *')->between('12:01', '23:59')->runInBackground();
 
         $schedule->call(function () use(&$CronJob) {
             $CronJob->runCerts();
-        })->cron('1 */1 * * *')->between('14:01', '23:59')->runInBackground();
+        })->cron('1 */15 * * *')->between('14:01', '23:59')->runInBackground();
 
 
 

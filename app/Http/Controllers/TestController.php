@@ -297,7 +297,7 @@ class TestController extends Controller
 
 		// });
 		
-		$sitemap->addSitemap(secure_url('vendor/sitemap/big-sitemap/diamonds/sitemap.xml'));
+		$sitemap->addSitemap(secure_url('vendor/sitemap/diamonds/sitemap.xml'));
 
 		$sitemap->store('sitemapindex', 'sitemap_index');
 
