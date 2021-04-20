@@ -30,6 +30,26 @@ class BigSitemap
 	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/pages/sitemap.xml');
 
 
+	$this->sitemapIndex('engagement_rings',$translations,$url,'/engagement-rings/','id',
+						0.8,'daily','engagement-rings');
+	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/engagement-rings/sitemap.xml');
+
+	$this->sitemapIndex('engagement_rings',$translations,$url,'/engagement-rings/','id',
+						0.8,'daily','engagement-rings');
+	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/engagement-rings/sitemap.xml');
+
+	$this->sitemapIndex('wedding_rings',$translations,$url,'/wedding-rings/','id',
+						0.8,'daily','wedding-rings');
+	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/wedding-rings/sitemap.xml');
+
+	$this->sitemapIndex('jewelleries',$translations,$url,'/jewelleries/','id',
+						0.8,'daily','jewelleries');
+	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/jewelleries/sitemap.xml');
+
+	$this->sitemapIndex('invoice_posts',$translations,$url,'/customer-posts/','id',
+						0.8,'daily','customer-posts');
+	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/customer-posts/sitemap.xml');
+
 	$this->sitemapIndex('diamonds',$translations,$url,'/gia-loose-diamonds/','id',
 						0.5,'monthly','diamonds');
 	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/diamonds/sitemap.xml');
@@ -139,17 +159,28 @@ class BigSitemap
 	}
 
 	public function queryDiamonds($query){
-
 		return $query->whereAvailable(1);
-
 	}
+
 	public function queryPages($query){
-
 		return $query;
-
 	}
 
+	public function queryEngagement_rings($query){
+		return $query->where('published',1);
+	}
 
+	public function queryWedding_rings($query){
+		return $query->where('published',1);
+	}
+
+	public function queryJewelleries($query){
+		return $query->where('published',1);
+	}
+
+	public function queryInvoice_posts($query){
+		return $query->where('published',1);
+	}
 }
 
 
