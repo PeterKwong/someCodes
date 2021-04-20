@@ -61,11 +61,11 @@ class BigSitemap
 
 	public function sitemapIndex($table,$translations,$url,$segmentUrl,$queryType,$priority,$updateFrequency,$filename,$sitemap){
 
-	// $sitemap = app()->make('sitemap');
+		// $sitemap = app()->make('sitemap');
 
-	cache()->put('sitemap.sitemapCounter', 0);
+		cache()->put('sitemap.sitemapCounter', 0);
 
-	// get all diamonds from db (or wherever you store them)
+		// get all diamonds from db (or wherever you store them)
 		$query = DB::table($table);
 		$this->{'query'.ucfirst($table)}($query);
 
