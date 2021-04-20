@@ -123,7 +123,7 @@ class BigSitemap
 		return $query->where('published',1);
 	}
 
-	public function queryWedding_rings_pairs($query){
+	public function queryWedding_ring_pairs($query){
 		return $query->where('published',1);
 	}
 
