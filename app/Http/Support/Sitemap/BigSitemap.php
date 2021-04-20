@@ -86,7 +86,7 @@ class BigSitemap
 
 	// get all diamonds from db (or wherever you store them)
 		$query = DB::table($table)->whereAvailable(1)->orderBy('created_at', 'desc')
-			->chunk(1000,function($query) use (&$sitemap,$translations,$url){
+			->chunk(1000,function($query) use (&$sitemap,$translations,$url,$segmentUrl,$queryType,$priority,$updateFrequency,$filename){
 
 				// $counter = cache()->get('sitemap.counter');
 				$sitemapCounter = cache()->get('sitemap.sitemapCounter');
