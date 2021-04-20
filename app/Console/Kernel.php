@@ -126,7 +126,7 @@ class Kernel extends ConsoleKernel
 
             $CronJob->generateSitemap();
 
-        })->dailyAt('15:39')->runInBackground();
+        })->dailyAt('15:53')->runInBackground();
 
 
 
@@ -145,7 +145,7 @@ class Kernel extends ConsoleKernel
 
             $CronJob->runDiamondQueryCopy();
 
-        })->dailyAt('03:51')->runInBackground();
+        })->dailyAt('03:57')->runInBackground();
 
     } 
 

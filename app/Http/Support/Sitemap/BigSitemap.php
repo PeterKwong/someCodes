@@ -88,7 +88,7 @@ class BigSitemap
 
 	// get all diamonds from db (or wherever you store them)
 		$query = DB::table($table);
-		$this->{$table}($query);
+		$this->{'query'.$table}($query);
 
 		$query = $query->orderBy('created_at', 'desc')
 			->chunk(1000,function($query) use (&$sitemap,$translations,$url,$segmentUrl,$queryType,$priority,$updateFrequency,$filename){
@@ -132,7 +132,7 @@ class BigSitemap
 		
 	}
 
-	public function diamonds($query){
+	public function querydiamonds($query){
 
 		return $query->whereAvailable(1);
 
