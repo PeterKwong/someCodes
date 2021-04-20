@@ -13,7 +13,7 @@ class BigSitemap
 	public function create(){
 		
 
-	$sitemap = app()->make('sitemap');
+	$combinedSitemap = app()->make('sitemap');
 
 	$url = 'https://www.tingdiamond.com/';
 
@@ -26,6 +26,14 @@ class BigSitemap
 
 	$this->sitemapIndex('diamonds',$translations,$url,'/gia-loose-diamonds/','id',
 						0.5,'monthly','diamonds');
+
+	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/diamonds/sitemap.xml');
+
+	$combinedSitemap->store('sitemapindex', 'sitemap_index');
+
+
+	return redirect('sitemap_index.xml');
+
 		// // get all diamonds from db (or wherever you store them)
 		// $diamonds = DB::table('diamonds')->whereAvailable(1)->orderBy('created_at', 'desc')
 		// 	->chunk(1000,function($diamonds) use (&$sitemap,$translations,$url){
@@ -67,13 +75,7 @@ class BigSitemap
 
 	
 
-	
-	$sitemap->addSitemap(secure_url('vendor/sitemap/diamonds/sitemap.xml'));
 
-	$sitemap->store('sitemapindex', 'sitemap_index');
-
-
-	return redirect('sitemap_index.xml');
 
 
 	} 
@@ -85,7 +87,10 @@ class BigSitemap
 	cache()->put('sitemap.sitemapCounter', 0);
 
 	// get all diamonds from db (or wherever you store them)
-		$query = DB::table($table)->whereAvailable(1)->orderBy('created_at', 'desc')
+		$query = DB::table($table);
+		$this->{$table}($query);
+
+		$query = $query->orderBy('created_at', 'desc')
 			->chunk(1000,function($query) use (&$sitemap,$translations,$url,$segmentUrl,$queryType,$priority,$updateFrequency,$filename){
 
 				// $counter = cache()->get('sitemap.counter');
@@ -124,6 +129,12 @@ class BigSitemap
 		$sitemap->store('sitemapindex', 'vendor/sitemap/' . $filename .'/sitemap');
 
 
+		
+	}
+
+	public function diamonds($query){
+
+		$query->whereAvailable(1);
 		
 	}
 
