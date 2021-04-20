@@ -7,7 +7,7 @@ namespace App\Http\Support\Sitemap;
 use DB;
 use cache;
 
-class DiamondSitemap 
+class BigSitemap 
 {
 
 	public function create(){
