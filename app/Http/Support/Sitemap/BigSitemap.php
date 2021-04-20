@@ -134,8 +134,8 @@ class BigSitemap
 
 	public function diamonds($query){
 
-		$query->whereAvailable(1);
-		
+		return $query->whereAvailable(1);
+
 	}
 
 
