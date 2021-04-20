@@ -43,7 +43,7 @@ class CronJob
 
 
 	}
-	public function generateDiamondSitemap(){
+	public function generateSitemap(){
 		$diamond = new DiamondSitemap();
 		return $diamond->create();
 	} 

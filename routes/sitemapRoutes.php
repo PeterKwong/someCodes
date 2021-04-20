@@ -206,7 +206,7 @@ use Carbon\Carbon;
 
 
 	
-	$sitemap->addSitemap(secure_url('vendor/sitemap/big-sitemap/diamonds/sitemap.xml'));
+	$sitemap->addSitemap(secure_url('vendor/sitemap/diamonds/sitemap.xml'));
 
 	$sitemap->store('sitemapindex', 'sitemap_index');
 
@@ -299,7 +299,7 @@ use Carbon\Carbon;
 	// 		}
 	// 	}
 		
-	// 	$sitemap->add(secure_url('vendor/sitemap/big-sitemap/diamonds/sitemap.xml'), Carbon::now(), '1.0', 'daily');
+	// 	$sitemap->add(secure_url('vendor/sitemap/diamonds/sitemap.xml'), Carbon::now(), '1.0', 'daily');
 
 
 
