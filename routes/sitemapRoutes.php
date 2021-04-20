@@ -4,6 +4,8 @@ use Carbon\Carbon;
 
     $combinedSitemap = App::make('sitemap');
 
+	$url = config('global.company.info.url');
+
 	$translations = [
 			['language' => 'en', 'url' => url()->to('/en/')],
 			['language' => 'zh-Hant', 'url' => url()->to('/hk/')],

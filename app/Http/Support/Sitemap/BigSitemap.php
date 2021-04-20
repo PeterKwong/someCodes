@@ -15,7 +15,7 @@ class BigSitemap
 
 	$combinedSitemap = app()->make('sitemap');
 
-	$url = 'https://www.tingdiamond.com/';
+	$url = config('global.company.info.url');
 
 	$translations = [
 				['language' => 'en', 'url' => $url. 'en'],
