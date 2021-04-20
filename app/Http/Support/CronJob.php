@@ -3,7 +3,7 @@
 namespace App\Http\Support;
 
 use App\Models\Diamond;
-use App\Http\Support\Sitemap\DiamondSitemap;
+use App\Http\Support\Sitemap\BigSitemap;
 use App\Http\Support\DiamondImport;
 use App\Http\Controllers\DiamondController;
 use App\Http\Controllers\AppointmentController;
@@ -44,7 +44,7 @@ class CronJob
 
 	}
 	public function generateSitemap(){
-		$diamond = new DiamondSitemap();
+		$diamond = new BigSitemap();
 		return $diamond->create();
 	} 
 
