@@ -24,14 +24,16 @@ class BigSitemap
 			];
 
 
+
+	$this->sitemapIndex('pages',$translations,$url,'/','url',
+						0.9,'daily','pages');
+	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/pages/sitemap.xml');
+	
+
 	$this->sitemapIndex('diamonds',$translations,$url,'/gia-loose-diamonds/','id',
 						0.5,'monthly','diamonds');
 	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/diamonds/sitemap.xml');
 
-
-	$this->sitemapIndex('pages',$translations,$url,'/','id',
-						0.9,'daily','pages');
-	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/pages/sitemap.xml');
 
 	$combinedSitemap->store('sitemapindex', 'sitemap_index');
 
