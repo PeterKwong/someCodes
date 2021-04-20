@@ -28,7 +28,7 @@ class BigSitemap
 	$this->sitemapIndex('pages',$translations,$url,'/','url',
 						0.9,'daily','pages');
 	$combinedSitemap->addSitemap( $url . 'vendor/sitemap/pages/sitemap.xml');
-	
+
 
 	$this->sitemapIndex('diamonds',$translations,$url,'/gia-loose-diamonds/','id',
 						0.5,'monthly','diamonds');
@@ -141,6 +141,11 @@ class BigSitemap
 	public function querydiamonds($query){
 
 		return $query->whereAvailable(1);
+
+	}
+	public function querypages($query){
+
+		return $query;
 
 	}
 
