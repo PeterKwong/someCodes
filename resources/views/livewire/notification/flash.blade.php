@@ -3,7 +3,7 @@
   @if($flash)
   <div x-data="notificationFlash()" x-show="flash.show">
 
-  	<div aria-live="assertive" class="fixed inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end" >
+  	<div aria-live="assertive" class="fixed m-12 inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end" >
 	  <!--
 	    Notification panel, dynamically insert this into the live region when it needs to be displayed
 
@@ -27,7 +27,7 @@
 	          </svg>
 	        </div>
 	        <div class="ml-3 w-0 flex-1 pt-0.5">
-		          <p class="text-sm font-medium text-gray-900">
+		          <p class="font-medium text-{{ $textType[$flash['type']] }}-500">
 		            {{__('message.'.$flash['title'])}}
 		          </p>
 	            @foreach($flash['messages'] as $message)

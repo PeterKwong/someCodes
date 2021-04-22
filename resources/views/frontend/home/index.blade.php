@@ -35,6 +35,7 @@
  -->
     @endSection
 
+
     @section('content')
 
       <div id="home">
@@ -45,37 +46,6 @@
           </div>
 
 
-
-<!-- 
-          <div id="headerSlider" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#headerSlider" data-slide-to="0" class="active"></li>
-              <li data-target="#headerSlider" data-slide-to="1"></li>
-              <li data-target="#headerSlider" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="{{ url('/images/front-end/home/slider/slider-1.jpg') }}" class="d-block w-100" alt="...">
-                      <div class="carousel-caption">
-                      </div>
-              </div>
-
-            </div>
-
-            <a class="carousel-control-prev" href="#headerSlider" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#headerSlider" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
- -->
-
-
-
-        <!-- First Images Section-->
 
         <div class="">
           <div class="flex justify-around pt-2 relative">
@@ -122,78 +92,6 @@
         </div>
 
 
-        <!-- 
-        <div class="container-fluid ">
-          <div class="row images-g img-opa-50">
-                  <div class="col-md-4 non-padding col-sm-12" style="padding:0px">
-                    <div class="caption" style="width: 100%; top: 30px; padding-left: 40px;">
-                      
-                      <h1 class="mylead">愛情是美麗的</h1> 
-                        <p class="wrap">愛情凈化人的心靈<br>
-                           Life is richer because of LOVE<br>
-                          <p class="love">Eternal Love </p>
-                  
-                    </div>
-                  </div>
-                  <div class="col-md-4 " style="padding:0px">
-                    <div class="image-hover">
-                    
-                          <img src="images/front-end/home/img2.jpg" alt="Lights" style="width:100%">
-                        
-                    </div>
-                  </div>
-                  <div class="col-md-4" style="padding:0px">
-                    <div class="caption" style="top: 30px; left: 0px; padding-left: 40px">
-                      
-                      <h1 class="mylead">永恆の愛</h1> 
-                        <p class="wrap" style="padding: 30px 30px 0px 0px;">生命因為愛情而更為豐盛<br>
-                          LOVE is beautiful<br>
-                          </p>
-                          <p class="love">LOVE purifies the soul</p>
-                  
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row img-opa-50">
-                      <div class="col-md-4" style="padding:0px">
-                        <div class="image-hover">
-                          
-                            
-                              <img src="images/front-end/home/img4.jpg" alt="Lights" style="width:100%">
-                        </div>
-                      </div>
-                      <div class="col-md-4 " style="padding:0px">
-                        <div class="happiness text-center">
-                          <h1>訂製你的幸福</h1>  
-                          <p>Customize happiness</p>                            
-                        </div>
-                      </div>
-                      <div class="col-md-4 " style="padding:0px">
-                        <div class=" image-hover">
-                      
-                              <img src="images/front-end/home/img7.jpg" alt="Lights" style="width:100%">
-                        </div>
-                      </div>
-                    </div>
-
-                    
-                <div class="row img-opa-50">
-                      <div class="col-md-8" style="padding:0px">
-                        <div class="last">
-                          
-                            
-                              <img src="images/front-end/home/img5.jpg" alt="Lights" style="width:100%">
-                      
-                        </div>
-                      </div>
-          
-                </div>
-
-        </div> -->
-
-
-        <!-- Design your own ring -->
 
         <div class="flex justify-center p-4">
           <div class="text-center">
@@ -231,52 +129,6 @@
           </div>
         </div>
 
- <!--        <section id="designYourRing">
-            <div class="container">
-                <div class="row pt-80 justify-content-center">
-                    <div class="col-11">
-                        <center>
-                        <h1>{{trans('home.Design Your Own Ring')}}</h1>
-                        <h5>{{trans('home.para4')}}</h5>
-                        </center>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-6 text-center">
-                      <div class="img-grid" style="max-width: 480px;">
-                        <a href="{{url(app()->getLocale())}}/gia-loose-diamonds">
-                          <figure class="effect-honey">
-                            <img src="images/front-end/home/diamond.jpg" width="100%">
-                            <figcaption class="color-brown shadow-black">
-                              <h3>{{trans('home.Start With Diamonds')}}<span> </span><i> {{__('home.Check Now')}}</i>
-                              </h3>
-                            </figcaption> 
-                          </figure>                          
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-6 text-center">
-                      <div class="img-grid" style="max-width: 480px;">
-                        <a href="{{url(app()->getLocale())}}/engagement-rings">
-                          <figure class="effect-honey">
-                            <img src="images/front-end/home/Ring_425_StandUp_Side_Without_Diamond.png" width="100%">
-                            <figcaption class="color-grey shadow-white">
-                              <h3>{{trans('home.Start With Engagement Rings')}}<span> </span><i> {{__('home.Check Now')}}</i>
-                              </h3>
-                            </figcaption> 
-                          </figure>
-                        </a>
-                      </div>
-                    </div>
-                </div>
-
-            </div>
-
-            
-
-        </section>
- -->
         <div class="flex justify-center items-center text-center relative">
           <div class="flex-1">
               <img src="images/front-end/home/banner2.jpg" class="">
@@ -293,31 +145,6 @@
           </div>
         </div>
 
-
-  <!--       <section id="diamond-price">
-          <div class="row pt-60">
-
-            <div class="col-12">
-                <div class="relative">
-                  <figure >
-                    <img src="images/front-end/home/banner2.jpg" class="img-fluid">
-                      <figcaption class="color-grey pos-absolute-t40-l40" >
-                        <h2>{{__('home.Diamond Price')}}</h2>
-                        <span class="fa fa-chevron-down" style='font-size:24px'></span>
-                        <h5>{{__('home.para4')}}<span>  {{__('home.para4.1')}} </span>
-                        </h5>
-                        <h5>{{trans('home.para1.2')}}
-                        </h5>
-                        
-
-                      </figcaption> 
-                  </figure>
-                </div>
-            </div>
-
-          </div>
-        </section>
- -->
 
         <div class="">
           <div id="carousel-loop-diamond-shape" class="owl-carousel owl-theme ">
@@ -579,27 +406,6 @@
           </div>
         </div>
 
-<!--         <section id="proposal-ring">
-          <div class="row pt-lg-60">
-
-            <div class="col-12">
-                <div class="relative">
-                  <figure >
-                    <img src="images/front-end/home/couple.jpg" class="img-fluid">
-                      <figcaption class="color-white pos-absolute-t50-l20" >
-                        <h1>{{trans('home.Engagment Rings')}}</h1>
-                        <img src="images/front-end/home/heart-line.png" width="50%">
-                        <h2>{{trans('tag.Diamond Ring')}}
-                        </h2>
-                        
-
-                      </figcaption> 
-                  </figure>
-                </div>
-            </div>
-
-          </div>
-        </section> -->
 
         <div class="flex justify-center items-center text-center">
           <div class="flex-1">
@@ -634,50 +440,7 @@
           </div>
         </div>
 
-<!--         <section id="engagement-ring-choice">
-            <div class="row">
 
-                <div class="col-4 text-center">
-                    <div class="p-20">
-                      <a style="text-decoration: none;" href="{{url(app()->getLocale())}}/engagement-rings/solitaire-ring-setting">
-                        <figure class="box-shadow" style="min-width: 90px;">
-                            <img src="images/front-end/home/Ring_504_No_Background.png" width="100%">
-                                <h2>{{trans('home.Solitaire')}}</h2>
-                                <div class="line-b-w15"></div>
-                                <p>{{__('home.Check Now')}}</p>
-                        </figure>
-                      </a>
-                    </div>
-                </div>
-
-                <div class="col-4 text-center">
-                    <div class="p-20">
-                      <a style="text-decoration: none;" href="{{url(app()->getLocale())}}/engagement-rings/side-stones-setting">
-                        <figure class="box-shadow" style="min-width: 90px;">
-                            <img src="images/front-end/home/Ring_425_No_Background.png" width="100%">
-                                <h2>{{trans('home.Side Stone')}}</h2>
-                                <div class="line-b-w15"></div>
-                                <p>{{__('home.Check Now')}}</p>
-                        </figure>
-                      </a>
-                    </div>
-                </div>
-
-                <div class="col-4 text-center">
-                    <div class="p-20">
-                      <a style="text-decoration: none;" href="{{url(app()->getLocale())}}/engagement-rings/halo-setting">
-                        <figure class="box-shadow" style="min-width: 90px;">
-                            <img src="images/front-end/home/Perspective_01.png" width="100%">
-                                <h2>{{trans('home.Halo')}}</h2>
-                                <div class="line-b-w15"></div>
-                                <p>{{__('home.Check Now')}}</p>
-                        </figure>
-                      </a>
-                    </div>
-                </div> 
-
-            </div>
-        </section> -->
 
         <div class="grid grid-cols-3 gap-4 relative smalldot items-center text-center p-4">
           <div class="col-span-2 ">
@@ -726,57 +489,6 @@
           </div>
         </div>
 
-<!--         <section id="gia-knowledge">
-
-                <div class="row relative smalldot align-items-center">
-                    <div class="col-8 p-lg-80">
-                    </div>
-
-                    <div class="col-4 p-lg-80 color-grey">
-                        
-                        
-                    </div>
-                </div>
-
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-6">
-                        <div class="img-grid">
-                          <a href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report">
-                            <figure class="effect-sadie" style="min-width: 150px;">
-                                <img src="images/front-end/home/gia-diamond.jpg"  alt="img02"/>
-                                <figcaption class="color-brown shadow-black">
-                                    <h2>{{trans('home.title2')}}</h2>
-                                    <h5>{{trans('home.para5')}}
-                                    </h5>
-                                </figcaption>           
-                            </figure>
-                          </a>
-                        </div>
-             
-                    </div>
-
-                    <div class="col-6">
-                        <div class="img-grid">
-                          <a href="{{url(app()->getLocale())}}/education-diamond-grading">
-                              <figure class="effect-sadie" style="min-width: 150px;">
-                                  <img  src="images/front-end/home/gia-cert.jpg"  alt="img02"/>
-                                  <figcaption class="color-brown shadow-black">
-                                      <h2>{{trans('home.Diamond Education | Diamond Grade')}}</h2>
-                                      <h5>{{trans('home.para3')}}
-                                      </h5>
-                                  </figcaption>           
-                              </figure> 
-                          </a>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-
-
-        </section>
- -->
 
         <div class="flex pt-12 text-center">
           <div class="flex-1">
@@ -842,5 +554,8 @@
 
       </div>
 
+    @livewire('notification.contact')
+
     @endSection
+
 

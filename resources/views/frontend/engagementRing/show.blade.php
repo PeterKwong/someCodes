@@ -83,8 +83,8 @@
                                   <appointment v-model="engagementRing" :title="appointmentTitle" @active="appointmentState=!appointmentState" :active="appointmentState" :columns="columns"  :processing="false" :langs="langs" :locale="locale"></appointment>
  -->                                  
                                   <shopping-cart :item="engagementRing" :type="shoppingCartType" :carousel-item="carouselItem" ></shopping-cart>
-                                  <x-appointment v-if="appointmentState"/>
-
+<!--                                   <x-appointment v-if="appointmentState"/>
+ -->
                               </center>
 
                               <p class="p-2">

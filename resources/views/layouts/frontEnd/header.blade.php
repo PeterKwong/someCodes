@@ -115,8 +115,7 @@
   
 </div>
 
-  @livewire('notification.flash')
-  @livewire('notification.contact')
+@livewire('notification.flash')
 
 
 

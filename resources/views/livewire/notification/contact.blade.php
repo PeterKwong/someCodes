@@ -1,11 +1,12 @@
 <div>
     
 @if(cache()->get('homePageShow') == 1)
-	{{ session()->put('notification', cache()->get('homePage')) }}
+	{{ session()->put('notification', $companyInfo ) }}
 @endif
 
 
 @if( session()->has('notification') && count( request()->segments() ) == 0)
+
   <div class="z-10" x-data="{ open: true }" x-show="open">
     <div x-on:click="open = !open" >
       <transition name="modal" >

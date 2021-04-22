@@ -94,7 +94,7 @@
 	}
 
 	.modal-wrapper{
-		@apply fixed z-20 bg-white top-0 m-2 mt-4 sm:m-12 sm:mt-40 max-w-xl rounded-lg 
+		@apply fixed z-50 bg-white top-0 m-2 mt-40 max-w-xl rounded-lg 
 	}
 
 	.modal-header{
