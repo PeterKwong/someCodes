@@ -70,17 +70,21 @@ class Diamond extends Model
         }
         public function generateTitle($separator){
 
-            $title = $this->weight . trans('diamondSearch.carat') 
-                    . $separator . $this->color  .' '.  trans('diamondSearch.color') 
-                    . $separator . $this->clarity  .' '.  trans('diamondSearch.clarity') 
-                    . $separator . $this->cut  .' '.  trans('diamondSearch.cut') 
-                    . $separator . $this->polish  .' '.  trans('diamondSearch.polish') 
-                    . $separator . $this->symmetry  .' '.  trans('diamondSearch.symmetry') 
-                    . $separator . $this->fluorescence  .' '.  trans('diamondSearch.fluorescence') 
-                    . $separator . trans('diamondSearch.diamond')
-                    ;
-                    
-            return $title;
+            return cache()->remember('diamond.' . app()->getLocale() . '.'.$this->id, 36000, function()use($separator){
+
+                $title = $this->weight . trans('diamondSearch.carat') 
+                        . $separator . $this->color  .' '.  trans('diamondSearch.color') 
+                        . $separator . $this->clarity  .' '.  trans('diamondSearch.clarity') 
+                        . $separator . $this->cut  .' '.  trans('diamondSearch.cut') 
+                        . $separator . $this->polish  .' '.  trans('diamondSearch.polish') 
+                        . $separator . $this->symmetry  .' '.  trans('diamondSearch.symmetry') 
+                        . $separator . $this->fluorescence  .' '.  trans('diamondSearch.fluorescence') 
+                        . $separator . trans('diamondSearch.diamond')
+                        ;
+                        
+                return $title;
+            });
+            
         }
 
     	public static function form()

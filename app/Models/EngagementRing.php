@@ -67,15 +67,18 @@ class EngagementRing extends Model
 	    }
 	    public function generateTitle($separator){
 
-	    	$title = trans('engagementRing.' .$this->style) 
-	    			. $separator . trans('engagementRing.' .$this->prong)
-	    			. $separator . trans('engagementRing.' .$this->shoulder) 
-	    			;
-	    	$title .= $this->other ?  $separator . trans('engagementRing.' .$this->other):'' ;
-	    	$title .= $separator . trans('engagementRing.Diamond Ring')
-	    			. '｜'. trans('engagementRing.Engagement Ring Setting');
+        	return cache()->remember('engagementRing.' . app()->getLocale() . '.'.$this->id, 36000, function()use($separator){
 
-	    	return $title;
+		    	$title = trans('engagementRing.' .$this->style) 
+		    			. $separator . trans('engagementRing.' .$this->prong)
+		    			. $separator . trans('engagementRing.' .$this->shoulder) 
+		    			;
+		    	$title .= $this->other ?  $separator . trans('engagementRing.' .$this->other):'' ;
+		    	$title .= $separator . trans('engagementRing.Diamond Ring')
+		    			. '｜'. trans('engagementRing.Engagement Ring Setting');
+
+		    	return $title;
+		    });
 	    	
 	    }
 
