@@ -26,7 +26,7 @@ class InvoiceDiamond extends Model
 
     public function title(){
 
-        return cache()->remember('invoiceDiamond.' . app()->getLocale() . '.'.$this->id, 36000, function(){
+        return cache()->remember('invoiceDiamondTitle.' . app()->getLocale() . '.'.$this->id, 36000, function(){
 
 	        $title = $this->weight . trans('diamondSearch.carat') 
 	                . ' '. $this->color . trans('diamondSearch.color') 

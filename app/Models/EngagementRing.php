@@ -67,7 +67,7 @@ class EngagementRing extends Model
 	    }
 	    public function generateTitle($separator){
 
-        	return cache()->remember('engagementRing.' . app()->getLocale() . '.'.$this->id, 36000, function()use($separator){
+        	return cache()->remember('engagementRingTitle.' . app()->getLocale() . '.'.$this->id, 36000, function()use($separator){
 
 		    	$title = trans('engagementRing.' .$this->style) 
 		    			. $separator . trans('engagementRing.' .$this->prong)

@@ -67,14 +67,17 @@ class Jewellery extends Model
     }
     public function generateTitle($separator){
 
-        $title = trans('jewellery.' .$this->metal);
+        return cache()->remember('jewelleryTitle.' . app()->getLocale() . '.'.$this->id, 36000, function()use($separator){
 
-        $title .=  $this->gemstone == 0 ?  '' : $separator .trans('jewellery.' .$this->gemstone);
-        $title .=  $separator . trans('jewellery.' .$this->type);
-        $title .=  $this->setting == 1 ? $separator .trans('jewellery.setting'): '';
+            $title = trans('jewellery.' .$this->metal);
 
-        return $title;
-                
+            $title .=  $this->gemstone == 0 ?  '' : $separator .trans('jewellery.' .$this->gemstone);
+            $title .=  $separator . trans('jewellery.' .$this->type);
+            $title .=  $this->setting == 1 ? $separator .trans('jewellery.setting'): '';
+
+            return $title;
+        });
+                    
     }
 
 

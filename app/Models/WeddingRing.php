@@ -66,7 +66,7 @@ class WeddingRing extends Model
         }
         public function generateTitle($separator){
 
-        	return cache()->remember('weddingRing.' . app()->getLocale() . '.'.$this->id, 36000, function()use($separator){
+        	return cache()->remember('weddingRingTitle.' . app()->getLocale() . '.'.$this->id, 36000, function()use($separator){
 
 		    	$title  = $this->brand ? '('.trans('weddingRing.' .$this->brand) .')'. $separator :'' ;
 		    	$title .= trans('weddingRing.' .$this->metal) 

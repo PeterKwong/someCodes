@@ -70,7 +70,7 @@ class Diamond extends Model
         }
         public function generateTitle($separator){
 
-            return cache()->remember('diamond.' . app()->getLocale() . '.'.$this->id, 36000, function()use($separator){
+            return cache()->remember('diamondTitle.' . app()->getLocale() . '.'.$this->id, 36000, function()use($separator){
 
                 $title = $this->weight . trans('diamondSearch.carat') 
                         . $separator . $this->color  .' '.  trans('diamondSearch.color') 
