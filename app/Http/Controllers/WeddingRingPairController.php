@@ -236,7 +236,7 @@ class WeddingRingPairController extends Controller
             if ($req['published'] == 1) {
                 $published[$key] = true;
             }
-
+            $weddingRingPair->unit_price = $weddingRingPair->unit_price +$req['unit_price'];
 
             $texts = [];
         
@@ -361,6 +361,7 @@ class WeddingRingPairController extends Controller
                 $published[$key] = true;
             }
 
+            $weddingRingPair->unit_price = $weddingRingPair->unit_price +$req['unit_price'];
 
             if (is_array($req)) {
 

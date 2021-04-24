@@ -5,14 +5,14 @@
 
   <div class="section-3 hidden sm:block">
 
-    @include('frontend.diamond.searchDesktopLW')
+    @include('frontend.diamond.searchDesktop')
 
 
   </div>
 
   <div class="sm:hidden">
 
-     @include('frontend.diamond.searchMobileLW')
+     @include('frontend.diamond.searchMobile')
    
 
   </div>

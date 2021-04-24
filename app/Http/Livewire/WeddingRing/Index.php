@@ -177,7 +177,7 @@ class Index extends Component
 
 	 	$requests = ['shape','finish','metal','origin','style','brand'];
 
-        $query = WeddingRingPair::orderBy('updated_at', 'desc');
+        $query = WeddingRingPair::orderBy('unit_price', 'desc');
 
  		foreach ($requests as $req) {
  			if (count((array)$this->fetchData[$req]) && !in_array('', (array)$this->fetchData[$req]) ) {

@@ -15,6 +15,7 @@ class CreateWeddingRingPairsTable extends Migration
     {
         Schema::create('wedding_ring_pairs', function (Blueprint $table) {
             $table->id('id');
+            $table->integer('unit_price');
             $table->boolean('published')->default(false);
             $table->timestamps();
         });
