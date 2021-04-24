@@ -1,7 +1,7 @@
 <template>
     <div class="section" id="customerMoments">
 
-    <button class="btn btn-primary" @click="selectItem()">{{'Select this Item' |transJs(langs, mutualVar.langs.localeCode)}}</button>
+    <button class="btn btn-primary" @click="selectItem()">{{'Select this Item' |transJs(langs)}}</button>
 
 
     <div v-if="mutualVar.cookiesInfo.shoppingCart.haveShoppingCart" @click="toggleModal()">
@@ -27,13 +27,13 @@
                                 <div @click="toggleModal()">
                                     <a :href="`${option.url}`">
                                       <button class="btn btn-primary" :disabled="!option.clickable" >
-                                        {{option.text |transJs(langs, mutualVar.langs.localeCode)}}
+                                        {{option.text |transJs(langs)}}
                                       </button>
                                     </a>
                                 </div>
                             </div>
 
-                          <button class="btn btn-primary hover:bg-blue-500" :class="{'opacity-50':!nextProcedure.addToCart.clickable}" :disabled="!nextProcedure.addToCart.clickable" @click="addItemToCart()">{{nextProcedure.addToCart.text |transJs(langs, mutualVar.langs.localeCode)}}</button>
+                          <button class="btn btn-primary hover:bg-blue-500" :class="{'opacity-50':!nextProcedure.addToCart.clickable}" :disabled="!nextProcedure.addToCart.clickable" @click="addItemToCart()">{{nextProcedure.addToCart.text |transJs(langs)}}</button>
                         </center>
 
                       </div>
@@ -80,21 +80,19 @@ export default {
         this.addItemIndex()       
 
     },
-    filters:{
-            transJs,        
-    },
     computed:{
         singularType(){
             return this.type.replace(/s/gi, '')
         },
         shoppingCart(){
-            return this.mutualVar.cookiesInfo.shoppingCart
+            return mutualVar.cookiesInfo.shoppingCart
         },
         totalAddedCartItems(){
             var totalItems = 0
-            for (var i = 0 ; this.mutualVar.cookiesInfo.shoppingCart.items.length > i; i++) {
+            var shoppingCart = mutualVar.cookiesInfo.shoppingCart
+            for (var i = 0 ; shoppingCart.items.length > i; i++) {
                 if (this.type == 'engagementRings' || this.type == 'diamonds' ) {
-                    if (this.mutualVar.cookiesInfo.shoppingCart.items[i].addedCart) {
+                    if (shoppingCart.items[i].addedCart) {
                         totalItems += 1
                     }
 
@@ -126,11 +124,12 @@ export default {
                         }
                         
             var engagementClickable = ''
+            var shoppingCart = mutualVar.cookiesInfo.shoppingCart
 
-            if (this.mutualVar.cookiesInfo.shoppingCart.items.length > 0) {
+            if (shoppingCart.items.length > 0) {
                 if (this.type == 'engagementRings' ) {
 
-                    engagementClickable =  this.mutualVar.cookiesInfo.shoppingCart.items[this.mutualVar.cookiesInfo.shoppingCart.selectingIndex].pairItems.filter((data)=>{return data.type == 'diamonds'})
+                    engagementClickable =  shoppingCart.items[shoppingCart.selectingIndex].pairItems.filter((data)=>{return data.type == 'diamonds'})
                     console.log(engagementClickable[0])
                     if (engagementClickable.length) {
                         if (engagementClickable[0].id) {
@@ -157,6 +156,7 @@ export default {
 
         },
         maxItemIndex(){
+
             if (this.shoppingCart.selectingIndex != 0 && this.shoppingCart.selectingIndex > this.shoppingCart.items.length-1 && this.shoppingCart.items.length) {
 
                 if (this.shoppingCart.items.length) {
@@ -188,9 +188,10 @@ export default {
         checkSameDiamondInCart(){
             var counteditem = this.shoppingCart.items
 
-            for( var i = 0; this.shoppingCart.items.length > i ; i++){
+            for( var i = 0; counteditem.length > i ; i++){
 
                 var item = [] 
+                console.log('checkingSame')
 
                 if(counteditem[i].pairItems.length >0 && i != this.shoppingCart.selectingIndex){
 

@@ -15,7 +15,7 @@
               <i class="fa fa-shopping-cart" ></i>
           </a>
         </div>
-        <shopping-cart-icon :shopping-cart-number="shoppingCartNumber"></shopping-cart-icon>
+        <shopping-cart-icon></shopping-cart-icon>
         <span style="padding: 3px"></span>
 
         @guest 
@@ -57,7 +57,7 @@
 
         </div>
 
-        <shopping-cart-icon :shopping-cart-number="shoppingCartNumber"></shopping-cart-icon>
+        <shopping-cart-icon></shopping-cart-icon>
         <span style="padding: 3px"></span>
 
         @guest 
