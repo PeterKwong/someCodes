@@ -27,6 +27,10 @@ return [
 	'Customer Monents' => 'Customer Monents',
 	'What Is Diamond Proportion' => 'What Is Diamond Proportion',
 	'Intro' => 'Intro',
-
+	'Intro1' => 'Ting Diamond | Diamond Jewelry and Jewelry (more than one hundred thousand GIA Hong Kong diamond prices, diamond rings, engagement rings, engagement rings, wedding rings)-Hong Kong genuine trademark merchants, all diamonds have been certified by GIA, searching for the world most cost-effective diamonds Guests find the best diamonds. Products include: wedding rings, engagement rings, diamond rings, engagement rings, rings, wedding rings, middle fingers, pair rings, diamond rings, wedding rings, wedding mesons, bracelets, hearts and arrows gia diamonds',
+	'Intro2' => 'Guests can decide the shape of the diamond first. The shapes are: loose diamond round, fancy cut diamond | variegated diamond, heart, princess, emerald, astigmatism, cushion, oval, marquise, thunder Earthen shape, pear shape',
+	'Intro3' => 'If you choose colored diamonds, there are also: colored diamonds | colored diamonds, yellow, pink, orange, purple, brown, green, gray, blue, black',
+	'Intro4' => 'Once you have decided on the diamond, you can choose the engagement ring/engagement ring. According to your favorite style, there are: single diamond ring setting, auxiliary diamond ring setting, and circle diamond ring setting.',
+	'Intro4' => 'Over a hundred wedding rings/pairs, come to the store to try them anytime. There are Japanese wedding rings, Angerosa wedding rings, Feerie Porte wedding rings, Timeless Ones wedding rings, forged wedding rings',
 
 ];

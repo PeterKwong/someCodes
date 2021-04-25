@@ -99,6 +99,16 @@
 
   </div>
 
+  <div class="flex items-center justify-center text-center" x-data="{footerInfo:false}">
+    <p>{{__('frontFooter.Company Infomation')}}</p>
+    <div x-show="footerInfo">      
+      <p>{{__('frontFooter.Intro1')}}</p>
+      <p>{{__('frontFooter.Intro2')}}</p>
+      <p>{{__('frontFooter.Intro3')}}</p>
+      <p>{{__('frontFooter.Intro4')}}</p>
+    </div>
+  </div>
+
   <div class="flex items-center justify-center text-center p-2 px-12">
 
     <a class="p-3 mb-2 text-white">
