@@ -1,0 +1,35 @@
+<?php
+
+return [
+	'The origin history of carat' => 'The origin history of carat',	
+	'The term "carat" is derived from the ancient method of measuring the weight of precious metals and gems.' => 'The term "carat" is derived from the ancient method of measuring the weight of precious metals and gems.',
+	'It was not until 1907 that it was decided at the International Conference of Weights and Measures that the weight of one carat of diamonds was equal to 200 milligrams or 0.2 grams of diamonds. Carat can also be measured by points, 100 points equals one carat.' => 'It was not until 1907 that it was decided at the International Conference of Weights and Measures that the weight of one carat of diamonds was equal to 200 milligrams or 0.2 grams of diamonds. Carat can also be measured by points, 100 points equals one carat.',
+	'The word carat comes from a kind of seed called "carob" (carob). The weight of early diamonds was weighed by the seeds of this plant (the weight of this carob seed is surprisingly consistent, weighing more than 200 mg) .' => 'The word carat comes from a kind of seed called "carob" (carob). The weight of early diamonds was weighed by the seeds of this plant (the weight of this carob seed is surprisingly consistent, weighing more than 200 mg) .',
+	'1 carat = 200 mg or .200gm = 0.2g' => '1 carat = 200 mg or .200gm = 0.2g',
+	'Unit of weight for diamonds' => 'Unit of weight for diamonds',
+	'The international unit of measurement for diamond weight is "Carat", English "Carat", usually abbreviated as "ct".' => 'The international unit of measurement for diamond weight is "Carat", English "Carat", usually abbreviated as "ct".',
+	'Carat weight is one of the 4C standards for diamonds. For diamonds of the same quality, the heavier the more precious.' => 'Carat weight is one of the 4C standards for diamonds. For diamonds of the same quality, the heavier the more precious.',
+	'Carat Weight eg: 1.80ct' => 'Carat Weight eg: 1.80ct',
+	'Diameter estimated weight' => 'Diameter estimated weight',
+	'4 things you should know about diamond weight' => '4 things you should know about diamond weight',
+	'Buying a small is not a small reflection to save money' => 'Buying a small is not a small reflection to save money',
+	'In fact, the weight of 1.99 diamonds is slightly lighter than 2 carats, but there is no difference visually. Buying small diamonds will save you money, because diamonds jump to a price level for every 50 diamonds, and the price difference is relatively obvious, but there is no difference between one. Skip the grade, which can save considerable money, and the slight size difference will never be noticed.' => 'In fact, the weight of 1.99 diamonds is slightly lighter than 2 carats, but there is no difference visually. Buying small diamonds will save you money, because diamonds jump to a price level for every 50 diamonds, and the price difference is relatively obvious, but there is no difference between one. Skip the grade, which can save considerable money, and the slight size difference will never be noticed.',
+	'The impact of size on vision' => 'The impact of size on vision',
+	'When buying diamond jewelry, the color and clarity can be moderate. The weight of a well-cut diamond can be slightly larger, so that the performance ratio is the highest. Because wearing a diamond when you go out, you can only see the big with the naked eye without paying attention to details, so you know! .' => 'When buying diamond jewelry, the color and clarity can be moderate. The weight of a well-cut diamond can be slightly larger, so that the performance ratio is the highest. Because wearing a diamond when you go out, you can only see the big with the naked eye without paying attention to details, so you know! .',
+	'Smaller fingers are bigger' => 'Smaller fingers are bigger',
+	'May wish to refer to the following figure:' => 'May wish to refer to the following figure:',
+	'Diamonds with high carats are expensive' => 'Diamonds with high carats are expensive',
+	'Cut from larger rough stones, these rough stones are harder to find than small rough stones. Therefore, the relationship between carat number and price depends on the rarity of the rough and whether it is easy to obtain.' => 'Cut from larger rough stones, these rough stones are harder to find than small rough stones. Therefore, the relationship between carat number and price depends on the rarity of the rough and whether it is easy to obtain.',
+	'Diamond' => 'Diamond',
+	'Diamond' => 'Diamond',
+	'Diamond' => 'Diamond',
+	'Diamond' => 'Diamond',
+	'Diamond' => 'Diamond',
+	'Diamond' => 'Diamond',
+	'Diamond' => 'Diamond',
+	'Diamond' => 'Diamond',
+	'Diamond' => 'Diamond',
+	'Diamond' => 'Diamond',
+
+
+];

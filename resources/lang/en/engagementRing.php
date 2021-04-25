@@ -82,5 +82,6 @@ return [
 	'Metal' => 'Metal',
 	
 	'Submit' => 'Submit',	
+	'Choose Diamond First' => 'Choose Diamond First',
 
 ];

@@ -26,6 +26,7 @@ return [
 	'Engrave' => 'Engrave',
 	'Customer Monents' => 'Customer Monents',
 	'What Is Diamond Proportion' => 'What Is Diamond Proportion',
+	'Intro' => 'Intro',
 
 
 ];

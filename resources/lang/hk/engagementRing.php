@@ -79,6 +79,7 @@ return [
 	'Mixed' => '混金',
 	
 	'Submit' => '提交',
+	'Choose Diamond First' => '先選鑽石',
 
 
 ];
