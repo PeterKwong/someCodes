@@ -29,7 +29,7 @@
             <div class="flex justify-center" >
                 <div class="text-center">
                 <center>
-                   <h3 class="sm:text-2xl">{{trans('engagementRing.metaTitle2')}}</h3>
+                   <h1 class="sm:text-2xl">{{trans('engagementRing.metaTitle2')}}</h1>
 
                    <button class="btn btn-primary">
                        <a href="/{{app()->getLocale() . '/gia-loose-diamonds'}}" class=" flex justify-center"  target="_blank">

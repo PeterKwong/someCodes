@@ -34,9 +34,9 @@
                 <div class="flex-auto">
                     <div class="flex justify-center p-4">
                         <div class="col-span-9">
-                                <h3 class="text-center sm:text-2xl">
+                                <h1 class="text-center sm:text-2xl">
                                 {{$title}}
-                                </h3>
+                                </h1>
                         </div>       
                     </div>
 
