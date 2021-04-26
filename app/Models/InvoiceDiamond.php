@@ -36,7 +36,12 @@ class InvoiceDiamond extends Model
     }
     public function generateTitle($separator){
 
-        return cache()->remember($separator==' '?'':'comma.' . 'invoiceDiamondTitle.' . app()->getLocale() . '.'.$this->id,  config('global.cache.week'), function(){
+            $separatorConcate = '';
+            if ($separator == ', ') {
+                $separatorConcate = 'comma';
+            }
+
+        return cache()->remember($separatorConcate . 'invoiceDiamondTitle.' . app()->getLocale() . '.'.$this->id,  config('global.cache.week'), function(){
 
 	        $title = $this->weight . trans('diamondSearch.carat') 
 	                . ' '. $this->color . trans('diamondSearch.color') 
