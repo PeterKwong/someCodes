@@ -23,9 +23,9 @@ class Show extends Component
         $title =  (new InvoicePost)->title(request()->segment(3)) ;
 
         $this->meta = InvoicePost::with([
-                        'texts'=>function($texts){
-                            $texts->where('locale',app()->getLocale());
-                        },
+                        // 'texts'=>function($texts){
+                        //     $texts->where('locale',app()->getLocale());
+                        // },
                         'images',
                         'invoice.invoiceDiamonds',
                         'invoice.engagementRings.images',
