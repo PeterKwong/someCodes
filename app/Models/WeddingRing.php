@@ -66,7 +66,12 @@ class WeddingRing extends Model
         }
         public function generateTitle($separator){
 
-        	return cache()->remember('weddingRingTitle.' . app()->getLocale() . '.'.$this->id,  config('global.cache.week'), function()use($separator){
+            $separatorConcate = '';
+            if ($separator == ', ') {
+                $separatorConcate = 'comma';
+            }
+            
+        	return cache()->remember($separatorConcate . 'weddingRingTitle.' . app()->getLocale() . '.'.$this->id,  config('global.cache.week'), function()use($separator){
 
 		    	$title  = $this->brand ? '('.trans('weddingRing.' .$this->brand) .')'. $separator :'' ;
 		    	$title .= trans('weddingRing.' .$this->metal) 

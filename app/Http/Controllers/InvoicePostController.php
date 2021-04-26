@@ -61,9 +61,7 @@ class InvoicePostController extends Controller
     // return dd($r) ;
 
 
-     $meta = InvoicePost::with(['texts'=>function($texts){
-                    $texts->where('locale',app()->getLocale());
-                }])->findOrFail($id);
+     $meta = InvoicePost::findOrFail($id)->title($id);
 
       return view('frontend.customerJewellery.show', compact('meta'));
  

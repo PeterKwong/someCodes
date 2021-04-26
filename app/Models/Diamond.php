@@ -70,7 +70,12 @@ class Diamond extends Model
         }
         public function generateTitle($separator){
 
-            return cache()->remember('diamondTitle.' . app()->getLocale() . '.'.$this->id, config('global.cache.week'), function()use($separator){
+            $separatorConcate = '';
+            if ($separator == ', ') {
+                $separatorConcate = 'comma';
+            }
+
+            return cache()->remember($separatorConcate .'diamondTitle.' . app()->getLocale() . '.'.$this->id, config('global.cache.week'), function()use($separator){
 
                 $title = $this->weight . trans('diamondSearch.carat') 
                         . $separator . $this->color  .' '.  trans('diamondSearch.color') 

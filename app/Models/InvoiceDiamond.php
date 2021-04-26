@@ -23,10 +23,20 @@ class InvoiceDiamond extends Model
 	{
 		return $this->belongsTo(Invoice::class);
 	}
-
+	//Title
     public function title(){
 
-        return cache()->remember('invoiceDiamondTitle.' . app()->getLocale() . '.'.$this->id,  config('global.cache.week'), function(){
+    	return $this->generateTitle(' ');
+    			
+    }
+    public function tags(){
+
+    	return $this->generateTitle(', ');
+    			
+    }
+    public function generateTitle($separator){
+
+        return cache()->remember($separator==' '?'':'comma.' . 'invoiceDiamondTitle.' . app()->getLocale() . '.'.$this->id,  config('global.cache.week'), function(){
 
 	        $title = $this->weight . trans('diamondSearch.carat') 
 	                . ' '. $this->color . trans('diamondSearch.color') 
