@@ -6,6 +6,8 @@ return [
 		'live' => 'cfront',
 		'cfront' => 'https://image.tingdiamond.com/',
 		's3' => 'https://s3.tingdiamond.com/',
+        'day' => 60*60*24,
+        'week' => 60*60*24*7,
 		],
     
 	'cookie'=>['time' => 60*60 ],

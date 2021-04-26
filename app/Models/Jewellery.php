@@ -67,7 +67,7 @@ class Jewellery extends Model
     }
     public function generateTitle($separator){
 
-        return cache()->remember('jewelleryTitle.' . app()->getLocale() . '.'.$this->id, 36000, function()use($separator){
+        return cache()->remember('jewelleryTitle.' . app()->getLocale() . '.'.$this->id,  config('global.cache.week'), function()use($separator){
 
             $title = trans('jewellery.' .$this->metal);
 
