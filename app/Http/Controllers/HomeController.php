@@ -31,57 +31,56 @@ class HomeController extends Controller
 
     public function index () {
 
-        // App()->setLocale($locale);
-
-        $customer_post = Cache::remember('home_page_customer_post', 10, function(){
-
-            return  $customer_post = InvoicePost::where('published', 1)
-                                    ->with(['images','texts'])->orderBy('date','desc')
-                                    ->take(10)->get();
-
-        });
-
-
-        $jewellery = Cache::remember('home_page_jewellery', 10, function(){
-
-            return  $jewellery = CustomerMoment::where('published',1)
-                                ->orderBy('created_at','desc')->take(4)
-                                ->with(['images','texts'])->get(); 
-
-        });
-        // dd($customer_post);     
-
-        // dd(print_r($jewellery));
-        return view('frontend.home.index', compact('customer_post','jewellery'));
+        return $this->home();
         
     }
 
     public function indexLang ($locale) {
 
+        return $this->home();
+
         // $redis = Redis::Connection();
         // $customer_post = InvoicePost::where('published',1)->with(['images','texts'])->orderBy('date','desc')->take(10)->get();
   
 
+    }
+
+    public function home(){
+        
+        cache()->forget('home_page_customer_post');
+
         $customer_post = Cache::remember('home_page_customer_post', 10, function(){
 
-            return  $customer_post = InvoicePost::where('published', 1)
+            $customer_post = InvoicePost::where('published', 1)
                                     ->with(['images','texts'])->orderBy('date','desc')
                                     ->take(10)->get();
+                                    // dd($customer_post);
+                            $invoicePosts = [];
+                                                                
+                            foreach ($customer_post as $key => $post ) {
+                                    $post['texts']['content'] = $post->title($post->id);
+                                    $invoicePosts[] = $post;
+            
+                            }
+
+            return  $invoicePosts;
+
 
         });
+        cache()->forget('home_page_customerMoments');
 
+        $customerMoments = Cache::remember('home_page_customerMoments', config('global.cache.day'), function(){
 
-        $jewellery = Cache::remember('home_page_jewellery', 10, function(){
-
-            return  $jewellery = CustomerMoment::where('published',1)
+            return  $customerMoments = CustomerMoment::where('published',1)
                                 ->orderBy('created_at','desc')->take(4)
                                 ->with(['images','texts'])->get(); 
 
         });
         
-        // dd($jewellery);     
+        // dd($customerMoments);     
 
 
-        return view('frontend.home.index', compact('customer_post','jewellery'));
+        return view('frontend.home.index', compact('customer_post','customerMoments'));
+
     }
 }

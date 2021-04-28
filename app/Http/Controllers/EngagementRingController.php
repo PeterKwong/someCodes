@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EngagementRing;
+use App\Models\InvoicePost;
 use App\Support\EngagementRingFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -135,17 +136,25 @@ class EngagementRingController extends Controller
     public function hasCachedShow($id){
         
         $engagementRing = EngagementRing::where('published',1)->with(['images','texts'])->findOrFail($id);
-        $posts = EngagementRing::where('published',1)->findOrFail($id)
-                    ->invoices()->whereHas('invoicePosts',function(Builder $inv){
-                            return $inv->where('published',1);})
-                    ->with([
-                    'invoicePosts',
-                    'invoicePosts.texts',
-                    'invoicePosts.images',
-                    ])->orderBy('created_at','desc')->get();
+        // $posts = EngagementRing::where('published',1)->findOrFail($id)
+        //             ->invoices()->whereHas('invoicePosts',function(Builder $inv){
+        //                     return $inv->where('published',1);})
+        //             ->with([
+        //             'invoicePosts',
+        //             'invoicePosts.texts',
+        //             'invoicePosts.images',
+        //             ])->orderBy('created_at','desc')->get();
+
+        // $invoicePosts = [];
+
+        $posts = InvoicePost::where('published',1)
+                            ->where('postable_type','App/EngagementRing')
+                            ->where('postable_id',$id)
+                            ->with([
+                                'images',
+                                ])->orderBy('created_at','desc')->get();
 
         $invoicePosts = [];
-
         // $titles = $posts;
 
         // $this->posts = $this->posts->toArray();
@@ -158,17 +167,15 @@ class EngagementRingController extends Controller
 
         // dd($posts->toArray()); 
         
+        app()->setlocale(request()->locale);
         
-        foreach ($posts as $key => $p ) {
-            if (isset($p->invoicePosts[0])) {
-                $post = $p->invoicePosts[0];
-                // $post['texts'][config( 'global.locale.'. dd(app()->getLocale()) )]['content'] = $post->title($post->id);
+        foreach ($posts as $key => $post ) {
+
+                $post['texts']['content'] = $post->title($post->id);
                 // dd($post);
                 $invoicePosts['invoicePosts'][] = $post;
                 // dd($invoicePosts['invoicePosts'][$post->id]['texts']);
                 // $invoicePosts['invoicePosts'][$post->id]['texts'] = $post->title($post->id);
-
-            }
         }
 
         return response()

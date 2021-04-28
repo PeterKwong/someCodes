@@ -22,7 +22,7 @@ export function getLocaleCode(){
 }
 
 export function getLocale(){
-	return window.location.pathname.slice(0,3)
+	return window.location.pathname.slice(1,3)
 }
 
 export function getCurrentURl(){

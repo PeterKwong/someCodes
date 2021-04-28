@@ -286,11 +286,11 @@ export default {
             for (var i = this.items.length - 1; i >= 0; i--) {
                 if (this.items[i].images[0].image&&this.items[i].video) {
                     arr.push({src:this.items[i].video, type:"video", thumb:this.items[i].images[0].image, 
-                    text:this.items[i].texts[mutualVar.langs.localeCode].content})
+                    text:this.items[i].texts.content})
                 }else
                 {
                     arr.push({src:this.items[i].images[0].image, type:"img", thumb:this.items[i].images[0].image, 
-                    text:this.items[i].texts[mutualVar.langs.localeCode].content})
+                    text:this.items[i].texts.content})
                 }
                 
             }

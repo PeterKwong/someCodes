@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Support\ResizeImage;
 use App\Models\Image;
+use App\Models\InvoicePost;
 use App\Models\Text;
 use App\Models\WeddingRing;
 use App\Models\WeddingRingPair;
@@ -132,40 +133,25 @@ class WeddingRingPairController extends Controller
             }
             ,'weddingRings.images','weddingRings.texts'])->findOrFail($id);
 
-        // dd(print_r($weddingRingPairs->weddingRings));
-        $posts = WeddingRingPair::where('published',1)->findOrFail($id)->weddingRings()->first()
-                    ->invoices()->whereHas('invoicePosts',function(Builder $inv){
-                            return $inv->where('published',1);})
-                    ->with([
-                    'invoicePosts',
-                    'invoicePosts.texts',
-                    'invoicePosts.images',
-                    ])->orderBy('created_at','desc')->get();
+        // dd($weddingRingPairs->weddingRings->pluck('id'));
+        $posts = InvoicePost::where('published',1)
+                            ->where('postable_type','App/WeddingRing')
+                            ->wherein('postable_id',$weddingRingPairs->weddingRings->pluck('id'))
+                            ->with([
+                                'images',
+                                ])->orderBy('created_at','desc')->get();
 
         $invoicePosts = [];
 
-        // $invoicePosts = $invoicePosts->weddingRings;
+                
+        app()->setlocale(request()->locale);
         
-        // $posts = [];
-        // foreach ($invoicePosts as $weddingRing) {
-        //     if (!empty($weddingRing->invoices[0])) {
-        //        $posts []= $weddingRing->invoices[0]->invoicePosts;
-        //     }
-            
-        // }
-        // dd($posts->toArray()); 
-        
-        foreach ($posts as $key => $p ) {
-            if (isset($p->invoicePosts[0])) {
-                $post = $p->invoicePosts[0];
-                // dd($post);
-                // $post['texts'][0]['content'] = $post->title($post->id);
+        foreach ($posts as $key => $post ) {
+                $post['texts']['content'] = $post->title($post->id);
                 // dd($post);
                 $invoicePosts['invoicePosts'][] = $post;
                 // dd($invoicePosts['invoicePosts'][$post->id]['texts']);
                 // $invoicePosts['invoicePosts'][$post->id]['texts'] = $post->title($post->id);
-
-            }
         }
         
         return response()

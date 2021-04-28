@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\InvDiamond;
+use App\Models\InvoicePost;
 use App\Models\Jewellery;
 use App\Support\ResizeImage;
+use Illuminate\Http\Request;
 
 class JewelleryController extends Controller
 {
@@ -109,21 +110,27 @@ class JewelleryController extends Controller
     {
         
         $jewellery = Jewellery::where('published',1)->with(['images','texts'])->findOrFail($id);
-        $posts = Jewellery::where('published',1)->findOrFail($id)->invoices()->with(
-                    ['invoicePosts'=>function($inv){
-                                    return $inv->where('published',1);},
-                    'invoicePosts.images','invoicePosts.texts'])->orderBy('created_at','desc')->get();
+
+        $posts = InvoicePost::where('published',1)
+                            ->where('postable_type','App/Jewellery')
+                            ->where('postable_id',$id)
+                            ->with([
+                                'images',
+                                ])->orderBy('created_at','desc')->get();
 
         $invoicePosts = [];
 
-        // dd(count($posts)); 
+                
+        app()->setlocale(request()->locale);
         
-        
-        foreach ($posts as $p ) {
-            if (isset($p->invoicePosts[0])) {
-                $invoicePosts['invoicePosts'][] = $p->invoicePosts[0];
-            }
+        foreach ($posts as $key => $post ) {
+                $post['texts']['content'] = $post->title($post->id);
+                // dd($post);
+                $invoicePosts['invoicePosts'][] = $post;
+                // dd($invoicePosts['invoicePosts'][$post->id]['texts']);
+                // $invoicePosts['invoicePosts'][$post->id]['texts'] = $post->title($post->id);
         }
+
 
         return response()
             ->json([

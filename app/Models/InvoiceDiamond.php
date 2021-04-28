@@ -43,7 +43,7 @@ class InvoiceDiamond extends Model
 
         return cache()->remember($separatorConcate . 'invoiceDiamondTitle.' . app()->getLocale() . '.'.$this->id,  config('global.cache.week'), function(){
 
-	        $title = $this->weight . trans('diamondSearch.carat') 
+	        $title = $this->weight .' '. trans('diamondSearch.carat') 
 	                . ' '. $this->color . trans('diamondSearch.color') 
 	                . ' '. $this->clarity . trans('diamondSearch.clarity') 
 	                . ' '. $this->cut . trans('diamondSearch.cut') 

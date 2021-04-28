@@ -102,7 +102,7 @@ trait DiamondExtraFunctions{
     	            if (strpos($url, 'www.diamondselections.com')) {
     	              $url = file_get_contents($this->cert_link);
     	            }
-                  if (strpos($url, 'myapps.gia.edu/ReportCheckPOC/')) {
+                  if (strpos($url, 'myapps.gia.edu/ReportCheckPOC/') || !strpos($url, 'http')) {
                     return;
                   }
                    // create Imagick object

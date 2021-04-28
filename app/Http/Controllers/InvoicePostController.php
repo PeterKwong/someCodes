@@ -28,38 +28,6 @@ class InvoicePostController extends Controller
 
     public function bladeShow($locale, $id)
     {
-    // DB::connection()->enableQueryLog();
-
-    // $cache = Cache::remember('customerJew:'.$id, 1, function()use($id) {
-    //          return $meta = InvoicePost::with(['texts'=>function($texts){
-    //                 $texts->where('locale',app()->getLocale());
-    //             }])->findOrFail($id);   
-    // });
-
-
-    // $log = DB::getQueryLog(); 
-
-
-    // dd(print_r($log));
-
-    // $storage = Redis::Connection();
-
-
-    // if (!$storage->zScore('customerJew', 'page:'.$id)) {
-    //     // $views = $storage->incr('page:'.$id.':views');
-    //     // $storage->zIncrBy('customerJew', 1, 'page:'.$id);
-    // }
-
-    // $storage->pipeline(function($pipe)use($id){
-    //    $pipe->zIncrBy('customerJew', 1, 'page:'.$id);
-    //    $pipe->incr('page:'.$id.':views');
-    // });
-
-    // $getViews = $storage->get('page:'.$id.':views');
-
-    // $r = 'This is ' .$id. ' ,has ' . $getViews;
-    // return dd($r) ;
-
 
      $meta = InvoicePost::findOrFail($id)->title($id);
 

@@ -28,7 +28,7 @@ class DiamondController extends Controller
   public function bladeShow($locale, $id)
   {
     $diamond  = Diamond::find($id);
-    // dd($diamond->title());
+    // dd($diamond);
     if(!isset($diamond)){
       return redirect( $locale . '/gia-loose-diamonds');
     }

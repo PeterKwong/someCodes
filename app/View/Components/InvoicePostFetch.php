@@ -67,8 +67,21 @@ class InvoicePostFetch extends Component
                             ->with(['images' => function($query){ 
                                             $query->where('type','cover');
                                             }, 
-                                    'texts',
-                            ])->paginate($this->per_page)->toArray();
+                                    // 'texts',
+                            ])->paginate($this->per_page);
+                            // dd($this->posts);
+            $invoicePosts = [];
+            
+            foreach ($this->posts as $key => $post ) {
+
+                    $post->texts->content = $post->title($post->id);
+                    // dd($post);
+                    $invoicePosts[] = $post;
+                    // dd($invoicePosts['invoicePosts'][$post->id]['texts']);
+                    // $invoicePosts['invoicePosts'][$post->id]['texts'] = $post->title($post->id);
+            }
+
+            $this->posts = $invoicePosts;
 
         }        
 

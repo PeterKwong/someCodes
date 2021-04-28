@@ -48,40 +48,55 @@ class InvoicePost extends Model
     public function postable(){
         return $this->morphTo('');
     }
-    public function hasCachedTitle($id){
+    //Title
+    public function title($id){
 
-        $title = '';
-        $data = $this->with(['invoice.invoiceDiamonds',
-                    'invoice.engagementRings',
-                    'invoice.weddingRings',
-                    'invoice.jewelleries',
-                    ])->find($id);
-        
-        $types = ['invoiceDiamonds', 'engagementRings', 'weddingRings' ,'jewelleries'];
+        return $this->generateTitle(' ',$id);
+                
+    }
+    public function tags($id){
 
-        foreach ($types as $key => $type) {
-            // dd($data);
-            if (count( $data->invoice->{$type}) && $type != 'jewelleries') {
-                    $title .=  $title ? ' |' :''; 
-                    $title .= $data->invoice->{$type}->first()->title();
-            }else{
-                if ( count( $data->invoice->{$type}) && $data->invoice->{$type}->first()->type != 'Misc') {
-                    $title .=  $title ? ' |' :''; 
-                    $title .= $data->invoice->{$type}->first()->title();                        
-                }
-            }
+        return $this->generateTitle(', ',$id);
+                
+    }
+    public function generateTitle($separator,$id){
+
+        $separatorConcate = '';
+        if ($separator == ', ') {
+            $separatorConcate = 'comma';
         }
 
-        // dd($data);
-        $data->invoice->title = $title;
+        return cache()->remember($separatorConcate . 'invoicePost.' . app()->getLocale() . '.'.$id,  config('global.cache.week'), function()use($separator,$id){
 
-        return $title;            
-    } 
+            $title = '';
+            $data = $this->with(['invoice.invoiceDiamonds',
+                        'invoice.engagementRings',
+                        'invoice.weddingRings',
+                        'invoice.jewelleries',
+                        ])->find($id);
+            
+            $types = ['invoiceDiamonds', 'engagementRings', 'weddingRings' ,'jewelleries'];
 
-    public function title($id){
-        
-        return $this->hasCachedTitle($id);
-                    
+            foreach ($types as $key => $type) {
+                // dd($data);
+                if (count( $data->invoice->{$type}) && $type != 'jewelleries') {
+                        $title .=  $title ? ' |' :''; 
+                        $title .= $data->invoice->{$type}->first()->title();
+                }else{
+                    if ( count( $data->invoice->{$type}) && $data->invoice->{$type}->first()->type != 'Misc') {
+                        $title .=  $title ? ' |' :''; 
+                        $title .= $data->invoice->{$type}->first()->title();                        
+                    }
+                }
+            }
+
+            // dd($data);
+            $data->invoice->title = $title;
+
+            return $title;       
+
+        });
+
     } 
 
     public static function form()

@@ -504,9 +504,9 @@
                   <div class="img-grid">
                     <a href="{{url(app()->getLocale())}}/customer-jewellery">
                       <figure class="effect-bubba" style="min-width: 280px;">
-                         <img src="{{config('global.cache.' . config('global.cache.live') ) }}public/images/{{count($post->images)?$post->images[0]->image:'something_special.jpg'}}">
+                         <img src="{{config('global.cache.' . config('global.cache.live') ) }}public/images/{{count($post['images'])?$post['images'][0]['image']:'something_special.jpg'}}">
                           <figcaption>
-                              <p class="truncate">{{ count($post->texts)?$post->texts[config('global.locale.' . app()->getLocale())]->content : '' }}</p>
+                              <p class="truncate">{{ !empty($post['texts']['content'])?$post['texts']['content'] : '' }}</p>
                           </figcaption>           
                       </figure>
                     </a>
@@ -533,15 +533,15 @@
         </div>
 
         <div class="grid grid-rows-2 grid-flow-col gap-4 justify-center px-4 sm:px-12">
-          @foreach($jewellery as $jewellry)
+          @foreach($customerMoments as $customerMoment)
               <div class="row-span-1">
                   <a href="{{url(app()->getLocale())}}/customer-moments">
                       <div class="img-grid">
                           <figure class="effect-chico" style="min-width: 150px;">
-                             <img src="{{config('global.cache.' . config('global.cache.live') ) }}public/images/sq-{{count($jewellry->images)?$jewellry->images[0]->image:'something_special.jpg'}}">
+                             <img src="{{config('global.cache.' . config('global.cache.live') ) }}public/images/sq-{{count($customerMoment->images)?$customerMoment->images[0]->image:'something_special.jpg'}}">
                               <figcaption>
                                   <h2></h2>
-                                  <p>{{ count($jewellry->texts)?$jewellry->texts[config('global.locale.' . app()->getLocale())]->content : ''}}</p>
+                                  <p>{{ count($customerMoment->texts)?$customerMoment->texts[config('global.locale.' . app()->getLocale())]->content : ''}}</p>
                               </figcaption>   
                           </figure>
                       </div>

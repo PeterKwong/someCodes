@@ -144,7 +144,7 @@
                                     </div>
                                     <div class="grid grid-cols-12 border-b" >
                                       <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Name')}}</div>
-                                      <div  class="col-span-6 p-2 font-light" v-if="engagementRing.texts">{{ $meta->texts[0]->content }}</div>
+                                      <div  class="col-span-6 p-2 font-light" v-if="engagementRing.texts">{{ $title }}</div>
                                     </div>
                                     <div class="grid grid-cols-12 border-b" >
                                       <div class="col-span-6 p-2 font-light" >{{__('engagementRing.Description')}}</div>

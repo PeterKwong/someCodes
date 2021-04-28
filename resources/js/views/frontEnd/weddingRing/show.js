@@ -19,7 +19,7 @@
 				title: '',
 				// langs,
 				weddingRing:'',
-				hrefLangs: window.location.pathname.slice(0,3),
+				hrefLangs:  mutualVar.langs.locale,
 				// columns:[
 				// 'unit_price',
     //             'metal',
@@ -73,7 +73,7 @@
 		// },
 		methods: {
 			fetchData(){
-				get(`/api/weddingRings/${window.location.pathname.slice(18)}`)
+				get(`/api/weddingRings/${window.location.pathname.slice(18)}?locale=${this.hrefLangs}`)
 				.then((res)=>{
 					this.weddingRing = res.data.model
 					this.customerItems = res.data.posts.invoicePosts?res.data.posts.invoicePosts:[]

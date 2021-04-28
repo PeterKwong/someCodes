@@ -28,7 +28,7 @@
 				text:{
 					engagementRing: 'engagementRing',
 				},
-				hrefLangs: window.location.pathname.slice(0,3),
+				hrefLangs: mutualVar.langs.locale,
 				engagementRing:'',
 				// columns:[
 				// 'unit_price',
@@ -69,7 +69,7 @@
 		},
 		methods: {
 			fetchData(){
-				get(`/api/engagementRings/${window.location.pathname.slice(21)}`)
+				get(`/api/engagementRings/${window.location.pathname.slice(21)}?locale=${this.hrefLangs}`)
 				.then((res)=>{
 					this.engagementRing = res.data.model
 					this.customerItems = res.data.posts.invoicePosts?res.data.posts.invoicePosts:[]

@@ -260,7 +260,7 @@
                     <br>
                                 
                     <img class="w-auto" src="/images/front-end/diamond_show/diamond_weight.jpg" width="100%">
-                        
+                    
                     <x-invoice-post-fetch type="Diamond" upper-type="weight" :query="$diamond->weight" />
 
                 </div>
