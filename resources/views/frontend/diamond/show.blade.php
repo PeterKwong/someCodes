@@ -260,9 +260,8 @@
                     <br>
                                 
                     <img class="w-auto" src="/images/front-end/diamond_show/diamond_weight.jpg" width="100%">
-                    
-<!--                     <x-invoice-post-fetch type="Diamond" upper-type="weight" :query="$diamond->weight" />
- -->
+                        
+
                 </div>
             </div>
 
@@ -305,8 +304,7 @@
                                 {{trans('diamondSearch.clarityDescription2')}}</li>
                             </span>
                         </div>
-<!--                         <x-invoice-post-fetch type="Diamond" upper-type="clarity" :query="$diamond->clarity" />
- -->
+
                     </div>  
                 </div>
             </div>
@@ -377,8 +375,7 @@
                         </div>
                         <img class="w-auto" src="/images/front-end/diamond_show/diamond_color.jpg" width="100%">
 
-<!--                         <x-invoice-post-fetch type="Diamond" upper-type="color" :query="$diamond->color" />
- -->
+
                     </article>
                 </div>
             </div>
@@ -406,8 +403,7 @@
                                 {{trans('diamondSearch.cutDesrciption')}}
                             </span>
                         </div>
-<!--                         <x-invoice-post-fetch type="Diamond" upper-type="cut" :query="$diamond->cut" />
- -->                    </div>
+                    </div>
                 </div>
             </div>
 
