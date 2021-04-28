@@ -120,6 +120,7 @@ class DiamondController extends Controller
       $diamondQuery = new DiamondQuery();
       $array = $request->toArray();
       $array['cert_link'] = '';
+      // $array['cert_link'] = 'https://myapps.gia.edu/ReportCheckPOC/pocservlet?IPAddress=1.1.1.1&Method=DownloadPDF&ReportNumber=' . $array['certificate'];
 
       $diamond = $diamond->create($array);
       $array['id'] = $diamond->id;
