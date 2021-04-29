@@ -168,7 +168,7 @@
                     </div>
 
                     <div  v-if=" windowHref.includes('shopping-cart')"  @click="sendCookies()">
-                        <a :href=" locale + '/shop-bag-bill' ">
+                        <a :href="'/' + locale + '/shop-bag-bill' ">
                         <button class="btn btn-primary" :class="{'opacity-25' : !checkoutClickable}" :disabled="!checkoutClickable"> <i class="fas fa-shopping-cart"></i>{{'checkout' |transJs(langs) }}</button> 
                         </a>
                     </div>                              
@@ -198,6 +198,8 @@ export default {
     data(){
         return {
             mutualVar,
+            locale: mutualVar.langs.locale,
+            windowHref:window.location.href,
             langs,
             selectingCarousel:'engagementRings',
             maxDeliveryDate: false,
@@ -270,12 +272,6 @@ export default {
             }
 
             return type
-        },
-        locale(){
-            return  getLocale()
-        },
-        windowHref(){
-            return window.location.href
         },
         calculatedDiscountRate(){
             for(var i =0; this.paymentOptions.length > i; i++){
@@ -450,13 +446,13 @@ export default {
 
             var typeOptions = {'App/Diamond': 
                                     { 'type' : 'diamonds',
-                                        'url' : getLocale()+ '/gia-loose-diamonds/'},
+                                        'url' : '/' + this.locale+ '/gia-loose-diamonds/'},
                                 'App/EngagementRing': 
                                 { 'type' : 'engagementRings',
-                                    'url' : getLocale()+ '/engagement-rings/'},
+                                    'url' : '/' + this.locale+ '/engagement-rings/'},
                                 'App/Jewellery': 
                                 { 'type' : 'mountingFee',
-                                    'url' : getLocale()+ '/buying-procedure/diamond-inlay-engrave'},
+                                    'url' : '/' + this.locale+ '/buying-procedure/diamond-inlay-engrave'},
                                 }
             for( var i = 0; this.model.length > i ; i ++){
                 assignDetails(this.model[i], mutualVar.cookiesInfo.shoppingCart.items)
@@ -597,7 +593,7 @@ export default {
                     urlId  = '/shopping-cart/'
                 }
 
-                urlId = getLocale() + urlId
+                urlId = '/' + this.locale + urlId
             }
             window.open(urlId,'_self')
         },

@@ -251,7 +251,7 @@ export default {
                 item.unit_price = this.item.unit_price
                 item.image = mutualVar.storage[mutualVar.storage.live] + 'public/images/' + this.item.images.find((data)=>{ return data.type == 'cover'}).image
 
-                item.url = getLocale() +'/engagement-rings/'
+                item.url = '/'+ getLocale() +'/engagement-rings/'
 
             }
 
@@ -259,7 +259,7 @@ export default {
                 item.type = 'diamonds'
                 item.unit_price = this.item.price
                 item.diamondSize = parseFloat(this.item.weight)
-                item.url = getLocale() +'/gia-loose-diamonds/'
+                item.url = '/'+ getLocale() +'/gia-loose-diamonds/'
                 if (this.item.image_cache == 1) {
                     item.image = mutualVar.storage[mutualVar.storage.live] + 'public/diamond/images/' + this.item.id + '.jpg'                    
                 }else{
@@ -312,7 +312,7 @@ export default {
                             image: '/images/front-end/shoppingCart/mountingFee.png',
                             unit_price: 500,
                             title: this.langs.find((data)=>{ return data['mounting fee']})['mounting fee'][langCode],
-                            url: getLocale() + '/buying-procedure/diamond-inlay-engrave',
+                            url: '/'+ getLocale() + '/buying-procedure/diamond-inlay-engrave',
                             type: 'mountingFee',
                             available: 1,
                         }
@@ -345,7 +345,7 @@ export default {
         directToReview(){
             this.toggleModal()
             this.sendCookies()
-            window.open( getLocale() + '/diamond-ring-review','_self')
+            window.open( '/'+ getLocale() + '/diamond-ring-review','_self')
         },
         addItemToCart(){
 
@@ -354,7 +354,7 @@ export default {
             this.addItemSample()
             this.sendCookies()
             this.toggleModal()
-            window.open( getLocale() + '/shopping-cart','_self')
+            window.open( '/'+ getLocale() + '/shopping-cart','_self')
         },
         toggleModal(){
             this.shoppingCart.modalActive = !this.shoppingCart.modalActive

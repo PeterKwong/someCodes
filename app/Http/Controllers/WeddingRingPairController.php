@@ -207,7 +207,7 @@ class WeddingRingPairController extends Controller
         $weddingRings = [];
 
         foreach ($requestAll as $req) {
-            $weddingRings [] = WeddingRing::create(Arr::except($req, ['video','texts','images','video360']));
+            $weddingRings [] = WeddingRing::create(Arr::except($req, ['video','texts','images']));
         }
   
         $weddingRingPair = WeddingRingPair::create();
@@ -259,17 +259,17 @@ class WeddingRingPairController extends Controller
             }
             
 
-            if ($req['video360']) {
+            // if ($req['video360']) {
 
-                $video360Code= ResizeImage::generateUniqueCode();
+            //     $video360Code= ResizeImage::generateUniqueCode();
 
-                $weddingRingPair->weddingRings[$key]->video360 = $video360Code;
-                $this->save();
+            //     $weddingRingPair->weddingRings[$key]->video360 = $video360Code;
+            //     $this->save();
 
-                $this->saveVideo360($req['video360'],$weddingRingPair->weddingRings[$key]->video360);
+            //     $this->saveVideo360($req['video360'],$weddingRingPair->weddingRings[$key]->video360);
 
 
-            }
+            // }
 
             
             if ($req['video']) {
@@ -353,7 +353,7 @@ class WeddingRingPairController extends Controller
 
                     $texts = [];
                     
-                    // print_r($req);
+                    // dd($req);
                         foreach ($req['texts'] as $k=>$text) {
                             if (isset($text['content'])) {
                                 // dd(print_r($text));
