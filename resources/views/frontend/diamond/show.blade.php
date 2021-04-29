@@ -263,8 +263,7 @@
                     
                     @livewire('diamond.invoice-post-fetch',
                             ['type'=>'Diamond', 'upperType'=>'weight', 'query'=>$diamond->weight ])
-<!--                     <x-invoice-post-fetch type="Diamond" upper-type="weight" :query="$diamond->weight" />
- -->
+
                 </div>
             </div>
 
