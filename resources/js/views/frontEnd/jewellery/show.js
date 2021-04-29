@@ -54,7 +54,8 @@
 				get(`/api/jewellery/${window.location.pathname.slice(14)}?locale=${mutualVar.langs.locale}`)
 				.then((res)=>{
 					this.jewellery = res.data.model
-					this.filterNotPostable(res.data.posts.invoicePosts)
+					this.customerItems = res.data.posts.invoicePosts?res.data.posts.invoicePosts:[]
+					// this.filterNotPostable(res.data.posts.invoicePosts)
 				})
 			},
 			filterNotPostable(data){
