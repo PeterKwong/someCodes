@@ -54,7 +54,7 @@
 
 		                <div class="col-3">
 		                    <div class="control ">
-		                        <div class="control">
+		                        <div class="control" v-if="form[0].texts.length > 0">
 		                            <label class="label">title - en</label>
 		                                <input type="text" class="form-control" v-model="form[0].texts[0].content" placeholder="title" required>
 		                                <small class="is-danger" v-if="errors.name">@{{errors.name[0]}}</small>
@@ -63,7 +63,7 @@
 		                </div>
 		                <div class="col-3">
 		                    <div class="control ">
-		                        <div class="control">
+		                        <div class="control" v-if="form[0].texts.length > 0">
 		                            <label class="label">title - hk</label>
 		                                <input type="text" class="form-control" v-model="form[0].texts[1].content" placeholder="title" required>
 		                                <small class="is-danger" v-if="errors.name">@{{errors.name[0]}}</small>
@@ -72,7 +72,7 @@
 		                </div>
 		                <div class="col-3">
 		                    <div class="control ">
-		                        <div class="control">
+		                        <div class="control" v-if="form[0].texts.length > 0">
 		                            <label class="label">title - cn</label>
 		                                <input type="description" class="form-control" v-model="form[0].texts[2].content" required placeholder="title">
 		                                <small class="is-danger" v-if="errors.description">@{{errors.description[0]}}</small>
@@ -297,7 +297,7 @@
 
 		                <div class="col-3">
 		                    <div class="control ">
-		                        <div class="control">
+		                        <div class="control" v-if="form[1].texts.length > 0">
 		                            <label class="label">title - en</label>
 		                                <input type="text" class="form-control" v-model="form[1].texts[0].content" placeholder="title" required>
 		                                <small class="is-danger" v-if="errors.name">@{{errors.name[0]}}</small>
@@ -306,7 +306,7 @@
 		                </div>
 		                <div class="col-3">
 		                    <div class="control ">
-		                        <div class="control">
+		                        <div class="control" v-if="form[1].texts.length > 0">
 		                            <label class="label">title - hk</label>
 		                                <input type="text" class="form-control" v-model="form[1].texts[1].content" placeholder="title" required>
 		                                <small class="is-danger" v-if="errors.name">@{{errors.name[0]}}</small>
@@ -315,7 +315,7 @@
 		                </div>
 		                <div class="col-3">
 		                    <div class="control ">
-		                        <div class="control">
+		                        <div class="control" v-if="form[1].texts.length > 0">
 		                            <label class="label">title - cn</label>
 		                                <input type="description" class="form-control" v-model="form[1].texts[2].content" required placeholder="title">
 		                                <small class="is-danger" v-if="errors.description">@{{errors.description[0]}}</small>
