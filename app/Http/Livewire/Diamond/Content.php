@@ -242,9 +242,9 @@ class Content extends Component
     }
     public function isDiamondQuery(){
 
+    	$same = true ;
       	if ( isset($_COOKIE['diamondSearch']) ) {
 
-    		$same = true ;
     		$columns = ['page','column','direction','per_page','shape','color','clarity','cut','polish','symmetry','fluorescence','price','weight','table_percent','depth_percent','crown_angle','parvilion_angle','length','width','depth','location','starred'];
 
     		

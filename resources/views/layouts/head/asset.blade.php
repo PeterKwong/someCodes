@@ -11,8 +11,8 @@
  -->
  
 <!-- Fonts -->
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+<link defer rel="dns-prefetch" href="//fonts.gstatic.com">
+<link defer href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
 <!-- Styles -->
 <!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
@@ -44,7 +44,7 @@
 <script defer type="application/javascript" src="{{ mix('js/frontend.js') }}" ></script>
  
 
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
+<script defer src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" ></script>
 
 
 

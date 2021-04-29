@@ -4,7 +4,7 @@
     <link rel="canonical" href="{{ secure_url( url()->current() ) }}" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-79850662-1"></script>
-	<script>
+	<script async>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
@@ -15,7 +15,7 @@
 	<meta name="shenma-site-verification" content="a869ce295a97fd010b92614134c7fe58_1552125431"> 
 
 	<!-- Facebook Pixel Code -->
-	<script>
+	<script async>
 	  !function(f,b,e,v,n,t,s)
 	  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 	  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -34,7 +34,7 @@
 
 
 	<!-- baidu tag  -->
-	<script>
+	<script async>
 	var _hmt = _hmt || [];
 	(function() {
 	  var hm = document.createElement("script");

@@ -72,7 +72,7 @@
 				<div class="row">
 					<div class="col-4" v-for="text in wedding_ring.texts">
 						<label>@{{text.type}}</label>
-						<p class="subtitle is-5">@{{text.content}}</p>
+						<p v-if="text.content" class="subtitle is-5">@{{text.content}}</p>
 					</div>
 					
 				</div>

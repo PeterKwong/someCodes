@@ -75,10 +75,8 @@ class InvoicePostFetch extends Component
             foreach ($this->posts as $key => $post ) {
 
                     $post->texts->content = $post->title($post->id);
-                    // dd($post);
                     $invoicePosts[] = $post;
-                    // dd($invoicePosts['invoicePosts'][$post->id]['texts']);
-                    // $invoicePosts['invoicePosts'][$post->id]['texts'] = $post->title($post->id);
+                    
             }
 
             $this->posts = $invoicePosts;

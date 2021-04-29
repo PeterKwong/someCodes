@@ -65,6 +65,8 @@ class InvoicePost extends Model
         if ($separator == ', ') {
             $separatorConcate = 'comma';
         }
+        
+        // cache()->forget($separatorConcate . 'invoicePost.' . app()->getLocale() . '.'.$id);
 
         return cache()->remember($separatorConcate . 'invoicePost.' . app()->getLocale() . '.'.$id,  config('global.cache.week'), function()use($separator,$id){
 

@@ -36,26 +36,8 @@ class Show extends Component
 
         $this->weightRange();
 
-
-        // $title = '';
-        // if (count( $this->meta->invoice->invoiceDiamonds) ) {
-        //     $title .= $this->meta->invoice->invoiceDiamonds->first()->title();
-        // }
-        // if (count( $this->meta->invoice->engagementRings) ) {
-        //     $title .=  $title ? ' | ' :''; 
-        //     $title .=  $this->meta->invoice->engagementRings->first()->title();
-        // }
-        // if (count( $this->meta->invoice->weddingRings) ) {
-        //     $title .=  $title ? ' | ' :''; 
-        //     $title .=  $this->meta->invoice->weddingRings->first()->title();
-        // }
-        // if (count( $this->meta->invoice->jewelleries) && $this->meta->invoice->jewelleries->first()->type != 'Misc') {
-        //     $title .=  $title ? ' | ' :'';             
-        //     $title .=  $this->meta->invoice->jewelleries->first()->title();
-        // }
         $this->meta->invoice->title = $title;
 
-        // dd($this->meta);
 
     }
     public function weightRange(){
