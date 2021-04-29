@@ -70,7 +70,7 @@
 
 				<hr>
 				<div class="row">
-					<div class="col-4" v-for="text in wedding_ring.texts" v-if="text.content">
+					<div class="col-4" v-for="text in wedding_ring.texts" v-if="text.content !== 'undefined' ">
 						<label>@{{text.type}}</label>
 						<p class="subtitle is-5">@{{text.content}}</p>
 					</div>
