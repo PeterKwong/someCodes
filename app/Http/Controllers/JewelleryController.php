@@ -160,7 +160,7 @@ class JewelleryController extends Controller
             ]);
     	$jewellery = Jewellery::with(['images','texts'])->findOrFail($id);
 
-        return $jewellery->updateItem($request,'App\Jewellery');
+        return $jewellery->updateItem($request,'App\Models\Jewellery');
        
     }
 
@@ -169,7 +169,7 @@ class JewelleryController extends Controller
 
         $jewellery = jewellery::with(['images','texts'])->findOrFail($id);
 
-        return $jewellery->destroyItem('App\Jewellery');
+        return $jewellery->destroyItem('App\Models\Jewellery');
 
     }
 

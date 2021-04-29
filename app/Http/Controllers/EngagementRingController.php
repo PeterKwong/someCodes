@@ -247,14 +247,14 @@ class EngagementRingController extends Controller
 
     	$engagementRing = EngagementRing::with(['images','texts'])->findOrFail($id);
 
-        return $engagementRing->updateItem($request,'App\EngagementRing');
+        return $engagementRing->updateItem($request,'App\Models\EngagementRing');
     }
 
     public function destroy($id)
     {
     	$engagementRing = EngagementRing::with(['images','texts'])->findOrFail($id);
 
-        return $engagementRing->destroyItem('App\EngagementRing');
+        return $engagementRing->destroyItem('App\Models\EngagementRing');
 
     }
 }

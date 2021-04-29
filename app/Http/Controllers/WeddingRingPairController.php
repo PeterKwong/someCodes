@@ -358,7 +358,7 @@ class WeddingRingPairController extends Controller
                             if (isset($text['content'])) {
                                 // dd(print_r($text));
                                 Text::where('textable_id', $weddingRingPair->weddingRings[$key]->id)
-                                    ->where('textable_type', 'App\WeddingRing')
+                                    ->where('textable_type', 'App\Models\WeddingRing')
                                     ->where('locale', $text['locale'])
                                     ->update(['content' => $text['content']]);
                             }
@@ -504,7 +504,7 @@ class WeddingRingPairController extends Controller
             }
             
             Text::where('textable_id', $weddingRing->id)
-                        ->where('textable_type', 'App\WeddingRing')
+                        ->where('textable_type', 'App\Models\WeddingRing')
                         ->delete();
 
 
