@@ -1,13 +1,14 @@
 <?php
 
-namespace App\View\Components;
+namespace App\Http\Livewire\Diamond;
 
 use App\Models\InvoicePost;
 use App\Models\Tag;
-use Illuminate\View\Component;
+use Livewire\Component;
 
 class InvoicePostFetch extends Component
 {
+	public $readyToLoad = false;
     public $type;
     public $upperType;
     public $query;
@@ -16,32 +17,23 @@ class InvoicePostFetch extends Component
     public $posts;
     public $upperId;
     public $tagId = [];
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct($type,$upperType, $query)
+
+    public function loadPosts()
     {
-        //
-        $this->type = $type;
-        $this->upperType = $upperType;
-        $this->query = $query;
+        $this->readyToLoad = true;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|string
-     */
-
-
-
     public function render()
-    {   
+    {
+        return view('livewire.diamond.invoice-post-fetch', [
+            'posts' => $this->readyToLoad
+                ? $this->delayLoad()
+                : [],
+        ]);
+    }
+    public function delayLoad(){
         $this->getTagId();
         $this->getPosts();
-        return view('components.invoice-post-fetch');
     }
 
     public function getPosts(){
@@ -90,7 +82,6 @@ class InvoicePostFetch extends Component
 
 
 
-
         if ($this->upperType == 'weight') {
         // dd(request()->query('weight'));
             $weights = [
@@ -136,6 +127,5 @@ class InvoicePostFetch extends Component
 
 
     }
-
 
 }

@@ -46,7 +46,7 @@ class InvoicePost extends Model
     }
 
     public function postable(){
-        return $this->morphTo('');
+        return $this->morphTo();
     }
     //Title
     public function title($id){
@@ -71,7 +71,8 @@ class InvoicePost extends Model
         return cache()->remember($separatorConcate . 'invoicePost.' . app()->getLocale() . '.'.$id,  config('global.cache.week'), function()use($separator,$id){
 
             $title = '';
-            $data = $this->with(['invoice.invoiceDiamonds',
+            $data = $this->with([
+                        'invoice.invoiceDiamonds',
                         'invoice.engagementRings',
                         'invoice.weddingRings',
                         'invoice.jewelleries',

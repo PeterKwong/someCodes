@@ -146,14 +146,32 @@ class EngagementRingController extends Controller
         //             ])->orderBy('created_at','desc')->get();
 
         // $invoicePosts = [];
+        // $posts = EngagementRing::where('published',1)->whereId($id)
+        //                             ->with([
+        //                                 'posts'=>function($posts){
+        //                                         // dd($posts->first());
+        //                                     foreach ($posts as $key => $post) {
+        //                                         dd($post->id);
 
+        //                                     }
+        //                                     return $posts->title();
+        //                                 },
+        //                                 'posts.images'
+        //                             ])->get();
+        // dd($posts->images);
+        // $posts = InvoicePost::where('published',1)
+        //                     ->where('postable_type','App\Models\EngagementRing')
+        //                     ->where('postable_id',$id)
+        //                     ->with([
+        //                         'images',
+        //                         ])->orderBy('created_at','desc')->get();
+        // dd($posts);
         $posts = InvoicePost::where('published',1)
-                            ->where('postable_type','App/EngagementRing')
+                            ->where('postable_type','App\Models\EngagementRing')
                             ->where('postable_id',$id)
                             ->with([
                                 'images',
                                 ])->orderBy('created_at','desc')->get();
-
         $invoicePosts = [];
         // $titles = $posts;
 
