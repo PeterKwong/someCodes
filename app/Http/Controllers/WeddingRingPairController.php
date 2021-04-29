@@ -135,7 +135,7 @@ class WeddingRingPairController extends Controller
 
         // dd($weddingRingPairs->weddingRings->pluck('id'));
         $posts = InvoicePost::where('published',1)
-                            ->where('postable_type','App/WeddingRing')
+                            ->where('postable_type','App\Models\WeddingRing')
                             ->wherein('postable_id',$weddingRingPairs->weddingRings->pluck('id'))
                             ->with([
                                 'images',

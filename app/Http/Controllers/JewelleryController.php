@@ -112,7 +112,7 @@ class JewelleryController extends Controller
         $jewellery = Jewellery::where('published',1)->with(['images','texts'])->findOrFail($id);
 
         $posts = InvoicePost::where('published',1)
-                            ->where('postable_type','App/Jewellery')
+                            ->where('postable_type','App\Models\Jewellery')
                             ->where('postable_id',$id)
                             ->with([
                                 'images',
