@@ -106,7 +106,7 @@ export default {
                     urlId  = '/shopping-cart/'
                 }
 
-        		urlId = mutualVar.langs.locale + urlId
+        		urlId = '/' + mutualVar.langs.locale + urlId
         	}
 
         	window.open(urlId,'_self')

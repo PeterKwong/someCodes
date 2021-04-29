@@ -3,7 +3,6 @@
 import shoppingCartItem from '../../../components/shoppingCart/item.vue'
 import stripeCheckoutForm from '../../../components/shoppingCart/stripeCheckoutForm.vue'
 
-import { getLocale , getLocaleCode} from '../../../helpers/locale'
 import { setCookie, getCookie, } from '../../../helpers/cookie'
 
 // import QRCode from 'qrcode'
@@ -14,6 +13,7 @@ export default {
     data(){
         return {
             mutualVar,
+            locale: mutualVar.langs.locale,
             cookies: mutualVar.cookiesInfo,
             form:{
                     user:{
@@ -67,9 +67,6 @@ export default {
     computed:{
         shortenName(){
             return this.cookies.shoppingCart.items[this.cookies.shoppingCart.selectingIndex].pairItems
-        },
-        locale(){
-                return getLocale()
         },
         isProcessing(){
             return mutualVar.status.isProcessing
@@ -260,7 +257,7 @@ export default {
                 this.cookies.shoppingCart.selectingIndex = 0
                 this.sendCookies()
                 this.updateCartItems()
-                window.open( mutualVar.langs.locale + '/thank-you','_self')                
+                window.open( '/' + this.locale + '/thank-you','_self')                
         },
         checkOrderPaymentStatus(){
 
