@@ -26,24 +26,42 @@ Route::get('/', [HomeController::class, 'index']);
     Route::prefix('/links/')->group(function(){
 
         Route::get('bl/{id}', function($id){
-            return redirect('https://bit.ly/' . $id);
+            return view('frontend.page.direct',[
+            'url'=>'https://bit.ly/' . $id
+            ]);
+            // return redirect('https://bit.ly/' . $id);
         } );
 
         Route::get('youtube', function(){
-            return redirect('https://youtube.com/channel/UCaNsACwMjz9t9evpaSkHpGg');
+            return view('frontend.page.direct',[
+            'url'=>'https://youtube.com/channel/UCaNsACwMjz9t9evpaSkHpGg'
+            ]);
+            // return redirect('https://youtube.com/channel/UCaNsACwMjz9t9evpaSkHpGg');
         } );
         Route::get('facebook', function(){
-            return redirect('https://facebook.com/tingdiamonds');
+            return view('frontend.page.direct',[
+            'url'=>'https://facebook.com/tingdiamonds'
+            ]);
+            // return redirect('https://facebook.com/tingdiamonds');
         } );
         Route::get('twitter', function(){
-            return redirect('http://twitter.com/TingDiamond');
+            return view('frontend.page.direct',[
+            'url'=>'http://twitter.com/TingDiamond'
+            ]);            
+            // return redirect('http://twitter.com/TingDiamond');
         } );        
         Route::get('instagram', function(){
-            return redirect('https://instagram.com/tingdiamond/');
+            return view('frontend.page.direct',[
+            'url'=>'https://instagram.com/tingdiamond/'
+            ]);            
+            // return redirect('https://instagram.com/tingdiamond/');
         } ); 
         Route::get('whatsapp/{number}', function($number){
+            return view('frontend.page.direct',[
+                        'url'=>'https://api.whatsapp.com/send?phone=' . $number .'&text='. request()->text 
+                        ]);
             // dd($number);
-            return redirect('https://api.whatsapp.com/send?phone=' . $number .'&text='. request()->text );
+            // return redirect('https://api.whatsapp.com/send?phone=' . $number .'&text='. request()->text );
     } );         
 });
 

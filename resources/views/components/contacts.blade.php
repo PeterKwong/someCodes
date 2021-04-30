@@ -5,7 +5,7 @@
         <div class="flex justify-center">
 
         @if(app()->getLocale() != 'cn')
-		    <a class="text-blue-600" href="{{ '/links/whatsapp/852' .  $staff['number'] }}">
+		    <a class="text-blue-600" target="_blank" href="{{ '/links/whatsapp/852' .  $staff['number'] }}">
 		    	<div class="flex">
 		    		<div class="p-2">
 			            <div class="w-12 h-12">
