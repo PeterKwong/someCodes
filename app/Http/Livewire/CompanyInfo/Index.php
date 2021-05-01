@@ -31,6 +31,20 @@ class Index extends Component
     	$this->get();
 
     }
+    public function setCache(){
+
+        $cacheItems = array_merge($this->sales, $this->purchase);
+        // dd($cacheItems);
+
+        foreach ($cacheItems as $key => $item) {
+            cache()->forget($key);
+            cache()->rememberForever($key, function()use($key){ 
+                                    return CompanyInfo::where('key',$key)->first()->value ;
+                                });
+
+        }
+
+    }
     public function get(){
 
             $this->companyInfo =  CompanyInfo::all() ;
@@ -45,6 +59,7 @@ class Index extends Component
     	foreach ($this->companyInfo as $key => $info) {
     		$info->save();
     	}
+        $this->setCache();
 
     }
     public function render()

@@ -1,7 +1,7 @@
 <div>
     
 @if(cache()->get('homePageShow') == 1)
-	{{ session()->put('notification', $companyInfo ) }}
+	{{ session()->put('notification', cache()->get('homePage') ) }}
 @endif
 
 
