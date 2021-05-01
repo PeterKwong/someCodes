@@ -427,7 +427,7 @@
                         <div class="">
                         <div>
                             <div>
-                                <div class="text-xl px-2 font-semibold">{{__('customerMoment.jewellery Info')}}</div>
+                                <div class="text-xl px-2 font-semibold">{{__('jewellery.Jewellery Info')}}</div>
                             </div>
                         </div>
                             
