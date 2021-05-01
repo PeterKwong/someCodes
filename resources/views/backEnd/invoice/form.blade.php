@@ -157,10 +157,10 @@
 							<p class="subtitle is-5">@{{optJew.text}}</p>
 						</div>
 
-						<!-- <div class="col-4">
+						<div class="col-4">
 							<label>Title</label>
 							<p class="subtitle is-5">@{{optJew.texts[0].content}}</p>
-						</div> -->
+						</div>
 						<div class="col-3">
 							<label>Image</label>
 							<img width="200" :src="mutualVar.storage[mutualVar.storage.live] + 'public' +'/images/' + optJew.images[0].image" v-if="optJew.images[0]">
