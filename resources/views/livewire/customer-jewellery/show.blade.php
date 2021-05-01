@@ -33,20 +33,23 @@
                           <center>
                             <p class="title is-5">{{__('customerMoment.Product Video')}}</p>     
 
-                <div class="flex">
-                    <div class="w-full h-full">  
-                        <video
-                        id="invoice-post-1"
-                        class="video-js vjs-fluid vjs-big-play-centered"
-                        controls
-                        preload="auto"
-                        poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $meta->images[0]->image}}"
-                        data-setup='{"fluid": true}'
-                        >
-                        <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $meta->video}}" type="video/mp4">
-                        </video>
+                @if( count($meta->images) )
+
+                    <div class="flex">
+                        <div class="w-full h-full">  
+                            <video
+                            id="invoice-post-1"
+                            class="video-js vjs-fluid vjs-big-play-centered"
+                            controls
+                            preload="auto"
+                            poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $meta->images[0]->image}}"
+                            data-setup='{"fluid": true}'
+                            >
+                            <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $meta->video}}" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-                </div>
+                @endif
                             </center>
                                 
                             <div>
@@ -310,20 +313,22 @@
                         <div>
                           <p>
 
-                <div class="flex">
-                    <div class="w-full h-full">  
-                        <video
-                        id="invoice-post-2"
-                        class="video-js vjs-fluid vjs-big-play-centered"
-                        controls
-                        preload="auto"
-                        poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $engagementRing->images[0]->image}}"
-                        data-setup='{"fluid": true}'
-                        >
-                        <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $engagementRing->video}}" type="video/mp4">
-                        </video>
+                @if( count($engagementRing->images) )
+                    <div class="flex">
+                        <div class="w-full h-full">  
+                            <video
+                            id="invoice-post-2"
+                            class="video-js vjs-fluid vjs-big-play-centered"
+                            controls
+                            preload="auto"
+                            poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $engagementRing->images[0]->image}}"
+                            data-setup='{"fluid": true}'
+                            >
+                            <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $engagementRing->video}}" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-                </div>
+                @endif
 <!--                             <video-player videoId="videoTwo" :options="videoOpts[0].videoEng" v-if="post.invoice.engagement_rings[0].video"></video-player> 
  -->
                           </p>
@@ -360,7 +365,7 @@
                             </div> 
                             <div class="grid grid-cols-12 p-2 text-light border-b">
                                 <div class="col-span-6">{{__('customerMoment.Title')}}</div>
-                                <div class="col-span-6">{{ $engagementRing->texts[config('global.locale.' . app()->getLocale())]->content}}</div>
+                                <div class="col-span-6">{{ __('customerJewellery.' . $engagementRing->style )}} {{__('customerJewellery.' . $engagementRing->prong )}} {{__('customerJewellery.' . $engagementRing->shoulder )}} {{trans('engagementRing.Diamond Ring') }} | {{trans('engagementRing.Engagement Ring Setting') }}</div>
                             </div>
                             <div class="grid grid-cols-12 p-2 text-light border-b">
                                 <div class="col-span-6">{{__('customerMoment.Description')}}</div>
@@ -400,20 +405,22 @@
                         <div v-if="published.jewelleries">
                           <p>
 
-                <div class="flex">
-                    <div class="w-full h-full">  
-                        <video
-                        id="invoice-post-2"
-                        class="video-js vjs-fluid vjs-big-play-centered"
-                        controls
-                        preload="auto"
-                        poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $jewellery->images[0]->image}}"
-                        data-setup='{"fluid": true}'
-                        >
-                        <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $jewellery->video}}" type="video/mp4">
-                        </video>
+                @if( count($jewellery->images) )
+                    <div class="flex">
+                        <div class="w-full h-full">  
+                            <video
+                            id="invoice-post-2"
+                            class="video-js vjs-fluid vjs-big-play-centered"
+                            controls
+                            preload="auto"
+                            poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $jewellery->images[0]->image}}"
+                            data-setup='{"fluid": true}'
+                            >
+                            <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $jewellery->video}}" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-                </div>
+                @endif
 <!--                             <video-player videoId="videoThree" :options="videoOpts[2].videoJew" v-if="post.invoice.jewelleries[0].video"></video-player> 
  -->                          </p>
                          </div>
@@ -532,20 +539,22 @@
                     <article>
                         <div v-if="published.weddingRings">
 
-                <div class="flex">
-                    <div class="w-full h-full">  
-                        <video
-                        id="invoice-post-2"
-                        class="video-js vjs-fluid vjs-big-play-centered"
-                        controls
-                        preload="auto"
-                        poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $weddingRing->images[0]->image}}"
-                        data-setup='{"fluid": true}'
-                        >
-                        <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $weddingRing->video}}" type="video/mp4">
-                        </video>
+                @if( count($weddingRing->images) )
+                    <div class="flex">
+                        <div class="w-full h-full">  
+                            <video
+                            id="invoice-post-2"
+                            class="video-js vjs-fluid vjs-big-play-centered"
+                            controls
+                            preload="auto"
+                            poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $weddingRing->images[0]->image}}"
+                            data-setup='{"fluid": true}'
+                            >
+                            <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $weddingRing->video}}" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
-                </div>
+                @endif
 <!--                             <video-player videoId="videoFour" :options="videoOpts[1].videoWed" v-if="wedding_ring.video"></video-player> 
  -->                          <p>
                             
