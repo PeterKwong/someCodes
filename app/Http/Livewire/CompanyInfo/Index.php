@@ -37,11 +37,10 @@ class Index extends Component
         // dd($cacheItems);
 
         foreach ($cacheItems as $key => $item) {
-            cache()->forget($key);
+
             cache()->rememberForever($key, function()use($key){ 
                                     return CompanyInfo::where('key',$key)->first()->value ;
                                 });
-
         }
 
     }
