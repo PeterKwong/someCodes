@@ -261,7 +261,7 @@
                                 
                     <img class="w-auto" src="/images/front-end/diamond_show/diamond_weight.jpg" width="100%">
                     
-                    @livewire('diamond.invoice-post-fetch',
+                    @livewire('customer-jewellery.post-fetch-row',
                             ['type'=>'Diamond', 'upperType'=>'weight', 'query'=>$diamond->weight ])
 
                 </div>
@@ -306,7 +306,7 @@
                                 {{trans('diamondSearch.clarityDescription2')}}</li>
                             </span>
                         </div>
-                        @livewire('diamond.invoice-post-fetch',
+                        @livewire('customer-jewellery.post-fetch-row',
                             ['type'=>'Diamond', 'upperType'=>'clarity', 'query'=>$diamond->clarity ])
 
                     </div>  
@@ -378,7 +378,7 @@
                             <br>
                         </div>
                         <img class="w-auto" src="/images/front-end/diamond_show/diamond_color.jpg" width="100%">
-                        @livewire('diamond.invoice-post-fetch',
+                        @livewire('customer-jewellery.post-fetch-row',
                             ['type'=>'Diamond', 'upperType'=>'color', 'query'=>$diamond->color ])
                         
 
@@ -409,7 +409,7 @@
                                 {{trans('diamondSearch.cutDesrciption')}}
                             </span>
                         </div>
-                        @livewire('diamond.invoice-post-fetch',
+                        @livewire('customer-jewellery.post-fetch-row',
                             ['type'=>'Diamond', 'upperType'=>'cut', 'query'=>$diamond->cut ])
 
                     </div>

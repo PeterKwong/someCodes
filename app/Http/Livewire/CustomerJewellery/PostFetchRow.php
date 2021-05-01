@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\Diamond;
+namespace App\Http\Livewire\CustomerJewellery;
 
 use App\Models\InvoicePost;
 use App\Models\Tag;
 use Livewire\Component;
 
-class InvoicePostFetch extends Component
+class PostFetchRow extends Component
 {
 	public $readyToLoad = false;
     public $type;
@@ -25,7 +25,7 @@ class InvoicePostFetch extends Component
 
     public function render()
     {
-        return view('livewire.diamond.invoice-post-fetch', [
+        return view('livewire.customer-jewellery.post-fetch-row', [
             'posts' => $this->readyToLoad
                 ? $this->delayLoad()
                 : [],
