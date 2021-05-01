@@ -215,14 +215,14 @@ class WeddingRingPairController extends Controller
         // $weddingRing = WeddingRing::create($request->except(['video','texts','images']));
        
         $published = [0 => false, 1 => false];
-
+        $weddingRingsPairUnitPrice = 0;
         // dd($weddingRingPair);
         foreach ($requestAll as $key=>$req) {
 
             if ($req['published'] == 1) {
                 $published[$key] = true;
             }
-            $weddingRingPair->unit_price = $weddingRingPair->unit_price +$req['unit_price'];
+            $weddingRingPairUnit_price = $weddingRingsPairUnitPrice +$req['unit_price'];
 
             $texts = [];
         

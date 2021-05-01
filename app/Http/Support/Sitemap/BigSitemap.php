@@ -70,7 +70,7 @@ class BigSitemap
 		$this->{'query'.ucfirst($table)}($query);
 
 		$query = $query->orderBy('created_at', 'desc')
-			->chunk(1000,function($query) use (&$sitemap,$translations,$url,$segmentUrl,$queryType,$priority,$updateFrequency,$filename){
+			->chunk(10000,function($query) use (&$sitemap,$translations,$url,$segmentUrl,$queryType,$priority,$updateFrequency,$filename){
 
 				// $counter = cache()->get('sitemap.counter');
 				$sitemapCounter = cache()->get('sitemap.sitemapCounter');
