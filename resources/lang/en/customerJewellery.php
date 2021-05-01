@@ -77,6 +77,7 @@ return [
     '18KR' => '18K Rose Gold',
     'PT' => 'PT',
     'Mixed' => 'Mixed',
+    'Side-Stone' => 'Side-stone',
     'Side-stone' => 'Side-stone',
     'sideStone' => 'Side-stone',
     'No Side-stone' => 'No Side-stone',

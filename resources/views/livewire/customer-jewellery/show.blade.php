@@ -96,7 +96,6 @@
 
             </div>  -->   
 
-
         @foreach($meta->invoice->invoiceDiamonds as $key => $diamond )
 
         <div class="grid grid-cols-12 " >
@@ -290,173 +289,177 @@
 
        @endforeach
 
+        @if($meta->postable_type == 'App\Models\EngagementRing')
+            @foreach($meta->invoice->engagementRings as $key => $engagementRing )
+            @if($engagementRing->published)
+            <div class="grid grid-cols-12 pt-2">
+                <div class="col-span-6">
+                        <div class="box">
+                            @foreach($engagementRing->images as $image)
+                                <a href="/{{ app()->getLocale() . '/engagement-rings/' . $engagementRing->id }}">
+                                    <figure class="image" >
+                                    <img class="w-full" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $image->image }}">
+                                    </figure>
+                                </a>
+                            @endforeach
+                       
+                        </div>
+                    </div>
 
-        @foreach($meta->invoice->engagementRings as $key => $engagementRing )
-        @if($engagementRing->published)
-        <div class="grid grid-cols-12 pt-2">
-            <div class="col-span-6">
+                <div class="col-span-6" >
                     <div class="box">
-                        @foreach($engagementRing->images as $image)
-                            <a href="/{{ app()->getLocale() . '/engagement-rings/' . $engagementRing->id }}">
-                                <figure class="image" >
-                                <img class="w-full" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $image->image }}">
-                                </figure>
-                            </a>
-                        @endforeach
-                   
+                        <article>
+                            <div>
+                              <p>
+
+                    @if( count($engagementRing->images) )
+                        <div class="flex">
+                            <div class="w-full h-full">  
+                                <video
+                                id="invoice-post-2"
+                                class="video-js vjs-fluid vjs-big-play-centered"
+                                controls
+                                preload="auto"
+                                poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $engagementRing->images[0]->image}}"
+                                data-setup='{"fluid": true}'
+                                >
+                                <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $engagementRing->video}}" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    @endif
+    <!--                             <video-player videoId="videoTwo" :options="videoOpts[0].videoEng" v-if="post.invoice.engagement_rings[0].video"></video-player> 
+     -->
+                              </p>
+                             </div>
+                            <div class="">
+                            <div>
+                                <div>
+                                    <div class="text-xl px-2 font-semibold">{{__('engagementRing.Engagement Ring Info')}}</div>
+                                </div>
+                            </div>
+                                
+                            <div> 
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('engagementRing.Shoulder')}}</div>
+                                    <div class="col-span-6">{{__('customerJewellery.' .$engagementRing->shoulder )}}</div>
+                                </div>
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('engagementRing.Prong')}}</div>
+                                    <div class="col-span-6">{{__('customerJewellery.' . $engagementRing->prong )}}</div>
+                                </div>
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('engagementRing.Side stone')}}</div>
+                                    <div class="col-span-6">{{__('engagementRing.Around')}} {{ $engagementRing->ct }}ct</div>
+                                </div>
+
+                                <div>
+                                <div>
+                                    <div class="text-xl px-2 font-semibold">{{__('engagementRing.Engagement Ring Info')}}</div>
+                                </div>
+                                </div>
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('customerMoment.Stock No.')}}</div>
+                                    <div class="col-span-6">{{ $engagementRing->stock }}</div>
+                                </div> 
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('customerMoment.Title')}}</div>
+                                    <div class="col-span-6">{{ __('customerJewellery.' . $engagementRing->style )}} {{__('customerJewellery.' . $engagementRing->prong )}} {{__('customerJewellery.' . $engagementRing->shoulder )}} {{trans('engagementRing.Diamond Ring') }} | {{trans('engagementRing.Engagement Ring Setting') }}</div>
+                                </div>
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('customerMoment.Description')}}</div>
+                                    <div class="col-span-6">{{__('customerJewellery.' . $engagementRing->style )}},{{__('customerJewellery.' . $engagementRing->prong )}},{{__('customerJewellery.' . $engagementRing->shoulder )}},{{trans('engagementRing.setting')}}</div>
+                                </div>
+                                
+                            </div>
+
+                            </div>
+                        </article>                            
                     </div>
-                </div>
-
-            <div class="col-span-6" >
-                <div class="box">
-                    <article>
-                        <div>
-                          <p>
-
-                @if( count($engagementRing->images) )
-                    <div class="flex">
-                        <div class="w-full h-full">  
-                            <video
-                            id="invoice-post-2"
-                            class="video-js vjs-fluid vjs-big-play-centered"
-                            controls
-                            preload="auto"
-                            poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $engagementRing->images[0]->image}}"
-                            data-setup='{"fluid": true}'
-                            >
-                            <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $engagementRing->video}}" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                @endif
-<!--                             <video-player videoId="videoTwo" :options="videoOpts[0].videoEng" v-if="post.invoice.engagement_rings[0].video"></video-player> 
- -->
-                          </p>
-                         </div>
-                        <div class="">
-                        <div>
-                            <div>
-                                <div class="text-xl px-2 font-semibold">{{__('engagementRing.Engagement Ring Info')}}</div>
-                            </div>
-                        </div>
-                            
-                        <div> 
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('engagementRing.Shoulder')}}</div>
-                                <div class="col-span-6">{{__('customerJewellery.' .$engagementRing->shoulder )}}</div>
-                            </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('engagementRing.Prong')}}</div>
-                                <div class="col-span-6">{{__('customerJewellery.' . $engagementRing->prong )}}</div>
-                            </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('engagementRing.Side stone')}}</div>
-                                <div class="col-span-6">{{__('engagementRing.Around')}} {{ $engagementRing->ct }}ct</div>
-                            </div>
-
-                            <div>
-                            <div>
-                                <div class="text-xl px-2 font-semibold">{{__('engagementRing.Engagement Ring Info')}}</div>
-                            </div>
-                            </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Stock No.')}}</div>
-                                <div class="col-span-6">{{ $engagementRing->stock }}</div>
-                            </div> 
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Title')}}</div>
-                                <div class="col-span-6">{{ __('customerJewellery.' . $engagementRing->style )}} {{__('customerJewellery.' . $engagementRing->prong )}} {{__('customerJewellery.' . $engagementRing->shoulder )}} {{trans('engagementRing.Diamond Ring') }} | {{trans('engagementRing.Engagement Ring Setting') }}</div>
-                            </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Description')}}</div>
-                                <div class="col-span-6">{{__('customerJewellery.' . $engagementRing->style )}},{{__('customerJewellery.' . $engagementRing->prong )}},{{__('customerJewellery.' . $engagementRing->shoulder )}},{{trans('engagementRing.setting')}}</div>
-                            </div>
-                            
-                        </div>
-
-                        </div>
-                    </article>                            
-                </div>
-            </div>   
-        </div>
+                </div>   
+            </div>
+            @endif
+            @endforeach
         @endif
-        @endforeach
 
-        @foreach($meta->invoice->jewelleries as $key => $jewellery )
-        @if($jewellery->published)
 
-        <div class="grid grid-cols-12 ">
-            <div class="col-span-6">
+        @if($meta->postable_type == 'App\Models\Jewellery')
+            @foreach($meta->invoice->jewelleries as $key => $jewellery )
+            @if($jewellery->published)
+
+            <div class="grid grid-cols-12 ">
+                <div class="col-span-6">
+                        <div class="box">
+                            @foreach($jewellery->images as $image)
+                                <a href="/{{ app()->getLocale() . '/jewellery/' . $jewellery->id }}">
+                                    <figure class="image" >
+                                    <img class="w-full" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $image->image }}">
+                                    </figure>
+                                </a>
+                            @endforeach
+
+                        </div>
+                    </div>
+
+                <div class="col-span-6" >
                     <div class="box">
-                        @foreach($jewellery->images as $image)
-                            <a href="/{{ app()->getLocale() . '/jewellery/' . $jewellery->id }}">
-                                <figure class="image" >
-                                <img class="w-full" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $image->image }}">
-                                </figure>
-                            </a>
-                        @endforeach
+                        <article>
+                            <div v-if="published.jewelleries">
+                              <p>
 
-                    </div>
-                </div>
-
-            <div class="col-span-6" >
-                <div class="box">
-                    <article>
-                        <div v-if="published.jewelleries">
-                          <p>
-
-                @if( count($jewellery->images) )
-                    <div class="flex">
-                        <div class="w-full h-full">  
-                            <video
-                            id="invoice-post-2"
-                            class="video-js vjs-fluid vjs-big-play-centered"
-                            controls
-                            preload="auto"
-                            poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $jewellery->images[0]->image}}"
-                            data-setup='{"fluid": true}'
-                            >
-                            <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $jewellery->video}}" type="video/mp4">
-                            </video>
+                    @if( count($jewellery->images) )
+                        <div class="flex">
+                            <div class="w-full h-full">  
+                                <video
+                                id="invoice-post-2"
+                                class="video-js vjs-fluid vjs-big-play-centered"
+                                controls
+                                preload="auto"
+                                poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $jewellery->images[0]->image}}"
+                                data-setup='{"fluid": true}'
+                                >
+                                <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $jewellery->video}}" type="video/mp4">
+                                </video>
+                            </div>
                         </div>
-                    </div>
-                @endif
-<!--                             <video-player videoId="videoThree" :options="videoOpts[2].videoJew" v-if="post.invoice.jewelleries[0].video"></video-player> 
- -->                          </p>
-                         </div>
-                        <div class="">
-                        <div>
+                    @endif
+    <!--                             <video-player videoId="videoThree" :options="videoOpts[2].videoJew" v-if="post.invoice.jewelleries[0].video"></video-player> 
+     -->                          </p>
+                             </div>
+                            <div class="">
                             <div>
-                                <div class="text-xl px-2 font-semibold">{{__('jewellery.Jewellery Info')}}</div>
+                                <div>
+                                    <div class="text-xl px-2 font-semibold">{{__('jewellery.Jewellery Info')}}</div>
+                                </div>
                             </div>
-                        </div>
-                            
-                        <div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Stock No.')}}</div>
-                                <div class="col-span-6">{{ $jewellery->stock }}</div>
-                            </div>  
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Title')}}</div>
-                                <div class="col-span-6">{{ $jewellery->title() }}</div>
+                                
+                            <div>
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('customerMoment.Stock No.')}}</div>
+                                    <div class="col-span-6">{{ $jewellery->stock }}</div>
+                                </div>  
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('customerMoment.Title')}}</div>
+                                    <div class="col-span-6">{{ $jewellery->title() }}</div>
+                                </div>
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('customerMoment.Side stone')}}</div>
+                                    <div class="col-span-6">{{__('engagementRing.Around')}} {{ $jewellery->ct }}</div>
+                                </div>
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('customerMoment.metal')}}</div>
+                                    <div class="col-span-6">{{ $jewellery->metal }}</div>
+                                </div>
                             </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Side stone')}}</div>
-                                <div class="col-span-6">{{__('engagementRing.Around')}} {{ $jewellery->ct }}</div>
-                            </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.metal')}}</div>
-                                <div class="col-span-6">{{ $jewellery->metal }}</div>
-                            </div>
-                        </div>
 
-                        </div>
-                    </article>                            
-                </div>
-            </div>   
-        </div>
+                            </div>
+                        </article>                            
+                    </div>
+                </div>   
+            </div>
+            @endif
+            @endforeach
         @endif
-        @endforeach
 
         <!-- 
 
@@ -516,95 +519,96 @@
             </div>   
         </div>
  -->
+        @if($meta->postable_type == 'App\Models\WeddingRing')
+            @if( isset($meta->invoice->weddingRings[0]) )
+            @if( $meta->invoice->weddingRings[0]->published )
+            @foreach($meta->invoice->weddingRings as $key => $weddingRing )
 
-        @if( isset($meta->invoice->weddingRings[0]) )
-        @if( $meta->invoice->weddingRings[0]->published )
-        @foreach($meta->invoice->weddingRings as $key => $weddingRing )
-
-        <div class="grid grid-cols-12 ">
-            <div class="col-span-6">
-                <div class="box">
-                     @foreach($weddingRing->images as $image)
-                        <a href="/{{ app()->getLocale() . '/wedding-rings/' . $weddingRing->wedding_ring_pair_id }}">
-                            <figure class="image" >
-                            <img class="w-full" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $image->image }}">
-                            </figure>
-                        </a>
-                    @endforeach
+            <div class="grid grid-cols-12 ">
+                <div class="col-span-6">
+                    <div class="box">
+                         @foreach($weddingRing->images as $image)
+                            <a href="/{{ app()->getLocale() . '/wedding-rings/' . $weddingRing->wedding_ring_pair_id }}">
+                                <figure class="image" >
+                                <img class="w-full" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $image->image }}">
+                                </figure>
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
+
+                <div class="col-span-6" >
+                    <div class="box">
+                        <article>
+                            <div v-if="published.weddingRings">
+
+                    @if( count($weddingRing->images) )
+                        <div class="flex">
+                            <div class="w-full h-full">  
+                                <video
+                                id="invoice-post-2"
+                                class="video-js vjs-fluid vjs-big-play-centered"
+                                controls
+                                preload="auto"
+                                poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $weddingRing->images[0]->image}}"
+                                data-setup='{"fluid": true}'
+                                >
+                                <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $weddingRing->video}}" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    @endif
+    <!--                             <video-player videoId="videoFour" :options="videoOpts[1].videoWed" v-if="wedding_ring.video"></video-player> 
+     -->                          <p>
+                                
+                              </p>
+                             </div>
+                            <div class="">
+                            <div>
+                                <div>
+                                    <div class="text-xl px-2 font-semibold">{{__('customerMoment.Wedding Ring Info')}} - {{ __('weddingRing.' .$weddingRing->gender) }}</div>
+                                </div>
+                            </div>
+                                
+                            <div>
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('customerMoment.Metal')}}</div>
+                                    <div class="col-span-6">{{ __('weddingRing.' . $weddingRing->metal) }}</div>
+                                </div>
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('customerMoment.Side stone')}}</div>
+                                    <div class="col-span-6">{{__('engagementRing.Around')}} {{ $weddingRing->ct }}ct</div>
+                                </div>
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('customerMoment.Stock No.')}}</div>
+                                    <div class="col-span-6">{{ $weddingRing->stock }}</div>
+                                </div>  
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('customerMoment.Title')}}</div>
+                                    <div class="col-span-6">{{ $weddingRing->title() }}</div>
+                                </div>
+                                <div class="grid grid-cols-12 p-2 text-light border-b">
+                                    <div class="col-span-6">{{__('customerMoment.Description')}}</div>
+                                    <div class="col-span-6">
+                                        {{ __('weddingRing.' . $weddingRing->shape) }},
+                                        {{ __('weddingRing.' . $weddingRing->metal) }},
+                                        {{ $weddingRing->sideStone? __('weddingRing.ct'):''}}
+                                        {{ $weddingRing->style? __('weddingRing.' . $weddingRing->style):''}}
+                                        {{trans('weddingRing.Wedding Ring')}}
+                                    </div>
+                            </div>
+                          
+                            </div>
+
+                            </div>
+                        </article>                            
+                    </div>
+                </div> 
             </div>
 
-            <div class="col-span-6" >
-                <div class="box">
-                    <article>
-                        <div v-if="published.weddingRings">
-
-                @if( count($weddingRing->images) )
-                    <div class="flex">
-                        <div class="w-full h-full">  
-                            <video
-                            id="invoice-post-2"
-                            class="video-js vjs-fluid vjs-big-play-centered"
-                            controls
-                            preload="auto"
-                            poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $weddingRing->images[0]->image}}"
-                            data-setup='{"fluid": true}'
-                            >
-                            <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $weddingRing->video}}" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                @endif
-<!--                             <video-player videoId="videoFour" :options="videoOpts[1].videoWed" v-if="wedding_ring.video"></video-player> 
- -->                          <p>
-                            
-                          </p>
-                         </div>
-                        <div class="">
-                        <div>
-                            <div>
-                                <div class="text-xl px-2 font-semibold">{{__('customerMoment.Wedding Ring Info')}} - {{ __('weddingRing.' .$weddingRing->gender) }}</div>
-                            </div>
-                        </div>
-                            
-                        <div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Metal')}}</div>
-                                <div class="col-span-6">{{ __('weddingRing.' . $weddingRing->metal) }}</div>
-                            </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Side stone')}}</div>
-                                <div class="col-span-6">{{__('engagementRing.Around')}} {{ $weddingRing->ct }}ct</div>
-                            </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Stock No.')}}</div>
-                                <div class="col-span-6">{{ $weddingRing->stock }}</div>
-                            </div>  
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Title')}}</div>
-                                <div class="col-span-6">{{ $weddingRing->title() }}</div>
-                            </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Description')}}</div>
-                                <div class="col-span-6">
-                                    {{ __('weddingRing.' . $weddingRing->shape) }},
-                                    {{ __('weddingRing.' . $weddingRing->metal) }},
-                                    {{ $weddingRing->sideStone? __('weddingRing.ct'):''}}
-                                    {{ $weddingRing->style? __('weddingRing.' . $weddingRing->style):''}}
-                                    {{trans('weddingRing.Wedding Ring')}}
-                                </div>
-                        </div>
-                      
-                        </div>
-
-                        </div>
-                    </article>                            
-                </div>
-            </div> 
-        </div>
-
-        @endforeach
-        @endif
+            @endforeach
+            @endif
+            @endif
         @endif
 
 
