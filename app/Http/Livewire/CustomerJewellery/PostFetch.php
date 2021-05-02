@@ -25,7 +25,7 @@ class PostFetch extends Component
     	$this->getTags();
     	$this->getPosts();
 
-    	cache()->remember('tagsCount', 36000, function () {
+    	cache()->remember('tagsCount', config('global.cache.day'), function () {
 		    return  $this->tagsCount();
 		});
 

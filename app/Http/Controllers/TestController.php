@@ -25,7 +25,7 @@ class TestController extends Controller
     public function test(){
     	// dd( config('global.paymentMode'));
 	    // $this->postTags();
-	    // return $this->resetAllDiamonds();
+	    return $this->resetAllDiamonds();
 
 	    return $this->bigSitemap();
 
@@ -349,7 +349,7 @@ class TestController extends Controller
       $import = new DiamondImport();
       // return $import->importFancyDiamondFromAPI_1000_PerBatch(1);
       // return Cache::get('batchNumber');
-      return $import->getSupplierTotalStones();
+      return $import->getDiamondsFromSunrise();
       // return $import->preloadCerts();
       // return $import->preloadImages();
 
