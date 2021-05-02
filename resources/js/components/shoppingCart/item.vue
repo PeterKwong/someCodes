@@ -12,9 +12,9 @@
 
                         <div class="sm:px-4">
                             <a @click="directTo(item.pairItems[0].id)" :href="item.pairItems[0].url + item.pairItems[0].id ">
-                                <button class="btn btn-primary" :class="item.pairItems.filter((data)=>{return data.available != 1}).length?'bg-red-500': 'btn-primary' " >{{ 'Back to'|transJs(langs) }}{{item.pairItems[0].type |transJs(langs)}}</button>
+                                <button class="btn" :class="item.pairItems.filter((data)=>{return data.available != 1}).length?'bg-red-500': 'btn-primary' " >{{ 'Back to'|transJs(langs) }}{{item.pairItems[0].type |transJs(langs)}}</button>
                             </a>
-                            <button class="btn btn-primary" :class="item.pairItems.filter((data)=>{return data.available != 1}).length?'bg-red-500': 'btn-primary' "  @click="removeItem(firstIndex)">{{ 'Remove' |transJs(langs) }}  <i class="fa fa-times-circle"></i></button>
+                            <button class="btn" :class="item.pairItems.filter((data)=>{return data.available != 1}).length?'bg-red-500': 'btn-primary' "  @click="removeItem(firstIndex)">{{ 'Remove' |transJs(langs) }}  <i class="fa fa-times-circle"></i></button>
                         </div>
 
                     </div>
