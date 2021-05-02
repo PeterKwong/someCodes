@@ -111,7 +111,7 @@
                         <p>
                         {{trans('diamondSearch.For more detailed information, can reach GIA website query')}}：
                         </p>
-                        <a :href="`https://www.gia.edu/report-check?reportno=${diamond.certificate}`">
+                        <a target="_blank" :href="`https://www.gia.edu/report-check?reportno=${diamond.certificate}`">
                             <div class="">
                             <div class="w-auto">
                                 <img class="w-auto" src="https://www.gia.edu/onlineopinionV5/GIA-Logo.png" class="w-auto">
