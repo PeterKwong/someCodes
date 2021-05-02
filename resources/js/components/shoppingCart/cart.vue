@@ -4,8 +4,8 @@
     <button class="btn btn-primary" @click="selectItem()">{{'Select this Item' |transJs(langs)}}</button>
 
 
-    <div v-if="mutualVar.cookiesInfo.shoppingCart.haveShoppingCart" @click="toggleModal()">
-      <div v-if="mutualVar.cookiesInfo.shoppingCart.modalActive">
+    <div v-if="shoppingCart.haveShoppingCart" @click="toggleModal()">
+      <div v-if="shoppingCart.modalActive">
           <transition name="modal">
             <div class="modal-mask">
             <button tabindex="-1" class="modal-button"></button>

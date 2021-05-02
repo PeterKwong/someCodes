@@ -67,7 +67,8 @@ export default {
             get(`/api/engagementRings/${engagementRingId}`)
             .then((res)=>{
                 this.carouselItem.upperitems = res.data.model
-                this.filterNotPostable(res.data.posts.invoicePosts, engagementRingId)
+                // this.filterNotPostable(res.data.posts.invoicePosts, engagementRingId)
+                this.carouselItem.items = res.data.posts.invoicePosts?res.data.posts.invoicePosts:[]
             })
         },
         cleanLastEmptyItemAndMaxItemIndex(){
