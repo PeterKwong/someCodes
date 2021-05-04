@@ -11,7 +11,7 @@ return [
 	'Must Watch' => '必看',
 	'GIA Teaches You 4Cs' => 'GIA教你基本4Cs',
 	'How To Choose Giamond' => '如何去选择钻石',
-	'Diamond Education | Diamond Grade' => '钻石知识 | 钻石级别',
+	'Diamond Education | Diamond Grade' => '钻石知识 | 钻石级别 | 4Cs',
 	'para3' => '在买钻石前，得到建议及认识钻石是非常重要，因为钻石是很复杂的东西',
 	'Start With Diamonds' => '先选钻石',
 	'Start With Engagement Rings' => '先选求婚戒指',

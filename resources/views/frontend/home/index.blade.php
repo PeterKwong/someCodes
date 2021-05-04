@@ -442,11 +442,11 @@
 
 
 
-        <div class="grid grid-cols-3 gap-4 relative smalldot items-center text-center p-4">
-          <div class="col-span-2 ">
+        <div class="grid grid-cols-12 gap-4 relative smalldot items-center text-center p-4">
+          <div class="col-span-12 sm:col-span-8 ">
             <x-gia-video/>
           </div>
-          <div class="col-span-1 ">
+          <div class="col-span-12 sm:col-span-4 ">
             <a href="{{app()->getLocale()}}/education-diamond-grading">
                 <div class="">
                     <h2>{{trans('home.Diamond Education | Diamond Grade')}}</h2>

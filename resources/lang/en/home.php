@@ -10,7 +10,7 @@ return [
 	'Must Watch' => 'Must Watch',
 	'GIA Teaches You 4Cs' => 'GIA Teaches You 4Cs',
 	'How To Choose Giamond' => 'How To Choose Giamond',
-	'Diamond Education | Diamond Grade' => 'Diamond Education | Diamond Grade',
+	'Diamond Education | Diamond Grade' => 'Diamond Education | Diamond Grade | 4Cs',
 	'para3' => 'Before buying a diamond, get advice and knowledge of the diamond is very important know more diamond.Because the diamond is quite complex thing',
 	'Start With Diamonds' => 'Start With Diamonds',
 	'Start With Engagement Rings' => 'Start With Engagement Rings',
