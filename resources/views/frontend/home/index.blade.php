@@ -447,14 +447,14 @@
             <x-gia-video/>
           </div>
           <div class="col-span-1 ">
-            <span>
+            <a href="{{app()->getLocale()}}/education-diamond-grading">
                 <div class="">
                     <h2>{{trans('home.Diamond Education | Diamond Grade')}}</h2>
                 </div>
                 <h5 class="text-red-700">
                   <span>&nbsp;</span><strong><a>{{trans('home.Must Watch')}} : </a></strong><small>{{trans('home.GIA Teaches You 4Cs')}} - {{trans('home.How To Choose Giamond')}}</small>
                 </h5>
-            </span>
+            </a>
           </div>
         </div>
 

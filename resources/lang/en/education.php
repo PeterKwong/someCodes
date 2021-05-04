@@ -3,7 +3,7 @@
 return [
 
 	//carat
-	'caratTitle1' => 'WHAT IS DIAMOND CARAT?',
+	'caratTitle1' => 'WHAT IS DIAMOND CARAT?｜4Cs',
 	'caratPara1' => '“Carat” or “card number” means the weight of the diamond. Before the twentieth century, with all the weight of the diamond “carob seed” to measure, they are very uniform size and weight, the best tool is used to measure the weight of the diamond. The follow-carat diamond is the English “carat” from carob “carob”.',
 	'caratTitle2' => 'DIAMOND CARAT VS DIAMOND SIZE( DIAMETER)',
 	'caratPara2' => 'Size is directly proportional to the weight of the diamond is saying. When diamonds are cut and polished to complete, it will be close to two-thirds of the weight loss. The high-quality, gem stone, the greater the more rare, so a single grains 2-carat diamond, one karat than two, the same quality of much more expensive diamonds.',
@@ -11,14 +11,14 @@ return [
 
 
 	//cut
-	'cutTitle1' => 'WHAT IS DIAMOND CUT?',
+	'cutTitle1' => 'WHAT IS DIAMOND CUT?｜4Cs',
 	'cutPara1' => 'It refers not only to diamond cutting diamond cutting shape, but more importantly, through the process of cutting the diamond light refraction perfect presents the viewer’s eyes.',
 	'cutPara2' => 'An excellent cut diamond can be reflected by its brightness and color of fire.
 	If bad cut, the diamond will become dim without luster and beauty did not, put aside their own diamonds color and clarity level of a diamond can also make it look more shining and glorious through excellent cut, even more it looks bigger than the weight of the same number of cards.',
 	'cutPara3' => 'A fine diamond not only to increase its luster, and it looks the size of the diameter is more related to the cut of the diamond.',
 
 	//color
-	'colorTitle1' => 'WHATS ID DIAMOND COLOR?',
+	'colorTitle1' => 'WHATS ID DIAMOND COLOR?｜4Cs',
 	'colorPara1' => 'When you buy a diamond, usually possible to choose the most transparent and colorless diamonds. Diamond rating by D-Z, and they will be divided into five categories (colorless: colorless, near colorless: near colorless, faint: faint, very slight: very light and slight: light). All colors have the presence of diamond, generally the easiest to see is yellow, it is because the presence of trace amounts of nitrogen when growing.',
 	'colorPara2' => 'In general, when comparing the color of two diamonds, diamonds worse least two levels, will start to see the difference between them. You can see from the photos below, when the diamonds from the front looks, almost impossible to see any difference in color. Watching from the side or bottom of the diamond, you begin to see their color, respectively. But diamonds are a good inlay, from the front to watch their beauty, not the sides or bottom.',
 
@@ -83,7 +83,7 @@ In the “other comments” section below, all other diamonds are written in the
 	'giaPara12.1' => 'these security watermark can be a hologram, a common product number, or relief printing. In order to be assured that the majority will be identified by the offer online check.',
 	'giaPara13' => 'HOW TO INTEPREPT GIA REPORT?',
 
-	'metaTitle1' => 'Diamond Knowledge | Diamond Grading',
+	'metaTitle1' => 'Diamond Knowledge | Diamond Grading | 4Cs',
 	'metaDescription1' => 'Diamond Knowledge | Diamond Grading - The size of a diamond is proportional to its weight. When the diamond is cut and polished, it can lose nearly 2/3 of its weight. The high-quality, gem-quality rough stone, the more the more rare, so a single 2-carat diamond, than two 1-carat, the same quality diamond much more expensive. ',
 	
 	'metaTitle2' => 'Diamond 4Cs | Diamond Weight',
