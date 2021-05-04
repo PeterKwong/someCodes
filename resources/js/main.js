@@ -45,7 +45,8 @@
 //     require('bootstrap');
 // } catch (e) {}
 
-import './jqueryPlugin/owlCarousel'
+// import './jqueryPlugin/owlCarousel'
+
 import './jqueryPlugin/rangeslider'
 
 import Vue from 'vue'

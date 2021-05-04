@@ -87,7 +87,7 @@
                       </div>
                     </div>
                     
-                    <x-contacts/>
+                    <x-contact-us/>
                       
                      <div class="grid grid-cols-12 p-2">
                       <div class="col-span-5">

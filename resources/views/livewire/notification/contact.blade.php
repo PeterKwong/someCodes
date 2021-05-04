@@ -1,10 +1,5 @@
 <div>
     
-@if(cache()->get('homePageShow') == 1)
-	{{ session()->put('notification', cache()->get('homePage') ) }}
-@endif
-
-
 @if( session()->has('notification') && count( request()->segments() ) == 0)
 
   <div class="z-10" x-data="{ open: true }" x-show="open">
@@ -42,7 +37,7 @@
                         </a>
 
                          <div class="flex p-1">
-                          <x-contacts/>
+                          <x-contact-us/>
                         </div>
 
                       </div>

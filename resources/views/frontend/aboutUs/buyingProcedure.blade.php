@@ -82,7 +82,7 @@
                   </div>
                           
                   <div class="p-4" >
-                    <x-contacts/>
+                    <x-contact-us/>
                   </div>
 
                 </div>

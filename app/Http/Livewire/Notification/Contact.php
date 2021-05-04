@@ -11,6 +11,11 @@ class Contact extends Component
 
     public function render()
     {
+    	if(cache()->get('homePageShow') == 1)
+        {
+            session()->put('notification', cache()->get('homePage') );
+        }
+
         return view('livewire.notification.contact');
     }
 

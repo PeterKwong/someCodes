@@ -146,129 +146,129 @@
         </div>
 
 
-        <div class="">
-          <div id="carousel-loop-diamond-shape" class="owl-carousel owl-theme ">
+ 
 
-                <div class="item">
+        <main class="draggable-main">
+            <div class="draggable-items" id="draggable-items-0">
+                <div class="draggable-item px-2">
                     <div class="img-grid">
-                        <figure class="effect-zoe" style="min-width: 130px;">
-                          <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut">
-                            <img  src="images/front-end/education/shape/round-brilliant-cut-2-150x150.jpg"  alt="img02"/>
-                            <figcaption>
-                                <h5 class="text-gray-900" >{{trans('home.Round')}}</h5>
-                            </figcaption>  
-                          </a>         
+                       <figure class="effect-zoe w-64 flex justify-items-center">
+                            <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut">
+                              <img  src="images/front-end/education/shape/round-brilliant-cut-2-150x150.jpg"  alt="img02"/>
+                              <figcaption>
+                                  <h5 class="text-gray-900" >{{trans('home.Round')}}</h5>
+                              </figcaption>  
+                            </a>         
                         </figure>
                     </div>
-                </div>
+                  </div>
+                  <div class="draggable-item px-2">
+                      <div class="img-grid">
+                          <figure class="effect-zoe w-64 flex justify-items-center">
+                            <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/princess-cut">
+                              <img  src="images/front-end/education/shape/princess-brilliant-cut-1-150x150.jpg"  alt="img02"/>
+                              <figcaption>
+                                  <h5 class="text-gray-900" >{{trans('home.Princess')}}</h5>
+                              </figcaption>
+                              </a>           
+                          </figure>
+                      </div>
+                  </div> 
 
-                <div class="item">
-                    <div class="img-grid">
-                        <figure class="effect-zoe" style="min-width: 130px;">
-                          <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/princess-cut">
-                            <img  src="images/front-end/education/shape/princess-brilliant-cut-1-150x150.jpg"  alt="img02"/>
-                            <figcaption>
-                                <h5 class="text-gray-900" >{{trans('home.Princess')}}</h5>
-                            </figcaption>
-                            </a>           
-                        </figure>
-                    </div>
-                </div> 
+                  <div class="draggable-item px-2">
+                      <div class="img-grid">
+                          <figure class="effect-zoe w-64 flex justify-items-center">
+                            <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/heart-shaped">
+                              <img  src="images/front-end/education/shape/heart-glam-e1461491201975-1-150x150.jpg"  alt="img02"/>
+                              <figcaption>
+                                  <h5 class="text-gray-900" >{{trans('home.Heart')}}</h5>
+                              </figcaption>
+                              </a>           
+                          </figure>
+                      </div>
+                  </div> 
 
-                <div class="item">
-                    <div class="img-grid">
-                        <figure class="effect-zoe" style="min-width: 130px;">
-                          <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/heart-shaped">
-                            <img  src="images/front-end/education/shape/heart-glam-e1461491201975-1-150x150.jpg"  alt="img02"/>
-                            <figcaption>
-                                <h5 class="text-gray-900" >{{trans('home.Heart')}}</h5>
-                            </figcaption>
-                            </a>           
-                        </figure>
-                    </div>
-                </div> 
+                  <div class="draggable-item px-2">
+                      <div class="img-grid">
+                          <figure class="effect-zoe w-64 flex justify-items-center">
+                            <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/cushion-cut">
+                              <img  src="images/front-end/education/shape/cushion-glam-1-150x150.jpg"  alt="img02"/>
+                              <figcaption>
+                                  <h5 class="text-gray-900" >{{trans('home.Cushion')}}</h5>
+                              </figcaption>
+                              </a>           
+                          </figure>
+                      </div>
+                  </div> 
 
-                <div class="item">
-                    <div class="img-grid">
-                        <figure class="effect-zoe" style="min-width: 130px;">
-                          <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/cushion-cut">
-                            <img  src="images/front-end/education/shape/cushion-glam-1-150x150.jpg"  alt="img02"/>
-                            <figcaption>
-                                <h5 class="text-gray-900" >{{trans('home.Cushion')}}</h5>
-                            </figcaption>
-                            </a>           
-                        </figure>
-                    </div>
-                </div> 
+                  <div class="draggable-item px-2">
+                      <div class="img-grid">
+                          <figure class="effect-zoe w-64 flex justify-items-center">
+                            <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/pear-cut">
+                              <img  src="images/front-end/education/shape/pear-glam-1-150x150.jpg"  alt="img02"/>
+                              <figcaption>
+                                  <h5 class="text-gray-900" >{{trans('home.Pear')}}</h5>
+                              </figcaption>
+                              </a>           
+                          </figure>
+                      </div>
+                  </div>  
 
-                <div class="item">
-                    <div class="img-grid">
-                        <figure class="effect-zoe" style="min-width: 130px;">
-                          <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/pear-cut">
-                            <img  src="images/front-end/education/shape/pear-glam-1-150x150.jpg"  alt="img02"/>
-                            <figcaption>
-                                <h5 class="text-gray-900" >{{trans('home.Pear')}}</h5>
-                            </figcaption>
-                            </a>           
-                        </figure>
-                    </div>
-                </div>  
+                  <div class="draggable-item px-2">
+                      <div class="img-grid">
+                          <figure class="effect-zoe w-64 flex justify-items-center">
+                            <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/marquise-cut">
+                              <img  src="images/front-end/education/shape/marquise-glam-1-150x150.jpg"  alt="img02"/>
+                              <figcaption>
+                                  <h5 class="text-gray-900" >{{trans('home.Marquise')}}</h5>
+                              </figcaption>
+                              </a>           
+                          </figure>
+                      </div>
+                  </div>  
+     
+                  <div class="draggable-item px-2">
+                      <div class="img-grid">
+                          <figure class="effect-zoe w-64 flex justify-items-center">
+                            <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/emerald-cut">
+                              <img  src="images/front-end/education/shape/emerald-glam-1-150x150.jpg"  alt="img02"/>
+                              <figcaption>
+                                  <h5 class="text-gray-900" >{{trans('home.Emerald')}}</h5>
+                              </figcaption>
+                              </a>           
+                          </figure>
+                      </div>
+                  </div>  
+     
+                  <div class="draggable-item px-2">
+                      <div class="img-grid">
+                          <figure class="effect-zoe w-64 flex justify-items-center">
+                            <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/radiant-cut">
+                              <img  src="images/front-end/education/shape/radiant-glam-1-150x150.jpg"  alt="img02"/>
+                              <figcaption>
+                                  <h5 class="text-gray-900" >{{trans('home.Radiant')}}</h5>
+                              </figcaption>
+                              </a>           
+                          </figure>
+                      </div>
+                  </div>  
 
-                <div class="item">
-                    <div class="img-grid">
-                        <figure class="effect-zoe" style="min-width: 130px;">
-                          <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/marquise-cut">
-                            <img  src="images/front-end/education/shape/marquise-glam-1-150x150.jpg"  alt="img02"/>
-                            <figcaption>
-                                <h5 class="text-gray-900" >{{trans('home.Marquise')}}</h5>
-                            </figcaption>
-                            </a>           
-                        </figure>
-                    </div>
-                </div>  
-   
-                <div class="item">
-                    <div class="img-grid">
-                        <figure class="effect-zoe" style="min-width: 130px;">
-                          <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/emerald-cut">
-                            <img  src="images/front-end/education/shape/emerald-glam-1-150x150.jpg"  alt="img02"/>
-                            <figcaption>
-                                <h5 class="text-gray-900" >{{trans('home.Emerald')}}</h5>
-                            </figcaption>
-                            </a>           
-                        </figure>
-                    </div>
-                </div>  
-   
-                <div class="item">
-                    <div class="img-grid">
-                        <figure class="effect-zoe" style="min-width: 130px;">
-                          <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/radiant-cut">
-                            <img  src="images/front-end/education/shape/radiant-glam-1-150x150.jpg"  alt="img02"/>
-                            <figcaption>
-                                <h5 class="text-gray-900" >{{trans('home.Radiant')}}</h5>
-                            </figcaption>
-                            </a>           
-                        </figure>
-                    </div>
-                </div>  
-
-                <div class="item">
-                    <div class="img-grid">
-                        <figure class="effect-zoe" style="min-width: 130px;">
-                          <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/oval-cut">
-                            <img  src="images/front-end/education/shape/oval-glam-1-150x150.jpg"  alt="img02"/>
-                            <figcaption>
-                                <h5 class="text-gray-900" >{{trans('home.Oval')}}</h5>
-                            </figcaption>
-                            </a>           
-                        </figure>
-                    </div>
-                </div>  
-   
-            </div>  
-        </div>
-
+                  <div class="draggable-item px-2">
+                      <div class="img-grid">
+                          <figure class="effect-zoe w-64 flex justify-items-center">
+                            <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/oval-cut">
+                              <img  src="images/front-end/education/shape/oval-glam-1-150x150.jpg"  alt="img02"/>
+                              <figcaption>
+                                  <h5 class="text-gray-900" >{{trans('home.Oval')}}</h5>
+                              </figcaption>
+                              </a>           
+                          </figure>
+                      </div>
+                  </div>  
+              </div>
+            </div>
+        </main>
+<!-- 
         <section id="diamond-shape" >
             <div id="carousel-loop-diamond-shape" class="owl-carousel owl-theme ">
 
@@ -390,7 +390,7 @@
                 </div>  
    
             </div>        
-        </section>
+        </section> -->
 
         <div class="flex relative  items-center">
           <div class="flex-1">
@@ -460,7 +460,7 @@
 
         <div class="flex justify-around relative text-center px-4 sm:px-12">
           <div class="flex-1">
-            <div class="img-grid">
+            <div class="img-grid w-8/12">
               <a href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report">
                 <figure class="effect-sadie" style="min-width: 150px;">
                     <img src="images/front-end/home/gia-diamond.jpg"  alt="img02"/>
@@ -474,7 +474,7 @@
             </div>
           </div>
           <div class="flex-1">
-            <div class="img-grid">
+            <div class="img-grid w-8/12">
               <a href="{{url(app()->getLocale())}}/education-diamond-grading">
                   <figure class="effect-sadie" style="min-width: 150px;">
                       <img  src="images/front-end/home/gia-cert.jpg"  alt="img02"/>
@@ -496,7 +496,29 @@
           </div>
         </div>
 
-            <div id="carousel-loop-customer-jewellery" class="owl-carousel owl-theme ">
+
+        <main class="draggable-main">
+          <div class="draggable-items" id="draggable-items-1">
+              @foreach($customer_post as $post)
+                <div class="draggable-item px-2">
+                    <div class="img-grid">
+                      <a href="{{url(app()->getLocale())}}/customer-jewellery">
+                        <figure class="effect-bubba w-96">
+                           <img src="{{config('global.cache.' . config('global.cache.live') ) }}public/images/{{count($post['images'])?$post['images'][0]['image']:'something_special.jpg'}}">
+                            <figcaption>
+                                <p class="truncate">{{ !empty($post['texts']['content'])?$post['texts']['content'] : '' }}</p>
+                            </figcaption>           
+                        </figure>
+                      </a>
+                    </div>
+                </div>
+              @endforeach
+          </div>
+        </main>
+
+
+
+<!--             <div id="carousel-loop-customer-jewellery" class="owl-carousel owl-theme ">
 
               @foreach($customer_post as $post)
 
@@ -515,7 +537,7 @@
 
               @endforeach
               
-            </div>                
+            </div>    -->             
 
 
 
@@ -536,8 +558,8 @@
           @foreach($customerMoments as $customerMoment)
               <div class="row-span-1">
                   <a href="{{url(app()->getLocale())}}/customer-moments">
-                      <div class="img-grid">
-                          <figure class="effect-chico" style="min-width: 150px;">
+                      <div class="img-grid w-8/12">
+                          <figure class="effect-chico" >
                              <img src="{{config('global.cache.' . config('global.cache.live') ) }}public/images/sq-{{count($customerMoment->images)?$customerMoment->images[0]->image:'something_special.jpg'}}">
                               <figcaption>
                                   <h2></h2>
@@ -553,6 +575,61 @@
 
 
       </div>
+
+    
+      <script type="text/javascript">
+        const slider0 = document.getElementById('draggable-items-0');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider0.addEventListener('mousedown', (e) => {
+          isDown = true;
+          slider0.classList.add('active');
+          startX = e.pageX - slider0.offsetLeft;
+          scrollLeft = slider0.scrollLeft;
+        });
+        slider0.addEventListener('mouseleave', () => {
+          isDown = false;
+          slider0.classList.remove('active');
+        });
+        slider0.addEventListener('mouseup', () => {
+          isDown = false;
+          slider0.classList.remove('active');
+        });
+        slider0.addEventListener('mousemove', (e) => {
+          if(!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - slider0.offsetLeft;
+          const walk = (x - startX) * 3; //scroll-fast
+          slider0.scrollLeft = scrollLeft - walk;
+        });
+        
+        const slider1 = document.getElementById('draggable-items-1');
+
+        slider1.addEventListener('mousedown', (e) => {
+          isDown = true;
+          slider1.classList.add('active');
+          startX = e.pageX - slider1.offsetLeft;
+          scrollLeft = slider1.scrollLeft;
+        });
+        slider1.addEventListener('mouseleave', () => {
+          isDown = false;
+          slider1.classList.remove('active');
+        });
+        slider1.addEventListener('mouseup', () => {
+          isDown = false;
+          slider1.classList.remove('active');
+        });
+        slider1.addEventListener('mousemove', (e) => {
+          if(!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - slider1.offsetLeft;
+          const walk = (x - startX) * 3; //scroll-fast
+          slider1.scrollLeft = scrollLeft - walk;
+        });
+
+      </script>
 
     @livewire('notification.contact')
 
