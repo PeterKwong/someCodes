@@ -7,7 +7,7 @@ use Carbon\Carbon;
     
 	// set cache key (string), duration in minutes (Carbon|Datetime|int), turn on/off (boolean)
 	// by default cache is disabled
-	$sitemap->setCache('tingdiamond.sitemap', 10);
+	$sitemap->setCache('tingdiamond.sitemap', 3600);
 
 	// check if there is cached sitemap and build new only if is not
 
@@ -93,7 +93,7 @@ use Carbon\Carbon;
 		}
 
 		$diamonds = DB::table('diamonds')
-                ->orderBy('updated_at','desc')->take(5000)->get();
+                ->orderBy('updated_at','desc')->take(10000)->get();
                 // dd($diamonds->chunk(1000));
         // $diamonds = $diamonds->chunk(1000, function($diamonds)use($translations,$sitemap){
 								// dd($diamonds);
