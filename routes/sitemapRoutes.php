@@ -28,17 +28,6 @@ use Carbon\Carbon;
 			['language' => 'zh-Hant', 'url' => secure_url('/hk/')],
 			['language' => 'zh-Hans', 'url' => secure_url('/cn/')],
 		];
-
-		$diamonds = DB::table('diamonds')
-                ->orderBy('updated_at','desc')->take(3000)->get();
-                // dd($diamonds->chunk(1000));
-        // $diamonds = $diamonds->chunk(1000, function($diamonds)use($translations,$sitemap){
-								// dd($diamonds);
-		foreach ($translations as $translation ) {
-			foreach ($diamonds as $diamond ) {
-			$sitemap->add(secure_url($translation['url'] .'/gia-loose-diamonds/'. $diamond->id), $diamond->updated_at, '0.6', 'weekly', [], null, $translations);
-			}
-		}
                     // });
 
 		$pages = DB::table('pages')
@@ -104,7 +93,18 @@ use Carbon\Carbon;
 			}
 		}
 		
-		// $sitemap->add(secure_url('/diamonds-sitemap'), Carbon::now(), '1.0', 'daily');
+		$diamonds = DB::table('diamonds')
+                ->orderBy('updated_at','desc')->take(3000)->get();
+                // dd($diamonds->chunk(1000));
+        // $diamonds = $diamonds->chunk(1000, function($diamonds)use($translations,$sitemap){
+								// dd($diamonds);
+		foreach ($translations as $translation ) {
+			foreach ($diamonds as $diamond ) {
+			$sitemap->add(secure_url($translation['url'] .'/gia-loose-diamonds/'. $diamond->id), $diamond->updated_at, '0.6', 'weekly', [], null, $translations);
+			}
+		}
+
+				// $sitemap->add(secure_url('/diamonds-sitemap'), Carbon::now(), '1.0', 'daily');
 
 
 	// }
