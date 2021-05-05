@@ -93,7 +93,7 @@ use Carbon\Carbon;
 		}
 
 		$diamonds = DB::table('diamonds')
-                ->orderBy('updated_at','desc')->take(10000)->get();
+                ->orderBy('updated_at','desc')->take(5000)->get();
                 // dd($diamonds->chunk(1000));
         // $diamonds = $diamonds->chunk(1000, function($diamonds)use($translations,$sitemap){
 								// dd($diamonds);
@@ -110,5 +110,6 @@ use Carbon\Carbon;
 	// }
 
 	// show your sitemap (options: 'xml' (default), 'html', 'txt', 'ror-rss', 'ror-rdf')
+
 	return $sitemap->render('xml');
 
