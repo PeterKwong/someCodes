@@ -28,7 +28,6 @@ use Carbon\Carbon;
 			['language' => 'zh-Hant', 'url' => secure_url('/hk/')],
 			['language' => 'zh-Hans', 'url' => secure_url('/cn/')],
 		];
-                    // });
 
 		$pages = DB::table('pages')
                 ->orderBy('updated_at','desc')
@@ -92,9 +91,9 @@ use Carbon\Carbon;
 			$sitemap->add(secure_url($translation['url'] .'/customer-jewellery/'. $invPost->id),  $invPost->updated_at, '0.7', 'daily', [], null, $translations);
 			}
 		}
-		
+
 		$diamonds = DB::table('diamonds')
-                ->orderBy('updated_at','desc')->take(3000)->get();
+                ->orderBy('updated_at','desc')->take(5000)->get();
                 // dd($diamonds->chunk(1000));
         // $diamonds = $diamonds->chunk(1000, function($diamonds)use($translations,$sitemap){
 								// dd($diamonds);
@@ -103,8 +102,9 @@ use Carbon\Carbon;
 			$sitemap->add(secure_url($translation['url'] .'/gia-loose-diamonds/'. $diamond->id), $diamond->updated_at, '0.6', 'weekly', [], null, $translations);
 			}
 		}
+                    // });
 
-				// $sitemap->add(secure_url('/diamonds-sitemap'), Carbon::now(), '1.0', 'daily');
+		// $sitemap->add(secure_url('/diamonds-sitemap'), Carbon::now(), '1.0', 'daily');
 
 
 	// }
