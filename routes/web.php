@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 //sitemap
 
 Route::get('/sitemap_index.xml', function(){
-    
+    dd('hi');
     $d = include 'sitemapRoutes.php';
 
     return $d;
