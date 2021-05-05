@@ -124,11 +124,11 @@ class Kernel extends ConsoleKernel
 
 
         //sitemap
-        // $schedule->call(function () use(&$CronJob) {
+        $schedule->call(function () use(&$CronJob) {
 
-        //     $CronJob->generateSitemap();
+            $CronJob->generateSitemap();
 
-        // })->dailyAt('22:00')->runInBackground();
+        })->dailyAt('22:00')->runInBackground();
 
 
 

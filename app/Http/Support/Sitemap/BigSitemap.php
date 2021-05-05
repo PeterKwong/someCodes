@@ -51,10 +51,10 @@ class BigSitemap
 	// $sitemap->addSitemap( $url . 'vendor/sitemap/diamonds/sitemap.xml');
 
 
-	$sitemap->store('sitemapindex', 'sitemap_index');
+	$sitemap->store('sitemapindex', 'sitemap_index_all');
 
 
-	return redirect('sitemap_index.xml');
+	return redirect('sitemap_index_all.xml');
 
 
 	} 
