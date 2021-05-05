@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 //sitemap
 
-Route::get('/sitemap_index1.xml', function(){
+Route::get('/sitemap_index.xml', function(){
     
     $d = include 'sitemapRoutes.php';
 

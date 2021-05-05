@@ -7,7 +7,7 @@ use Carbon\Carbon;
     
 	// set cache key (string), duration in minutes (Carbon|Datetime|int), turn on/off (boolean)
 	// by default cache is disabled
-	$sitemap->setCache('tingdiamond.sitemap', 1000);
+	// $sitemap->setCache('tingdiamond.sitemap', 10);
 
 	// check if there is cached sitemap and build new only if is not
 
@@ -30,14 +30,16 @@ use Carbon\Carbon;
 		];
 
 		$diamonds = DB::table('diamonds')
-                ->orderBy('updated_at','desc')->take(2000)
-                    ->chunk(1000, function($diamonds)use($translations,$sitemap){
-						foreach ($translations as $translation ) {
-							foreach ($diamonds as $diamond ) {
-							$sitemap->add(secure_url($translation['url'] .'/gia-loose-diamonds/'. $diamond->id), $diamond->updated_at, '0.6', 'weekly', [], null, $translations);
-							}
-						}
-                    });
+                ->orderBy('updated_at','desc')->take(10000)->get();
+                // dd($diamonds->chunk(1000));
+        // $diamonds = $diamonds->chunk(1000, function($diamonds)use($translations,$sitemap){
+								// dd($diamonds);
+		foreach ($translations as $translation ) {
+			foreach ($diamonds as $diamond ) {
+			$sitemap->add(secure_url($translation['url'] .'/gia-loose-diamonds/'. $diamond->id), $diamond->updated_at, '0.6', 'weekly', [], null, $translations);
+			}
+		}
+                    // });
 
 		$pages = DB::table('pages')
                 ->orderBy('updated_at','desc')
@@ -98,7 +100,7 @@ use Carbon\Carbon;
 		foreach ($translations as $translation ) {
 
 			foreach ($invPosts as $invPost ) {
-			$sitemap->add(secure_url($translation['url'] .'/customer-jewellery/'. $invPost->id),  $invoice_posts->updated_at, '0.7', 'daily', [], null, $translations);
+			$sitemap->add(secure_url($translation['url'] .'/customer-jewellery/'. $invPost->id),  $invPost->updated_at, '0.7', 'daily', [], null, $translations);
 			}
 		}
 		
