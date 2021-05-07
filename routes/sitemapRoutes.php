@@ -7,7 +7,7 @@ use Carbon\Carbon;
     
 	// set cache key (string), duration in minutes (Carbon|Datetime|int), turn on/off (boolean)
 	// by default cache is disabled
-	$sitemap->setCache('tingdiamond.sitemap', 100);
+	$sitemap->setCache('tingdiamond.sitemap', 36000);
 
 	// check if there is cached sitemap and build new only if is not
 

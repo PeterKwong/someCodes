@@ -8,6 +8,7 @@ use App\Mail\Appointment;
 use App\Models\Customer;
 use App\Models\Diamond;
 use App\Models\EngagementRing;
+use App\Models\Image;
 use App\Models\Invoice;
 use App\Models\InvoiceDiamond;
 use App\Models\InvoiceItem;
@@ -17,6 +18,7 @@ use App\Models\Page;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 
 class TestController extends Controller
@@ -25,15 +27,27 @@ class TestController extends Controller
     public function test(){
     	// dd( config('global.paymentMode'));
 	    // $this->postTags();
-	    return $this->resetAllDiamonds();
+	    // return $this->resetAllDiamonds();
 
-	    return $this->bigSitemap();
+	    return $this->copyAWS();
+	    // return $this->bigSitemap();
 
 		return response()
 			->json(
 			['sent' => true]
 		);
 
+    }
+    public function copyAWS(){
+    	// $images = Image::all();
+
+    	foreach (range(1000, 4000) as $key => $image) {
+    		// $file = Storage::disk('s3')->get('public/images/'.$image->image);
+    		// dd($file);
+	    	$file = Storage::disk('s3')->delete('public/images/'.$image.'.jpg');  
+	    	// $file = Storage::disk('s3')->setVisibility('public/images/'.$image->id.'.jpg', 'public');  
+	    	// dd('done');
+    	}
     }
     public function bigSitemap(){
     	

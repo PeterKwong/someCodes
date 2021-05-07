@@ -47,7 +47,7 @@ class BigSitemap
 	// $sitemap->addSitemap( $url . 'vendor/sitemap/customer-posts/sitemap.xml');
 
 	$this->sitemapIndex('diamonds',$translations,$url,'/gia-loose-diamonds/','id',
-						0.5,'monthly','diamonds',$sitemap);
+						0.6,'monthly','diamonds',$sitemap);
 	// $sitemap->addSitemap( $url . 'vendor/sitemap/diamonds/sitemap.xml');
 
 
