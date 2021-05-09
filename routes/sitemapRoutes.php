@@ -7,9 +7,11 @@ use Carbon\Carbon;
     
 	// set cache key (string), duration in minutes (Carbon|Datetime|int), turn on/off (boolean)
 	// by default cache is disabled
-	$sitemap->setCache('tingdiamond.sitemap', 10);
+	// cache()->forget('sitemap.route');
+	$sitemap->setCache('sitemap.route', 10);
 
 	// check if there is cached sitemap and build new only if is not
+	// cache()->put('sitemap.sitemapCounter', 0);
 
 	// if (!$sitemap->isCached()) {
 	
@@ -28,6 +30,7 @@ use Carbon\Carbon;
 			['language' => 'zh-Hant', 'url' => secure_url('/hk/')],
 			['language' => 'zh-Hans', 'url' => secure_url('/cn/')],
 		];
+
 
 		$pages = DB::table('pages')
                 ->orderBy('updated_at','desc')
@@ -92,19 +95,19 @@ use Carbon\Carbon;
 			}
 		}
 
-		// $diamonds = DB::table('diamonds')
-  //               ->orderBy('updated_at','desc')->take(3000)->get();
-  //               // dd($diamonds->chunk(1000));
-  //       // $diamonds = $diamonds->chunk(1000, function($diamonds)use($translations,$sitemap){
-		// 						// dd($diamonds);
-		// foreach ($translations as $translation ) {
-		// 	foreach ($diamonds as $diamond ) {
-		// 	$sitemap->add(secure_url($translation['url'] .'/gia-loose-diamonds/'. $diamond->id), $diamond->updated_at, '0.6', 'weekly', [], null, $translations);
-		// 	}
-		// }
+		$diamonds = DB::table('diamonds')
+                ->orderBy('updated_at','desc')->take(3000)->get();
+                // dd($diamonds->chunk(1000));
+        $diamonds = $diamonds->lazy()->each(function($diamond)use($translations,&$sitemap){
+			
+			foreach ($translations as $translation ) {
+				$sitemap->add(secure_url($translation['url'] .'/gia-loose-diamonds/'. $diamond->id), $diamond->updated_at, '0.6', 'weekly', [], null, $translations);
+				// }
+			}
+
+        });
 
 
-                    // });
 
 		// $sitemap->add(secure_url('/diamonds-sitemap'), Carbon::now(), '1.0', 'daily');
 
