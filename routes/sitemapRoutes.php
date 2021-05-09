@@ -8,7 +8,7 @@ use Carbon\Carbon;
 	// set cache key (string), duration in minutes (Carbon|Datetime|int), turn on/off (boolean)
 	// by default cache is disabled
 	// cache()->forget('sitemap.route');
-	$sitemap->setCache('sitemap.route', 10);
+	$sitemap->setCache('sitemap.route', 36000);
 
 	// check if there is cached sitemap and build new only if is not
 	// cache()->put('sitemap.sitemapCounter', 0);
@@ -31,20 +31,6 @@ use Carbon\Carbon;
 			['language' => 'zh-Hans', 'url' => secure_url('/cn/')],
 		];
 
-
-		$pages = DB::table('pages')
-                ->orderBy('updated_at','desc')
-                    ->get();
-
-        if ($pages != '') {
-        	foreach ($translations as $translation ) {
-
-				foreach ($pages as $page ) {
-				$sitemap->add(secure_url($translation['url'] .'/'. $page->url), $page->updated_at, '0.9', 'daily', [], null, $translations);
-				}
-			}
-
-        }
 
 
 		$engagementRings = DB::table('engagement_rings')
@@ -83,7 +69,21 @@ use Carbon\Carbon;
 			$sitemap->add(secure_url($translation['url'] .'/wedding-rings/'. $weddingRing->id), $weddingRing->updated_at, '0.8', 'daily', [], null, $translations);
 			}
 		}
-		
+
+		$pages = DB::table('pages')
+                ->orderBy('updated_at','desc')
+                    ->get();
+
+        if ($pages != '') {
+        	foreach ($translations as $translation ) {
+
+				foreach ($pages as $page ) {
+				$sitemap->add(secure_url($translation['url'] .'/'. $page->url), $page->updated_at, '0.9', 'daily', [], null, $translations);
+				}
+			}
+
+        }
+
 		$invPosts = DB::table('invoice_posts')
                 ->orderBy('updated_at','desc')->where('published',1)
                     ->get(['id','updated_at']);
@@ -96,7 +96,7 @@ use Carbon\Carbon;
 		}
 
 		$diamonds = DB::table('diamonds')
-                ->orderBy('updated_at','desc')->take(3000)->get();
+                ->orderBy('updated_at','desc')->take(5000)->get();
                 // dd($diamonds->chunk(1000));
         $diamonds = $diamonds->lazy()->each(function($diamond)use($translations,&$sitemap){
 			
