@@ -96,7 +96,7 @@ use Carbon\Carbon;
 		}
 
 		$diamonds = DB::table('diamonds')
-                ->orderBy('updated_at','desc')->take(5000)->get();
+                ->orderBy('updated_at','desc')->take(3000)->get();
                 // dd($diamonds->chunk(1000));
         $diamonds = $diamonds->lazy()->each(function($diamond)use($translations,&$sitemap){
 			
