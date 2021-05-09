@@ -72,6 +72,7 @@ return [
 	'Description' => 'Description',
 	'Appointment' => 'Appointment',
 	
+	'18K Gold' => '18K Gold',
 	'18KW' => '18K White',
 	'18KY' => '18K Yellow',
 	'18KR' => '18K Rose Gold',

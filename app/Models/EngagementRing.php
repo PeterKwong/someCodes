@@ -77,6 +77,7 @@ class EngagementRing extends Model
 		    	$title = trans('engagementRing.' .$this->style) 
 		    			. $separator . trans('engagementRing.' .$this->prong)
 		    			. $separator . trans('engagementRing.' .$this->shoulder) 
+		    			. $separator . trans('engagementRing.' .$this->metal) 
 		    			;
 		    	$title .= $this->other ?  $separator . trans('engagementRing.' .$this->other):'' ;
 		    	$title .= $separator . trans('engagementRing.Diamond Ring')

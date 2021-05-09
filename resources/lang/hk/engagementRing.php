@@ -69,6 +69,7 @@ return [
 	'Name' => '商品名稱',
 	'Description' => '商品描述',
 
+	'18K Gold' => '18K金',
 	'Metal' => '金屬',
 	'18KW' => '18K 白金',
 	'18KY' => '18K 黃金',
