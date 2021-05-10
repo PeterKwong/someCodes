@@ -219,13 +219,13 @@ class Content extends Component
     public function render()
     {	
     	
-  //   	if (! Cache::has('diamondDayCache')) {
+    	if (!isset($_COOKIE['diamondSearch'])) {
 
-		// 	$this->diamonds =  Cache::remember('diamondDayCache', $hours = 24 * config('global.cookie.time'), function(){
-		// 		// dd($this->preset);
-		// 		return $this->queryDiamonds();
-		// 	});
-		// }
+			$this->diamonds =  Cache::remember('diamondDayCache', config('global.cookie.day'), function(){
+				// dd($this->preset);
+				return $this->queryDiamonds();
+			});
+		}
 
 		// $this->diamonds = Cache::get('diamondDayCache');
 		
