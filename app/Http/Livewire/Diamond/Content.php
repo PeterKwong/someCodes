@@ -218,15 +218,7 @@ class Content extends Component
 
     public function render()
     {	
-    	
-    	if (!isset($_COOKIE['diamondSearch'])) {
-
-			$this->diamonds =  Cache::remember('diamondDayCache', config('global.cookie.day'), function(){
-				// dd($this->preset);
-				return $this->queryDiamonds();
-			});
-		}
-
+    	$this->fastLoad();
 		// $this->diamonds = Cache::get('diamondDayCache');
 		
         return view('livewire.diamond.content', [
@@ -234,6 +226,13 @@ class Content extends Component
                 ? $this->deferLoading()
                 : $this->diamonds
         ]);
+    }
+    public function fastLoad(){
+    	 if (!isset($_COOKIE['diamondSearch'])) {
+			$this->diamonds =  Cache::remember('diamondDayCache', config('global.cookie.day'), function(){
+				return $this->queryDiamonds();
+			});
+		}
     }
     public function loadDiamonds()
     {
