@@ -38,10 +38,12 @@
                 
                 <product-viewer v-if="currentItem.type=='video360'" :folder="folder + upperitems.video360 +'/'" 
                 :filename="fileName " :size="currentItem.size" :rotate="currentItem.rotate"></product-viewer>
-            
-                <p v-if="chunkedItems.length && !showUpper" class="bg-blue-300 text-white text-center p-4">{{chunkedItems[currentIndex].text}}</p>
-                <p class="text-xl font-light bg-blue-400 text-white">{{ currentItem.title }}</p>
-                <p class="text-lg font-light bg-blue-400 text-white"> {{ currentItem.desc }} </p>
+                
+                <a :href="'/'+ mutualVar.langs.locale + '/customer-jewellery/' + chunkedItems[currentIndex].postId" target="_blank">
+                    <p v-if="chunkedItems.length && !showUpper" class="bg-blue-300 hover:bg-blue-400 text-white text-center p-4">{{chunkedItems[currentIndex].text}}</p>
+                    <p class="text-xl font-light bg-blue-400 text-white">{{ currentItem.title }}</p>
+                    <p class="text-lg font-light bg-blue-400 text-white"> {{ currentItem.desc }} </p>
+                </a>
                 <span v-html="currentItem.other"></span>
                 
             </div>
@@ -280,13 +282,15 @@ export default {
             this.items.reverse()
             
             if (!this.items) {
-                return arr.push({src:'', type:'', thumb:'', text:''})
+                return arr.push({src:'', type:'', thumb:'', text:'', postId:''})
             }
  
             for (var i = this.items.length - 1; i >= 0; i--) {
                 if (this.items[i].images[0].image&&this.items[i].video) {
-                    arr.push({src:this.items[i].video, type:"video", thumb:this.items[i].images[0].image, 
-                    text:this.items[i].texts.content})
+                    arr.push({
+                        src:this.items[i].video, type:"video", thumb:this.items[i].images[0].image, 
+                        text:this.items[i].texts.content, postId:this.items[i].id
+                        })
                 }else
                 {
                     arr.push({src:this.items[i].images[0].image, type:"img", thumb:this.items[i].images[0].image, 
