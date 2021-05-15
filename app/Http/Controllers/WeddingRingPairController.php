@@ -207,7 +207,7 @@ class WeddingRingPairController extends Controller
         // dd($request->except(['video','images','video360','weddingRings','texts']));
         $weddingRings = [];
 
-        foreach ($request->weddingRings as $index => $req) {
+        foreach ($request->wedding_rings as $index => $req) {
             $weddingRings [] = WeddingRing::create( Arr::except($req, ['video','images','texts']));
         }
   
@@ -332,7 +332,15 @@ class WeddingRingPairController extends Controller
             '.*.unit_price' => 'required | numeric |min:0',
             ]);
 
-        $weddingRingPair = WeddingRingPair::with(['weddingRings','weddingRings.images','weddingRings.texts'])->findOrFail($id);
+
+
+        $weddingRingPair = WeddingRingPair::with(['images','weddingRings.texts'])->findOrFail($id);
+
+        foreach ($request->wedding_rings as $index => $req) {
+            $weddingRings [] = WeddingRing::update( Arr::except($req, ['video','images','texts']));
+        }
+
+        return $weddingRingPair->updateItem($request,'App\Models\WeddingRingPair');
 
         // dd(print_r($weddingRingPair->weddingRings[0]->id));
         // dd(print_r($request->all()));
