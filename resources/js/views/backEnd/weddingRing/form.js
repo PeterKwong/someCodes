@@ -1,7 +1,7 @@
 
 import Vue from 'vue'
 import {get, post, put} from '../../../helpers/api'
-import {toMulipartedForm} from '../../../helpers/weddingRingForm'	
+import {toMulipartedForm} from '../../../helpers/form'
 import ImageUpload from '../../../components/ImageUpload.vue'
 import VideoUpload from '../../../components/VideoUpload.vue'
 import UploadMultiImage from '../../../components/UploadMultiImage.vue'
@@ -15,7 +15,7 @@ export default {
 	components: {
 		ImageUpload,
 		VideoUpload,
-		UploadMultiImage,		
+		UploadMultiImage,
 	},
 	data(){
 		return {
@@ -49,48 +49,54 @@ export default {
 	},
 	computed:{
 		withSideStone(){
-			if (this.form[0].ct != 0 ) {
-				this.form[0].sideStone = 1
-				this.form[1].sideStone = 1
+			if (this.form.weddingRings[0].ct != 0 ) {
+				this.form.weddingRings[0].sideStone = 1
+				this.form.weddingRings[1].sideStone = 1
 			}else{
-				this.form[0].sideStone = 0
-				this.form[1].sideStone = 0
+				this.form.weddingRings[0].sideStone = 0
+				this.form.weddingRings[1].sideStone = 0
 			}
 
-			if (this.form[1].ct != 0 ) {
-				this.form[0].sideStone = 1
-				this.form[1].sideStone = 1
+			if (this.form.weddingRings[1].ct != 0 ) {
+				this.form.weddingRings[0].sideStone = 1
+				this.form.weddingRings[1].sideStone = 1
 			}else{
-				this.form[0].sideStone = 0
-				this.form[1].sideStone = 0
+				this.form.weddingRings[0].sideStone = 0
+				this.form.weddingRings[1].sideStone = 0
 			}
 			
 			
 		},
 		calculatedRoundedPrice(){
-			var price = 0
-			this.price[0].diamond = this.form[0].ct * 8000
-			this.price[0].metal = this.form[0].metal_weight * this.goldPrice
-			price = Math.round( (this.price[0].diamond + this.price[0].metal)/100 ) * 100
-			this.form[0].unit_price = price + parseInt(this.form[0].cost)
-			return price
+			var prices = [
+						{price:0},
+						{price:0}
+						]
+			for (var i = 0; prices.length > i ; i++) {
+				this.price[i].diamond = this.form.weddingRings[i].ct * 8000
+				this.price[i].metal = this.form.weddingRings[i].metal_weight * this.goldPrice
+				prices[i].price = Math.round( (this.price[i].diamond + this.price[i].metal)/100 ) * 100
+				this.form.weddingRings[i].unit_price = prices[i].price + parseInt(this.form.weddingRings[i].cost)
+			}
+			
+			return prices
 		},
 		goldPrice(){
 			var price = 0
-			price = adminVar.APIs.goldPrice['metal' + this.form[0].metal]
+			price = adminVar.APIs.goldPrice['metal' + this.form.weddingRings[0].metal]
 			return price
 		},
 		calculatedRoundedPrice1(){
 			var price = 0
-			this.price[1].diamond = this.form[1].ct * 8000
-			this.price[1].metal = this.form[1].metal_weight * this.goldPrice1
+			this.price[1].diamond = this.form.weddingRings[1].ct * 8000
+			this.price[1].metal = this.form.weddingRings[1].metal_weight * this.goldPrice1
 			price = Math.round( (this.price[1].diamond + this.price[1].metal)/100 ) * 100
-			this.form[1].unit_price = price + parseInt(this.form[1].cost)
+			this.form.weddingRings[1].unit_price = price + parseInt(this.form.weddingRings[1].cost)
 			return price
 		},
 		goldPrice1(){
 			var price = 0
-			price = adminVar.APIs.goldPrice['metal' + this.form[1].metal]
+			price = adminVar.APIs.goldPrice['metal' + this.form.weddingRings[1].metal]
 			return price
 		},
 	},
@@ -109,6 +115,7 @@ export default {
 		save(){
 				this.isProcessing = true
 				const form = toMulipartedForm(this.form)
+				console.log(form)
 				post(this.storeURL, form)
 				.then((response)=>{
 					if(response.data.saved){
@@ -130,19 +137,19 @@ export default {
 			 return pattern.exec(txt);
 		},
 		addImage(id){
-			this.form[id].images.push({'image':'', 'type':''})
+			this.form.images.push({'image':'', 'type':''})
 		},
 		delForm(id){
-				this.form.splice(id,id+1)
+				this.form.weddingRings.splice(id,id+1)
 			
 		},
 		autoTitle(){
 
-			for (var i=0; this.form[0].texts.length > i ; i++) {
-				this.form[0].texts[i].content =  transJs(this.form[0].metal,this.langs,i) +' '+ transJs(this.form[0].shape,this.langs,i) +' '+ transJs(this.form[0].finish,this.langs,i) +' '+ transJs(this.form[0].gender,this.langs,i) 	
+			for (var i=0; this.form.weddingRings[0].texts.length > i ; i++) {
+				this.form.weddingRings[0].texts[i].content =  transJs(this.form.weddingRings[0].metal,this.langs,i) +' '+ transJs(this.form.weddingRings[0].shape,this.langs,i) +' '+ transJs(this.form.weddingRings[0].finish,this.langs,i) +' '+ transJs(this.form.weddingRings[0].gender,this.langs,i) 	
 			}
-			for (var i=0; this.form[1].texts.length > i ; i++) {
-				this.form[1].texts[i].content =  transJs(this.form[1].metal,this.langs,i) +' '+ transJs(this.form[1].shape,this.langs,i) +' '+ transJs(this.form[1].finish,this.langs,i) +' '+ transJs(this.form[1].gender,this.langs,i) 		
+			for (var i=0; this.form.weddingRings[1].texts.length > i ; i++) {
+				this.form.weddingRings[1].texts[i].content =  transJs(this.form.weddingRings[1].metal,this.langs,i) +' '+ transJs(this.form.weddingRings[1].shape,this.langs,i) +' '+ transJs(this.form.weddingRings[1].finish,this.langs,i) +' '+ transJs(this.form.weddingRings[1].gender,this.langs,i) 		
 			}
 			
 		},

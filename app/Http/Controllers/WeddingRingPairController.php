@@ -188,7 +188,7 @@ class WeddingRingPairController extends Controller
     {
         return response()
             ->json([
-                'form' =>WeddingRing::form(),
+                'form' =>WeddingRingPair::form(),
                 'option' =>WeddingRing::orderBy('id', 'desc')->first(['id'])
             ]); 
     }
@@ -202,16 +202,20 @@ class WeddingRingPairController extends Controller
             ]);
         
         // dd(print_r($request->all()));
+
         $requestAll = $request->all();
-        // dd($requestAll);
+        // dd($request->except(['video','images','video360','weddingRings','texts']));
         $weddingRings = [];
 
-        foreach ($requestAll as $req) {
-            $weddingRings [] = WeddingRing::create(Arr::except($req, ['video','texts','images']));
+        foreach ($request->weddingRings as $index => $req) {
+            $weddingRings [] = WeddingRing::create( Arr::except($req, ['video','images','texts']));
         }
   
-        $weddingRingPair = WeddingRingPair::create();
+        $weddingRingPair = WeddingRingPair::create($request->except(['video','images','texts','video360','weddingRings']));
         $weddingRingPair->weddingRings()->saveMany($weddingRings);
+
+        return $weddingRingPair->storeItem($request);
+
         // $weddingRing = WeddingRing::create($request->except(['video','texts','images']));
        
         $published = [0 => false, 1 => false];
@@ -314,7 +318,7 @@ class WeddingRingPairController extends Controller
 
         return response()
             ->json([
-                'form' =>$weddingRings->weddingRings,
+                'form' =>$weddingRings,
                 'option' => []
                 ]);
     }

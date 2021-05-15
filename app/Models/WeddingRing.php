@@ -102,9 +102,10 @@ class WeddingRing extends Model
 	            'origin'=> 'local',
 	            'brand'=> '',
 	            'style' => '',
-	            'ct'=> '0',
-	            'customized'=> '0',
-	            'sideStone' =>'0',
+	            'ct'=> 0,
+	            'cost' => 0,
+	            'customized'=> 0,
+	            'sideStone' =>0,
 	            'video360'=> [],
 	            'images' => [['image'=>'',
 								'type' => 'cover'],
@@ -118,7 +119,7 @@ class WeddingRing extends Model
 		            ['content'=> '', 'locale'=>'cn', 'type'=>'title'], 
 		                ],
 	            'video'=> '',
-	            'published'=> '0',
+	            'published'=> 0,
 	        ],
 	            
 	            [

@@ -16,7 +16,10 @@ class CreateWeddingRingPairsTable extends Migration
         Schema::create('wedding_ring_pairs', function (Blueprint $table) {
             $table->id('id');
             $table->integer('unit_price');
+            $table->string('video')->nullable();
+            $table->string('video360')->nullable();
             $table->boolean('published')->default(false);
+            $table->integer('page_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

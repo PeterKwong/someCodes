@@ -219,7 +219,6 @@ class Content extends Component
     public function render()
     {	
     	$this->fastLoad();
-		// $this->diamonds = Cache::get('diamondDayCache');
 		
         return view('livewire.diamond.content', [
             'diamonds' => $this->readyToLoad
