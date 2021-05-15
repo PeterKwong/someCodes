@@ -54,7 +54,7 @@ class WeddingRingPair extends Model
             'images' => [['image'=>'',
                             'type' => 'cover'],
                         ] , 
-            'weddingRings' => WeddingRing::form()
+            'wedding_rings' => WeddingRing::form()
         ];
     }
 }

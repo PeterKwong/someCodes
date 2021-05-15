@@ -8194,10 +8194,12 @@ __webpack_require__.r(__webpack_exports__);
       method: 'post',
       video: '',
       test: [],
-      price: [{
+      prices: [{
+        metalPrice: 0,
         metal: 0,
         diamond: 0
       }, {
+        metalPrice: 0,
         metal: 0,
         diamond: 0
       }]
@@ -8218,23 +8220,23 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     withSideStone: function withSideStone() {
-      if (this.form.weddingRings[0].ct != 0) {
-        this.form.weddingRings[0].sideStone = 1;
-        this.form.weddingRings[1].sideStone = 1;
+      if (this.form.wedding_rings[0].ct != 0) {
+        this.form.wedding_rings[0].sideStone = 1;
+        this.form.wedding_rings[1].sideStone = 1;
       } else {
-        this.form.weddingRings[0].sideStone = 0;
-        this.form.weddingRings[1].sideStone = 0;
+        this.form.wedding_rings[0].sideStone = 0;
+        this.form.wedding_rings[1].sideStone = 0;
       }
 
-      if (this.form.weddingRings[1].ct != 0) {
-        this.form.weddingRings[0].sideStone = 1;
-        this.form.weddingRings[1].sideStone = 1;
+      if (this.form.wedding_rings[1].ct != 0) {
+        this.form.wedding_rings[0].sideStone = 1;
+        this.form.wedding_rings[1].sideStone = 1;
       } else {
-        this.form.weddingRings[0].sideStone = 0;
-        this.form.weddingRings[1].sideStone = 0;
+        this.form.wedding_rings[0].sideStone = 0;
+        this.form.wedding_rings[1].sideStone = 0;
       }
     },
-    calculatedRoundedPrice: function calculatedRoundedPrice() {
+    calculatedRoundedPrices: function calculatedRoundedPrices() {
       var prices = [{
         price: 0
       }, {
@@ -8242,31 +8244,14 @@ __webpack_require__.r(__webpack_exports__);
       }];
 
       for (var i = 0; prices.length > i; i++) {
-        this.price[i].diamond = this.form.weddingRings[i].ct * 8000;
-        this.price[i].metal = this.form.weddingRings[i].metal_weight * this.goldPrice;
-        prices[i].price = Math.round((this.price[i].diamond + this.price[i].metal) / 100) * 100;
-        this.form.weddingRings[i].unit_price = prices[i].price + parseInt(this.form.weddingRings[i].cost);
+        this.prices[i].diamond = this.form.wedding_rings[i].ct * 8000;
+        this.prices[i].metalPrice = adminVar.APIs.goldPrice['metal' + this.form.wedding_rings[i].metal];
+        this.prices[i].metal = this.form.wedding_rings[i].metal_weight * this.prices[i].metalPrice;
+        prices[i].price = Math.round((this.prices[i].diamond + this.prices[i].metal) / 100) * 100;
+        this.form.wedding_rings[i].unit_price = prices[i].price + parseInt(this.form.wedding_rings[i].cost);
       }
 
       return prices;
-    },
-    goldPrice: function goldPrice() {
-      var price = 0;
-      price = adminVar.APIs.goldPrice['metal' + this.form.weddingRings[0].metal];
-      return price;
-    },
-    calculatedRoundedPrice1: function calculatedRoundedPrice1() {
-      var price = 0;
-      this.price[1].diamond = this.form.weddingRings[1].ct * 8000;
-      this.price[1].metal = this.form.weddingRings[1].metal_weight * this.goldPrice1;
-      price = Math.round((this.price[1].diamond + this.price[1].metal) / 100) * 100;
-      this.form.weddingRings[1].unit_price = price + parseInt(this.form.weddingRings[1].cost);
-      return price;
-    },
-    goldPrice1: function goldPrice1() {
-      var price = 0;
-      price = adminVar.APIs.goldPrice['metal' + this.form.weddingRings[1].metal];
-      return price;
     }
   },
   methods: {
@@ -8313,15 +8298,15 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     delForm: function delForm(id) {
-      this.form.weddingRings.splice(id, id + 1);
+      this.form.wedding_rings.splice(id, id + 1);
     },
     autoTitle: function autoTitle() {
-      for (var i = 0; this.form.weddingRings[0].texts.length > i; i++) {
-        this.form.weddingRings[0].texts[i].content = (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.weddingRings[0].metal, this.langs, i) + ' ' + (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.weddingRings[0].shape, this.langs, i) + ' ' + (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.weddingRings[0].finish, this.langs, i) + ' ' + (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.weddingRings[0].gender, this.langs, i);
+      for (var i = 0; this.form.wedding_rings[0].texts.length > i; i++) {
+        this.form.wedding_rings[0].texts[i].content = (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.wedding_rings[0].metal, this.langs, i) + ' ' + (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.wedding_rings[0].shape, this.langs, i) + ' ' + (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.wedding_rings[0].finish, this.langs, i) + ' ' + (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.wedding_rings[0].gender, this.langs, i);
       }
 
-      for (var i = 0; this.form.weddingRings[1].texts.length > i; i++) {
-        this.form.weddingRings[1].texts[i].content = (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.weddingRings[1].metal, this.langs, i) + ' ' + (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.weddingRings[1].shape, this.langs, i) + ' ' + (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.weddingRings[1].finish, this.langs, i) + ' ' + (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.weddingRings[1].gender, this.langs, i);
+      for (var i = 0; this.form.wedding_rings[1].texts.length > i; i++) {
+        this.form.wedding_rings[1].texts[i].content = (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.wedding_rings[1].metal, this.langs, i) + ' ' + (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.wedding_rings[1].shape, this.langs, i) + ' ' + (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.wedding_rings[1].finish, this.langs, i) + ' ' + (0,_helpers_transJs__WEBPACK_IMPORTED_MODULE_5__.transJs)(this.form.wedding_rings[1].gender, this.langs, i);
       }
     }
   }

@@ -11,7 +11,7 @@
 				<form @submit.prevent="save">
 					<div class="field" >
 
-						<div class="box" v-for="(weddingRing,index) in form.weddingRings ">
+						<div class="box" v-for="(weddingRing,index) in form.wedding_rings ">
 							<p class="title is-3" @click="delForm(index)"><i class="fa fa-times-circle" aria-hidden="true"></i></p>
 							<div class="row">
 								<div class="col-2">
@@ -149,7 +149,7 @@
 								<div class="col-2">
 									<div class="control ">
 										<div class="control">
-											<label class="label">Metal  @$ @{{goldPrice}} </label>
+											<label class="label">Metal  @$ @{{prices[index].metalPrice}} </label>
 											<select v-model="weddingRing.metal" class="form-control">
 												<option value="18KW">18KW</option>
 												<option value="18KY">18KY</option>
@@ -163,7 +163,7 @@
 								<div class="col-2">
 									<div class="control ">
 										<div class="control">
-											<label class="label">Metal Weight :$ @{{price[index].metal}}</label>
+											<label class="label">Metal Weight :$ @{{prices[index].metal}}</label>
 												<input type="text" class="form-control" v-model="weddingRing.metal_weight" placeholder="gram" required>
 												<small class="is-danger" v-if="errors.sideStone" >@{{errors.metal_weight[index]}}</small>
 										</div>
@@ -172,7 +172,7 @@
 								<div class="col-2">
 									<div class="control ">
 										<div class="control">
-											<label class="label">Side Stone :$ @{{price[index].diamond}}</label>
+											<label class="label">Side Stone :$ @{{prices[index].diamond}}</label>
 												<input type="text" class="form-control" v-model="weddingRing.ct" placeholder="@$8000" required>
 												<small class="is-danger" v-if="errors.sideStone">@{{errors.sideStone[index]}}</small>
 										</div>
@@ -190,9 +190,9 @@
 								<div class="col-2">
 									<div class="control has-icon-left">
 										<div class="control">
-											<label class="label">Unit Price $( @{{calculatedRoundedPrice[index].price}} + @{{weddingRing.cost}} )</label>
+											<label class="label">Unit Price $( @{{calculatedRoundedPrices[index].price}} + @{{weddingRing.cost}} )</label>
 												<input type="text" class="form-control" v-model="weddingRing.unit_price" placeholder="unit_price" required>
-												<small class="is-danger" v-if="errors.unit_price">@{{errors.unit_price[index]}}</small>
+												<small class="is-danger" v-if="errors.unit_price">@{{errors.unit_prices[index]}}</small>
 										</div>
 									</div>
 								</div>
@@ -202,6 +202,7 @@
 						
 						<br>
 						<br>
+
 						<div class="row">
 			                <div class="col-4">
 		                            <select class="form-control" v-model="form.published">Published
@@ -233,7 +234,7 @@
 						<div class="row" >
 
 							<div class="col">
-									<div class="box">
+									<div class="box" v-if="form.video">
 										<label> video</label>
 										<video-upload v-model="form.video" ></video-upload>
 										<small class="error__control" v-if="errors.cover">@{{errors.cover[0]}}</small>
