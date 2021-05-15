@@ -337,7 +337,7 @@ class WeddingRingPairController extends Controller
         $weddingRingPair = WeddingRingPair::with(['images','weddingRings.texts'])->findOrFail($id);
 
         foreach ($request->wedding_rings as $index => $req) {
-            $weddingRings [] = WeddingRing::update( Arr::except($req, ['video','images','texts']));
+            $weddingRings [] = $weddingRingPair->weddingRings[$index]->update( Arr::except($req, ['video','images','texts']));
         }
 
         return $weddingRingPair->updateItem($request,'App\Models\WeddingRingPair');
