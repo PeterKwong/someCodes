@@ -216,94 +216,94 @@ class WeddingRingPairController extends Controller
 
         return $weddingRingPair->storeItem($request);
 
-        // $weddingRing = WeddingRing::create($request->except(['video','texts','images']));
+    //     $weddingRing = WeddingRing::create($request->except(['video','texts','images']));
        
-        $published = [0 => false, 1 => false];
-        $weddingRingsPairUnitPrice = 0;
-        // dd($weddingRingPair);
-        foreach ($requestAll as $key=>$req) {
+    //     $published = [0 => false, 1 => false];
+    //     $weddingRingsPairUnitPrice = 0;
+    //     // dd($weddingRingPair);
+    //     foreach ($requestAll as $key=>$req) {
 
-            if ($req['published'] == 1) {
-                $published[$key] = true;
-            }
-            $weddingRingPairUnit_price = $weddingRingsPairUnitPrice +$req['unit_price'];
+    //         if ($req['published'] == 1) {
+    //             $published[$key] = true;
+    //         }
+    //         $weddingRingPairUnit_price = $weddingRingsPairUnitPrice +$req['unit_price'];
 
-            $texts = [];
+    //         $texts = [];
         
-            foreach ($req['texts'] as $k=>$text) {
-                if (!empty($req['texts'][$k]['content'])) {
-                    $txt = new Text($text);
-                    $texts [] = $txt;
-                }
+    //         foreach ($req['texts'] as $k=>$text) {
+    //             if (!empty($req['texts'][$k]['content'])) {
+    //                 $txt = new Text($text);
+    //                 $texts [] = $txt;
+    //             }
                 
-            }
+    //         }
             
-            $images =[];
+    //         $images =[];
 
-            // print_r($req);
+    //         // print_r($req);
 
-            foreach ($req['images'] as $k=>$image) {
-                if (!empty($image['image'])) {
+    //         foreach ($req['images'] as $k=>$image) {
+    //             if (!empty($image['image'])) {
 
-                    $imgFileName= ResizeImage::getFileName($image['image']);
+    //                 $imgFileName= ResizeImage::getFileName($image['image']);
 
-                    // $image['image']->move(base_path('public/images'),$imgFileName);
-                    // var_dump(die($image['image']));
-                    ResizeImage::setLarge($imgFileName,$image['image']);
-                    ResizeImage::setThumb($imgFileName,$image['image']);
+    //                 // $image['image']->move(base_path('public/images'),$imgFileName);
+    //                 // var_dump(die($image['image']));
+    //                 ResizeImage::setLarge($imgFileName,$image['image']);
+    //                 ResizeImage::setThumb($imgFileName,$image['image']);
 
-                    // $image['image']->move(base_path('public/images'),$img);
-                    // ResizeImage::setLarge($img);
-                    // ResizeImage::setThumb($img);
-                    $images[] = new Image(['image' => $imgFileName,
-                                        'type' => $image['type']
-                                        ]);
-                }
+    //                 // $image['image']->move(base_path('public/images'),$img);
+    //                 // ResizeImage::setLarge($img);
+    //                 // ResizeImage::setThumb($img);
+    //                 $images[] = new Image(['image' => $imgFileName,
+    //                                     'type' => $image['type']
+    //                                     ]);
+    //             }
                 
-            }
+    //         }
             
 
-            // if ($req['video360']) {
+    //         // if ($req['video360']) {
 
-            //     $video360Code= ResizeImage::generateUniqueCode();
+    //         //     $video360Code= ResizeImage::generateUniqueCode();
 
-            //     $weddingRingPair->weddingRings[$key]->video360 = $video360Code;
-            //     $this->save();
+    //         //     $weddingRingPair->weddingRings[$key]->video360 = $video360Code;
+    //         //     $this->save();
 
-            //     $this->saveVideo360($req['video360'],$weddingRingPair->weddingRings[$key]->video360);
+    //         //     $this->saveVideo360($req['video360'],$weddingRingPair->weddingRings[$key]->video360);
 
 
-            // }
+    //         // }
 
             
-            if ($req['video']) {
-                $vid= ResizeImage::getFileName($req['video']);
+    //         if ($req['video']) {
+    //             $vid= ResizeImage::getFileName($req['video']);
                 
 
-                $path = $req['video']->storeAs($this->videoPath, $vid, 's3');
-                Storage::disk('s3')->setVisibility($path, 'public');  
+    //             $path = $req['video']->storeAs($this->videoPath, $vid, 's3');
+    //             Storage::disk('s3')->setVisibility($path, 'public');  
 
-                // Storage::disk('s3')->put($this->videoPath.$vid , $request->file('video'), 'public');
-    // 1        $request->video->move(base_path('public/videos'),$vid);
-                $weddingRings[$key]->video = $vid;
-                $weddingRings[$key]->save();
-            }
-            // dd(print_r($WeddingRings[$key]->video));
+    //             // Storage::disk('s3')->put($this->videoPath.$vid , $request->file('video'), 'public');
+    // // 1        $request->video->move(base_path('public/videos'),$vid);
+    //             $weddingRings[$key]->video = $vid;
+    //             $weddingRings[$key]->save();
+    //         }
+    //         // dd(print_r($WeddingRings[$key]->video));
 
-            $weddingRings[$key]->texts()->saveMany($texts);
-            $weddingRings[$key]->images()->saveMany($images);
-        }
+    //         $weddingRings[$key]->texts()->saveMany($texts);
+    //         $weddingRings[$key]->images()->saveMany($images);
+    //     }
         
-        $published = array_filter( $published, function($data){ return $data == true ;} );
-        // dd($published);
+    //     $published = array_filter( $published, function($data){ return $data == true ;} );
+    //     // dd($published);
 
-        if (count($published) > 0) {
-            $weddingRingPair->published = 1;
-        }else{
-            $weddingRingPair->published = 0;
-        }
+    //     if (count($published) > 0) {
+    //         $weddingRingPair->published = 1;
+    //     }else{
+    //         $weddingRingPair->published = 0;
+    //     }
 
-        $weddingRingPair->save();        
+    //     $weddingRingPair->save();        
 
 
         return response()
@@ -314,7 +314,7 @@ class WeddingRingPairController extends Controller
 
     public function edit($id)
     {
-        $weddingRings = WeddingRingPair::with(['weddingRings','weddingRings.images','weddingRings.texts'])->findOrFail($id);
+        $weddingRings = WeddingRingPair::with(['images','weddingRings.texts'])->findOrFail($id);
 
         return response()
             ->json([
