@@ -234,7 +234,7 @@
 						<div class="row" >
 
 							<div class="col">
-									<div class="box" v-if="form.video">
+									<div class="box" >
 										<label> video</label>
 										<video-upload v-model="form.video" ></video-upload>
 										<small class="error__control" v-if="errors.cover">@{{errors.cover[0]}}</small>
