@@ -22,6 +22,7 @@
                    @click="currentSelectedItem(index,'upper')" v-if="img.thumb"  >
                 <img :src="images+img.thumb"  v-if="img.type=='img' || img.type=='video'"  class="w-full hover:opacity-75 rounded mx-auto p-2" :class="{'border border-primary rounded':currentUpperIndex == index}"></img>
                 <img :src="img.thumb"  v-if="img.type=='video360'"  class="w-full hover:opacity-75 rounded mx-auto p-2" :class="{'border border-primary rounded':currentUpperIndex == index}"></img>
+                
                 <div class="absolute border border-white border-2 bg-black p-1 px-4 rounded-lg hover:bg-gray-700" style="top:35%; left:35%; opacity:50% ;" v-if=" img.type=='video' || img.type=='video360' " >
                     <i class="hidden sm:block fa fa-play text-white fa-2x" aria-hidden="true" ></i>
                     <i class="sm:hidden fa fa-play text-white " aria-hidden="true" ></i>

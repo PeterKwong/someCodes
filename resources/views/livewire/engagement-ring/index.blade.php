@@ -158,20 +158,22 @@
 
 	<div class="grid grid-cols-12">
 		@foreach($model['data'] as $data)
-		    <div class="sm:col-span-3 col-span-6 hover:opacity-75 sm:p-8">
-	            <a href="/{{app()->getLocale() . '/engagement-rings/' . $data['id'] }}" target="_blank">
-	                <img src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $data['images'][0]['image']}}" width="100%">
-	                    <center>
-	                        
-                        	<p  class="text-gray-600" >HK${{$data['unit_price']}}
-                            </p>
-	                            <p class="text-blue-600 text-sm p-1">
-	                            	{{ $data['title'] }} 
-	                            </p>	                			
-	                        
-	                    </center>
-	            </a>
-		    </div>
+			@if( count($data['images']) )
+			    <div class="sm:col-span-3 col-span-6 hover:opacity-75 sm:p-8">
+		            <a href="/{{app()->getLocale() . '/engagement-rings/' . $data['id'] }}" target="_blank">
+		                <img src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $data['images'][0]['image']}}" width="100%">
+		                    <center>
+		                        
+	                        	<p  class="text-gray-600" >HK${{$data['unit_price']}}
+	                            </p>
+		                            <p class="text-blue-600 text-sm p-1">
+		                            	{{ $data['title'] }} 
+		                            </p>	                			
+		                        
+		                    </center>
+		            </a>
+			    </div>
+			@endif
 	    @endforeach
 	</div>
 	                

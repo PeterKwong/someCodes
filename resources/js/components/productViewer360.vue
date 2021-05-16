@@ -10,8 +10,8 @@
 </style>
 
 <template>
-		<div class="row text-center">
-         	<div class="col-12">
+		<div class="grid grid-cols-12 ">
+         	<div class="col-span-12">
          		<canvas id="productViewer" @click="pauseOrStart()" class="flex" :width="width" :height="height" 
 
 	         		@mousedown="startDrag" @touchstart="startDrag"
@@ -51,8 +51,8 @@
         start: { x: 0, y: 0 },
 
 				width:1080,
-				height:720,
-				viewer:{ width:1080,heigh:720,progress:0,stage:'',},
+				height:600,
+				viewer:{ progress:0,stage:'',},
         rotatingTime:80,
 				interval:'',
         rotate:1,
@@ -62,7 +62,7 @@
 		},
 		methods:{
       pauseOrStart(){
-        if (this.rotate != 0) {
+        if (this.rotate > 0 || this.rotate < 0) {
           this.lastRotate = this.rotate
           this.rotate = 0 
         }else{
@@ -160,7 +160,7 @@
         img.src = this.folder + this.filename +  this.viewer.progress + '.jpg';
 
   			img.onload = function(){
-  			  ctx.drawImage(img,0, 0, 1080 ,720); // Or at whatever offset you like
+  			  ctx.drawImage(img,0, 0, 1080 ,600); // Or at whatever offset you like
   			};
         
         // console.log(this.viewer.progress)
