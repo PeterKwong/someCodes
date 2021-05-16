@@ -12,13 +12,28 @@
 <template>
 		<div class="row text-center">
          	<div class="col-12">
-         		<canvas id="productViewer" class="flex" @click="pause()" :width="width" :height="height" 
+         		<canvas id="productViewer" @click="pauseOrStart()" class="flex" :width="width" :height="height" 
 
 	         		@mousedown="startDrag" @touchstart="startDrag"
 			        @mousemove="onDrag" @touchmove="onDrag"
 			        @mouseup="stopDrag" @touchend="stopDrag" @mouseleave="stopDrag">
          			
          		</canvas>
+            <div class="flex justify-center bg-gray-300 opacity-50">
+              <div class="border border-white border-2 bg-black p-1 px-4 rounded-lg opacity-50 hover:bg-gray-700"  @click="viewerProgress(1)">
+                    <i class="hidden sm:block fa fa-chevron-left text-white fa-2x" aria-hidden="true" ></i>
+                    <i class="sm:hidden fa fa-chevron-left text-white " aria-hidden="true" ></i>
+              </div>
+              <div class="border border-white border-2 bg-black p-1 px-4 rounded-lg opacity-50 hover:bg-gray-700"  @click="pauseOrStart()">
+                    <i class="hidden sm:block fa fa-play text-white fa-2x" aria-hidden="true" ></i>
+                    <i class="sm:hidden fa fa-play text-white " aria-hidden="true" ></i>
+              </div>
+              <div class="border border-white border-2 bg-black p-1 px-4 rounded-lg opacity-50 hover:bg-gray-700"  @click="viewerProgress(-1)">
+                    <i class="hidden sm:block fa fa-chevron-right text-white fa-2x" aria-hidden="true" ></i>
+                    <i class="sm:hidden fa fa-chevron-right text-white " aria-hidden="true" ></i>
+              </div>
+            </div>
+
          	</div>         		
 		</div>
 </template>
@@ -26,7 +41,7 @@
 <script type="text/javascript">
 
 	export default {
-		props: ['folder', 'filename', 'size','rotate'],
+		props: ['folder', 'filename', 'size'],
 		data(){
 			return {
 				dragging: false,
@@ -40,16 +55,24 @@
 				viewer:{ width:1080,heigh:720,progress:0,stage:'',},
         rotatingTime:80,
 				interval:'',
+        rotate:1,
+        lastRotate:0,
 
 			}
 		},
 		methods:{
-      pause(){
-        if (this.interval != '') {
-          this.interval = ''
+      pauseOrStart(){
+        if (this.rotate != 0) {
+          this.lastRotate = this.rotate
+          this.rotate = 0 
         }else{
-           this.setRotation(this.rotate)
+          this.rotate = this.lastRotate
         }
+      },
+      viewerProgress(step){
+          this.lastRotate = this.rotate
+          this.rotate = 0 
+          this.viewer.progress += step
       },
 		  startDrag(e) {
         e = e.changedTouches ? e.changedTouches[0] : e;
@@ -60,7 +83,6 @@
       },
       onDrag(e) {
 
-        var moved = 0
         e = e.changedTouches ? e.changedTouches[0] : e;
         if (this.dragging) {
 
@@ -68,30 +90,30 @@
           this.c.y = 160 + (e.pagey - this.start.y);
 
           if (e.pageX > this.start.x ) {
-          	moved = -1
+          	this.rotate = -1
           	this.start.x =  e.pageX -1
 
           }
           if (e.pageX < this.start.x ) {
-          	moved = 1
+          	this.rotate = 1
           	this.start.x =  e.pageX + 1
 
           }
 
-          // this.setRotation(moved)
+          // this.setRotation(this.rotate)
 
-          this.rotateDirection(moved)
+          this.rotateDirection(this.rotate)
 
         }
 
       },
-      setRotation(moved){
+      setRotation(){
 
         this.clearInterval()
 
         this.interval = setInterval(() => {
           if (!this.dragging ) {
-            this.nextImage(moved)
+            this.nextImage(this.rotate)
           }
         }, this.rotatingTime)             
 
@@ -100,25 +122,25 @@
     		clearInterval(this.interval);
         // console.log('clear')
       },
-      nextImage(moved){
-        // console.log(moved)
-      	this.rotateDirection(moved)
+      nextImage(){
+        // console.log(this.rotate)
+      	this.rotateDirection(this.rotate)
 
       },
-      rotateDirection(moved){
+      rotateDirection(){
 
-        this.viewer.progress +=  moved
+        this.viewer.progress +=  this.rotate
 
         // console.log(this.viewer.progress)
 
         this.drawImg()
 
 
-        if (this.viewer.progress <= 0 && moved == -1) {
+        if (this.viewer.progress <= 0 && this.rotate == -1) {
         	this.viewer.progress = this.size -1
         }
 
-        if (this.viewer.progress >= this.size -1 && moved == 1) {
+        if (this.viewer.progress >= this.size -1 && this.rotate == 1) {
         	this.viewer.progress = 0
         }
 

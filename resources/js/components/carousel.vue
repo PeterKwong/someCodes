@@ -22,7 +22,7 @@
                    @click="currentSelectedItem(index,'upper')" v-if="img.thumb"  >
                 <img :src="images+img.thumb"  v-if="img.type=='img' || img.type=='video'"  class="w-full hover:opacity-75 rounded mx-auto p-2" :class="{'border border-primary rounded':currentUpperIndex == index}"></img>
                 <img :src="img.thumb"  v-if="img.type=='video360'"  class="w-full hover:opacity-75 rounded mx-auto p-2" :class="{'border border-primary rounded':currentUpperIndex == index}"></img>
-                <div class="absolute border border-white border-2 bg-black p-1 px-4 rounded-lg hover:bg-gray-700" style="top:35%; left:35%; opacity:50% ;" v-if="img.type=='video'" >
+                <div class="absolute border border-white border-2 bg-black p-1 px-4 rounded-lg hover:bg-gray-700" style="top:35%; left:35%; opacity:50% ;" v-if=" img.type=='video' || img.type=='video360' " >
                     <i class="hidden sm:block fa fa-play text-white fa-2x" aria-hidden="true" ></i>
                     <i class="sm:hidden fa fa-play text-white " aria-hidden="true" ></i>
                 </div>
@@ -37,7 +37,7 @@
                 <video-player :options="videoOptions" autoplay="false" v-if="currentItem.type=='video'"></video-player>
                 
                 <product-viewer v-if="currentItem.type=='video360'" :folder="folder + upperitems.video360 +'/'" 
-                :filename="fileName " :size="currentItem.size" :rotate="currentItem.rotate"></product-viewer>
+                :filename="fileName " :size="currentItem.size" ></product-viewer>
                 
                 <a v-if="chunkedItems[currentIndex]" :href="'/'+ mutualVar.langs.locale + '/customer-jewellery/' + chunkedItems[currentIndex].postId" target="_blank">
                     <p v-if="chunkedItems.length && !showUpper" class="bg-blue-300 hover:bg-blue-400 text-white text-center p-4">{{chunkedItems[currentIndex].text}}</p>
@@ -231,7 +231,7 @@ export default {
             var arr = []
 
             if (this.upperitems.video360) {
-                    arr.push({src:this.upperitems.video360, type:"video360", thumb:this.folder + this.upperitems.video360 +'/thm-0.jpg', size:120 , rotate:1})
+                    arr.push({src:this.upperitems.video360, type:"video360", thumb:this.folder + this.upperitems.video360 +'/thm-0.jpg', size:120 })
                 }
 
             if (!this.upperitems.video360 && this.upperitems.video) {

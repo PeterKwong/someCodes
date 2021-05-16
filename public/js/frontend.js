@@ -245,8 +245,7 @@ __webpack_require__.r(__webpack_exports__);
           src: this.upperitems.video360,
           type: "video360",
           thumb: this.folder + this.upperitems.video360 + '/thm-0.jpg',
-          size: 120,
-          rotate: 1
+          size: 120
         });
       }
 
@@ -585,8 +584,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['folder', 'filename', 'size', 'rotate'],
+  props: ['folder', 'filename', 'size'],
   data: function data() {
     return {
       dragging: false,
@@ -609,16 +623,24 @@ __webpack_require__.r(__webpack_exports__);
         stage: ''
       },
       rotatingTime: 80,
-      interval: ''
+      interval: '',
+      rotate: 1,
+      lastRotate: 0
     };
   },
   methods: {
-    pause: function pause() {
-      if (this.interval != '') {
-        this.interval = '';
+    pauseOrStart: function pauseOrStart() {
+      if (this.rotate != 0) {
+        this.lastRotate = this.rotate;
+        this.rotate = 0;
       } else {
-        this.setRotation(this.rotate);
+        this.rotate = this.lastRotate;
       }
+    },
+    viewerProgress: function viewerProgress(step) {
+      this.lastRotate = this.rotate;
+      this.rotate = 0;
+      this.viewer.progress += step;
     },
     startDrag: function startDrag(e) {
       e = e.changedTouches ? e.changedTouches[0] : e;
@@ -628,7 +650,6 @@ __webpack_require__.r(__webpack_exports__);
       document.body.style.cursor = 'ew-resize';
     },
     onDrag: function onDrag(e) {
-      var moved = 0;
       e = e.changedTouches ? e.changedTouches[0] : e;
 
       if (this.dragging) {
@@ -636,26 +657,26 @@ __webpack_require__.r(__webpack_exports__);
         this.c.y = 160 + (e.pagey - this.start.y);
 
         if (e.pageX > this.start.x) {
-          moved = -1;
+          this.rotate = -1;
           this.start.x = e.pageX - 1;
         }
 
         if (e.pageX < this.start.x) {
-          moved = 1;
+          this.rotate = 1;
           this.start.x = e.pageX + 1;
-        } // this.setRotation(moved)
+        } // this.setRotation(this.rotate)
 
 
-        this.rotateDirection(moved);
+        this.rotateDirection(this.rotate);
       }
     },
-    setRotation: function setRotation(moved) {
+    setRotation: function setRotation() {
       var _this = this;
 
       this.clearInterval();
       this.interval = setInterval(function () {
         if (!_this.dragging) {
-          _this.nextImage(moved);
+          _this.nextImage(_this.rotate);
         }
       }, this.rotatingTime);
     },
@@ -672,20 +693,20 @@ __webpack_require__.r(__webpack_exports__);
     }(function () {
       clearInterval(this.interval); // console.log('clear')
     }),
-    nextImage: function nextImage(moved) {
-      // console.log(moved)
-      this.rotateDirection(moved);
+    nextImage: function nextImage() {
+      // console.log(this.rotate)
+      this.rotateDirection(this.rotate);
     },
-    rotateDirection: function rotateDirection(moved) {
-      this.viewer.progress += moved; // console.log(this.viewer.progress)
+    rotateDirection: function rotateDirection() {
+      this.viewer.progress += this.rotate; // console.log(this.viewer.progress)
 
       this.drawImg();
 
-      if (this.viewer.progress <= 0 && moved == -1) {
+      if (this.viewer.progress <= 0 && this.rotate == -1) {
         this.viewer.progress = this.size - 1;
       }
 
-      if (this.viewer.progress >= this.size - 1 && moved == 1) {
+      if (this.viewer.progress >= this.size - 1 && this.rotate == 1) {
         this.viewer.progress = 0;
       }
     },
@@ -5665,7 +5686,7 @@ var render = function() {
                       })
                     : _vm._e(),
                   _vm._v(" "),
-                  img.type == "video"
+                  img.type == "video" || img.type == "video360"
                     ? _c(
                         "div",
                         {
@@ -5732,8 +5753,7 @@ var render = function() {
                     attrs: {
                       folder: _vm.folder + _vm.upperitems.video360 + "/",
                       filename: _vm.fileName,
-                      size: _vm.currentItem.size,
-                      rotate: _vm.currentItem.rotate
+                      size: _vm.currentItem.size
                     }
                   })
                 : _vm._e(),
@@ -6225,7 +6245,7 @@ var render = function() {
         attrs: { id: "productViewer", width: _vm.width, height: _vm.height },
         on: {
           click: function($event) {
-            return _vm.pause()
+            return _vm.pauseOrStart()
           },
           mousedown: _vm.startDrag,
           touchstart: _vm.startDrag,
@@ -6235,7 +6255,83 @@ var render = function() {
           touchend: _vm.stopDrag,
           mouseleave: _vm.stopDrag
         }
-      })
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-center bg-gray-300 opacity-50" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "border border-white border-2 bg-black p-1 px-4 rounded-lg opacity-50 hover:bg-gray-700",
+            on: {
+              click: function($event) {
+                return _vm.viewerProgress(1)
+              }
+            }
+          },
+          [
+            _c("i", {
+              staticClass:
+                "hidden sm:block fa fa-chevron-left text-white fa-2x",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "sm:hidden fa fa-chevron-left text-white ",
+              attrs: { "aria-hidden": "true" }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "border border-white border-2 bg-black p-1 px-4 rounded-lg opacity-50 hover:bg-gray-700",
+            on: {
+              click: function($event) {
+                return _vm.pauseOrStart()
+              }
+            }
+          },
+          [
+            _c("i", {
+              staticClass: "hidden sm:block fa fa-play text-white fa-2x",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "sm:hidden fa fa-play text-white ",
+              attrs: { "aria-hidden": "true" }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "border border-white border-2 bg-black p-1 px-4 rounded-lg opacity-50 hover:bg-gray-700",
+            on: {
+              click: function($event) {
+                return _vm.viewerProgress(-1)
+              }
+            }
+          },
+          [
+            _c("i", {
+              staticClass:
+                "hidden sm:block fa fa-chevron-right text-white fa-2x",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "sm:hidden fa fa-chevron-right text-white ",
+              attrs: { "aria-hidden": "true" }
+            })
+          ]
+        )
+      ])
     ])
   ])
 }
