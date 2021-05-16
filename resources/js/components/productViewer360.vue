@@ -12,7 +12,7 @@
 <template>
 		<div class="row text-center">
          	<div class="col-12">
-         		<canvas id="productViewer" class="flex" :width="width" :height="height" 
+         		<canvas id="productViewer" class="flex" @click="pause()" :width="width" :height="height" 
 
 	         		@mousedown="startDrag" @touchstart="startDrag"
 			        @mousemove="onDrag" @touchmove="onDrag"
@@ -44,6 +44,13 @@
 			}
 		},
 		methods:{
+      pause(){
+        if (this.rotatingTime == 80) {
+          this.rotatingTime = 1000000
+        }else{
+           this.rotatingTime = 80
+        }
+      },
 		  startDrag(e) {
         e = e.changedTouches ? e.changedTouches[0] : e;
         this.dragging = true;

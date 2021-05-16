@@ -613,6 +613,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    pause: function pause() {
+      if (this.rotatingTime == 80) {
+        this.rotatingTime = 1000000;
+      } else {
+        this.rotatingTime = 80;
+      }
+    },
     startDrag: function startDrag(e) {
       e = e.changedTouches ? e.changedTouches[0] : e;
       this.dragging = true;
@@ -6217,6 +6224,9 @@ var render = function() {
         staticClass: "flex",
         attrs: { id: "productViewer", width: _vm.width, height: _vm.height },
         on: {
+          click: function($event) {
+            return _vm.pause()
+          },
           mousedown: _vm.startDrag,
           touchstart: _vm.startDrag,
           mousemove: _vm.onDrag,
