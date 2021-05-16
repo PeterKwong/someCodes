@@ -190,7 +190,7 @@ class Index extends Component
  		}
 
 	     $this->model = $query->where('published',1)
-                        ->with('weddingRings.images')
+                        ->with(['images','weddingRings'])
 			            ->paginate($this->fetchData['per_page']);
 
         $data =  $this->model->toArray();
@@ -201,7 +201,7 @@ class Index extends Component
                 $data['data'][$k]['wedding_rings'][$key]['title'] = $d->title();
             }
         }
-
+        // dd($data);
         $this->model = $data ;
 
     }

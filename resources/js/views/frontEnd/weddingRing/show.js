@@ -77,9 +77,9 @@
 				.then((res)=>{
 					this.weddingRing = res.data.model
 					this.customerItems = res.data.posts.invoicePosts?res.data.posts.invoicePosts:[]
-					this.UpperWeddingRings()
+					// this.UpperWeddingRings()
 					// this.filterNotPostable(res.data.posts.invoicePosts)
-					this.assignCarouselItem()
+					// this.assignCarouselItem()
 					// this.LowerWeddingRings()
 				})
 			},
@@ -89,39 +89,21 @@
 							video360: null,
 					}
 
-				for (var i =0 ;this.weddingRing.wedding_rings[0].images.length > i; i++) {
-					obj.images.push(this.weddingRing.wedding_rings[0].images[i])
-					console.log(obj)
 
-					if (this.weddingRing.wedding_rings[1].images[i]) {
-					obj.images.push(this.weddingRing.wedding_rings[1].images[i])
-					}
+				if (this.weddingRing.images) {
+				obj.images.push(this.weddingRing.images)
 				}
-				if (this.weddingRing.wedding_rings[0].video) {
+				if (this.weddingRing.video) {
 					obj.video = []
-					obj.video.push(this.weddingRing.wedding_rings[0].video)
+					obj.video.push(this.weddingRing.video)
 				}
-				// console.log(this.weddingRing.wedding_rings[0].video360 == null)
-				if (this.weddingRing.wedding_rings[0].video360) {
+				console.log(this.weddingRing.video360)
+				if (this.weddingRing.video360) {
 					obj.video360 = []
-					obj.video360.push(this.weddingRing.wedding_rings[0].video360)
+					obj.video360.push(this.weddingRing.video360)
 				}
 				
 				return this.combinedUpperWeddingRings = obj
-			},
-			filterNotPostable(data){
-				var type = 'App/WeddingRing'
-				var id = this.weddingRing.id
-				var filteredData = []
-				// console.log(data)
-				for (var i = 0 ; data.length > i ; i++) {
-					if (data[i].postable_type == type && data[i].postable_id == id) {
-						console.log(data[i])
-						filteredData.push(data[i])
-					}
-				}
-
-				this.customerItems = filteredData
 			},
 			assignCarouselItem(){
 
@@ -130,6 +112,21 @@
 				this.carouselItem.items = this.customerItems.slice(0,1)
 
 			},
+			// filterNotPostable(data){
+			// 	var type = 'App/WeddingRing'
+			// 	var id = this.weddingRing.id
+			// 	var filteredData = []
+			// 	// console.log(data)
+			// 	for (var i = 0 ; data.length > i ; i++) {
+			// 		if (data[i].postable_type == type && data[i].postable_id == id) {
+			// 			console.log(data[i])
+			// 			filteredData.push(data[i])
+			// 		}
+			// 	}
+
+			// 	this.customerItems = filteredData
+			// },
+
 			// LowerWeddingRings(){ 
 			// 	var obj = []
 			// 	if (this.customerItems.wedding_rings[0].invoices.length > 0) {

@@ -71,7 +71,7 @@ class WeddingRingPairController extends Controller
 
     public function bladeShow($locale, $id)
     {
-      $weddingRings = WeddingRingPair::with(['weddingRings.texts'=>function($texts){
+      $weddingRings = WeddingRingPair::with(['images','weddingRings.texts'=>function($texts){
                     $texts->where('locale',app()->getLocale());
                 }])->findOrFail($id);
       // dd($weddingRings->weddingRings[0]->title());
@@ -83,7 +83,7 @@ class WeddingRingPairController extends Controller
       foreach ($weddingRings->weddingRings as $key => $tag) {
             $tags[] = $tag->tags();
       }
-
+      // dd($meta);
       return view('frontend.weddingRing.show', compact('meta', 'title' ,'weddingRings','tags'));
  
     }
@@ -110,7 +110,7 @@ class WeddingRingPairController extends Controller
     {
         $weddingRingIds = WeddingRing::weddingRingPairsFilter();                   
 
-        $weddingRingPair = WeddingRingPair::OrderBy('updated_at','desc')->whereIn('id',$weddingRingIds)->with('weddingRings.images');
+        $weddingRingPair = WeddingRingPair::OrderBy('updated_at','desc')->whereIn('id',$weddingRingIds)->with('images');
 
     	return response()
     		->json([
@@ -128,10 +128,7 @@ class WeddingRingPairController extends Controller
 
     public function show($id)
     {
-        $weddingRingPairs = WeddingRingPair::with(['weddingRings'=>function($q){
-                $q->where('published',1);
-            }
-            ,'weddingRings.images','weddingRings.texts'])->findOrFail($id);
+        $weddingRingPairs = WeddingRingPair::with(['weddingRings','images','weddingRings.texts'])->findOrFail($id);
 
         // dd($weddingRingPairs->weddingRings->pluck('id'));
         $posts = InvoicePost::where('published',1)
@@ -346,147 +343,148 @@ class WeddingRingPairController extends Controller
         // dd(print_r($request->all()));
 
         // dd($weddingRingPair->published);
-        $published = [0 => false, 1 => false];
+        
+        // $published = [0 => false, 1 => false];
 
 
-        $requestAll = array_slice($request->all(),0,2);
-        // dd($requestAll);
+        // $requestAll = array_slice($request->all(),0,2);
+        // // dd($requestAll);
 
 
-        foreach ($requestAll as $key=>$req) {
+        // foreach ($requestAll as $key=>$req) {
 
-            if ($req['published'] == 1) {
-                $published[$key] = true;
-            }
+        //     if ($req['published'] == 1) {
+        //         $published[$key] = true;
+        //     }
 
-            $weddingRingPair->unit_price = $weddingRingPair->unit_price +$req['unit_price'];
+        //     $weddingRingPair->unit_price = $weddingRingPair->unit_price +$req['unit_price'];
 
-            if (is_array($req)) {
+        //     if (is_array($req)) {
 
-                    $texts = [];
+        //             $texts = [];
                     
-                    // dd($req);
-                        foreach ($req['texts'] as $k=>$text) {
-                            if (isset($text['content'])) {
-                                // dd(print_r($text));
-                                Text::where('textable_id', $weddingRingPair->weddingRings[$key]->id)
-                                    ->where('textable_type', 'App\Models\WeddingRing')
-                                    ->where('locale', $text['locale'])
-                                    ->update(['content' => $text['content']]);
-                            }
+        //             // dd($req);
+        //                 foreach ($req['texts'] as $k=>$text) {
+        //                     if (isset($text['content'])) {
+        //                         // dd(print_r($text));
+        //                         Text::where('textable_id', $weddingRingPair->weddingRings[$key]->id)
+        //                             ->where('textable_type', 'App\Models\WeddingRing')
+        //                             ->where('locale', $text['locale'])
+        //                             ->update(['content' => $text['content']]);
+        //                     }
                             
-                        }
-                }
-            // dd(print_r($texts));
+        //                 }
+        //         }
+        //     // dd(print_r($texts));
 
-            $images =[];
+        //     $images =[];
 
-            // dd(print_r($req));
-            if (!empty($req['images'])) {
-                foreach ($req['images'] as $k=>$image) {
-                if (!empty($image['id'])) {
-                       if (!is_string($image['image'])&&!empty($image['image'])) {
-                            $oImg= Image::where('id', $image['id'])->get()->toArray();
-                            $imgFileName= ResizeImage::getFileName($image['image']);
+        //     // dd(print_r($req));
+        //     if (!empty($req['images'])) {
+        //         foreach ($req['images'] as $k=>$image) {
+        //         if (!empty($image['id'])) {
+        //                if (!is_string($image['image'])&&!empty($image['image'])) {
+        //                     $oImg= Image::where('id', $image['id'])->get()->toArray();
+        //                     $imgFileName= ResizeImage::getFileName($image['image']);
 
-                            // $image['image']->move(base_path('public/images'),$imgFileName);
-                            // var_dump(die($image['image']));
-                            ResizeImage::setLarge($imgFileName,$image['image']);
-                            ResizeImage::setThumb($imgFileName,$image['image']);
+        //                     // $image['image']->move(base_path('public/images'),$imgFileName);
+        //                     // var_dump(die($image['image']));
+        //                     ResizeImage::setLarge($imgFileName,$image['image']);
+        //                     ResizeImage::setThumb($imgFileName,$image['image']);
 
-                            Storage::disk('s3')->delete($this->imagePath .'/'. $oImg[0]['image']);
-                            Storage::disk('s3')->delete($this->imagePath .'/thm-'. $oImg[0]['image']);
+        //                     Storage::disk('s3')->delete($this->imagePath .'/'. $oImg[0]['image']);
+        //                     Storage::disk('s3')->delete($this->imagePath .'/thm-'. $oImg[0]['image']);
 
-                            // $image['image']->move(base_path('public/images'),$img);
-                            // ResizeImage::setLarge($img);
-                            // ResizeImage::setThumb($img);
-                            // File::delete(base_path('public/images/'. $oImg[0]['image']));
-                            // File::delete(base_path('public/images/thm-'. $oImg[0]['image']));
+        //                     // $image['image']->move(base_path('public/images'),$img);
+        //                     // ResizeImage::setLarge($img);
+        //                     // ResizeImage::setThumb($img);
+        //                     // File::delete(base_path('public/images/'. $oImg[0]['image']));
+        //                     // File::delete(base_path('public/images/thm-'. $oImg[0]['image']));
 
-                            Image::where('id', $image['id'])
-                                ->update(['image' => $imgFileName]);
-                        }   
-                        Image::where('id', $image['id'])
-                                ->update(['type' => $image['type']
-                                            ]);
+        //                     Image::where('id', $image['id'])
+        //                         ->update(['image' => $imgFileName]);
+        //                 }   
+        //                 Image::where('id', $image['id'])
+        //                         ->update(['type' => $image['type']
+        //                                     ]);
 
-                    }else{
-                        if (!empty($image['image'])){
+        //             }else{
+        //                 if (!empty($image['image'])){
 
-                            $imgFileName= ResizeImage::getFileName($image['image']);
+        //                     $imgFileName= ResizeImage::getFileName($image['image']);
 
-                            // $image['image']->move(base_path('public/images'),$imgFileName);
-                            // var_dump(die($image['image']));
-                            ResizeImage::setLarge($imgFileName,$image['image']);
-                            ResizeImage::setThumb($imgFileName,$image['image']);
+        //                     // $image['image']->move(base_path('public/images'),$imgFileName);
+        //                     // var_dump(die($image['image']));
+        //                     ResizeImage::setLarge($imgFileName,$image['image']);
+        //                     ResizeImage::setThumb($imgFileName,$image['image']);
 
 
-                            // $image['image']->move(base_path('public/images'),$img);
-                            // ResizeImage::setLarge($img);
-                            // ResizeImage::setThumb($img);
+        //                     // $image['image']->move(base_path('public/images'),$img);
+        //                     // ResizeImage::setLarge($img);
+        //                     // ResizeImage::setThumb($img);
 
-                            $images[] = new Image(['image' => $imgFileName,
-                                        'type' => $image['type']
-                                        ]);
-                        }
-                    }
+        //                     $images[] = new Image(['image' => $imgFileName,
+        //                                 'type' => $image['type']
+        //                                 ]);
+        //                 }
+        //             }
                 
-                }
-            }
+        //         }
+        //     }
             
-            // dd(print_r($images));
+        //     // dd(print_r($images));
             
 
-            if (!empty($req['video']) && !is_string($req['video'])) {
+        //     if (!empty($req['video']) && !is_string($req['video'])) {
 
-                $vid= ResizeImage::getFileName($req['video']);
+        //         $vid= ResizeImage::getFileName($req['video']);
 
-                if ($weddingRingPair->weddingRings[$key]->video) {
-                    Storage::disk('s3')->delete($this->videoPath.'/'.$weddingRingPair->weddingRings[$key]->video);
-                }
+        //         if ($weddingRingPair->weddingRings[$key]->video) {
+        //             Storage::disk('s3')->delete($this->videoPath.'/'.$weddingRingPair->weddingRings[$key]->video);
+        //         }
                 
-                $path = $req['video']->storeAs($this->videoPath, $vid, 's3');
-                // dd($path);
-                Storage::disk('s3')->setVisibility($path, 'public');  
+        //         $path = $req['video']->storeAs($this->videoPath, $vid, 's3');
+        //         // dd($path);
+        //         Storage::disk('s3')->setVisibility($path, 'public');  
 
-                $weddingRingPair->weddingRings[$key]->video = $vid;
-            }
+        //         $weddingRingPair->weddingRings[$key]->video = $vid;
+        //     }
             
-                // dd(Arr::except($req,['texts','images','video']));
-            $weddingRingPair->weddingRings[$key]->update(Arr::except($req,['texts','images','video','video360']));
-            $weddingRingPair->weddingRings[$key]->images()->saveMany($images);
+        //         // dd(Arr::except($req,['texts','images','video']));
+        //     $weddingRingPair->weddingRings[$key]->update(Arr::except($req,['texts','images','video','video360']));
+        //     $weddingRingPair->weddingRings[$key]->images()->saveMany($images);
 
-            // dd($reg['video360']);
-            if (!empty($req['video360']) && !is_string($req['video360'])) {
+        //     // dd($reg['video360']);
+        //     if (!empty($req['video360']) && !is_string($req['video360'])) {
 
-                if (!$weddingRingPair->weddingRings[$key]->video360) {
-                    $video360Code= ResizeImage::generateUniqueCode();
+        //         if (!$weddingRingPair->weddingRings[$key]->video360) {
+        //             $video360Code= ResizeImage::generateUniqueCode();
 
-                    $weddingRingPair->weddingRings[$key]->video360 = $video360Code;
-                    $weddingRingPair->weddingRings[$key]->save();
-                }else{
+        //             $weddingRingPair->weddingRings[$key]->video360 = $video360Code;
+        //             $weddingRingPair->weddingRings[$key]->save();
+        //         }else{
 
-                    Storage::disk('s3')->deleteDirectory($weddingRingPair->weddingRings[$key]->video360Path .'/'. $weddingRingPair->weddingRings[$key]->video360);
-                        // dd('deleted');                
-                }
+        //             Storage::disk('s3')->deleteDirectory($weddingRingPair->weddingRings[$key]->video360Path .'/'. $weddingRingPair->weddingRings[$key]->video360);
+        //                 // dd('deleted');                
+        //         }
 
-                $this->saveVideo360($req['video360'],$weddingRingPair->weddingRings[$key]->video360);
+        //         $this->saveVideo360($req['video360'],$weddingRingPair->weddingRings[$key]->video360);
 
-            }
+        //     }
 
 
-        }
+        // }
 
-        $published = array_filter( $published, function($data){ return $data == true ;} );
-        // dd($published);
+        // $published = array_filter( $published, function($data){ return $data == true ;} );
+        // // dd($published);
 
-        if (count($published) > 0) {
-            $weddingRingPair->published = 1;
-        }else{
-            $weddingRingPair->published = 0;
-        }
+        // if (count($published) > 0) {
+        //     $weddingRingPair->published = 1;
+        // }else{
+        //     $weddingRingPair->published = 0;
+        // }
 
-        $weddingRingPair->save();        
+        // $weddingRingPair->save();        
 
 
         return response()

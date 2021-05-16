@@ -39,7 +39,7 @@
                 <product-viewer v-if="currentItem.type=='video360'" :folder="folder + upperitems.video360 +'/'" 
                 :filename="fileName " :size="currentItem.size" :rotate="currentItem.rotate"></product-viewer>
                 
-                <a :href="'/'+ mutualVar.langs.locale + '/customer-jewellery/' + chunkedItems[currentIndex].postId" target="_blank">
+                <a v-if="chunkedItems[currentIndex]" :href="'/'+ mutualVar.langs.locale + '/customer-jewellery/' + chunkedItems[currentIndex].postId" target="_blank">
                     <p v-if="chunkedItems.length && !showUpper" class="bg-blue-300 hover:bg-blue-400 text-white text-center p-4">{{chunkedItems[currentIndex].text}}</p>
                     <p class="text-xl font-light bg-blue-400 text-white">{{ currentItem.title }}</p>
                     <p class="text-lg font-light bg-blue-400 text-white"> {{ currentItem.desc }} </p>

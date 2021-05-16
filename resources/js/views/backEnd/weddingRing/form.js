@@ -48,25 +48,6 @@ export default {
 		'$route' : 'fetchData'
 	},
 	computed:{
-		withSideStone(){
-			if (this.form.wedding_rings[0].ct != 0 ) {
-				this.form.wedding_rings[0].sideStone = 1
-				this.form.wedding_rings[1].sideStone = 1
-			}else{
-				this.form.wedding_rings[0].sideStone = 0
-				this.form.wedding_rings[1].sideStone = 0
-			}
-
-			if (this.form.wedding_rings[1].ct != 0 ) {
-				this.form.wedding_rings[0].sideStone = 1
-				this.form.wedding_rings[1].sideStone = 1
-			}else{
-				this.form.wedding_rings[0].sideStone = 0
-				this.form.wedding_rings[1].sideStone = 0
-			}
-			
-			
-		},
 		calculatedRoundedPrices(){
 			var prices = [
 						{price:0},

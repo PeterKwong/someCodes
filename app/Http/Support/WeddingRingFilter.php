@@ -87,8 +87,7 @@ trait WeddingRingFilter{
 	            ->whereIn('sideStone', explode(',',request()->sideStone))
 	            ->whereIn('gender', explode(',',request()->gender))
 	            ->whereIn('style', explode(',', request()->style))
-	            ->whereIn('metal', explode(',', request()->metal))
-	            ->where('published',1);
+	            ->whereIn('metal', explode(',', request()->metal));
 
 	    $weddingRingIds = $weddingRing->pluck('wedding_ring_pair_id')->toArray();
         $weddingRingIds = array_unique($weddingRingIds);

@@ -229,37 +229,38 @@
 	</div>
 
 
-
 	<div class="grid grid-cols-12">
 		@foreach($model['data'] as $data)
-		    <div class="sm:col-span-3 col-span-6 hover:opacity-75 sm:p-8">
-	            <a href="/{{app()->getLocale() . '/wedding-rings/' . $data['id'] }}" target="_blank">
-	                <img src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $data['wedding_rings'][0]['images'][0]['image']}}" width="100%">
-	                    <center>
-	                        <div class="grid grid-cols-12">
-	                            <div class="col-span-6 p-1">
-	                            	<p  class="text-gray-600" >HK${{$data['wedding_rings'][0]['unit_price']}} 
-		                            ({{__('weddingRing.' . $data['wedding_rings'][0]['gender'])}})
-		                        	</p>
-		                        	<p class="text-blue-600 text-sm">
-		                        		{{ $data['wedding_rings'][0]['title'] }} 
-		                        	</p>
+			@if( count($data['images']) )
+			    <div class="sm:col-span-3 col-span-6 hover:opacity-75 sm:p-8">
+		            <a href="/{{app()->getLocale() . '/wedding-rings/' . $data['id'] }}" target="_blank">
+		                <img src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $data['images'][0]['image']}}" width="100%">
+		                    <center>
+		                        <div class="grid grid-cols-12">
+		                            <div class="col-span-6 p-1">
+		                            	<p  class="text-gray-600" >HK${{$data['wedding_rings'][0]['unit_price']}} 
+			                            ({{__('weddingRing.' . $data['wedding_rings'][0]['gender'])}})
+			                        	</p>
+			                        	<p class="text-blue-600 text-sm">
+			                        		{{ $data['wedding_rings'][0]['title'] }} 
+			                        	</p>
+			                        </div>
+		                            <div class="col-span-6 p-1" > 
+		                            	<p  class="text-gray-600" >HK${{$data['wedding_rings'][1]['unit_price']}}
+			                            ({{__('weddingRing.' . $data['wedding_rings'][1]['gender'])}})
+			                            </p>
+			                            <p class="text-blue-600 text-sm">
+			                        		{{ $data['wedding_rings'][0]['title'] }}	
+			                            </p>
+			                        </div>
 		                        </div>
-	                            <div class="col-span-6 p-1" > 
-	                            	<p  class="text-gray-600" >HK${{$data['wedding_rings'][1]['unit_price']}}
-		                            ({{__('weddingRing.' . $data['wedding_rings'][1]['gender'])}})
-		                            </p>
-		                            <p class="text-blue-600 text-sm">
-		                        		{{ $data['wedding_rings'][0]['title'] }}	
-		                            </p>
-		                        </div>
-	                        </div>
-	                        
-	                       
-	                        
-	                    </center>
-	            </a>
-		    </div>
+		                        
+		                       
+		                        
+		                    </center>
+		            </a>
+			    </div>
+		   	@endif
 	    @endforeach
 
 

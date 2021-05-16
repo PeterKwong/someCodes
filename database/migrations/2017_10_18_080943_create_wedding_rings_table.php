@@ -22,7 +22,6 @@ class CreateWeddingRingsTable extends Migration
             $table->string('origin')->default('local');
             $table->string('brand')->nullable();
             $table->string('style')->nullable();
-            $table->boolean('sideStone')->default(false);
             $table->string('video')->nullable();
             $table->string('video360')->nullable();
             $table->integer('unit_price');

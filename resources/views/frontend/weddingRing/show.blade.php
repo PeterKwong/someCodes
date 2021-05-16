@@ -12,13 +12,13 @@
         <meta itemprop="name" content="{{ $title }} - {{trans('home.webTitle')}}"> 
         <meta itemprop="description" content="{{ $title }} {{trans('weddingRing.metaDescription4')}} - {{trans('home.meta2')}}"> 
         <meta itemprop="image" content="{{ config('global.cache.' . config('global.cache.live') ) 
-                                          . 'public/images/' . $meta->images[0]->image }}">
+                                          . 'public/images/' . $weddingRings->images[0]->image }}">
 
         <!-- Open Graph data --> 
         <meta property="og:title" content="{{ $title }} - {{trans('home.webTitle')}}" /> 
         <meta property="og:url" content="{{ url()->current() }}" />
         <meta property="og:image" content="{{ config('global.cache.' . config('global.cache.live') ) 
-                                          . 'public/images/' . $meta->images[0]->image }}" />
+                                          . 'public/images/' . $weddingRings->images[0]->image }}" />
         <meta property="og:description" content="{{ $title }}{{trans('weddingRing.metaDescription4')}} - {{trans('home.meta2')}}" /> 
         <meta property="og:site_name" content="{{ $title }} - {{trans('home.webTitle')}}" /> 
         <meta property="article:published_time" content="2013-09-17T05:59:00+01:00" /> 
@@ -47,7 +47,7 @@
                                 <div class="tile is-child">
                                         <figure class="image box" @click="carouselState=!carouselState">
               <!--                           <carousel @active="carouselState=!carouselState" :active="carouselState"  :height="'500'" :width="'100%'" :upperitems="combinedUpperWeddingRings" :items="combinedLowerWeddingRings" title="customer jewellries"></carousel> -->
-                                        <carousel @active="carouselState=!carouselState" :active="carouselState" :height="'500'" :width="'100%'" :upperitems="combinedUpperWeddingRings" :items="customerItems" title="customer jewellries"></carousel>
+                                        <carousel @active="carouselState=!carouselState" :active="carouselState" :height="'500'" :width="'100%'" :upperitems="weddingRing" :items="customerItems" title="customer jewellries"></carousel>
                                         </figure>
                                 </div>
                             </div>
