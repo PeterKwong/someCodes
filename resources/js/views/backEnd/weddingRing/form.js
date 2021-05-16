@@ -51,12 +51,14 @@ export default {
 						{price:0},
 						{price:0}
 						]
+			this.form.unit_price = 0
 			for (var i = 0; prices.length > i ; i++) {
 				this.prices[i].diamond = this.form.wedding_rings[i].ct * 8000
 				this.prices[i].metalPrice = adminVar.APIs.goldPrice['metal' + this.form.wedding_rings[i].metal]
 				this.prices[i].metal = this.form.wedding_rings[i].metal_weight * this.prices[i].metalPrice
 				prices[i].price = Math.round( (this.prices[i].diamond + this.prices[i].metal)/100 ) * 100
 				this.form.wedding_rings[i].unit_price = prices[i].price + parseInt(this.form.wedding_rings[i].cost)
+				this.form.unit_price += this.form.wedding_rings[i].unit_price
 			}
 			
 			return prices
