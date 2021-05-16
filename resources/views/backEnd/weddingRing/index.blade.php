@@ -20,8 +20,8 @@
 					<td><p class="truncate">@{{props.item.metal_weight}}</p></td>
 					<td>@{{props.item.unit_price}}</td>
 					<td v-if="props.item.texts[0]">@{{props.item.texts[0].content}}</td>
-					<td><img width="256" :src="props.item.images.length > 0 ? 
-							adminVar.storage[adminVar.storage.live] + 'public/images/'+ props.item.images[0].image:'' "></td>
+					<td><img width="256" :src="props.item.wedding_ring_pair.images.length > 0 ? 
+							adminVar.storage[adminVar.storage.live] + 'public/images/'+ props.item.wedding_ring_pair.images[0].image:'' "></td>
 					<td>@{{props.item.published}}</td>
 					<td>@{{props.item.created_at}}</td>
 				</tr>

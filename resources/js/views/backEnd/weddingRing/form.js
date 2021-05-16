@@ -1,12 +1,9 @@
 
-import Vue from 'vue'
-import {get, post, put} from '../../../helpers/api'
 import {toMulipartedForm} from '../../../helpers/form'
 import ImageUpload from '../../../components/ImageUpload.vue'
 import VideoUpload from '../../../components/VideoUpload.vue'
 import UploadMultiImage from '../../../components/UploadMultiImage.vue'
 
-import { transJs } from '../../../helpers/transJs'
 import langs from '../../../langs/weddingRings'
 
 
@@ -20,6 +17,7 @@ export default {
 	data(){
 		return {
 			form:'',
+			adminVar,
 			isProcessing: false,
 			langs,
 			errors: {},
@@ -69,8 +67,8 @@ export default {
 		fetchData(){
 			get(this.initialize)
 				.then((response)=>{
-					Vue.set(this.$data, 'form', response.data.form)
-					Vue.set(this.$data, 'option', response.data.option)
+					this.$data.form = response.data.form
+					this.$data.option = response.data.option
 					adminVar.form = this.form
 				})
 				.catch(function(error){

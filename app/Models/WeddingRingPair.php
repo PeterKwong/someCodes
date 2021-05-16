@@ -13,7 +13,7 @@ class WeddingRingPair extends Model
 	
 	protected $fillable =[
 	'id','texts' ,'images', 
-    'published', 'video', 'video360', 
+    'published', 'video', 'video360', 'unit_price',
 	];
 	
     public function weddingRings(){

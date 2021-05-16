@@ -156,7 +156,7 @@ trait WeddingRingFilter{
 						}
 					}
 				})
-				->with('texts','images')
+				->with('texts','images','weddingRingPair.images')
 				->paginate($request->per_page);
 
 	}

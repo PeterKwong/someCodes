@@ -238,14 +238,6 @@
 							</div>
 					</div>
 
-					<div class="col">
-							<div class="box" v-if="form.video360">
-								<label> video 360</label>
-								<p >@{{form.video360[0]}}</p>
-								<small class="error__control" v-if="errors.cover">@{{errors.cover[0]}}</small>
-							</div>
-					</div>
-
 					
 				</div>		
 
@@ -265,11 +257,18 @@
 		</form>
 	</div>
 
-	<div class="row">
-       
-        <div class="col-12">
-		<upload-multi-image></upload-multi-image>
-		</div>
-	</div>
+						<div class="row">
+					        <div class="col">
+					        	<div class="box" v-if="form.video360">
+					        		<center>
+										<label> video 360</label>
+										<p >@{{form.video360[0]}}</p>
+										<small class="error__control" v-if="errors.cover">@{{errors.cover[0]}}</small>
+										<upload-multi-image></upload-multi-image>
+									</center>
+								</div>
+							</div>
+						</div>
+						
 
    @endSection

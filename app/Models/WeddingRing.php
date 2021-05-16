@@ -52,7 +52,7 @@ class WeddingRing extends Model
 	    
 	    public function weddingRingPair()
 	    {
-    		return $this->belongsToMany(WeddingRingPair::class);
+    		return $this->belongsTo('App\Models\WeddingRingPair');
     	}
         public function title(){
 

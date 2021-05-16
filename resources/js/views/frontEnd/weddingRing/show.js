@@ -83,35 +83,35 @@
 					// this.LowerWeddingRings()
 				})
 			},
-			UpperWeddingRings(){ 
-				var obj = {images: [],
-							video: null,
-							video360: null,
-					}
+			// UpperWeddingRings(){ 
+			// 	var obj = {images: [],
+			// 				video: null,
+			// 				video360: null,
+			// 		}
 
 
-				if (this.weddingRing.images) {
-				obj.images.push(this.weddingRing.images)
-				}
-				if (this.weddingRing.video) {
-					obj.video = []
-					obj.video.push(this.weddingRing.video)
-				}
-				console.log(this.weddingRing.video360)
-				if (this.weddingRing.video360) {
-					obj.video360 = []
-					obj.video360.push(this.weddingRing.video360)
-				}
+			// 	if (this.weddingRing.images) {
+			// 	obj.images.push(this.weddingRing.images)
+			// 	}
+			// 	if (this.weddingRing.video) {
+			// 		obj.video = []
+			// 		obj.video.push(this.weddingRing.video)
+			// 	}
+			// 	console.log(this.weddingRing.video360)
+			// 	if (this.weddingRing.video360) {
+			// 		obj.video360 = []
+			// 		obj.video360.push(this.weddingRing.video360)
+			// 	}
 				
-				return this.combinedUpperWeddingRings = obj
-			},
-			assignCarouselItem(){
+			// 	return this.combinedUpperWeddingRings = obj
+			// },
+			// assignCarouselItem(){
 
-				this.carouselItem.active = this.carouselState
-				this.carouselItem.upperitems = this.weddingRing
-				this.carouselItem.items = this.customerItems.slice(0,1)
+			// 	this.carouselItem.active = this.carouselState
+			// 	this.carouselItem.upperitems = this.weddingRing
+			// 	this.carouselItem.items = this.customerItems.slice(0,1)
 
-			},
+			// },
 			// filterNotPostable(data){
 			// 	var type = 'App/WeddingRing'
 			// 	var id = this.weddingRing.id
