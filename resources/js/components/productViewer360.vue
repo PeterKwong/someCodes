@@ -45,10 +45,10 @@
 		},
 		methods:{
       pause(){
-        if (this.rotatingTime == 80) {
-          this.rotatingTime = 1000000
+        if (this.interval != '') {
+          this.interval = ''
         }else{
-           this.rotatingTime = 80
+           this.setRotation(this.rotate)
         }
       },
 		  startDrag(e) {

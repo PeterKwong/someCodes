@@ -614,10 +614,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     pause: function pause() {
-      if (this.rotatingTime == 80) {
-        this.rotatingTime = 1000000;
+      if (this.interval != '') {
+        this.interval = '';
       } else {
-        this.rotatingTime = 80;
+        this.setRotation(this.rotate);
       }
     },
     startDrag: function startDrag(e) {
