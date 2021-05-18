@@ -67,11 +67,11 @@ export default {
 		transJs,
 	},
 	computed: {
-		localeHref(){
+		// localeHref(){
 			
-			return window.location.pathname.slice(0,4)
+		// 	return window.location.pathname.slice(0,4)
 				
-		},
+		// },
 
 	},
 	methods: {
@@ -91,7 +91,7 @@ export default {
 				if (res.data.diamond.video_link) {
 					this.selectingShowType = 'video'					
 				}
-				mutualVar.viewer.src = this.diamond.video_link.includes('http')?this.diamond.video_link.replace('http','https'):this.diamond.video_link 
+				// mutualVar.viewer.src = this.diamond.video_link.includes('http')?this.diamond.video_link.replace('http','https'):this.diamond.video_link 
 
 			})
 			get(`/api/diamondsLoadingCert/${window.location.pathname.slice(23)}`)

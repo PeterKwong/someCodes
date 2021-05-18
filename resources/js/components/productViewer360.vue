@@ -70,7 +70,7 @@
         }
       },
       viewerProgress(step){
-          this.lastRotate = this.rotate
+          this.lastRotate = step
           this.rotate = 0 
           this.viewer.progress += step
       },
@@ -178,7 +178,6 @@
 		mounted(){
 			this.drawImg()
       this.setRotation(this.rotate)
-
 		}
 	
 	}

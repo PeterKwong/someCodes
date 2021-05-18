@@ -57,7 +57,7 @@
                                 <img class="w-full" :src="storageURL + 'images/' + diamond.id + '.jpg' " ></img>
                             </div>
                             <div v-if=" selectingShowType == 'video' ">
-                                <iframe :src=" '/redirect?url=' + diamond.video_link" width="100%" height="700" ></iframe>
+                                <iframe :src="diamond.video_link" width="100%" height="700" ></iframe>
                             </div>
                             <div v-if="diamond.plot && selectingShowType == 'plot' ">
                                 <img class="w-full" :src="storageURL + 'plots/' + diamond.id + '.jpg' "  width="100%" height="auto"></img>
@@ -253,7 +253,7 @@
                         {{trans('diamondSearch.caratDescription1')}}
                     </p1>
                                        
-                    <a class="text-blue-400" :href=" localeHref+ 'education-diamond-grading/4cs/carat/'">
+                    <a class="text-blue-400" href="/{{app()->getLocale()}}/education-diamond-grading/4cs/carat/">
                         {{trans('diamondSearch.Learn More')}}
                     </a>
                                        
@@ -295,7 +295,7 @@
                             <span class="text-white">
                                 {{trans('diamondSearch.clarityDescription')}}?
                                 <br>
-                                <a class="text-blue-400" :href="localeHref+ 'education-diamond-grading/4cs/clarity/'">
+                                <a class="text-blue-400" href="/{{app()->getLocale()}}/education-diamond-grading/4cs/clarity/">
                                     {{trans('diamondSearch.Learn More')}}
                                 </a>
                             </span>
@@ -353,7 +353,7 @@
 
                                 <center>
                                     {{trans('diamondSearch.Want to learn even more about colour')}}?
-                                    <a class="text-blue-400" :href=" localeHref+ 'education-diamond-grading/4cs/color/'">
+                                    <a class="text-blue-400" href="/{{app()->getLocale()}}/education-diamond-grading/4cs/color/">
                                     {{trans('diamondSearch.Learn More')}}
                                     </a>
                                     </center>
@@ -402,7 +402,7 @@
                             <br>
                             </span>
                             <span class="text-white">{{trans('diamondSearch.Want to learn even more about cut')}}? 
-                               <a class="text-blue-400" :href=" localeHref+ 'education-diamond-grading/4cs/cut/'">{{__('diamondSearch.Learn More')}}<br>
+                               <a class="text-blue-400" href="/{{app()->getLocale()}}/education-diamond-grading/4cs/cut/">{{__('diamondSearch.Learn More')}}<br>
                                </a>
                             </span>
                             <span class="text-white">
