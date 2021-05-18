@@ -99,9 +99,9 @@ trait DiamondExtraFunctions{
   	          if ( !$certFileExisted || !$plotFileExisted ) {
   	            $url = $this->cert_link;
   	            // dd(print_r($url));
-    	            if (strpos($url, 'www.diamondselections.com')) {
-    	              $url = file_get_contents($this->cert_link);
-    	            }
+    	            // if (strpos($url, 'www.diamondselections.com')) {
+    	            //   $url = file_get_contents($this->cert_link);
+    	            // }
                   if (strpos($url, 'myapps.gia.edu/ReportCheckPOC/') || !strpos($url, 'http')) {
                     return;
                   }
