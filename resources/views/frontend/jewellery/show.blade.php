@@ -44,7 +44,7 @@
 
                     <div class="grid grid-cols-12 p-2">
 
-                    <div class="col-span-12 sm:col-span-7">
+                        <div class="col-span-12 sm:col-span-7">
                             <div class=" box">
                                     <figure class="image" @click="carouselState=!carouselState">
                                     <keep-alive>
@@ -54,77 +54,118 @@
                         </div>
 
 
-                    <div class="col-span-12 sm:col-span-5">
-                        <div class="p-4 box">
-                            
-                            <div class="">
-                            <article>
-                                <center>
-                                  <x-appointment v-if="appointmentState"/>
-                          
-                                </center>
-                                <br>
-                                <p>
-                                {{trans('jewellery.For more detailed information')}}, 
-                                <br>
-                                <a @click="appointmentState=!appointmentState">{{trans('jewellery.Make Appointment')}}</a> or <a href="{{app()->getLocale()}}/about-us">{{trans('jewellery.contact us')}}</a> {{trans('jewellery.for further')}}：
-                                </p>
-                            </article>
+                        <div class="col-span-12 sm:col-span-5">
+                            <div class="p-4 box">
+                                
+                                <article>
+                                    <center>
+                                      <x-appointment v-if="appointmentState"/>
+                              
+                                    </center>
+                                    <br>
+                                    <p>
+                                    {{trans('jewellery.For more detailed information')}}, 
+                                    <br>
+                                    <a @click="appointmentState=!appointmentState">{{trans('jewellery.Make Appointment')}}</a> or <a href="{{app()->getLocale()}}/about-us">{{trans('jewellery.contact us')}}</a> {{trans('jewellery.for further')}}：
+                                    </p>
+                                </article>
+                                
+                                <article class="">
+
+                                        <div class="grid grid-cols-12 border-b p-2 font-semibold sm:text-lg">
+                                            <div class="col-span-6">{{__('jewellery.Jewellery Info')}}</div>
+                                        </div>
+                                        <div class="grid grid-cols-12 border-b p-2 font-light">
+                                            <div class="col-span-6">{{__('jewellery.Unit Price')}}</div>
+                                            <div class="col-span-6">${{ $jewellery->unit_price }}</div>
+                                        </div>
+                                        <div class="grid grid-cols-12 border-b p-2 font-light">
+                                            <div class="col-span-6">{{__('jewellery.Type')}}</div>
+                                            <div class="col-span-6">{{ __('jewellery.' . $jewellery->type) }}</div>
+                                        </div>
+                                        <div class="grid grid-cols-12 border-b p-2 font-light">
+                                            <div class="col-span-6">{{__('jewellery.Gemstone')}}</div>
+                                            <div class="col-span-6">{{ __('jewellery.' . $jewellery->gemstone) }}</div>
+                                        </div>
+                                        <div class="grid grid-cols-12 border-b p-2 font-light">
+                                            <div class="col-span-6">{{__('jewellery.Metal')}}</div>
+                                            <div class="col-span-6">{{ __('jewellery.' . $jewellery->metal) }}</div>
+                                        </div>
+                                        <div class="grid grid-cols-12 border-b p-2 font-light">
+                                            <div class="col-span-6">{{__('jewellery.Side Stone')}}</div>
+                                            <div class="col-span-6">{{__('engagementRing.Around')}} {{ $jewellery->ct}} {{trans('jewellery.ct')}}</div>
+                                        </div>
+                                        <div class="grid grid-cols-12 border-b p-2 font-semibold sm:text-lg">
+                                            <div class="col-span-6">{{__('jewellery.More Details')}}</div>
+                                        </div>
+                                        <div class="grid grid-cols-12 border-b p-2 font-light">
+                                            <div class="col-span-6">{{__('jewellery.Stock')}}</div>
+                                            <div class="col-span-6">{{ $jewellery->stock}}</div>
+                                        </div>
+                                        <div class="grid grid-cols-12 border-b p-2 font-light">
+                                            <div class="col-span-6">{{__('jewellery.Name')}}</div>
+                                            <div class="col-span-6" v-if="jewellery.texts">{{ $title }}</div>
+                                        </div>
+                                        <div class="grid grid-cols-12 border-b p-2 font-light">
+                                            <div class="col-span-6">{{__('jewellery.Description')}}</div>
+                                            <div class="col-span-6">{{ $tags }}</div>
+                                        </div>
+                               
+                                </article>
+
+                                
                             </div>
-                            
-                            <article class="">
-
-                                    <div class="grid grid-cols-12 border-b p-2 font-semibold sm:text-lg">
-                                        <div class="col-span-6">{{__('jewellery.Jewellery Info')}}</div>
-                                    </div>
-                                    <div class="grid grid-cols-12 border-b p-2 font-light">
-                                        <div class="col-span-6">{{__('jewellery.Unit Price')}}</div>
-                                        <div class="col-span-6">${{ $jewellery->unit_price }}</div>
-                                    </div>
-                                    <div class="grid grid-cols-12 border-b p-2 font-light">
-                                        <div class="col-span-6">{{__('jewellery.Type')}}</div>
-                                        <div class="col-span-6">{{ __('jewellery.' . $jewellery->type) }}</div>
-                                    </div>
-                                    <div class="grid grid-cols-12 border-b p-2 font-light">
-                                        <div class="col-span-6">{{__('jewellery.Gemstone')}}</div>
-                                        <div class="col-span-6">{{ __('jewellery.' . $jewellery->gemstone) }}</div>
-                                    </div>
-                                    <div class="grid grid-cols-12 border-b p-2 font-light">
-                                        <div class="col-span-6">{{__('jewellery.Metal')}}</div>
-                                        <div class="col-span-6">{{ __('jewellery.' . $jewellery->metal) }}</div>
-                                    </div>
-                                    <div class="grid grid-cols-12 border-b p-2 font-light">
-                                        <div class="col-span-6">{{__('jewellery.Side Stone')}}</div>
-                                        <div class="col-span-6">{{__('engagementRing.Around')}} {{ $jewellery->ct}} {{trans('jewellery.ct')}}</div>
-                                    </div>
-                                    <div class="grid grid-cols-12 border-b p-2 font-semibold sm:text-lg">
-                                        <div class="col-span-6">{{__('jewellery.More Details')}}</div>
-                                    </div>
-                                    <div class="grid grid-cols-12 border-b p-2 font-light">
-                                        <div class="col-span-6">{{__('jewellery.Stock')}}</div>
-                                        <div class="col-span-6">{{ $jewellery->stock}}</div>
-                                    </div>
-                                    <div class="grid grid-cols-12 border-b p-2 font-light">
-                                        <div class="col-span-6">{{__('jewellery.Name')}}</div>
-                                        <div class="col-span-6" v-if="jewellery.texts">{{ $title }}</div>
-                                    </div>
-                                    <div class="grid grid-cols-12 border-b p-2 font-light">
-                                        <div class="col-span-6">{{__('jewellery.Description')}}</div>
-                                        <div class="col-span-6">{{ $tags }}</div>
-                                    </div>
-                           
-                            </article>
-
-                            
                         </div>
+                        
                     </div>
-
-
                 </div>
                 
             </div>
             
         </div>
+
+        <div class="p-4 text-center border-b">
+          <p class="text-2xl">{{__('customerJewellery.Cusomter Jewellery')}} {{__('customerJewellery.May Interested')}}</p>
+          @livewire('customer-jewellery.post-fetch-row',
+            ['draggableId'=>'draggableItem0' , 'type'=>'Jewellery', 'upperType'=>'style', 'query'=> $jewellery->type ])
+          <a class="btn btn-primary text-white text-lg" href="/{{app()->getlocale()}}/customer-jewellery" target="_blank">{{__('engagementRing.More')}}</a>
+
+          <script type="text/javascript">            
+
+          function draggableItem(item) {
+              let isDown = false;
+              let startX;
+              let scrollLeft;
+
+              item.addEventListener('mousedown', (e) => {
+                isDown = true;
+                item.classList.add('active');
+                startX = e.pageX - item.offsetLeft;
+                scrollLeft = item.scrollLeft;
+              });
+              item.addEventListener('mouseleave', () => {
+                isDown = false;
+                item.classList.remove('active');
+              });
+              item.addEventListener('mouseup', () => {
+                isDown = false;
+                item.classList.remove('active');
+              });
+              item.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - item.offsetLeft;
+                const walk = (x - startX) * 3; //scroll-fast
+                item.scrollLeft = scrollLeft - walk;
+              });
+          }
+          
+          const draggableItem0 = document.getElementById('draggableItem0');
+          draggableItem(draggableItem0)
+         
+        </script>
+      </div>
+
 
     @endSection
 
