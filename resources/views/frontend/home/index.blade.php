@@ -576,59 +576,74 @@
 
       </div>
 
-    
-      <script type="text/javascript">
-        const slider0 = document.getElementById('draggable-items-0');
+<!--     <script type="text/javascript">
+        const sliders =[]
+        sliders.push({item:document.getElementById('draggable-items-0')})
+        sliders.push({item:document.getElementById('draggable-items-1')})
         let isDown = false;
         let startX;
         let scrollLeft;
+        console.log(sliders)
+        for (var i = 0 ; sliders.length >i ; i++) {
+          sliders[i].item.addEventListener('mousedown', (e) => {
+            isDown = true;
+            sliders[i].item.classList.add('active');
+            startX = e.pageX - sliders[i].item.offsetLeft;
+            scrollLeft = sliders[i].item.scrollLeft;
+          });
+          sliders[i].item.addEventListener('mouseleave', () => {
+            isDown = false;
+            sliders[i].item.classList.remove('active');
+          });
+          sliders[i].item.addEventListener('mouseup', () => {
+            isDown = false;
+            sliders[i].item.classList.remove('active');
+          });
+          sliders[i].item.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - sliders[i].item.offsetLeft;
+            const walk = (x - startX) * 3; //scroll-fast
+            sliders[i].item.scrollLeft = scrollLeft - walk;
+          });
+        }        
+      </script> -->
+    
+      <script type="text/javascript">
 
-        slider0.addEventListener('mousedown', (e) => {
-          isDown = true;
-          slider0.classList.add('active');
-          startX = e.pageX - slider0.offsetLeft;
-          scrollLeft = slider0.scrollLeft;
-        });
-        slider0.addEventListener('mouseleave', () => {
-          isDown = false;
-          slider0.classList.remove('active');
-        });
-        slider0.addEventListener('mouseup', () => {
-          isDown = false;
-          slider0.classList.remove('active');
-        });
-        slider0.addEventListener('mousemove', (e) => {
-          if(!isDown) return;
-          e.preventDefault();
-          const x = e.pageX - slider0.offsetLeft;
-          const walk = (x - startX) * 3; //scroll-fast
-          slider0.scrollLeft = scrollLeft - walk;
-        });
-        
-        const slider1 = document.getElementById('draggable-items-1');
+        function draggableItem(item) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
 
-        slider1.addEventListener('mousedown', (e) => {
-          isDown = true;
-          slider1.classList.add('active');
-          startX = e.pageX - slider1.offsetLeft;
-          scrollLeft = slider1.scrollLeft;
-        });
-        slider1.addEventListener('mouseleave', () => {
-          isDown = false;
-          slider1.classList.remove('active');
-        });
-        slider1.addEventListener('mouseup', () => {
-          isDown = false;
-          slider1.classList.remove('active');
-        });
-        slider1.addEventListener('mousemove', (e) => {
-          if(!isDown) return;
-          e.preventDefault();
-          const x = e.pageX - slider1.offsetLeft;
-          const walk = (x - startX) * 3; //scroll-fast
-          slider1.scrollLeft = scrollLeft - walk;
-        });
+            item.addEventListener('mousedown', (e) => {
+              isDown = true;
+              item.classList.add('active');
+              startX = e.pageX - item.offsetLeft;
+              scrollLeft = item.scrollLeft;
+            });
+            item.addEventListener('mouseleave', () => {
+              isDown = false;
+              item.classList.remove('active');
+            });
+            item.addEventListener('mouseup', () => {
+              isDown = false;
+              item.classList.remove('active');
+            });
+            item.addEventListener('mousemove', (e) => {
+              if(!isDown) return;
+              e.preventDefault();
+              const x = e.pageX - item.offsetLeft;
+              const walk = (x - startX) * 3; //scroll-fast
+              item.scrollLeft = scrollLeft - walk;
+            });
+        }
 
+        const draggable0 = document.getElementById('draggable-items-0');
+        draggableItem(draggable0)
+        const draggable1 = document.getElementById('draggable-items-1');
+        draggableItem(draggable1)
+        
       </script>
 
     @livewire('notification.contact')

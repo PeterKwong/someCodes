@@ -33,23 +33,23 @@
                           <center>
                             <p class="title is-5">{{__('customerMoment.Product Video')}}</p>     
 
-                @if( count($meta->images) )
+                                @if( count($meta->images) )
 
-                    <div class="flex">
-                        <div class="w-full h-full">  
-                            <video
-                            id="invoice-post-1"
-                            class="video-js vjs-fluid vjs-big-play-centered"
-                            controls
-                            preload="auto"
-                            poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $meta->images[0]->image}}"
-                            data-setup='{"fluid": true}'
-                            >
-                            <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $meta->video}}" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                @endif
+                                    <div class="flex">
+                                        <div class="w-full h-full">  
+                                            <video
+                                            id="invoice-post-1"
+                                            class="video-js vjs-fluid vjs-big-play-centered"
+                                            controls
+                                            preload="auto"
+                                            poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $meta->images[0]->image}}"
+                                            data-setup='{"fluid": true}'
+                                            >
+                                            <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $meta->video}}" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    </div>
+                                @endif
                             </center>
                                 
                             <div>
@@ -109,7 +109,7 @@
 		                        <p>
 		                        {{trans('diamondSearch.For more detailed information, can reach GIA website query')}}：
 		                        </p>
-		                        <a href="https://www.gia.edu/report-check?reportno={{$diamond['certificate']}}">
+		                        <a target="_blank" href="https://www.gia.edu/report-check?reportno={{$diamond['certificate']}}">
 		                            <div class="level">
 		                            <figure class="image">
 		                                <img class="w-full" src="https://www.gia.edu/onlineopinionV5/GIA-Logo.png">
@@ -125,7 +125,7 @@
 		                        <p>
 		                        {{trans('diamondSearch.For more detailed information, can reach IGI website query')}}：
 		                        </p>
-		                        <a href="https://www.igiworldwide.com/verify.php?r={{$diamond['certificate']}}">
+		                        <a target="_blank" href="https://www.igiworldwide.com/verify.php?r={{$diamond['certificate']}}">
 		                            <div class="level">
 		                            <figure class="image">
 		                                <img class="w-full" src="https://www.igiworldwide.com/igi/images/logo-retina1.png">

@@ -139,6 +139,8 @@ return [
     'timeless ones' => 'Timeless Ones',
     'Timeless Ones' => 'Timeless Ones',
     'all' => '全部',
+    'May Interested' => '可能感兴趣',
+    'Cusomter Jewellery' => '客人首饰',
 
 
     '1' => '是',

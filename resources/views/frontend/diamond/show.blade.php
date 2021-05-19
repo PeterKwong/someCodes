@@ -35,12 +35,10 @@
     @endSection
 
     @section('content')
-        <div id="diamondViewerShow" class=" sm:px-16 md:px-32">
-
-            <div class="flex justify-center p-6" >
-                    <center> 
-                    <h1 class="text-gray-600 sm:text-2xl">{{ $title }}</h1>                        
-                    </center>
+    <div class=" sm:px-4 md:px-8">        
+        <div id="diamondViewerShow">
+            <div class="flex justify-center p-6 text-center" >
+                <h1 class="text-gray-600 sm:text-2xl">{{ $title }}</h1>                        
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 p-1 sm:px-6">
@@ -216,33 +214,33 @@
                                 <div class="col-span-6 p-2 border-b font-light">{{$diamond->certificate}}</div>
                             </div>
                        
-
-
-                </div>
-            </div>
-
-            <div class="grid grid-cols-12">
-                <div class="col-span-12 p-4">
-                    <div v-if="!loadingStatus.cert">
-                        <center>
-                            <img class="w-1/3" src="/images/front-end/loader.gif" >
-                        </center>
+                        </div>
                     </div>
 
-                    <div v-if="loadingStatus.cert" class="w-full" >
-                        <img class="w-full" :src="storageURL + 'certs/' + diamond.id + '.jpg' "  v-if="diamond.cert_cache">
+                    <div class="grid grid-cols-12">
+                        <div class="col-span-12 p-4">
+                            <div v-if="!loadingStatus.cert">
+                                <center>
+                                    <img class="w-1/3" src="/images/front-end/loader.gif" >
+                                </center>
+                            </div>
+
+                            <div v-if="loadingStatus.cert" class="w-full" >
+                                <img class="w-full" :src="storageURL + 'certs/' + diamond.id + '.jpg' "  v-if="diamond.cert_cache">
+                            </div>
+
+
+                        </div>
                     </div>
-
-
                 </div>
-            </div>
+
 
 
             <div class="flex justify-center p-4">
                 <div class="flex-auto">
         
                     <h3 class="sm:text-2xl">
-                        {{trans('diamondSearch.DIAMOND SIZE')}}: @{{diamond.weight}} {{__('diamondSearch.Carat')}}
+                        {{trans('diamondSearch.DIAMOND SIZE')}}: {{$diamond->weight}} {{__('diamondSearch.Carat')}}
                     </h3>
                     <br>
                            
@@ -261,35 +259,50 @@
                                 
                     <img class="w-auto" src="/images/front-end/diamond_show/diamond_weight.jpg" width="100%">
                     
-                    @livewire('customer-jewellery.post-fetch-row',
-                            ['type'=>'Diamond', 'upperType'=>'weight', 'query'=>$diamond->weight ])
 
                 </div>
             </div>
+            <div class="p-2 text-center border-b">
+                <p class="text-2xl">{{__('customerJewellery.Cusomter Jewellery')}}
+                    <a class="text-blue-600 text-lg" href="/{{app()->getlocale()}}/customer-jewellery" target="_blank">
+                    ( {{$diamond->weight}} {{__('diamondSearch.Carat')}} )</a>
+                </p>
+                @livewire('customer-jewellery.post-fetch-row',
+                  ['draggableId'=>'draggable0' , 'type'=>'Diamond', 'upperType'=>'weight', 'query'=>$diamond->weight ])
+            </div>
+
 
             <div class="flex justify-center p-4">
                 <div class="flex-auto">
                     <div style="background-image: url('/images/front-end/diamond_show/diamond_clarity.jpg'); background-repeat: no-repeat; background-size: cover;">
                         <div class="p-8 sm:p-24 lg:p-56">
-                            <h3 class="text-white">{{trans('diamondSearch.Clarity')}}: @{{diamond.clarity}}</h3>
+                            <h3 class="text-white">{{trans('diamondSearch.Clarity')}}: {{$diamond->clarity}}</h3>
                             <hr style="border: 0.2px solid white; ">
-                                <span class="text-white" v-if="diamond.clarity == 'I1' ">{{trans('diamondSearch.clarityI')}}
-                                <br>
+
+                            @if($diamond->clarity == 'I1')
+                                <span class="text-white p-2">
+                                    {{trans('diamondSearch.clarityI')}}
                                 </span>
-                                <span class="text-white" v-if="diamond.clarity == 'SI1' || diamond.clarity == 'SI2'">{{trans('diamondSearch.claritySi')}}
-                                <br>
+                            @endif
+                            @if($diamond->clarity == 'SI2' || $diamond->clarity == 'SI1')
+                                <span class="text-white p-2" >{{trans('diamondSearch.claritySi')}}
                                 </span>
-                                <span class="text-white" v-if="diamond.clarity == 'VS2' ||diamond.clarity == 'VS1' ">
+                            @endif
+                            @if($diamond->clarity == 'VS2' || $diamond->clarity == 'VS1')                                
+                                <span class="text-white p-2" >
                                     {{trans('diamondSearch.clarityVs')}}
-                                <br>
                                 </span>
-                                <span class="text-white" v-if="diamond.clarity == 'VVS1' || diamond.clarity == 'VVS2'">{{trans('diamondSearch.clarityVvs')}}
-                                <br>
+                            @endif
+                            @if($diamond->clarity == 'VVS2' || $diamond->clarity == 'VVS1')                                
+                                <span class="text-white p-2" >{{trans('diamondSearch.clarityVvs')}}
                                 </span>
-                                <span class="text-white" v-if="diamond.clarity == 'IF' ">
+                            @endif
+                            @if($diamond->clarity == 'IF' || $diamond->clarity == 'FL')                                
+                                <span class="text-white p-2" >
                                     {{trans('diamondSearch.clarityIf')}}
-                                <br>
                                 </span>
+                            @endif
+
                             <hr>
                             
                             <span class="text-white">
@@ -306,11 +319,16 @@
                                 {{trans('diamondSearch.clarityDescription2')}}</li>
                             </span>
                         </div>
-                        @livewire('customer-jewellery.post-fetch-row',
-                            ['type'=>'Diamond', 'upperType'=>'clarity', 'query'=>$diamond->clarity ])
-
                     </div>  
                 </div>
+            </div>
+            <div class="p-2 text-center border-b">
+                <p class="text-2xl">{{__('customerJewellery.Cusomter Jewellery')}}
+                    <a class="text-blue-600 text-lg" href="/{{app()->getlocale()}}/customer-jewellery" target="_blank">
+                    ( {{$diamond->clarity}} {{__('diamondSearch.Clarity')}} )</a>
+                </p>                
+                @livewire('customer-jewellery.post-fetch-row',
+                  ['draggableId'=>'draggable1' , 'type'=>'Diamond', 'upperType'=>'clarity', 'query'=>$diamond->clarity  ])
             </div>
 
             <div class="flex justify-center p-4">
@@ -320,7 +338,7 @@
                         
                             <center>
                                 <h3 class="sm:text-2xl">
-                                    {{trans('diamondSearch.Diamond Color')}}: @{{diamond.color}} 
+                                    {{trans('diamondSearch.Diamond Color')}}: {{$diamond->color}} 
                                 </h3>
                                 <br>
                             </center>
@@ -330,25 +348,30 @@
                         <div class="flex justify-center">
                             <div class="flex-auto">
                                 <center>
-                                    <span class="cut-text" v-if="diamond.color == 'D' ||diamond.color == 'E' || diamond.color == 'F'">{{trans('diamondSearch.colorDtoF')}}
-                                    <br>
-                                    </span>
-                                    <span class="cut-text" v-if="diamond.color == 'G'">
+                                    @if($diamond->color == 'D' || $diamond->color == 'E' || $diamond->color == 'F')
+                                        <span class="cut-text">{{trans('diamondSearch.colorDtoF')}}
+                                        </span>
+                                    @endif
+                                    @if($diamond->color == 'G')
+                                    <span class="cut-text">
                                         {{trans('diamondSearch.colorG')}}
-                                    <br>
                                     </span>
-                                    <span class="cut-text" v-if="diamond.color == 'H'">
+                                    @endif
+                                    @if($diamond->color == 'H')
+                                    <span class="cut-text">
                                         {{trans('diamondSearch.colorH')}}
-                                    <br>
                                     </span>
-                                    <span class="cut-text" v-if="diamond.color == 'I'">
+                                    @endif
+                                    @if($diamond->color == 'I')
+                                    <span class="cut-text">
                                         {{trans('diamondSearch.colorI')}}
-                                    <br>
                                     </span>
-                                    <span class="cut-text" v-if="diamond.color == 'J'">
+                                    @endif
+                                    @if($diamond->color == 'J')
+                                    <span class="cut-text">
                                         {{trans('diamondSearch.colorJ')}}
-                                    <br>
                                     </span>
+                                    @endif
 
 
                                 <center>
@@ -377,13 +400,17 @@
                             </div>
                             <br>
                         </div>
-                        <img class="w-auto" src="/images/front-end/diamond_show/diamond_color.jpg" width="100%">
-                        @livewire('customer-jewellery.post-fetch-row',
-                            ['type'=>'Diamond', 'upperType'=>'color', 'query'=>$diamond->color ])
-                        
-
+                        <img class="w-auto" src="/images/front-end/diamond_show/diamond_color.jpg" width="100%">                        
                     </article>
                 </div>
+            </div>
+             <div class="p-2 text-center border-b">
+                <p class="text-2xl">{{__('customerJewellery.Cusomter Jewellery')}}
+                    <a class="text-blue-600 text-lg" href="/{{app()->getlocale()}}/customer-jewellery" target="_blank">
+                    ( {{$diamond->color}} {{__('diamondSearch.Color')}} )</a>
+                </p>  
+                @livewire('customer-jewellery.post-fetch-row',
+                  ['draggableId'=>'draggable2' , 'type'=>'Diamond', 'upperType'=>'color', 'query'=>$diamond->color  ])
             </div>
 
                             
@@ -391,36 +418,87 @@
                 <div class="flex-auto">
                     <div class="image-background" style="background-image: url('/images/front-end/diamond_show/diamond_cut.jpg'); background-repeat: no-repeat; background-size: cover;">
                         <div class="p-8 sm:p-24 lg:p-56">
-                            <h3 class="text-white border-b border-white sm:text-2xl">{{trans('diamondSearch.Cut Grade')}}: @{{diamond.cut}}</h3>
-                            <span class="text-white" v-if="diamond.cut == 'EX' || diamond.cut == 'Excellent'">{{trans('diamondSearch.cutEx')}}
-                            <br>
-                            </span>
-                            <span class="text-white" v-if="diamond.cut == 'VG' || diamond.cut == 'Very Good'">{{trans('diamondSearch.cutVg')}}
-                            <br>
-                            </span>
-                            <span class="text-white" v-if="diamond.cut == 'GD' || diamond.cut == 'Good'">{{trans('diamondSearch.cutGd')}}
-                            <br>
-                            </span>
+                            <h3 class="text-white border-b border-white sm:text-2xl">{{trans('diamondSearch.Cut Grade')}}: {{$diamond->cut}}</h3>
+                            @if($diamond->cut == 'EX' ||$diamond->cut == 'Excellent')
+                                <span class="text-white">
+                                    {{trans('diamondSearch.cutEx')}}
+                                </span>
+                            @endif
+                            @if($diamond->cut == 'VG' || $diamond->cut == 'Very Good')
+                                <span class="text-white">
+                                    {{trans('diamondSearch.cutVg')}}
+                                </span>
+                            @endif
+                            @if($diamond->cut == 'GD' || $diamond->cut == 'Good')
+                                <span class="text-white">
+                                    {{trans('diamondSearch.cutGd')}}
+                                </span>
+                            @endif
                             <span class="text-white">{{trans('diamondSearch.Want to learn even more about cut')}}? 
-                               <a class="text-blue-400" href="/{{app()->getLocale()}}/education-diamond-grading/4cs/cut/">{{__('diamondSearch.Learn More')}}<br>
-                               </a>
+                           <a class="text-blue-400" href="/{{app()->getLocale()}}/education-diamond-grading/4cs/cut/">{{__('diamondSearch.Learn More')}}<br>
+                           </a>
                             </span>
                             <span class="text-white">
-                                {{trans('diamondSearch.cutDesrciption')}}
+                            {{trans('diamondSearch.cutDesrciption')}}
                             </span>
                         </div>
-                        @livewire('customer-jewellery.post-fetch-row',
-                            ['type'=>'Diamond', 'upperType'=>'cut', 'query'=>$diamond->cut ])
-
                     </div>
                 </div>
             </div>
-
-
-
-
+            <div class="p-2 text-center border-b">
+                <p class="text-2xl">{{__('customerJewellery.Cusomter Jewellery')}}
+                    <a class="text-blue-600 text-lg" href="/{{app()->getlocale()}}/customer-jewellery" target="_blank">
+                    ( {{$diamond->shape}} {{__('diamondSearch.Shape')}} )</a>
+                </p>  
+                @livewire('customer-jewellery.post-fetch-row',
+                  ['draggableId'=>'draggable3' , 'type'=>'Diamond', 'upperType'=>'shape', 'query'=>$diamond->shape  ])
+            </div>
 
         </div>
+
+
+
+         <script type="text/javascript">            
+
+            function draggableItem(item) {
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+              console.log(item)
+                item.addEventListener('mousedown', (e) => {
+                  isDown = true;
+                  item.classList.add('active');
+                  startX = e.pageX - item.offsetLeft;
+                  scrollLeft = item.scrollLeft;
+                });
+                item.addEventListener('mouseleave', () => {
+                  isDown = false;
+                  item.classList.remove('active');
+                });
+                item.addEventListener('mouseup', () => {
+                  isDown = false;
+                  item.classList.remove('active');
+                });
+                item.addEventListener('mousemove', (e) => {
+                  if(!isDown) return;
+                  e.preventDefault();
+                  const x = e.pageX - item.offsetLeft;
+                  const walk = (x - startX) * 3; //scroll-fast
+                  item.scrollLeft = scrollLeft - walk;
+                });
+            }
+
+            const draggable0 = document.getElementById('draggable0');
+            draggableItem(draggable0)
+            const draggable1 = document.getElementById('draggable1');
+            draggableItem(draggable1)
+            const draggable2 = document.getElementById('draggable2');
+            draggableItem(draggable2)
+            const draggable3 = document.getElementById('draggable3');
+            draggableItem(draggable3)
+           
+          </script>
+
     @endSection
 
         <script>document.write()</script>

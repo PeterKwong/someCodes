@@ -161,8 +161,50 @@
                 </div>
                 
             </div>
-            
+
         </div>
+
+          <div class="p-4 text-center border-b">
+              <p class="text-2xl">{{__('customerJewellery.Cusomter Jewellery')}} {{__('customerJewellery.May Interested')}}</p>
+              @livewire('customer-jewellery.post-fetch-row',
+                ['draggableId'=>'draggableItem0' , 'type'=>'Engagement Ring', 'upperType'=>'style', 'query'=>$meta->style ])
+              <a class="btn btn-primary text-white text-lg" href="/{{app()->getlocale()}}/customer-jewellery" target="_blank">{{__('engagementRing.More')}}</a>
+
+              <script type="text/javascript">            
+
+              function draggableItem(item) {
+                  let isDown = false;
+                  let startX;
+                  let scrollLeft;
+
+                  item.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    item.classList.add('active');
+                    startX = e.pageX - item.offsetLeft;
+                    scrollLeft = item.scrollLeft;
+                  });
+                  item.addEventListener('mouseleave', () => {
+                    isDown = false;
+                    item.classList.remove('active');
+                  });
+                  item.addEventListener('mouseup', () => {
+                    isDown = false;
+                    item.classList.remove('active');
+                  });
+                  item.addEventListener('mousemove', (e) => {
+                    if(!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - item.offsetLeft;
+                    const walk = (x - startX) * 3; //scroll-fast
+                    item.scrollLeft = scrollLeft - walk;
+                  });
+              }
+              
+              const draggableItem0 = document.getElementById('draggableItem0');
+              draggableItem(draggableItem0)
+             
+            </script>
+          </div>
 
 
     @endSection

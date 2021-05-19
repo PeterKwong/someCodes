@@ -3,6 +3,9 @@ import { getLocale, getLocaleCode, getCurrentURl } from './locale'
 import {getMeta} from './getMeta'
 window.getMeta = getMeta
 
+import {draggableItem} from './draggableItem'
+window.draggableItem = draggableItem
+
 export default {
 	cookiesInfo:{
 			cookieLast: 60,
@@ -59,6 +62,7 @@ export default {
     },
     tabs:{ sideBar:'4cs'},
     status:{ isProcessing: false},
+    components:{slider:''},
 
 
 }

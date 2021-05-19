@@ -8,12 +8,13 @@ use Livewire\Component;
 
 class PostFetchRow extends Component
 {
-	public $readyToLoad = false;
+	public $readyToLoad = true;
     public $type;
     public $upperType;
     public $query;
+    public $draggableId;
 
-    public $per_page = 3;
+    public $per_page = 8;
     public $posts;
     public $upperId;
     public $tagId = [];
@@ -21,10 +22,13 @@ class PostFetchRow extends Component
     public function loadPosts()
     {
         $this->readyToLoad = true;
+        // dd('hi');
+
     }
 
     public function render()
     {
+        // dd('hi');
         return view('livewire.customer-jewellery.post-fetch-row', [
             'posts' => $this->readyToLoad
                 ? $this->delayLoad()
@@ -32,6 +36,7 @@ class PostFetchRow extends Component
         ]);
     }
     public function delayLoad(){
+        // dd('loadded');
         $this->getTagId();
         $this->getPosts();
     }

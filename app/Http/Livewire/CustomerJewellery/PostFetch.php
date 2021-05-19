@@ -108,6 +108,7 @@ class PostFetch extends Component
 		$type = '';
 		if (request()->has('type')) {
 			$type = request()->query('type');
+			// dd($type);
 		}
 
 		$selectedTags;

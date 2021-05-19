@@ -138,6 +138,8 @@ return [
     'timeless ones' => 'Timeless Ones',
     'Timeless Ones' => 'Timeless Ones',
     'all' => 'all',
+    'May Interested' => 'May Interested',
+    'Cusomter Jewellery' => 'Cusomter Jewellery',
 
     '1' => 'Yes',
     '0' => 'No',
