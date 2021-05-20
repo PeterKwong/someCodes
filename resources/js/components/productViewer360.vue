@@ -50,8 +50,8 @@
         // record drag start point
         start: { x: 0, y: 0 },
 
-				width:1080,
-				height:600,
+				width:1100,
+				height:733,
 				viewer:{ progress:0,stage:'',},
         rotatingTime:70,
 				interval:'',
@@ -160,7 +160,7 @@
         img.src = this.folder + this.filename +  this.viewer.progress + '.jpg';
 
   			img.onload = function(){
-  			  ctx.drawImage(img,0, 0, 1080 ,600); // Or at whatever offset you like
+  			  ctx.drawImage(img,0, 0, 1100 ,733); // Or at whatever offset you like
   			};
         
         // console.log(this.viewer.progress)
