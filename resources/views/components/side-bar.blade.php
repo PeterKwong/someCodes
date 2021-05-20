@@ -2,7 +2,7 @@
   <div id="accordion">
 
     <div class="card box">
-      <div class="" id="headingOne">
+      <div class="bg-gray-100" id="headingOne">
         <h5 class="mb-0">
           <p @click="mutualVar.tabs.sideBar = '4cs' " class="btn text-blue-600" >
             {{trans('frontHeader.Education')}}
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="card box">
-      <div class="" id="headingTwo">
+      <div class="bg-gray-100" id="headingTwo">
         <h5 class="mb-0">
           <p @click="mutualVar.tabs.sideBar = 'gia-report' " class="btn text-blue-600 " >
             {{trans('frontHeader.Diamond Certificate')}}
@@ -51,7 +51,7 @@
       </div>
     </div>
     <div class="card box">
-      <div class="" id="headingThree">
+      <div class="bg-gray-100" id="headingThree">
         <h5 class="mb-0">
           <p @click="mutualVar.tabs.sideBar = 'anatomy' " class="btn text-blue-600 " >
             {{trans('frontHeader.Diamond Anatomy')}}
@@ -77,7 +77,7 @@
       </div>
     </div>
     <div class="card box">
-      <div class="" id="headingFour">
+      <div class="bg-gray-100" id="headingFour">
         <h5 class="mb-0">
           <p @click="mutualVar.tabs.sideBar = 'about-us' " class="btn text-blue-600 " data-toggle="collapse" data-target="#about-us" aria-expanded=" {{Str::contains(request()->segment(2), 'about-us') }}" aria-controls="about-us">
             {{trans('aboutUs.About Us')}}
@@ -99,7 +99,7 @@
       </div>
     </div>
     <div class="card box">
-      <div class="" id="headingFive">
+      <div class="bg-gray-100" id="headingFive">
         <h5 class="mb-0">
           <p class="btn text-blue-600 " @click="mutualVar.tabs.sideBar = 'buying-procedure' ">
             {{trans('buyingProcedure.BUYING PROCEDURE')}}
@@ -126,7 +126,7 @@
       </div>
     </div>
     <div class="card box">
-      <div class="" id="headingFive">
+      <div class="bg-gray-100" id="headingFive">
         <h5 class="mb-0">
           <p class="btn text-blue-600 " @click="mutualVar.tabs.sideBar = 'engagement-tips' ">
             {{__('customerMoment.Proposal Tips')}}
