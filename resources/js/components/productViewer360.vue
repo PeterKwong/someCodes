@@ -53,7 +53,7 @@
 				width:1080,
 				height:600,
 				viewer:{ progress:0,stage:'',},
-        rotatingTime:80,
+        rotatingTime:70,
 				interval:'',
         rotate:1,
         lastRotate:0,

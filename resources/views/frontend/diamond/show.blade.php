@@ -132,12 +132,22 @@
                        
                         
                             <div class="grid grid-cols-12">
-                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Stock no')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Stock no')}}
+                                </div>
                                 <div class="col-span-6 p-2 border-b font-light"> TD-LD{{$diamond->location}}-{{$diamond->id}}</div>
                             </div>
                             <div class="grid grid-cols-12">
-                                <div class="col-span-6 p-2 border-b font-light">
+                                <div class="col-span-6 p-2 border-b font-light flex">
                                     {{trans('diamondSearch.Carat Weight')}}
+                                    <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/carat' }}" target="_blank">
+                                        <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                                          <g>
+                                            <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                                            <rect x="241" y="353.5" width="30" height="30"/>
+                                            <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                                          </g>
+                                        </svg>
+                                      </a>
                                 </div>
                                 <div class="col-span-6 p-2 border-b font-light">
                                      <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?weight=' . $diamond->weight }}" target="_blank">
@@ -146,7 +156,18 @@
                                 </div>
                             </div>
                             <div class="grid grid-cols-12">
-                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Color Grade')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light flex">
+                                    {{trans('diamondSearch.Color Grade')}}
+                                    <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/color' }}" target="_blank">
+                                        <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                                          <g>
+                                            <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                                            <rect x="241" y="353.5" width="30" height="30"/>
+                                            <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                                          </g>
+                                        </svg>
+                                      </a>                                    
+                                </div>
                                 <div class="col-span-6 p-2 border-b font-light">
                                     <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?color=' . $diamond->color }}" target="_blank">
                                         {{$diamond->color}}
@@ -154,7 +175,18 @@
                                 </div>
                             </div>
                             <div class="grid grid-cols-12">
-                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Clarity Grade')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light flex">
+                                    {{trans('diamondSearch.Clarity Grade')}}
+                                    <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/clarity' }}" target="_blank">
+                                        <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                                          <g>
+                                            <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                                            <rect x="241" y="353.5" width="30" height="30"/>
+                                            <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                                          </g>
+                                        </svg>
+                                      </a>                                    
+                                </div>
                                 <div class="col-span-6 p-2 border-b font-light">
                                     <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?clarity=' . $diamond->clarity }}" target="_blank">
                                         {{$diamond->clarity}}
@@ -164,7 +196,18 @@
 
 
                             <div class="grid grid-cols-12">
-                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Cut Grade')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light flex">
+                                    {{trans('diamondSearch.Cut Grade')}}
+                                    <a href="/{{app()->getLocale() . '/education-diamond-grading/4cs/cut' }}" target="_blank">
+                                        <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                                          <g>
+                                            <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                                            <rect x="241" y="353.5" width="30" height="30"/>
+                                            <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                                          </g>
+                                        </svg>
+                                      </a>                                    
+                                </div>
                                 <div class="col-span-6 p-2 border-b font-light">
                                     <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?cut=' . $diamond->cut }}" target="_blank">
                                         {{$diamond->cut}}
@@ -177,7 +220,18 @@
                        
                         
                             <div class="grid grid-cols-12">
-                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Polish')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light flex">
+                                    {{trans('diamondSearch.Polish')}}
+                                    <a href="/{{app()->getLocale() . '/education-diamond-grading/anatomy/polish' }}" target="_blank">
+                                        <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                                          <g>
+                                            <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                                            <rect x="241" y="353.5" width="30" height="30"/>
+                                            <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                                          </g>
+                                        </svg>
+                                      </a>
+                                </div>
                                 <div class="col-span-6 p-2 border-b font-light">
                                     <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?polish=' . $diamond->polish }}" target="_blank">
                                         {{$diamond->polish}}
@@ -185,7 +239,18 @@
                                 </div>
                             </div>
                             <div class="grid grid-cols-12">
-                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Symmetry')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light flex">
+                                    {{trans('diamondSearch.Symmetry')}}
+                                    <a href="/{{app()->getLocale() . '/education-diamond-grading/anatomy/symmetry' }}" target="_blank">
+                                        <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                                          <g>
+                                            <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                                            <rect x="241" y="353.5" width="30" height="30"/>
+                                            <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                                          </g>
+                                        </svg>
+                                      </a>                                    
+                                </div>
                                 <div class="col-span-6 p-2 border-b font-light">
                                     <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?symmetry=' . $diamond->symmetry }}" target="_blank">
                                         {{$diamond->symmetry}}
@@ -198,7 +263,18 @@
                        
                         
                             <div class="grid grid-cols-12">
-                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Fluorescence')}}</div>
+                                <div class="col-span-6 p-2 border-b font-light flex">
+                                    {{trans('diamondSearch.Fluorescence')}}
+                                    <a href="/{{app()->getLocale() . '/education-diamond-grading/anatomy/fluorescence' }}" target="_blank">
+                                        <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                                          <g>
+                                            <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                                            <rect x="241" y="353.5" width="30" height="30"/>
+                                            <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                                          </g>
+                                        </svg>
+                                      </a>                                    
+                                </div>
                                 <div class="col-span-6 p-2 border-b font-light">
                                     <a class="text-blue-400" href="{{ '/' . app()->getlocale() . '/customer-jewellery?fluorescence=' . $diamond->fluorescence }}" target="_blank">
                                         {{$diamond->fluorescence}}
@@ -210,8 +286,23 @@
                        
                         
                             <div class="grid grid-cols-12">
-                                <div class="col-span-6 p-2 border-b font-light">{{trans('diamondSearch.Certificate')}}</div>
-                                <div class="col-span-6 p-2 border-b font-light">{{$diamond->certificate}}</div>
+                                <div class="col-span-6 p-2 border-b font-light flex">
+                                    {{trans('diamondSearch.Certificate')}}
+                                    <a href="/{{app()->getLocale() . '/education-diamond-grading/gia-report' }}" target="_blank">
+                                        <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+                                          <g>
+                                            <path d="M437.02,74.98C388.667,26.629,324.38,0,256,0S123.333,26.629,74.98,74.98C26.629,123.333,0,187.62,0,256   c0,45.105,11.836,89.231,34.286,128.041L0,512l127.959-34.286C166.769,500.164,210.895,512,256,512   c68.38,0,132.667-26.629,181.02-74.98C485.371,388.667,512,324.38,512,256S485.371,123.333,437.02,74.98z M256,482   c-41.755,0-82.547-11.48-117.965-33.201l-5.496-3.37l-90.113,24.146l24.146-90.113l-3.37-5.496C41.48,338.547,30,297.755,30,256   C30,131.383,131.383,30,256,30s226,101.383,226,226S380.617,482,256,482z"/>
+                                            <rect x="241" y="353.5" width="30" height="30"/>
+                                            <path d="M256,128.5c-41.355,0-75,33.645-75,75h30c0-24.813,20.187-45,45-45s45,20.187,45,45c0,11.081-4.07,21.732-11.467,29.995   L241,287.771V323.5h30v-24.271l40.892-45.73C324.214,239.73,331,221.975,331,203.5C331,162.145,297.355,128.5,256,128.5z"/>
+                                          </g>
+                                        </svg>
+                                      </a>                                     
+                                </div>
+                                <div class="col-span-6 p-2 border-b font-light">
+                                    <a class="text-blue-400" href="https://www.gia.edu/report-check?reportno={{$diamond->certificate}}" target="_blank">
+                                        {{$diamond->certificate}}                                    
+                                    </a>
+                                </div>
                             </div>
                        
                         </div>
