@@ -51,7 +51,7 @@
         start: { x: 0, y: 0 },
 
 				width:1100,
-				height:733,
+				height:618,
 				viewer:{ progress:0,stage:'',},
         rotatingTime:70,
 				interval:'',
@@ -160,7 +160,7 @@
         img.src = this.folder + this.filename +  this.viewer.progress + '.jpg';
 
   			img.onload = function(){
-  			  ctx.drawImage(img,0, 0, 1100 ,733); // Or at whatever offset you like
+  			  ctx.drawImage(img,0, 0, 1100 ,618); // Or at whatever offset you like
   			};
         
         // console.log(this.viewer.progress)
