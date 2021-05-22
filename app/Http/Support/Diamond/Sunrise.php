@@ -16,9 +16,10 @@ trait Sunrise{
 
       $client = new Client();
 
+      // $headers = [];
       $headers = ['Content-type'=>'application/x-www-form-urlencoded'];
 
-      $request = new Req('GET', 'https://sunrisediam.com/Api/URL?UN=amlnbmVzaA==&PD=cGF0ZWw=&TransId=90', $headers);
+      $request = new Req('GET', 'https://sunrisediamonds.com.hk/Api/URL?UN=amlnbmVzaA==&PD=cGF0ZWw=&TransId=90', $headers);
 
       $data = [];
 
@@ -33,7 +34,7 @@ trait Sunrise{
 
       }
           // $response = $client->send($request, ['timeout' => 5]);
-
+        // dd($data);
           // dd(print_r($data[0]));
 
           $this->importDiamondsToDatabase($data);
@@ -41,6 +42,7 @@ trait Sunrise{
   
     }
     public function importDiamondsToDatabase($data){
+      // dd($data);
         foreach ($data as $diamond) {
           $this->createSingleDiamondFromSunrise($diamond);
         }
