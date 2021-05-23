@@ -55,7 +55,7 @@
                                 <img class="w-full" :src="storageURL + 'images/' + diamond.id + '.jpg' " ></img>
                             </div>
                             <div v-if=" selectingShowType == 'video' ">
-                                <iframe :src="diamond.video_link" width="100%" height="700" ></iframe>
+                                <iframe :src="diamond.video_link.replace('http:','https:')" width="100%" height="700" ></iframe>
                             </div>
                             <div v-if="diamond.plot && selectingShowType == 'plot' ">
                                 <img class="w-full" :src="storageURL + 'plots/' + diamond.id + '.jpg' "  width="100%" height="auto"></img>
