@@ -95,7 +95,7 @@
 
                     <div class="flex">
                       @if(config('global.locale.' . app()->getLocale())  != '2')
-                        <a class="text-blue-600 hover:text-blue-800" href="{{ '/links/whatsapp/852' .  config('global.company.staffs.' . rand(0, count(config('global.company.staffs'))-1 ) . '.number') . '?text=' . urlencode( url()->current() ) }} " >
+                        <a target="_blank" class="text-blue-600 hover:text-blue-800" href="{{ '/links/whatsapp/852' .  config('global.company.staffs.' . rand(0, count(config('global.company.staffs'))-1 ) . '.number') . '?text=' . urlencode( url()->current() ) }} " >
                             <p><img class="h-4" src="/images/front-end/diamond/search/whatsapp.png" alt="">    
                                     ( {{ config('global.company.staffs.' . rand(0, count(config('global.company.staffs'))-1 ) . '.name') }} :  {{ config('global.company.staffs.' . rand(0, count(config('global.company.staffs'))-1 ) . '.number') }} ) 
 
