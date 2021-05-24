@@ -407,22 +407,22 @@
                             <div v-if="published.jewelleries">
                               <p>
 
-                    @if( count($jewellery->images) )
-                        <div class="flex">
-                            <div class="w-full h-full">  
-                                <video
-                                id="invoice-post-2"
-                                class="video-js vjs-fluid vjs-big-play-centered"
-                                controls
-                                preload="auto"
-                                poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $jewellery->images[0]->image}}"
-                                data-setup='{"fluid": true}'
-                                >
-                                <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $jewellery->video}}" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                    @endif
+                                @if( count($jewellery->images) )
+                                    <div class="flex">
+                                        <div class="w-full h-full">  
+                                            <video
+                                            id="invoice-post-2"
+                                            class="video-js vjs-fluid vjs-big-play-centered"
+                                            controls
+                                            preload="auto"
+                                            poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $jewellery->images[0]->image}}"
+                                            data-setup='{"fluid": true}'
+                                            >
+                                            <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $jewellery->video}}" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    </div>
+                                @endif
     <!--                             <video-player videoId="videoThree" :options="videoOpts[2].videoJew" v-if="post.invoice.jewelleries[0].video"></video-player> 
      -->                          </p>
                              </div>
@@ -527,13 +527,15 @@
             <div class="grid grid-cols-12 ">
                 <div class="col-span-6">
                     <div class="box">
-                         @foreach($weddingRing->images as $image)
-                            <a href="/{{ app()->getLocale() . '/wedding-rings/' . $weddingRing->wedding_ring_pair_id }}">
-                                <figure class="image" >
-                                <img class="w-full" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $image->image }}">
-                                </figure>
-                            </a>
-                        @endforeach
+                        <a href="/{{ app()->getLocale() . '/wedding-rings/' . $weddingRing->wedding_ring_pair_id }}">
+                            @foreach($weddingRing->weddingRingPair->images as $image)
+                                @if( $image->type == $weddingRing->gender)
+                                    <figure class="image" >
+                                        <img class="w-full" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $image->image }}">
+                                    </figure>
+                                @endif
+                            @endforeach
+                        </a>
                     </div>
                 </div>
 
@@ -542,22 +544,22 @@
                         <article>
                             <div v-if="published.weddingRings">
 
-                    @if( count($weddingRing->images) )
-                        <div class="flex">
-                            <div class="w-full h-full">  
-                                <video
-                                id="invoice-post-2"
-                                class="video-js vjs-fluid vjs-big-play-centered"
-                                controls
-                                preload="auto"
-                                poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $weddingRing->images[0]->image}}"
-                                data-setup='{"fluid": true}'
-                                >
-                                <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $weddingRing->video}}" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                    @endif
+                                @if( count($weddingRing->weddingRingPair->images) )
+                                    <div class="flex">
+                                        <div class="w-full h-full">  
+                                            <video
+                                            id="invoice-post-2"
+                                            class="video-js vjs-fluid vjs-big-play-centered"
+                                            controls
+                                            preload="auto"
+                                            poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $weddingRing->weddingRingPair->images[0]->image}}"
+                                            data-setup='{"fluid": true}'
+                                            >
+                                            <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $weddingRing->video}}" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    </div>
+                                @endif
     <!--                             <video-player videoId="videoFour" :options="videoOpts[1].videoWed" v-if="wedding_ring.video"></video-player> 
      -->                          <p>
                                 

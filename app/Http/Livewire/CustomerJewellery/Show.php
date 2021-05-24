@@ -29,7 +29,7 @@ class Show extends Component
                         'images',
                         'invoice.invoiceDiamonds',
                         'invoice.engagementRings.images',
-                        'invoice.weddingRings.images',
+                        'invoice.weddingRings.weddingRingPair.images',
                         'invoice.jewelleries.images',
                         // 'invoice.invoicePosts.images',
                     ])->findOrFail(request()->segment(3));
@@ -38,6 +38,7 @@ class Show extends Component
 
         $this->meta->invoice->title = $title;
 
+        // dd($this->meta);
 
     }
     public function weightRange(){

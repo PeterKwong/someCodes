@@ -78,7 +78,6 @@ class PostFetch extends Component
 
         }
 
-
     }
 
     public function addPage(){
