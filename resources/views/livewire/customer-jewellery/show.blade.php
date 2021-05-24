@@ -71,30 +71,7 @@
         
         </span>
 
-<!--             <div class="grid grid-cols-12 p-1" v-if="post.video">
 
-                <div class="col-span-10 col-start-2">
-                    <div class="box">
-                        <article>
-                            <div>
-                              <center>
-                                <p class="title is-5">{{__('customerMoment.Product Video')}}</p>
-                                <video-player videoId="video-" :options="videoOpts[3].videoPost" v-if="post.video"></video-player> 
-
-
-
-
-
-                                <video-player videoId="videoOne" :options="videoOpts[3].videoPost" autoplay="false" v-if="post.video"></video-player> 
-                              </center>
-                                
-                            <div>
-                                  
-                        </article>                            
-                    </div>
-                </div>
-
-            </div>  -->   
 
         @foreach($meta->invoice->invoiceDiamonds as $key => $diamond )
 
