@@ -4,7 +4,7 @@ return [
 
 	//carat
 	'caratTitle1' => '什么是钻石重量 | 4Cs?',
-	'caratPara1' => '“克拉” 或者 “卡数” 是指钻石的重量。在二十世纪之前，钻石的重量都是用”角豆种子” 来量度，它们大小及重量都非常统一，是用来量度钻石重量的最佳工具。钻石所沿用的克拉是英文 ”carat” 源自角豆 “carob”。',
+	'caratPara1' => '什么是钻石重量 | 4Cs? - “克拉” 或者 “卡数” 是指钻石的重量。在二十世纪之前，钻石的重量都是用”角豆种子” 来量度，它们大小及重量都非常统一，是用来量度钻石重量的最佳工具。钻石所沿用的克拉是英文 ”carat” 源自角豆 “carob”。',
 	'caratTitle2' => '钻石重量及尺寸大小',
 	'caratPara2' => '钻石的大小是跟它的重量成正比。当钻石被切割及完成打磨后，会损耗接近2/3的重量。而高品质、宝石级的原石，愈大就愈稀有，所以单粒2克拉的钻石，会比二粒1克拉、同样品质的钻石贵很多。',
 	'caratPara3' => '一粒钻石它增加重量，同时它表面望上去的直径都会增加，但重量加很多，直径只是加少许。例如：完美切割的1克拉钻石它的直径大概6.4mm阔，而当它重量增加一倍到2克拉，它的直径大概8.1mm，只是仅仅增加不到30%。',
@@ -12,13 +12,13 @@ return [
 
 	//cut
 	'cutTitle1' => '钻石切割 | 4Cs',
-	'cutPara1' => '钻石切割不仅指切割钻石的形状，而且更重要的是通过切割过程把钻石光线折射完美呈现观赏者眼中。',
+	'cutPara1' => '钻石切割 | 4Cs - 钻石切割不仅指切割钻石的形状，而且更重要的是通过切割过程把钻石光线折射完美呈现观赏者眼中。',
 	'cutPara2' => '一粒切割优良的钻石可以由它的亮度和火彩反射出来。切割如果不良,则钻石会变得暗淡无光彩和没美感，抛开这粒钻石本身的颜色和净度高低，一粒钻石更可以经由优良的切割令它看起来更闪亮和光彩,更令它看起来比相同的卡数重量大。',
 	'cutPara3' => '一粒优良的钻石不但能增加它的光彩，而且它看上去的大小，直径更关系到钻石的切割.',
 
 	//color
 	'colorTitle1' => '钻石颜色 | 4Cs',
-	'colorPara1' => '当你选购钻石时，一般都会尽可能选到最透明无色的钻石。钻石的评级是由D－Z，而它们会分成5个大类（透明无色:colorless、接近无色:near colorless、微弱:faint、非常轻微:very light及轻微:light）。所有颜色的钻石都有存在，普遍最容易见到就是黄色，它是因为生长时有微量氮元素存在。',
+	'colorPara1' => '钻石颜色 | 4Cs - 当你选购钻石时，一般都会尽可能选到最透明无色的钻石。钻石的评级是由D－Z，而它们会分成5个大类（透明无色:colorless、接近无色:near colorless、微弱:faint、非常轻微:very light及轻微:light）。所有颜色的钻石都有存在，普遍最容易见到就是黄色，它是因为生长时有微量氮元素存在。',
 	'colorPara2' => '一般来说，当对比2粒钻石的颜色时，钻石要差最少2个级别，才会开始看到它们的差别。你可以从下面的相片看到，当钻石从正面看上去，基本上不可能看到任何颜色差别。从侧面或者底部看钻石时，你才开始看到它们的颜色分别。但一部钻石都是镶好，从正面来观赏它们的美丽，而不是侧面或底部。',
 
 	'colorTitle2' => '透明无色钻石（D－F）',
@@ -129,7 +129,7 @@ return [
 	'metaTitle14' => '什么是&quot;肉眼干净&quot;钻石？',
 	'metaDescription14' => '什么是"肉眼干净"钻石 - 根据GIA它们的评级，钻石等级在无瑕级（FL）、内无瑕级（IF）、极轻微内含级（VVS）、轻微内含级（VS）都是肉眼干净的。 另一方面，微内含级（SI）可能是、或者不是肉眼干净，它们需要每粒独自去验证及观察。 内含级（I）钻石都是肉眼能见到的。',
 
-	'DIAMOND GRADING | EDUCATION' => '钻石等级 | 钻石知识 ',
+	'DIAMOND GRADING | EDUCATION' => '钻石等级 | 钻石知识 | 4Cs',
 	'It increases the weight of a diamond, and looking up from the diameter of the surface will also increase, but add a lot of weight, just add a little diameter.' => '钻石的大小是跟它的重量成正比。当钻石被切割及完成打磨后，会损耗接近2/3的重量。而高品质、宝石级的原石，愈大就愈稀有，所以单粒2克拉的钻石，会比二粒1克拉、同样品质的钻石贵很多。',
 
 	'Diamond Carat & Size' => '钻石重量及大小',
@@ -137,7 +137,7 @@ return [
 	'Diamond Cut' => '钻石切割',
 	'Diamond Color' => '钻石颜色',
 	'Diamond Clarity' => '钻石净度',
-	'DIAMOND Carat | EDUCATION' => '钻石4Cs | 钻石重量 | 4Cs',
+	'DIAMOND Carat | EDUCATION' => '钻石4Cs | 钻石重量',
 	'HOW TO INTERPRET GIA REPORT' => '什么是钻石证书',
 	'You know how to interpret GIA Report, basically to see other diamond certification reports, such as: IGI or HRD, will not have any difficulty, but the main is that they are called, respectively, or a little different.' => '钻石的证书可核对钻石的详情，包括钻石的颜色、重量、净度、及它的切割等级，你永远都不应该买没有证书的钻石。',
 	'Diamond Certficate' => '钻石证书',
