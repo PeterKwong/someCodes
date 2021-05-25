@@ -448,7 +448,7 @@ trait Oncall{
     }
 
     public function checkDiamondFancyColor($d,$diamond){
-      if ($diamond['color'] == 'fancy') {
+      if ($diamond['color'] == 'Fancy') {
 
         $d->fancy_color = $diamond['fancy_color'];
         $d->fancy_intensity = $diamond['fancy_intensity'];
