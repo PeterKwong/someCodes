@@ -532,7 +532,7 @@
                                             poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $weddingRing->weddingRingPair->images[0]->image}}"
                                             data-setup='{"fluid": true}'
                                             >
-                                            <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $weddingRing->video}}" type="video/mp4">
+                                            <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $weddingRing->weddingRingPair->video}}" type="video/mp4">
                                             </video>
                                         </div>
                                     </div>
