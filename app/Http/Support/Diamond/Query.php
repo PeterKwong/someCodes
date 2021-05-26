@@ -136,6 +136,7 @@ trait Query
 
       $diamonds = Diamond::where('available', NULL)->chunk(1000, function($diamonds){
 
+        // dd($diamonds);
         $this->oneQuarterBeforeResetOnDiamondQuery($diamonds);
 
         return 1;
@@ -150,7 +151,7 @@ trait Query
           if (count($diamonds)) {
             $dt = Carbon::now()->subDays(91);
             foreach ($diamonds as $diamond) {
-              // dd(print_r($diamond->updated_at));
+              // dd($diamond->updated_at);
               if (!$dt->isBefore($diamond->updated_at)) {
                 $diamond->delete();
 

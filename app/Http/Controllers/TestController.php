@@ -358,7 +358,7 @@ class TestController extends Controller
       // return $cron->runImportDiamondAPIPerBatch();      
 
       $import = new DiamondImport();
-      return $import->getDiamondsFromSunrise();
+      return $import->deleteAllDiamonds();
 
       $import = new DiamondImport();
       // return $import->importFancyDiamondFromAPI_1000_PerBatch(1);
