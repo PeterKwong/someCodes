@@ -133,15 +133,17 @@ trait Query
   }
 
     public function deleteAllDiamonds(){
-
-      $diamonds = Diamond::where('available', NULL)->chunk(1000, function($diamonds){
+      $dt = Carbon::now()->subDays(91);
+      $diamonds = Diamond::where('available', NULL)->where('created_at','>' ,$dt)->each(function($diamond){
+        $diamond->delete();
 
         // dd($diamonds);
-        $this->oneQuarterBeforeResetOnDiamondQuery($diamonds);
+        // $this->oneQuarterBeforeResetOnDiamondQuery($diamonds);
 
-        return 1;
 
       });
+      
+      return 1;
 
 
     }
