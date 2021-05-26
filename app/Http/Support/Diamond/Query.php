@@ -134,7 +134,7 @@ trait Query
 
     public function deleteAllDiamonds(){
       $dt = Carbon::now()->subDays(91);
-      $diamonds = Diamond::where('available', NULL)->where('updated_at','>' ,$dt)->orderBy('updated_at','asc')->each(function($diamond){
+      $diamonds = Diamond::where('available', NULL)->where('updated_at','<' ,$dt)->orderBy('updated_at','asc')->each(function($diamond){
 
         dd($diamond);
 
