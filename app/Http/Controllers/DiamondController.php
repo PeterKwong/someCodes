@@ -336,7 +336,7 @@ class DiamondController extends Controller
 
     public function toogleAvailable($id){
         $diamond = Diamond::findOrFail($id);
-        $diamond->update(['available' => $diamond->available?0:1 ]);
+        $diamond->update(['available' => $diamond->available?null:1 ]);
           // echo "<script>window.close();</script>";
         // dd($diamond);
     }
