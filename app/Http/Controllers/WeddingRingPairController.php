@@ -119,10 +119,20 @@ class WeddingRingPairController extends Controller
     }
 
     public function admIndex()
-    {
+    {   
+
+        $weddingRingPairs = WeddingRing::FilterPaginateOrder();
+        $data =  $weddingRingPairs->toArray();
+
+        foreach ($weddingRingPairs as $k => $da) {
+                $data['data'][$k]['title'] = $da->title();
+        }
+
+        $weddingRingPair = $data ;
+
         return response()
             ->json([
-                'model' =>WeddingRing::FilterPaginateOrder()
+                'model' =>$weddingRingPair
                 ]);
     }
 
