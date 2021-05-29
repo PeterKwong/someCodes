@@ -10,6 +10,7 @@ class Show extends Component
 {	
 	public $meta;
 	public $diamondUrl;
+    public $videoSelecting;
 
     public function render()
     {	
@@ -38,8 +39,13 @@ class Show extends Component
 
         $this->meta->invoice->title = $title;
 
-        // dd($this->meta);
+        $this->setVideo();
+        // dd($this->meta->video360);
 
+    }
+    public function setVideo()
+    {
+        $this->meta->video360?$this->videoSelecting = 'video360':'video';
     }
     public function weightRange(){
         

@@ -141,6 +141,7 @@ return [
     'all' => '全部',
     'May Interested' => '可能感兴趣',
     'Cusomter Jewellery' => '客人首饰',
+    'Video' => '影片',
 
 
     '1' => '是',

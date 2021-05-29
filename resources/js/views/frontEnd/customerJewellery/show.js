@@ -42,10 +42,28 @@ export default {
 			published: {engagementRings:0, weddingRings:0, jewelleries:0},
 			langHref : '/' + window.location.pathname.slice(1,3),
 			video360:'',
+			videoOptions:{
+              // videojs options
+              muted: true,
+              language: 'en',
+              playbackRates: [0.7, 1.0, 1.5, 2.0],
+              sources: [{
+                type: "video/mp4",
+                src: null
+              }],
+              poster: null,
+              fluid: true,
+              buttered:[0.00, 3.46],
+              preload:"auto",
+              readyState: 1,
+              autoplay: false,
+
+            }
 		}
 	},
 	watch:{
-		'$route':'fetchData'
+		'$route':'fetchData',
+		'videoJs.src':'videoOptions',
 	},
 	beforeMount(){
 		this.fetchData()
@@ -53,6 +71,12 @@ export default {
 	},
 	filters:{
 			transJs,
+	},
+	computed:{
+
+	},
+	watch:{
+
 	},
 	methods: {
 		transJsMet(data,ori,langs){
@@ -70,6 +94,14 @@ export default {
 				this.setPublished()
 				this.setVideo360()
 			})
+		},
+		videoReload(){
+			mutualVar.livewire.customerJewellery.show.videoSelecting = 'video360'
+		},
+		video360Reload(src,img){
+			mutualVar.livewire.customerJewellery.show.videoSelecting = 'video'
+			this.videoOptions.sources[0].src = src
+			this.videoOptions.poster = img
 		},
 		setVideo360(){
 			this.video360 = {

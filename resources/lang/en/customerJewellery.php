@@ -140,6 +140,7 @@ return [
     'all' => 'all',
     'May Interested' => 'May Interested',
     'Cusomter Jewellery' => 'Cusomter Jewellery',
+    'Video' => 'Video',
 
     '1' => 'Yes',
     '0' => 'No',
