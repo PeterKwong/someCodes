@@ -43,10 +43,10 @@
 						<div class="col-4" v-if="option[0]">
 							<p>which Item: </p>
 							<select class="select" v-model="selectedItem" @change="selectPostType()">
-								<option v-for="jew in option[0].engagement_rings" :value="'App/EngagementRing.id_' + jew.id" >EngagementRing : @{{jew.stock}}</option>
-								<option v-for="jew in option[0].wedding_rings" :value="'App/WeddingRing.id_' + jew.id" 
+								<option v-for="jew in option[0].engagement_rings" :value="'App\\Models\\EngagementRing.id_' + jew.id" >EngagementRing : @{{jew.stock}}</option>
+								<option v-for="jew in option[0].wedding_rings" :value="'App\\Models\\WeddingRing.id_' + jew.id" 
 								>Wedding Ring : @{{jew.stock}}</option>
-								<option v-for="jew in option[0].jewelleries" :value="'App/Jewellery.id_' + jew.id" 
+								<option v-for="jew in option[0].jewelleries" :value="'App\\Models\\Jewellery.id_' + jew.id" 
 								 >Jewellery : @{{jew.stock}}</option>
 							</select>
 						</div>

@@ -295,7 +295,7 @@
         @endforeach
 
        @endforeach
-
+       {{$meta->postable_type }}
         @if($meta->postable_type == 'App\Models\EngagementRing')
             @foreach($meta->invoice->engagementRings as $key => $engagementRing )
             @if($engagementRing->published)
@@ -335,8 +335,7 @@
                             </div>
                         </div>
                     @endif
-    <!--                             <video-player videoId="videoTwo" :options="videoOpts[0].videoEng" v-if="post.invoice.engagement_rings[0].video"></video-player> 
-     -->
+
                               </p>
                              </div>
                             <div class="">
@@ -430,8 +429,7 @@
                                         </div>
                                     </div>
                                 @endif
-    <!--                             <video-player videoId="videoThree" :options="videoOpts[2].videoJew" v-if="post.invoice.jewelleries[0].video"></video-player> 
-     -->                          </p>
+                            </p>
                              </div>
                             <div class="">
                             <div>
@@ -468,64 +466,7 @@
             @endforeach
         @endif
 
-        <!-- 
 
-        <div class="grid grid-cols-12 " v-if="published.jewellries">
-            <div class="col-span-6">
-                    <div class="box">
-                        <a :href=" langHref +'/jewellries/' + post.invoice.jewellries[0].id">
-                            <figure class="image" v-if="post.invoice.jewellries[0].images[0]">
-                            <img class="w-full" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${post.invoice.jewellries[0].images[0].image}`">
-                            </figure>
-                        </a>
-                        <a :href=" langHref +'/jewellries/' + post.invoice.jewellries[0].id">
-                            <figure class="image" v-if="post.invoice.jewellries[0].images[1]">
-                            <img class="w-full" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${post.invoice.jewellries[0].images[1].image}`">
-                            </figure>
-                        </a>
-                    </div>
-                </div>
-
-            <div class="col-span-6" >
-                <div class="box">
-                    <article>
-                        <div>
-                          <p>
-                            <video-player videoId="video-" :options="videoOpts[2].videoJew" v-if="post.invoice.jewellries[0].video"></video-player> 
-                          </p>
-                         </div>
-                        <div class="">
-                        <div>
-                            <div>
-                                <div class="text-xl px-2 font-semibold">{{__('customerMoment.jewellery Info')}}</div>
-                            </div>
-                        </div>
-                            
-                        <div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Stock No.')}}</div>
-                                <div class="col-span-6">@{{post.invoice.jewellries[0].stock}}</div>
-                            </div>  
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Title')}}</div>
-                                <div class="col-span-6">@{{post.invoice.jewellries[0].texts[locale].content}}</div>
-                            </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Side stone')}}</div>
-                                <div class="col-span-6">{{__('engagementRing.Around')}} @{{post.invoice.jewellries[0].ct}}</div>
-                            </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.metal')}}</div>
-                                <div class="col-span-6">@{{post.invoice.jewellries[0].metal}}</div>
-                            </div>
-                        </div>
-
-                        </div>
-                    </article>                            
-                </div>
-            </div>   
-        </div>
- -->
         @if($meta->postable_type == 'App\Models\WeddingRing')
             @if( isset($meta->invoice->weddingRings[0]) )
             @if( $meta->invoice->weddingRings[0]->published )
@@ -567,10 +508,7 @@
                                         </div>
                                     </div>
                                 @endif
-    <!--                             <video-player videoId="videoFour" :options="videoOpts[1].videoWed" v-if="wedding_ring.video"></video-player> 
-     -->                          <p>
-                                
-                              </p>
+
                              </div>
                             <div class="">
                             <div>
@@ -619,84 +557,6 @@
             @endif
             @endif
         @endif
-
-
-<!-- 
-
-        <div class="grid grid-cols-12 " v-if="published.weddingRings" v-for="wedding_ring in post.invoice.wedding_rings">
-            <div class="col-span-6">
-                    <div class="box">
-                        <a :href=" langHref +'/wedding-rings/' + wedding_ring.wedding_ring_pair_id">
-                            <figure class="image" v-if="wedding_ring.images[0]">
-                            <img class="w-full" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${wedding_ring.images[0].image}`">
-                            </figure>
-                        </a>
-                        <div class="col">
-                            <a :href=" langHref +'/wedding-rings/' + wedding_ring.wedding_ring_pair_id">
-                                <figure class="image" v-if="wedding_ring.images[1]">
-                                <img class="w-full" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${wedding_ring.images[1].image}`">
-                                </figure>
-                            </a>
-                            <a :href=" langHref +'/wedding-rings/' + wedding_ring.wedding_ring_pair_id">
-                                <figure class="image" v-if="wedding_ring.images[2]">
-                                <img class="w-full" :src="mutualVar.storage[mutualVar.storage.live] + 'public' + `/images/${wedding_ring.images[2].image}`">
-                                </figure>
-                            </a>
-                        </div>
-                        
-                    </div>
-                </div>
-
-            <div class="col-span-6" >
-                <div class="box">
-                    <article>
-                        <div>
-                            <video-player videoId="video-" :options="videoOpts[1].videoWed" v-if="wedding_ring.video"></video-player> 
-                          <p>
-                            
-                          </p>
-                         </div>
-                        <div class="">
-                        <div>
-                            <div>
-                                <div class="text-xl px-2 font-semibold">{{__('customerMoment.Wedding Ring Info')}} - @{{wedding_ring.gender | transJs(langs,locale)}}</div>
-                            </div>
-                        </div>
-                            
-                        <div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Metal')}}</div>
-                                <div class="col-span-6">@{{wedding_ring.metal | transJs(langs,locale)}}</div>
-                            </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Side stone')}}</div>
-                                <div class="col-span-6">{{__('engagementRing.Around')}} @{{wedding_ring.ct}}ct</div>
-                            </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Stock No.')}}</div>
-                                <div class="col-span-6">@{{wedding_ring.stock}}</div>
-                            </div>  
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Title')}}</div>
-                                <div class="col-span-6">@{{wedding_ring.texts[locale].content}}</div>
-                            </div>
-                            <div class="grid grid-cols-12 p-2 text-light border-b">
-                                <div class="col-span-6">{{__('customerMoment.Description')}}</div>
-                                <div class="col-span-6">@{{wedding_ring.style | transJs(langs,locale)}},@{{wedding_ring.metal | transJs(langs,locale)}},@{{wedding_ring.sideStone? transJsMet('ct',langs,locale):''}}
-                            {{trans('weddingRing.Wedding Ring')}}</div>
-                        </div>
-                      
-                        </div>
-
-                        </div>
-                    </article>                            
-                </div>
-            </div> 
-
-
-        </div>
- -->
-
 
 
 
