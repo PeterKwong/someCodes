@@ -295,7 +295,7 @@
         @endforeach
 
        @endforeach
-       {{$meta->postable_type }}
+       
         @if($meta->postable_type == 'App\Models\EngagementRing')
             @foreach($meta->invoice->engagementRings as $key => $engagementRing )
             @if($engagementRing->published)
