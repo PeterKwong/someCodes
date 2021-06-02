@@ -52,16 +52,54 @@ class InvoiceController extends Controller
     }
     public function create()
     {
+        $weddingRings = WeddingRing::with('texts','images')->get();
+        $data =  WeddingRing::with('texts','images')
+                ->select('id','stock as text','unit_price')->get()->toArray();
+        foreach ($weddingRings as $k => $da) {
+        // dd($da); 
+                $data[$k]['texts'][0]['content'] = $da->title();
+        }
+        $weddingRings = $data ;
+
+        // $engagementRings = EngagementRing::with('texts','images')->get();
+        $data =  EngagementRing::with('texts','images')
+                ->select('id','stock as text','unit_price')->get()->toArray();
+        // foreach ($engagementRings as $k => $da) {
+        // // dd($da); 
+        //         $data[$k]['texts'][0]['content'] = $da->title();
+        // }
+        $engagementRings = $data ;
+
+        // $jewelleries = Jewellery::with('texts','images')->get();
+        $data =  Jewellery::with('texts','images')
+                ->select('id','stock as text','unit_price')->get()->toArray();
+        // foreach ($jewelleries as $k => $da) {
+        // // dd($da); 
+        //         $data[$k]['texts'][0]['content'] = $da->title();
+        // }
+        $jewelleries = $data ;
+
+
+        $customers = Customer::orderBy('name')->select('id','phone as text')->get();
+
+
+        $invoiceDiamonds = InvoiceDiamond::where('invoice_id',NULL)->orderBy('certificate')->select('id','certificate as text','weight','color','clarity','stock','price', 'account_price')->get();
+
+
+
+        $option =  [
+                    'invoice_diamonds' => $invoiceDiamonds,
+                    'customers' => $customers,
+                    'jewelleries' => $jewelleries,
+                    'engagement_rings' => $engagementRings,
+                    'wedding_rings' => $weddingRings
+                ]; 
+
+ 
     	return response()
     		->json([
     			'form' =>Invoice::form(),
-    			'option' => [
-                    'invoice_diamonds' => InvoiceDiamond::where('invoice_id',NULL)->orderBy('certificate')->select('id','certificate as text','weight','color','clarity','stock','price', 'account_price')->get(),
-                    'customers' => Customer::orderBy('name')->select('id','phone as text')->get(),
-                    'jewelleries' => Jewellery::select('id','stock as text','unit_price')->with('texts','images')->get(),
-                    'engagement_rings' => EngagementRing::select('id','stock as text','unit_price')->with('texts','images')->get(),
-                    'wedding_rings' => WeddingRing::select('id','stock as text','unit_price')->with('texts','images')->get()
-    			]
+    			'option' => $option
     			]);
     }
 
@@ -244,6 +282,12 @@ class InvoiceController extends Controller
                  'weddingRings.invoiceItems' => function($data) use ($id){ return $data->where('invoice_id',$id); },
                 ])->findOrFail($id);
         // dd($invoice->toArray());
+
+        $weddingRings = WeddingRing::select('id','stock as text','unit_price')
+                    ->with(['texts','images',
+                        'invoiceItems'=> function($data) use ($id){ return $data->where('invoice_id',$id); } ])->get();
+        $weddingRings = $weddingRings->first()->title();        
+        dd($weddingRings);
     	return response()
     		->json([
     			'form' => $invoice,
@@ -257,9 +301,7 @@ class InvoiceController extends Controller
                     'engagement_rings' => EngagementRing::select('id','stock as text','unit_price')
                     ->with(['texts','images',
                         'invoiceItems'=> function($data) use ($id){ return $data->where('invoice_id',$id); } ])->get(),
-                    'wedding_rings' => WeddingRing::select('id','stock as text','unit_price')
-                    ->with(['texts','images',
-                        'invoiceItems'=> function($data) use ($id){ return $data->where('invoice_id',$id); } ])->get()
+                    'wedding_rings' => $weddingRings
                 ]
     			]);
     }

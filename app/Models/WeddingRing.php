@@ -70,8 +70,9 @@ class WeddingRing extends Model
             if ($separator == ', ') {
                 $separatorConcate = 'comma';
             }
-            
+            // dd($this);
         	return cache()->remember($separatorConcate . 'weddingRingTitle.' . app()->getLocale() . '.'.$this->id,  config('global.cache.week'), function()use($separator){
+            	// dd($this->shape );
 
 		    	$title  = $this->brand ? '('.trans('weddingRing.' .$this->brand) .')'. $separator :'' ;
 		    	$title .= trans('weddingRing.' .$this->metal) 
