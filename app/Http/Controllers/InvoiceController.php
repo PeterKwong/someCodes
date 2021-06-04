@@ -287,7 +287,7 @@ class InvoiceController extends Controller
                     ->with(['texts','images',
                         'invoiceItems'=> function($data) use ($id){ return $data->where('invoice_id',$id); } ])->get();
         $weddingRings = $weddingRings->first()->title();        
-        dd($weddingRings);
+        // dd($weddingRings);
     	return response()
     		->json([
     			'form' => $invoice,
