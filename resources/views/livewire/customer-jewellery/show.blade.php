@@ -57,7 +57,7 @@
                                          <div v-if="mutualVar.livewire.customerJewellery.show.videoSelecting == 'video360' " class=" p-1">
                                             <product-viewer 
                                             :folder=" mutualVar.storage[mutualVar.storage.live] + 'public/video360/' + video360.src +'/'" 
-                                            :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate"></product-viewer>
+                                            :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate" v-if="video360.size"></product-viewer>
                                          </div>
 
                                         @if( count($meta->images) )

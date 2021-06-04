@@ -44,7 +44,7 @@
                 <img :src="images+currentItem.src" v-if="currentItem.type=='img'" class="w-auto" @click="selectingItem(+1)">
                 <video-player :options="videoOptions" autoplay="false" v-if="currentItem.type=='video'"></video-player>
                 
-                <product-viewer v-if="currentItem.type=='video360'" :folder="folder + upperitems.video360 +'/'" 
+                <product-viewer v-if="currentItem.type=='video360' && currentItem.size" :folder="folder + upperitems.video360 +'/'" 
                 :filename="fileName " :size="currentItem.size" ></product-viewer>
                 
                 <a v-if="chunkedItems[currentIndex]" :href="'/'+ mutualVar.langs.locale + '/customer-jewellery/' + chunkedItems[currentIndex].postId" target="_blank">
