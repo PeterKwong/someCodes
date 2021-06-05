@@ -33,7 +33,8 @@
                     <i class="sm:hidden fa fa-chevron-right text-white " aria-hidden="true" ></i>
               </div>
             </div>
-
+            <canvas id="loadingImg"  class="flex" width="0" height="0" >
+            </canvas>
          	</div>         		
 		</div>
 </template>
@@ -172,6 +173,21 @@
           this.viewer.progress = i
           this.drawImg()
         }
+      },
+      loadImg(){
+
+        var myCanvas = document.getElementById('productViewer');
+        var ctx = myCanvas.getContext('2d');
+        var img = new Image;
+
+        img.src = this.folder + this.filename +  this.viewer.progress + '.jpg';
+
+        img.onload = function(){
+          ctx.drawImage(img,0, 0, 0 ,0); // Or at whatever offset you like
+        };
+        
+        console.log(this.viewer.progress)
+
       },
 
 		},
