@@ -171,12 +171,12 @@
 
         for (var i = 0; this.size > i; i++) {
           this.viewer.progress = i
-          this.drawImg()
+          this.loadImg()
         }
       },
       loadImg(){
 
-        var myCanvas = document.getElementById('productViewer');
+        var myCanvas = document.getElementById('loadingImg');
         var ctx = myCanvas.getContext('2d');
         var img = new Image;
 
@@ -186,8 +186,6 @@
           ctx.drawImage(img,0, 0, 0 ,0); // Or at whatever offset you like
         };
         
-        console.log(this.viewer.progress)
-
       },
 
 		},
