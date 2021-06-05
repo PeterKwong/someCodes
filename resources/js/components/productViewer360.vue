@@ -183,10 +183,10 @@
         img.src = this.folder + this.filename +  this.viewer.progress + '.jpg';
 
         img.onload = function(){
-          ctx.drawImage(img,0, 0, 0 ,0); // Or at whatever offset you like
+          ctx.drawImage(img,0, 0, 1 ,1); // Or at whatever offset you like
         };
         
-        // console.log(this.viewer.progress)
+        console.log(this.viewer.progress)
 
       },
 

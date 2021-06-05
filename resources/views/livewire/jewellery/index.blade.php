@@ -147,6 +147,7 @@
 
 	<div class="grid grid-cols-12">
 		@foreach($model['data'] as $data)
+			@if( count($data['images']) )
 		    <div class="sm:col-span-3 col-span-6 hover:opacity-75 sm:p-8">
 	            <a href="/{{app()->getLocale() . '/jewellery/' . $data['id'] }}" target="_blank">
 	                <img src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $data['images'][0]['image']}}" width="100%">
@@ -160,7 +161,8 @@
 	                        
 	                    </center>
 	            </a>
-		    </div>
+		    	</div>
+		    @endif
 	    @endforeach
 	</div>
 	                
