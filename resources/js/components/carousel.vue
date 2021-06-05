@@ -132,9 +132,9 @@ export default {
         this.currentIndex = 0;
     },
     mounted(){
-        if (mutualVar.css.innerWidth<500) {
-            this.fileName = 'thm-'
-        }
+        // if (mutualVar.css.innerWidth<500) {
+        //     this.fileName = 'thm-'
+        // }
     },
     data () {
         return {

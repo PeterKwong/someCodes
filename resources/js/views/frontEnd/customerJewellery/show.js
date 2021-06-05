@@ -109,7 +109,8 @@ export default {
 				thumb: mutualVar.storage[mutualVar.storage.live] + 'public/video360/' + this.post.video360 +'/thm-0.jpg', 
 				size:120 , 
 				rotate:1,
-				fileName: mutualVar.css.innerWidth<500 ? 'thm-' :'',
+				fileName: '',
+				// fileName: mutualVar.css.innerWidth<500 ? 'thm-' :'',
 				}
 		},
 		setPublished(){

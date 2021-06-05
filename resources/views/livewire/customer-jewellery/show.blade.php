@@ -23,7 +23,7 @@
             </div>       
         </div>
 
-        <div class="relative p-2">
+        <div class="relative sm:p-2">
         <span id="customerJewelleryShow">
 
             @if($videoSelecting == 'video360')
@@ -46,7 +46,7 @@
 
 
 
-                <div class="grid grid-cols-12 p-1">
+                <div class="grid grid-cols-12 sm:p-1">
                     <div class="col-span-12">
                         <div class="box">
                             <article>
@@ -54,7 +54,7 @@
                                   <center>
                                         <p class="title is-5">{{__('customerMoment.Product Video')}}</p>     
 
-                                         <div v-if="mutualVar.livewire.customerJewellery.show.videoSelecting == 'video360' " class=" p-1">
+                                         <div v-if="mutualVar.livewire.customerJewellery.show.videoSelecting == 'video360' " class=" sm:p-1">
                                             <product-viewer 
                                             :folder=" mutualVar.storage[mutualVar.storage.live] + 'public/video360/' + video360.src +'/'" 
                                             :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate" v-if="video360.size"></product-viewer>
