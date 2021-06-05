@@ -33,8 +33,7 @@
                     <i class="sm:hidden fa fa-chevron-right text-white " aria-hidden="true" ></i>
               </div>
             </div>
-            <canvas id="loadingImg"  class="flex" width="0" height="0" >
-            </canvas>
+
          	</div>         		
 		</div>
 </template>
@@ -167,28 +166,6 @@
         // console.log(this.viewer.progress)
 
       },
-      loadImages(){
-
-        for (var i = 0; this.size > i; i++) {
-          this.viewer.progress = i
-          this.loadImg()
-        }
-      },
-      loadImg(){
-
-        var myCanvas = document.getElementById('loadingImg');
-        var ctx = myCanvas.getContext('2d');
-        var img = new Image;
-
-        img.src = this.folder + this.filename +  this.viewer.progress + '.jpg';
-
-        img.onload = function(){
-          ctx.drawImage(img,0, 0, 1 ,1); // Or at whatever offset you like
-        };
-        
-        console.log(this.viewer.progress)
-
-      },
 
 		},
 		computed:{
@@ -199,9 +176,9 @@
       this.clearInterval()      
     },
 		mounted(){
-			this.loadImages()
+			this.drawImg()
       this.setRotation(this.rotate)
-		},
+		}
 	
 	}
 
