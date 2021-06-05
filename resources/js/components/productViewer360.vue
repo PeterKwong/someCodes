@@ -166,6 +166,13 @@
         // console.log(this.viewer.progress)
 
       },
+      loadImages(){
+
+        for (var i = 0; this.size > i; i++) {
+          this.viewer.progress = i
+          this.drawImg()
+        }
+      },
 
 		},
 		computed:{
@@ -176,9 +183,9 @@
       this.clearInterval()      
     },
 		mounted(){
-			this.drawImg()
+			this.loadImages()
       this.setRotation(this.rotate)
-		}
+		},
 	
 	}
 
