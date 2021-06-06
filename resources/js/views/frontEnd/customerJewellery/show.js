@@ -11,14 +11,15 @@ import langsWedd from '../../../langs/weddingRings'
 // import {videoPlayer} from '../../../../../node_modules/vue-video-player/dist/vue-video-player'
 import videoPlayer from '../../../components/videoPlayer.vue'
 import ProductViewer from '../../../components/productViewer360.vue'
+import video360Exchange from '../../../components/video360Exchange.vue'
 
 
 export default {
 	el: '#customerJewelleryShow',
 	components:{
 	    videoPlayer,
-	    // videoPlayer,
 	    ProductViewer,
+      video360Exchange,
 	},
 	data(){
 		return {
