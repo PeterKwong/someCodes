@@ -42,6 +42,8 @@ class PostFetch extends Component
     					->whereDate('date','<', now())
     					->orderBy('date', 'desc');
 
+        	// dd($this->selectedTags);
+
         if (count($this->selectedTags)>0) {
         	// dd($this->selectedTags);
 
@@ -55,11 +57,23 @@ class PostFetch extends Component
 				
 				});
         	}
+        	return $this->queryPosts();
 
 
+        }else{
+        	
+        	cache()->remember('postFetch.noSelecdTags',30,function(){
+        		
+        		return $this->queryPosts();
+        	});
         }
 
-        $this->posts = $this->posts
+
+    }
+
+    public function queryPosts()
+    {
+    	$this->posts = $this->posts
 
         				->with([
 	                        	// 'texts',        						
