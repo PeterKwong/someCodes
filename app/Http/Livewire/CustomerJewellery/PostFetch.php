@@ -62,7 +62,7 @@ class PostFetch extends Component
 
         }else{
         	
-        	cache()->remember('postFetch.noSelecdTags',30,function(){
+        	cache()->remember('postFetch.noSelecdTags',config('global.cache.day'),function(){
         		
         		return $this->queryPosts();
         	});
