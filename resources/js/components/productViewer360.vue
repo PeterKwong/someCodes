@@ -171,7 +171,7 @@
 
         for (var i = 0; this.size > i; i++) {
           this.viewer.progress = i
-          this.loadImg()
+          this.drawImg()
         }
       },
       loadImg(){
