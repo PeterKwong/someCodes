@@ -25,7 +25,9 @@
 
         @livewire('header')
 
-            @yield('content')
+            <div class="mt-16">
+                @yield('content')            
+            </div>
 
         @include('layouts.frontEnd.footer')
 

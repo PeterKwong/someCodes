@@ -23,25 +23,28 @@
 <body>
 
     @livewire('header')
+    
+    <div class="mt-16">
 
-    @include('layouts.account.userHeader')
+        @include('layouts.account.userHeader')
 
-    <div class="container-fluid">
+        <div class="container-fluid">
 
-            <div class="grid grid-cols-12">
-                <div class="col-span-12">
+                <div class="grid grid-cols-12">
+                    <div class="col-span-12">
 
-                    <div class="grid grid-cols-12">
-                        @include('layouts.account.aside')
+                        <div class="grid grid-cols-12">
+                            @include('layouts.account.aside')
 
-                        @yield('content')
+                            @yield('content')
+                        </div>
+
+
                     </div>
-
-
                 </div>
-            </div>
-	       
-           @include('layouts.frontEnd.footer')
+    	       
+               @include('layouts.frontEnd.footer')
+        </div>
 
 
 
