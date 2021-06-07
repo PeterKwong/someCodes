@@ -115,7 +115,6 @@ const header = new Vue({
         window.addEventListener('scroll', this.updateYOffset);
         mutualVar.css.innerWidth = window.innerWidth
 
-
     }, 
     destroyed () {
         window.removeEventListener('scroll', this.updateYOffset);

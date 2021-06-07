@@ -1,5 +1,5 @@
-<footer class="pt-42 bg-gray-900 " id="footer">
   @include('layouts.metas.footer')
+<footer class="pt-42 bg-gray-900 " id="footer">
 
 
   <div class="sm:flex text-center sm:text-left p-2">

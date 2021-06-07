@@ -47,14 +47,3 @@
 <script defer src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" ></script>
 
 
-
-<style>
-	*.sticker {
-    top:90%;
-    height:50px;
-    width:50px;
-    position:fixed;
-    right: 0;
-    z-index: 999;
-	}
-</style>

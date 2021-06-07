@@ -32,7 +32,7 @@ import ShopBagBill from './views/frontEnd/shoppingCart/shopBagBill'
 
 import AboutUs from './views/frontEnd/aboutUs/index'
 
-import Login from './views/frontEnd/account/login'
+// import Login from './views/frontEnd/account/login'
 
 
 /**
@@ -166,9 +166,9 @@ if ( pUrl.includes('shop-bag-bill') ) {
     const shopBagBill =  new Vue(ShopBagBill);
 }
 
-if ( pUrl.includes('login') ) {
-    const login =  new Vue(Login);
-}
+// if ( pUrl.includes('login') ) {
+//     const login =  new Vue(Login);
+// }
 
 
 
