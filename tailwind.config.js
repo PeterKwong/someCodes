@@ -31,14 +31,16 @@ module.exports = {
     variants: {
         extend: {
             opacity: ['disabled'],
+            borderColor: ['active'],
+            backgroundColor:['responsive', 'hover','focus','active'],
+            fontSize:['responsive', 'hover','focus','active'],
+            textColor:['responsive', 'hover','focus','active'],
+            translate: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+            transitionTimingFunction: ['responsive', 'hover', 'focus'],
+            scale: ['active', 'hover', 'group-hover'],
+            zIndex: ['responsive', 'focus-within', 'focus', 'hover', 'group-hover'],
         },
-        backgroundColor:['responsive', 'hover','focus','active'],
-        fontSize:['responsive', 'hover','focus','active'],
-        textColor:['responsive', 'hover','focus','active'],
-        translate: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
-        transitionTimingFunction: ['responsive', 'hover', 'focus'],
-        scale: ['active', 'hover', 'group-hover'],
-        zIndex: ['responsive', 'focus-within', 'focus', 'hover', 'group-hover']
+        
     },
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],

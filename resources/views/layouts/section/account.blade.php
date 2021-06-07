@@ -24,7 +24,7 @@
 
     @livewire('header')
     
-    <div class="mt-24">
+    <div class="mt-16">
 
         @include('layouts.account.userHeader')
 
