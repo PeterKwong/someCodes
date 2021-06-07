@@ -198,7 +198,7 @@
 
         img.src = this.folder + this.filename +  this.viewer.progress + '.jpg';
 
-        console.log(this.viewer.progress)
+        // console.log(this.viewer.progress)
 
   			img.onload = function(){
   			  ctx.drawImage(img,0, 0, 1100 ,618); // Or at whatever offset you like
