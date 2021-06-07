@@ -25,7 +25,7 @@
 
         @livewire('header')
 
-            <div class="mt-16">
+            <div class="mt-24">
                 @yield('content')            
             </div>
 

@@ -96,6 +96,7 @@
       }
       #site-header.hide {
           top: -65px;
+          bottom: +65px;
       }
   </style>
   
