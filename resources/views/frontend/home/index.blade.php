@@ -575,68 +575,57 @@
 
 
       </div>
-
-<!--     <script type="text/javascript">
-        const sliders =[]
-        sliders.push({item:document.getElementById('draggable-items-0')})
-        sliders.push({item:document.getElementById('draggable-items-1')})
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-        console.log(sliders)
-        for (var i = 0 ; sliders.length >i ; i++) {
-          sliders[i].item.addEventListener('mousedown', (e) => {
-            isDown = true;
-            sliders[i].item.classList.add('active');
-            startX = e.pageX - sliders[i].item.offsetLeft;
-            scrollLeft = sliders[i].item.scrollLeft;
-          });
-          sliders[i].item.addEventListener('mouseleave', () => {
-            isDown = false;
-            sliders[i].item.classList.remove('active');
-          });
-          sliders[i].item.addEventListener('mouseup', () => {
-            isDown = false;
-            sliders[i].item.classList.remove('active');
-          });
-          sliders[i].item.addEventListener('mousemove', (e) => {
-            if(!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - sliders[i].item.offsetLeft;
-            const walk = (x - startX) * 3; //scroll-fast
-            sliders[i].item.scrollLeft = scrollLeft - walk;
-          });
-        }        
-      </script> -->
     
       <script type="text/javascript">
 
         function draggableItem(item) {
-            let isDown = false;
-            let startX;
-            let scrollLeft;
+           let isDown = false;
+           let startX;
+           let scrollLeft;
 
-            item.addEventListener('mousedown', (e) => {
-              isDown = true;
-              item.classList.add('active');
-              startX = e.pageX - item.offsetLeft;
-              scrollLeft = item.scrollLeft;
-            });
-            item.addEventListener('mouseleave', () => {
-              isDown = false;
-              item.classList.remove('active');
-            });
-            item.addEventListener('mouseup', () => {
-              isDown = false;
-              item.classList.remove('active');
-            });
-            item.addEventListener('mousemove', (e) => {
-              if(!isDown) return;
-              e.preventDefault();
-              const x = e.pageX - item.offsetLeft;
-              const walk = (x - startX) * 3; //scroll-fast
-              item.scrollLeft = scrollLeft - walk;
-            });
+           item.addEventListener('mousedown', (e) => {
+            isDown = true;
+            item.classList.add('active');
+            startX = e.pageX - item.offsetLeft;
+            scrollLeft = item.scrollLeft;
+           });
+           item.addEventListener('mouseleave', () => {
+            isDown = false;
+            item.classList.remove('active');
+           });
+           item.addEventListener('mouseup', () => {
+            isDown = false;
+            item.classList.remove('active');
+           });
+           item.addEventListener('mousemove', (e) => {
+            console.log(e.pageX)
+
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - item.offsetLeft;
+            const walk = (x - startX) * 3; //scroll-fast
+            item.scrollLeft = scrollLeft - walk;
+           });
+
+          item.addEventListener("touchstart", (e)=>{
+              isDown = true;
+              item.classList.add('active');
+              startX = e.changedTouches[0].pageX - item.offsetLeft;
+              scrollLeft = item.scrollLeft;
+           }, false);
+
+           item.addEventListener("touchend", () => {
+            isDown = false;
+            item.classList.remove('active')}, false);
+
+           item.addEventListener('touchmove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.changedTouches[0].pageX - item.offsetLeft;
+            const walk = (x - startX) * 3; //scroll-fast
+            item.scrollLeft = scrollLeft - walk;
+           },false);
+
         }
 
         const draggable0 = document.getElementById('draggable-items-0');
