@@ -47,7 +47,7 @@
 
 // import './jqueryPlugin/owlCarousel'
 
-import './jqueryPlugin/rangeslider'
+// import './jqueryPlugin/rangeslider'
 
 import Vue from 'vue'
 window.Vue = Vue;
@@ -90,7 +90,6 @@ const header = new Vue({
     el: '#header',
     data(){
     	return{
-            yPosition:'',
             mutualVar,
             burgerOpen:false,
             headerSection:0,
@@ -98,12 +97,6 @@ const header = new Vue({
     	}
     },
     methods:{
-        updateYOffset(){
-            this.yPosition = window.pageYOffset
-        },
-        scrollToTop(){
-            window.scrollTo(500, 0);
-        },
         onClickedHeader(section){
             if (this.headerSection == section) {
                 return this.headerSection = 0
@@ -112,12 +105,10 @@ const header = new Vue({
         },
     },
     created(){
-        window.addEventListener('scroll', this.updateYOffset);
         mutualVar.css.innerWidth = window.innerWidth
 
     }, 
     destroyed () {
-        window.removeEventListener('scroll', this.updateYOffset);
     },
     components:{ ShoppingCartProgress, ShoppingCartIcon },
     computed:{

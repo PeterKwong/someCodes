@@ -205,7 +205,7 @@ export default {
         			urlId  = '/gia-loose-diamonds'
         		}
 
-        		urlId = getLocale() + urlId
+        		urlId = '/' + getLocale() + urlId
         	}
 
         	window.open(urlId,'_self')

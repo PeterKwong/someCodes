@@ -91,11 +91,11 @@
       top: 0;
       width: 100%;
       z-index: 100;
-      transition: all .3s ease;
+      transition: all .4s ease;
       box-shadow: 0 1px 25px rgba(0,0,0, .1);
       }
       #site-header.hide {
-          top: -53px;
+          top: -65px;
       }
   </style>
   
