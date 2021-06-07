@@ -1,7 +1,7 @@
 <div id="site-header">
   <div id="header" >
     <header class="bg-white sm:flex sm:justify-between sm:items-center sm:px-2 sm:py-2" >
-      <div class="flex items-center justify-between px-4 py-3 sm:p-0" >
+      <div class="flex items-center justify-between p-2 sm:p-0" >
         
         <div>
           <a href="/">
