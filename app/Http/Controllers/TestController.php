@@ -26,7 +26,7 @@ class TestController extends Controller
 
     public function test(){
     	// dd( config('global.paymentMode'));
-	    // $this->postTags();
+	    return $this->postTags();
 	    return $this->resetAllDiamonds();
 
 	    // return $this->copyAWS();
@@ -385,14 +385,14 @@ class TestController extends Controller
     	foreach ($invoicePosts as $post) {
 
 
-    		$page = Page::create(['url' => 'customer-jewellery/'.$post->id ,'paginable_id' => $post->id , 'paginable_type' => 'App\InvoicePost']);
+    		$page = Page::create(['url' => 'customer-jewellery/'.$post->id ,'paginable_id' => $post->id , 'paginable_type' => 'App\Models\InvoicePost']);
     		$postType = $post->postable_type;
 	    	// dd($postType);
 
     		$post = $post->invoice;
 	    	$tags = [];
 
-	    	if ($postType == 'App/Jewellery') {
+	    	if ($postType == 'App\Models\Jewellery') {
 	    		foreach ($post->jewelleries as $jewellery) {
 
 	    				// dd($jewellery);
@@ -425,7 +425,7 @@ class TestController extends Controller
 	    		}
 	    	}
 
-	    	if ($postType == 'App/WeddingRing') {
+	    	if ($postType == 'App\Models\WeddingRing') {
 	    		foreach ($post->weddingRings as $weddingRing) {
 
 	    				// dd($engagementRing);
@@ -465,7 +465,7 @@ class TestController extends Controller
 	    		}
 	    	}
 
-	    	if ($postType == 'App/EngagementRing') {
+	    	if ($postType == 'App\Models\EngagementRing') {
 
 	    		foreach ($post->engagementRings as $engagementRing) {
 

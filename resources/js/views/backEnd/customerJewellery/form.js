@@ -119,16 +119,17 @@ export default {
 				return 
 			}
 
-				selectedType = this.tags.filter((tag)=>{ 
-						return tag.content.toLowerCase() == type
-						})
-				console.log(selectedType)
-				this.tags.filter((tag)=>{
-					if (tag.content == tagContent && tag.upper_id == selectedType[0].id) {
-						vm.form.page.tags.push(tag)
-						console.log(tag)
-					}
-				}) 
+			selectedType = this.tags.filter((tag)=>{ 
+					return tag.content.toLowerCase() == type
+					})
+			// console.log(tagContent)
+			this.tags.filter((tag)=>{
+				if (tag.content.toLowerCase() == tagContent.toLowerCase() && tag.upper_id == selectedType[0].id) {
+					vm.form.page.tags.push(tag)
+					// console.log(tag)
+				}
+			}) 
+			
 		},
 		assignTag(tagContent,type,batchNumber){
 			var vm = this
@@ -174,7 +175,7 @@ export default {
 
 			var list = ['App\\Models\\EngagementRing','App\\Models\\WeddingRing','App\\Models\\Jewellery']
 			var tags 
-			var diamondConditions = ['color','clarity','cut','polish','symmetry','fluorescence']
+			var diamondConditions = ['color','shape','clarity','cut','polish','symmetry','fluorescence']
 			var engagementConditions = ['style','shoulder','prong']
 			var weddingConditions = ['metal','shape','finish','origin','brand','style',]
 			var jewelleryConditions = ['metal','gemstone','type',]
@@ -191,15 +192,15 @@ export default {
 			for (var i=0; this.form.texts.length > i ; i++) {
 				// for (var j = 0; this.option[0].invoice_diamonds.length > j; j++) {
 					var j = this.option[0].invoice_diamonds.length -1
-					if (this.selectedItem.includes('App\\Models\\EngagementRing') && this.option[0].invoice_diamonds[j]) {
-						this.form.texts[i].content =  this.option[0].invoice_diamonds[j].weight +' '+ transJs('Carat Diamond Ring',this.langs,i) +', '+ ''
-						this.diamondAssignTag(this.priceRange(this.option[0].invoice_diamonds[j].weight),'weight',i)
-
-							for (var k = 0 ; diamondConditions.length > k; k++) {
-								this.form.texts[i].content += this.option[0].invoice_diamonds[j][diamondConditions[k]] +' '+ transJs(diamondConditions[k],this.langs,i) +', '
-								this.diamondAssignTag(this.option[0].invoice_diamonds[j][diamondConditions[k]],diamondConditions[k],i)
+					if (this.option[0].invoice_diamonds[j] ) {
+						if (this.selectedItem.includes('App\\Models\\EngagementRing') || this.selectedItem.includes('App\\Models\\Jewellery') ) {
+								this.form.texts[i].content =  this.option[0].invoice_diamonds[j].weight +' '+ transJs('Carat Diamond Ring',this.langs,i) +', '+ ''
+								this.diamondAssignTag(this.priceRange(this.option[0].invoice_diamonds[j].weight),'weight',i)
+									for (var k = 0 ; diamondConditions.length > k; k++) {
+										this.form.texts[i].content += this.option[0].invoice_diamonds[j][diamondConditions[k]] +' '+ transJs(diamondConditions[k],this.langs,i) +', '
+										this.diamondAssignTag(this.option[0].invoice_diamonds[j][diamondConditions[k]],diamondConditions[k],i)
+									}
 							}
-
 					}
 				// }
 				// for (var j = 0; this.option[0].engagement_rings.length > j; j++) {
