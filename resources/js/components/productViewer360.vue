@@ -10,15 +10,54 @@
 </style>
 
 <template>
-		<div class="grid grid-cols-12 ">
-         	<div class="col-span-12">
-         		<canvas id="productViewer" @click="pauseOrStart()" class="flex" :width="width" :height="height" 
+  <div>
+ <!--    <div class="relative z-10" v-if="loading" >
+      <button tabindex="1" class="fixed inset-0 bg-black opacity-25 h-full w-full cursor-default">
+        <div class="flex justify-center z-20">
+          <svg width="100" height="100" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+              <linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id="a">
+                  <stop stop-color="#fff" stop-opacity="0" offset="0%"/>
+                  <stop stop-color="#fff" stop-opacity=".631" offset="63.146%"/>
+                  <stop stop-color="#fff" offset="100%"/>
+              </linearGradient>
+          </defs>
+          <g fill="none" fill-rule="evenodd">
+              <g transform="translate(1 1)">
+                  <path d="M36 18c0-9.94-8.06-18-18-18" id="Oval-2" stroke="url(#a)" stroke-width="2">
+                      <animateTransform
+                          attributeName="transform"
+                          type="rotate"
+                          from="0 18 18"
+                          to="360 18 18"
+                          dur="0.9s"
+                          repeatCount="indefinite" />
+                  </path>
+                  <circle fill="#fff" cx="36" cy="18" r="1">
+                      <animateTransform
+                          attributeName="transform"
+                          type="rotate"
+                          from="0 18 18"
+                          to="360 18 18"
+                          dur="0.9s"
+                          repeatCount="indefinite" />
+                  </circle>
+              </g>
+          </g>
+      </svg>
+        </div>
+      </button>
+    </div>
+     -->
+    <div class="grid grid-cols-12 ">
+          <div class="col-span-12">
+            <canvas id="productViewer" @click="pauseOrStart()" class="flex" :width="width" :height="height" 
 
-	         		@mousedown="startDrag" @touchstart="startDrag"
-			        @mousemove="onDrag" @touchmove="onDrag"
-			        @mouseup="stopDrag" @touchend="stopDrag" @mouseleave="stopDrag">
-         			
-         		</canvas>
+              @mousedown="startDrag" @touchstart="startDrag"
+              @mousemove="onDrag" @touchmove="onDrag"
+              @mouseup="stopDrag" @touchend="stopDrag" @mouseleave="stopDrag">
+              
+            </canvas>
             <div class="flex justify-center bg-gray-300 opacity-50">
               <div class="border border-white border-2 bg-black p-1 px-4 rounded-lg opacity-50 hover:bg-gray-700"  @click="viewerProgress(1)">
                     <i class="hidden sm:block fa fa-chevron-left text-white fa-2x" aria-hidden="true" ></i>
@@ -35,8 +74,9 @@
             </div>
             <canvas id="loadingImg"  class="flex" width="0" height="0" >
             </canvas>
-         	</div>         		
-		</div>
+          </div>            
+    </div>
+  </div>
 </template>
 
 <script type="text/javascript">
@@ -53,11 +93,12 @@
 
 				width:1100,
 				height:618,
-				viewer:{ progress:0,stage:'',},
+				viewer:{ progress:0, lastProgress:0, stage:'',},
         rotatingTime:70,
 				interval:'',
         rotate:1,
         lastRotate:0,
+        loading:true,
 
 			}
 		},
@@ -66,8 +107,10 @@
         if (this.rotate > 0 || this.rotate < 0) {
           this.lastRotate = this.rotate
           this.rotate = 0 
+          this.clearInterval()
         }else{
           this.rotate = this.lastRotate
+          this.setRotation(this.rotate)
         }
       },
       viewerProgress(step){
@@ -103,7 +146,7 @@
 
           // this.setRotation(this.rotate)
 
-          this.rotateDirection(this.rotate)
+          this.rotateDirection()
 
         }
 
@@ -114,7 +157,7 @@
 
         this.interval = setInterval(() => {
           if (!this.dragging ) {
-            this.nextImage(this.rotate)
+            this.rotateDirection()
           }
         }, this.rotatingTime)             
 
@@ -122,11 +165,6 @@
       clearInterval(){
     		clearInterval(this.interval);
         // console.log('clear')
-      },
-      nextImage(){
-        // console.log(this.rotate)
-      	this.rotateDirection(this.rotate)
-
       },
       rotateDirection(){
 
@@ -160,6 +198,8 @@
 
         img.src = this.folder + this.filename +  this.viewer.progress + '.jpg';
 
+        console.log(this.viewer.progress)
+
   			img.onload = function(){
   			  ctx.drawImage(img,0, 0, 1100 ,618); // Or at whatever offset you like
   			};
@@ -173,6 +213,7 @@
           this.viewer.progress = i
           this.loadImg()
         }
+        this.loading = false
       },
       loadImg(){
 
