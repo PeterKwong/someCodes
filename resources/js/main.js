@@ -58,7 +58,7 @@ import mutualVar from './helpers/mutualVar'
 window.mutualVar = mutualVar
 
 // Langs
-import transJS from './helpers/transJs1'
+import transJS from './langs/transJs'
 Vue.filter('transJs', transJS.transJs)
 
 import { get,post } from './helpers/api'

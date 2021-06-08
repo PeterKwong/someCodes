@@ -25,13 +25,13 @@
                             <div>
                               <center>
                                      <div v-if="videoSelecting == 'video360' " class=" sm:p-1">
-                                        <product-viewer 
+                                        <product-viewer
                                         :folder=" cdn + 'public/video360/' + video360.src +'/'" 
-                                        :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate" v-if="video360.size"></product-viewer>
+                                        :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate" v-if="vid360"></product-viewer>
                                      </div>
 
                                         <div  v-if="videoSelecting == 'video' && videoOptions.poster ">
-                                            <video-player :options="videoOptions" autoplay="false"></video-player>             
+                                            <video-player v-if="src" :options="videoOptions" autoplay="false"></video-player>             
                                         </div>
                                    
                                 </center>
@@ -64,7 +64,9 @@ export default {
     data() {
         return {
                 cdn: mutualVar.storage[mutualVar.storage.live],
-                videoSelecting:'video360',               
+                videoSelecting:'video360',
+                langs,
+         
         };
     },
     mounted() { 
@@ -77,7 +79,7 @@ export default {
                 src:this.vid360, 
                 type:"video360", 
                 thumb: this.cdn + 'public/video360/' + this.vid360 +'/thm-0.jpg', 
-                size:120 , 
+                size:120 -1 , 
                 rotate:1,
                 fileName: '',
                 }
