@@ -7,6 +7,7 @@ export default {
 	data(){
 		return {
 			mutualVar,
+			locale: mutualVar.langs.localeCode,
 			query:{
 				per_page: 10,
 			},
