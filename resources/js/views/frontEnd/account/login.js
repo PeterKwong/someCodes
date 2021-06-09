@@ -1,9 +1,5 @@
-import { get, post } from '../../../helpers/api'
-import { setCookie, getCookie, } from '../../../helpers/cookie'
 
-import { transJs } from '../../../helpers/transJs'
-import { getLocaleCode, getLocale } from '../../../helpers/locale'
-import langsShopC from '../../../langs/shoppingCart'
+import { setCookie, getCookie, } from '../../../helpers/cookie'
 
 // import DataViewer from '../../../components/user/DataViewer.vue'
 
@@ -13,7 +9,7 @@ export default {
 		return {
 				mutualVar,
 				data:'',
-				langs: langsShopC,
+				langs,
 
 		}
 	},

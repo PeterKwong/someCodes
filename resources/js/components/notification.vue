@@ -2,7 +2,7 @@
 <template>
   <div class="z-10">
 
-    <div v-if="notification.state.success || notification.state.error || notification.contactMessage.active" @click="resetArray()">
+    <div v-if="notification.state.success || notification.state.error " @click="resetArray()">
       <transition name="modal">
         <div class="modal-mask">
           <button tabindex="-1" class="modal-button"></button>          
@@ -56,10 +56,11 @@
                   </div>
 
 
-                  <div class="grid grid-cols-12" v-if="notification.contactMessage.active">
+                <!--   <div class="grid grid-cols-12" v-if="notification.contactMessage.active">
                     <div class="col-span-4">
                       <img width="128" src="/images/front-end/aboutUs/wechat.jpg">
                     </div>
+                    
                     <div class="col-span-8">
                       <div class="content">
                           <div v-if="notification.contactMessage.trans">
@@ -107,7 +108,7 @@
                             
                         </div>
                     </div>
-                  </div>
+                  </div> -->
 
 
 
@@ -166,7 +167,6 @@ export default {
       resetArray(){
         this.notification.state.success = null
         this.notification.state.error = null
-        this.notification.contactMessage.active = false
       }
     },
 

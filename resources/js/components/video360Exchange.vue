@@ -2,7 +2,7 @@
     <div class="relative sm:p-2">
         <div class="absolute z-10" style="top:5%; left:5% ; opacity:50% ;" >
             <div v-if="videoSelecting == 'video360' " @click="video360Reload()" class=" border border-white border-2 bg-black p-1 px-4 rounded-lg hover:bg-gray-700 text-center"  >
-                <p class="text-white">{{ 'Video' |transJs(langs) }}
+                <p class="text-white">{{ 'Video' |transJs() }}
                 <i class="hidden sm:block fa fa-play text-white fa-2x" aria-hidden="true" ></i>
                 <i class="sm:hidden fa fa-play text-white " aria-hidden="true" ></i></p>
                 

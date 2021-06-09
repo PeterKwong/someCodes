@@ -2,8 +2,6 @@
 import Vue from 'vue'
 import {get, post, put} from '../../../helpers/api'
 
-import { transJs } from '../../../helpers/transJs'
-import langs from '../../../langs/engagementRings'
 
 
 export default {

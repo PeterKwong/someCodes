@@ -1,7 +1,6 @@
 import { get, post } from '../../../../helpers/api'
 // import router from '../../../../router'
 
-import { transJs } from '../../../../helpers/transJs'
 import { getLocaleCode } from '../../../../helpers/locale'
 
 import Flash from '../../../../helpers/flash'
@@ -34,9 +33,6 @@ export default {
 			}
 
 		},
-	filters:{
-			transJs,
-	},
 	methods:{
 		
 		fetchData(){

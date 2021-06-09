@@ -6,12 +6,6 @@ import ImageUpload from '../../../components/ImageUpload.vue'
 import VideoUpload from '../../../components/VideoUpload.vue'
 import UploadMultiImage from '../../../components/UploadMultiImage.vue'
 
-import { transJs } from '../../../helpers/transJs'
-import langsJew from '../../../langs/jewelleries'
-import langsDia from '../../../langs/diamondViewer'
-import langsEnga from '../../../langs/engagementRings'
-import langsWedd from '../../../langs/weddingRings'
-
 
 
 export default {
@@ -29,7 +23,7 @@ export default {
 				image2:''
 			},
 			isProcessing: false,
-			langs: langsDia.concat(langsEnga,langsWedd, langsJew),
+			langs,
 			errors: {},
 			option: {},
 			title: 'Create',

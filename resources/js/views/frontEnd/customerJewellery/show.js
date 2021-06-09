@@ -2,12 +2,6 @@
 // import { get, del } from '../../../helpers/api'
 // import Flash from '../../helpers/flash'
 
-import { transJs } from '../../../helpers/transJs'
-import langsDia from '../../../langs/diamondViewer'
-import langsEnga from '../../../langs/engagementRings'
-import langsWedd from '../../../langs/weddingRings'
-// import langs from '../../../langs/customerJewellry'
-
 // import {videoPlayer} from '../../../../../node_modules/vue-video-player/dist/vue-video-player'
 import videoPlayer from '../../../components/videoPlayer.vue'
 import ProductViewer from '../../../components/productViewer360.vue'
@@ -38,7 +32,7 @@ export default {
 			],
 			videoPath: mutualVar.storage[mutualVar.storage.live] + 'public/videos/' ,
 			imagePath: mutualVar.storage[mutualVar.storage.live] + 'public/images/' ,
-			langs: langsDia.concat(langsEnga,langsWedd),
+			langs,
 			invoice: '',
 			published: {engagementRings:0, weddingRings:0, jewelleries:0},
 			langHref : '/' + window.location.pathname.slice(1,3),
@@ -68,15 +62,6 @@ export default {
 	},
 	beforeMount(){
 		this.fetchData()
-
-	},
-	filters:{
-			transJs,
-	},
-	computed:{
-
-	},
-	watch:{
 
 	},
 	methods: {

@@ -1,7 +1,4 @@
-import { get } from '../../../helpers/api'
 
-import { transJs } from '../../../helpers/transJs'
-import langs from '../../../langs/customerJewellry'
 import ImageCarousel from '../../../components/imageCarousel.vue'
 
 export default {
@@ -34,24 +31,6 @@ export default {
 	},
 	destroyed () {
 	  window.removeEventListener('scroll', this.handleScroll);
-	},
-	computed:{
-			locale(){
-				
-				if (window.location.pathname.slice(1,3) == 'en') {
-					return 0
-				}
-				if (window.location.pathname.slice(1,3) == 'hk') {
-					return 1
-				}
-				if (window.location.pathname.slice(1,3) == 'cn') {
-					return 2
-				}
-			},
-
-		},
-	filters:{
-			transJs,
 	},
 	methods:{
 		selectedCarouselItems(images){

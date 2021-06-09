@@ -1,10 +1,3 @@
-import { get, post } from '../../../helpers/api'
-
-import { transJs } from '../../../helpers/transJs'
-import { getLocaleCode, getLocale } from '../../../helpers/locale'
-import langsShopC from '../../../langs/shoppingCart'
-
-// import DataViewer from '../../../components/user/DataViewer.vue'
 
 export default {
 		el: '#invoices',
@@ -12,7 +5,7 @@ export default {
 		return {
 				mutualVar,
 				data:'',
-				langs: langsShopC,
+				langs,
 		}
 	},
 	watch:{
@@ -21,15 +14,7 @@ export default {
 	beforeMount(){
 		this.fetchData()
 	},
-	computed:{
-			locale(){
-				return getLocaleCode()
-			},
 
-		},
-	filters:{
-			transJs,
-	},
 	methods:{
 		fetchData(){
 			get(`/api/account/invoices`,)

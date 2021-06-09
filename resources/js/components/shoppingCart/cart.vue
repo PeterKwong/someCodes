@@ -1,7 +1,7 @@
 <template>
     <div class="section" id="customerMoments">
 
-    <button class="btn btn-primary" @click="selectItem()">{{'Select this Item' |transJs(langs)}}</button>
+    <button class="btn btn-primary" @click="selectItem()">{{'Select this Item' |transJs()}}</button>
 
 
     <div v-if="shoppingCart.haveShoppingCart" @click="toggleModal()">
@@ -27,13 +27,13 @@
                                 <div @click="toggleModal()">
                                     <a :href="`${option.url}`">
                                       <button class="btn btn-primary" :disabled="!option.clickable" >
-                                        {{option.text |transJs(langs)}}
+                                        {{option.text |transJs()}}
                                       </button>
                                     </a>
                                 </div>
                             </div>
 
-                          <button class="btn btn-primary hover:bg-blue-500" :class="{'opacity-50':!nextProcedure.addToCart.clickable}" :disabled="!nextProcedure.addToCart.clickable" @click="addItemToCart()">{{nextProcedure.addToCart.text |transJs(langs)}}</button>
+                          <button class="btn btn-primary hover:bg-blue-500" :class="{'opacity-50':!nextProcedure.addToCart.clickable}" :disabled="!nextProcedure.addToCart.clickable" @click="addItemToCart()">{{nextProcedure.addToCart.text |transJs()}}</button>
                         </center>
 
                       </div>
@@ -55,8 +55,6 @@
 import { setCookie, getCookie, } from '../../helpers/cookie'
 import { getLocale, getLocaleCode } from '../../helpers/locale'
 
-import { transJs } from '../../helpers/transJs'
-import langsShopC from '../../langs/shoppingCart'
 
 
     
@@ -66,8 +64,7 @@ export default {
     data(){
         return {
                 mutualVar,
-                langs: langsShopC,
-
+                langs,
         }
     },
     watch:{

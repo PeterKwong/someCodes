@@ -1,7 +1,3 @@
-import { get } from '../../../helpers/api'
-
-import { transJs } from '../../../helpers/transJs'
-import langs from '../../../langs/customerJewellry'
 
 export default {
 		el: '#education',
@@ -34,21 +30,6 @@ export default {
 
 	
 		this.activedSubTab = window.location.pathname.slice(30)?window.location.pathname.slice(30):'carat'
-	},
-	computed:{
-			locale(){
-				var location = {
-								'en':0,
-								'hk':1,
-								'cn':2
-						}
-
-				return location[window.location.pathname.slice(1,3)]
-			},
-
-		},
-	filters:{
-			transJs,
 	},
 	methods:{
 		activeSubTab(tab){

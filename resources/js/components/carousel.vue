@@ -62,7 +62,7 @@
 
 
         <center v-if="chunkedItems.length">
-                <a>{{ 'Customer Jewelleries' |transJs(langs) }}</a>
+                <a>{{ 'Customer Jewelleries' |transJs() }}</a>
         </center>
 
         <div class="grid grid-cols-12 justify-center">

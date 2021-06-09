@@ -1,8 +1,6 @@
 import { get, post } from '../../../../helpers/api'
 
-import { transJs } from '../../../../helpers/transJs'
 import { getLocaleCode } from '../../../../helpers/locale'
-import langsShopC from '../../../../langs/shoppingCart'
 
 import Flash from '../../../../helpers/flash'
 import Notification from '../../../../components/notification.vue'
@@ -16,7 +14,7 @@ export default {
 				model:'',
 				coupon:'',
 				mutualVar,
-				langs: langsShopC,
+				langs,
 				refundAmount:0,
 		}
 	},
@@ -81,7 +79,6 @@ export default {
 
 		},
 	filters:{
-			transJs,
 			discountRateCheck(data, coupon){
 				var rate = data[0]
 					for(var i = 0; i < coupon.length ; i ++){

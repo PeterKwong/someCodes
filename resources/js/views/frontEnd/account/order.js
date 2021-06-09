@@ -1,7 +1,4 @@
-import { get } from '../../../helpers/api'
 
-import { transJs } from '../../../helpers/transJs'
-import { getLocaleCode } from '../../../helpers/locale'
 
 export default {
 		el: '#account',
@@ -15,15 +12,6 @@ export default {
 	},
 	beforeMount(){
 		this.fetchData()
-	},
-	computed:{
-			locale(){
-				return getLocaleCode()
-			},
-
-		},
-	filters:{
-			transJs,
 	},
 	methods:{
 		

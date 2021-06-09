@@ -28,7 +28,7 @@
 				        	</strong>
 			        		<strong class="hidden sm:block px-2"><strong @click="directTo(shortenName[0].type)" >
                          		<img class="h-12" :src=" '/images/front-end/shoppingCart/' + shortenName[0].type + '.png' ">
-                         		{{shortenName[0].type == 'engagementRings'? 'Engagement Ring':'diamond' | transJs(langs,locale) }}
+                         		{{shortenName[0].type == 'engagementRings'? 'Engagement Ring':'diamond' | transJs() }}
                          	</strong></strong>
                          	<i @click="removeItem(0)" class="fa fa-times-circle px-2 text-xl"></i>
 
@@ -68,7 +68,7 @@
 				      		</strong>
 				      		<strong class="px-2" :class="{ ' hidden sm:block' : shortenName[1]}" @click="directTo(shortenName[0].type == 'diamonds'?'engagementRings':'diamonds')"  ><strong >
 				      			<img class="h-12" :src=" `/images/front-end/shoppingCart/${shortenName[0].type == 'diamonds'?'engagementRings':'diamonds'}.png` " >
-				      			{{shortenName[0].type == 'engagementRings'? 'diamond' : 'Engagement Ring' | transJs(langs,locale)}} 
+				      			{{shortenName[0].type == 'engagementRings'? 'diamond' : 'Engagement Ring' | transJs()}} 
 				      		</strong></strong>
 				      		<i class="fa fa-times-circle px-1 text-xl" @click="removeItem(1)" v-if="shortenName[1]"></i>
 				      		                         		<!-- Arrow separator for lg screens and up -->
@@ -94,7 +94,7 @@
 					        </span>
 					      	<p :class="{'text-blue-400': currentUrl.includes('diamond-ring-review') }" v-if="shortenName.filter((data)=>{return data.id}).length" >
 					      		<img width="48" src="/images/front-end/shoppingCart/review.png">
-						         {{'Review' | transJs(langs,locale)}}
+						         {{'Review' | transJs()}}
 					      	</p>
 
 					      </div>
@@ -119,14 +119,13 @@
 import { get,post, } from '../../helpers/api'
 import { setCookie, getCookie, } from '../../helpers/cookie'
 
-import { getLocale, getLocaleCode } from '../../helpers/locale'
-
 
 	
 export default {
 	data(){
 		return {
             mutualVar,
+            locale: mutualVar.langs.locale,
 			langs,
 
 		}
@@ -171,9 +170,6 @@ export default {
         shortenName(){
         	return this.mutualVar.cookiesInfo.shoppingCart.items[this.mutualVar.cookiesInfo.shoppingCart.selectingIndex].pairItems
         },
-   		locale(){
-				return getLocaleCode()
-			},
         currentUrl(){
         	return window.location.pathname.slice(3)
         },
@@ -205,13 +201,13 @@ export default {
         			urlId  = '/gia-loose-diamonds'
         		}
 
-        		urlId = '/' + getLocale() + urlId
+        		urlId = '/' +  this.locale + urlId
         	}
 
         	window.open(urlId,'_self')
         },
         directToUrl(url){
-        	window.open(getLocale() + url,'_self')
+        	window.open( this.locale + url,'_self')
         },
         removeItem(item){
         	var pairItems = this.mutualVar.cookiesInfo.shoppingCart.items[this.mutualVar.cookiesInfo.shoppingCart.selectingIndex].pairItems

@@ -5,10 +5,7 @@ import { get, del } from '../../../helpers/api'
 import ShoppingCart from '../../../components/shoppingCart/cart.vue'
 // import Carousel from '../../../components/carousel.vue'
 
-// import Flash from '../../helpers/flash'
-import { transJs } from '../../../helpers/transJs'
-import langs from '../../../langs/diamondViewer'
-	
+
 export default {
 	el:'#diamondViewerShow',
 	components: { ShoppingCart },
@@ -62,9 +59,6 @@ export default {
 	beforeMount(){
 		this.fetchData()
 		
-	},
-	filters:{
-		transJs,
 	},
 	computed: {
 		// localeHref(){
