@@ -73,9 +73,9 @@ export default {
 			.then((res)=>{
 				this.post = res.data.model
 				this.invoice = res.data.invoice
-				this.ProceedVideoEng()
-				this.ProceedVideoWed()
-				this.ProceedVideoJew()
+				// this.ProceedVideoEng()
+				// this.ProceedVideoWed()
+				// this.ProceedVideoJew()
 				this.ProceedVideoPost()
 				this.setPublished()
 				this.setVideo360()
