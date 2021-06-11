@@ -77,6 +77,8 @@
           this.lastRotate = step
           this.rotate = 0 
           this.viewer.progress += step
+          this.checkProgressOver()
+          this.drawImg()
       },
 		  startDrag(e) {
         e = e.changedTouches ? e.changedTouches[0] : e;
@@ -132,16 +134,17 @@
 
         // console.log(this.viewer.progress)
 
+        this.checkProgressOver()
         this.drawImg()
+      },
+      checkProgressOver(){
+          if (this.viewer.progress <= 0 && this.rotate == -1) {
+            this.viewer.progress = this.size -1
+          }
 
-
-        if (this.viewer.progress <= 0 && this.rotate == -1) {
-        	this.viewer.progress = this.size -1
-        }
-
-        if (this.viewer.progress >= this.size -1 && this.rotate == 1) {
-        	this.viewer.progress = 0
-        }
+          if (this.viewer.progress >= this.size -1 && this.rotate == 1) {
+            this.viewer.progress = 0
+          }
 
       },
       stopDrag() {
