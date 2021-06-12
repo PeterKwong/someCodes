@@ -240,6 +240,12 @@
 		                            <div class="col-span-6 p-1">
 		                            	<p  class="text-gray-600" >HK${{$data['wedding_rings'][0]['unit_price']}} 
 			                            ({{__('weddingRing.' . $data['wedding_rings'][0]['gender'])}})
+			                            	@if($data['wedding_rings'][0]['invoices_count'] != 0)
+			                            		(<i class="fas fa-star text-yellow-600"></i> 
+		                        				<span class="text-yellow-700">
+		                        					{{$data['wedding_rings'][0]['invoices_count']}}
+			                        			</span>)
+			                        		@endif
 			                        	</p>
 			                        	<p class="text-blue-600 text-sm">
 			                        		{{ $data['wedding_rings'][0]['title'] }} 
@@ -248,6 +254,12 @@
 		                            <div class="col-span-6 p-1" > 
 		                            	<p  class="text-gray-600" >HK${{$data['wedding_rings'][1]['unit_price']}}
 			                            ({{__('weddingRing.' . $data['wedding_rings'][1]['gender'])}})
+			                            	@if($data['wedding_rings'][1]['invoices_count'] != 0)                            		
+			                            		(<i class="fas fa-star text-yellow-600"></i> 
+		                        				<span class="text-yellow-700">
+			                        				{{$data['wedding_rings'][1]['invoices_count']}}
+			                        			</span>)
+			                        		@endif
 			                            </p>
 			                            <p class="text-blue-600 text-sm">
 			                        		{{ $data['wedding_rings'][0]['title'] }}	
