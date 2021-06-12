@@ -37,6 +37,8 @@
             </canvas>
           </div>            
     </div>
+
+
 </template>
 
 <script type="text/javascript">
@@ -154,41 +156,55 @@
         }
       },
       drawImg(){
-
+        
   			var myCanvas = document.getElementById('productViewer');
   			var ctx = myCanvas.getContext('2d');
   			var img = new Image;
+        var i = this.viewer.progress
+        var vm = this
 
-        img.src = this.folder + this.filename +  this.viewer.progress + '.jpg';
+        img.src = this.folder + this.filename +  i + '.jpg';
+
+        console.log('draw',i)
+
 
         // console.log(this.viewer.progress)
 
   			img.onload = function(){
-  			  ctx.drawImage(img,0, 0, 1100 ,618); // Or at whatever offset you like
+          // console.log('i',i)
+          // console.log('vm',vm.viewer.progress)
+          if( i == vm.viewer.progress  ){
+            ctx.drawImage(img,0, 0, 1100 ,618); // Or at whatever offset you like
+          }
   			};
         
+
         // console.log(this.viewer.progress)
 
       },
       loadImages(){
 
         for (var i = 0; this.size > i; i++) {
-          this.viewer.progress = i
-          this.loadImg()
+          this.loadImg(i)
         }
         this.loading = false
       },
-      loadImg(){
+      loadImg(i){
 
         var myCanvas = document.getElementById('loadingImg');
         var ctx = myCanvas.getContext('2d');
         var img = new Image;
+        var loadedImage = false;
+        var size = this.size
 
-        img.src = this.folder + this.filename +  this.viewer.progress + '.jpg';
+        img.src = this.folder + this.filename + i  + '.jpg';
 
         img.onload = function(){
+            // console.log(i)
           ctx.drawImage(img,0, 0, 0 ,0); // Or at whatever offset you like
+
         };
+
         
       },
 
