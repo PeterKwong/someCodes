@@ -178,16 +178,20 @@ class Index extends Component
  		}
 
 	    $this->model = $query->where('published',1)
-                        ->with('images')
+                        ->with(['images'])
+                        ->withCount('invoices')
 			            ->paginate($this->fetchData['per_page']);
-
+                        // dd($this->model->sortBy('invoices')->toArray());
         $data =  $this->model->toArray();
-
+        $data['data'] =  $this->model->sortBy(function($query){ return count($query['invoices']) ;})->toArray();
+        // dd($data);
         foreach ($this->model as $key => $d) {
             $data['data'][$key]['title'] = $d->title();
         }
 
         $this->model = $data ;
+        // dd($data);
+
 
     }
     public function toggleValue($condition, $data)
