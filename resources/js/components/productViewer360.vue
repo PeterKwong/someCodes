@@ -138,14 +138,19 @@
 
         this.checkProgressOver()
         this.drawImg()
+
       },
       checkProgressOver(){
-          if (this.viewer.progress <= 0 && this.rotate == -1) {
-            this.viewer.progress = this.size -1
+          if (this.lastRotate == -1 || this.rotate == -1) {
+            if (this.viewer.progress <= 0 ) {
+              this.viewer.progress = this.size
+            }
           }
 
-          if (this.viewer.progress >= this.size -1 && this.rotate == 1) {
-            this.viewer.progress = 0
+          if (this.lastRotate ==1 || this.rotate == 1) {
+            if (this.viewer.progress >= this.size) {
+              this.viewer.progress = 0
+            }
           }
 
       },
@@ -163,7 +168,7 @@
         var i = this.viewer.progress
         var vm = this
 
-        img.src = this.folder + this.filename +  i + '.jpg';
+        img.src = this.folder + this.filename + this.viewer.progress + '.jpg';
 
         console.log('draw',i)
 
@@ -171,8 +176,8 @@
         // console.log(this.viewer.progress)
 
   			img.onload = function(){
-          // console.log('i',i)
-          // console.log('vm',vm.viewer.progress)
+          console.log('i',i)
+          console.log('vm',vm.viewer.progress)
           if( i == vm.viewer.progress  ){
             ctx.drawImage(img,0, 0, 1100 ,618); // Or at whatever offset you like
           }
