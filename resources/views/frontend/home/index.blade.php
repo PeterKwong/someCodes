@@ -631,7 +631,7 @@
         draggableItem(draggable0)
         const draggable1 = document.getElementById('draggable-items-1');
         draggableItem(draggable1)
-        console.log( ' {{Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE'])}}' )
+
       </script>
 
     @livewire('notification.contact')
