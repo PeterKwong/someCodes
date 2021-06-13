@@ -168,7 +168,7 @@
         var i = this.viewer.progress
         var vm = this
 
-        img.src = this.folder + this.filename + this.viewer.progress + '.jpg';
+        img.src = this.src + this.filename + this.viewer.progress + '.jpg';
 
         // console.log('draw',i)
 
@@ -202,7 +202,7 @@
         var loadedImage = false;
         var size = this.size
 
-        img.src = this.folder + this.filename + i  + '.jpg';
+        img.src = this.src + this.filename + i  + '.jpg';
 
         img.onload = function(){
             // console.log(i)
@@ -215,6 +215,9 @@
 
 		},
 		computed:{
+      src(){
+        return this.folder
+      }
 		},
 		components: {
 		},
@@ -222,6 +225,7 @@
       this.clearInterval()      
     },
 		mounted(){
+      this.size = this.size - 1
 			this.loadImages()
       this.setRotation(this.rotate)
 		},

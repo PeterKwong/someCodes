@@ -25,7 +25,7 @@
                             <div>
                               <center>
                                      <div v-if="videoSelecting == 'video360' " class=" sm:p-1">
-                                        <product-viewer
+                                        <product-viewer :key="video360.src"
                                         :folder=" cdn + 'public/video360/' + video360.src +'/'" 
                                         :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate" v-if="vid360"></product-viewer>
                                      </div>
@@ -70,8 +70,8 @@ export default {
         };
     },
     mounted() { 
-        this.setVideo()
-        this.setVideo360()
+        // this.setVideo()
+        // this.setVideo360()
     },
     computed:{
          video360(){
@@ -79,7 +79,7 @@ export default {
                 src:this.vid360, 
                 type:"video360", 
                 thumb: this.cdn + 'public/video360/' + this.vid360 +'/thm-0.jpg', 
-                size:120 -1 , 
+                size:120, 
                 rotate:1,
                 fileName: '',
                 }
