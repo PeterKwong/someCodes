@@ -1,6 +1,4 @@
 
-
-
 <div class="grid grid-cols-12 p-2 pt-4">
   <div class="col-span-6">
     <div class="grid grid-cols-12 items-center">

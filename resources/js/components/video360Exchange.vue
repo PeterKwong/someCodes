@@ -70,8 +70,8 @@ export default {
         };
     },
     mounted() { 
-        // this.setVideo()
-        // this.setVideo360()
+        this.setVideo()
+        this.setVideo360()
     },
     computed:{
          video360(){

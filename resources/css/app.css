@@ -36,7 +36,7 @@
 	}
 
 	.btn-outline:hover {
-		@apply border border-gray-500 text-white bg-gray-300
+		@apply border-b-2 border-gray-500 text-white bg-gray-300
 	}
 
 	.btn-active {
