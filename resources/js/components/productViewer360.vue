@@ -143,12 +143,12 @@
       checkProgressOver(){
           if (this.lastRotate == -1 || this.rotate == -1) {
             if (this.viewer.progress < 0 ) {
-              this.viewer.progress = this.size
+              this.viewer.progress = this.size -1
             }
           }
 
           if (this.lastRotate ==1 || this.rotate == 1) {
-            if (this.viewer.progress > this.size) {
+            if (this.viewer.progress > this.size -1) {
               this.viewer.progress = 0
             }
           }
@@ -168,7 +168,7 @@
         var i = this.viewer.progress
         var vm = this
 
-        img.src = this.src + this.filename + this.viewer.progress + '.jpg';
+        img.src = this.folder + this.filename + this.viewer.progress + '.jpg';
 
         // console.log('draw',i)
 
@@ -189,7 +189,7 @@
       },
       loadImages(){
 
-        for (var i = 0; this.size > i; i++) {
+        for (var i = 0; this.size -1 > i; i++) {
           this.loadImg(i)
         }
         this.loading = false
@@ -200,9 +200,9 @@
         var ctx = myCanvas.getContext('2d');
         var img = new Image;
         var loadedImage = false;
-        var size = this.size
+        var size = this.size -1
 
-        img.src = this.src + this.filename + i  + '.jpg';
+        img.src = this.folder + this.filename + i  + '.jpg';
 
         img.onload = function(){
             // console.log(i)
@@ -215,19 +215,18 @@
 
 		},
 		computed:{
-      src(){
-        return this.folder
-      }
 		},
 		components: {
 		},
+    watch:{
+      'folder':'loadImages',
+    },
     destroyed(){
       this.clearInterval()      
     },
 		mounted(){
-      this.size = this.size - 1
-			this.loadImages()
       this.setRotation(this.rotate)
+			this.loadImages()
 		},
 	
 	}

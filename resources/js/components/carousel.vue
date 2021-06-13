@@ -47,7 +47,10 @@
  <!--                <product-viewer v-if="upperitems.video360 && currentItem.size" :folder="folder + upperitems.video360 +'/'" 
                 :filename="fileName " :size="currentItem.size" ></product-viewer> -->
 
-                <video-360-exchange v-if="currentItem.video360" :src="currentItem.src" :img="currentItem.thumb" :vid360="currentItem.video360"/>
+                <video-360-exchange  v-if="currentItem.video360" 
+                                    :src="currentItem.src" 
+                                    :img="currentItem.thumb" 
+                                    :vid360="currentItem.video360"/>
 
                 <a v-if="chunkedItems[currentIndex]" :href="'/'+ mutualVar.langs.locale + '/customer-jewellery/' + chunkedItems[currentIndex].postId" target="_blank">
                     <p v-if="chunkedItems.length && !showUpper" class="bg-blue-300 hover:bg-blue-400 text-white text-center p-4">{{chunkedItems[currentIndex].text}}</p>

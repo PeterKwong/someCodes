@@ -25,9 +25,11 @@
                             <div>
                               <center>
                                      <div v-if="videoSelecting == 'video360' " class=" sm:p-1">
-                                        <product-viewer :key="video360.src"
+                                        <product-viewer 
                                         :folder=" cdn + 'public/video360/' + video360.src +'/'" 
-                                        :filename="video360.fileName" :size="video360.size" :rotate="video360.rotate" v-if="vid360"></product-viewer>
+                                        :filename="video360.fileName" 
+                                        :size="video360.size" 
+                                        :rotate="video360.rotate" v-if="vid360"></product-viewer>
                                      </div>
 
                                         <div  v-if="videoSelecting == 'video' && videoOptions.poster ">
