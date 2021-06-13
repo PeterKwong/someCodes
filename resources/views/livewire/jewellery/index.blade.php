@@ -154,6 +154,12 @@
 	                    <center>
 
                         	<p  class="text-gray-600" >HK${{$data['unit_price']}}
+                        		@if($data['invoices_count'] != 0)
+	                        			(<i class="fas fa-star text-yellow-600"></i> 
+	                        				<span class="text-yellow-700">
+	                        				{{$data['invoices_count']}}
+	                        			</span>)
+	                        		@endif
                             </p>
 	                            <p class="text-blue-600 text-sm p-1">
 	                            	{{ $data['title'] }} 

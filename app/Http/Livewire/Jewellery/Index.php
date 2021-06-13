@@ -174,6 +174,7 @@ class Index extends Component
 
 	    $this->model = $query->where('published',1)
                         ->with('images')
+                        ->withCount('invoices')
 			            ->paginate($this->fetchData['per_page']);
                         
         $data =  $this->model->toArray();
