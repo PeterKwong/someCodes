@@ -109,6 +109,16 @@ class PostFetch extends Component
 		if (count(request()->input())) {
 			$this->getRequestTags();
 		}
+		if ($this->upperId[0]['id'] == 0) {
+			cache()->remember('postFetch.noUpperId',config('global.cache.day'),function(){
+        		// dd('Uppercache');
+    	    	return $this->tags = Tag::where('upper_id', $this->upperId[count($this->upperId)-1]['id'])
+							// ->where('locale', app()->getLocale())
+							->get();
+        	});
+
+		}
+
 		$this->tags = Tag::where('upper_id', $this->upperId[count($this->upperId)-1]['id'])
 							// ->where('locale', app()->getLocale())
 							->get();
