@@ -38,16 +38,17 @@ class PostFetch extends Component
 
     public function getPosts(){
     	
-    	$this->posts = InvoicePost::where('published',1)
-    					->whereDate('date','<', now())
-    					->orderBy('date', 'desc');
 
-        	// dd($this->selectedTags);
+        	// dd($this->posts);
 
         if (count($this->selectedTags)>0) {
         	// dd($this->selectedTags);
 
         	// $tags = [];
+        	$this->posts = InvoicePost::where('published',1)
+			->whereDate('date','<', now())
+			->orderBy('date', 'desc');
+
         	foreach ($this->selectedTags as $key => $value) {
         		$tag = $value['id'];
         		
@@ -61,9 +62,13 @@ class PostFetch extends Component
 
 
         }else{
-        	
+
         	cache()->remember('postFetch.noSelecdTags',config('global.cache.day'),function(){
-        		
+        		// dd('cache');
+    	    	$this->posts = InvoicePost::where('published',1)
+					->whereDate('date','<', now())
+					->orderBy('date', 'desc');
+
         		return $this->queryPosts();
         	});
         }

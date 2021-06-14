@@ -46,6 +46,7 @@
           </div>
 
 
+
         <div class="">
           <div class="flex justify-around pt-2 relative">
             <div class="flex-1 hidden sm:block hover:bg-gray-100 hover:opacity-50 w-full h-full ">
@@ -631,7 +632,7 @@
         draggableItem(draggable0)
         const draggable1 = document.getElementById('draggable-items-1');
         draggableItem(draggable1)
-
+        
       </script>
 
     @livewire('notification.contact')

@@ -124,7 +124,7 @@
 <!--       <a class="text-gray-700" ><small>粤ICP备19125751号-1</small></a> 
  -->
       <a class="text-gray-700" href="https://beian.miit.gov.cn/"><small>粤ICP备19125751号-1</small></a> 
-       {{ $_SERVER['HTTP_ACCEPT_LANGUAGE'] }}
+
   </div> 
 
 
