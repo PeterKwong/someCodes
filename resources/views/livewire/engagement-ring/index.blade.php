@@ -183,7 +183,7 @@
 			@endif
 	    @endforeach
 	</div>
-	                
+	 
 
 	<div class="grid grid-cols-12 ">
 	    <div class="col-span-12 flex justify-center {{ isset($model['total']) && $model['total'] == 0 ? ' hidden' : ''}}">

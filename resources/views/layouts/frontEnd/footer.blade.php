@@ -1,3 +1,4 @@
+    
   @include('layouts.metas.footer')
 <footer class="pt-42 bg-gray-900 " id="footer">
 

@@ -11,6 +11,7 @@ class Show extends Component
 	public $meta;
 	public $diamondUrl;
     public $videoSelecting;
+    public $tags;
 
     public function render()
     {	
@@ -40,8 +41,29 @@ class Show extends Component
         $this->meta->invoice->title = $title;
 
         $this->setVideo();
+        // dd($this->meta);
         // dd($this->meta->video360);
 
+        // dd( $this->meta->invoice->weddingRings->count());
+
+        $types = ['engagementRings','weddingRings','jewelleries'];
+
+        foreach ($types as $key => $type) {
+            if($this->meta->invoice->{$type}->count()){
+                $this->{$type.'Posts'}();
+                // dd($type);
+            }
+        }
+
+        // dd( $this->tags );
+    }
+    public function weddingRingsPosts()
+    {
+        
+        foreach ($this->meta->invoice->weddingRings as $key => $tag) {
+                // dd($tag);
+                $this->tags['weddingRings'] = $tag->tags();
+        }
     }
     public function setVideo()
     {

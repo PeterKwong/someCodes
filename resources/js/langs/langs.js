@@ -8,6 +8,17 @@ import langsWedd from './weddingRings'
 
 import { get } from '../helpers/api'
 
+export default{
+	langs:langsShoppingCart.concat(
+					langsHeader, 
+					langsDia,
+					langsEnga, 
+					langsWedd, 
+					langsJew,
+					// langsShoppingCart,
+					)
+}
+
 window.langs = langsShoppingCart.concat(
 					langsHeader, 
 					langsDia,

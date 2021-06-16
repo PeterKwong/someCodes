@@ -1,5 +1,4 @@
 
-import Vue from 'vue'
 import {get, post, put} from '../../../helpers/api'
 import {toMulipartedForm} from '../../../helpers/form'	
 import ImageUpload from '../../../components/ImageUpload.vue'	

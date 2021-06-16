@@ -72,12 +72,11 @@ export default {
 			get(`/api/invoicePosts/${window.location.pathname.slice(23)}`,window.location.pathname.slice(1,3))
 			.then((res)=>{
 				this.post = res.data.model
-				this.invoice = res.data.invoice
 				// this.ProceedVideoEng()
 				// this.ProceedVideoWed()
 				// this.ProceedVideoJew()
 				this.ProceedVideoPost()
-				this.setPublished()
+				// this.setPublished()
 				this.setVideo360()
 			})
 		},

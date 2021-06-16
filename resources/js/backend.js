@@ -10,6 +10,8 @@ require('./bootstrap');
 // window.Vue = require('vue');
 
 import Vue from 'vue'
+window.Vue = Vue;
+
 // import router from './backendRouter'
 
 /**
@@ -91,6 +93,13 @@ import OrderIndex from './views/backEnd/order/index'
 import OrderShow from './views/backEnd/order/show'
 import OrderToInvoice from './views/backEnd/order/orderToInvoice'
 
+import langs from './langs/langs'
+window.langs = langs.langs
+
+import { transJs } from './helpers/transJs'
+window.transJs = transJs
+
+
 import transJS from './langs/transJs'
 Vue.filter('transJs', transJS.transJs)
 
@@ -102,6 +111,7 @@ window.adminVar = AdminVar
 window.get = get
 window.post = post
 window.put = put
+
 
 const app = new Vue({
     el: '#backend',

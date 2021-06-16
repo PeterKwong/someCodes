@@ -123,10 +123,29 @@ class InvoicePostController extends Controller
     		// $post = InvoicePost::with(['contents'=> function($query){$query->where('locale',app()->getLocale())->get();}])
     		// 		->findOrFail($id);
         
-            $post = InvoicePost::with(['images','texts','invoice.engagementRings.images','invoice.engagementRings.texts','invoice.weddingRings.images','invoice.weddingRings.texts','invoice.jewelleries.images','invoice.jewelleries.texts','invoice.invoiceDiamonds'])
+            $post = InvoicePost::with(['images','texts',
+                        'invoice'=>function($query){
+                            $query->withCount('engagementRings');
+                            $query->withCount('weddingRings');
+                            $query->withCount('jewelleries');
+                            $query->withCount('invoiceDiamonds');
+                        }])
                     ->findOrFail($id);
 
-            
+                // dd($post);
+            $invoiceCount = ['engagementRings'=>0,
+                            'weddingRings'=>0,
+                            'jewelleries'=>0,
+                            'invoiceDiamonds'=>0,
+                            ];
+            $invoiceCount['engagementRings'] = $post->invoice['engagement_rings_count'];
+            $invoiceCount['weddingRings'] = $post->invoice['wedding_rings_count'];
+            $invoiceCount['jewelleries'] = $post->invoice['jewelleries_count'];
+            $invoiceCount['invoiceDiamonds'] = $post->invoice['invoice_diamonds_count'];
+
+            $post = $post->toArray();
+            $post['invoice'] = $invoiceCount;
+
     		// if (Invoice::whereId($post->invoice_id)) {
     		// 	$invoice = Invoice::whereId($post->invoice->id)->with(['invoiceDiamonds','jewelleries','engagementRings','weddingRings'])->get();
     		// }

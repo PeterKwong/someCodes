@@ -63,11 +63,14 @@ export default {
     tabs:{ sideBar:'4cs'},
     status:{ isProcessing: false},
     components:{slider:''},
-    livewire:{
-            customerJewellery:{
-                show:{videoSelecting:''},
-                }
+    lw:{
+        customerJewellery:{
+            engagementRings:'',
+            weddingRings:'',
+            jewelleries:'',
+            show:{videoSelecting:''},
             }
+        }
 
 
 }
