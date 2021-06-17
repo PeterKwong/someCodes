@@ -24,6 +24,8 @@
         </div>
 
 
+
+
         <span id="customerJewelleryShow">
 
             @if($videoSelecting == 'video360')
@@ -49,8 +51,8 @@
             @endif
 
 
-        </span>
-        
+                </span>
+
 
         @foreach($meta->invoice->invoiceDiamonds as $key => $diamond )
 
@@ -506,6 +508,8 @@
             @endif
             @endif
         @endif
+
+
 
 
 

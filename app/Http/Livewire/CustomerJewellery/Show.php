@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\CustomerJewellery;
 
 use App\Models\InvoicePost;
+use App\Models\WeddingRingPair;
 use Illuminate\Session\SessionManager;
 use Livewire\Component;
 
@@ -12,6 +13,7 @@ class Show extends Component
 	public $diamondUrl;
     public $videoSelecting;
     public $tags;
+    public $posts;
 
     public function render()
     {	
@@ -46,20 +48,39 @@ class Show extends Component
 
         // dd( $this->meta->invoice->weddingRings->count());
 
-        $types = ['engagementRings','weddingRings','jewelleries'];
+        // $types = ['engagementRings','weddingRings','jewelleries'];
 
-        foreach ($types as $key => $type) {
-            if($this->meta->invoice->{$type}->count()){
-                $this->{$type.'Posts'}();
-                // dd($type);
-            }
-        }
+        // foreach ($types as $key => $type) {
+        //     if($this->meta->invoice->{$type}->count()){
+        //         $this->{$type.'Posts'}();
+        //         // dd($type);
+        //     }
+        // }
 
         // dd( $this->tags );
     }
     public function weddingRingsPosts()
-    {
-        
+    {   
+        // dd( $this->meta->invoice->weddingRings);
+        $weddingRingPairs = WeddingRingPair::with(['weddingRings','images','weddingRings.texts'])
+                            ->findOrFail($this->meta->invoice->weddingRings[0]->WeddingRingPair->id);
+
+        $posts = InvoicePost::where('published',1)
+                            ->where('postable_type','App\Models\WeddingRing')
+                            ->wherein('postable_id',$this->meta->invoice->weddingRings->pluck('id'))
+                            ->with([
+                                'images',
+                                ])->orderBy('created_at','desc')->get();
+
+        $invoicePosts = [];
+        foreach ($posts as $key => $post ) {
+                $post['texts']['content'] = $post->title($post->id);
+                $invoicePosts['invoicePosts'][] = $post;
+        }
+
+        $this->posts['weddingRings'] = $invoicePosts;
+        $this->posts['weddingRings']['model'] = $weddingRingPairs;
+
         foreach ($this->meta->invoice->weddingRings as $key => $tag) {
                 // dd($tag);
                 $this->tags['weddingRings'] = $tag->tags();
