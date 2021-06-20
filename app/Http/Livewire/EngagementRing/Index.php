@@ -104,9 +104,30 @@ class Index extends Component
 
         }
         $this->extraUrls();
+        $this->setRequest();
         $this->setClickedSearchConditions();
 
-    }    
+    }  
+    public function setRequest(){
+                // dd( request()->all() );
+          $trans = [
+          ];
+
+          $checkKeys = ['cut','symmetry','polsh','fluorescence'];
+
+        foreach (request()->all() as $key => $value) {
+            if (is_string( $value ) || is_int($value)) {
+                if (in_array($key, $checkKeys)) {
+                    $value = array_key_exists($value, $trans)?$trans[$value]:$value;
+
+                }
+                $this->fetchData[$key] = explode(',',$value );
+
+            }
+
+        }
+        $this->setCookie();
+    }     
     public function setCookie(){
 
         $time = time() + (60 * config('global.cookie.time') );

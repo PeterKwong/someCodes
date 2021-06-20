@@ -17,14 +17,32 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Noto Sans TC', 'sans-serif'],
+                'suranna': ['Suranna', 'serif']
             },
-            colors:{
-                'primary':'#007bff',
-            },
+
             transitionTimingFunction: {
                'ease-in-expo': 'cubic-bezier(0.95, 0.05, 0.795, 0.035)',
                'ease-out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
             },
+            colors: {
+                'primary':'#007bff',
+                'gold': '#B38E47',
+                'ting-blue' : {
+                    light: '#EBF4FB',
+                    DEFAULT: '#68B4E9'
+                },
+                'grey': {
+                  light: '#FCFBF8',
+                  DEFAULT:'#C4C4C4',
+                  dark:'#575757' 
+                }
+              },
+              spacing:{
+                '18': '4.5rem',
+                '100': '26rem',
+                '131': '31rem'
+              },
         },
     },
 

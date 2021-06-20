@@ -1,7 +1,7 @@
 <template>
     <div class="videoPlayer">
         <video
-            id="myVideo"
+            :id="myVideo"
             class="w-full h-auto video-js vjs-fluid vjs-big-play-centered"
         >
         <source
@@ -21,7 +21,9 @@ export default {
             'autoplay',
             ],
     data() {
-        return {};
+        return {
+            myVideo:'myVideo'+Math.floor(Math.random() * 99999),
+        };
     },
     mounted() { 
         // console.log(this.hasLoaded())
@@ -37,7 +39,7 @@ export default {
     methods: {
         initVideo() {
             //初始化视频方法
-            let myPlayer = videojs('myVideo', {
+            let myPlayer = videojs(this.myVideo, {
                 //确定播放器是否具有用户可以与之交互的控件。没有控件，启动视频播放的唯一方法是使用autoplay属性或通过Player API。
                 controls: true,
                 //自动播放属性,muted:静音播放
@@ -50,13 +52,13 @@ export default {
             });
         },
         updateVideo(){
-            videojs('myVideo').poster(this.options.poster);
-            videojs('myVideo').src(this.options.sources[0].src);
-            videojs('myVideo').autoplay(false);
+            videojs(this.myVideo).poster(this.options.poster);
+            videojs(this.myVideo).src(this.options.sources[0].src);
+            videojs(this.myVideo).autoplay(false);
         },
         hasLoaded(){
-            // console.log(videojs.getPlayer('myVideo'))
-            return videojs.getPlayer('myVideo') != undefined
+            // console.log(videojs.getPlayer(this.myVideo))
+            return videojs.getPlayer(this.myVideo) != undefined
         }
     },
     beforeDestroy() {

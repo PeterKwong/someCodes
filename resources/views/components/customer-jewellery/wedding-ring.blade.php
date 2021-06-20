@@ -1,6 +1,4 @@
-<div class="tile is-child">
-
-    <div class="tile is-child">
+<div class="">
     <article>
         <center>
 <!--                                         <button class="btn btn-primary" @click="appointmentState=!appointmentState">{{trans('weddingRing.Appointment')}}</button>
@@ -15,7 +13,6 @@
         <br>
         <a @click="appointmentState=!appointmentState">{{trans('engagementRing.Make Appointment')}}</a> or <a href="/{{app()->getLocale() . '/about-us'}}">{{trans('engagementRing.contact us')}}</a> {{trans('engagementRing.for further')}}：
     </article>
-    </div>
     <article>
 
         <div class="grid grid-cols-12 border-b font-semibold p-2" >
@@ -41,13 +38,13 @@
                 {{trans('weddingRing.shape')}}
             </div>
             <div class="col-span-4">
-                <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?shape=' . $weddingRings->weddingRings[0]->shape . '&type=wedding ring'}}">
+                <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/wedding-rings?shape=' . $weddingRings->weddingRings[0]->shape }}">
                     {{ __('weddingRing.' . $weddingRings->weddingRings[0]->shape) }}
                 </a>
             </div>
             @if(isset( $weddingRings->weddingRings[1] ))
                 <div class="col-span-4">
-                    <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?shape=' . $weddingRings->weddingRings[1]->shape . '&type=wedding ring'}}">
+                    <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/wedding-rings?shape=' . $weddingRings->weddingRings[1]->shape }}">
                         {{ __('weddingRing.' . $weddingRings->weddingRings[1]->shape) }}
                     </a>
                 </div>
@@ -58,13 +55,13 @@
                 {{trans('weddingRing.finish')}}
             </div>
             <div class="col-span-4">
-                <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?finish=' . $weddingRings->weddingRings[0]->finish . '&type=wedding ring'}}">
+                <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/wedding-rings?finish=' . $weddingRings->weddingRings[0]->finish }}">
                     {{ __('weddingRing.' . $weddingRings->weddingRings[0]->finish) }}
                 </a>
             </div>
             @if(isset( $weddingRings->weddingRings[1] ))
                 <div class="col-span-4">
-                    <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?finish=' . $weddingRings->weddingRings[1]->finish . '&type=wedding ring'}}">
+                    <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/wedding-rings?finish=' . $weddingRings->weddingRings[1]->finish }}">
                         {{ __('weddingRing.' . $weddingRings->weddingRings[1]->finish) }}
                     </a>
                 </div>
@@ -75,13 +72,13 @@
                 {{trans('weddingRing.Metal')}}
             </div>
             <div class="col-span-4">
-                <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?metal=' . $weddingRings->weddingRings[0]->metal . '&type=wedding ring'}}">
+                <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/wedding-rings?metal=' . $weddingRings->weddingRings[0]->metal }}">
                     {{ __('weddingRing.' . $weddingRings->weddingRings[0]->metal) }}
                 </a>
             </div>
             @if(isset( $weddingRings->weddingRings[1] ))
                 <div class="col-span-4">
-                    <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?metal=' . $weddingRings->weddingRings[1]->metal . '&type=wedding ring'}}">
+                    <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/wedding-rings?metal=' . $weddingRings->weddingRings[1]->metal }}">
                         {{ __('weddingRing.' . $weddingRings->weddingRings[1]->metal) }}
                     </a>
                 </div>
@@ -102,9 +99,15 @@
 
         <div class="grid grid-cols-12 border-b font-light p-2" >
             <div class="col-span-4">{{trans('weddingRing.Stock')}}</div>
-            <div class="col-span-4">{{ $weddingRings->weddingRings[0]->stock}}</div>
+            <div class="col-span-4">
+                <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/wedding-rings/' . $weddingRings->weddingRings[0]->weddingRingPair->id }}">{{ $weddingRings->weddingRings[0]->stock}}
+                </a>
+            </div>
             @if(isset( $weddingRings->weddingRings[1] ))
-                <div class="col-span-4">{{ $weddingRings->weddingRings[1]->stock}}</div>
+                <div class="col-span-4">
+                    <a class="text-blue-600" target="_blank" href="/{{app()->getLocale() . '/wedding-rings/' . $weddingRings->weddingRings[0]->weddingRingPair->id }}">{{ $weddingRings->weddingRings[1]->stock}}
+                    </a>
+                </div>
             @endif
         </div>
 

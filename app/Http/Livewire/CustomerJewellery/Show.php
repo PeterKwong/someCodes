@@ -2,10 +2,13 @@
 
 namespace App\Http\Livewire\CustomerJewellery;
 
+use App\Models\EngagementRing;
 use App\Models\InvoicePost;
+use App\Models\Jewellery;
 use App\Models\WeddingRingPair;
 use Illuminate\Session\SessionManager;
 use Livewire\Component;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Show extends Component
 {	
@@ -48,22 +51,26 @@ class Show extends Component
 
         // dd( $this->meta->invoice->weddingRings->count());
 
-        // $types = ['engagementRings','weddingRings','jewelleries'];
+        $types = ['engagementRings','weddingRings','jewelleries'];
 
-        // foreach ($types as $key => $type) {
-        //     if($this->meta->invoice->{$type}->count()){
-        //         $this->{$type.'Posts'}();
-        //         // dd($type);
-        //     }
-        // }
+        foreach ($types as $key => $type) {
+            if($this->meta->invoice->{$type}->count()){
+                try{
+                    $this->{$type.'Posts'}();
+                }
+                catch(ModelNotFoundException $e){
+                    return 'no result';
+                }                    
+            }
+        }
 
         // dd( $this->tags );
     }
     public function weddingRingsPosts()
     {   
         // dd( $this->meta->invoice->weddingRings);
-        $weddingRingPairs = WeddingRingPair::with(['weddingRings','images','weddingRings.texts'])
-                            ->findOrFail($this->meta->invoice->weddingRings[0]->WeddingRingPair->id);
+        $weddingRingPairs = WeddingRingPair::with(['weddingRings','images','weddingRings.texts'])->where('published',1)
+                            ->findOrFail($this->meta->invoice->weddingRings->first()->WeddingRingPair->id);
 
         $posts = InvoicePost::where('published',1)
                             ->where('postable_type','App\Models\WeddingRing')
@@ -83,8 +90,69 @@ class Show extends Component
 
         foreach ($this->meta->invoice->weddingRings as $key => $tag) {
                 // dd($tag);
-                $this->tags['weddingRings'] = $tag->tags();
+                $this->tags['weddingRings'][] = $tag->tags();
         }
+
+
+    }
+    public function engagementRingsPosts()
+    {
+        $id = $this->meta->invoice->engagementRings->first()->id;
+        $engagementRings = EngagementRing::where('published',1)->with(['images','texts'])
+                        ->findOrFail($id);
+       
+        $posts = InvoicePost::where('published',1)
+                            ->where('postable_type','App\Models\EngagementRing')
+                            ->where('postable_id',$id)
+                            ->with([
+                                'images',
+                                ])->orderBy('created_at','desc')->get();
+        $invoicePosts = [];
+       
+        
+        foreach ($posts as $key => $post ) {
+
+                $post['texts']['content'] = $post->title($post->id);
+                $invoicePosts['invoicePosts'][] = $post;
+        }
+        $this->posts['engagementRings'] = $invoicePosts;
+        $this->posts['engagementRings']['model'] = $engagementRings;
+
+        foreach ($this->meta->invoice->engagementRings as $key => $tag) {
+                // dd($tag);
+                $this->tags['engagementRings'] = $tag->tags();
+        }
+
+
+    }
+    public function jewelleriesPosts()
+    {         
+        $id = $this->meta->invoice->jewelleries->where('type','!=','Misc')->count()?$this->meta->invoice->jewelleries->where('type','!=','Misc')->first()->id:'';
+
+        $jewelleries = Jewellery::where('published',1)->where('type','!=','Misc')->with(['images','texts'])->findOrFail($id);
+
+        $posts = InvoicePost::where('published',1)
+                            ->where('postable_type','App\Models\Jewellery')
+                            ->where('postable_id',$id)
+                            ->with([
+                                'images',
+                                ])->orderBy('created_at','desc')->get();
+
+        $invoicePosts = [];
+
+        foreach ($posts as $key => $post ) {
+                $post['texts']['content'] = $post->title($post->id);
+                $invoicePosts['invoicePosts'][] = $post;
+        }
+        $this->posts['jewelleries'] = $invoicePosts;
+        $this->posts['jewelleries']['model'] = $jewelleries;
+
+        foreach ($this->meta->invoice->jewelleries->where('type','!=','Misc') as $key => $tag) {
+                // dd($tag);
+                $this->tags['jewelleries'] = $tag->tags();
+        }
+
+ 
     }
     public function setVideo()
     {

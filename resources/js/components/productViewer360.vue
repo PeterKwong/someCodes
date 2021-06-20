@@ -3,7 +3,7 @@
 	  background-color:#fff;
 	  margin:50px;
 	},*/
-	#productViewer {
+	.productViewer {
 	  height: auto;
 	  width: 100%;
 	}
@@ -12,7 +12,7 @@
 <template>
     <div class="grid grid-cols-12 ">
           <div class="col-span-12">
-            <canvas id="productViewer" @click="pauseOrStart()" class="flex" :width="width" :height="height" 
+            <canvas :id="id" @click="pauseOrStart()" class="flex productViewer" :width="width" :height="height" 
 
               @mousedown="startDrag" @touchstart="startDrag"
               @mousemove="onDrag" @touchmove="onDrag"
@@ -44,7 +44,7 @@
 <script type="text/javascript">
 
 	export default {
-		props: ['folder', 'filename', 'size'],
+		props: ['folder', 'filename', 'size','id'],
 		data(){
 			return {
 				dragging: false,
@@ -162,7 +162,7 @@
       },
       drawImg(){
         
-  			var myCanvas = document.getElementById('productViewer');
+  			var myCanvas = document.getElementById(this.id);
   			var ctx = myCanvas.getContext('2d');
   			var img = new Image;
         var i = this.viewer.progress
