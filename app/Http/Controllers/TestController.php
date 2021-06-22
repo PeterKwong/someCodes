@@ -26,9 +26,10 @@ class TestController extends Controller
 
     public function test(){
     	// dd( config('global.paymentMode'));
-	    return $this->postTags();
-	    return $this->resetAllDiamonds();
+	    // return $this->postTags();
+	    // return $this->resetAllDiamonds();
 
+	    return $this->oncall();
 	    // return $this->copyAWS();
 	    // return $this->bigSitemap();
 
@@ -339,13 +340,21 @@ class TestController extends Controller
       return 1;
 
     }
+    public function oncall(){
+
+  		// dd('tests');
+
+      $import = new DiamondImport();
+      return $import->importOncallHoldDiamond(1389415018);
+      
+
+
+
+      return 'reset images';
+
+    }
     public function resetAllDiamonds(){
 
-
-      // $predis = Redis::Connection();
-      // $predis->incr('oncall');
-      // $predis->set('batchNumber', 50);
-      // $predis->decr('oncall');
 
       // return $predis->get('batchNumber');
       // return $this->resetAllDiamonds2days();

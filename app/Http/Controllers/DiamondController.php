@@ -240,6 +240,16 @@ class DiamondController extends Controller
       $import = new DiamondImport();
       return $import->diamondAvailability($id);
     }
+    public function oncallHoldDiamond($locale, $id){
+      // dd(request());
+      $import = new DiamondImport();
+      return $import->oncallHoldDiamond($id);
+    }
+    public function oncallConfirmDiamond($locale, $id){
+      // dd(request());
+      $import = new DiamondImport();
+      return $import->diamondAvailability($id);
+    }
 
     public function toggleStarredDiamond($id){
 

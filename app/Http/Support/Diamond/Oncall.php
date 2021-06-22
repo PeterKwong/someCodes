@@ -457,5 +457,55 @@ trait Oncall{
       }
       
     }
+    public function importOncallHoldDiamond($certificate_no)
+    {
+         // dd($diamond);
+        $client = new Client();
+
+        $requestData = ['url' => 'https://api.diamondsoncall.com/feed/holddiamond',
+                  'method' => 'post',
+                  'header' => ['Accept' => 'application/json','Authorization'=>'Bearer '. env('DIAMONDONCALL')],
+                  'data' => ["certificate_no"=> $certificate_no ]];
+
+
+        $request = new Req($requestData['method'], $requestData['url'], $requestData['header'] ,json_encode($requestData['data']));
+
+        // dd($requestData);
+
+        $data = 0;
+
+
+        try {
+          $response = $client->send($request);
+        dd($response);
+
+          if ($response->getStatusCode()==200) {
+              $data = json_decode($response->getBody());
+           } 
+
+          dd($data);
+          
+        } catch (Exception $e) {
+          
+        }
+
+        if ($data->MESSAGE == 'DATA FOUND') {
+
+            $this->importDiamondsFromWebJson($data,'white_diamond');
+
+            $diamond->update(['available' => 1]);
+
+            return response()->json(['available' => true]);
+            
+        }else{
+
+            $diamond->update(['available' => NULL]);
+            
+            return response()->json(['available' => false]);
+
+        }
+
+
+    }
 
 }

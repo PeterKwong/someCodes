@@ -2,6 +2,7 @@
 <div>
     <center>
       <h1 style="title is-3">Total : {{index}}</h1>
+      <h1 style="title is-3">Total Size : {{totalSize}} Kb</h1>
       <div id="my-strictly-unique-vue-upload-multiple-image" style="display: flex; justify-content: center;">
         <vue-upload-multiple-image
           @upload-success="uploadImageSuccess"
@@ -36,16 +37,19 @@ export default {
       formData:'',
       fileList:'',
       maxImage:130,
+      totalSize:0
     }
   },
   components: {
     VueUploadMultipleImage
   },
+  computed:{
+  },
   methods: {
     uploadImageSuccess(formData, index, fileList) {
-      console.log('data', formData, index, fileList)
+      // console.log('data', formData, index, fileList)
       this.fileList = fileList
-      adminVar.form.video360 = this.fileList  
+      adminVar.form.video360 = this.fileList
       
       if (this.type == 'weddingRingForm') {
         adminVar.form[0].video360 = this.fileList          
@@ -56,6 +60,17 @@ export default {
       // axios.post('http://your-url-upload', formData).then(response => {
       //   console.log(response)
       // })
+      this.calculateTotalSize()
+    },
+    calculateTotalSize(){
+      var d = adminVar.form.video360
+      for (var i = 0 ; d.length > i ; i++) {
+        var leng = d[i].path.search('base64,')+7;
+        var base64str = d[i].path.substr(leng);
+        var decoded = atob(base64str);
+        this.totalSize = this.totalSize + decoded.length 
+      }
+       this.totalSize =  Math.round(this.totalSize /1000)
     },
     beforeRemove (index, done, fileList) {
       console.log('index', index, fileList)
