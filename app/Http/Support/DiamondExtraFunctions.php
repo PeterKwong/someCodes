@@ -112,11 +112,11 @@ trait DiamondExtraFunctions{
                   //   return 'url';
                   // }
                 // dd($url);
-                  if(!empty($this->r_id)){
+                  // if(!empty($this->r_id)){
 
-                    $url = $this->scarpeCertFromRap($this->r_id); 
-                    // dd($url);
-                  }
+                  //   $url = $this->scarpeCertFromRap($this->r_id); 
+                  //   dd($url);
+                  // }
                    // create Imagick object
                    $im = new Imagick();
 
