@@ -6,11 +6,6 @@ use App\Http\Support\ResizeImage;
 use Illuminate\Support\Facades\Storage;
 use Imagick;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7\Request as Req;
-
-
 trait DiamondExtraFunctions{
 
 	public function loadCachedImage(){
@@ -92,7 +87,6 @@ trait DiamondExtraFunctions{
 
 	public function loadCachedCert(){
 
-                  // dd($this->r_id);
 
 	      if ( $this->has_cert ) {
             
@@ -104,19 +98,13 @@ trait DiamondExtraFunctions{
               // dump(die(print_r($certFileExisted)));
   	          if ( !$certFileExisted || !$plotFileExisted ) {
   	            $url = $this->cert_link;
-  	            // dd($url);
+  	            // dd(print_r($url));
     	            // if (strpos($url, 'www.diamondselections.com')) {
     	            //   $url = file_get_contents($this->cert_link);
     	            // }
-                  // if (strpos($url, 'myapps.gia.edu/ReportCheckPOC/') || !strpos($url, 'http')) {
-                  //   return 'url';
-                  // }
-                // dd($url);
-                  // if(!empty($this->r_id)){
-
-                  //   $url = $this->scarpeCertFromRap($this->r_id); 
-                  //   dd($url);
-                  // }
+                  if (strpos($url, 'myapps.gia.edu/ReportCheckPOC/') || !strpos($url, 'http')) {
+                    return;
+                  }
                    // create Imagick object
                    $im = new Imagick();
 
@@ -196,63 +184,6 @@ trait DiamondExtraFunctions{
 	          ]);
 		
 	}
-  public function scarpeCertFromRap($diamond){
-
-       
-        // dd($diamond);
-        $client = new Client();
-
-        $requestData = ['url' => 'https://www.diamondselections.com/GetCertificate.aspx?diamondid='. $diamond,
-                  'method' => 'GET',
-                  'header' => [],
-                  'data' => []
-                  ];
-
-
-        $request = new Req($requestData['method'], $requestData['url'], $requestData['header'] ,json_encode($requestData['data']));
-
-        // dd($requestData['data']);
-
-        $data = 0;
-
-
-        try {
-          $response = $client->send($request);
-        // dd($response->getBody()->getContents());
-
-          if ($response->getStatusCode()==200) {
-              $data =$response->getBody()->getContents();
-              $reg = preg_match_all("/(<iframe).*/",$data,$m);
-              $reg = preg_match_all("/(src=).*></",$m[0][0],$o);
-              $reg = str_replace('src="', '', $o[0][0]);
-              $reg = str_replace('"><', '', $reg);
-              // dd($reg);
-              return $reg;
-           } 
-          
-        } catch (Exception $e) {
-          
-        }
-
-        if ($data->MESSAGE == 'DATA FOUND') {
-
-            $this->importDiamondsFromWebJson($data,'white_diamond');
-
-            $diamond->update(['available' => 1]);
-
-            return response()->json(['available' => true]);
-            
-        }else{
-
-            $diamond->update(['available' => NULL]);
-            
-            return response()->json(['available' => false]);
-
-        }
-
-
-    }
-
 
   public function trimLargeCertClarityPlot($im){
       
