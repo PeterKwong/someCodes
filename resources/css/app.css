@@ -10,8 +10,8 @@ body, html {
     scroll-behavior: smooth;
 }
 .hero-image {
-/*    background: url('../assets/images/hero-image.jpg') no-repeat;
-*/    background-size: 100%;
+    background: url('/assets/images/hero-image.jpg') no-repeat;
+    background-size: 100%;
 }
 .product-card {
     box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.05);
@@ -39,8 +39,8 @@ body, html {
 
 @media only screen and (max-width: 640px) {
     .hero-image {
-/*        background: url('../assets/images/hero-image-mobile.png') no-repeat;
-*/        background-size: 100%;
+        background: url('/assets/images/hero-image-mobile.png') no-repeat;
+        background-size: 100%;
     }
     .product-card .divide-gold div:before  {
         top: auto;

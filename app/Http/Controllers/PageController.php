@@ -38,4 +38,9 @@ class PageController extends Controller
 
     }
 
+    public function test($locale){
+
+        return view('frontend.page.test');
+
+    }
 }

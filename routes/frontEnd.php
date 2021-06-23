@@ -265,6 +265,7 @@ Route::prefix('{locale}')->middleware('locale')->group(function(){
 
     //page
     Route::get('/p', [PageController::class, 'show'])->where(['id' => '[0-9]+']);
+    Route::get('/test', [PageController::class, 'test']);
 
 });
 
