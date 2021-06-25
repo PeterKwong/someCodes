@@ -17,9 +17,9 @@
 				<td @click="clickRow(props.item)">@{{props.item.price}}</td>
 				<td @click="clickRow(props.item)">@{{props.item.stock}}</td>
 				<td @click="clickRow(props.item)">@{{props.item.weight}}</td>
-				<td>@{{props.item.certificate}}
-					<button class="btn btn-primary" @click.prevent="oncallHold(props.item.certificate)">Hold</button>
-					<button class="btn btn-primary" @click.prevent="oncallConfirm(props.item.certificate)">confirm</button>
+				<td><p @click="clickRow(props.item)">@{{props.item.certificate}}</p>
+					<button v-if="props.item.stock.includes('s14-')" class="btn btn-primary" @click.prevent="oncallHold(props.item.certificate)">Hold</button>
+					<button v-if="props.item.stock.includes('s14-')" class="btn btn-primary" @click.prevent="oncallConfirm(props.item.certificate)">confirm</button>
 				</td>
 				<td @click="clickRow(props.item)">@{{props.item.color}}</td>
 				<td @click="clickRow(props.item)">@{{props.item.clarity}}</td>
