@@ -60,11 +60,11 @@ trait StoreUpdateDestroy{
 
         }
 
+            dd($request->video);
 
         // dd($texts);
         if ($request->video) {
             $vid= ResizeImage::getFileName($request->video);
-            dd($request->video);
             $path = $request->video->storeAs($this->videoPath, $vid, 's3');
             Storage::disk('s3')->setVisibility($path, 'public');  
             
