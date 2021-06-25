@@ -145,7 +145,7 @@ trait StoreUpdateDestroy{
             }
             
         }
-        dd(is_array($request->video360));
+        // dd(is_array($request->video360));
         if (is_array($request->video360)) {
 
             if (!$this->video360) {
@@ -164,6 +164,7 @@ trait StoreUpdateDestroy{
 
         }
 
+        dd($request->hasFile('video'));
 
         if ($request->hasFile('video')) {
             $vid= ResizeImage::getFileName($request->video);
