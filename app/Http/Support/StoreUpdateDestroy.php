@@ -60,7 +60,7 @@ trait StoreUpdateDestroy{
 
         }
 
-            dd($request->video);
+            // dd($request->video);
 
         // dd($texts);
         if ($request->video) {
@@ -145,7 +145,7 @@ trait StoreUpdateDestroy{
             }
             
         }
-        // dd(is_array($request->video360));
+        dd(is_array($request->video360));
         if (is_array($request->video360)) {
 
             if (!$this->video360) {
