@@ -164,7 +164,7 @@ trait StoreUpdateDestroy{
 
         }
 
-        dd($request->video);
+        // dd($request->video);
 
         if ($request->hasFile('video')) {
             $vid= ResizeImage::getFileName($request->video);
