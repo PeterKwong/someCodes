@@ -286,7 +286,7 @@ class InvoiceController extends Controller
         $weddingRings = WeddingRing::select('id','stock as text','unit_price')
                     ->with(['texts','images',
                         'invoiceItems'=> function($data) use ($id){ return $data->where('invoice_id',$id); } ])->get();
-        $weddingRings = $weddingRings->first()->title();
+        // $weddingRings = $weddingRings->first()->title();
         // dd($weddingRings);
     	return response()
     		->json([
