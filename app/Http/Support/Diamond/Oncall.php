@@ -462,25 +462,21 @@ trait Oncall{
          // dd($diamond);
         $client = new Client();
 
-        $requestData = ['url' => 'https://api.diamondsoncall.com/feed/holddiamond',
-                  'method' => 'post',
-                  'header' => ['Accept' => 'application/json','Authorization'=>'Bearer '. env('DIAMONDONCALL'.$test)],
-                  'data' => ["certificate_no"=> $certificate_no ]];
-
-
-        $request = new Req($requestData['method'], $requestData['url'], $requestData['header'] ,json_encode($requestData['data']));
-
-        // dd($requestData);
-
-        $data = 0;
-
 
         try {
-          $response = $client->send($request);
+            
+            $response = $client->post('https://' .$test. 'api.diamondsoncall.com/feed/holddiamond', [
+                'headers' => ['Accept' => 'application/json','Authorization'=>'Bearer '. env('DIAMONDONCALL'.$test)],
+                'form_params' =>["certificate_no"=> $certificate_no ],
+            ]);
+
+
         // dd($response);
 
           if ($response->getStatusCode()==200) {
               $data = json_decode($response->getBody());
+
+              return response()->json($data);
            } 
 
           dd($data);
@@ -488,24 +484,35 @@ trait Oncall{
         } catch (Exception $e) {
           
         }
+    }
 
-        if ($data->MESSAGE == 'DATA FOUND') {
+    public function importOncallConfirmDiamond($certificate_no,$test='')
+    {
+         // dd($diamond);
+        $client = new Client();
 
-            $this->importDiamondsFromWebJson($data,'white_diamond');
 
-            $diamond->update(['available' => 1]);
-
-            return response()->json(['available' => true]);
+        try {
             
-        }else{
+            $response = $client->post('https://' .$test. 'api.diamondsoncall.com/feed/confirmdiamond', [
+                'headers' => ['Accept' => 'application/json','Authorization'=>'Bearer '. env('DIAMONDONCALL'.$test)],
+                'form_params' =>["certificate_no"=> $certificate_no ],
+            ]);
 
-            $diamond->update(['available' => NULL]);
-            
-            return response()->json(['available' => false]);
 
+        // dd($response);
+
+          if ($response->getStatusCode()==200) {
+              $data = json_decode($response->getBody());
+
+              return response()->json($data);
+           } 
+
+          dd($data);
+          
+        } catch (Exception $e) {
+          
         }
-
-
     }
 
 }

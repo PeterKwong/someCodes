@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Diamond;
 use App\Models\DiamondQuery;
 use App\Models\Supplier;
-use App\Support\CronJob;
-use App\Support\DiamondImport;
-use App\Support\ResizeImage;
+use App\Http\Support\CronJob;
+use App\Http\Support\DiamondImport;
+use App\Http\Support\ResizeImage;
 use Cache;
 use Excel;
 use Illuminate\Http\Request;
@@ -240,16 +240,17 @@ class DiamondController extends Controller
       $import = new DiamondImport();
       return $import->diamondAvailability($id);
     }
-    public function oncallHoldDiamond($locale, $id){
-      // dd(request());
+    public function oncallHoldDiamond($id){
+      // dd(request()->id);
       $import = new DiamondImport();
-      // return $import->importOncallHoldDiamond($id);
-      return $import->importOncallHoldDiamond($id,"TEST");
+      return $import->importOncallHoldDiamond($id);
+      // return $import->importOncallHoldDiamond($id,"TEST");
     }
-    public function oncallConfirmDiamond($locale, $id){
+    public function oncallConfirmDiamond($id){
       // dd(request());
       $import = new DiamondImport();
-      return $import->diamondAvailability($id);
+      return $import->importOncallConfirmDiamond($id);
+      // return $import->importOncallConfirmDiamond($id,"TEST");
     }
 
     public function toggleStarredDiamond($id){

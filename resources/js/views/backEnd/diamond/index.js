@@ -1,4 +1,5 @@
 
+
 import {toMulipartedForm} from '../../../helpers/form'
 import DataViewer from '../../../components/DataViewer.vue'
 import {readDiamond} from '../../../helpers/downDiamond'
@@ -73,6 +74,28 @@ export default {
 			get('/api/diamonds-toggle-available/'+row.id)
 				.then((response)=>{
 					window.open('/adm/diamonds', '_self')
+				})
+				.catch(function(error){
+					Vue.set(this.$data, 'errors', error.response.data)
+					this.isProcessing = false
+				})
+		},
+		oncallHold(id){
+			post('/api/diamonds/oncall-hold/'+id)
+				.then((response)=>{
+					console.log(response.data.data)
+					alert(response.data.data[0].message)
+				})
+				.catch(function(error){
+					Vue.set(this.$data, 'errors', error.response.data.data)
+					this.isProcessing = false
+				})
+		},
+		oncallConfirm(id){
+			post('/api/diamonds/oncall-confirm/'+id)
+				.then((response)=>{
+					console.log(response.data.data)
+					alert(response.data.data[0].message)
 				})
 				.catch(function(error){
 					Vue.set(this.$data, 'errors', error.response.data)

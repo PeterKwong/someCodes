@@ -145,6 +145,8 @@ Route::middleware(['auth:sanctum','ApiTingDiamond'])->group(function(){
 	Route::post('diamonds/fromAPI', [DiamondController::class,'importAPI']);
 	Route::post('diamonds/fromRap', [DiamondController::class,'importRap']);
 	Route::post('diamonds/resetDiamonds', [DiamondController::class,'resetAllDiamonds']);
+	Route::post('diamonds/oncall-hold/{id}', [DiamondController::class,'oncallHoldDiamond']);
+	Route::post('diamonds/oncall-confirm/{id}', [DiamondController::class,'oncallConfirmDiamond']);
 
 });
 
