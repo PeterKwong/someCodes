@@ -457,14 +457,14 @@ trait Oncall{
       }
       
     }
-    public function importOncallHoldDiamond($certificate_no)
+    public function importOncallHoldDiamond($certificate_no,$test='')
     {
          // dd($diamond);
         $client = new Client();
 
         $requestData = ['url' => 'https://api.diamondsoncall.com/feed/holddiamond',
                   'method' => 'post',
-                  'header' => ['Accept' => 'application/json','Authorization'=>'Bearer '. env('DIAMONDONCALL')],
+                  'header' => ['Accept' => 'application/json','Authorization'=>'Bearer '. env('DIAMONDONCALL'.$test)],
                   'data' => ["certificate_no"=> $certificate_no ]];
 
 
@@ -477,7 +477,7 @@ trait Oncall{
 
         try {
           $response = $client->send($request);
-        dd($response);
+        // dd($response);
 
           if ($response->getStatusCode()==200) {
               $data = json_decode($response->getBody());

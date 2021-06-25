@@ -345,7 +345,8 @@ class TestController extends Controller
   		// dd('tests');
 
       $import = new DiamondImport();
-      return $import->getRapGuzzle();
+      return $import->importOncallHoldDiamond(1389415018,"TEST");
+      // return $import->importOncallHoldDiamond(1389415018,"");
       
 
 
