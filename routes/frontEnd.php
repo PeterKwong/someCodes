@@ -200,6 +200,7 @@ Route::prefix('{locale}')->middleware('locale')->group(function(){
 
 
     //anatony
+    Route::get('/education-diamond-grading/anatomy', [EducationController::class, 'diamondShape']);
     Route::get('/education-diamond-grading/anatomy/shape', [EducationController::class, 'diamondShape']);
     Route::get('/education-diamond-grading/anatomy/hearts-and-arrows', [EducationController::class, 'diamondHeartAndArrow']);
     Route::get('/education-diamond-grading/anatomy/proportion', [EducationController::class, 'diamondProportion']);

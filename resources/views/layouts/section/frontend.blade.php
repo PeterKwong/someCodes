@@ -26,6 +26,9 @@
         @livewire('header')
 
             <div class="mt-16">
+                
+                <x-breadcrumb />
+
                 @yield('content')            
             </div>
 

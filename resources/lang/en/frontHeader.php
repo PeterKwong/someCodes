@@ -70,6 +70,8 @@ return [
 	'Pendants' => 'Pendants',
 
 	'appointmentSuccess' => 'You have successfully sent appointment, we will contact you soon!
-							 Or you can also contact us Immediately' 
+							 Or you can also contact us Immediately', 
+
+
 
 ];

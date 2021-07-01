@@ -539,7 +539,7 @@
         </li>
             
         <li class="border border-gray-300 text-left p-2">
-           <a class="flex justify-start text-blue-500 px-1" href="{{url(app()->getLocale())}}/education-diamond-grading/shape">
+           <a class="flex justify-start text-blue-500 px-1" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy">
             {{trans('frontHeader.Diamond Anatomy')}}
            <div class="flex justify-start">
              <div class="flex-initial">

@@ -503,7 +503,7 @@
         </div>
        </div>
 
-        <a class="flex justify-center text-blue-500" href="{{url(app()->getLocale())}}/education-diamond-grading/shape">
+        <a class="flex justify-center text-blue-500" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy">
         {{trans('frontHeader.Diamond Anatomy')}}
         </a>
        <div class="flex justify-center">
