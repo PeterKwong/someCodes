@@ -80,8 +80,8 @@ return [
     '1-50-1-99-carat-weight' => '1.50-1.99 Diamond (carats)',
     '2-00-2-99-carat-weight' => '2.00-2.99 Diamond (carats)',
     '3-00-up-carat-weight' => '3.00 up Diamond (carats)',
-    'hk' => 'hk',
-    'hk' => 'hk',
+    'login' => 'Login',
+    'register' => 'Register',
     'hk' => 'hk',
 
 
