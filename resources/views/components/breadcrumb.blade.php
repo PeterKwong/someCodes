@@ -7,7 +7,7 @@
             {{ is_numeric($flag) }}
             @php($url= $url . $flag )
             <div>
-                <a href="/{{$url}}">
+                <a class="text-blue-700" href="/{{$url}}">
                     {{__('breadcrumb.'.$flag)}}
                 </a> 
                 <span class="p-1 text-gray-400">｜</span>
