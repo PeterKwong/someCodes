@@ -71,12 +71,12 @@ return [
 	'metaDescription27' => '2.00-2.99 鑽石 ( 克拉 / 卡數 )',
 	'metaTitle28' => '3.00或以上 鑽石 ( 克拉 / 卡數 )',
 	'metaDescription28' => '3.00或以上 鑽石 ( 克拉 / 卡數 )',
-	'metaTitle29' => '鑽石價格｜GIA 、IGI 、AGS',
-	'metaDescription29' => '鑽石價格｜GIA 、IGI 、AGS',
-	'metaTitle29' => '鑽石價格｜GIA 、IGI 、AGS',
-	'metaDescription29' => '鑽石價格｜GIA 、IGI 、AGS',
-	'metaTitle30' => '圓形鑽石價格｜GIA 、IGI 、AGS',
-	'metaDescription30' => '圓形鑽石價格｜GIA 、IGI 、AGS',
+	'metaTitle29' => '鑽石價格｜GIA 、IGI 、AGS - 批發',
+	'metaDescription29' => '鑽石價格｜GIA 、IGI 、AGS - 批發',
+	'metaTitle29' => '鑽石價格｜GIA 、IGI 、AGS - 批發',
+	'metaDescription29' => '鑽石價格｜GIA 、IGI 、AGS - 批發',
+	'metaTitle30' => '圓形鑽石價格｜GIA 、IGI 、AGS - 批發',
+	'metaDescription30' => '圓形鑽石價格｜GIA 、IGI 、AGS - 批發',
 	'Fancy Color Diamonds' => '彩色鑽石 | 彩鑽',
 
 ];

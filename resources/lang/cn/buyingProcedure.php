@@ -33,8 +33,8 @@ return [
 	'Guarantee Satisfaction' => '满意保证',
 
 
-	'metaTitle1' => '买钻石 | 流程',
-	'metaDescription1' => '买钻石 | 流程 - 先选定要看的钻石,＊建议＊ 多选几粒差不多价钱的钻石，可以一次过作比较，如不清楚如何选择',
+	'metaTitle1' => '网上买钻石 | 流程',
+	'metaDescription1' => '网上买钻石 | 流程 - 先选定要看的钻石,＊建议＊ 多选几粒差不多价钱的钻石，可以一次过作比较，如不清楚如何选择',
 	'metaTitle2' => '订造求婚戒指',
 	'metaDescription2' => '订造求婚戒指 - 客人亦可选择 “订造求婚戒指” ，需时最少3-4星期。客人可自己手绘图案给我们，工场会用3D software 起模。',
 	'metaTitle3' => '戒指镶嵌 | 戒指刻字',
@@ -44,7 +44,7 @@ return [
 	'Choose Ring Setting' => '选购戒指款式',
 	'Ring Inlay | Engrave' => '戒指镶嵌 | 戒指刻字',
 	'Pay With Satisfaction' => '满意才付余数',
-	'BUYING PROCEDURE' => '买钻石 | 流程',
+	'BUYING PROCEDURE' => '网上买钻石 | 流程',
 	'First to buy diamonds, then buy ring setting' => '先选购钻石，再选购戒指款式',
 	'Mobile Import' => '手机汇入',
 

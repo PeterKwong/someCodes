@@ -4,19 +4,19 @@
 
 <head>
 
-        @include('layouts.head.schema')
-        @include('layouts.head.google')
-        @include('layouts.head.twitter')
-        
-        @include('layouts.metas.userApiToken')
-        @include('layouts.metas.mutualVar')
+    @include('layouts.head.schema')
+    @include('layouts.head.google')
+    @include('layouts.head.twitter')
+    
+    @include('layouts.metas.userApiToken')
+    @include('layouts.metas.mutualVar')
 
-        @include('layouts.head.asset')
+    @include('layouts.head.asset')
 
-        @yield('meta')
+    @yield('meta')
 
 
-        <script type="text/javascript" src="{{mix('js/userAccount.js')}}" defer></script> 
+    <script type="text/javascript" src="{{mix('js/userAccount.js')}}" defer></script> 
 
     
 </head>

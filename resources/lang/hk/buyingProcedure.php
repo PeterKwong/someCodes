@@ -33,8 +33,8 @@ return [
 	'Guarantee Satisfaction' => '滿意保證',
 
 
-	'metaTitle1' => '買鑽石 | 流程',
-	'metaDescription1' => '買鑽石 | 流程 - 先選定要看的鑽石,＊建議＊ 多選幾粒差不多價錢的鑽石，可以一次過作比較，如不清楚如何選擇',
+	'metaTitle1' => '網上買鑽石 | 流程',
+	'metaDescription1' => '網上買鑽石 | 流程 - 先選定要看的鑽石,＊建議＊ 多選幾粒差不多價錢的鑽石，可以一次過作比較，如不清楚如何選擇',
 	'metaTitle2' => '訂造求婚戒指',
 	'metaDescription2' => '訂造求婚戒指 - 客人亦可選擇 “訂造求婚戒指” ，需時最少3-4星期。客人可自己手繪圖案給我們，工場會用3D software 起模。',
 	'metaTitle3' => '戒指鑲嵌 | 戒指刻字',
@@ -44,7 +44,7 @@ return [
 	'Choose Ring Setting' => '選購戒指款式',
 	'Ring Inlay | Engrave' => '戒指鑲嵌 | 戒指刻字',
 	'Pay With Satisfaction' => '滿意才付餘數',
-	'BUYING PROCEDURE' => '買鑽石 | 流程',
+	'BUYING PROCEDURE' => '網上買鑽石 | 流程',
 	'First to buy diamonds, then buy ring setting' => '先選購鑽石，再選購戒指款式',
 	'Mobile Import' => '手機匯入',
 

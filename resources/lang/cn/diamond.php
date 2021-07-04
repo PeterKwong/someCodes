@@ -71,12 +71,12 @@ return [
 	'metaDescription27' => '2.00-2.99 钻石 ( 克拉 / 卡数 )',
 	'metaTitle28' => '3.00或以上 钻石 ( 克拉 / 卡数 )',
 	'metaDescription28' => '3.00或以上 钻石 ( 克拉 / 卡数 )',
-	'metaTitle29' => '钻石价格｜GIA 、IGI 、AGS',
-	'metaDescription29' => '钻石价格｜GIA 、IGI 、AGS',
-	'metaTitle29' => '钻石价格｜GIA 、IGI 、AGS',
-	'metaDescription29' => '钻石价格｜GIA 、IGI 、AGS',
-	'metaTitle30' => '圆形钻石价格｜GIA 、IGI 、AGS',
-	'metaDescription30' => '圆形钻石价格｜GIA 、IGI 、AGS',
+	'metaTitle29' => '钻石价格｜GIA 、IGI 、AGS - 批发',
+	'metaDescription29' => '钻石价格｜GIA 、IGI 、AGS - 批发',
+	'metaTitle29' => '钻石价格｜GIA 、IGI 、AGS - 批发',
+	'metaDescription29' => '钻石价格｜GIA 、IGI 、AGS - 批发',
+	'metaTitle30' => '圆形钻石价格｜GIA 、IGI 、AGS - 批发',
+	'metaDescription30' => '圆形钻石价格｜GIA 、IGI 、AGS - 批发',
 	'Fancy Color Diamonds' => '彩色钻石 | 彩钻',
 
 ];
