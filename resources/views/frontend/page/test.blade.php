@@ -1883,20 +1883,20 @@
         function cut() {
             return {
               minprice: 0, 
-              maxprice: 10000,
-              min: 100, 
-              max: 10000,
+              maxprice: 2,
+              min: 0, 
+              max: 2,
               minthumb: 0,
               maxthumb: 0, 
               
               mintrigger() {   
-                this.minprice = Math.min(this.minprice, this.maxprice - 500);      
-                this.minthumb = ((this.minprice - this.min) / (this.max - this.min)) * 100;
+                this.minprice = Math.min(this.minprice, this.maxprice - 1);      
+                this.minthumb = ((this.minprice - this.min) / (this.max - this.min)) ;
               },
                
               maxtrigger() {
-                this.maxprice = Math.max(this.maxprice, this.minprice + 500); 
-                this.maxthumb = 100 - (((this.maxprice - this.min) / (this.max - this.min)) * 100);    
+                this.maxprice = Math.max(this.maxprice, this.minprice + 1); 
+                this.maxthumb = 1 - (((this.maxprice - this.min) / (this.max - this.min)) );    
               }, 
             }
         }
