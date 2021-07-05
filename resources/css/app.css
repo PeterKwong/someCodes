@@ -2,52 +2,15 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 
-/*@import './customized';*/
+
+@import './customized';
+
+/* Designer 1  */
+@import './designer1';
 
 @import 'tailwindcss/utilities';
 
-body, html {
-    scroll-behavior: smooth;
-}
-.hero-image {
-    background: url('/assets/images/hero-image.jpg') no-repeat;
-    background-size: 100%;
-}
-.product-card {
-    box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.05);
-    border-radius: 20px;
-}
-.product-card .divide-gold div:before  {
-    content: '';
-    position: absolute;
-    top: 40%;
-    right: -6px;
-    width: 5px;
-    height: 5px;
-    background: #D2B06F;
-    transform: rotate(-45deg);
-    border: 3px solid white;
-    box-sizing: content-box;
-    z-index: 10;
-}
-.product-card .divide-gold div:last-child::before {
-    content: '';
-    width: 0px;
-    height: 0px;
-    display: none;
-}
 
-@media only screen and (max-width: 640px) {
-    .hero-image {
-        background: url('/assets/images/hero-image-mobile.png') no-repeat;
-        background-size: 100%;
-    }
-    .product-card .divide-gold div:before  {
-        top: auto;
-        bottom: -17%;
-        right: 46%;
-    }
-}
 
 @layer utilities {
 	.dropdown:hover .dropdown-menu {
@@ -194,14 +157,22 @@ body, html {
 	    display: inline-block;
 	}
 
-	a.active {
-        @apply text-gold;
+
+	/* Designer 1  */
+    .diamond-detail-language a.active {
+        @apply text-brown;
     }
     .navbar a:hover {
         @apply text-gold border-b-4 border-gold pb-2;
     }
     .navbar a.active {
         @apply text-gold border-b-4 border-gold pb-2;
+    }
+    .diamond-details.navbar a:hover {
+        @apply text-brown border-b-2 border-brown pb-0;
+    }
+    .diamond-details.navbar a.active {
+        @apply text-brown border-b-2 border-brown pb-0;
     }
     footer a:hover {
         @apply border-b font-bold transition border-white pb-0.5;

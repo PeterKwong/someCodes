@@ -1,4 +1,4 @@
-    
+
   @include('layouts.metas.footer')
 <footer class="pt-42 bg-gray-900 " id="footer">
 
@@ -116,16 +116,15 @@
     <a class="p-3 mb-2 text-white">
       <strong>&reg; </strong><small>2016</small><strong> Ting Diamond</strong> by 
     </a>
-      <a class="p-3 mb-2 text-white" href="/">Ting Diamond 
-     
-    </a> 
+      <a class="p-3 mb-2 text-white" href="/">Ting Diamond </a> 
       <a class="p-3 mb-2 text-white">|</a> 
       <a class="p-3 mb-2 text-white" href="/sitemap_index.xml" target="_blank">Site Map</a> 
 
 <!--       <a class="text-gray-700" ><small>粤ICP备19125751号-1</small></a> 
  -->
-      <a class="text-gray-700" href="https://beian.miit.gov.cn/"><small>粤ICP备19125751号-1</small></a> 
-
+      @if(app()->getLocale() == 'cn')
+        <a class="text-gray-700" href="https://beian.miit.gov.cn/"><small>粤ICP备19125751号-1</small></a> 
+      @endif
   </div> 
 
 

@@ -48,29 +48,3 @@
 
 
 
-<style>
-*.sticker {
-  top:90%;
-  height:50px;
-  width:50px;
-  position:fixed;
-  right: 0;
-  z-index: 999;
-}
-
-  #site-header {
-  position: fixed;
-  height: 52px;
-  background: #fff;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  transition: all .4s ease;
-  box-shadow: 0 1px 25px rgba(0,0,0, .1);
-  }
-  #site-header.hide {
-      top: -65px;
-      bottom: +65px;
-  }
-</style>
-
