@@ -159,6 +159,10 @@
 
 
 	/* Designer 1  */
+	
+ 	a.active {
+        @apply text-gold;
+    }
     .diamond-detail-language a.active {
         @apply text-brown;
     }
@@ -171,11 +175,18 @@
     .diamond-details.navbar a:hover {
         @apply text-brown border-b-2 border-brown pb-0;
     }
+    .diamond-details.navbar a.dd-link:hover {
+        @apply text-brown border-none pb-0;
+    }
     .diamond-details.navbar a.active {
         @apply text-brown border-b-2 border-brown pb-0;
     }
     footer a:hover {
         @apply border-b font-bold transition border-white pb-0.5;
+    }
+    .bg-golden-white {
+        height: 0.05rem;
+        background: linear-gradient(90deg, #FFF8A5 0%, #FDE67E 3.2%, #E9C765 6.97%, #D2A44A 11.93%, #C9973F 14.6%, #DCB456 26.03%, #FDE67E 42.78%, #FDE67E 52.98%, #F3D671 57.02%, #DCB456 67.14%, #CE9F45 75.48%, #C9973F 80.94%, #DCB456 87.02%, #FDE67E 95.94%, #FEF093 98.11%, #FFF7A0 100%);
     }
 
 }

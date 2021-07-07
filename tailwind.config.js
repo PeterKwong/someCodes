@@ -43,6 +43,7 @@ module.exports = {
                 'grey': {
                   '01':'#EBEBEB',
                   '02':'#E5E5E5',
+                  '03':'#F7F7F7',
                   '04':'#666666',
                   lighter: '#ADADAD',
                   light: '#FCFBF8',
@@ -51,7 +52,7 @@ module.exports = {
                 },
                 'brown' : {
                   light: '#FBF7F7',
-                  DEFAULT: '#9A7474'
+                  DEFAULT: '#9A7474',
                 },
                 'orange' : {
                   DEFAULT: '#FBBD55'
