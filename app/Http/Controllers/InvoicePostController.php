@@ -94,7 +94,6 @@ class InvoicePostController extends Controller
         $this->validate($request, [
             'invoice_id' => 'required | max:255',
             'images' => 'required | array',
-            'texts' => 'required | array | min:1',
             ]);
 
 
@@ -200,9 +199,9 @@ class InvoicePostController extends Controller
     {
         
         // dd($id);
-        $this->validate($request, [
-            'texts' => 'required',
-            ]);
+        // $this->validate($request, [
+        //     'texts' => 'required',
+        //     ]);
 
         $invoicePost = InvoicePost::with(['images','texts'])->findOrFail($id);
         // dd($request->video);
