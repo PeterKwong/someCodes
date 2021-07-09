@@ -160,7 +160,7 @@
 
 	/* Designer 1  */
 	
- 	a.active {
+    a.active {
         @apply text-gold;
     }
     .diamond-detail-language a.active {

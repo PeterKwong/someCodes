@@ -21,10 +21,10 @@
 
 </head>
 <body>
-     <header class="max-w-screen-2xl 2xl:mx-auto mx-5 md:mx-10 lg:mx-20 py-2 lg:py-10">
+    <header class="py-2 lg:py-10">
         <!-- Header for Desktop  -->
         <div class="hidden lg:flex lg:flex-col">
-            <div class="order-2 lg:order-1 flex flex-col lg:flex-row lg:items-center justify-between pb-10">
+            <div class="order-2 lg:order-1 max-w-screen-2xl 2xl:mx-auto mx-5 md:mx-10 lg:mx-20 flex flex-col lg:flex-row lg:items-center justify-between pb-10">
                 <ul class="hidden lg:flex items-center space-x-5">
                     <li>
                         <a href="https://facebook.com/">
@@ -101,161 +101,32 @@
                     </ul>
                 </nav>
             </div>
-            <div class="relative order-1 lg:order-2 flex items-center px-5">
-                <button class="inline-block lg:hidden">
-                    <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.75 15.5H23.25V13H0.75V15.5ZM0.75 9.25H23.25V6.75H0.75V9.25ZM0.75 0.5V3H23.25V0.5H0.75Z" fill="#656565"/>
-                    </svg>                
-                </button>
-                <a class="lg:mr-10" href="#">
-                    <img src="/assets/images/Logo.svg" alt="">
-                </a>
-                <ul class="hidden lg:flex flex-col w-52 space-y-3 lg:space-y-0 lg:w-auto lg:flex-row lg:items-center lg:space-x-10 diamond-details navbar font-suranna">
-                    <li x-data="{diamondDropdown : false}" class="">
-                        <a @mouseover="diamondDropdown = true" :class="{'active' : diamondDropdown}" href="#">
-                            <span>Diamond</span>
-                        </a> 
-                        <div x-show="diamondDropdown" @mouseleave="diamondDropdown = false" class="flex flex-col absolute top-16 left-2">
-                            <div class="div h-16 opacity-0"></div>
-                            <div class="flex space-x-10 w-full bg-white border-t py-5 px-8 font-lato">
-                                <div class="flex flex-col space-y-2">
-                                    <p class="font-lato font-bold text-brown">Design Your Engagement Rings</p>
-                                    <a href="#" class="dd-link group flex space-x-2 items-center max-w-max">
-                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M22.3681 4.19995C21.6044 4.19995 8.47504 4.19995 7.63321 4.19995L3 10.5179L15.0498 26.3994L27 10.5161L22.3681 4.19995ZM9.58739 11.212L12.9823 21.3544L5.28697 11.212H9.58739ZM11.0663 11.212H18.9391L15.0298 23.053L11.0663 11.212ZM20.4161 11.212H24.7214L17.0495 21.4089L20.4161 11.212ZM21.6573 5.60237L24.7427 9.80962H20.417L19.0365 5.60237H21.6573ZM17.5605 5.60237L18.941 9.80962H11.0603L12.4408 5.60237H17.5605ZM8.34387 5.60237H10.9647L9.58421 9.80962H5.25855L8.34387 5.60237Z" fill="#666666"/>
-                                        </svg>                                    
-                                        <span class="font-lato group-hover:border-b border-brown text-brown">Start with a Diamond</span>
-                                    </a>
-                                    <a href="#" class="dd-link group flex space-x-2 items-center max-w-max">
-                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M15 27C8.39255 27 3 21.6071 3 15C3 8.39255 8.39292 3 15 3C21.6075 3 27 8.39292 27 15C27 21.6075 21.6071 27 15 27ZM15 4.40625C9.15858 4.40625 4.40625 9.15858 4.40625 15C4.40625 20.8414 9.15858 25.5938 15 25.5938C20.8414 25.5938 25.5938 20.8414 25.5938 15C25.5938 9.15858 20.8414 4.40625 15 4.40625Z" fill="#666666"/>
-                                            <path d="M15 24.1875C9.95377 24.1875 5.8125 20.0453 5.8125 15C5.8125 9.95377 9.95475 5.8125 15 5.8125C20.0462 5.8125 24.1875 9.9547 24.1875 15C24.1875 20.0462 20.0452 24.1875 15 24.1875ZM15 7.21875C10.7094 7.21875 7.21875 10.7094 7.21875 15C7.21875 19.2906 10.7094 22.7812 15 22.7812C19.2906 22.7812 22.7812 19.2906 22.7812 15C22.7812 10.7094 19.2906 7.21875 15 7.21875Z" fill="#666666"/>
-                                        </svg>                                                                      
-                                        <span class="font-lato">Start with a Setting</span>
-                                    </a>
-                                </div>
-                                <div class="flex flex-col space-y-2">
-                                    <p class="font-lato font-bold text-brown">Loose Diamond</p>
-                                    <a href="#" class="dd-link group flex space-x-2 items-center max-w-max">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            <rect width="24" height="24" fill="url(#pattern0)"/>
-                                            <defs>
-                                            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                                            <use xlink:href="#image0" transform="scale(0.0133333)"/>
-                                            </pattern>
-                                            <image id="image0" width="75" height="75" xlink:href="data:image/png;base64,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"/>
-                                            </defs>
-                                        </svg>              
-                                        <span class="font-lato">Round</span>
-                                    </a>
-                                </div>
-                                <div class="flex flex-col space-y-2">
-                                    <p class="font-lato font-bold text-brown">Fancy Cut Diamond</p>
-                                    <div class="flex space-x-7">
-                                        <div class="flex flex-col space-y-2">
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/dd-1.png" alt="">                                                                                                
-                                                <span class="font-lato">Pear</span>
-                                            </a>
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/dd-2.png" alt="">                                                                                                
-                                                <span class="font-lato">Marquise</span>
-                                            </a>
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/dd-3.png" alt="">                                                                                                
-                                                <span class="font-lato">Oval</span>
-                                            </a>
-                                        </div>
-                                        <div class="flex flex-col space-y-2">
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/dd-4.png" alt="">                                                                                                
-                                                <span class="font-lato">Emerald</span>
-                                            </a>
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/dd-5.png" alt="">                                                                                                
-                                                <span class="font-lato">Cushion</span>
-                                            </a>
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/dd-6.png" alt="">                                                                                                
-                                                <span class="font-lato">Heart</span>
-                                            </a>
-                                        </div>
-                                        <div class="flex flex-col space-y-2">
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/dd-7.png" alt="">                                                                                                
-                                                <span class="font-lato">Emerald</span>
-                                            </a>
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/dd-8.png" alt="">                                                                                                
-                                                <span class="font-lato">Cushion</span>
-                                            </a>
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/dd-9.png" alt="">                                                                                                
-                                                <span class="font-lato">Heart</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col space-y-2">
-                                    <p class="font-lato font-bold text-brown">Fancy Color Diamond</p>
-                                    <div class="flex space-x-7">
-                                        <div class="flex flex-col space-y-2">
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/diamond-yellow.png" alt="">                                                                                                
-                                                <span class="font-lato">Yellow</span>
-                                            </a>
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/diamond-purple.png" alt="">                                                                                                
-                                                <span class="font-lato">Purple</span>
-                                            </a>
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/diamond-grey.png" alt="">                                                                                                
-                                                <span class="font-lato">Grey</span>
-                                            </a>
-                                        </div>
-                                        <div class="flex flex-col space-y-2">
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/diamond-pink.png" alt="">                                                                                                
-                                                <span class="font-lato">Pink</span>
-                                            </a>
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/diamond-brown.png" alt="">                                                                                                
-                                                <span class="font-lato">Brown</span>
-                                            </a>
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/diamond-blue.png" alt="">                                                                                                
-                                                <span class="font-lato">Blue</span>
-                                            </a>
-                                        </div>
-                                        <div class="flex flex-col space-y-2">
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/diamond-orange.png" alt="">                                                                                                
-                                                <span class="font-lato">Orange</span>
-                                            </a>
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/diamond-green.png" alt="">                                                                                                
-                                                <span class="font-lato">Green</span>
-                                            </a>
-                                            <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                <img src="/assets/images/diamond-black.png" alt="">                                                                                                
-                                                <span class="font-lato">Black</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li x-data="{ERDropdown : false}" class="">
-                        <a @mouseover="ERDropdown = true" :class="{'active' : ERDropdown}" href="#">
-                            <span>Engagement Rings</span>
-                        </a> 
-                        <div x-show="ERDropdown" @mouseleave="ERDropdown = false" class="flex flex-col w-full z-20 absolute top-16 left-2">
-                            <div class="div h-16 opacity-0"></div>
-                            <div class="flex justify-between bg-white border-t py-5 px-8 font-lato w-full">
-                                <div class="flex space-x-10">
+            <div class="relative order-1 lg:order-2">
+                <div class="max-w-screen-2xl 2xl:mx-auto mx-5 md:mx-10 lg:mx-20 flex items-center px-5">
+                    <button class="inline-block lg:hidden">
+                        <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.75 15.5H23.25V13H0.75V15.5ZM0.75 9.25H23.25V6.75H0.75V9.25ZM0.75 0.5V3H23.25V0.5H0.75Z" fill="#656565"/>
+                        </svg>                
+                    </button>
+                    <a class="lg:mr-10" href="#">
+                        <img src="/assets/images/Logo.svg" alt="">
+                    </a>
+                    <ul class="hidden lg:flex flex-col w-52 space-y-3 lg:space-y-0 lg:w-auto lg:flex-row lg:items-center lg:space-x-10 diamond-details navbar font-suranna">
+                        <li x-data="{diamondDropdown : false}" class="">
+                            <a @mouseover="diamondDropdown = true" :class="{'active' : diamondDropdown}" href="#">
+                                <span>Diamond</span>
+                            </a> 
+                            <div x-show="diamondDropdown" @mouseleave="diamondDropdown = false" class="flex flex-col w-full bg-white z-10 absolute top-16 left-0">
+                                <div class="div h-16 opacity-0"></div>
+                                <div class="flex space-x-10 w-full border-t border-b py-5 max-w-screen-2xl 2xl:mx-auto px-5 md:px-10 lg:px-20 xl:px-28 font-lato">
                                     <div class="flex flex-col space-y-2">
                                         <p class="font-lato font-bold text-brown">Design Your Engagement Rings</p>
+                                        <a href="#" class="dd-link group flex space-x-2 items-center max-w-max">
+                                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M22.3681 4.19995C21.6044 4.19995 8.47504 4.19995 7.63321 4.19995L3 10.5179L15.0498 26.3994L27 10.5161L22.3681 4.19995ZM9.58739 11.212L12.9823 21.3544L5.28697 11.212H9.58739ZM11.0663 11.212H18.9391L15.0298 23.053L11.0663 11.212ZM20.4161 11.212H24.7214L17.0495 21.4089L20.4161 11.212ZM21.6573 5.60237L24.7427 9.80962H20.417L19.0365 5.60237H21.6573ZM17.5605 5.60237L18.941 9.80962H11.0603L12.4408 5.60237H17.5605ZM8.34387 5.60237H10.9647L9.58421 9.80962H5.25855L8.34387 5.60237Z" fill="#666666"/>
+                                            </svg>                                    
+                                            <span class="font-lato group-hover:border-b border-brown text-brown">Start with a Diamond</span>
+                                        </a>
                                         <a href="#" class="dd-link group flex space-x-2 items-center max-w-max">
                                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M15 27C8.39255 27 3 21.6071 3 15C3 8.39255 8.39292 3 15 3C21.6075 3 27 8.39292 27 15C27 21.6075 21.6071 27 15 27ZM15 4.40625C9.15858 4.40625 4.40625 9.15858 4.40625 15C4.40625 20.8414 9.15858 25.5938 15 25.5938C20.8414 25.5938 25.5938 20.8414 25.5938 15C25.5938 9.15858 20.8414 4.40625 15 4.40625Z" fill="#666666"/>
@@ -263,68 +134,199 @@
                                             </svg>                                                                      
                                             <span class="font-lato">Start with a Setting</span>
                                         </a>
+                                    </div>
+                                    <div class="flex flex-col space-y-2">
+                                        <p class="font-lato font-bold text-brown">Loose Diamond</p>
                                         <a href="#" class="dd-link group flex space-x-2 items-center max-w-max">
-                                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M22.3681 4.19995C21.6044 4.19995 8.47504 4.19995 7.63321 4.19995L3 10.5179L15.0498 26.3994L27 10.5161L22.3681 4.19995ZM9.58739 11.212L12.9823 21.3544L5.28697 11.212H9.58739ZM11.0663 11.212H18.9391L15.0298 23.053L11.0663 11.212ZM20.4161 11.212H24.7214L17.0495 21.4089L20.4161 11.212ZM21.6573 5.60237L24.7427 9.80962H20.417L19.0365 5.60237H21.6573ZM17.5605 5.60237L18.941 9.80962H11.0603L12.4408 5.60237H17.5605ZM8.34387 5.60237H10.9647L9.58421 9.80962H5.25855L8.34387 5.60237Z" fill="#666666"/>
-                                            </svg>                                    
-                                            <span class="font-lato">Start with a Diamond</span>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <rect width="24" height="24" fill="url(#pattern0)"/>
+                                                <defs>
+                                                <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                                <use xlink:href="#image0" transform="scale(0.0133333)"/>
+                                                </pattern>
+                                                <image id="image0" width="75" height="75" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAAHh0lEQVR4AeWa247kZAyE5/1fA8QtgtuFe+ClFn2hK6p22/6d9GmGRQr/wa5yueKMVqP5+Hjzf3/9/c93nm9//Lk9v/72+3c9ulPOm6W+vjwGuBkY4Sp++vmXzTRWv5ehjvX4/2avBqMxsUHylMPKOeb4WTmO8/iX2TNBTIeaXwmnYTCepyn0u2pPHU1llfPp7r3B1WRIfGaUYs6nu2pVvY6vwr70vmpKDVRiKpznT5rP6kxwXucl++5zy5qQqIlRyl01XtXR5ymet62TZhFLXhR5ponqpcAPX6zh55XZnvvwPcVXAlWUJrXXmt0p1q2ZYVMu9FYT2NW8KzYVpyLxzR/Fi0er4zEgm1zlZuvLDHOhmZDqTgLP4iOveMQb46uz8Ku803EKIK56eMP+8Nb1gHm0QOlRDU2ZNFQ6df9oPbuxErZfNJtMvMw6+slUZeCRJpnjdSuc30uT39291xuA/CyZsDSkJs9wqUF4wIv3LBc49XeG4wrjYnx/lTQ4ROxR08DTlExSycir+8nqWN9PsDc5jLeLO0sYebzQyjRqZiaJA/xZXY6DB53iPbw6GeB4nhJOxxx+CWbl7C+rqjflj/jYTzzH/PKcCThLNsVpyqjNMzGKBuCf5nrDma6sb8fc7KvPJiO/AYeLCYZ6iNRUiaK6V1wrRk3qKF9rhoEr6lB+umYkJFb3KcnlsntT8E0miAbI6+p3dSp9FV91f8PTudrFbog+Pj6ytzRpPOPSnQyOWjjDrbzVmmlzTOT32L7vXD0qCC41UDW5Fz64QYtPG3U67ZF+ZdaSa+XmUbNoRg3JtCj63rNMUq0p38oseFo/1FhVkAKrpl388u1UhU7ea3pZJzo7M8RVSlEBJeosAOeqgDCKY7xwr1ypK516+bEP9KAz3nOmDx5xpNpJiAEIKSgDIoHiInd8xufxZ+1jXRngfVDbzVIf6tO1Rb4tll5eUCpIjj/cO7H25FQx5TxrldaMXzHvYaWV+A3XpDneDs8NOFxMcgLkocdJ/WkvN75k4xfVS4CPb8zhDPmEL8M+6o76nQbXqL662ldc6agZOhLGs6U+7ndDTnpif0QjuTcTZDWv/Lk6WBIEWVHyK/KKy2hfsq00ojvT2Bl2lX81ZpdWuMuMUqdZ7IpUiW9aO1MqSfRUebFhII1TAmDVOPGIywyshL3iPvZQGehawETD9j73zQVBciziZL53cygQuTz3HXs0eeOut9MTPaCvrTcny1xdkSo+FaL8V63SRbPTIUAbvnj+5pPMOmqUmgWHEPHo/rOs6DpqlLSDveqPA+5vY6asAyuEensHYC9NRd/Zl4kv4PFp++3nWSJ1/BXMOjsM9KgJ28yi2bNkP9RkaaoYM+01MZP16pueAF6cQ08822d0sLZwDNLmzfa/C8lRw1zAZ/0UpYuGXe/KNxmlvM2n+PlBOCWVEAghi1wq9K51n4iLANfbaYoewLP1tm8MHV210L6FcCPYbx74BxbGec82moPe1SAQ36bICl95FIPkcReLGT797cJKiOOfva+MWfVUebHrrZqkYEZOPrGdwDYVl6W8ZFtp7Ewc9dQ1mBmWGSgHuphyXrF2OmKMc2UUWq/8yUYvNqQC5HbExCZ8kf+RZ+p3Glyj+urq33B1BogI4gn5JEecz1gn9ae9pL5cjVroAADx+KREd/wJUCh76iitGVixaR9wpL5kl4wfb0BjSDHtRUQ8w2Z3WQOPvot1ZVDUSR/EqB/7dE2Rb48JTALkOiuBs5ule1ZhFAfv8VftpVsGoCv2gRbi8Z4z+cKol1R7dD8mQRYLZDkyjjXGn3n2uhOdnRniKvV2YEDZ2yjJLn8yrRewEt/xdDF41diRaQY36bernf9AuyCOmkUTMkkNrQS24iwIj14E1zLNUtrtyiz0tgQEu2a6WEacCeLOm8xw3V1lOtrg7rAey7Qp3sWUs6+Vq0fNgrD7NNT4qkni5PJUuV2dvbGwqfqs7gP8v2P1lg6RXJgnGOrRbHwZ1X0ULTPj/eqcaYMr6ljxpBORkS+Jqn/YJUCEYpqeaooiFF3TXMdm/ZyZ0I0zksWzF+72UwHw81b1dqf1pvxRY+SP55jfniVcSWfJIo/4WDVNFTf3mFFNDvcV1utke8fpBWV54zsn9P2Y4JIYsSuTIj/4zLTIG3Hd2bG+7zDLmMb8HkJhj5oUxcHjpok35k3Owqq/CWaUA6HIJwBM0WjzGapJ9hP8KgceaWLPo5qsKzxxaZrkHs6ROIpUj4RH8c8QJj0yyWuzrzTqHvxhE44AzhZAIHXO4qNG8Yg3xldn4Vd5d8ePCtSUqfC9Qh2vT13ck/Wo/glnm0PB6c8Gbw5ScPGuLWZBcLHulAvcy42Sdv1c0DlbEUhejJ0xLDMK3ji5sRZnTMp0ZLlPvauakMiq+MRsYVfNVhNz5qWo5tPWqvGqCQmpcIqzroxSjmN09ymmKQrT2ZtfGSVMZ4bzKb9aVa/jq7BvvafJ7vOM4rIGjxilzw1M5P4yZ5rACB72nXDPEa7LV47juvwvF9O00CD7aCDTyD2rN0dexHr8h9hjgoxwM2SmDI2mvsOcfwGLBDap4mnhPgAAAABJRU5ErkJggg=="/>
+                                                </defs>
+                                            </svg>              
+                                            <span class="font-lato">Round</span>
                                         </a>
                                     </div>
                                     <div class="flex flex-col space-y-2">
-                                        <p class="font-lato font-bold text-brown">Engagement Rings Style</p>
+                                        <p class="font-lato font-bold text-brown">Fancy Cut Diamond</p>
                                         <div class="flex space-x-7">
                                             <div class="flex flex-col space-y-2">
                                                 <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                    <img class="h-6" src="/assets/images/ring-design-1.png" alt="">                                                                                                
-                                                    <span class="font-lato">Solitare</span>
+                                                    <img src="/assets/images/dd-1.png" alt="">                                                                                                
+                                                    <span class="font-lato">Pear</span>
                                                 </a>
                                                 <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                    <img class="h-6" src="/assets/images/ring-design-2.png" alt="">                                                                                                
-                                                    <span class="font-lato">Side-Stone</span>
+                                                    <img src="/assets/images/dd-2.png" alt="">                                                                                                
+                                                    <span class="font-lato">Marquise</span>
                                                 </a>
                                                 <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
-                                                    <img class="h-6" src="/assets/images/ring-design-3.png" alt="">                                                                                                
-                                                    <span class="font-lato">Halo</span>
+                                                    <img src="/assets/images/dd-3.png" alt="">                                                                                                
+                                                    <span class="font-lato">Oval</span>
+                                                </a>
+                                            </div>
+                                            <div class="flex flex-col space-y-2">
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/dd-4.png" alt="">                                                                                                
+                                                    <span class="font-lato">Emerald</span>
+                                                </a>
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/dd-5.png" alt="">                                                                                                
+                                                    <span class="font-lato">Cushion</span>
+                                                </a>
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/dd-6.png" alt="">                                                                                                
+                                                    <span class="font-lato">Heart</span>
+                                                </a>
+                                            </div>
+                                            <div class="flex flex-col space-y-2">
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/dd-7.png" alt="">                                                                                                
+                                                    <span class="font-lato">Emerald</span>
+                                                </a>
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/dd-8.png" alt="">                                                                                                
+                                                    <span class="font-lato">Cushion</span>
+                                                </a>
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/dd-9.png" alt="">                                                                                                
+                                                    <span class="font-lato">Heart</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col space-y-2">
+                                        <p class="font-lato font-bold text-brown">Fancy Color Diamond</p>
+                                        <div class="flex space-x-7">
+                                            <div class="flex flex-col space-y-2">
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/diamond-yellow.png" alt="">                                                                                                
+                                                    <span class="font-lato">Yellow</span>
+                                                </a>
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/diamond-purple.png" alt="">                                                                                                
+                                                    <span class="font-lato">Purple</span>
+                                                </a>
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/diamond-grey.png" alt="">                                                                                                
+                                                    <span class="font-lato">Grey</span>
+                                                </a>
+                                            </div>
+                                            <div class="flex flex-col space-y-2">
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/diamond-pink.png" alt="">                                                                                                
+                                                    <span class="font-lato">Pink</span>
+                                                </a>
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/diamond-brown.png" alt="">                                                                                                
+                                                    <span class="font-lato">Brown</span>
+                                                </a>
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/diamond-blue.png" alt="">                                                                                                
+                                                    <span class="font-lato">Blue</span>
+                                                </a>
+                                            </div>
+                                            <div class="flex flex-col space-y-2">
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/diamond-orange.png" alt="">                                                                                                
+                                                    <span class="font-lato">Orange</span>
+                                                </a>
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/diamond-green.png" alt="">                                                                                                
+                                                    <span class="font-lato">Green</span>
+                                                </a>
+                                                <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                    <img src="/assets/images/diamond-black.png" alt="">                                                                                                
+                                                    <span class="font-lato">Black</span>
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex">
-                                    <img src="/assets/images/e-ring-display.png" alt="">
+                            </div>
+                        </li>
+                        <li x-data="{ERDropdown : false}" class="">
+                            <a @mouseover="ERDropdown = true" :class="{'active' : ERDropdown}" href="#">
+                                <span>Engagement Rings</span>
+                            </a> 
+                            <div x-show="ERDropdown" @mouseleave="ERDropdown = false" class="flex flex-col w-full bg-white z-10 absolute top-16 left-0">
+                                <div class="div h-16 opacity-0"></div>
+                                <div class="flex justify-between w-full border-t border-b py-5 max-w-screen-2xl 2xl:mx-auto px-5 md:px-10 lg:px-20 xl:px-28 font-lato">
+                                    <div class="flex space-x-10">
+                                        <div class="flex flex-col space-y-2">
+                                            <p class="font-lato font-bold text-brown">Design Your Engagement Rings</p>
+                                            <a href="#" class="dd-link group flex space-x-2 items-center max-w-max">
+                                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M15 27C8.39255 27 3 21.6071 3 15C3 8.39255 8.39292 3 15 3C21.6075 3 27 8.39292 27 15C27 21.6075 21.6071 27 15 27ZM15 4.40625C9.15858 4.40625 4.40625 9.15858 4.40625 15C4.40625 20.8414 9.15858 25.5938 15 25.5938C20.8414 25.5938 25.5938 20.8414 25.5938 15C25.5938 9.15858 20.8414 4.40625 15 4.40625Z" fill="#666666"/>
+                                                    <path d="M15 24.1875C9.95377 24.1875 5.8125 20.0453 5.8125 15C5.8125 9.95377 9.95475 5.8125 15 5.8125C20.0462 5.8125 24.1875 9.9547 24.1875 15C24.1875 20.0462 20.0452 24.1875 15 24.1875ZM15 7.21875C10.7094 7.21875 7.21875 10.7094 7.21875 15C7.21875 19.2906 10.7094 22.7812 15 22.7812C19.2906 22.7812 22.7812 19.2906 22.7812 15C22.7812 10.7094 19.2906 7.21875 15 7.21875Z" fill="#666666"/>
+                                                </svg>                                                                      
+                                                <span class="font-lato">Start with a Setting</span>
+                                            </a>
+                                            <a href="#" class="dd-link group flex space-x-2 items-center max-w-max">
+                                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M22.3681 4.19995C21.6044 4.19995 8.47504 4.19995 7.63321 4.19995L3 10.5179L15.0498 26.3994L27 10.5161L22.3681 4.19995ZM9.58739 11.212L12.9823 21.3544L5.28697 11.212H9.58739ZM11.0663 11.212H18.9391L15.0298 23.053L11.0663 11.212ZM20.4161 11.212H24.7214L17.0495 21.4089L20.4161 11.212ZM21.6573 5.60237L24.7427 9.80962H20.417L19.0365 5.60237H21.6573ZM17.5605 5.60237L18.941 9.80962H11.0603L12.4408 5.60237H17.5605ZM8.34387 5.60237H10.9647L9.58421 9.80962H5.25855L8.34387 5.60237Z" fill="#666666"/>
+                                                </svg>                                    
+                                                <span class="font-lato">Start with a Diamond</span>
+                                            </a>
+                                        </div>
+                                        <div class="flex flex-col space-y-2">
+                                            <p class="font-lato font-bold text-brown">Engagement Rings Style</p>
+                                            <div class="flex space-x-7">
+                                                <div class="flex flex-col space-y-2">
+                                                    <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                        <img class="h-6" src="/assets/images/ring-design-1.png" alt="">                                                                                                
+                                                        <span class="font-lato">Solitare</span>
+                                                    </a>
+                                                    <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                        <img class="h-6" src="/assets/images/ring-design-2.png" alt="">                                                                                                
+                                                        <span class="font-lato">Side-Stone</span>
+                                                    </a>
+                                                    <a href="#" class="dd-link group flex space-x-3 items-center max-w-max">
+                                                        <img class="h-6" src="/assets/images/ring-design-3.png" alt="">                                                                                                
+                                                        <span class="font-lato">Halo</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex">
+                                        <img src="/assets/images/e-ring-display.png" alt="">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Wedding Rings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Jewellery</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Education</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Custom Jewellery</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>About Us</span>
-                        </a>
-                    </li>
-                </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>Wedding Rings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>Jewellery</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>Education</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>Custom Jewellery</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>About Us</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div x-data="{ sidebarOpen : false, cartOpen : false}" class="flex flex-col lg:hidden">
+        <div x-data="{ sidebarOpen : false, cartOpen : false}" class="flex flex-col lg:hidden mx-5">
             <div class="flex justify-between items-center lg:hidden">
                 <button @click="sidebarOpen = true" class="inline-block lg:hidden focus:outline-none">
                     <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -544,7 +546,7 @@
                 </button>
             </div>
             <form action="#">
-                <div :class="{'hidden lg:grid' : !applyFilter, 'grid lg:hidden' : applyFilter,}" class="grid md:grid-cols-2 space-y-5 md:space-y-0 md:space-x-7">
+                <div :class="{'hidden lg:grid' : !applyFilter, 'grid lg:hidden' : applyFilter,}" class="grid md:grid-cols-2 space-y-5 md:space-y-0 md:space-x-16">
                     <!-- Column 1  -->
                     <div  class="flex-col lg:flex-row space-y-7">
                         <div x-data="price()" x-init="mintrigger(); maxtrigger()" class="flex flex-col space-y-5">
@@ -576,7 +578,7 @@
                                     </div>
                                 </div>
                             </label>
-                            <div class="relative max-w-xs md:max-w-2xl w-full px-2">
+                            <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full px-2">
                             <div>
                                 <input 
                                     type="range"
@@ -713,7 +715,7 @@
                                     <span class="font-lato">I1</span>
                                 </div>
                             </div>
-                            <div class="relative max-w-xs md:max-w-2xl w-full px-2">
+                            <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full px-2">
                                 <div>
                                     <input 
                                         type="range"
@@ -736,7 +738,10 @@
                                         <div class="absolute z-20 top-0 bottom-0 rounded-md bg-brown" x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
                                         <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 left-0 bg-white border border-brown transform rotate-45 -mt-1 -ml-1" x-bind:style="'left: '+minthumb+'%'"></div>
                                         <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 right-0 bg-white border border-brown transform rotate-45 -mt-1 -mr-3" x-bind:style="'right: '+maxthumb+'%'"></div>
-                                        <div class="flex items-center space-x-6 md:space-x-10 xl:space-x-16 absolute top-0 z-40 left-11 w-full h-2">
+                                        <div class="flex items-center space-x-6 md:space-x-10 2xl:space-x-16 absolute top-0 z-40 left-11 w-full h-2">
+                                            <div class="w-0.5 h-2 bg-white"></div>
+                                            <div class="w-0.5 h-2 bg-white"></div>
+                                            <div class="w-0.5 h-2 bg-white"></div>
                                             <div class="w-0.5 h-2 bg-white"></div>
                                             <div class="w-0.5 h-2 bg-white"></div>
                                             <div class="w-0.5 h-2 bg-white"></div>
@@ -814,7 +819,7 @@
                                     </div>
                                 </div>
                             </label>
-                            <div class="relative max-w-xs md:max-w-2xl w-full px-2">
+                            <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full px-2">
                             <div>
                                 <input 
                                     type="range"
@@ -982,7 +987,7 @@
                                     <span class="font-lato">Good</span>
                                 </div>
                             </div>
-                            <div class="relative max-w-xs md:max-w-2xl w-full px-2">
+                            <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full px-2">
                                 <div>
                                     <input 
                                         type="range"
@@ -1027,9 +1032,9 @@
                     </svg>                          
                     <span class="text-brown font-bold">Advanced Option</span>
                 </button>
-                <div x-show="advance" class="flex space-x-10 bg-grey-03 p-7 mt-7">
+                <div x-show="advance" class="flex md:flex-wrap flex-col space-y-3 xl:space-y-0 md:flex-row lg:space-x-10 bg-grey-03 p-7 mt-7">
                     <div class="flex flex-col gap-3">
-                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center space-x-5">
+                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center md:space-x-5">
                             <span class="font-bold font-lato">Crown Angle</span>
                             <div class="flex max-w-max items-center justify-between md:justify-start space-x-3">
                                 <div class="relative">
@@ -1050,7 +1055,7 @@
                                 </div>
                             </div>
                         </label>
-                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center space-x-4">
+                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center md:space-x-4">
                             <span class="font-bold font-lato">Table Percent</span>
                             <div class="flex max-w-max items-center justify-between md:justify-start space-x-3">
                                 <div class="relative">
@@ -1073,7 +1078,7 @@
                         </label>
                     </div>
                     <div class="flex flex-col gap-3">
-                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center space-x-4">
+                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center md:space-x-4">
                             <span class="font-bold font-lato">Parvilion Angle</span>
                             <div class="flex max-w-max items-center justify-between md:justify-start space-x-3">
                                 <div class="relative">
@@ -1094,7 +1099,7 @@
                                 </div>
                             </div>
                         </label>
-                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center space-x-5">
+                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center md:space-x-5">
                             <span class="font-bold font-lato">Depth Percent</span>
                             <div class="flex max-w-max items-center justify-between md:justify-start space-x-3">
                                 <div class="relative">
@@ -1117,7 +1122,7 @@
                         </label>
                     </div>
                     <div class="flex flex-col gap-3">
-                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center space-x-4">
+                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center md:space-x-4">
                             <span class="font-bold font-lato">Length</span>
                             <div class="flex max-w-max items-center justify-between md:justify-start space-x-3">
                                 <div class="relative">
@@ -1138,7 +1143,7 @@
                                 </div>
                             </div>
                         </label>
-                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center space-x-5">
+                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center md:space-x-5">
                             <span class="font-bold font-lato">Depth</span>
                             <div class="flex max-w-max items-center justify-between md:justify-start space-x-3">
                                 <div class="relative">
@@ -1159,7 +1164,7 @@
                                 </div>
                             </div>
                         </label>
-                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center space-x-5">
+                        <label class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:items-center md:space-x-5">
                             <span class="font-bold font-lato">Width</span>
                             <div class="flex max-w-max items-center justify-between md:justify-start space-x-3">
                                 <div class="relative">
@@ -2059,7 +2064,7 @@
     </div>
     <!-- Jewelry Section  -->
     <div class="bg-grey-light">
-        <div class="flex flex-col divide-y space-y-5 md:space-y-10 max-w-screen-2xl 2xl:mx-auto md:mx-10 lg:mx-20 px-5 md:px-0 py-5 md:py-20">
+        <div class="flex flex-col divide-y space-y-5 md:space-y-10 max-w-screen-2xl 2xl:mx-auto md:mx-10 lg:mx-20 px-5 md:px-0 py-5 md:py-20 md:pb-10">
             <div class="flex flex-col space-y-5">
                 <h2 class="text-xl font-medium text-brown font-suranna">Why Choose Us</h2>
                 <div class="flex flex-wrap items-center gap-4 md:gap-0 md:space-x-10 font-lato">
@@ -2111,6 +2116,18 @@
                 </div>
             </div>
         </div>
+        <div class="max-w-screen-2xl 2xl:mx-auto md:mx-10 lg:mx-20 pb-10">
+            <div class="bg-grey-04 px-5 py-3 max-w-2xl flex md:items-center space-x-7 rounded-xl">
+                <svg class="w-16 h-16" viewBox="0 0 40 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32.2802 0.213135C31.0074 0.213135 9.12507 0.213135 7.72203 0.213135L0 10.7431L20.0829 37.2122L40 10.7401L32.2802 0.213135ZM10.979 11.9L16.6371 28.8038L3.81162 11.9H10.979ZM13.4439 11.9H26.5652L20.0496 31.6349L13.4439 11.9ZM29.0268 11.9H36.2023L23.4158 28.8947L29.0268 11.9ZM31.0956 2.5505L36.2378 9.56259H29.0283L26.7275 2.5505H31.0956ZM24.2675 2.5505L26.5683 9.56259H13.4338L15.7346 2.5505H24.2675ZM8.90645 2.5505H13.2745L10.9737 9.56259H3.76425L8.90645 2.5505Z" fill="white"/>
+                </svg>            
+                <p class="text-xs md:text-base font-lato text-white">
+                    If you could not find diamonds as your inquiry ,for the latest diamond Stock,
+                    <span class="font-semibold">Please Whatsapp ( Mandy : 52376008 )</span> <br>
+                    price below $80,000 diamond, pay by cash would have 1.7~2% discount
+                </p>
+            </div>
+        </div>
     </div>
 
     <!-- Footer Section  -->
@@ -2122,10 +2139,11 @@
                         <a class="inline-block w-48" href="#">
                             <img src="/assets/images/Logo-white-mobile.png" alt="">
                         </a>
-                        <div class="flex flex-col space-y-5 mt-1 lg:mt-0">
+                        <div class="flex flex-col space-y-3 mt-1 lg:mt-0">
                             <p class="text-sm text-white">
                                 Ting Diamond provides brilliant GIA, wholesale prices, for the best price.
                             </p>
+                            <span class="hidden md:flex bg-golden-white"></span>
                             <ul class="flex items0-center space-x-5">
                                 <li>
                                     <a href="#">
@@ -2352,15 +2370,15 @@
         </button>
     </div> -->
     <!-- Action Popup Buttons  -->
-    <div class="fixed bottom-2 md:bottom-4 right-2 md:right-4 flex flex-col space-y-1 md:space-y-5">
-        <button class="bg-brown rounded-full w-14 md:w-20 h-14 md:h-20 flex items-center justify-center text-white hover:bg-opacity-90 focus:outline-none">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="fixed bottom-2 md:bottom-4 right-2 md:right-4 flex flex-col space-y-1 md:space-y-2">
+        <button class="bg-brown rounded-full w-11 md:w-14 h-11 md:h-14 flex items-center justify-center text-white hover:bg-opacity-90 focus:outline-none">
+            <svg width="25" height="25" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.4978 0C7.85153 0 0 6.39171 0 14.2482C0 18.2277 1.99975 21.9598 5.53181 24.6445C4.40945 26.3892 2.85465 28.3115 0.949882 28.7839C0.347457 28.9339 -0.0549932 29.5039 0.00749907 30.1213C0.0674916 30.7412 0.577428 31.2186 1.19735 31.2461C1.22735 31.2461 1.33733 31.2511 1.51481 31.2511C2.81215 31.2511 7.79903 31.0437 13.4558 28.109C14.7457 28.3665 16.103 28.4965 17.4978 28.4965C27.1441 28.4965 34.9957 22.1048 34.9957 14.2482C34.9957 6.39171 27.1441 0 17.4978 0ZM17.4978 25.9968C16.123 25.9968 14.7957 25.8543 13.5483 25.5718C13.2559 25.5043 12.9459 25.5468 12.6784 25.6918C10.2587 26.9967 7.94152 27.7466 6.03675 28.1765C6.91914 27.1466 7.65655 25.9968 8.28397 24.9344C8.62393 24.3595 8.44895 23.6196 7.89152 23.2546C4.46445 21.0099 2.49969 17.7278 2.49969 14.2482C2.49969 7.76904 9.22636 2.49969 17.4978 2.49969C25.7693 2.49969 32.496 7.76904 32.496 14.2482C32.496 20.7249 25.7693 25.9968 17.4978 25.9968Z" fill="white"/>
                 <path d="M39.0529 37.5103C37.623 37.1478 36.2407 35.9955 34.9384 34.0782C38.168 31.5785 39.9953 28.1364 39.9953 24.4719C39.9953 22.7346 39.5803 21.0223 38.7629 19.3875C38.4529 18.7676 37.6955 18.5251 37.0856 18.8301C36.4682 19.14 36.2182 19.89 36.5257 20.5074C37.1681 21.7922 37.4956 23.1246 37.4956 24.4719C37.4956 27.6415 35.6958 30.6411 32.5587 32.7009C31.9987 33.0658 31.8288 33.8082 32.1712 34.3832C32.7886 35.4255 33.4261 36.3229 34.091 37.0778C32.3937 36.7254 30.3614 36.0879 28.2392 34.9456C27.9767 34.8031 27.6668 34.7631 27.3768 34.8256C22.3524 35.9305 16.9406 34.6231 13.551 31.6335C13.0286 31.1736 12.2412 31.2261 11.7862 31.7435C11.3288 32.2609 11.3788 33.0508 11.8962 33.5083C15.7732 36.9228 21.79 38.4627 27.4618 37.3603C32.0112 39.7 36.0982 40 37.9005 40C38.4729 40 38.8129 39.97 38.8679 39.965C39.4728 39.9075 39.9503 39.4225 39.9953 38.8176C40.0402 38.2102 39.6428 37.6603 39.0529 37.5103Z" fill="white"/>
             </svg>
         </button>
-        <a href="#" class="bg-white rounded-full w-14 md:w-20 h-14 md:h-20 flex items-center justify-center border border-brown hover:bg-brown-light focus:outline-none">
-            <svg class="fill-current text-brown" width="30" height="19" viewBox="0 0 30 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <a href="#" class="bg-white rounded-full w-11 md:w-14 h-11 md:h-14 flex items-center justify-center border border-brown hover:bg-brown-light focus:outline-none">
+            <svg class="fill-current text-brown" width="20" height="19" viewBox="0 0 30 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M26.475 18.525L15 7.07496L3.525 18.525L0 15L15 -3.43323e-05L30 15L26.475 18.525Z"/>
             </svg>
         </a>
