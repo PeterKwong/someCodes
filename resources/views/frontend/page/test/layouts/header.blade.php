@@ -1,7 +1,7 @@
-<header class="fixed top-0 bg-white z-50 w-full bg-white py-2 lg:py-10 shadow-bottom" id="td-header">
+<header class="fixed top-0 bg-white z-50 w-full bg-white py-2 lg:py-0 shadow-bottom" id="td-header">
     <!-- Header for Desktop  -->
     <div class="hidden lg:flex lg:flex-col">
-        <div class="order-2 lg:order-1 max-w-screen-2xl 2xl:mx-auto mx-5 md:mx-10 lg:mx-20 flex 2xl:w-full flex-col lg:flex-row lg:items-center justify-between pb-10">
+        <div id="td-nav-upper" class="lg:py-10 order-2 lg:order-1 max-w-screen-2xl 2xl:mx-auto mx-5 md:mx-10 lg:mx-20 flex 2xl:w-full flex-col lg:flex-row lg:items-center justify-between pb-10">
             <ul class="hidden lg:flex items-center space-x-5">
                 <li>
                     <a href="https://facebook.com/">
@@ -86,7 +86,7 @@
                     </svg>                
                 </button>
                 <a class="lg:mr-10 z-50" href="#">
-                    <img src="/assets/images/Logo.svg" alt="">
+                    <img id="td-logo" class="w-18 transform duration-300 ease-in-out" src="/assets/images/Logo.svg" alt="">
                 </a>
                 <ul class="hidden lg:flex flex-col w-52 space-y-3 lg:space-y-0 lg:w-auto lg:flex-row lg:items-center lg:space-x-10 diamond-details navbar font-suranna">
                     <li class="dropdown-item">

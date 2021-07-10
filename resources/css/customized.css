@@ -32,7 +32,10 @@ box-shadow: 0px 15px 5px -15px rgba(0,0,0, .1);
     top: 0px;
     width: 100%;
     z-index: 100;
-    transition: all .4s ease;
+    transition: all .3s ease;
+    }
+    #td-header.shorter {
+        height: 80px;
     }
     #td-header.hide {
         top: -210px;

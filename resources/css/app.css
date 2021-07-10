@@ -1,11 +1,12 @@
 
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
 @import './customized';
 
 /* Designer 1  */
 @import './designer1';
 
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
 

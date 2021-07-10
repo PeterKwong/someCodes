@@ -10,8 +10,24 @@
       var prevDirection = 0;
 
       var header = document.getElementById('td-header');
+      var logo = document.getElementById('td-logo');
+      var navUpper = document.getElementById('td-nav-upper');
 
       var checkScroll = function() {
+      // console.log(window.pageYOffset)
+        if ( window.pageYOffset > 100) { 
+          
+          //replace 52 with the height of your header in px
+
+          header.classList.add('shorter');
+          logo.classList.add('scale-75');
+          navUpper.classList.add('hidden');
+        }else{
+          header.classList.remove('shorter');
+          logo.classList.remove('scale-75');
+          navUpper.classList.remove('hidden');
+
+        }
 
         /*
         ** Find the direction of scroll
@@ -36,7 +52,8 @@
       };
 
       var toggleHeader = function(direction, curScroll) {
-        if (direction === 2 && curScroll > 150) { 
+
+        if (direction === 2 && curScroll > 190) { 
           
           //replace 52 with the height of your header in px
 
@@ -47,8 +64,9 @@
           header.classList.remove('hide');
           prevDirection = direction;
         }
+      // console.log(curScroll)
+
       };
-      console.log(curScroll)
       window.addEventListener('scroll', checkScroll);
 
     })();
