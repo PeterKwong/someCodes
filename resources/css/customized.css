@@ -16,26 +16,10 @@ top: 0;
 width: 100%;
 z-index: 100;
 transition: all .4s ease;
+box-shadow: 0px 15px 5px -15px rgba(0,0,0, .1);    
 }
 #site-header.hide {
     top: -65px;
     bottom: +65px;
 }
 
-#td-header {
-position: fixed;
-height: 210px;
-background: #fff;
-top: 0px;
-width: 100%;
-z-index: 100;
-transition: all .4s ease;
-}
-#td-header.hide {
-    top: -210px;
-    bottom: +210px;
-}
-
-.shadow-bottom{
-box-shadow: 0px 15px 5px -15px rgba(0,0,0, .1);    
-}
