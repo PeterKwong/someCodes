@@ -1,5 +1,4 @@
 <div>
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/color.css') }}">
 
   <script type="application/ld+json">
   {
@@ -17,8 +16,7 @@
   }
   </script>
 
-
-  <script type="text/javascript">
+<script type="text/javascript">
     (function(){
 
       var doc = document.documentElement;
@@ -72,7 +70,9 @@
       window.addEventListener('scroll', checkScroll);
 
     })();
-  </script>
+</script>
+
+
 
 </div>
 

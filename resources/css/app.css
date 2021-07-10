@@ -1,13 +1,11 @@
 
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-
-
 @import './customized';
 
 /* Designer 1  */
 @import './designer1';
 
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
 
@@ -15,7 +13,7 @@
 @layer utilities {
 	.dropdown:hover .dropdown-menu {
 	  display: block;
-	  @apply rounded-sm border border-gray-500 shadow-lg bg-white z-40
+	  @apply rounded-sm border border-gray-500 bg-white z-40
 	}
 
 	.show{
