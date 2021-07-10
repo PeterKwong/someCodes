@@ -16,7 +16,6 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 sans: ['Noto Sans TC', 'sans-serif'],
                 'suranna': ['Suranna', 'serif'],
                 'lato': ['Lato', 'sans-serif']

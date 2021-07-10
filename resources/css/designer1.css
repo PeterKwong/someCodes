@@ -47,7 +47,14 @@ body, html {
 .range-slider-thumb {
     box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1);
 }
-
+.dropdown-item .dropdown {
+    @apply flex-col w-full bg-white z-40 absolute top-16 left-0;
+    box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.05);
+    display: none;
+}
+.dropdown-item:hover .dropdown {
+    @apply flex;
+}
 @media only screen and (max-width: 640px) {
     .hero-image {
         background: url('/assets/images/hero-image-mobile.png') no-repeat;

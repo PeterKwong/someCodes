@@ -266,7 +266,11 @@ Route::prefix('{locale}')->middleware('locale')->group(function(){
 
     //page
     Route::get('/p', [PageController::class, 'show'])->where(['id' => '[0-9]+']);
-    Route::get('/test', [PageController::class, 'test']);
+
+    //Test
+    Route::get('/test/1', function(){return view('frontend.page.test.1');});
+    Route::get('/test/2', function(){return view('frontend.page.test.2');});
+    Route::get('/test/3', function(){return view('frontend.page.test.3');});
 
 });
 
