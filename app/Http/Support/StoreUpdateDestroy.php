@@ -145,6 +145,7 @@ trait StoreUpdateDestroy{
             }
             
         }
+        dd($request->video360[76]);
         // dd(is_array($request->video360));
         if (is_array($request->video360)) {
 
@@ -228,9 +229,10 @@ trait StoreUpdateDestroy{
 
     public function saveVideo360($video360){
         // dd($video360[0]);
+        $sorted = array_values(Arr::sort($video360, function ($value) {
+            return $value['name'];
+        }));
 
-        $sorted = $video360;
-        // dd($sorted);
         foreach ($sorted as $key => $video360File) {
                 // dd($video360File);
 
