@@ -233,15 +233,17 @@ trait StoreUpdateDestroy{
         }));
 
         foreach ($sorted as $key => $video360File) {
+                // dd($video360File);
 
-            if ($video360File['path'] ?? null ) {
+            if ( $video360File['path'] ?? null ) {
                 // dd($video360File);
                 // $pos = stripos($video360File['name'] , '.jpg');
                 // $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;
                 $this->saveSequentImages($this->video360, $video360File['path'], $key);
 
             }else{
-                dd( $video360File );
+
+                dd( $video360 );
             }
             
         }
