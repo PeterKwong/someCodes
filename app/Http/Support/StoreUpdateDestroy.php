@@ -145,7 +145,7 @@ trait StoreUpdateDestroy{
             }
             
         }
-        dd($request->video360[0]);
+        // dd(is_array($request->video360));
         if (is_array($request->video360)) {
 
             if (!$this->video360) {
@@ -240,7 +240,10 @@ trait StoreUpdateDestroy{
                 // $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;
                 $this->saveSequentImages($this->video360, $video360File['path'], $key);
 
+            }else{
+                dd( $video360File['path'] );
             }
+            
         }
 
     }
