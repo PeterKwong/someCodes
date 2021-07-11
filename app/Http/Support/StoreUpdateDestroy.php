@@ -234,7 +234,7 @@ trait StoreUpdateDestroy{
 
         foreach ($sorted as $key => $video360File) {
                 // dd($video360File);
-
+            
             if ( $video360File['path'] ?? null ) {
                 // dd($video360File);
                 // $pos = stripos($video360File['name'] , '.jpg');
@@ -243,7 +243,7 @@ trait StoreUpdateDestroy{
 
             }else{
 
-                dd( $video360 );
+                dd( $video360File );
             }
             
         }
