@@ -145,7 +145,7 @@ trait StoreUpdateDestroy{
             }
             
         }
-        dd($request->video360);
+        dd($request->video360[0]);
         if (is_array($request->video360)) {
 
             if (!$this->video360) {
