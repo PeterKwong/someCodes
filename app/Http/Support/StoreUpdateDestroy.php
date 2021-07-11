@@ -145,7 +145,7 @@ trait StoreUpdateDestroy{
             }
             
         }
-        // dd(is_array($request->video360));
+        dd($request->video360[0]);
         if (is_array($request->video360)) {
 
             if (!$this->video360) {
@@ -234,7 +234,7 @@ trait StoreUpdateDestroy{
 
         foreach ($sorted as $key => $video360File) {
                 // dd($video360File);
-            
+
             if ( $video360File['path'] ?? null ) {
                 // dd($video360File);
                 // $pos = stripos($video360File['name'] , '.jpg');
