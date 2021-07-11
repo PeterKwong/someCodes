@@ -241,7 +241,7 @@ trait StoreUpdateDestroy{
                 $this->saveSequentImages($this->video360, $video360File['path'], $key);
 
             }else{
-                dd( $video360File['path'] );
+                dd( $video360File );
             }
             
         }
