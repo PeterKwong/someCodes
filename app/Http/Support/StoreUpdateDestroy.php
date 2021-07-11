@@ -234,7 +234,7 @@ trait StoreUpdateDestroy{
 
         foreach ($sorted as $key => $video360File) {
 
-            if (!empty($video360File['path'])) {
+            if ($video360File['path'] ?? null ) {
                 // dd($video360File);
                 // $pos = stripos($video360File['name'] , '.jpg');
                 // $pos = intval( substr($video360File['name'], $pos-3, -4)) -1;
