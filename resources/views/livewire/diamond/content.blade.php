@@ -381,6 +381,7 @@
             if (localStorage.getItem('clickedRows')) {
                 this.clickedRows = JSON.parse(decodeURIComponent(localStorage.getItem('clickedRows')))
             }
+          console.log('init')
         },
         sendCookies(){
             localStorage.setItem('clickedRows', encodeURIComponent(JSON.stringify(this.clickedRows)))
@@ -388,7 +389,7 @@
         goto(id,i){
           row = this.diamonds.data[i].id
           this.clickedRows.push(row)
-          // console.log('hi')
+          console.log(row)
           window.open('/' + '{{app()->getLocale()}}' + '/gia-loose-diamonds/' + row , '')
           this.sendCookies()
         }
@@ -416,13 +417,13 @@
 
 
           if (top > y ) {
-          console.log(height)
+          // console.log(height)
 
             if (!loading) {
               window.mutualVar.screen.y = height;
-              console.log(height)
-              console.log(window.mutualVar.screen.y)
-              console.log(top)
+              // console.log(height)
+              // console.log(window.mutualVar.screen.y)
+              // console.log(top)
               Livewire.emit('addPage')
             } 
 

@@ -570,15 +570,15 @@ class Content extends Component
 		$this->showInGrid = !$this->showInGrid;
 
 	}
-	public function goto($id){
+	// public function goto($id){
 
-		$this->clickedRows[] = $id;
-		$this->setCookie();
-		return ;
-		// dd('hi');
+	// 	$this->clickedRows[] = $id;
+	// 	$this->setCookie();
+	// 	return ;
+	// 	// dd('hi');
 
 
-	}
+	// }
 	public function selectDisplayColumn($column){
 		if ($this->displayColumn != $column) {
 			$this->displayColumn = $column ;

@@ -84,7 +84,6 @@ export default {
 		save(){
 			this.isProcessing = true
 				const form = toMulipartedForm(this.form)
-				// console.log(form)
 				post(this.storeURL, form)
 				.then((response)=>{
 					if(response.data.saved){
