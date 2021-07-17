@@ -105,8 +105,7 @@ const header = new Vue({
 
 });
 
-console.log('progressBar-js')
-console.log(mutualVar.vComponents.keys())
+// console.log(mutualVar.vComponents.keys())
 
 if (mutualVar.vComponents.includes('progressBar')) {
     console.log('progressBar')

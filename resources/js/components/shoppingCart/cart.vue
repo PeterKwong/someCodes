@@ -87,6 +87,7 @@ export default {
         totalAddedCartItems(){
             var totalItems = 0
             var shoppingCart = mutualVar.cookiesInfo.shoppingCart
+
             for (var i = 0 ; shoppingCart.items.length > i; i++) {
                 if (this.type == 'engagementRings' || this.type == 'diamonds' ) {
                     if (shoppingCart.items[i].addedCart) {
@@ -153,11 +154,12 @@ export default {
 
         },
         maxItemIndex(){
+            var cart = mutualVar.cookiesInfo.shoppingCart
 
-            if (this.shoppingCart.selectingIndex != 0 && this.shoppingCart.selectingIndex > this.shoppingCart.items.length-1 && this.shoppingCart.items.length) {
+            if (cart.selectingIndex != 0 && cart.selectingIndex > cart.items.length-1 && cart.items.length) {
 
-                if (this.shoppingCart.items.length) {
-                    this.shoppingCart.selectingIndex = this.shoppingCart.items.length-1
+                if (cart.items.length) {
+                    cart.selectingIndex = cart.items.length-1
                 }
 
             }
@@ -165,10 +167,14 @@ export default {
             
         },
         addItemIndex(){
-             if (this.shoppingCart.mode == 'create' && this.shoppingCart.items[this.shoppingCart.items.length -1].addedCart == 1 ){
-                this.addItemSample()
-                this.shoppingCart.selectingIndex += 1            
-                this.sendCookies()
+            var cart = mutualVar.cookiesInfo.shoppingCart
+
+             if (cart.mode == 'create' && cart.items[cart.items.length -1]){
+                if ( cart.items[cart.items.length -1].addedCart == 1) {
+                    this.addItemSample()
+                    cart.selectingIndex += 1            
+                    this.sendCookies()
+                }
              }
 
         },
