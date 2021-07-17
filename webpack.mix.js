@@ -18,10 +18,10 @@ mix.js('resources/js/app.js', 'public/js').version()
 	.js('resources/js/userAccount.js', 'public/js').version()
 	.js('resources/js/backend.js', 'public/js').version()
 	.vue()
-	.autoload({
-        jquery: ['$', 'window.jQuery', 'jQuery'],
-        'popper.js/dist/umd/popper.js': ['Popper']
-    })
+	// .autoload({
+ //        jquery: ['$', 'window.jQuery', 'jQuery'],
+ //        'popper.js/dist/umd/popper.js': ['Popper']
+ //    })
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),

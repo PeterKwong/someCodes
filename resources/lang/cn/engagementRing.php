@@ -80,5 +80,6 @@ return [
 	
 	'Submit' => '提交',
 
+	'ENGAGEMENT RINGS' => '求婚戒指',
 
 ];

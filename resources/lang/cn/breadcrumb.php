@@ -82,6 +82,7 @@ return [
     '3-00-up-carat-weight' => '3.00或以上 钻石 ( 克拉 / 卡数 )',
     'login' => '登入',
     'register' => '注册',
+    'shopping-cart' => '购物车',
 
 
     'hk' => '首页',

@@ -1,18 +1,18 @@
-<div class="flex p-2">
-    
-    @php($url='')
 
+@php($url='')
+
+<ul class="flex flex-wrap items-center divide-x-2 divide-opacity-20 space-x-3 pt-3">
     @foreach(request()->segments() as $key => $flag)
         @if(  is_numeric($flag) != 1 )
             {{ is_numeric($flag) }}
             @php($url= $url . $flag )
-            <div>
-                <a class="text-blue-700" href="/{{$url}}">
-                    {{__('breadcrumb.'.$flag)}}
-                </a> 
-                <span class="p-1 text-gray-400">｜</span>
-            </div>
+            <li>
+                <a class="text-xs md:text-sm font-medium" href="/{{$url}}">
+                    <span>{{__('breadcrumb.'.$flag)}}</span>
+                </a>
+            </li>
             @php($url= $url .'/')
         @endif
     @endforeach
-</div>
+</ul>
+

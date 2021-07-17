@@ -37,5 +37,8 @@ return [
 5. Very Strong (very strong fluorescent)',
 	'Intro4' => 'Once you have decided on the diamond, you can start to choose the engagement ring/engagement ring. In addition to the style selection provided by our store, guests can also order their own unique styles, and study what they want with our designers The styles will be unique and representative. We will have designer manuscripts and electronic manuscripts to return customers as a souvenir. The styles of ring settings are: single diamond ring setting, auxiliary diamond ring setting, circle diamond ring setting Wait, circle diamond ring holder',
 	'Intro5' => 'Over a hundred wedding rings/pairs, come to the store to try them anytime. There are Japanese wedding rings, Angerosa wedding rings, Feerie Porte wedding rings, Timeless Ones wedding rings, forged wedding rings',
+	'Japanese' => 'Japanese',
+	'Forge' => 'Forge',
+	'Wedding Rings' => 'Wedding Rings',
 
 ];

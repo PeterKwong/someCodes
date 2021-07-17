@@ -1,4 +1,5 @@
 import { getLocale, getLocaleCode, getCurrentURl } from './locale'
+import { fetchLocalStorage, sendLocalStorage } from './local-storage'
 
 import {getMeta} from './getMeta'
 window.getMeta = getMeta
@@ -35,7 +36,9 @@ export default {
                 },            
             shoppingCartCarousel:{
             	items:[]
-            	}
+            	},
+            fetchCookies:fetchLocalStorage,
+            sendCookies:sendLocalStorage,
                 	
 	   	},
     notification:   {
@@ -63,6 +66,7 @@ export default {
     tabs:{ sideBar:'4cs'},
     status:{ isProcessing: false},
     components:{slider:''},
+    vComponents:[],
     lw:{
         customerJewellery:{
             engagementRings:'',

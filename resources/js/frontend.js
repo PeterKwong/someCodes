@@ -66,6 +66,81 @@ import AboutUs from './views/frontEnd/aboutUs/index'
 // glob.send(null);
 
 
+import ShoppingCartProgress from './components/shoppingCart/progress.vue'
+import ShoppingCartIcon from './components/shoppingCart/icon.vue'
+
+
+
+const header = new Vue({
+    el: '#header',
+    data(){
+        return{
+            mutualVar,
+            burgerOpen:false,
+            headerSection:0,
+ 
+        }
+    },
+    methods:{
+        onClickedHeader(section){
+            if (this.headerSection == section) {
+                return this.headerSection = 0
+            }
+            this.headerSection = section
+        },
+    },
+    created(){
+        mutualVar.css.innerWidth = window.innerWidth
+
+    }, 
+    destroyed () {
+    },
+    components:{ ShoppingCartProgress, ShoppingCartIcon },
+    computed:{
+        shoppingCartNumber(){
+            return mutualVar.cookiesInfo.shoppingCart.items.filter((data)=>{return data.addedCart == 1}).length
+        },
+
+    },
+
+});
+
+console.log('progressBar-js')
+console.log(mutualVar.vComponents.keys())
+
+if (mutualVar.vComponents.includes('progressBar')) {
+    console.log('progressBar')
+    const progressBar = new Vue({
+        el: '#progress-bar',
+        data(){
+            return{
+                mutualVar,
+            }
+        },
+
+        components:{ ShoppingCartProgress },
+
+    });    
+}
+
+
+const footer = new Vue({
+    el: '#footer',
+    data(){
+        return{
+            footerSection:1,
+            mutualVar,
+
+        }
+    },
+    methods:{
+        onClickedFooter(section){
+            this.footerSection = section
+        },
+    },
+
+});
+
 
 
 //diamond

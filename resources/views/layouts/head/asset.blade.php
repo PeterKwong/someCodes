@@ -36,10 +36,10 @@
 <!-- <link href="{{ asset('css/all.css') }}" rel="stylesheet">
  -->
 
+<script type="application/javascript" src="{{ mix('js/main.js') }}" ></script>
 
 <script defer src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
 <script defer type="application/javascript" src="{{ mix('js/langs.js') }}" ></script>
-<script defer type="application/javascript" src="{{ mix('js/main.js') }}" ></script>
 <script defer type="application/javascript" src="{{ mix('js/app.js') }}" ></script>
 <script defer type="application/javascript" src="{{ mix('js/frontend.js') }}" ></script>
 

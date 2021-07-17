@@ -82,6 +82,7 @@ return [
     '3-00-up-carat-weight' => '3.00或以上 鑽石 ( 克拉 / 卡數 )',
     'login' => '登入',
     'register' => '註冊',
+    'shopping-cart' => '購物車',
 
 
     'hk' => '首頁',

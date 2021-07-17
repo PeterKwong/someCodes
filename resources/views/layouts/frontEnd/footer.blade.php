@@ -1,5 +1,14 @@
 
-  @include('layouts.metas.footer')
+<div>
+  
+  @include('layouts.js.google-comment')
+
+  @include('layouts.js.header-scoll-hide')  
+
+</div>
+
+
+
 <footer class="pt-42 bg-gray-900 " id="footer">
 
 

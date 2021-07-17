@@ -82,6 +82,10 @@ return [
     '3-00-up-carat-weight' => '3.00 up Diamond (carats)',
     'login' => 'Login',
     'register' => 'Register',
+    'shopping-cart' => 'Shopping Cart',
+    'hk' => 'hk',
+    'hk' => 'hk',
+    'hk' => 'hk',
     'hk' => 'hk',
 
 
