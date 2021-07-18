@@ -91,7 +91,7 @@ class Kernel extends ConsoleKernel
             $CronJob->runCerts();
         })->cron('1 */15 * * *')->between('14:01', '23:59')->runInBackground();
 
-        $this->intervalOncall($CronJob);
+        $this->intervalOncall($CronJob,$schedule);
 
         $schedule->call(function () use(&$CronJob) {
 
@@ -158,7 +158,7 @@ class Kernel extends ConsoleKernel
 
         }
     }
-    public function intervalOncall($CronJob)
+    public function intervalOncall($CronJob,$schedule)
     {
         $schedule->call(function () use(&$CronJob) {
             $this->diamondOncall($CronJob);

@@ -78,7 +78,6 @@ const header = new Vue({
             mutualVar,
             burgerOpen:false,
             headerSection:0,
- 
         }
     },
     methods:{
@@ -91,7 +90,6 @@ const header = new Vue({
     },
     created(){
         mutualVar.css.innerWidth = window.innerWidth
-
     }, 
     destroyed () {
     },
@@ -105,10 +103,8 @@ const header = new Vue({
 
 });
 
-// console.log(mutualVar.vComponents.keys())
 
-if (mutualVar.vComponents.includes('progressBar')) {
-    console.log('progressBar')
+if (mutualVar.vComponents.findIndex((data)=>{ return data['progressBar'] }) > -1 ) {
     const progressBar = new Vue({
         el: '#progress-bar',
         data(){
@@ -116,9 +112,7 @@ if (mutualVar.vComponents.includes('progressBar')) {
                 mutualVar,
             }
         },
-
         components:{ ShoppingCartProgress },
-
     });    
 }
 
@@ -129,7 +123,6 @@ const footer = new Vue({
         return{
             footerSection:1,
             mutualVar,
-
         }
     },
     methods:{

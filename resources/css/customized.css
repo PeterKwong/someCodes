@@ -78,7 +78,30 @@ box-shadow: 0px 15px 5px -15px rgba(0,0,0, .1);
     @apply bg-white w-full;
 }
 
-
 /*shopping cart - progress bar*/
+.progress-bar-line{
+   @apply absolute inset-0 flex items-center;
+}
+.progress-bar-line .line{
+   @apply h-0.5 w-full bg-gold bg-opacity-80;
+}
+.progress-bar-line .active{
+   @apply h-1.5 md:h-3 bg-opacity-100;
+}
 
+#progress-bar-quare{
+   @apply relative w-8 h-8 z-10 bg-white border-2 border-gold transform rotate-45 flex items-center justify-center;
+}
+#progress-bar-quare.active{
+   @apply bg-gold border-white;
+}
+#progress-bar-quare span{
+   @apply text-xl font-suranna text-gold transform -rotate-45;
+}
+#progress-bar-quare span.active{
+   @apply text-white;
+}
 
+.shopping-bar-box{
+    @apply border-2 border-dashed rounded flex items-center justify-center h-20 w-20;
+}
