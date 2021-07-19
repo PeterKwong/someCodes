@@ -68,30 +68,18 @@ class Kernel extends ConsoleKernel
         })->dailyAt('00:03')->runInBackground();
 
 
-        //regular
-        $schedule->call(function () use(&$CronJob) {
-            $this->diamondOncall($CronJob);
-        })->cron('*/7 * * * *')->between('00:02', '23:59')->runInBackground();
+        $this->intervalOncall($CronJob,$schedule);
 
-        //extra
-        $schedule->call(function () use(&$CronJob) {
-            $this->diamondOncall($CronJob);
-        })->cron('*/1 * * * *')->between('00:02', '00:30')->runInBackground();
-
-        // $schedule->call(function () use(&$CronJob) {
-        //     $this->diamondOncall($CronJob);
-        // })->cron('*/18 * * * *')->between('00:30', '05:30')->runInBackground();
-
-
+        // Images Cache
         $schedule->call(function () use(&$CronJob) {
             $CronJob->runImages();
         })->cron('1 */15 * * *')->between('12:01', '23:59')->runInBackground();
 
+        //Certs Cache
         $schedule->call(function () use(&$CronJob) {
             $CronJob->runCerts();
         })->cron('1 */15 * * *')->between('14:01', '23:59')->runInBackground();
 
-        $this->intervalOncall($CronJob,$schedule);
 
         $schedule->call(function () use(&$CronJob) {
 
@@ -112,7 +100,7 @@ class Kernel extends ConsoleKernel
 
             $CronJob->generateSitemap();
 
-        })->dailyAt('16:32')->runInBackground();
+        })->dailyAt('20:00')->runInBackground();
 
 
 
@@ -160,6 +148,18 @@ class Kernel extends ConsoleKernel
     }
     public function intervalOncall($CronJob,$schedule)
     {
+        //regular
+        $schedule->call(function () use(&$CronJob) {
+            $this->diamondOncall($CronJob);
+        })->cron('*/7 * * * *')->between('00:02', '23:59')->runInBackground();
+
+
+
+        //extra
+        $schedule->call(function () use(&$CronJob) {
+            $this->diamondOncall($CronJob);
+        })->cron('*/1 * * * *')->between('00:02', '01:15')->runInBackground();
+
         $schedule->call(function () use(&$CronJob) {
             $this->diamondOncall($CronJob);
         })->cron('*/3 * * * *')->between('02:00', '02:15')->runInBackground();
