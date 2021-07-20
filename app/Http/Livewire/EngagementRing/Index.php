@@ -12,6 +12,7 @@ class Index extends Component
 
 	public $model;
 	public $fetchData;
+    public $tags;
 	public $search_conditions = [
 									'style'=>[
 										'solitaire' => ['clicked'=>false,
@@ -89,6 +90,7 @@ class Index extends Component
 
         }
         $this->index();
+        $this->setTags();
         // dd($this->model);
         // dd($this->fetchData);
         return view('livewire.engagement-ring.index');
@@ -107,7 +109,19 @@ class Index extends Component
         $this->setRequest();
         $this->setClickedSearchConditions();
 
-    }  
+    }
+    public function setTags(){
+        $columns = ['page','column','direction','per_page'];
+        $ori = $this->fetchData;
+
+        foreach ($columns as $key => $query) {
+            unset($this->fetchData[$query]);
+        }
+        // dd($this->fetchData);
+        $this->tags = $this->fetchData;
+        $this->fetchData = $ori;
+
+    }
     public function setRequest(){
                 // dd( request()->all() );
           $trans = [
