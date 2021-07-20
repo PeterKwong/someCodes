@@ -84,7 +84,9 @@ return [
 	
 	'Submit' => 'Submit',	
 	'Choose Diamond First' => 'Choose Diamond First',
+	'Clear' => 'Clear',
 	
 	'ENGAGEMENT RINGS' => 'ENGAGEMENT RINGS',
+
 
 ];

@@ -77,6 +77,7 @@ return [
 	'18K Rose Gold' => '18K 玫瑰金',
 	'PT950/900' => 'PT950/900',
 	'Mixed' => '混金',
+	'Clear' => '清除',
 	
 	'Submit' => '提交',
 

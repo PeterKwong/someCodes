@@ -81,6 +81,7 @@ return [
 	
 	'Submit' => '提交',
 	'Choose Diamond First' => '先選鑽石',
+	'Clear' => '清除',
 
 	'ENGAGEMENT RINGS' => '求婚戒指',
 

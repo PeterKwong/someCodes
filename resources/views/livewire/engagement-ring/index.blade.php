@@ -180,7 +180,7 @@
 						@endforeach
           </div>
           <div class="flex flex-shrink-0">
-              <a class="text-brown underline" href="#" wire:click="resetAll()">Clear</a>
+              <a class="text-brown underline" href="#" wire:click="resetAll()">{{__('engagementRing.Clear')}}</a>
           </div>
       </div>
   </div>
