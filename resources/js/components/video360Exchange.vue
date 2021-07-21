@@ -31,6 +31,7 @@
                                         :folder=" cdn + 'public/video360/' + video360.src +'/'" 
                                         :filename="video360.fileName" 
                                         :size="video360.size" 
+                                        :thumb="video360.thumb" 
                                         :rotate="video360.rotate" v-if="vid360"></product-viewer>
                                      </div>
 
@@ -82,7 +83,7 @@ export default {
             var video360 = {
                 src:this.vid360, 
                 type:"video360", 
-                thumb: this.cdn + 'public/video360/' + this.vid360 +'/thm-0.jpg', 
+                thumb: this.cdn + 'public/images/' + this.img, 
                 size:120, 
                 rotate:1,
                 fileName: '',
