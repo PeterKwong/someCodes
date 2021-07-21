@@ -4,14 +4,15 @@
     window.addEventListener("scroll", function(event) {
 
           if (window.mutualVar.screen.y == 0) {
-            window.mutualVar.screen.y = document.getElementById('totalHeigh').clientHeight * 0.55
+            window.mutualVar.screen.y = document.getElementById('totalHeigh').offsetHeight * 0.55
           }
-
-          var top = this.scrollY,
+          // console.log(window.scrollY)
+          var top = window.scrollY,
           y = window.mutualVar.screen.y,
           loading = document.getElementById('loading').className,
-          height = document.getElementById('totalHeigh').clientHeight * 0.55;
+          height = document.getElementById('totalHeigh').offsetHeight * 0.55;
 
+          console.log(height)
 
           if (top > y ) {
           console.log(height)
