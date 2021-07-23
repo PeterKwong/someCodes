@@ -57,7 +57,7 @@ export default {
         cfront: getMeta('meta-js-' + 'cfront'),
 
     },
-    screen:{x:0, y: 0, scrollable:false },
+    screen:{x:0, y: 0, scrollable:false, footerToTop:0 },
     namepath: getCurrentURl(),
     css:{
         jsReady:true,

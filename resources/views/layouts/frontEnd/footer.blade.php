@@ -1,9 +1,8 @@
 
-<div>
+<div id="toTop">
   
   @include('layouts.js.google-comment')
   @include('layouts.js.header-scoll-hide')  
-  @include('layouts.js.infinityAddPage')  
 
 </div>
 
