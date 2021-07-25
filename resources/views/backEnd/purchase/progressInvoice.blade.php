@@ -6,7 +6,7 @@
         <div id="progressInvoice">
             <div class="level"> 
                 <p class="title is-4">
-                  Total Amount <strong style="color: #0000ff">$ @{{totalAmount}} </strong>
+                  Total Amount <strong >$ @{{totalAmount}} </strong>
                 </p>
             </div>
 

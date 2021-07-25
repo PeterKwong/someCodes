@@ -14,7 +14,7 @@
 
                 <div class="column">     
                     <p class="title is-4">
-                      Diamond : <strong style="color: #0000ff">$ @{{dueDiamonds.totalAmount}} </strong>
+                      Diamond : <strong >$ @{{dueDiamonds.totalAmount}} </strong>
                     </p>
                 </div>
 
