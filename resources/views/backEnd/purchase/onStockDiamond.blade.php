@@ -31,7 +31,7 @@
 
                 <div class="column">     
                     <p class="title is-4">
-                      Available Limits : <strong style="color: #0000ff">$ @{{ 900000 - dueDiamonds.totalAmount }} </strong>
+                      Available Limits : <strong >$ @{{ 900000 - dueDiamonds.totalAmount }} </strong>
                     </p>
                 </div>
 
