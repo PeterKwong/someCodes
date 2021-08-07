@@ -70,7 +70,7 @@
                         </button>
                         <span>{{__('diamondSearch.' . $k)}}:
                               @foreach($conditions as  $key => $data)
-                                {{$data}}
+                                ${{$data}}
                                 {{count($conditions)-1 == $key?'':'-'}}
                               @endforeach
                         </span>
