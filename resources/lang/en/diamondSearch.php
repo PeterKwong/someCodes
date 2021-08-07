@@ -140,7 +140,7 @@ return [
 	'PEAR' => 'Pear',
 	
 	'Total' => 'Total',
-	'Order' => 'overeas',
+	'Order' => 'oversea',
 	'1-2 Days' => 'HK',
 	
 	'Stock no' => 'Stock no',
