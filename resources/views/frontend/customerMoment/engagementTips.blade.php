@@ -43,7 +43,11 @@
                     <div class="col-span-12 sm:col-span-4">
                       <center>
 
-                          <center><p class="sm:text-xl font-semibold">{{trans('customerMoment.title2')}}</p>
+                          <center>
+                            <p class="sm:text-xl font-semibold">{{trans('customerMoment.title2')}}
+                              <a class="text-blue-600" href="/{{app()->getLocale()}}/engagement-rings">{{trans('engagementRing.Engagement Ring')}}
+                              </a>
+                            </p>
                           </center>
                           <br>
                           <div class="level">

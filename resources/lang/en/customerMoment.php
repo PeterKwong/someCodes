@@ -4,7 +4,7 @@ return [
 	//engagement tips
 	'giaShare' =>'giaShare',
 	'title1' =>'Marriage proposal – TIPS',
-	'title2' =>'The basic elements of marriage proposal: flowers and rings',
+	'title2' =>'The basic elements of marriage proposal: flowers and',
 	'para1' =>'Marriage is not a simple matter today, not only girlfriends want surprises, boyfriends also want to make unforgettable memories for their girlfriend. Therefore, the proposal requires planning, strategy, and in-depth understanding of each other\'s ideas and spotted the opportunity to attack a process. The key to the success or failure of a marriage depends on the timing, venue, and time.',
 	'title3' =>'1. Choose the timing',
 	'para2' =>'The best time to propose marriage proposal is based on the fact that both parties have already reached a certain degree of consensus and their feelings are relatively stable. As for the specific date, a special anniversary is certainly the first choice. Madam President has always had a special emotional connection to "day," making Anniversary a "double anniversary day" to make Ms. Madrasa more touching. Such as how many days left and right, how many months, girlfriend can not guess the day, will be more surprises. If the birthday, holiday, these special days, maybe girlfriend are mentally prepared, have long been speculated that the day, the girls will be nervous and have expectations. If a man fails to meet his girlfriend\'s expectations, her girlfriend will instead feel disappointed, so I can choose a meaningful day to better effect.',
