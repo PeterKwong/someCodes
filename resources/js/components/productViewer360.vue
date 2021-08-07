@@ -12,8 +12,8 @@
 <template>
     <div class="grid grid-cols-12 ">
           <div class="col-span-12">
-            <div class="bg-black relative">
-              <canvas :id="id" @click="pauseOrStart()" class="flex productViewer" :width="width" :height="height" 
+            <div class="bg-black relative" @click="pauseOrStart()">
+              <canvas :id="id" class="flex productViewer" :width="width" :height="height" 
 
                 @mousedown="startDrag" @touchstart="startDrag"
                 @mousemove="onDrag" @touchmove="onDrag"

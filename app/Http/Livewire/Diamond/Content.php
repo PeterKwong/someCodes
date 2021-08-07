@@ -9,7 +9,7 @@ use Livewire\Component;
 
 class Content extends Component
 {
-
+    public $tags;
 	protected $listeners = ['addPage'];
 
 	public $search_conditions = [
@@ -63,13 +63,13 @@ class Content extends Component
 										],
 									'cut'=>[
 										'Excellent' => ['clicked'=>false,
-													  'value' => ['EX','Excellent']
+													  'value' => ['EX']
 													],
 										'Very Good' => ['clicked'=>false,
-													  'value' => ['VG','Very Good']
+													  'value' => ['VG']
 													],
 										'Good' => ['clicked'=>false,
-													  'value' => ['GD','Good']
+													  'value' => ['GD']
 													] 
 										],
 									'clarity'=>[
@@ -94,41 +94,41 @@ class Content extends Component
 										],
 									'polish'=>[
 										'Excellent' => ['clicked'=>false,
-													  'value' => ['EX','Excellent']
+													  'value' => ['EX']
 													],
 										'Very Good' => ['clicked'=>false,
-													  'value' => ['VG','Very Good']
+													  'value' => ['VG']
 													],
 										'Good' => ['clicked'=>false,
-													  'value' => ['GD','Good']
+													  'value' => ['GD']
 													] 
 										],
 									'fluorescence'=>[
 										'None' => ['clicked'=>false,
-													  'value' => ['Non','None']
+													  'value' => ['Non']
 													],
 										'Faint' => ['clicked'=>false,
-													  'value' => ['FNT','Faint']
+													  'value' => ['FNT']
 													],
 										'Medium' => ['clicked'=>false,
-													  'value' => ['MED','Medium']
+													  'value' => ['MED']
 													],
 										'Strong' => ['clicked'=>false,
-													  'value' => ['STG','Strong']
+													  'value' => ['STG']
 													],
 										'Very Strong' => ['clicked'=>false,
-													  'value' => ['VST','Very Strong']
+													  'value' => ['VST']
 													]
 										],
 									'symmetry'=>[
 										'Excellent' => ['clicked'=>false,
-													  'value' => ['EX','Excellent']
+													  'value' => ['EX']
 													],
 										'Very Good' => ['clicked'=>false,
-													  'value' => ['VG','Very Good']
+													  'value' => ['VG']
 													],
 										'Good' => ['clicked'=>false,
-													  'value' => ['GD','Good']
+													  'value' => ['GD']
 													] 
 										],
 									'location'=>[
@@ -216,15 +216,63 @@ class Content extends Component
 
 	public $selectedColor = 'yellow';
 
+	public $sliders = [
+			      	'min' => 100, 
+			      	'max' => 10000,
+			      	'minr' =>0,
+			      	'maxr' =>100,
+					'price'=>[
+						'mininputjs'=>1000,
+						'maxinputjs'=>50000000,
+						'minprice'=>0,
+						'maxprice'=>10000,
+						'minthumb'=>0,
+						'maxthumb'=>0, 
+						'minv'=>6.907755278982137, //log10(1000)
+						'maxv'=>17.72753356339242,//log10(50000000)
+						'scale'=>0.10819778284410284,//(this.maxv-this.minv)/(this.maxr-this.minr)
+						]
+					];
+
     public function render()
     {	
     	$this->fastLoad();
+        $this->setTags();
 		
         return view('livewire.diamond.content', [
             'diamonds' => $this->readyToLoad
                 ? $this->deferLoading()
                 : $this->diamonds
         ]);
+    }
+    public function setTags(){
+        $columns = ['page','column','direction','per_page'];
+        $ori = $this->fetchData;
+
+        foreach ($columns as $key => $query) {
+            unset($this->fetchData[$query]);
+        }
+        // dd($this->fetchData);
+        $this->tags = $this->fetchData;
+        $this->fetchData = $ori;
+
+    }
+    public function clearTags($type)
+    {
+    	$types = ['price' => [1000, 50000000], 
+				 'weight' => [0.30,20], 'table_percent' => [0,0], 'depth_percent' => [0,0], 
+				 'crown_angle' => [0,0], 'parvilion_angle' => [0,0], 'length' => [0,0], 
+				 'width' => [0,0], 'depth' => [0,0],
+				];
+		if ( $types[$type]??null ) {
+			$this->fetchData[$type] = $types[$type];
+			// dd($types[$type]);
+		}else{
+			$this->fetchData[$type] = [];
+		}
+		$this->setCookie();
+
+		return redirect()->to( app()->getLocale(). '/gia-loose-diamonds');
     }
     public function fastLoad(){
     	 if (!isset($_COOKIE['diamondSearch'])) {
@@ -272,7 +320,7 @@ class Content extends Component
 
     	return $same ;
 
-    }  
+    }
     public function deferLoading(){
     	 
 
@@ -312,6 +360,7 @@ class Content extends Component
 	    if ($this->search_conditions['color']['Fancy']['clicked']) {
 	    	$this->setFancyColumns();
 	    }
+
 	    // $this->checkCache();
     }
     public function setClickedSearchConditions(){
@@ -362,14 +411,14 @@ class Content extends Component
 		    	// dd( request()->all() );
 	      $trans = [
             '0'=>'',
-            'EX'=>'EX,Excellent',
-            'VG'=>'VG,Very Good',
-            'GD'=>'GD,Good',
-            'Non'=>'Non,None',
-            'FNT'=>'FNT,Faint',
-            'MED'=>'MED,Medium',
-            'STG'=>'STG,Strong',
-            'VST'=>'VST,Very Strong',
+            'EX'=>'EX',
+            'VG'=>'VG',
+            'GD'=>'GD',
+            'Non'=>'Non',
+            'FNT'=>'FNT',
+            'MED'=>'MED',
+            'STG'=>'STG',
+            'VST'=>'VST',
           ];
 
           $checkKeys = ['cut','symmetry','polsh','fluorescence'];

@@ -174,6 +174,14 @@ return [
 	'Blue' => '藍色',
 	'Black' => '黑色',
 
+	'table_percent' => '枱面比例',
+	'depth_percent' => '深度比例',
+	'crown_angle' => '冠部角度',
+	'parvilion_angle' => '亭部角度',
+	'length' => '長度',
+	'width' => '闊度',
+	'depth' => '深度',
+	
 	'No Result' => '無結果',
 
 	'price below $80000 diamond, pay by cash would have 1.7~2% discount' => '8萬元以下，現金付款有1.7～2%折扣',

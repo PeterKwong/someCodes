@@ -1,18 +1,57 @@
 
 <div class="grid grid-cols-12 p-2 pt-4">
-  <div class="col-span-6">
+  <div class="col-span-6" x-data="price()" x-init="init()">
     <div class="grid grid-cols-12 items-center">
       <div class="col-span-2 mx-8 font-light text-lg">
         <p>{{trans('diamondSearch.Price')}}</p>        
       </div>
-      <div class="col-span-5 mx-8">
-          <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" wire:model.debounce.500ms="fetchData.price.0" placeholder="HKD$">
-      </div>
-      <div class="col-span-5">
-          <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" wire:model.debounce.500ms="fetchData.price.1" placeholder="HKD$">
+      <div class="col-span-10 mx-8">
+        <div class="flex flex-col">
+          <div class="flex flex-row">
+            <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg m-2 px-4 block w-full appearance-none leading-normal" type="text" 
+              @input="updateMinThumb"
+              @click.away="updateMininput"
+              x-model="mininputjs"
+              placeholder="HKD$"
+              >
+            <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg m-2 px-4 block w-full appearance-none leading-normal" type="text" 
+             @input="updateMaxThumb" 
+             @click.away="updateMaxinput"
+             x-model="maxinputjs" 
+             placeholder="HKD$">
+          </div>
+          <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full m-2">
+                <div>
+                    <input 
+                        type="range"
+                        step="100"
+                        x-bind:min="min" x-bind:max="max"
+                        @input="mintrigger"
+                        @click="updateMininput"
+                        x-model="minprice"
+                        class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
+                    >
+                    <input 
+                        type="range" 
+                        step="100"
+                        x-bind:min="min" x-bind:max="max"
+                        @input="maxtrigger"
+                        @click="updateMaxinput"
+                        x-model="maxprice"
+                        class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
+                    >
+                    <div class="relative z-10 h-2">
+                        <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
+                        <div class="absolute z-20 top-0 bottom-0 rounded-md bg-brown" x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
+                        <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 left-0 bg-white border border-brown transform rotate-45 -mt-1 -ml-1" x-bind:style="'left: '+minthumb+'%'"></div>
+                        <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 right-0 bg-white border border-brown transform rotate-45 -mt-1 -mr-3" x-bind:style="'right: '+maxthumb+'%'"></div>
+                    </div>
+                </div>    
+            </div>
+        </div>
       </div>
     </div>
-
+              
   </div>
   <div class="col-span-6">
     <div class="grid grid-cols-12 items-center">

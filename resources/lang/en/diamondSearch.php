@@ -185,6 +185,15 @@ return [
 	'Blue' => 'Blue',
 	'Black' => 'Black',
 
+	'table_percent' => 'Table Percent',
+	'depth_percent' => 'Depth Percent',
+	'crown_angle' => 'Crown Angle',
+	'parvilion_angle' => 'Parvilion Angle',
+	'length' => 'Length',
+	'width' => 'Width',
+	'depth' => 'Depth',
+
+
 	'No Result' => 'No Result',
 
 	'price below $80000 diamond, pay by cash would have 1.7~2% discount' => 'price below $80000 diamond, pay by cash would have 1.7~2% discount',
