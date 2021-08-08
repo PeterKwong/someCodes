@@ -18,7 +18,8 @@
              @input="updateMaxThumb" 
              @click.away="updateMaxinput"
              x-model="maxinputjs" 
-             placeholder="HKD$">
+             placeholder="HKD$"
+             >
           </div>
           <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full m-2">
                 <input 
@@ -46,9 +47,8 @@
                     <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 right-0 bg-white border border-brown transform rotate-45 -mt-1 -mr-3" x-bind:style="'right: '+maxthumb+'%'"></div>
                 </div>
             </div>
-
+          </div>
         </div>
-      </div>
     </div>
               
   </div>
@@ -526,7 +526,7 @@
           @foreach($search_conditions['fluorescence'] as $key => $fluorescence)
           <div x-on:click="search_conditions.fluorescence['{{$key}}'].clicked = ! search_conditions.fluorescence['{{$key}}'].clicked" >
             <div class="p-2" wire:click="toggleValue('fluorescence', '{{$key}}' )">
-                  {{$key}}
+                  {{trans('diamondSearch.'.$key)}}
                 <div :class=" `border-2 mt-2 px-12 ${search_conditions.fluorescence['{{$key}}'].clicked?
                               'border-yellow-500':'border-gray-600'}` " >
                 </div>
