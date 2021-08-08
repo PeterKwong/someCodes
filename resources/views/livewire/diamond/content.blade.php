@@ -50,7 +50,7 @@
   <div class="flex flex-col space-y-5 items-center pb-0 md:pb-7 p-7 border-t mt-5">
       <div class="flex w-full md:items-center justify-between">
           <div class="flex flex-wrap items-center gap-3">
-            @foreach($tags as  $k => $conditions)
+           <!--  @foreach($tags as  $k => $conditions)
               @if($k == 'price' || $k == 'weight' )
                 @if($k == 'price')
                   @if( $conditions[0] != 1000 || $conditions[1] != 50000000  )
@@ -129,7 +129,7 @@
                   @endif
                 @endif
               @endif                
-            @endforeach
+            @endforeach -->
           </div>
           <div class="flex flex-shrink-0">
               <a class="text-brown underline" href="#" wire:click="resetAll()">{{__('engagementRing.Clear')}}</a>

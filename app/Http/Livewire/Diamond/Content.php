@@ -269,7 +269,7 @@ class Content extends Component
 			$this->fetchData[$type] = $types[$type];
 			// dd($types[$type]);
 		}else{
-			
+
 			$this->fetchData[$type] = [];
 		}
 		$this->setCookie();
