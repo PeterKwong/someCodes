@@ -63,13 +63,13 @@ class Content extends Component
 										],
 									'cut'=>[
 										'Excellent' => ['clicked'=>false,
-													  'value' => ['EX']
+													  'value' => ['Excellent']
 													],
 										'Very Good' => ['clicked'=>false,
-													  'value' => ['VG']
+													  'value' => ['Very Good']
 													],
 										'Good' => ['clicked'=>false,
-													  'value' => ['GD']
+													  'value' => ['Good']
 													] 
 										],
 									'clarity'=>[
@@ -94,41 +94,41 @@ class Content extends Component
 										],
 									'polish'=>[
 										'Excellent' => ['clicked'=>false,
-													  'value' => ['EX']
+													  'value' => ['Excellent']
 													],
 										'Very Good' => ['clicked'=>false,
-													  'value' => ['VG']
+													  'value' => ['Very Good']
 													],
 										'Good' => ['clicked'=>false,
-													  'value' => ['GD']
+													  'value' => ['Good']
 													] 
 										],
 									'fluorescence'=>[
 										'None' => ['clicked'=>false,
-													  'value' => ['Non']
+													  'value' => ['None']
 													],
 										'Faint' => ['clicked'=>false,
-													  'value' => ['FNT']
+													  'value' => ['Faint']
 													],
 										'Medium' => ['clicked'=>false,
-													  'value' => ['MED']
+													  'value' => ['Medium']
 													],
 										'Strong' => ['clicked'=>false,
-													  'value' => ['STG']
+													  'value' => ['Strong']
 													],
 										'Very Strong' => ['clicked'=>false,
-													  'value' => ['VST']
+													  'value' => ['Very Strong']
 													]
 										],
 									'symmetry'=>[
 										'Excellent' => ['clicked'=>false,
-													  'value' => ['EX']
+													  'value' => ['Excellent']
 													],
 										'Very Good' => ['clicked'=>false,
-													  'value' => ['VG']
+													  'value' => ['Very Good']
 													],
 										'Good' => ['clicked'=>false,
-													  'value' => ['GD']
+													  'value' => ['Good']
 													] 
 										],
 									'location'=>[
@@ -413,14 +413,14 @@ class Content extends Component
 		    	// dd( request()->all() );
 	      $trans = [
             '0'=>'',
-            'EX'=>'EX',
-            'VG'=>'VG',
-            'GD'=>'GD',
-            'Non'=>'Non',
-            'FNT'=>'FNT',
-            'MED'=>'MED',
-            'STG'=>'STG',
-            'VST'=>'VST',
+            'EX'=>'Excellent',
+            'VG'=>'Very Good',
+            'GD'=>'Good',
+            'Non'=>'None',
+            'FNT'=>'Faint',
+            'MED'=>'Medium',
+            'STG'=>'Strong',
+            'VST'=>'Very Strong',
           ];
 
           $checkKeys = ['cut','symmetry','polsh','fluorescence'];
@@ -517,21 +517,21 @@ class Content extends Component
     	// dd($condition, $data);
 
     	// $this->fetchData[$condition] = $this->fetchData[$condition];
-    	$longform = ['Excellent'=>'EX',
-            'Very Good'=>'VG',
-            'Good'=>'GD',
-            'None'=>'Non',
-            'Faint'=>'FNT',
-            'Medium'=>'MED',
-            'Strong'=>'STG',
-            'Very Strong'=>'VST',];
+  //   	$longform = ['Excellent'=>'EX',
+  //           'Very Good'=>'VG',
+  //           'Good'=>'GD',
+  //           'None'=>'Non',
+  //           'Faint'=>'FNT',
+  //           'Medium'=>'MED',
+  //           'Strong'=>'STG',
+  //           'Very Strong'=>'VST',];
 
-		if ( array_key_exists($data,$longform) ) {
-			$dataK = $longform[$data];
-			$longform = false;
-		}            
+		// if ( array_key_exists($data,$longform) ) {
+		// 	$dataK = $longform[$data];
+		// 	$longform = false;
+		// }            
 
-		if ( in_array($longform?$data:$dataK,$this->fetchData[$condition]) ) {
+		if ( in_array($data,$this->fetchData[$condition]) ) {
 
 			if ($data == 'Fancy') {
 				
@@ -695,6 +695,7 @@ class Content extends Component
 	public function queryDiamonds() {
 
 	 		$requests = ['color','clarity','cut','polish','symmetry','fluorescence','shape','location'];
+         
 
 			if( array_search('Fancy',$this->fetchData['color']) > -1) {
 
@@ -718,10 +719,31 @@ class Content extends Component
 	      	}
 
 
+	    	$longform = [
+	    		'Excellent'=>'EX',
+	            'Very Good'=>'VG',
+	            'Good'=>'GD',
+	            'None'=>'Non',
+	            'Faint'=>'FNT',
+	            'Medium'=>'MED',
+	            'Strong'=>'STG',
+	            'Very Strong'=>'VST',
+	        ];
+	        
 	 		foreach ($requests as $req) {
-	 			if ($this->fetchData[$req]) {
-	 				$query = $query->where(function($q)use($req){
-		              $q->whereIn( $req , (array)$this->fetchData[$req] );
+	 			$qData = $this->fetchData[$req];
+	 			if (in_array($req,['cut','polish','symmetry','fluorescence'])) {
+		 			foreach($qData as $key=>$value){
+						if ( array_key_exists($value,$longform) ) {
+			 				// dd($value);
+			 				$qData[$key] = $longform[$value];
+			 			}
+		 			}	 					 					
+	 			}
+
+	 			if ($qData) {
+	 				$query = $query->where(function($q)use($req,$qData){
+		              $q->whereIn( $req , (array)$qData );
 		            });
 	 			}
 
