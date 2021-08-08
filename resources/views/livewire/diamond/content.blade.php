@@ -255,17 +255,94 @@
   function mobileSearch(){
 
     return {
-       displayColumn:'', 
-       showAdvance : @entangle('showAdvance'),
-       search_conditions: @entangle('search_conditions'),
-       advance_search_conditions: @entangle('advance_search_conditions'), 
-       selectDisplayColumn(column){
-          if (this.displayColumn != column) {
-            this.displayColumn = column 
-          }else{
-            this.displayColumn = ''  
-          }
+      displayColumn:'', 
+      showAdvance : @entangle('showAdvance'),
+      search_conditions: @entangle('search_conditions'),
+      advance_search_conditions: @entangle('advance_search_conditions'), 
+      selectDisplayColumn(column){
+        if (this.displayColumn != column) {
+          this.displayColumn = column 
+        }else{
+          this.displayColumn = ''  
+        }
       },
+      min: @entangle('sliders.min').defer, 
+      max: @entangle('sliders.max').defer,
+      minr:@entangle('sliders.minr').defer,
+      maxr:@entangle('sliders.maxr').defer,
+      mininput: @entangle('fetchData.price.0'), 
+      maxinput: @entangle('fetchData.price.1'),
+      mininputjs: @entangle('sliders.price.mininputjs').defer,  
+      maxinputjs: @entangle('sliders.price.maxinputjs').defer, 
+      minprice: @entangle('sliders.price.minprice').defer, 
+      maxprice: @entangle('sliders.price.maxprice').defer, 
+      minthumb: @entangle('sliders.price.minthumb').defer, 
+      maxthumb: @entangle('sliders.price.maxthumb').defer, 
+      minv: @entangle('sliders.price.minv').defer, 
+      maxv: @entangle('sliders.price.maxv').defer, 
+      scale: @entangle('sliders.price.scale').defer, 
+
+      init(){
+        this.mininputjs = this.mininput
+        this.maxinputjs = this.maxinput
+        this.updateMinThumb()
+        this.updateMaxThumb()
+      },
+      mintrigger() {
+        this.checkMin()
+        this.minthumb = ((this.minprice - this.min) / (this.max - this.min)) * 100;
+        if (this.minthumb<0) {
+          this.minthumb = 0
+        }
+        this.mininputjs = Math.round(Math.exp(this.minv + this.scale*(this.minthumb-this.minr))/100)*100;            
+      },
+      updateMinThumb(){
+        if (this.checkMin() == 0) {
+          return
+        }
+        this.minthumb = (Math.log(this.mininputjs)-this.minv)/this.scale + this.minr
+        if (this.minthumb<0) {
+          this.minthumb = 0
+        }
+        this.minprice = (this.minthumb/100)*(this.max - this.min)+this.min
+      },
+      updateMininput(){
+        this.mininput = this.mininputjs            
+      },
+      maxtrigger() {
+        this.checkMax() 
+        this.maxthumb = 100 - (((this.maxprice - this.min) / (this.max - this.min)) * 100);
+        this.maxinputjs = Math.round(Math.exp(this.maxv + this.scale*(100 - this.maxthumb-this.maxr))/100)*100;
+      }, 
+      updateMaxThumb(){
+        if (this.checkMax() == 0) {
+          return
+        }
+        this.maxthumb =  100 - this.maxr - (Math.log(this.maxinputjs) - this.maxv)/this.scale
+        if (this.maxthumb<0) {
+          this.maxthumb = 0
+        }            
+        this.maxprice = ((100-this.maxthumb)/100)*(this.max - this.min)+this.min
+      },
+      updateMaxinput(){
+        this.maxinput = this.maxinputjs            
+      },
+      checkMin(){
+        if (this.maxinputjs < this.mininputjs) {
+          return 0
+        }
+          this.minprice = Math.min(this.minprice, this.maxprice - 100);
+          this.mininputjs = Math.min(this.mininputjs, this.maxinputjs - 1000);
+      },
+      checkMax(){
+        if (this.maxinputjs < this.mininputjs) {
+          return 0
+        }
+        this.maxprice = Math.max(this.maxprice, this.minprice + 100);
+        this.maxinputjs = Math.max(this.maxinputjs, this.mininputjs + 1000);
+      },
+
+    
       fancy_color: @entangle('fancy_color'),
       selectedColor: @entangle('selectedColor'),
       assignSelectColor(){
