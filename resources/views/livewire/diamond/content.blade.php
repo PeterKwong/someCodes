@@ -105,11 +105,13 @@
               @endif
 
               @if(!in_array($k,['price','weight']))
-
+                @if(is_object($conditions))
+                  @php($conditions = (array)$conditions)
+                @endif
 
                 @if(is_array($conditions))
                   @if(count($conditions))
-                    @php($conditions = array_values($conditions))
+                  @php($conditions = array_values($conditions))
                     @if(current($conditions) != 0)
                       <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
                           <button wire:click="clearTags('{{$k}}')">

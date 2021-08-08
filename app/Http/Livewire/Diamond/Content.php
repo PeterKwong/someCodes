@@ -254,7 +254,6 @@ class Content extends Component
         }
         // dd($this->fetchData);
         $this->tags = $this->fetchData;
-        $this->tags = (array)$this->tags;
         $this->fetchData = $ori;
 
     }
