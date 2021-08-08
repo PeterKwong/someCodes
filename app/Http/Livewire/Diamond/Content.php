@@ -63,13 +63,13 @@ class Content extends Component
 										],
 									'cut'=>[
 										'Excellent' => ['clicked'=>false,
-													  'value' => ['EX']
+													  'value' => ['EX','Excellent']
 													],
 										'Very Good' => ['clicked'=>false,
-													  'value' => ['VG']
+													  'value' => ['VG','Very Good']
 													],
 										'Good' => ['clicked'=>false,
-													  'value' => ['GD']
+													  'value' => ['GD','Good']
 													] 
 										],
 									'clarity'=>[
@@ -94,41 +94,41 @@ class Content extends Component
 										],
 									'polish'=>[
 										'Excellent' => ['clicked'=>false,
-													  'value' => ['EX']
+													  'value' => ['EX','Excellent']
 													],
 										'Very Good' => ['clicked'=>false,
-													  'value' => ['VG']
+													  'value' => ['VG','Very Good']
 													],
 										'Good' => ['clicked'=>false,
-													  'value' => ['GD']
+													  'value' => ['GD','Good']
 													] 
 										],
 									'fluorescence'=>[
 										'None' => ['clicked'=>false,
-													  'value' => ['Non']
+													  'value' => ['Non','None']
 													],
 										'Faint' => ['clicked'=>false,
-													  'value' => ['FNT']
+													  'value' => ['FNT','Faint']
 													],
 										'Medium' => ['clicked'=>false,
-													  'value' => ['MED']
+													  'value' => ['MED','Medium']
 													],
 										'Strong' => ['clicked'=>false,
-													  'value' => ['STG']
+													  'value' => ['STG','Strong']
 													],
 										'Very Strong' => ['clicked'=>false,
-													  'value' => ['VST']
+													  'value' => ['VST','Very Strong']
 													]
 										],
 									'symmetry'=>[
 										'Excellent' => ['clicked'=>false,
-													  'value' => ['EX']
+													  'value' => ['EX','Excellent']
 													],
 										'Very Good' => ['clicked'=>false,
-													  'value' => ['VG']
+													  'value' => ['VG','Very Good']
 													],
 										'Good' => ['clicked'=>false,
-													  'value' => ['GD']
+													  'value' => ['GD','Good']
 													] 
 										],
 									'location'=>[
@@ -271,7 +271,7 @@ class Content extends Component
 			$this->fetchData[$type] = [];
 		}
 		$this->setCookie();
-
+		
 		return redirect()->to( app()->getLocale(). '/gia-loose-diamonds');
     }
     public function fastLoad(){
@@ -411,14 +411,14 @@ class Content extends Component
 		    	// dd( request()->all() );
 	      $trans = [
             '0'=>'',
-            'EX'=>'EX',
-            'VG'=>'VG',
-            'GD'=>'GD',
-            'Non'=>'Non',
-            'FNT'=>'FNT',
-            'MED'=>'MED',
-            'STG'=>'STG',
-            'VST'=>'VST',
+            'EX'=>'EX,Excellent',
+            'VG'=>'VG,Very Good',
+            'GD'=>'GD,Good',
+            'Non'=>'Non,None',
+            'FNT'=>'FNT,Faint',
+            'MED'=>'MED,Medium',
+            'STG'=>'STG,Strong',
+            'VST'=>'VST,Very Strong',
           ];
 
           $checkKeys = ['cut','symmetry','polsh','fluorescence'];
