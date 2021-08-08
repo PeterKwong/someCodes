@@ -105,9 +105,7 @@
               @endif
 
               @if(!in_array($k,['price','weight']))
-                @if(is_object($conditions))
-                  @php($conditions = (array)$conditions)
-                @endif
+
 
                 @if(is_array($conditions))
                   @if(count($conditions))
