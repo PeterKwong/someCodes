@@ -65,7 +65,7 @@
                   >
               </div>
             </a>
-            <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full m-2">
+<!--             <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full m-2">
                 <input 
                     type="range"
                     step="100"
@@ -90,7 +90,7 @@
                     <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 left-0 bg-white border border-brown transform rotate-45 -mt-1 -ml-1" x-bind:style="'left: '+minthumb+'%'"></div>
                     <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 right-0 bg-white border border-brown transform rotate-45 -mt-1 -mr-3" x-bind:style="'right: '+maxthumb+'%'"></div>
                 </div>
-              </div>
+              </div> -->
           </span>
           
         </div>
