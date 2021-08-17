@@ -29,7 +29,7 @@
 
         @yield('content')            
 
-            
+            11
     @include('layouts.frontend.footer')
 
 
