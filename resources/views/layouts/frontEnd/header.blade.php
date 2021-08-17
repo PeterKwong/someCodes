@@ -1,9 +1,9 @@
 <header class="fixed top-0 bg-white z-50 w-full bg-white py-2 lg:py-0 shadow-bottom" id="td-header">
     <!-- Header for Desktop  -->
      
-    @include('layouts.frontend.header-desktop')
+    @include('layouts.frontEnd.header-desktop')
 
-    @include('layouts.frontend.header-mobile')
+    @include('layouts.frontEnd.header-mobile')
 
 
     <!-- <div x-data="{ cartOpen : false}" class="flex flex-col lg:hidden">

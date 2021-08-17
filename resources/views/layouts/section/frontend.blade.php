@@ -23,14 +23,14 @@
 <body>
 
     @php( $baseUrl = url(app()->getLocale()) )
-    @include('layouts.frontend.header')
+    @include('layouts.frontEnd.header')
         
         <x-breadcrumb />
 
         @yield('content')            
 
-            11
-    @include('layouts.frontend.footer')
+            
+    @include('layouts.frontEnd.footer')
 
 
 
