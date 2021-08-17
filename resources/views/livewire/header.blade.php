@@ -1,3 +1,5 @@
 <div class="top-0 sticky z-40 ">
-    @include('layouts.frontEnd.header')
+    @php( $baseUrl = url(app()->getLocale()) )
+
+    @include('layouts.frontend.header')
 </div>

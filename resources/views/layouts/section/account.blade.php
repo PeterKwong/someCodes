@@ -22,6 +22,8 @@
 </head>
 <body>
 
+    @php( $baseUrl = url(app()->getLocale()) )
+
     @livewire('header')
     
     <div class="mt-16">
