@@ -59,7 +59,7 @@
 
             </div>
             <div class="flex-1">
-              <img class="" src="images/front-end/home/img2.jpg" alt="Lights">
+              <img class="" src="/images/front-end/home/img2.jpg" alt="Lights">
             </div>
             <div class="flex-1 absolute sm:relative hover:bg-gray-100 hover:opacity-50 w-full h-full " >
               <div class="px-10">
@@ -75,8 +75,8 @@
 
           <div class="flex justify-around relative ">
             <div class="flex-1">
-              <img class="" width="100%" src="images/front-end/home/img4.jpg" alt="Lights"> 
-              <img class="absolute bottom-0 w-4/6 hidden sm:block" src="images/front-end/home/img5.jpg" alt="Lights">
+              <img class="" width="100%" src="/images/front-end/home/img4.jpg" alt="Lights"> 
+              <img class="absolute bottom-0 w-4/6 hidden sm:block" src="/images/front-end/home/img5.jpg" alt="Lights">
            
             </div>
             <div class="flex-1 absolute sm:relative hover:bg-gray-100 hover:opacity-50 w-full h-full ">
@@ -86,7 +86,7 @@
                 </div>
             </div>
             <div class="flex-1 hidden sm:block">
-                <img src="images/front-end/home/img7.jpg" alt="Lights" >
+                <img src="/images/front-end/home/img7.jpg" alt="Lights" >
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@
              <div class="img-grid" style="max-width: 480px;">
                 <a href="{{url(app()->getLocale())}}/gia-loose-diamonds">
                   <figure class="effect-honey">
-                    <img src="images/front-end/home/diamond.jpg" width="100%">
+                    <img src="/images/front-end/home/diamond.jpg" width="100%">
                     <figcaption class="">
                       <h3 class="text-yellow-600 sm:text-3xl">{{trans('home.Start With Diamonds')}}<span> </span><i> {{__('home.Check Now')}}</i>
                       </h3>
@@ -118,7 +118,7 @@
             <div class="img-grid text-gray-800" style="max-width: 480px;">
                 <a href="{{url(app()->getLocale())}}/engagement-rings">
                   <figure class="effect-honey">
-                    <img src="images/front-end/home/Ring_425_StandUp_Side_Without_Diamond.png" width="100%">
+                    <img src="/images/front-end/home/Ring_425_StandUp_Side_Without_Diamond.png" width="100%">
                     <figcaption class="">
                       <h3 class="text-gray-800 sm:text-3xl">{{trans('home.Start With Engagement Rings')}}<span> </span><i> {{__('home.Check Now')}}</i>
                       </h3>
@@ -131,7 +131,7 @@
 
         <div class="flex justify-center items-center text-center relative">
           <div class="flex-1">
-              <img src="images/front-end/home/banner2.jpg" class="">
+              <img src="/images/front-end/home/banner2.jpg" class="">
           </div>
           <div class="flex-1 absolute">
                 <div class=" text-gray-800" >
@@ -154,7 +154,7 @@
                     <div class="img-grid">
                        <figure class="effect-zoe w-64 flex justify-items-center">
                             <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut">
-                              <img  src="images/front-end/education/shape/round-brilliant-cut-2-150x150.jpg"  alt="img02"/>
+                              <img  src="/images/front-end/education/shape/round-brilliant-cut-2-150x150.jpg"  alt="img02"/>
                               <figcaption>
                                   <h5 class="text-gray-900" >{{trans('home.Round')}}</h5>
                               </figcaption>  
@@ -166,7 +166,7 @@
                       <div class="img-grid">
                           <figure class="effect-zoe w-64 flex justify-items-center">
                             <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/princess-cut">
-                              <img  src="images/front-end/education/shape/princess-brilliant-cut-1-150x150.jpg"  alt="img02"/>
+                              <img  src="/images/front-end/education/shape/princess-brilliant-cut-1-150x150.jpg"  alt="img02"/>
                               <figcaption>
                                   <h5 class="text-gray-900" >{{trans('home.Princess')}}</h5>
                               </figcaption>
@@ -179,7 +179,7 @@
                       <div class="img-grid">
                           <figure class="effect-zoe w-64 flex justify-items-center">
                             <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/heart-shaped">
-                              <img  src="images/front-end/education/shape/heart-glam-e1461491201975-1-150x150.jpg"  alt="img02"/>
+                              <img  src="/images/front-end/education/shape/heart-glam-e1461491201975-1-150x150.jpg"  alt="img02"/>
                               <figcaption>
                                   <h5 class="text-gray-900" >{{trans('home.Heart')}}</h5>
                               </figcaption>
@@ -192,7 +192,7 @@
                       <div class="img-grid">
                           <figure class="effect-zoe w-64 flex justify-items-center">
                             <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/cushion-cut">
-                              <img  src="images/front-end/education/shape/cushion-glam-1-150x150.jpg"  alt="img02"/>
+                              <img  src="/images/front-end/education/shape/cushion-glam-1-150x150.jpg"  alt="img02"/>
                               <figcaption>
                                   <h5 class="text-gray-900" >{{trans('home.Cushion')}}</h5>
                               </figcaption>
@@ -205,7 +205,7 @@
                       <div class="img-grid">
                           <figure class="effect-zoe w-64 flex justify-items-center">
                             <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/pear-cut">
-                              <img  src="images/front-end/education/shape/pear-glam-1-150x150.jpg"  alt="img02"/>
+                              <img  src="/images/front-end/education/shape/pear-glam-1-150x150.jpg"  alt="img02"/>
                               <figcaption>
                                   <h5 class="text-gray-900" >{{trans('home.Pear')}}</h5>
                               </figcaption>
@@ -218,7 +218,7 @@
                       <div class="img-grid">
                           <figure class="effect-zoe w-64 flex justify-items-center">
                             <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/marquise-cut">
-                              <img  src="images/front-end/education/shape/marquise-glam-1-150x150.jpg"  alt="img02"/>
+                              <img  src="/images/front-end/education/shape/marquise-glam-1-150x150.jpg"  alt="img02"/>
                               <figcaption>
                                   <h5 class="text-gray-900" >{{trans('home.Marquise')}}</h5>
                               </figcaption>
@@ -231,7 +231,7 @@
                       <div class="img-grid">
                           <figure class="effect-zoe w-64 flex justify-items-center">
                             <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/emerald-cut">
-                              <img  src="images/front-end/education/shape/emerald-glam-1-150x150.jpg"  alt="img02"/>
+                              <img  src="/images/front-end/education/shape/emerald-glam-1-150x150.jpg"  alt="img02"/>
                               <figcaption>
                                   <h5 class="text-gray-900" >{{trans('home.Emerald')}}</h5>
                               </figcaption>
@@ -244,7 +244,7 @@
                       <div class="img-grid">
                           <figure class="effect-zoe w-64 flex justify-items-center">
                             <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/radiant-cut">
-                              <img  src="images/front-end/education/shape/radiant-glam-1-150x150.jpg"  alt="img02"/>
+                              <img  src="/images/front-end/education/shape/radiant-glam-1-150x150.jpg"  alt="img02"/>
                               <figcaption>
                                   <h5 class="text-gray-900" >{{trans('home.Radiant')}}</h5>
                               </figcaption>
@@ -257,7 +257,7 @@
                       <div class="img-grid">
                           <figure class="effect-zoe w-64 flex justify-items-center">
                             <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/oval-cut">
-                              <img  src="images/front-end/education/shape/oval-glam-1-150x150.jpg"  alt="img02"/>
+                              <img  src="/images/front-end/education/shape/oval-glam-1-150x150.jpg"  alt="img02"/>
                               <figcaption>
                                   <h5 class="text-gray-900" >{{trans('home.Oval')}}</h5>
                               </figcaption>
@@ -276,7 +276,7 @@
                     <div class="img-grid">
                         <figure class="effect-zoe" style="min-width: 130px;">
                           <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut">
-                            <img  src="images/front-end/education/shape/round-brilliant-cut-2-150x150.jpg"  alt="img02"/>
+                            <img  src="/images/front-end/education/shape/round-brilliant-cut-2-150x150.jpg"  alt="img02"/>
                             <figcaption>
                                 <h5 class="text-gray-900" >{{trans('home.Round')}}</h5>
                             </figcaption>  
@@ -289,7 +289,7 @@
                     <div class="img-grid">
                         <figure class="effect-zoe" style="min-width: 130px;">
                           <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/princess-cut">
-                            <img  src="images/front-end/education/shape/princess-brilliant-cut-1-150x150.jpg"  alt="img02"/>
+                            <img  src="/images/front-end/education/shape/princess-brilliant-cut-1-150x150.jpg"  alt="img02"/>
                             <figcaption>
                                 <h5 class="text-gray-900" >{{trans('home.Princess')}}</h5>
                             </figcaption>
@@ -302,7 +302,7 @@
                     <div class="img-grid">
                         <figure class="effect-zoe" style="min-width: 130px;">
                           <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/heart-shaped">
-                            <img  src="images/front-end/education/shape/heart-glam-e1461491201975-1-150x150.jpg"  alt="img02"/>
+                            <img  src="/images/front-end/education/shape/heart-glam-e1461491201975-1-150x150.jpg"  alt="img02"/>
                             <figcaption>
                                 <h5 class="text-gray-900" >{{trans('home.Heart')}}</h5>
                             </figcaption>
@@ -315,7 +315,7 @@
                     <div class="img-grid">
                         <figure class="effect-zoe" style="min-width: 130px;">
                           <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/cushion-cut">
-                            <img  src="images/front-end/education/shape/cushion-glam-1-150x150.jpg"  alt="img02"/>
+                            <img  src="/images/front-end/education/shape/cushion-glam-1-150x150.jpg"  alt="img02"/>
                             <figcaption>
                                 <h5 class="text-gray-900" >{{trans('home.Cushion')}}</h5>
                             </figcaption>
@@ -328,7 +328,7 @@
                     <div class="img-grid">
                         <figure class="effect-zoe" style="min-width: 130px;">
                           <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/pear-cut">
-                            <img  src="images/front-end/education/shape/pear-glam-1-150x150.jpg"  alt="img02"/>
+                            <img  src="/images/front-end/education/shape/pear-glam-1-150x150.jpg"  alt="img02"/>
                             <figcaption>
                                 <h5 class="text-gray-900" >{{trans('home.Pear')}}</h5>
                             </figcaption>
@@ -341,7 +341,7 @@
                     <div class="img-grid">
                         <figure class="effect-zoe" style="min-width: 130px;">
                           <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/marquise-cut">
-                            <img  src="images/front-end/education/shape/marquise-glam-1-150x150.jpg"  alt="img02"/>
+                            <img  src="/images/front-end/education/shape/marquise-glam-1-150x150.jpg"  alt="img02"/>
                             <figcaption>
                                 <h5 class="text-gray-900" >{{trans('home.Marquise')}}</h5>
                             </figcaption>
@@ -354,7 +354,7 @@
                     <div class="img-grid">
                         <figure class="effect-zoe" style="min-width: 130px;">
                           <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/emerald-cut">
-                            <img  src="images/front-end/education/shape/emerald-glam-1-150x150.jpg"  alt="img02"/>
+                            <img  src="/images/front-end/education/shape/emerald-glam-1-150x150.jpg"  alt="img02"/>
                             <figcaption>
                                 <h5 class="text-gray-900" >{{trans('home.Emerald')}}</h5>
                             </figcaption>
@@ -367,7 +367,7 @@
                     <div class="img-grid">
                         <figure class="effect-zoe" style="min-width: 130px;">
                           <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/radiant-cut">
-                            <img  src="images/front-end/education/shape/radiant-glam-1-150x150.jpg"  alt="img02"/>
+                            <img  src="/images/front-end/education/shape/radiant-glam-1-150x150.jpg"  alt="img02"/>
                             <figcaption>
                                 <h5 class="text-gray-900" >{{trans('home.Radiant')}}</h5>
                             </figcaption>
@@ -380,7 +380,7 @@
                     <div class="img-grid">
                         <figure class="effect-zoe" style="min-width: 130px;">
                           <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/fancy-cut-diamond/oval-cut">
-                            <img  src="images/front-end/education/shape/oval-glam-1-150x150.jpg"  alt="img02"/>
+                            <img  src="/images/front-end/education/shape/oval-glam-1-150x150.jpg"  alt="img02"/>
                             <figcaption>
                                 <h5 class="text-gray-900" >{{trans('home.Oval')}}</h5>
                             </figcaption>
@@ -394,12 +394,12 @@
 
         <div class="flex relative  items-center">
           <div class="flex-1">
-             <img src="images/front-end/home/couple.jpg" class="">            
+             <img src="/images/front-end/home/couple.jpg" class="">            
           </div>
           <div class="flex-1 absolute w-2/6 text-white">
             <center>
              <h1 class="sm:text-3xl">{{trans('home.Engagment Rings')}}</h1>
-              <img src="images/front-end/home/heart-line.png" width="50%">
+              <img src="/images/front-end/home/heart-line.png" width="50%">
               <h2 class="sm:text-2xl">{{trans('tag.Diamond Ring')}}
               </h2>
               </center>                        
@@ -411,7 +411,7 @@
           <div class="flex-1">
             <a href="{{url(app()->getLocale())}}/engagement-rings/solitaire-ring-setting">
               <figure class="box-shadow" style="min-width: 90px;">
-                  <img src="images/front-end/home/Ring_504_No_Background.png" width="100%">
+                  <img src="/images/front-end/home/Ring_504_No_Background.png" width="100%">
                       <h2 class="sm:text-2xl">{{trans('home.Solitaire')}}</h2>
                       <div class="line-b-w15"></div>
                       <p>{{__('home.Check Now')}}</p>
@@ -421,7 +421,7 @@
           <div class="flex-1">
              <a href="{{url(app()->getLocale())}}/engagement-rings/side-stones-setting">
                         <figure class="box-shadow" style="min-width: 90px;">
-                            <img src="images/front-end/home/Ring_425_No_Background.png" width="100%">
+                            <img src="/images/front-end/home/Ring_425_No_Background.png" width="100%">
                                 <h2 class="sm:text-2xl">{{trans('home.Side Stone')}}</h2>
                                 <div class="line-b-w15"></div>
                                 <p>{{__('home.Check Now')}}</p>
@@ -431,7 +431,7 @@
           <div class="flex-1">
              <a href="{{url(app()->getLocale())}}/engagement-rings/halo-setting">
                         <figure class="box-shadow" style="min-width: 90px;">
-                            <img src="images/front-end/home/Perspective_01.png" width="100%">
+                            <img src="/images/front-end/home/Perspective_01.png" width="100%">
                                 <h2 class="sm:text-2xl">{{trans('home.Halo')}}</h2>
                                 <div class="line-b-w15"></div>
                                 <p>{{__('home.Check Now')}}</p>
@@ -463,7 +463,7 @@
             <div class="img-grid w-8/12">
               <a href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report">
                 <figure class="effect-sadie" style="min-width: 150px;">
-                    <img src="images/front-end/home/gia-diamond.jpg"  alt="img02"/>
+                    <img src="/images/front-end/home/gia-diamond.jpg"  alt="img02"/>
                     <figcaption class="color-brown shadow-black">
                         <h2 class="text-base sm:text-2xl">{{trans('home.title2')}}</h2>
                         <h5 class="text-yellow-600 text-sm truncate">{{trans('home.para5')}}
@@ -477,7 +477,7 @@
             <div class="img-grid w-8/12">
               <a href="{{url(app()->getLocale())}}/education-diamond-grading">
                   <figure class="effect-sadie" style="min-width: 150px;">
-                      <img  src="images/front-end/home/gia-cert.jpg"  alt="img02"/>
+                      <img  src="/images/front-end/home/gia-cert.jpg"  alt="img02"/>
                       <figcaption class="color-brown shadow-black">
                           <h2 class="text-base sm:text-2xl">{{trans('home.Diamond Education | Diamond Grade')}}</h2>
                           <h5 class="text-yellow-600 text-sm truncate">{{trans('home.para3')}}
@@ -543,7 +543,7 @@
 
         <div class="flex relative justify-around items-center">
           <div class="flex-1">
-            <img src="images/front-end/home/customer-moment.jpg" class="">
+            <img src="/images/front-end/home/customer-moment.jpg" class="">
           </div>
           <div class="flex-1 absolute text-white">
             <h2 class="sm:text-2xl">{{trans('home.Customer Moments')}}</h2>

@@ -47,51 +47,25 @@
               <i class="fas fa-chevron-down"></i> 
           </div>
 
-          <span x-show="displayColumn == 'price' " class="flex flex-col">
+          <div x-show="displayColumn == 'price' " class="flex flex-col">
             <a>
-              <div class="level" >
+              <div class="" >
                   <input class="input" type="text" 
-                  @input="updateMinThumb"
-                  @click.away="updateMininput"
-                  x-model="mininputjs"
+                  @input="expUpdateMinThumb('price')"
+                  @keyup.debounce.500ms="updateInput('priceMin','mininputjs','price')"
+                  x-model="sliders.price.mininputjs"
                   placeholder="HKD$"
                   >
 
                   <input class="input" type="text" 
-                  @input="updateMaxThumb" 
-                  @click.away="updateMaxinput"
-                  x-model="maxinputjs" 
+                  @input="expUpdateMaxThumb('price')" 
+                  @keyup.debounce.500ms="updateInput('priceMax','maxinputjs','price')"
+                  x-model="sliders.price.maxinputjs" 
                   placeholder="HKD$"
                   >
               </div>
             </a>
-<!--             <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full m-2">
-                <input 
-                    type="range"
-                    step="100"
-                    x-bind:min="min" x-bind:max="max"
-                    @input="mintrigger"
-                    @click="updateMininput"
-                    x-model="minprice"
-                    class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
-                >
-                <input 
-                    type="range" 
-                    step="100"
-                    x-bind:min="min" x-bind:max="max"
-                    @input="maxtrigger"
-                    @click="updateMaxinput"
-                    x-model="maxprice"
-                    class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
-                >
-                <div class="relative z-10 h-2">
-                    <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
-                    <div class="absolute z-20 top-0 bottom-0 rounded-md bg-brown" x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
-                    <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 left-0 bg-white border border-brown transform rotate-45 -mt-1 -ml-1" x-bind:style="'left: '+minthumb+'%'"></div>
-                    <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 right-0 bg-white border border-brown transform rotate-45 -mt-1 -mr-3" x-bind:style="'right: '+maxthumb+'%'"></div>
-                </div>
-              </div> -->
-          </span>
+          </div>
           
         </div>
         <div class="border border-gray-300 p-2 mx-1">

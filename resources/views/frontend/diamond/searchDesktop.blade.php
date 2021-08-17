@@ -1,7 +1,7 @@
-
+<span x-data="desktopSliders()" x-init="init()">
 <div class="grid grid-cols-12 p-2 pt-4">
-  <div class="col-span-6" x-data="price()" x-init="init()">
-    <div class="grid grid-cols-12 items-center">
+  <div class="col-span-6">
+    <div class="grid grid-cols-12 items-center px-2">
       <div class="col-span-2 mx-8 font-light text-lg">
         <p>{{trans('diamondSearch.Price')}}</p>        
       </div>
@@ -9,42 +9,42 @@
         <div class="flex flex-col">
           <div class="flex flex-row">
             <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg m-2 px-4 block w-full appearance-none leading-normal" type="text" 
-              @input="updateMinThumb"
-              @click.away="updateMininput"
-              x-model="mininputjs"
+              @input="expUpdateMinThumb('price')"
+              @keyup.debounce.500ms="updateInput('priceMin','mininputjs','price')"
+              x-model="sliders.price.mininputjs"
               placeholder="HKD$"
               >
             <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg m-2 px-4 block w-full appearance-none leading-normal" type="text" 
-             @input="updateMaxThumb" 
-             @click.away="updateMaxinput"
-             x-model="maxinputjs" 
+             @input="expUpdateMaxThumb('price')" 
+             @keyup.debounce.500ms="updateInput('priceMax','maxinputjs','price')"
+             x-model="sliders.price.maxinputjs" 
              placeholder="HKD$"
              >
           </div>
-          <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full m-2">
+          <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full p-2 px-2">
                 <input 
                     type="range"
                     step="100"
-                    x-bind:min="min" x-bind:max="max"
-                    @input="mintrigger"
-                    @click="updateMininput"
-                    x-model="minprice"
+                    x-bind:min="sliders.price.min" x-bind:max="sliders.price.max"
+                    @input="expMintrigger('price')"
+                    @click="updateInput('priceMin','mininputjs','price')"
+                    x-model="sliders.price.minvalue"
                     class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
                 >
                 <input 
                     type="range" 
                     step="100"
-                    x-bind:min="min" x-bind:max="max"
-                    @input="maxtrigger"
-                    @click="updateMaxinput"
-                    x-model="maxprice"
+                    x-bind:min="sliders.price.min" x-bind:max="sliders.price.max"
+                    @input="expMaxtrigger('price')"
+                    @click="updateInput('priceMax','maxinputjs','price')"
+                    x-model="sliders.price.maxvalue"
                     class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
                 >
                 <div class="relative z-10 h-2">
                     <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
-                    <div class="absolute z-20 top-0 bottom-0 rounded-md bg-brown" x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
-                    <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 left-0 bg-white border border-brown transform rotate-45 -mt-1 -ml-1" x-bind:style="'left: '+minthumb+'%'"></div>
-                    <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 right-0 bg-white border border-brown transform rotate-45 -mt-1 -mr-3" x-bind:style="'right: '+maxthumb+'%'"></div>
+                    <div class="absolute z-20 top-0 bottom-0 rounded-md bg-brown" x-bind:style="'right:'+sliders.price.maxthumb+'%; left:'+sliders.price.minthumb+'%'"></div>
+                    <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 left-0 bg-white border border-brown transform rotate-45 -mt-1 -ml-1" x-bind:style="'left: '+sliders.price.minthumb+'%'"></div>
+                    <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 right-0 bg-white border border-brown transform rotate-45 -mt-1 -mr-3" x-bind:style="'right: '+sliders.price.maxthumb+'%'"></div>
                 </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
               
   </div>
   <div class="col-span-6">
-    <div class="grid grid-cols-12 items-center">
+    <div class="grid grid-cols-12 items-center px-2">
       <div class="col-span-2 mx-8 font-light text-lg">
         <span class="flex">
           <p>{{trans('diamondSearch.Weight')}}</p>
@@ -68,15 +68,56 @@
           </a>
         </span>
       </div>         
-      <div class="col-span-5 mx-8">
-          <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" wire:model.debounce.500ms="fetchData.weight.0" placeholder="ct">
-      </div>
-      <div class="col-span-5">
-          <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" type="text" wire:model.debounce.500ms="fetchData.weight.1" placeholder="ct">
+      <div class="col-span-10">
+        <div class="flex flex-col">
+          <div class="flex flex-row">
+            <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg m-2 px-4 block w-full appearance-none leading-normal" 
+            type="number" 
+            step="0.01"
+            @input.debounce.1000ms="updateMinThumb('weight')" 
+            @keyup.debounce.1000ms="updateInput('weightMin','mininputjs','weight')"
+            x-model="sliders.weight.mininputjs" 
+            placeholder="ct">
+            <input class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg m-2 px-4 block w-full appearance-none leading-normal" 
+            type="number" 
+            step="0.01"
+            @input.debounce.1000ms="updateMaxThumb('weight')" 
+            @keyup.debounce.1000ms="updateInput('weightMax','maxinputjs','weight')"
+            x-model="sliders.weight.maxinputjs" 
+            placeholder="ct">
+          </div>
+          <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full p-2 px-2">
+              <input 
+                  type="range"
+                  step="0.01"
+                  x-bind:min="sliders.weight.min" x-bind:max="sliders.weight.max"
+                  @input="mintrigger('weight')"
+                  @click="updateInput('weightMin','mininputjs','weight')"
+                  x-model="sliders.weight.mininputjs"
+                  class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
+              >
+              <input 
+                  type="range" 
+                  step="0.01"
+                  x-bind:min="sliders.weight.min" x-bind:max="sliders.weight.max"
+                  @input="maxtrigger('weight')"
+                  @click="updateInput('weightMax','maxinputjs','weight')"
+                  x-model="sliders.weight.maxinputjs"
+                  class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
+              >
+              <div class="relative z-10 h-2">
+                  <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
+                  <div class="absolute z-20 top-0 bottom-0 rounded-md bg-brown" x-bind:style="'right:'+sliders.weight.maxthumb+'%; left:'+sliders.weight.minthumb+'%'"></div>
+                  <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 left-0 bg-white border border-brown transform rotate-45 -mt-1 -ml-1" x-bind:style="'left: '+sliders.weight.minthumb+'%'"></div>
+                  <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 right-0 bg-white border border-brown transform rotate-45 -mt-1 -mr-3" x-bind:style="'right: '+sliders.weight.maxthumb+'%'"></div>
+              </div>
+          </div>    
+        </div>
       </div>
     </div>
   </div>
 </div>
+</span>
 
 
 <div class="grid grid-cols-12 p-2">
@@ -442,6 +483,80 @@
       </div>
       <div class="col-span-10 mx-8">
         <div class="flex justify-between flex-wrap text-center">
+          
+         <!--  <div x-data="clarity()" x-init="mintrigger(); maxtrigger()" class="flex flex-col space-y-5">
+            
+            <div class="flex flex-wrap  md:justify-around items-center gap-3">
+                <div class="px-1 md:px-2 text-center">
+                    <span class="font-lato">FL</span>
+                </div>
+                <div class="px-1 md:px-2 text-center">
+                    <span class="font-lato">IF</span>
+                </div>
+                <div class="px-1 md:px-2 text-center">
+                    <span class="font-lato">VVS1</span>
+                </div>
+                <div class="px-1 md:px-2 text-center">
+                    <span class="font-lato">VVS2</span>
+                </div>
+                <div class="px-1 md:px-2 text-center">
+                    <span class="font-lato">VS1</span>
+                </div>
+                <div class="px-1 md:px-2 text-center">
+                    <span class="font-lato">VS2</span>
+                </div>
+                <div class="px-1 md:px-2 text-center">
+                    <span class="font-lato">SI1</span>
+                </div>
+                <div class="px-1 md:px-2 text-center">
+                    <span class="font-lato">SI2</span>
+                </div>
+                <div class="px-1 md:px-2 text-center">
+                    <span class="font-lato">I1</span>
+                </div>
+            </div>
+            <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full px-2">
+                <div>
+                    <input 
+                        type="range"
+                        step="100"
+                        x-bind:min="min" x-bind:max="max"
+                        x-on:input="mintrigger"
+                        x-model="minprice"
+                        class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
+                    >
+                    <input 
+                        type="range" 
+                        step="100"
+                        x-bind:min="min" x-bind:max="max"
+                        x-on:input="maxtrigger"
+                        x-model="maxprice"
+                        class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
+                    >
+                    <div class="relative z-10 h-2">
+                        <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
+                        <div class="absolute z-20 top-0 bottom-0 rounded-md bg-brown" x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
+                        <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 left-0 bg-white border border-brown transform rotate-45 -mt-1 -ml-1" x-bind:style="'left: '+minthumb+'%'"></div>
+                        <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 right-0 bg-white border border-brown transform rotate-45 -mt-1 -mr-3" x-bind:style="'right: '+maxthumb+'%'"></div>
+                        <div class="flex items-center space-x-6 md:space-x-10 2xl:space-x-16 absolute top-0 z-40 left-11 w-full h-2">
+                            <div class="w-0.5 h-2 bg-white"></div>
+                            <div class="w-0.5 h-2 bg-white"></div>
+                            <div class="w-0.5 h-2 bg-white"></div>
+                            <div class="w-0.5 h-2 bg-white"></div>
+                            <div class="w-0.5 h-2 bg-white"></div>
+                            <div class="w-0.5 h-2 bg-white"></div>
+                            <div class="w-0.5 h-2 bg-white"></div>
+                            <div class="w-0.5 h-2 bg-white"></div>
+                            <div class="w-0.5 h-2 bg-white"></div>
+                            <div class="w-0.5 h-2 bg-white"></div>
+                            <div class="w-0.5 h-2 bg-white"></div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            
+        </div> -->
+
           
           @foreach($search_conditions['clarity'] as $key => $clarity)
           <div x-on:click="search_conditions.clarity['{{$key}}'].clicked = ! search_conditions.clarity['{{$key}}'].clicked" >

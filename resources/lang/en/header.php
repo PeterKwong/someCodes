@@ -86,13 +86,17 @@ return [
 	'Solitare' => 'Solitare',
 	'Side-Stone' => 'Side-Stone',
 	'Halo' => 'Halo',
-	'Pendants' => 'Pendants',
-	'Pendants' => 'Pendants',
-	'Pendants' => 'Pendants',
-	'Pendants' => 'Pendants',
-	'Pendants' => 'Pendants',
-	'Pendants' => 'Pendants',
-	'Pendants' => 'Pendants',
+
+	'Japanese Wedding Rings' => 'Japanese Wedding Rings',
+	'Forge Wedding Rings' => 'Forge Wedding Rings',
+
+	'Diamond Grading | 4Cs' => 'Diamond Grading | 4Cs',
+	'Diamond Certificates' => 'Diamond Certificates',
+	'Hearts and Arrows' => 'Hearts and Arrows',
+
+	'Login' => 'Login',
+	'My Cart' => 'My Cart',
+	
 	'Pendants' => 'Pendants',
 	'Pendants' => 'Pendants',
 	'Pendants' => 'Pendants',

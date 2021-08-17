@@ -85,6 +85,16 @@ return [
 	'Side-Stone' => '輔鑽石/ 碎石',
 	'Halo' => '圍圈碎鑽石',
 
+	'Japanese Wedding Rings' => '日本款結婚戒指',
+	'Forge Wedding Rings' => '鍛造結婚戒指',
+
+	'Diamond Grading | 4Cs' => '鑽石等級 4Cs| 鑽石知識 ',
+	'Diamond Certificates' => '鑽石証書',
+	'Hearts and Arrows' => '八心八箭鑽石',
+
+	'DIAMONDS' => '鑽石',
+	'Login' => '登入',
+	'My Cart' => '購物車',
 
 	'appointmentSuccess' => '你的預約已經傳送。我們會盡快回覆你，或者你都可以馬上聯絡我們。' 
 

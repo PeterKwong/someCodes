@@ -21,24 +21,19 @@
     @livewireStyles
 </head>
 <body>
-    <div class="container-fluid">
 
-        @livewire('header')
+    @php( $baseUrl = url(app()->getLocale()) )
+    @include('layouts.frontend.header')
+        
+        <x-breadcrumb />
 
-            <div class="mt-16">
-                
-                <x-breadcrumb />
+        @yield('content')            
 
-                @yield('content')            
-            </div>
-
-        @include('layouts.frontEnd.footer')
+            
+    @include('layouts.frontend.footer')
 
 
 
-    </div>
-
-
-        @livewireScripts
+    @livewireScripts
   </body>
 </html>

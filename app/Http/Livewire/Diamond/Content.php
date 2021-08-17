@@ -217,21 +217,32 @@ class Content extends Component
 	public $selectedColor = 'yellow';
 
 	public $sliders = [
-			      	'min' => 100, 
-			      	'max' => 10000,
-			      	'minr' =>0,
-			      	'maxr' =>100,
-					'price'=>[
+					'price' => [
+				      	'min' => 100, 
+				      	'max' => 10000,
+				      	'minr' =>0,
+				      	'maxr' =>100,
 						'mininputjs'=>1000,
 						'maxinputjs'=>50000000,
-						'minprice'=>0,
-						'maxprice'=>10000,
+						'minvalue'=>0,
+						'maxvalue'=>10000,
 						'minthumb'=>0,
 						'maxthumb'=>0, 
 						'minv'=>6.907755278982137, //log10(1000)
 						'maxv'=>17.72753356339242,//log10(50000000)
 						'scale'=>0.10819778284410284,//(this.maxv-this.minv)/(this.maxr-this.minr)
-						]
+						],
+					'weight' =>[
+						// 'minv'=>-0.522878745280338, 
+						// 'maxv'=>1.30129995663981,
+						// 'scale'=>0.018239087409443,					
+				      	'min' => 0.3, 
+				      	'max' => 20,
+						'minthumb'=>0,
+						'maxthumb'=>0,
+						'mininputjs'=>0,
+						'maxinputjs'=>0,						
+						],
 					];
 
     public function render()

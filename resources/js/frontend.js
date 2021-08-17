@@ -76,20 +76,20 @@ const header = new Vue({
     data(){
         return{
             mutualVar,
-            burgerOpen:false,
-            headerSection:0,
+            // burgerOpen:false,
+            // headerSection:0,
         }
     },
     methods:{
-        onClickedHeader(section){
-            if (this.headerSection == section) {
-                return this.headerSection = 0
-            }
-            this.headerSection = section
-        },
+        // onClickedHeader(section){
+        //     if (this.headerSection == section) {
+        //         return this.headerSection = 0
+        //     }
+        //     this.headerSection = section
+        // },
     },
     created(){
-        mutualVar.css.innerWidth = window.innerWidth
+        // mutualVar.css.innerWidth = window.innerWidth
     }, 
     destroyed () {
     },
@@ -117,21 +117,21 @@ if (mutualVar.vComponents.findIndex((data)=>{ return data['progressBar'] }) > -1
 }
 
 
-const footer = new Vue({
-    el: '#footer',
-    data(){
-        return{
-            footerSection:1,
-            mutualVar,
-        }
-    },
-    methods:{
-        onClickedFooter(section){
-            this.footerSection = section
-        },
-    },
+// const footer = new Vue({
+//     el: '#footer',
+//     data(){
+//         return{
+//             footerSection:1,
+//             mutualVar,
+//         }
+//     },
+//     methods:{
+//         onClickedFooter(section){
+//             this.footerSection = section
+//         },
+//     },
 
-});
+// });
 
 
 

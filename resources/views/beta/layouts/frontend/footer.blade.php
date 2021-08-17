@@ -13,7 +13,7 @@
                     <div class="flex flex-col space-y-3 mt-1 lg:mt-0">
                         <p class="text-sm text-white">
                            {{trans('footer.TING DIAMOND PROVIDES BRILLIANT GIA')}}
-                        <span class="hidden md:flex bg-golden-white"></span>
+                        <span class="flex bg-golden-white"></span>
                         <ul class="flex items0-center space-x-5">
                             <li>
                                 <a href="/links/facebook">
@@ -225,7 +225,7 @@
                 <div><img src="/assets/images/GIA.png" alt=""></div> 
                 <div><img src="/assets/images/IE.png" alt=""></div> 
             </div>
-            <div class="flex justify-end lg:justify-start h-5 lg:h-auto space-x-1.5">
+            <div class="flex justify-end lg:justify-start h-5 lg:h-auto md:space-x-1.5">
                 <img src="/assets/images/eps.png" alt="">
                 <img src="/assets/images/mc.png" alt="">
                 <img src="/assets/images/visa.png" alt="">
