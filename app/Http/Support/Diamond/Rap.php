@@ -317,7 +317,7 @@ trait Rap{
                                         array_key_exists($data->diamond->fluor_intensity, $trans)?$trans[$data->diamond->fluor_intensity]:$data->diamond->fluor_intensity
                                         :'None'; 
                       $d->lab = $data->diamond->lab;
-                      $d->location = $data->diamond->country =='Hong Kong' && $this->isNotMemoSuppliers($s_id->id)
+                      $d->location = strtolower($data->diamond->country) =='hong kong' && $this->isNotMemoSuppliers($s_id->id)
                                       ?'1'.$data->diamond->country:'2'; 
                       $d->available = $invoiceDiamond?NULL:1; 
                       $d->r_id = $data->diamond->diamond_id; 

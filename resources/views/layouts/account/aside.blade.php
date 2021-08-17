@@ -10,7 +10,7 @@
     
     
       @if(auth()->user()->current_team_id )
-        @include('layouts.account.asidePromoter')
+        @include('layouts.account.aside-promoter')
       @endif
 
       <a class="block btn btn-primary" href="{{ route('logout') }}">{{__('account.Logout')}}</a>

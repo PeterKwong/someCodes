@@ -511,13 +511,13 @@
             t.maxvalue = ((100-t.maxthumb)/100)*(t.max - t.min)+t.min
           },
           updateInput(m,mjs,type){
-            console.log(type)
-            console.log('min',m)
-            console.log('min',mjs)
+            // console.log(type)
+            // console.log('min',m)
+            // console.log('min',mjs)
             var t = this.sliders[type]
-            console.log('min',t)
+            // console.log('min',t)
             t[m] = t[mjs]            
-            console.log('min',t[m])
+            // console.log('min',t[m])
           },
           expCheckMin(type){
             var t = this.sliders[type]
@@ -549,10 +549,10 @@
           },
           checkMin(type){
             var t = this.sliders[type]
-            console.log('check')
+            // console.log('check')
             if (t.maxinputjs < t.mininputjs) {
               return 0
-            console.log('check')
+            // console.log('check')
             }
             t.mininputjs = Math.min(t.mininputjs, t.maxinputjs - 0.01); 
           },
@@ -594,6 +594,8 @@
         showAdvance: @entangle('showAdvance'),
         advance_search_conditions: @entangle('advance_search_conditions'), 
         addAdvanceSearch(column){
+            history.pushState('page2', 'Title', '/page2.php');
+            console.log('adv')
             this.advance_search_conditions[column].clicked = !this.advance_search_conditions[column].clicked
         }
 

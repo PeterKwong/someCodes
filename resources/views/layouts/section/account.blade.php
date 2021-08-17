@@ -22,13 +22,15 @@
 </head>
 <body>
 
+
     @php( $baseUrl = url(app()->getLocale()) )
 
-    @livewire('header')
+    @include('layouts.frontend.header')
+
     
     <div class="mt-16">
 
-        @include('layouts.account.userHeader')
+        @include('layouts.account.user-header')
 
         <div class="container-fluid">
 
