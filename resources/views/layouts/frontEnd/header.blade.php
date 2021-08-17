@@ -4,7 +4,7 @@
     @include('layouts.frontEnd.header-desktop')
 
     @include('layouts.frontEnd.header-mobile')
-esfsfd
+
 
     <!-- <div x-data="{ cartOpen : false}" class="flex flex-col lg:hidden">
         <div x-show="cartOpen" class="sidebar">
@@ -25,4 +25,3 @@ esfsfd
 
 @livewire('notification.flash')
 
-sudo chmod -R 777 /var/www/laravel/storage/logs
