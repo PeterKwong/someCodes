@@ -594,8 +594,8 @@
         showAdvance: @entangle('showAdvance'),
         advance_search_conditions: @entangle('advance_search_conditions'), 
         addAdvanceSearch(column){
-            history.pushState('page2', 'Title', '/page2.php');
-            console.log('adv')
+            // history.pushState('page2', 'Title', '/page2.php');
+            // console.log('adv')
             this.advance_search_conditions[column].clicked = !this.advance_search_conditions[column].clicked
         }
 
