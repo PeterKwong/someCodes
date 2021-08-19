@@ -84,6 +84,9 @@ return [
     'register' => '注册',
     'shopping-cart' => '购物车',
     'diamond-ring-review' => '钻石戒指整合',
+    'shop-bag-bill' => '付款',
+    'shop-bag-bill-login' => '付款',
+    'shop-bag-bill-customer' => '付款',
 
 
     'hk' => '首页',

@@ -85,6 +85,11 @@ return [
     'shopping-cart' => 'Shopping Cart',
     'diamond-ring-review' => 'Diamond Ring Review',
     'shop-bag-bill' => 'Payment',
+    'shop-bag-bill-login' => 'Payment',
+    'shop-bag-bill-customer' => 'Payment',
+    'hk' => 'hk',
+    'hk' => 'hk',
+    'hk' => 'hk',
     'hk' => 'hk',
     'hk' => 'hk',
 
