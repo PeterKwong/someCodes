@@ -42,7 +42,8 @@
 
     @section('content')
 
-
+        <!-- Steps  -->
+        <x-shopping-cart.progress-bar />
 
         <div id="engagementRingsShow">
 

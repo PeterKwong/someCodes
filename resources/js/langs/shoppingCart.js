@@ -74,5 +74,10 @@ export default[
 	{'Login to save coupon code':['Login to save coupon code','登入賬號,儲存優惠碼','登入賬號,儲存優惠碼']},
 
 	{'mounting fee':['mounting fee','鑲工','镶工']},
+
+	{'Select Diamond':['Select Diamond','選擇求婚戒指','選擇求婚戒指']},
+	{'Select Setting':['Select Setting','選擇戒指款式','選擇戒指款式']},
+	{'Finish':['Finish','完成','完成']},
+	{'View':['View','查看','查看']},
 	
 ]

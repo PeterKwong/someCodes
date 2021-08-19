@@ -83,6 +83,8 @@ return [
     'login' => '登入',
     'register' => '註冊',
     'shopping-cart' => '購物車',
+    'diamond-ring-review' => '鑽石戒指整合',
+    'shop-bag-bill' => '付款',
 
 
     'hk' => '首頁',

@@ -83,6 +83,7 @@ return [
     'login' => '登入',
     'register' => '注册',
     'shopping-cart' => '购物车',
+    'diamond-ring-review' => '钻石戒指整合',
 
 
     'hk' => '首页',

@@ -19,7 +19,8 @@ export default {
                 items: [],
                 active: false,
             },
-            extraWorkingDates
+            extraWorkingDates,
+            shoppingCart:window.mutualVar.cookiesInfo.shoppingCart,
 
 		}
 	},
@@ -33,10 +34,7 @@ export default {
 	},
 	computed:{
         shortenName(){
-        	return this.mutualVar.cookiesInfo.shoppingCart.items[this.mutualVar.cookiesInfo.shoppingCart.selectingIndex].pairItems
-        },
-        shoppingCart(){
-            return this.mutualVar.cookiesInfo.shoppingCart
+        	return this.shoppingCart.items[this.shoppingCart.selectingIndex].pairItems
         },
         subTotal(){
             var subTotal = 0
@@ -59,7 +57,7 @@ export default {
         },
         sendCookies(){
             var cookies = this.shoppingCart
-            localStorage.setItem('shoppingCart', encodeURIComponent(JSON.stringify(cookies)), this.mutualVar.cookiesInfo.cookieLast)
+            localStorage.setItem('shoppingCart', encodeURIComponent(JSON.stringify(cookies)), mutualVar.cookiesInfo.cookieLast)
 
         },
         getEngagementRing(){

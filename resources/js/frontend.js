@@ -95,9 +95,9 @@ const header = new Vue({
     },
     components:{ ShoppingCartProgress, ShoppingCartIcon },
     computed:{
-        shoppingCartNumber(){
-            return mutualVar.cookiesInfo.shoppingCart.items.filter((data)=>{return data.addedCart == 1}).length
-        },
+        // shoppingCartNumber(){
+        //     return mutualVar.cookiesInfo.shoppingCart.items.filter((data)=>{return data.addedCart == 1}).length
+        // },
 
     },
 

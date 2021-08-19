@@ -21,7 +21,7 @@
                         <span aria-hidden="true" @click="toggleModal()">&times;</span>
                       </button>
                     </div>
-                      <div class="modal-body mx-12 mb-4">
+                    <div class="modal-body mx-12 mb-4">
                         <center>
                             <div v-for="option in nextProcedure.modalOptions">
                                 <div @click="toggleModal()">
@@ -36,7 +36,7 @@
                           <button class="btn btn-primary hover:bg-blue-500" :class="{'opacity-50':!nextProcedure.addToCart.clickable}" :disabled="!nextProcedure.addToCart.clickable" @click="addItemToCart()">{{nextProcedure.addToCart.text |transJs()}}</button>
                         </center>
 
-                      </div>
+                    </div>
 
                   </div>
                 </div>

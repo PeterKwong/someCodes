@@ -35,6 +35,10 @@
     @endSection
 
     @section('content')
+    
+    <!-- Steps  -->
+    <x-shopping-cart.progress-bar />
+
     <div class=" sm:px-4 md:px-8">        
         <div id="diamondViewerShow">
             <div class="flex justify-center p-6 text-center" >

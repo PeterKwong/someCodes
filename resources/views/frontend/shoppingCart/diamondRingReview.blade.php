@@ -32,6 +32,10 @@
     @endSection
 
     @section('content')
+    
+        <!-- Steps  -->
+        <x-shopping-cart.progress-bar />
+
         <br>
             <div class="grid grid-cols-12" >
                 <div class="col-span-12">

@@ -12,13 +12,13 @@
         </div>
     </div> -->
 
-    <div id="header" >
+<!--     <div id="header" >
         <shopping-cart-progress></shopping-cart-progress>
         
-<!--         <x-floating-contact/>
- -->
-    </div>
+        <x-floating-contact/>
 
+    </div>
+ -->
 </header>
 
 <div class="mb-16 lg:mb-52" id="header" ></div>

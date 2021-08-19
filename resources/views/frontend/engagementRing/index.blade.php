@@ -25,6 +25,10 @@
     @endSection
 
     @section('content')
+    
+        <!-- Steps  -->
+        <x-shopping-cart.progress-bar />
+
         <br>
             <div class="flex justify-center" >
                 <div class="text-center">

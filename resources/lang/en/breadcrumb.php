@@ -83,8 +83,8 @@ return [
     'login' => 'Login',
     'register' => 'Register',
     'shopping-cart' => 'Shopping Cart',
-    'hk' => 'hk',
-    'hk' => 'hk',
+    'diamond-ring-review' => 'Diamond Ring Review',
+    'shop-bag-bill' => 'Payment',
     'hk' => 'hk',
     'hk' => 'hk',
 
