@@ -330,54 +330,7 @@
             </div>
 
             <!-- Pagination / More -->
-            <!-- <div class="col-span-2 lg:col-span-3 xl:col-span-4 flex justify-center relative py-4 md:py-7 2xl:py-16">
-                <nav class="px-4 flex items-center justify-between sm:px-0">
-                    <div class="w-0 flex-1 flex">
-                        <a href="#" class="border-transparent text-black hover:text-brown hover:border-brown border-b -ml-5 mt-1 inline-flex items-center text-sm font-medium">
-                            <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.49984 10.8031L2.91984 6.21313L7.49984 1.62313L6.08984 0.213135L0.0898438 6.21313L6.08984 12.2131L7.49984 10.8031Z" fill="#666666"/>
-                            </svg> 
-                        </a>
-                    </div>
-                    <div class="flex font-lato">
-                        <a href="{{url(app()->getLocale())}}/wedding-rings?page=1" class="mx-1 inline-flex items-center over:text-brown hover:border-brown {{$fetchData['page'][0]==1?' border-brown text-brown border-b ':''}}" >
-                            1
-                        </a>
-
-                        <a href="{{url(app()->getLocale())}}/wedding-rings?page={{$fetchData['page'][0]>1?$fetchData['page'][0]:2}}" class="border-transparent text-black hover:text-brown hover:border-brown border-b mx-1 inline-flex items-center {{$fetchData['page'][0]==2?' border-brown text-brown border-b':''}}" aria-current="page" >
-                            {{$fetchData['page'][0]>1?$fetchData['page'][0]-1:2}}
-                        </a>
-                        <a href="{{url(app()->getLocale())}}/wedding-rings?page={{$fetchData['page'][0]>0?$fetchData['page'][0]+1:2}}" class="border-transparent text-black hover:text-brown hover:border-brown border-b mx-1 inline-flex items-center {{$fetchData['page'][0]==3?' border-brown text-brown border-b':''}}" aria-current="page" >
-                            {{$fetchData['page'][0]>0?$fetchData['page'][0]+1:3}}
-                        </a>
-                        <a href="{{url(app()->getLocale())}}/wedding-rings?page={{$fetchData['page'][0]>0?$fetchData['page'][0]+2:3}}" class="border-transparent text-black hover:text-brown hover:border-brown border-b mx-1 inline-flex items-center">
-                            {{$fetchData['page'][0]>0?$fetchData['page'][0]+2:4}}
-                        </a>
-                        <span class="border-transparent text-black border-b mx-1 inline-flex items-center">
-                            ...
-                        </span>
-                        <a href="{{url(app()->getLocale())}}/wedding-rings?page={{$fetchData['page'][0]>0?$fetchData['page'][0]+10:15}}" class="border-transparent text-black hover:text-brown hover:border-brown border-b mx-1 inline-flex items-center">
-                            {{$fetchData['page'][0]>0?$fetchData['page'][0]+10:15}}
-                        </a>
-                        <a href="{{url(app()->getLocale())}}/wedding-rings?page={{$fetchData['page'][0]>0?$fetchData['page'][0]+11:16}}" class="border-transparent text-black hover:text-brown hover:border-brown border-b mx-1 inline-flex items-center">
-                            {{$fetchData['page'][0]>0?$fetchData['page'][0]+11:16}}
-                        </a>
-                        <a href="{{url(app()->getLocale())}}/wedding-rings?page={{$fetchData['page'][0]>0?$fetchData['page'][0]+12:17}}" class="border-transparent text-black hover:text-brown hover:border-brown border-b mx-1 inline-flex items-center">
-                            {{$fetchData['page'][0]>0?$fetchData['page'][0]+12:17}}
-                        </a>
-                        <a href="{{url(app()->getLocale())}}/wedding-rings?page={{$fetchData['page'][0]>0?$fetchData['page'][0]+13:18}}" class="border-transparent text-black hover:text-brown hover:border-brown border-b mx-1 inline-flex items-center">
-                            {{$fetchData['page'][0]>0?$fetchData['page'][0]+13:18}}
-                        </a>
-                    </div>
-                    <div class="w-0 flex-1 flex">
-                        <a href="#" class="border-transparent text-black hover:text-brown hover:border-brown border-b ml-4 mt-1 inline-flex items-center text-sm font-medium">
-                            <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.0900002 10.8031L4.67 6.21313L0.0900002 1.62313L1.5 0.213135L7.5 6.21313L1.5 12.2131L0.0900002 10.8031Z" fill="#666666"/>
-                            </svg>                            
-                        </a>
-                    </div>
-                </nav>
-            </div> -->
+           
 
         </div>
     </div>
