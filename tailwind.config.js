@@ -44,6 +44,7 @@ module.exports = {
                   '02':'#E5E5E5',
                   '03':'#F7F7F7',
                   '04':'#666666',
+                  '05':'#CCCCCC',
                   lighter: '#ADADAD',
                   light: '#FCFBF8',
                   DEFAULT:'#C4C4C4',
@@ -63,6 +64,7 @@ module.exports = {
 
     variants: {
         extend: {
+            borderWidth: ['hover', 'focus'],
             opacity: ['disabled'],
             borderColor: ['active'],
             backgroundColor:['responsive', 'hover','focus','active'],

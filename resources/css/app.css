@@ -183,7 +183,7 @@
     .diamond-details.navbar a.dd-link:hover {
         @apply text-brown border-none pb-0;
     }
-    .diamond-details.navbar a.active {
+    .navbar a.active {
         @apply text-brown border-b-2 border-brown pb-0;
     }
     footer a:hover {

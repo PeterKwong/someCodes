@@ -9,6 +9,10 @@ body, html {
     background: url('/assets/images/hero-image-diamond.jpg') no-repeat;
     background-size: 100% 100%;
 }
+.jewellary-wedding-rings.hero-image {
+    background: url('/assets/images/hero-image-jewellary-wedding-rings.jpg') no-repeat;
+    background-size: 100% 100%;
+}
 .jewellery.hero-image {
     background: url('/assets/images/hero-image-jewellery.jpg') no-repeat;
     background-size: 100% 100%;
@@ -17,7 +21,7 @@ body, html {
     box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.05);
     border-radius: 20px;
 }
-.product-card .divide-gold div:before  {
+.product-card .divide-gold div:before, .product-card .vertical.divide-gold div:before  {
     content: '';
     position: absolute;
     top: 40%;
@@ -30,7 +34,7 @@ body, html {
     box-sizing: content-box;
     z-index: 10;
 }
-.product-card .divide-gold div:last-child::before {
+.product-card .divide-gold div:last-child::before, .product-card .vertical.divide-gold div:last-child::before {
     content: '';
     width: 0px;
     height: 0px;
@@ -101,4 +105,21 @@ input[type=range]::-webkit-slider-thumb {
 }
 .wedding-ring-wrapper > div {
     @apply w-full;
+}
+select {
+    background-color: white; 
+}
+select.custom-select
+{
+ background-color: white;
+ border-radius: 0% !important;
+}
+select.custom-select *
+{
+ background-color: white;
+ border-radius: 0% !important;
+}
+select.custom-select *:hover
+{
+ @apply bg-grey-01;
 }
