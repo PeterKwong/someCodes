@@ -1,4 +1,4 @@
-<div id="progress-bar" class="relative flex flex-col max-w-screen-2xl 2xl:mx-auto md:mx-10 lg:mx-20 px-5 md:px-0 font-lato py-10">
+<div id="progress-bar" class="relative flex flex-col max-w-screen-2xl 2xl:mx-auto font-lato space-y-7 pt-10">
     <shopping-cart-progress/>
 </div>
 

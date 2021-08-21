@@ -24,10 +24,30 @@
 
     @endSection
 
+
+
+    @section('hero')
+        <!-- Hero Section  -->
+        <div class="hero-image flex items-center justify-center w-full h-20 xl:h-36 mt-16 lg:mt-52">
+            <h2 class="text-lg xl:text-2xl font-medium font-suranna tracking-widest uppercase">
+                {{trans('engagementRing.metaTitle2')}}
+            </h2>
+        </div>
+        
+    @endsection
+
+    @section('content')
+
+        @include('frontend.engagementRing.engagementRingContent')
+
+
+    @endSection
+
+    <!-- 
+
     @section('content')
     
-        <!-- Steps  -->
-        <x-shopping-cart.progress-bar />
+
 
         <br>
             <div class="flex justify-center" >
@@ -79,7 +99,6 @@
                 <div class="">
                     <br>
 
-                    @include('frontend.engagementRing.engagementRingContent')
                     
                 </div>
                 
@@ -88,6 +107,6 @@
         </div>
 
     @endSection
-
+ -->
 
 

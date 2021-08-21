@@ -291,7 +291,7 @@ class Index extends Component
     public function resetFetchData(){
 
             $this->fetchData = ['page' =>1,  'column' => 'price','direction' => 'asc',
-                         'per_page' => 15,
+                         'per_page' => 12,
                          'style' => [], 'shoulder' => [], 'prong' => [],'shape' => [], 'other' => [], 
                     ];
             $this->preset = $this->fetchData;

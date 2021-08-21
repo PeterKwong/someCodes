@@ -222,9 +222,9 @@
                             </select>
                         </div>
                     </div>
-                    <button class="flex md:hidden items-center justify-center w-full mt-5 py-2 bg-brown hover:bg-white text-white hover:text-brown border border-brown transition ease-in-out duration-500" @click="applyFilter = !applyFilter">
+                    <a class="flex md:hidden items-center justify-center w-full mt-5 py-2 bg-brown hover:bg-white text-white hover:text-brown border border-brown transition ease-in-out duration-500" @click="applyFilter = !applyFilter">
                         <span class="text-white hover:text-brown font-bold font-lato tracking-widest uppercase">{{__('weddingRing.Apply')}}</span>
-                    </button>
+                    </a>
                 </div>
 
             </form>
@@ -321,9 +321,6 @@
 
             <!-- More Products .... -->
             <div class="col-span-2 lg:col-span-3 xl:col-span-4 flex justify-center relative py-4 {{ isset($model['total']) && $model['total'] == 0 ? '' : ' hidden'}}">
-        <!--        <div class="col-span-12 flex justify-center {{ isset($model['total']) && $model['total'] == 0 ? ' hidden' : ''}}">
-                       <button class="btn btn-primary" wire:click="addPage()">{{trans('engagementRing.More')}}</button>
-                </div> -->
                 <div class="px-4 flex items-center justify-between sm:px-0">
                      <button class="btn btn-outline" wire:click="resetAll">
                           {{ __('diamondSearch.No Result')}} ！ {{__('diamondSearch.reset')}} <i class="fas fa-undo"></i>
