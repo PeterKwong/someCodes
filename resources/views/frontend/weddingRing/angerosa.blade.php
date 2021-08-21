@@ -30,32 +30,24 @@
 
     @endSection
 
-    @section('content')
-        <br>
-            <div class="row" >
-                <div class="col-12">
-                    <center><h1 class="title is-5">{{trans('weddingRing.metaTitleAngerosa')}}</h1>                        
-                    </center>
-                    
-                </div>
-            </div>
+    @section('hero')
 
-
-        <div id="weddingRings">
-            <div class="row justify-content-center">
-                <div class="col-11">
-                    <br>
-
-                    @include('frontend.weddingRing.weddingRingContent')
-                    
-                </div>
-                
-            </div>
-            
+        <!-- Hero Section  -->
+        <div class="hero-image jewellery flex items-center justify-center w-full h-20 xl:h-36 mt-16 lg:mt-52">
+            <h2 class="text-lg xl:text-2xl font-medium font-suranna tracking-widest uppercase">
+                {{trans('weddingRing.metaTitleAngerosa')}}
+            </h2>
         </div>
+        
+    @endsection
+
+    @section('content')
+
+
+        @include('frontend.weddingRing.weddingRingContent')
+
 
     @endSection
-
 
 
 

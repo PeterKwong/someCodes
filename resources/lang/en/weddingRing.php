@@ -118,10 +118,26 @@ return [
 	'metaTitleTimelessOnes' => 'Timeless Ones - Japanese Forge Wedding Ring',
 	'metaDescriptionTimelessOnes' => 'Timeless Ones - Japanese Forge Wedding Ring',
 
-	'metaTitleFerriePorte' => 'Ferrie Porte - Japanese Forge Wedding Ring',
+	'metaTitleFeeriePorte' => 'Ferrie Porte - Japanese Forge Wedding Ring',
 	'metaDescriptionFerriePorte' => 'Ferrie Porte - Japanese Forge Wedding Ring',
 
 	'metaTitleForge' => 'Forge - Japanese Forge Wedding Ring',
 	'metaDescriptionForge' => 'Forge - Japanese Forge Wedding Ring',
 
+	'Filter' => 'Filter',
+	'WEDDING RINGS FILTER' => 'WEDDING RINGS FILTER',
+	'Clear' => 'Clear',
+	'Apply' => 'Apply',
+	'all' => 'all',
+	'all' => 'all',
+	'all' => 'all',
+	'all' => 'all',
+	'all' => 'all',
+	'all' => 'all',
+	'all' => 'all',
+	'all' => 'all',
+	'all' => 'all',
+	'all' => 'all',
+
+	
 ];

@@ -97,6 +97,7 @@
       var header = document.getElementById('td-header');
       var logo = document.getElementById('td-logo');
       var navUpper = document.getElementById('td-nav-upper');
+      var filter = document.getElementById('filter-icon');
 
       var checkScroll = function() {
       // console.log(window.pageYOffset)
@@ -111,7 +112,6 @@
           header.classList.remove('shorter');
           logo.classList.remove('scale-75');
           navUpper.classList.remove('hidden');
-
         }
 
         /*
@@ -141,13 +141,16 @@
         if (direction === 2 && curScroll > 190) { 
           
           //replace 52 with the height of your header in px
-
+          filter.classList.add('hidden')
           header.classList.add('hide');
           prevDirection = direction;
+
         }
         else if (direction === 1) {
+          filter.classList.remove('hidden')
           header.classList.remove('hide');
           prevDirection = direction;
+          // window.mutualVar.screen.scrollingDown = false
         }
       // console.log(curScroll)
 

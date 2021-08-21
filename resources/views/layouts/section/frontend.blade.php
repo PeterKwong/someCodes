@@ -25,6 +25,8 @@
     @php( $baseUrl = url(app()->getLocale()) )
     @include('layouts.frontend.header')
         
+        @yield('hero')
+
         <x-breadcrumb />
 
         @yield('content')            

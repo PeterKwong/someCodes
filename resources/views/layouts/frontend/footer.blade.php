@@ -1,8 +1,8 @@
 <div id="toTop"></div>
 
-@include('beta.layouts.frontend.footer-upper')
+@include('layouts.frontend.footer-upper')
 
-@include('beta.layouts.frontend.footer-scripts')
+@include('layouts.frontend.footer-scripts')
 
 <footer class="bg-grey-dark" aria-labelledby="footerHeading">
     <div class="max-w-screen-2xl 2xl:mx-auto md:mx-10 xl:mx-20 pt-12 lg:pt-16 pb-5 lg:pb-7 px-4 lg:px-8 font-lato">

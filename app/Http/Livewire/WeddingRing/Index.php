@@ -11,6 +11,7 @@ class Index extends Component
 
 	public $model;
 	public $fetchData;
+    public $tags;
 	public $search_conditions = [
 									'shape'=>[
 										'straight' => ['clicked'=>false,
@@ -96,8 +97,10 @@ class Index extends Component
 
         }
         $this->index();
+        $this->setTags();
         // dd($this->fetchData);
-        return view('livewire.wedding-ring.index');
+        return view('livewire.wedding-ring.index',
+                    ['model' => $this->model, 'search_conditions' =>$this->search_conditions]);
     }
     public function mount(){
         $this->resetSettings();
@@ -126,6 +129,18 @@ class Index extends Component
         $this->fetchData = (array)json_decode($_COOKIE['weddingRing']);
         // dd($this->fetchData);
     } 
+    public function setTags(){
+        $columns = ['page','column','direction','per_page'];
+        $ori = $this->fetchData;
+
+        foreach ($columns as $key => $query) {
+            unset($this->fetchData[$query]);
+        }
+        // dd($this->fetchData);
+        $this->tags = $this->fetchData;
+        $this->fetchData = $ori;
+
+    }
     public function resetCookies(){
 
         $time = time() * 0 ;
@@ -256,6 +271,7 @@ class Index extends Component
         }
 
         $this->search_conditions[$condition][$data]['clicked'] = !$this->search_conditions[$condition][$data]['clicked'];
+                // dd($this->search_conditions[$condition][$data]['clicked']);
 
         $this->setCookie();
 
@@ -287,8 +303,8 @@ class Index extends Component
     }
     public function resetFetchData(){
 
-            $this->fetchData = ['page' =>1,  'column' => 'price','direction' => 'asc',
-                         'per_page' => 15,
+            $this->fetchData = ['page' =>[1],  'column' => 'price','direction' => 'asc',
+                         'per_page' => 12,
                          'shape' => [], 'finish' => [], 'metal' => [], 'origin' => [],'style' => [], 'brand' => [], 
                     ];
             $this->preset = $this->fetchData;

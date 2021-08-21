@@ -120,4 +120,10 @@ return [
 	'metaTitleForge' => '鍛造 - 日本款結婚戒指 | 婚戒| 對戒',
 	'metaDescriptionForge' => '鍛造 - 日本款結婚戒指 | 婚戒| 對戒',
 
+
+	'Filter' => '選項',
+	'WEDDING RINGS FILTER' => '結婚戒指選項',
+	'Clear' => '清除',
+	'Apply' => '應用',
+
 ];

@@ -5,7 +5,7 @@ return [
 	'wedding Rings' => '结婚戒指',	
 	'Wedding Rings - Classic' => '结婚戒指 - 经典',
 	'Wedding Ring' => '结婚戒指',
-	'Couple Rings' => '對戒',
+	'Couple Rings' => '对戒',
 	'Style' => '款式',
 	'style' => '款式',
 	'Metal' => '金属',
@@ -120,4 +120,10 @@ return [
 	'metaTitleForge' => '锻造 - 日本款结婚戒指 | 婚戒| 对戒',
 	'metaDescriptionForge' => '锻造 - 日本款结婚戒指 | 婚戒| 对戒',
 
+	'Filter' => '选项',
+	'WEDDING RINGS FILTER' => '结婚戒指选项',
+	'Clear' => '清除',
+	'Apply' => '应用',
+
+	
 ];
