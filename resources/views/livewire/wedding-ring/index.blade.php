@@ -267,7 +267,7 @@
             @foreach($model['data'] as $data)
             @if( count($data['images']) )
             <div class="flex flex-col relative product-card rounded-none font-lato p-0 md:p-2 2xl:p-5 cursor-pointer transform hover:-translate-y-2 transition hover:border border-gold-light duration-500">
-                <a href="/{{app()->getLocale() . '/wedding-rings/' . $data['id'] }}" target="_blank" class="flex justify-center" href="./wedding-ring-details.html"><img class="mt-5 md:mt-0" src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $data['images'][0]['image']}}" alt="p1"></a>
+                <a href="/{{app()->getLocale() . '/wedding-rings/' . $data['id'] }}" target="_blank" class="flex justify-center" href="./wedding-ring-details.html"><img class="mt-5 md:mt-0" src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $data['images'][0]['image']}}" alt="p1">
                 <div class="flex flex-col items-center space-y-2 md:space-y-3">
                     <div class="flex flex-col md:flex-row items-center w-full md:w-auto px-2 md:px-0 md:justify-center md:space-x-3">
                         <div class="flex flex-row justify-between md:justify-start w-full md:w-auto md:flex-col space-y-0 items-center">
@@ -286,7 +286,7 @@
                         </div>
                     </div>
                     <h1 class="text-center text-lg md:text-xl font-suranna">
-                        <a href="#">{{__('weddingRing.'. $data['wedding_rings'][0]['metal'])}} {{__('weddingRing.Wedding Ring')}}</a>
+                        <a href="/{{app()->getLocale() . '/wedding-rings/' . $data['id'] }}" target="_blank">{{__('weddingRing.'. $data['wedding_rings'][0]['metal'])}} {{__('weddingRing.Wedding Ring')}}</a>
                         <p class="text-xs font-lato">{{ $data['wedding_rings'][0]['title'] }}</p>
                     </h1>
                 </div>
@@ -313,6 +313,7 @@
                         <p class="text-xs md:text-sm text-center">{{__('weddingRing.'. $data['wedding_rings'][0]['metal'])}}</p>
                     </div>
                 </div>
+                </a>
             </div>
             @endif
             @endforeach            
@@ -329,8 +330,6 @@
                 </div>
             </div>
 
-            <!-- Pagination / More -->
-           
 
         </div>
     </div>
