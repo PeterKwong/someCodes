@@ -115,20 +115,28 @@
                             <div class="flex flex-col  space-y-3">
                                 <div class="flex items-center space-x-5">
                                     <div>
-                                        <label class="inline-flex space-x-2 items-center" >
-                                            <input type="checkbox" id="18KW" name="18KW" value="18KW" class="h-4 w-4 form-checkbox"
-                                                x-model="KW.clicked"
-                                                >
-                                            <img src="/assets/images/ellipse-silver.png" alt="" x-on:click="KW.clicked = !KW.clicked; @this.toggleValue('metal','18KW')">
-                                            <span x-on:click="KW.clicked = !KW.clicked; @this.toggleValue('metal','18KW')">{{__('weddingRing.18K White')}}</span>
+                                        <label class="inline-flex space-x-2 items-center" wire:click="toggleValue('metal','18KW')">
+                                            <span class="border w-6 h-6" >
+                                                @if($search_conditions['metal']['18KW']['clicked'])
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z"/>
+                                                    </svg>
+                                                @endif
+                                            </span>
+                                            <img src="/assets/images/ellipse-silver.png" alt="">
+                                            <span>{{__('weddingRing.18K White')}}</span>
                                             
                                         </label>
                                     </div>
                                     <div>
                                         <label class="inline-flex space-x-2 items-center">
-                                            <input type="checkbox" id="18KR" name="18KR" value="18KR" class="h-4 w-4 form-checkbox"
-                                                x-model="KR.clicked"
-                                                >
+                                            <span class="border w-6 h-6" x-on:click="KR.clicked = !KR.clicked; @this.toggleValue('metal','18KR')">
+                                                @if($search_conditions['metal']['18KR']['clicked'])
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z"/>
+                                                    </svg>
+                                                @endif
+                                            </span>
                                             <img src="/assets/images/ellipse-rose-gold.png" alt="" x-on:click="@this.toggleValue('metal','18KR')">
                                             <span x-on:click="@this.toggleValue('metal','18KR')">{{__('weddingRing.18K Rose Gold')}}</span>
                                         </label>
@@ -137,18 +145,26 @@
                                 <div class="flex items-center space-x-5">
                                     <div>
                                         <label class="inline-flex space-x-2 items-center">
-                                            <input type="checkbox" id="PT" name="PT" value="PT" class="h-4 w-4 form-checkbox"
-                                                x-model="PT.clicked"
-                                                >
+                                            <span class="border w-6 h-6" x-on:click="PT.clicked = !PT.clicked; @this.toggleValue('metal','PT')">
+                                                @if($search_conditions['metal']['PT']['clicked'])
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z"/>
+                                                    </svg>
+                                                @endif
+                                            </span>
                                             <img src="/assets/images/ellipse-silver.png" alt="" x-on:click="@this.toggleValue('metal','PT')">
                                             <span x-on:click="@this.toggleValue('metal','PT')">{{__('weddingRing.PT')}}</span>
                                         </label>
                                     </div>
                                     <div>
                                         <label class="inline-flex space-x-2 items-center">
-                                            <input type="checkbox" id="Mixed" name="Mixed" value="Mixed" class="h-4 w-4 form-checkbox"
-                                                x-model="Mixed.clicked"
-                                                >
+                                            <span class="border w-6 h-6" x-on:click="Mixed.clicked = !Mixed.clicked; @this.toggleValue('metal','Mixed')">
+                                                @if($search_conditions['metal']['Mixed']['clicked'])
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                                                        <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z"/>
+                                                    </svg>
+                                                @endif
+                                            </span>
                                             <span x-on:click="@this.toggleValue('metal','Mixed')">{{__('weddingRing.Mixed')}}</span>
                                         </label>
                                     </div>
