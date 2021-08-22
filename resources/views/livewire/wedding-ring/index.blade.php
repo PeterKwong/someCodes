@@ -116,7 +116,7 @@
                                 <div class="flex items-center space-x-5">
                                     <div>
                                         <label class="inline-flex space-x-2 items-center" >
-                                                <input type="checkbox" id="18KW" name="18KW" value="18KW" class="h-4 w-4 form-checkbox"
+                                            <input type="checkbox" id="18KW" name="18KW" value="18KW" class="h-4 w-4 form-checkbox"
                                                 x-model="KW.clicked"
                                                 >
                                             <img src="/assets/images/ellipse-silver.png" alt="" wire:click="toggleValue('metal','18KW')">
@@ -126,7 +126,7 @@
                                     </div>
                                     <div>
                                         <label class="inline-flex space-x-2 items-center">
-                                                <input type="checkbox" id="18KR" name="18KR" value="18KR" class="h-4 w-4 form-checkbox"
+                                            <input type="checkbox" id="18KR" name="18KR" value="18KR" class="h-4 w-4 form-checkbox"
                                                 x-model="KR.clicked"
                                                 >
                                             <img src="/assets/images/ellipse-rose-gold.png" alt="" x-on:click="@this.toggleValue('metal','18KR')">
@@ -137,21 +137,19 @@
                                 <div class="flex items-center space-x-5">
                                     <div>
                                         <label class="inline-flex space-x-2 items-center">
-                                                <input type="checkbox" id="PT" name="PT" value="PT" class="h-4 w-4 form-checkbox"
+                                            <input type="checkbox" id="PT" name="PT" value="PT" class="h-4 w-4 form-checkbox"
                                                 x-model="PT.clicked"
-                                                x-on:click="@this.toggleValue('metal','PT')"
                                                 >
-                                            <img src="/assets/images/ellipse-silver.png" alt="">
-                                            <span>{{__('weddingRing.PT')}}</span>
+                                            <img src="/assets/images/ellipse-silver.png" alt="" x-on:click="@this.toggleValue('metal','PT')">
+                                            <span x-on:click="@this.toggleValue('metal','PT')">{{__('weddingRing.PT')}}</span>
                                         </label>
                                     </div>
                                     <div>
                                         <label class="inline-flex space-x-2 items-center">
-                                                <input type="checkbox" id="Mixed" name="Mixed" value="Mixed" class="h-4 w-4 form-checkbox"
+                                            <input type="checkbox" id="Mixed" name="Mixed" value="Mixed" class="h-4 w-4 form-checkbox"
                                                 x-model="Mixed.clicked"
-                                                x-on:click="@this.toggleValue('metal','Mixed')"
                                                 >
-                                            <span>{{__('weddingRing.Mixed')}}</span>
+                                            <span x-on:click="@this.toggleValue('metal','Mixed')">{{__('weddingRing.Mixed')}}</span>
                                         </label>
                                     </div>
                                 </div>
