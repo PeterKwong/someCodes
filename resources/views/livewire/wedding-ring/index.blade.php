@@ -129,43 +129,43 @@
                                         </label>
                                     </div>
                                     <div>
-                                        <label class="inline-flex space-x-2 items-center">
-                                            <span class="border w-6 h-6" x-on:click="KR.clicked = !KR.clicked; @this.toggleValue('metal','18KR')">
+                                        <label class="inline-flex space-x-2 items-center" wire:click="toggleValue('metal','18KR')">
+                                            <span class="border w-6 h-6" >
                                                 @if($search_conditions['metal']['18KR']['clicked'])
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
                                                         <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z"/>
                                                     </svg>
                                                 @endif
                                             </span>
-                                            <img src="/assets/images/ellipse-rose-gold.png" alt="" x-on:click="@this.toggleValue('metal','18KR')">
-                                            <span x-on:click="@this.toggleValue('metal','18KR')">{{__('weddingRing.18K Rose Gold')}}</span>
+                                            <img src="/assets/images/ellipse-rose-gold.png" alt="">
+                                            <span>{{__('weddingRing.18K Rose Gold')}}</span>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-5">
                                     <div>
-                                        <label class="inline-flex space-x-2 items-center">
-                                            <span class="border w-6 h-6" x-on:click="PT.clicked = !PT.clicked; @this.toggleValue('metal','PT')">
+                                        <label class="inline-flex space-x-2 items-center" wire:click="toggleValue('metal','PT')">
+                                            <span class="border w-6 h-6" >
                                                 @if($search_conditions['metal']['PT']['clicked'])
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
                                                         <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z"/>
                                                     </svg>
                                                 @endif
                                             </span>
-                                            <img src="/assets/images/ellipse-silver.png" alt="" x-on:click="@this.toggleValue('metal','PT')">
-                                            <span x-on:click="@this.toggleValue('metal','PT')">{{__('weddingRing.PT')}}</span>
+                                            <img src="/assets/images/ellipse-silver.png" alt="">
+                                            <span>{{__('weddingRing.PT')}}</span>
                                         </label>
                                     </div>
                                     <div>
-                                        <label class="inline-flex space-x-2 items-center">
-                                            <span class="border w-6 h-6" x-on:click="Mixed.clicked = !Mixed.clicked; @this.toggleValue('metal','Mixed')">
+                                        <label class="inline-flex space-x-2 items-center" wire:click="toggleValue('metal','Mixed')">
+                                            <span class="border w-6 h-6" >
                                                 @if($search_conditions['metal']['Mixed']['clicked'])
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
                                                         <path d="M21 6.285l-11.16 12.733-6.84-6.018 1.319-1.49 5.341 4.686 9.865-11.196 1.475 1.285z"/>
                                                     </svg>
                                                 @endif
                                             </span>
-                                            <span x-on:click="@this.toggleValue('metal','Mixed')">{{__('weddingRing.Mixed')}}</span>
+                                            <span>{{__('weddingRing.Mixed')}}</span>
                                         </label>
                                     </div>
                                 </div>
