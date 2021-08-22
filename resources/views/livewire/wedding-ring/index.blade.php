@@ -118,9 +118,10 @@
                                         <label class="inline-flex space-x-2 items-center" >
                                             <input type="checkbox" id="18KW" name="18KW" value="18KW" class="h-4 w-4 form-checkbox"
                                                 x-model="KW.clicked"
+                                                x-on:click="KW.clicked = !KW.clicked; @this.toggleValue('metal','18KW')"
                                                 >
-                                            <img src="/assets/images/ellipse-silver.png" alt="" wire:click="toggleValue('metal','18KW')">
-                                            <span wire:click="toggleValue('metal','18KW')">{{__('weddingRing.18K White')}}</span>
+                                            <img src="/assets/images/ellipse-silver.png" alt="" >
+                                            <span>{{__('weddingRing.18K White')}}</span>
                                             
                                         </label>
                                     </div>
