@@ -1,4 +1,4 @@
-<div>   
+
 
 <div id="diamondHeight">
 
@@ -456,6 +456,9 @@
 <script>
     function desktopSliders() {
         return {
+          applyFilter:false,
+          tagShowMore:@entangle('tagShowMore'),
+          search_conditions: @entangle('search_conditions'),
           priceMin: @entangle('fetchData.price.0'), 
           priceMax: @entangle('fetchData.price.1'),
           weightMin: @entangle('fetchData.weight.0'), 

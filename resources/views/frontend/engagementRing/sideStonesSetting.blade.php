@@ -30,7 +30,27 @@
 
     @endSection
 
+    @section('hero')
+        <!-- Hero Section  -->
+        <div class="hero-image flex items-center justify-center w-full h-20 xl:h-36 mt-16 lg:mt-52">
+            <center>
+                <h2 class="text-lg xl:text-2xl font-medium font-suranna tracking-widest uppercase">
+                    {{trans('engagementRing.metaTitle2')}}
+                </h2>
+                <h5>{{trans('engagementRing.metaTitle3')}}</h5>                     
+            </center>
+        </div>
+        
+    @endsection
+
     @section('content')
+
+        @include('frontend.engagementRing.engagementRingContent')
+
+
+    @endSection
+
+<!--     @section('content')
         <br>
             <div class="row" >
                 <div class="col-12">
@@ -57,5 +77,5 @@
 
     @endSection
 
-
+ -->
 

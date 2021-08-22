@@ -10,6 +10,7 @@ use Livewire\Component;
 class Content extends Component
 {
     public $tags;
+    public $tagShowMore = false;
 	protected $listeners = ['addPage'];
 
 	public $search_conditions = [
@@ -323,7 +324,6 @@ class Content extends Component
 	    			}
 	    		}
     		}
-
 
 			$this->setcookie();
 

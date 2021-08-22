@@ -21,7 +21,7 @@
                         </svg>                                            
                     </button>
                     <span class="text-lg font-suranna text-center">
-                         {{__('weddingRing.WEDDING RINGS FILTER')}}
+                         {{__('engagementRing.ENGAGEMENT RINGS')}}{{__('weddingRing.Filter')}}
                     </span>
                     <a class="text-brown underline" wire:click="resetAll()">{{__('weddingRing.Clear')}}</a>
                 </div>
@@ -192,7 +192,7 @@
                   <h1 class="text-center text-sm md:text-xl font-suranna">
                       <p href="/{{app()->getLocale() . '/engagement-rings/' . $data['id'] }}" target="_blank">
                       {{ __('engagementRing.' .$data['metal']) }}  {{__('engagementRing.Diamond Ring')}}</p>
-                      <p class="text-xs md:text-base font-lato">{{ $data['title'] }} </p>
+                      <p class="text-xs font-lato">{{ $data['title'] }} </p>
                   </h1>
               </div>
               <div class="flex items-center justify-center space-x-1 mt-3">

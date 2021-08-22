@@ -120,11 +120,11 @@
                                             @if($search_conditions['metal']['18KW']['clicked'])
                                                 <input type="checkbox" id="18KW" name="18KW" value="18KW" class="h-4 w-4 form-checkbox"
                                                 checked
-                                                wire:click="toggleValue('metal','18KW')"
+                                                x-on:click="@this.toggleValue('metal','18KW')"
                                                 >
                                             @else
                                                 <input type="checkbox" id="18KW" name="18KW" value="18KW" class="h-4 w-4 form-checkbox"
-                                                wire:click="toggleValue('metal','18KW')"
+                                                x-on:click="@this.toggleValue('metal','18KW')"
                                                 >
                                             @endif
                                             <img src="/assets/images/ellipse-silver.png" alt="">
@@ -136,11 +136,11 @@
                                             @if($search_conditions['metal']['18KR']['clicked'])
                                                 <input type="checkbox" id="18KR" name="18KR" value="18KR" class="h-4 w-4 form-checkbox"
                                                 checked
-                                                wire:click="toggleValue('metal','18KR')"
+                                                x-on:click="@this.toggleValue('metal','18KR')"
                                                 >
                                             @else
                                                 <input type="checkbox" id="18KR" name="18KR" value="18KR" class="h-4 w-4 form-checkbox"
-                                                wire:click="toggleValue('metal','18KR')"
+                                                x-on:click="@this.toggleValue('metal','18KR')"
                                                 >
                                             @endif
                                             <img src="/assets/images/ellipse-rose-gold.png" alt="">
@@ -154,11 +154,11 @@
                                             @if($search_conditions['metal']['PT']['clicked'])
                                                 <input type="checkbox" id="PT" name="PT" value="PT" class="h-4 w-4 form-checkbox"
                                                 checked
-                                                wire:click="toggleValue('metal','PT')"
+                                                x-on:click="@this.toggleValue('metal','PT')"
                                                 >
                                             @else
                                                 <input type="checkbox" id="PT" name="PT" value="PT" class="h-4 w-4 form-checkbox"
-                                                wire:click="toggleValue('metal','PT')"
+                                                x-on:click="@this.toggleValue('metal','PT')"
                                                 >
                                             @endif
                                             <img src="/assets/images/ellipse-silver.png" alt="">
@@ -170,11 +170,11 @@
                                             @if($search_conditions['metal']['Mixed']['clicked'])
                                                 <input type="checkbox" id="Mixed" name="Mixed" value="Mixed" class="h-4 w-4 form-checkbox"
                                                 checked
-                                                wire:click="toggleValue('metal','Mixed')"
+                                                x-on:click="@this.toggleValue('metal','Mixed')"
                                                 >
                                             @else
                                                 <input type="checkbox" id="Mixed" name="Mixed" value="Mixed" class="h-4 w-4 form-checkbox"
-                                                wire:click="toggleValue('metal','Mixed')"
+                                                x-on:click="@this.toggleValue('metal','Mixed')"
                                                 >
                                             @endif
                                             <span>{{__('weddingRing.Mixed')}}</span>
@@ -347,23 +347,24 @@
   function weddingRing(){
     return {
         applyFilter:false,
+        search_conditions:@entangle('search_conditions'),
 
     }
   }
 
-  function mobileSearch(){
-    return {
-       displayColumn:'', 
-       selectDisplayColumn(column){
-          if (this.displayColumn != column) {
-            this.displayColumn = column
-            console.log(this.displayColumn)
-          }else{
-            this.displayColumn = ''  
-          }
-      },
-    }
-  }
+  // function mobileSearch(){
+  //   return {
+  //      displayColumn:'', 
+  //      selectDisplayColumn(column){
+  //         if (this.displayColumn != column) {
+  //           this.displayColumn = column
+  //           console.log(this.displayColumn)
+  //         }else{
+  //           this.displayColumn = ''  
+  //         }
+  //     },
+  //   }
+  // }
 
 
 </script>
