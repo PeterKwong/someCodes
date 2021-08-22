@@ -116,11 +116,12 @@
                                 <div class="flex items-center space-x-5">
                                     <div>
                                         <label class="inline-flex space-x-2 items-center" >
-                                            <input type="checkbox" id="18KW" name="18KW" value="18KW" class="h-4 w-4 form-checkbox"
+                                            <input type="checkbox" id="KW" name="KW" value="KW" class="h-4 w-4 form-checkbox"
                                                 x-model="KW.clicked"
+                                                x-on:click="KW.clicked = !KW.clicked; @this.toggleValue('metal','18KW')"
                                                 >
-                                            <img src="/assets/images/ellipse-silver.png" alt="" x-on:click="KW.clicked = !KW.clicked; @this.toggleValue('metal','18KW')">
-                                            <span x-on:click="KW.clicked = !KW.clicked; @this.toggleValue('metal','18KW')">{{__('weddingRing.18K White')}}</span>
+                                            <img src="/assets/images/ellipse-silver.png" alt="" >
+                                            <span>{{__('weddingRing.18K White')}}</span>
                                             
                                         </label>
                                     </div>
