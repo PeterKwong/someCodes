@@ -128,10 +128,9 @@
                                         <label class="inline-flex space-x-2 items-center">
                                                 <input type="checkbox" id="18KR" name="18KR" value="18KR" class="h-4 w-4 form-checkbox"
                                                 x-model="KR.clicked"
-                                                x-on:click="@this.toggleValue('metal','18KR')"
                                                 >
-                                            <img src="/assets/images/ellipse-rose-gold.png" alt="">
-                                            <span>{{__('weddingRing.18K Rose Gold')}}</span>
+                                            <img src="/assets/images/ellipse-rose-gold.png" alt="" x-on:click="@this.toggleValue('metal','18KR')">
+                                            <span x-on:click="@this.toggleValue('metal','18KR')">{{__('weddingRing.18K Rose Gold')}}</span>
                                         </label>
                                     </div>
                                 </div>
