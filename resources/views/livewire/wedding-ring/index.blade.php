@@ -118,10 +118,9 @@
                                         <label class="inline-flex space-x-2 items-center" >
                                                 <input type="checkbox" id="18KW" name="18KW" value="18KW" class="h-4 w-4 form-checkbox"
                                                 x-model="KW.clicked"
-                                                wire:click="toggleValue('metal','18KW')"
                                                 >
-                                            <img src="/assets/images/ellipse-silver.png" alt="">
-                                            <span>{{__('weddingRing.18K White')}}</span>
+                                            <img src="/assets/images/ellipse-silver.png" alt="" wire:click="toggleValue('metal','18KW')">
+                                            <span wire:click="toggleValue('metal','18KW')">{{__('weddingRing.18K White')}}</span>
                                             
                                         </label>
                                     </div>
@@ -129,7 +128,7 @@
                                         <label class="inline-flex space-x-2 items-center">
                                                 <input type="checkbox" id="18KR" name="18KR" value="18KR" class="h-4 w-4 form-checkbox"
                                                 x-model="KR.clicked"
-                                                wire:click="toggleValue('metal','18KR')"
+                                                x-on:click="@this.toggleValue('metal','18KR')"
                                                 >
                                             <img src="/assets/images/ellipse-rose-gold.png" alt="">
                                             <span>{{__('weddingRing.18K Rose Gold')}}</span>
@@ -141,7 +140,7 @@
                                         <label class="inline-flex space-x-2 items-center">
                                                 <input type="checkbox" id="PT" name="PT" value="PT" class="h-4 w-4 form-checkbox"
                                                 x-model="PT.clicked"
-                                                wire:click="toggleValue('metal','PT')"
+                                                x-on:click="@this.toggleValue('metal','PT')"
                                                 >
                                             <img src="/assets/images/ellipse-silver.png" alt="">
                                             <span>{{__('weddingRing.PT')}}</span>
@@ -151,7 +150,7 @@
                                         <label class="inline-flex space-x-2 items-center">
                                                 <input type="checkbox" id="Mixed" name="Mixed" value="Mixed" class="h-4 w-4 form-checkbox"
                                                 x-model="Mixed.clicked"
-                                                wire:click="toggleValue('metal','Mixed')"
+                                                x-on:click="@this.toggleValue('metal','Mixed')"
                                                 >
                                             <span>{{__('weddingRing.Mixed')}}</span>
                                         </label>
