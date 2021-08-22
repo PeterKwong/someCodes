@@ -209,6 +209,7 @@
                 <div class="flex flex-wrap items-center gap-3">
                     @foreach($tags as  $k => $conditions)
                         @foreach($conditions as  $key => $data)
+                            @if($data != '')
                             <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
                               <button wire:click="toggleValue('{{$k}}', '{{$data}}' )">
                                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -225,6 +226,7 @@
                               </button>
                               <span>{{__('weddingRing.' . $data)}}</span>
                           </div>
+                          @endif
                         @endforeach
                     @endforeach
                 </div>
