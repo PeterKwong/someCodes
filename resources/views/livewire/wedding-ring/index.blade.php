@@ -4,7 +4,7 @@
     <div class="relative flex flex-col max-w-screen-2xl 2xl:mx-auto md:mx-10 lg:mx-20 px-5 md:px-0 font-lato">
 
     <!-- Choose/Filter -->
-        <div x-data="weddingRing()" :class="{'absolute -top-0 left-0 z-50 w-full h-full bg-black bg-opacity-30 pt-5 md:pt-0 px-4 md:px-0' : applyFilter,}" class="flex flex-col space-y-3 pt-7">
+        <span x-data="weddingRing()" :class="{'absolute -top-0 left-0 z-50 w-full h-full bg-black bg-opacity-30 pt-5 md:pt-0 px-4 md:px-0' : applyFilter,}" class="flex flex-col space-y-3 pt-7">
             <div x-show="applyFilter == false" class="flex items-center justify-between relative">
                 <button @click="applyFilter = !applyFilter" class="flex items-center space-x-3 text-brown lg:hidden focus:outline-none fixed top-1/3 -top-10 z-10 bg-white px-4 py-2 rounded-lg filter-shadow" id="filter-icon">
                     <svg class="fill-current" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -116,33 +116,22 @@
                             <div class="flex flex-col  space-y-3">
                                 <div class="flex items-center space-x-5">
                                     <div>
-                                        <label class="inline-flex space-x-2 items-center">
-                                            @if($search_conditions['metal']['18KW']['clicked'])
+                                        <label class="inline-flex space-x-2 items-center" >
                                                 <input type="checkbox" id="18KW" name="18KW" value="18KW" class="h-4 w-4 form-checkbox"
-                                                checked
+                                                x-model="KW.clicked"
                                                 x-on:click="@this.toggleValue('metal','18KW')"
                                                 >
-                                            @else
-                                                <input type="checkbox" id="18KW" name="18KW" value="18KW" class="h-4 w-4 form-checkbox"
-                                                x-on:click="@this.toggleValue('metal','18KW')"
-                                                >
-                                            @endif
                                             <img src="/assets/images/ellipse-silver.png" alt="">
                                             <span>{{__('weddingRing.18K White')}}</span>
+                                            
                                         </label>
                                     </div>
                                     <div>
                                         <label class="inline-flex space-x-2 items-center">
-                                            @if($search_conditions['metal']['18KR']['clicked'])
                                                 <input type="checkbox" id="18KR" name="18KR" value="18KR" class="h-4 w-4 form-checkbox"
-                                                checked
+                                                x-model="KR.clicked"
                                                 x-on:click="@this.toggleValue('metal','18KR')"
                                                 >
-                                            @else
-                                                <input type="checkbox" id="18KR" name="18KR" value="18KR" class="h-4 w-4 form-checkbox"
-                                                x-on:click="@this.toggleValue('metal','18KR')"
-                                                >
-                                            @endif
                                             <img src="/assets/images/ellipse-rose-gold.png" alt="">
                                             <span>{{__('weddingRing.18K Rose Gold')}}</span>
                                         </label>
@@ -151,32 +140,20 @@
                                 <div class="flex items-center space-x-5">
                                     <div>
                                         <label class="inline-flex space-x-2 items-center">
-                                            @if($search_conditions['metal']['PT']['clicked'])
                                                 <input type="checkbox" id="PT" name="PT" value="PT" class="h-4 w-4 form-checkbox"
-                                                checked
+                                                x-model="PT.clicked"
                                                 x-on:click="@this.toggleValue('metal','PT')"
                                                 >
-                                            @else
-                                                <input type="checkbox" id="PT" name="PT" value="PT" class="h-4 w-4 form-checkbox"
-                                                x-on:click="@this.toggleValue('metal','PT')"
-                                                >
-                                            @endif
                                             <img src="/assets/images/ellipse-silver.png" alt="">
                                             <span>{{__('weddingRing.PT')}}</span>
                                         </label>
                                     </div>
                                     <div>
                                         <label class="inline-flex space-x-2 items-center">
-                                            @if($search_conditions['metal']['Mixed']['clicked'])
                                                 <input type="checkbox" id="Mixed" name="Mixed" value="Mixed" class="h-4 w-4 form-checkbox"
-                                                checked
+                                                x-model="Mixed.clicked"
                                                 x-on:click="@this.toggleValue('metal','Mixed')"
                                                 >
-                                            @else
-                                                <input type="checkbox" id="Mixed" name="Mixed" value="Mixed" class="h-4 w-4 form-checkbox"
-                                                x-on:click="@this.toggleValue('metal','Mixed')"
-                                                >
-                                            @endif
                                             <span>{{__('weddingRing.Mixed')}}</span>
                                         </label>
                                     </div>
@@ -329,7 +306,7 @@
             </div>
 
 
-        </div>
+        </span>
     </div>
 
         
@@ -348,6 +325,13 @@
     return {
         applyFilter:false,
         search_conditions:@entangle('search_conditions'),
+        KW:@entangle('search_conditions.metal.18KW'),
+        KR:@entangle('search_conditions.metal.18KR'),
+        PT:@entangle('search_conditions.metal.PT'),
+        Mixed:@entangle('search_conditions.metal.Mixed'),
+        init(){
+            // console.log(this.search_conditions.metal.18KW)
+        }
 
     }
   }
