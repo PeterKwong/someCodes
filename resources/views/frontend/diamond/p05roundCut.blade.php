@@ -31,47 +31,19 @@
 
     @endSection
 
+
+    @section('hero')
+
+        <x-diamond.hero>{{trans('diamond.metaTitle22')}}</x-diamond.hero>
+   
+        
+    @endsection
+
     @section('content')
-    
-        <div class="flex" >
-            <div class="flex-auto">
-
-                <div class="relative">
-                    <a class="absolute m-1 sm:m-8" href="{{url(app()->getLocale())}}/gia-loose-diamonds" >{{trans('diamondSearch.Diamond')}} > {{trans('diamondSearch.Diamond Price')}}</a>
-                    <img class="object-contain w-full" src="{{url('images/front-end/diamond/search/frame.png')}}">
-                </div>
-
-                <div class="">
-                  <div class="w-5/6 sm:w-4/6 p-2" style="
-                        background-image:url(/images/front-end/diamond/search/grad.png);
-                        background-repeat-x: repeat;
-                        background-size:100%;
-                        font-size:24px;
-                        color:#fff;">
-                    <span><b class="text-base sm:text-2xl">{{trans('diamond.metaTitle29')}} {{trans('diamondSearch.Search')}}</b>
-                    </span>&nbsp;&nbsp;<br class=""> 
-                    <span class="text-base">
-                    {{trans('diamond.metaTitle22')}}</span>
-                      </div>
-                    </div>
-                    
-                </div>
-            </div>
 
 
-        <div id="diamondViewerIndex">
-            <div class="row justify-content-center">
-                <div class="col-11">
-                    <br>
+        @include('frontend.diamond.diamondContent')            
 
-                    @include('frontend.diamond.diamondContent')            
-                    
-                </div>
-                
-            </div>
-            
-        </div>
 
     @endSection
-
 
