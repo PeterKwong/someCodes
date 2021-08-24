@@ -33,32 +33,32 @@
                             </svg>
                         </label>
                         <fieldset class="flex flex-wrap items-center gap-3 md:gap-0 md:space-x-5">
-                            <label class="wedding-ring-wrapper relative block rounded border bg-white cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['shape']['straight']['clicked']? 'border-brown bg-brown-light':'' }}">
+                            <label class="wedding-ring-wrapper h-11 md:h-auto w-auto relative block rounded-none md:rounded border bg-white p-3 cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['shape']['straight']['clicked']? 'border-brown bg-brown-light':'' }}">
                                 <input type="checkbox" name="style" value="3" class="sr-only">
-                                <div class="flex flex-col items-center" wire:click="toggleValue('shape','straight')">
-                                    <img src="/assets/images/wr-1.png" alt="">
+                                <div class="flex flex-row md:flex-col items-center space-x-0.5 md:space-x-0" wire:click="toggleValue('shape','straight')">
+                                    <img class="w-7 md:w-auto h-5 md:h-auto" src="/assets/images/wr-1.png" alt="">
                                     <p id="server-size-1-label" class="text-sm md:text-base">{{__('weddingRing.Straight')}}</p>
                                 </div>
                             </label>
-                            <label class="wedding-ring-wrapper relative block rounded border bg-white cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light 
+                            <label class="wedding-ring-wrapper h-11 md:h-auto w-auto relative block rounded-none md:rounded border bg-white p-3 cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light 
                             {{$search_conditions['shape']['wave']['clicked']? 'border-brown bg-brown-light':'' }}">
                                 <input type="checkbox" name="style" value="3" class="sr-only">
-                                <div class="flex flex-col items-center" wire:click="toggleValue('shape','wave')">
-                                    <img src="/assets/images/wr-2.png" alt="">
+                                <div class="flex flex-row md:flex-col items-center space-x-0.5 md:space-x-0" wire:click="toggleValue('shape','wave')">
+                                    <img class="w-7 md:w-auto h-5 md:h-auto" src="/assets/images/wr-2.png" alt="">
                                     <p id="server-size-2-label" class="text-sm md:text-base">{{__('weddingRing.Wave')}}</p>
                                 </div>
                             </label>
-                            <label class="wedding-ring-wrapper relative block rounded border bg-white cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['shape']['v-shape']['clicked']? 'border-brown bg-brown-light':'' }}">
+                            <label class="wedding-ring-wrapper h-11 md:h-auto w-auto relative block rounded-none md:rounded border bg-white p-3 cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['shape']['v-shape']['clicked']? 'border-brown bg-brown-light':'' }}">
                                 <input type="checkbox" name="style" value="3" class="sr-only">
-                                <div class="flex flex-col items-center" wire:click="toggleValue('shape','v-shape')">
-                                    <img src="/assets/images/wr-3.png" alt="">
+                                <div class="flex flex-row md:flex-col items-center space-x-0.5 md:space-x-0" wire:click="toggleValue('shape','v-shape')">
+                                    <img class="w-7 md:w-auto h-5 md:h-auto" src="/assets/images/wr-3.png" alt="">
                                     <p id="server-size-3-label" class="text-sm md:text-base">{{__('weddingRing.V-shape')}}</p>
                                 </div>
                             </label>
-                            <label class="wedding-ring-wrapper relative block rounded border bg-white cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['shape']['cross']['clicked']? 'border-brown bg-brown-light':'' }}">
+                            <label class="wedding-ring-wrapper h-11 md:h-auto w-auto relative block rounded-none md:rounded border bg-white p-3 cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['shape']['cross']['clicked']? 'border-brown bg-brown-light':'' }}">
                                 <input type="checkbox" name="style" value="4" class="sr-only">
-                                <div class="flex flex-col items-center space-y-2" wire:click="toggleValue('shape','cross')">
-                                    <img class="h-11" src="/assets/images/wr-4.png" alt="">
+                                <div class="flex flex-row md:flex-col items-center space-x-0.5 md:space-x-0" wire:click="toggleValue('shape','cross')">
+                                    <img class="w-7 md:w-auto h-5 md:h-auto" src="/assets/images/wr-4.png" alt="">
                                     <p id="server-size-4-label" class="text-sm md:text-base">{{__('weddingRing.Cross')}}</p>
                                 </div>
                             </label>
@@ -71,32 +71,32 @@
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M10 0.213135C4.47718 0.213135 0 4.69031 0 10.2131C0 15.736 4.47718 20.2131 10 20.2131C15.5228 20.2131 20 15.736 20 10.2131C20 4.69031 15.5229 0.213135 10 0.213135ZM10 18.4032C5.47679 18.4032 1.80999 14.7363 1.80999 10.2131C1.80999 5.68993 5.47679 2.02312 10 2.02312C14.5209 2.02861 18.1845 5.69218 18.19 10.2131C18.19 14.7364 14.5233 18.4032 10 18.4032ZM11 14.2132H9.00001V16.2132H11V14.2132ZM9.06855 4.30452C11.217 3.79012 13.3756 5.11471 13.89 7.26314C14.4015 9.38663 13.115 11.5277 11 12.0731V13.2131H9.00002V11.1031C9.00002 10.6116 9.39851 10.2131 9.89004 10.2131C10.9041 10.2486 11.7957 9.54708 12 8.55314C12.0939 7.44858 11.2746 6.47704 10.17 6.38315C9.06546 6.28926 8.09393 7.10859 8.00004 8.21316H6.00002C5.99139 6.35587 7.26232 4.73699 9.06855 4.30452Z" fill="#656565"/>
                             </svg>
                         </label>
-                        <fieldset class="flex flex-wrap items-center gap-3 md:gap-0 md:space-x-5">
-                            <label class="wedding-ring-wrapper relative block rounded border bg-white cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['finish']['high polish']['clicked']? 'border-brown bg-brown-light':'' }}">
+                        <fieldset class="flex flex-wrap items-center gap-1.5 md:gap-0 md:space-x-5">
+                            <label class="wedding-ring-wrapper h-11 md:h-auto w-auto relative block rounded-none md:rounded border bg-white p-3 cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['finish']['high polish']['clicked']? 'border-brown bg-brown-light':'' }}">
                                 <input type="checkbox" name="style" value="3" class="sr-only">
-                                <div class="flex flex-col items-center" wire:click="toggleValue('finish','high polish')">
-                                    <img src="/assets/images/finish-1.png" alt="">
+                                <div class="flex flex-row md:flex-col items-center space-x-0.5 md:space-x-0" wire:click="toggleValue('finish','high polish')">
+                                    <img class="w-7 md:w-auto h-5 md:h-auto" src="/assets/images/finish-1.png" alt="">
                                     <p id="server-size-1-label" class="text-sm md:text-base">{{__('weddingRing.High Polish')}}</p>
                                 </div>
                             </label>
-                            <label class="wedding-ring-wrapper relative block rounded border bg-white cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['finish']['matte']['clicked']? 'border-brown bg-brown-light':'' }}">
+                            <label class="wedding-ring-wrapper h-11 md:h-auto w-auto relative block rounded-none md:rounded border bg-white p-3 cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['finish']['matte']['clicked']? 'border-brown bg-brown-light':'' }}">
                                 <input type="checkbox" name="style" value="3" class="sr-only">
-                                <div class="flex flex-col items-center" wire:click="toggleValue('finish','matte')">
-                                    <img src="/assets/images/finish-2.png" alt="">
+                                <div class="flex flex-row md:flex-col items-center space-x-0.5 md:space-x-0" wire:click="toggleValue('finish','matte')">
+                                    <img class="w-7 md:w-auto h-5 md:h-auto" src="/assets/images/finish-2.png" alt="">
                                     <p id="server-size-2-label" class="text-sm md:text-base">{{__('weddingRing.Matte')}}</p>
                                 </div>
                             </label>
-                            <label class="wedding-ring-wrapper relative block rounded border bg-white cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['finish']['brushed']['clicked']? 'border-brown bg-brown-light':'' }}">
+                            <label class="wedding-ring-wrapper h-11 md:h-auto w-auto relative block rounded-none md:rounded border bg-white p-3 cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['finish']['brushed']['clicked']? 'border-brown bg-brown-light':'' }}">
                                 <input type="checkbox" name="style" value="3" class="sr-only">
-                                <div class="flex flex-col items-center" wire:click="toggleValue('finish','brushed')">
-                                    <img src="/assets/images/finish-3.png" alt="">
+                                <div class="flex flex-row md:flex-col items-center space-x-0.5 md:space-x-0" wire:click="toggleValue('finish','brushed')">
+                                    <img class="w-7 md:w-auto h-5 md:h-auto" src="/assets/images/finish-3.png" alt="">
                                     <p id="server-size-3-label" class="text-sm md:text-base">{{__('weddingRing.Brushed')}}</p>
                                 </div>
                             </label>
-                            <label class="wedding-ring-wrapper relative block rounded border bg-white cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['finish']['hammered']['clicked']? 'border-brown bg-brown-light':'' }}">
+                            <label class="wedding-ring-wrapper h-11 md:h-auto w-auto relative block rounded-none md:rounded border bg-white p-3 cursor-pointer hover:border-brown sm:flex sm:justify-between hover:bg-brown-light  {{$search_conditions['finish']['hammered']['clicked']? 'border-brown bg-brown-light':'' }}">
                                 <input type="checkbox" name="style" value="4" class="sr-only">
-                                <div class="flex flex-col items-center" wire:click="toggleValue('finish','hammered')">
-                                    <img class="h-11" src="/assets/images/finish-4.png" alt="">
+                                <div class="flex flex-row md:flex-col items-center space-x-0.5 md:space-x-0" wire:click="toggleValue('finish','hammered')">
+                                    <img class="w-7 md:w-auto h-5 md:h-auto" src="/assets/images/finish-4.png" alt="">
                                     <p id="server-size-4-label" class="text-sm md:text-base">{{__('weddingRing.Hammered')}}</p>
                                 </div>
                             </label>
