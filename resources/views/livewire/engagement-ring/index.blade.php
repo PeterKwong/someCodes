@@ -13,7 +13,7 @@
                   <span class="font-bold">{{__('weddingRing.Filter')}}</span>    
               </button>
           </div>
-          <form action="#" :class="{'hidden lg:flex' : !applyFilter, 'flex lg:hidden fixed overflow-y-scroll h-5/6 w-full top-10 left-0 z-50 bg-white pt-5 md:pt-0 md:pb-0 px-4 md:px-0 border border-2' : applyFilter,}" class="flex-col space-y-7 font-lato" @click.away="applyFilter = false">
+          <form action="#" :class="{'hidden lg:flex' : !applyFilter, 'flex lg:hidden fixed overflow-y-scroll h-5/6 w-full top-10 left-0 z-50 bg-white pt-5 md:pt-0 md:pb-0 px-4 md:px-0 border border-2' : applyFilter,}" class="flex-col space-y-7 font-lato" x-on:click.away="applyFilter = false">
                 <div class="flex md:hidden items-center space-x-5 justify-between">
                     <button @click="applyFilter = false" class="flex-shrink-0 focus:outline-none">
                         <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,9 +120,9 @@
                           @endforeach
                         </select>
                     </div>
-                    <button class="flex md:hidden items-center justify-center w-full py-2 bg-brown hover:bg-white text-white hover:text-brown border border-brown transition ease-in-out duration-500" @click="applyFilter = false">
+                    <a class="flex md:hidden items-center justify-center w-full py-2 bg-brown hover:bg-white text-white hover:text-brown border border-brown transition ease-in-out duration-500" x-on:click="applyFilter = false">
                         <span class="text-white hover:text-brown font-bold font-lato tracking-widest uppercase">{{__('weddingRing.Apply')}}</span>
-                    </button>
+                    </a>
                 </div>
             </form>
           
