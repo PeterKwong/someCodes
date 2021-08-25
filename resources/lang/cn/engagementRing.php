@@ -2,6 +2,7 @@
 
 return [
 	'Style' => '款式',
+	'style' => '款式',
 	'shoulder' => '臂位',
 	'Shoulder' => '臂位',
 	'setting' => '戒指托',
@@ -38,10 +39,11 @@ return [
 	'halo' => '围圈碎钻石',		
 	'Side-stone' => '辅钻石/ 碎石',	
 	'side-stone' => '辅钻石/ 碎石',		
-	'shape' => '形狀',				
-	'Shape' => '形狀',
+	'shape' => '形状',				
+	'Shape' => '形状',
 
-	'other styles' => '其他款式',		
+	'other styles' => '其他款式',
+	'other' => '其他款式',
 	'all' => '全部',
 	'enlarge' => '显大',
 	'hand-engraving' => '人手批花',	
@@ -80,7 +82,12 @@ return [
 	'Clear' => '清除',
 	
 	'Submit' => '提交',
+	'Choose Diamond First' => '先选钻石',
+	'Clear' => '清除',
+	'Sort By' => '排序',
+
 
 	'ENGAGEMENT RINGS' => '求婚戒指',
+	'Popular' => '最受欢迎',	
 
 ];

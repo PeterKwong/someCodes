@@ -2,6 +2,7 @@
 
 return [
 	'Style' => 'Style',
+	'style' => 'Style',
 	'shoulder' => 'shoulder',
 	'Shoulder' => 'Shoulder',
 	'setting' => 'setting',
@@ -42,6 +43,7 @@ return [
 	'side-stone' => 'side-stone',		
 
 	'other styles' => 'Other Styles',		
+	'other' => 'Other Styles',		
 	'all' => 'All',
 	'enlarge' => 'Enlarge',
 	'hand-engraving' => 'Hand-Engraving',	
@@ -85,8 +87,10 @@ return [
 	'Submit' => 'Submit',	
 	'Choose Diamond First' => 'Choose Diamond First',
 	'Clear' => 'Clear',
+	'Sort By' => 'Sort By',
 	
 	'ENGAGEMENT RINGS' => 'ENGAGEMENT RINGS',
+	'Popular' => 'Popular',	
 
 
 ];

@@ -2,6 +2,7 @@
 
 return [
 	'Style' => '款式',
+	'style' => '款式',
 	'shoulder' => '臂位',
 	'Shoulder' => '臂位',
 	'setting' => '戒指托',
@@ -43,6 +44,7 @@ return [
 
 
 	'other styles' => '其他款式',		
+	'other' => '其他款式',		
 	'all' => '全部',
 	'enlarge' => '顯大',
 	'hand-engraving' => '人手批花',	
@@ -82,8 +84,11 @@ return [
 	'Submit' => '提交',
 	'Choose Diamond First' => '先選鑽石',
 	'Clear' => '清除',
+	'Sort By' => '排序',
+	
 
 	'ENGAGEMENT RINGS' => '求婚戒指',
+	'Popular' => '最受歡迎',	
 
 
 ];

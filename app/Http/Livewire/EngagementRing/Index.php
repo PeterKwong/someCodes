@@ -73,7 +73,7 @@ class Index extends Component
         if ( isset($_COOKIE['engagementRing']) ) {
 
             $same = true ;
-            $columns = ['style','shoulder','prong','shape','other'];
+            $columns = ['style','shoulder','prong','shape','other','column','direction'];
 
             
             $cookie = (array)json_decode($_COOKIE['engagementRing']) ;
@@ -203,7 +203,7 @@ class Index extends Component
 
 	 	$requests = ['style','shoulder','prong','shape','other'];
 
-        $query = EngagementRing::orderBy('created_at','desc');
+        $query = EngagementRing::where('published',1);
 
  		foreach ($requests as $req) {
  			if (count((array)$this->fetchData[$req]) && !in_array('', (array)$this->fetchData[$req]) ) {
@@ -212,9 +212,16 @@ class Index extends Component
 
  		}
 
-	    $this->model = $query->where('published',1)
-                        ->with(['images'])
-                        ->withCount('invoices')
+        $this->model = $query->with(['images'])
+                        ->withCount('invoices'); 
+
+        if ($this->fetchData['column'] == 'popular') {
+             $this->model = $query->orderBy('invoices_count', $this->fetchData['direction']);
+        }else{
+             $this->model = $query->orderBy($this->fetchData['column'], $this->fetchData['direction']);            
+        }
+
+        $this->model = $query                        
 			            ->paginate($this->fetchData['per_page']);
                         // dd($this->model->sortBy('invoices')->toArray());
         $data =  $this->model->toArray();
@@ -228,6 +235,11 @@ class Index extends Component
         // dd($data);
 
 
+    }
+    public function upOrDown($direction)
+    {
+        $this->fetchData['direction'] = $direction; 
+        // dd($this->fetchData);
     }
     public function toggleValue($condition, $data)
     {   
@@ -290,7 +302,7 @@ class Index extends Component
     }
     public function resetFetchData(){
 
-            $this->fetchData = ['page' =>1,  'column' => 'price','direction' => 'asc',
+            $this->fetchData = ['page' =>1,  'column' => 'popular','direction' => 'desc',
                          'per_page' => 12,
                          'style' => [], 'shoulder' => [], 'prong' => [],'shape' => [], 'other' => [], 
                     ];

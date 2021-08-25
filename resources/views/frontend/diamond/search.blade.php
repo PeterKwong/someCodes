@@ -1,5 +1,5 @@
 <div id="diamondHeight" class="relative flex flex-col max-w-screen-2xl 2xl:mx-auto md:mx-10 lg:mx-20 px-5 md:px-0 font-lato">
-      <!-- Shop Section  -->
+  <!-- Shop Section  -->
     <div >
   <!-- Choose/Filter -->
   <div x-data="desktopSliders()" x-init="init()"  :class="{'absolute -top-0 left-0 z-50 w-full h-full bg-black bg-opacity-30 pt-5 md:pt-0 px-4 md:px-0' : applyFilter,}" class="flex flex-col space-y-3">

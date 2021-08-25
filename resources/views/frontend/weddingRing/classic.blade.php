@@ -33,7 +33,7 @@
     @section('hero')
 
         <!-- Hero Section  -->
-        <div class="hero-image jewellery flex items-center justify-center w-full h-20 xl:h-36 mt-16 lg:mt-52">
+        <div class="hero-image jewellary-wedding-rings flex items-center justify-center w-full h-20 xl:h-36 mt-16 lg:mt-52">
             <h2 class="text-lg xl:text-2xl font-medium font-suranna tracking-widest uppercase">
                 {{trans('weddingRing.metaTitle1')}}
             </h2>
