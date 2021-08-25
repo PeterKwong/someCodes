@@ -15,11 +15,11 @@
           </div>
           <form action="#" :class="{'hidden lg:flex' : !applyFilter, 'flex lg:hidden fixed overflow-y-scroll h-5/6 w-full top-10 left-0 z-50 bg-white pt-5 md:pt-0 md:pb-0 px-4 md:px-0 border border-2' : applyFilter,}" class="flex-col space-y-7 font-lato" x-on:click.away="applyFilter = false">
                 <div class="flex md:hidden items-center space-x-5 justify-between">
-                    <button @click="applyFilter = false" class="flex-shrink-0 focus:outline-none">
+                    <a @click="applyFilter = false" class="flex-shrink-0 focus:outline-none">
                         <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7.30435 0.333374L8.5194 1.51255L3.72365 6.1667H14.1738V7.83338H3.72365L8.5194 12.4876L7.30435 13.6667L0.43492 7.00006L7.30435 0.333374Z" fill="#666666"/>
                         </svg>                                            
-                    </button>
+                    </a>
                     <span class="text-lg font-suranna text-center">
                          {{__('engagementRing.ENGAGEMENT RINGS')}} {{__('weddingRing.Filter')}}
                     </span>

@@ -227,7 +227,9 @@ class Index extends Component
 
 	     $this->model = $query->where('published',1)
                         ->with(['images',
-                            'weddingRings'=> function($query){ $query->withCount('invoices');}])
+                            'weddingRings'=> function($query){ $query->withCount('invoices');},
+                            'weddingRings.invoices',
+                            ])
 			            ->paginate($this->fetchData['per_page']);
 
         $data =  $this->model->toArray();
