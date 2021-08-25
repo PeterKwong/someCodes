@@ -96,7 +96,7 @@ class Index extends Component
         return view('livewire.engagement-ring.index');
     }
     public function mount(){
-        $this->resetCookies();
+        $this->resetAll();
         $this->resetSettings();
 
         if (!isset($_COOKIE['engagementRing'])) {
