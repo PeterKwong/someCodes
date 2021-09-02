@@ -10,16 +10,15 @@
                 <span class="font-bold">{{__('weddingRing.Filter')}}</span>
             </a>
             <div class="flex items-center space-x-5">
-                <div class="md:hidden flex items-center space-x-2"
+                <div class="md:hidden flex items-center space-x-2">
+                    <input type="checkbox" name="Starred" id="Starred" x-model="advance_search_conditions.starred.clicked"
                         x-on:click="advance_search_conditions.starred.clicked = ! advance_search_conditions.starred.clicked; @this.selectStarred()">
-                    <input type="checkbox" name="Starred" id="Starred" x-model="advance_search_conditions.starred.clicked">
                     <label for="Starred" class="font-bold">
                         {{__('diamondSearch.starred')}}
                     </label>
                 </div>
-                <div class="md:hidden flex items-center space-x-2"
-                        x-on:click="search_conditions.location['1Hong Kong'].clicked = ! search_conditions.location['1Hong Kong'].clicked;@this.setLocationToHK()">
-                    <input type="checkbox" name="HK_Stock" id="HK_Stock" x-model="search_conditions.location['1Hong Kong'].clicked">
+                <div class="md:hidden flex items-center space-x-2">
+                    <input type="checkbox" name="HK_Stock" id="HK_Stock" x-model="search_conditions.location['1Hong Kong'].clicked" x-on:click="search_conditions.location['1Hong Kong'].clicked = ! search_conditions.location['1Hong Kong'].clicked;@this.setLocationToHK()">
                     <label for="HK_Stock" class="font-bold">
                         {{__('diamondSearch.Only On Stock')}}
                     </label>

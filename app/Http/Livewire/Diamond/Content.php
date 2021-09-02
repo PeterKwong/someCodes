@@ -803,13 +803,11 @@ class Content extends Component
 		              $q->whereBetween('length', $this->fetchData['length']);
 		            });
 		      }
-
 		      if ($this->fetchData['width'][0]) {
 		      		$query = $query->where(function($q){
 		              $q->whereBetween('width', $this->fetchData['width']);
 		            });
 		      }
-
 		      if ($this->fetchData['depth'][0]) {
 		      		$query = $query->where(function($q){
 		              $q->whereBetween('depth', $this->fetchData['depth']);
@@ -838,10 +836,11 @@ class Content extends Component
 	}
 	public function setLocationToHK(){
 
-		if ( !count($this->fetchData['location']) ) {
-			$this->fetchData['location'] = ['1Hong Kong'];
-		}else{
+		if ( in_array('1Hong Kong', $this->fetchData['location']) ) {
 			$this->fetchData['location'] = [];	
+		}else{
+			$this->fetchData['location'] = ['1Hong Kong'];
+					      // dd('0');
 
 		}
 	}

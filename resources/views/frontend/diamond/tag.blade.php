@@ -8,7 +8,7 @@
                     @if($k == 'price')
                       @if( $conditions[0] != 1000 || $conditions[1] != 50000000  )
                         <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
-                            <a wire:click="clearTags('{{$k}}')">
+                            <button wire:click="clearTags('{{$k}}')">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0)">
                                         <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
@@ -20,7 +20,7 @@
                                         </clipPath>
                                     </defs>
                                 </svg>
-                            </a>
+                            </button>
                             <span>{{__('diamondSearch.' . $k)}}:
                               @foreach($conditions as  $key => $data)
                                 ${{$data}}
@@ -34,7 +34,7 @@
                     @if($k == 'weight')
                         @if( $conditions[0] != 0.3 || $conditions[1] != 20  )
                             <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
-                                <a wire:click="clearTags('{{$k}}')">
+                                <button wire:click="clearTags('{{$k}}')">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g clip-path="url(#clip0)">
                                             <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
@@ -46,7 +46,7 @@
                                             </clipPath>
                                         </defs>
                                     </svg>
-                                </a>
+                                </button>
                                 <span>{{__('diamondSearch.' . $k)}}:
                                   @foreach($conditions as  $key => $data)
                                     {{$data}}
@@ -69,7 +69,7 @@
                             @php($conditions = array_values($conditions))
                             @if(current($conditions) !== 0)
                             <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
-                                    <a wire:click="clearTags('{{$k}}')">
+                                    <button wire:click="clearTags('{{$k}}')">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g clip-path="url(#clip0)">
                                                 <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
@@ -81,7 +81,7 @@
                                                 </clipPath>
                                             </defs>
                                         </svg>
-                                    </a>
+                                    </button>
                                     <span>{{__('diamondSearch.' . $k)}}:
                                         @foreach($conditions as  $key => $data)
                                           {{$data}}
