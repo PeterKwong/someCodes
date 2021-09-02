@@ -358,7 +358,7 @@ class Content extends Component
 
     	if (!isset($_COOKIE['diamondSearch']) || 
     		!isset($_COOKIE['diamondSearchShowAdvance'])|| 
-    		!isset($_COOKIE['tagShowMore'])|| 
+    		// !isset($_COOKIE['tagShowMore'])|| 
     		!isset($_COOKIE['clickedRows']) ) {
 			$this->setCookie();
     	}
@@ -861,7 +861,7 @@ class Content extends Component
 
 		setcookie('diamondSearch', json_encode($this->fetchData), $time , "/");
 		setcookie('diamondSearchShowAdvance', json_encode($this->showAdvance), $time , "/");
-		setcookie('tagShowMore', json_encode($this->tagShowMore), $time , "/");
+		// setcookie('tagShowMore', json_encode($this->tagShowMore), $time , "/");
 		setcookie('clickedRows', json_encode($this->clickedRows), $time , "/");
 
 	}
@@ -869,7 +869,7 @@ class Content extends Component
    		$this->fetchData = (array)json_decode($_COOKIE['diamondSearch']);
    		// dd($this->fetchData);
    		$this->showAdvance = json_decode($_COOKIE['diamondSearchShowAdvance']);
-   		$this->tagShowMore = (array)json_decode($_COOKIE['tagShowMore']);
+   		// $this->tagShowMore = (array)json_decode($_COOKIE['tagShowMore']);
    		$this->clickedRows = (array)json_decode($_COOKIE['clickedRows']);			
 	} 
 	public function resetCookies(){
@@ -878,7 +878,7 @@ class Content extends Component
 
 		setcookie('diamondSearch', '', $time , "/");
 		setcookie('diamondSearchShowAdvance', '', $time , "/");
-		setcookie('tagShowMore', '', $time , "/");
+		// setcookie('tagShowMore', '', $time , "/");
 		setcookie('clickedRows', '', $time , "/");
 
 
