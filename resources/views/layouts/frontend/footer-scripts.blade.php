@@ -141,13 +141,17 @@
         if (direction === 2 && curScroll > 190) { 
           
           //replace 52 with the height of your header in px
-          filter.classList.add('hidden')
+          if (filter) {
+            filter.classList.add('hidden')
+          }
           header.classList.add('hide');
           prevDirection = direction;
 
         }
         else if (direction === 1) {
-          filter.classList.remove('hidden')
+          if (filter) {
+            filter.classList.remove('hidden')
+          }
           header.classList.remove('hide');
           prevDirection = direction;
           // window.mutualVar.screen.scrollingDown = false
