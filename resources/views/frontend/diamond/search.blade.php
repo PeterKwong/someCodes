@@ -162,7 +162,7 @@
                   </a>
                 </div>
                 <div class="bg-grey-01 py-2 px-2 md:px-5 text-center">
-                  <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-00-1-19-carat-weightt">
+                  <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-00-1-19-carat-weight">
                     <span class="font-lato text-sm md:text-base">1.0-1.19</span>
                   </a>
                 </div>
