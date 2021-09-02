@@ -187,5 +187,8 @@ return [
 
 	'price below $80000 diamond, pay by cash would have 1.7~2% discount' => '8萬元以下，現金付款有1.7～2%折扣',
 
+	'View Less' => '查看更少',
+	'View More' => '查看更多',
+
 
 ];

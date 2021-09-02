@@ -1,260 +1,38 @@
-
-
-<div id="diamondHeight">
-
-
-  <div class="section-3 hidden sm:block">
-
-    @include('frontend.diamond.searchDesktop')
-
-
-  </div>
-
-  <div class="sm:hidden">
-
-     @include('frontend.diamond.searchMobile')
-   
-
-  </div>
-
-
-  <div class="flex justify-center text-center items-center border border-gray-400 p-2 pt-4 m-4" >
-
-    <div class="flex-1">
-      <center>
-
-      @if(config('global.locale.' . app()->getLocale())  != '2')
-        <a href="{{ '/links/whatsapp/852' . config('global.company.staffs.' . rand(0, count(config('global.company.staffs'))-1 ) . '.number') }}" >
-            <p>{{trans('diamondSearch.If you could not find diamonds as your inquiry')}} , <img class="h-4 " src="/images/front-end/diamond/search/whatsapp.png" alt="">    {{trans('diamondSearch.PLEASE（Whatsapp: Winnie－5484 4533， for the latest diamond Stock）')}}
-                    ( {{ config('global.company.staffs.' . rand(0, count(config('global.company.staffs'))-1 ) . '.name') }} :  {{ config('global.company.staffs.' . rand(0, count(config('global.company.staffs'))-1 ) . '.number') }} ) 
-
-            </p>
-        </a>
-      @endif
-
-      @if(config('global.locale.' . app()->getLocale())  == '2')
-
-      <p >{{trans('diamondSearch.If you could not find diamonds as your inquiry')}} ,   {{trans('diamondSearch.PLEASE（Whatsapp: Winnie－5484 4533， for the latest diamond Stock）')}}             
-          <img width="100" src="/images/front-end/aboutUs/wechat.jpg">
-      </p>
-
-      @endif
-
-       <p class="text-red-500">{{trans('diamondSearch.price below $80000 diamond, pay by cash would have 1.7~2% discount')}}        
-       </p>
-
-      </center>
-    </div>
-  </div>
-
-  <div class="flex flex-col space-y-5 items-center pb-0 md:pb-7 p-7 border-t mt-5">
-      <div class="flex w-full md:items-center justify-between">
-          <div class="flex flex-wrap items-center gap-3">
-            @foreach($tags as  $k => $conditions)
-              @if(in_array($k,['price','weight']))
-                @if($k == 'price')
-                  @if( $conditions[0] != 1000 || $conditions[1] != 50000000  )
-                    <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
-                        <button wire:click="clearTags('{{$k}}')">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0)">
-                                <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
-                                <path d="M13.5355 7.64298L11.1785 10L13.5355 12.357L12.357 13.5355L9.99998 11.1785L7.64296 13.5355L6.46444 12.357L8.82147 10L6.46444 7.64298L7.64296 6.46447L9.99998 8.82149L12.357 6.46447L13.5355 7.64298Z" fill="white"></path>
-                                </g>
-                                <defs>
-                                <clipPath id="clip0">
-                                <rect width="20" height="20" fill="white"></rect>
-                                </clipPath>
-                                </defs>
-                            </svg>    
-                        </button>
-                        <span>{{__('diamondSearch.' . $k)}}:
-                              @foreach($conditions as  $key => $data)
-                                ${{$data}}
-                                {{count($conditions)-1 == $key?'':'-'}}
-                              @endforeach
-                        </span>
-                    </div>
-                  @endif
-                @endif
-                @if($k == 'weight')
-                  @if( $conditions[0] != 0.3 || $conditions[1] != 20  )
-                    <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
-                        <button wire:click="clearTags('{{$k}}')">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0)">
-                                <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
-                                <path d="M13.5355 7.64298L11.1785 10L13.5355 12.357L12.357 13.5355L9.99998 11.1785L7.64296 13.5355L6.46444 12.357L8.82147 10L6.46444 7.64298L7.64296 6.46447L9.99998 8.82149L12.357 6.46447L13.5355 7.64298Z" fill="white"></path>
-                                </g>
-                                <defs>
-                                <clipPath id="clip0">
-                                <rect width="20" height="20" fill="white"></rect>
-                                </clipPath>
-                                </defs>
-                            </svg>    
-                        </button>
-                        <span>{{__('diamondSearch.' . $k)}}:
-                              @foreach($conditions as  $key => $data)
-                                {{$data}}
-                                {{count($conditions)-1 == $key?'':'-'}}
-                              @endforeach
-                        </span>
-                    </div>
-                  @endif
-                @endif
-              @endif
-
-              @if(!in_array($k,['price','weight']))
-                @if(is_object($conditions))
-                  @php($conditions = (array)$conditions)
-                @endif
-
-                @if(is_array($conditions))
-                  @if(count($conditions))
-                  @php($conditions = array_values($conditions))
-                    @if(current($conditions) != 0)
-                      <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
-                          <button wire:click="clearTags('{{$k}}')">
-                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <g clip-path="url(#clip0)">
-                                  <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
-                                  <path d="M13.5355 7.64298L11.1785 10L13.5355 12.357L12.357 13.5355L9.99998 11.1785L7.64296 13.5355L6.46444 12.357L8.82147 10L6.46444 7.64298L7.64296 6.46447L9.99998 8.82149L12.357 6.46447L13.5355 7.64298Z" fill="white"></path>
-                                  </g>
-                                  <defs>
-                                  <clipPath id="clip0">
-                                  <rect width="20" height="20" fill="white"></rect>
-                                  </clipPath>
-                                  </defs>
-                              </svg>    
-                          </button>
-                          <span>{{__('diamondSearch.' . $k)}}:
-                                @foreach($conditions as  $key => $data)
-                                  {{$data}}
-                                  {{count($conditions)-1 == $key?'':', '}}
-                                @endforeach
-                          </span>
-                      </div>
-                    @endif
-                  @endif
-                @endif
-              @endif  
-
-            @endforeach
-          </div>
-          <div class="flex flex-shrink-0">
-              <a class="text-brown underline" href="#" wire:click="resetAll()">{{__('engagementRing.Clear')}}</a>
-          </div>
-      </div>
-  </div>
-
-
-  <div class="flex justify-between p-4">
-    <div class="">
-      <a class="text-blue-600"><strong>{{trans('diamondSearch.Total')}}: </strong>
-              {{isset($diamonds['total'])?$diamonds['total']:''}} {{trans('diamondSearch.diamond')}}
-          </a>
-    </div>
-
-    <div x-data="{ search_conditions: @entangle('search_conditions'), advance_search_conditions: @entangle('advance_search_conditions')}">
-      <div>
-        <span x-on:click="advance_search_conditions.starred.clicked = ! advance_search_conditions.starred.clicked">
-          <button wire:click="selectStarred" :class=" `btn btn-outline ${advance_search_conditions.starred.clicked?'btn-primary':''}` " 
-          type="button"  >{{__('diamondSearch.starred')}}
-          </button> 
-        </span>
-        <span x-on:click="search_conditions.location['1Hong Kong'].clicked = ! search_conditions.location['1Hong Kong'].clicked">
-          <button wire:click="setLocationToHK" :class=" `btn btn-outline ${search_conditions.location['1Hong Kong'].clicked?'btn-primary':''}` " 
-          type="button"  >{{__('diamondSearch.Only On Stock')}}
-          </button> 
-        </span>
-
-      </div>
-    </div>
-  </div>
-
-  <div class=" sm:hidden">
-
-      <div class="flex justify-between px-4">
-          <div class="">
-              <div class="flex items-center">
-                  <div class="inline-block relative w-24">
-                        <select wire:model="fetchData.column" class="select hover:border-gray-500 focus:outline-none focus:shadow-outline">
-                          @foreach($columns as $column)
-                            <option value="{{$column}}" wire:click="toggleOrder('{{$column}}')">
-                            <a >{{ __('diamondSearch.'.$column)}}</a>
-                          @endforeach
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                        </div>
-                  </div>
-                  <div class="w-8">
-                    @if($fetchData['direction'] == 'desc')
-                      <button class="btn btn-outline"  wire:click="toggleOrder('{{$fetchData['column']}}')" >
-                                  <span >&#x25B2;</span>
-                      </button>
-                    @else
-                      <button class="btn btn-outline"  wire:click="toggleOrder('{{$fetchData['column']}}')" >
-                                  <span >&#x25BC;</span>
-                      </button>
-                    @endif
-                  </div>
-              </div>
-
-          </div>
-          <div class="">
-              <button class="btn btn-outline {{ $showInGrid ? 'btn-primary' : '' }}" wire:click="toggleShowGrid"><i class="fas fa-list-alt">{{ __('diamondSearch.List')}}</i></button>
-              <button class="btn btn-outline {{ $showInGrid ? '' : 'btn-primary' }}" wire:click="toggleShowGrid"><i class="fas fa-grip-vertical">{{ __('diamondSearch.Grid')}}</i></button>
-          </div>
-      </div>
-
-  </div>
-
-
-  <div wire:init="loadDiamonds"  x-data="result()" x-init="init()">
-
-    <div class="overflow-x-auto {{ $showInGrid ? 'sm:hidden' : 'hidden sm:block' }}" >
-      @include('frontend.diamond.resultDesktop')   
-    </div>
-
-    <div class="{{ $showInGrid ? 'hidden sm:block' : 'sm:hidden'}}" >
-      @include('frontend.diamond.resultMobile')
-    </div>    
-
-  </div>
-
-
-
-  <div class="flex justify-center m-2 {{ isset($diamonds['total']) && $diamonds['total'] == 0 ? '' : 'hidden'}}">
-
-      
-      <button class="btn btn-primary" wire:click="resetAll">
-          {{ __('diamondSearch.No Result')}} ！ {{__('diamondSearch.reset')}} <i class="fas fa-undo"></i>
-      </button>
+<div id="diamondHeight"  x-data="desktopSliders()" x-init="init()" class="relative flex flex-col max-w-screen-2xl 2xl:mx-auto md:mx-10 lg:mx-20 px-5 md:px-0 font-lato">
     
-  </div>
+    <!-- Choose/Filter -->
+    <div :class="{'absolute -top-0 left-0 z-50 w-full h-full bg-black bg-opacity-30 pt-5 md:pt-0 px-4 md:px-0' : applyFilter,}" class="flex flex-col space-y-3">
+        <div x-show="applyFilter == false" class="flex items-center justify-between">
+            <a @click="applyFilter = !applyFilter" class="flex items-center space-x-3 text-brown lg:hidden focus:outline-none fixed top-1/3 -top-10 z-10 bg-white px-4 py-2 rounded-lg filter-shadow" id="filter-icon">
+                <svg class="fill-current" width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.2176 1.67592H7.30206C6.97447 0.702955 6.05418 0 4.97216 0C3.89014 0 2.96985 0.702955 2.64226 1.67592H0.782336C0.350278 1.67592 0 2.0262 0 2.45825C0 2.89031 0.350278 3.24059 0.782336 3.24059H2.64231C2.9699 4.21355 3.89019 4.91651 4.97221 4.91651C6.05423 4.91651 6.97452 4.21355 7.30211 3.24059H19.2177C19.6497 3.24059 20 2.89031 20 2.45825C20 2.0262 19.6497 1.67592 19.2176 1.67592ZM4.97216 3.35184C4.47944 3.35184 4.07858 2.95097 4.07858 2.45825C4.07858 1.96554 4.47944 1.56467 4.97216 1.56467C5.46487 1.56467 5.86574 1.96554 5.86574 2.45825C5.86574 2.95097 5.46487 3.35184 4.97216 3.35184ZM19.2176 8.37964H17.3576C17.03 7.40667 16.1097 6.70372 15.0277 6.70372C13.9458 6.70372 13.0255 7.40667 12.6979 8.37964H0.782336C0.350278 8.37964 0 8.72992 0 9.16197C0 9.59403 0.350278 9.94431 0.782336 9.94431H12.6979C13.0255 10.9173 13.9458 11.6202 15.0278 11.6202C16.1097 11.6202 17.0301 10.9173 17.3577 9.94431H19.2177C19.6497 9.94431 20 9.59403 20 9.16197C20 8.72992 19.6497 8.37964 19.2176 8.37964ZM15.0278 10.0556C14.5351 10.0556 14.1342 9.65469 14.1342 9.16197C14.1342 8.66926 14.5351 8.26839 15.0278 8.26839C15.5205 8.26839 15.9214 8.66926 15.9214 9.16197C15.9214 9.65469 15.5205 10.0556 15.0278 10.0556ZM10.6539 15.0833H19.2176C19.6497 15.0833 20 15.4336 20 15.8657C20 16.2977 19.6497 16.648 19.2177 16.648H10.6539C10.3264 17.621 9.40607 18.3239 8.32405 18.3239C7.24203 18.3239 6.32174 17.621 5.99415 16.648H0.782336C0.350278 16.648 0 16.2977 0 15.8657C0 15.4336 0.350278 15.0833 0.782336 15.0833H5.99415C6.32174 14.1104 7.24203 13.4074 8.32405 13.4074C9.40607 13.4074 10.3264 14.1104 10.6539 15.0833ZM7.43047 15.8657C7.43047 16.3584 7.83134 16.7593 8.32405 16.7593C8.81676 16.7593 9.21763 16.3584 9.21763 15.8657C9.21763 15.3729 8.81676 14.9721 8.32405 14.9721C7.83134 14.9721 7.43047 15.373 7.43047 15.8657Z" />
+                </svg>
+                <span class="font-bold">{{__('weddingRing.Filter')}}</span>
+            </a>
+            <div class="flex items-center space-x-5">
+                <div class="md:hidden flex items-center space-x-2"
+                        x-on:click="advance_search_conditions.starred.clicked = ! advance_search_conditions.starred.clicked; @this.selectStarred()">
+                    <input type="checkbox" name="Starred" id="Starred" x-model="advance_search_conditions.starred.clicked">
+                    <label for="Starred" class="font-bold">
+                        {{__('diamondSearch.starred')}}
+                    </label>
+                </div>
+                <div class="md:hidden flex items-center space-x-2"
+                        x-on:click="search_conditions.location['1Hong Kong'].clicked = ! search_conditions.location['1Hong Kong'].clicked;@this.setLocationToHK()">
+                    <input type="checkbox" name="HK_Stock" id="HK_Stock" x-model="search_conditions.location['1Hong Kong'].clicked">
+                    <label for="HK_Stock" class="font-bold">
+                        {{__('diamondSearch.Only On Stock')}}
+                    </label>
+                </div>
+            </div>
+        </div>
+        @include('frontend.diamond.search')
+    </div>   
 
+    @include('frontend.diamond.tag')
+    @include('frontend.diamond.result')
 
 </div>
-
-
-  <div class="flex justify-center">
-      <a class="border border-gray-400 px-4 "  
-      href="{{ isset($diamonds['first_page_url'])?$diamonds['first_page_url']:'' }}" >
-        {{trans('pagination.First Page')}} 1</a>
-      <a class="border border-gray-400 px-4 "  
-      href="{{ isset($diamonds['prev_page_url'])?$diamonds['prev_page_url']:'' }}" >
-        {{trans('diamondSearch.Previous')}}</a>
-      <a class="border border-gray-400 px-4 text-white bg-blue-600" >
-        {{isset($diamonds['current_page'])?$diamonds['current_page']:''}}</a>
-      <a class="border border-gray-400 px-4 "  
-      href="{{ isset($diamonds['next_page_url'])?$diamonds['next_page_url']:'' }}" >
-        {{trans('diamondSearch.Next')}}</a>
-      <a class="border border-gray-400 px-4 " 
-      href="{{ isset($diamonds['last_page_url'])?$diamonds['last_page_url']:'' }}" >
-        {{trans('pagination.Last Page')}} {{ isset($diamonds['last_page'])?$diamonds['last_page']:'' }}</a>
-
-  </div>
 
 <div id="loading" wire:loading.class="loading">
 </div>
@@ -471,8 +249,16 @@
             this.sliders.weight.maxinputjs = this.weightMax
             this.mintrigger('weight')
             this.maxtrigger('weight')            
-            console.log('vars',this.sliders.price.mininputjs)
+            if (localStorage.getItem('clickedRows')) {
+                this.clickedRows = JSON.parse(decodeURIComponent(localStorage.getItem('clickedRows')))
+            }
 
+          },
+          mobileUpdateInputs(){
+            this.updateInput('priceMin','mininputjs','price')
+            this.updateInput('priceMax','maxinputjs','price')
+            this.updateInput('weightMin','mininputjs','weight')
+            this.updateInput('weightMax','maxinputjs','weight')
           },
           expMintrigger(type) {
             this.expCheckMin(type)
@@ -512,9 +298,6 @@
             t.maxvalue = ((100-t.maxthumb)/100)*(t.max - t.min)+t.min
           },
           updateInput(m,mjs,type){
-            // console.log(type)
-            // console.log('min',m)
-            // console.log('min',mjs)
             var t = this.sliders[type]
             // console.log('min',t)
             t[m] = t[mjs]            
@@ -579,6 +362,26 @@
             }
             t.maxinputjs = Math.max(t.maxinputjs, t.mininputjs + 0.01); 
           },
+
+          //Results
+          diamonds:@entangle('diamonds'), 
+          clickedRows:[],
+          sendCookies(){
+              localStorage.setItem('clickedRows', encodeURIComponent(JSON.stringify(this.clickedRows)))
+          },
+          goto(id,i){
+            row = this.diamonds.data[i].id
+            this.clickedRows.push(row)
+            window.open('/' + '{{app()->getLocale()}}' + '/gia-loose-diamonds/' + row , '')
+            this.sendCookies()
+          },
+          //fancy Color
+          fancy_color: @entangle('fancy_color'),
+          //advance
+          showAdvance: @entangle('showAdvance'),
+          advance_search_conditions: @entangle('advance_search_conditions'), 
+
+
 
         }
     }

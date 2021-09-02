@@ -57,6 +57,8 @@ Route::get('/', [HomeController::class, 'index']);
             // return redirect('https://instagram.com/tingdiamond/');
         } ); 
         Route::get('whatsapp/{number}', function($number){
+            // redirect('https://bit.ly/3DIEBmU' );
+            // dd('hi');
             return view('frontend.page.direct',[
                         'url'=>'https://api.whatsapp.com/send?phone=' . $number .'&text='. request()->text 
                         ]);

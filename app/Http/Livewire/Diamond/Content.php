@@ -10,7 +10,7 @@ use Livewire\Component;
 class Content extends Component
 {
     public $tags;
-    public $tagShowMore = false;
+    public $tagShowMore = ['show'=>false, 'count' => 0];
 	protected $listeners = ['addPage'];
 
 	public $search_conditions = [
@@ -356,7 +356,10 @@ class Content extends Component
 
     	$this->resetSettings();
 
-    	if (!isset($_COOKIE['diamondSearch'])) {
+    	if (!isset($_COOKIE['diamondSearch']) || 
+    		!isset($_COOKIE['diamondSearchShowAdvance'])|| 
+    		!isset($_COOKIE['tagShowMore'])|| 
+    		!isset($_COOKIE['clickedRows']) ) {
 			$this->setCookie();
     	}
     	if (isset($_COOKIE['diamondSearch'])) {
@@ -511,9 +514,16 @@ class Content extends Component
 		$this->showAdvance = !$this->showAdvance;
 
 	}
+	public function toggleShowMoreTags()
+    {	
+
+		$this->tagShowMore['show'] = !$this->tagShowMore['show'];
+
+	}
 	public function setAdvanceToZero($column){
-        
+       	// dd('hi');
 		$this->fetchData[$column] = [0, 0];
+       	// dd($this->fetchData);
 
 	} 
 	public function addAdvanceSearch($column){
@@ -851,6 +861,7 @@ class Content extends Component
 
 		setcookie('diamondSearch', json_encode($this->fetchData), $time , "/");
 		setcookie('diamondSearchShowAdvance', json_encode($this->showAdvance), $time , "/");
+		setcookie('tagShowMore', json_encode($this->tagShowMore), $time , "/");
 		setcookie('clickedRows', json_encode($this->clickedRows), $time , "/");
 
 	}
@@ -858,7 +869,8 @@ class Content extends Component
    		$this->fetchData = (array)json_decode($_COOKIE['diamondSearch']);
    		// dd($this->fetchData);
    		$this->showAdvance = json_decode($_COOKIE['diamondSearchShowAdvance']);
-   		$this->clickedRows = json_decode($_COOKIE['clickedRows']);			
+   		$this->tagShowMore = (array)json_decode($_COOKIE['tagShowMore']);
+   		$this->clickedRows = (array)json_decode($_COOKIE['clickedRows']);			
 	} 
 	public function resetCookies(){
 
@@ -866,6 +878,7 @@ class Content extends Component
 
 		setcookie('diamondSearch', '', $time , "/");
 		setcookie('diamondSearchShowAdvance', '', $time , "/");
+		setcookie('tagShowMore', '', $time , "/");
 		setcookie('clickedRows', '', $time , "/");
 
 

@@ -198,5 +198,7 @@ return [
 	'Results' => 'Results',
 
 	'price below $80000 diamond, pay by cash would have 1.7~2% discount' => 'price below $80000 diamond, pay by cash would have 1.7~2% discount',
+	'View Less' => 'View Less',
+	'View More' => 'View More',
 
 ];
