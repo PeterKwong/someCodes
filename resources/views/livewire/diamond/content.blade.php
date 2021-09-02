@@ -32,6 +32,14 @@
     @include('frontend.diamond.tag')
     @include('frontend.diamond.result')
 
+      <div class="flex justify-center m-2 {{ isset($diamonds['total']) && $diamonds['total'] == 0 ? '' : 'hidden'}}">
+
+        <button class="btn btn-primary" wire:click="resetAll">
+            {{ __('diamondSearch.No Result')}} ！ {{__('diamondSearch.reset')}} <i class="fas fa-undo"></i>
+        </button>
+      
+      </div>
+
 </div>
 
 <div id="loading" wire:loading.class="loading">
