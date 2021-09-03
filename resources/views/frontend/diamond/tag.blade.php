@@ -114,7 +114,7 @@
     <a @click="tagShowMore.show = !tagShowMore.show;@this.toggleShowMoreTags()" 
         class="flex items-center font-bold text-brown space-x-2">
         <span x-show="tagShowMore.show">{{trans('diamondSearch.View Less')}}</span>
-        <span x-show="!tagShowMore.show">{{trans('diamondSearch.View More')}} ({{$tagShowMore['count']}})</span>
+        <span x-show="!tagShowMore.show">{{trans('diamondSearch.View More')}} {{$tagShowMore['count']>2?'('.($tagShowMore['count']-2).')':''}}</span>
         <svg :class="{'rotate-0': tagShowMore.show, ' rotate-180': !tagShowMore.show}" class="transform" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.41 7.41L6 2.83L10.59 7.41L12 6L6 0L0 6L1.41 7.41Z" fill="#9A7474" />
         </svg>
