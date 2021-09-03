@@ -122,21 +122,21 @@
     <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row w-full md:items-center md:justify-between pt-10">
         <span class="text-sm">{{trans('diamondSearch.Total')}}: {{isset($diamonds['total'])?$diamonds['total']:''}} {{trans('diamondSearch.diamond')}}</span>
         <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row md:items-center md:space-x-16">
-            <div class="hidden md:flex items-center space-x-2" 
+            <div class="hidden md:flex items-center space-x-2" >
+                <input type="checkbox" name="Starred" id="Starred" x-model="advance_search_conditions.starred.clicked"
                     x-on:click="advance_search_conditions.starred.clicked = ! advance_search_conditions.starred.clicked; @this.selectStarred()">
-                <input type="checkbox" name="Starred" id="Starred" x-model="advance_search_conditions.starred.clicked">
                 <label for="Starred" class="font-bold">
                     {{__('diamondSearch.starred')}}
                 </label>
             </div>
-            <div class="hidden md:flex items-center space-x-2" 
+            <div class="hidden md:flex items-center space-x-2">
+                <input type="checkbox" name="HK_Stock" id="HK_Stock" x-model="search_conditions.location['1Hong Kong'].clicked"
                     x-on:click="search_conditions.location['1Hong Kong'].clicked = ! search_conditions.location['1Hong Kong'].clicked;@this.setLocationToHK()">
-                <input type="checkbox" name="HK_Stock" id="HK_Stock" x-model="search_conditions.location['1Hong Kong'].clicked">
                 <label for="HK_Stock" class="font-bold">
                     {{__('diamondSearch.Only On Stock')}}
                 </label>
             </div>
-            <div class="flex space-x-1 md:max-w-max border-b">
+            <div class="flex space-x-1 items-center md:max-w-max border-b">
                 <label class="flex-shrink-0">
                     {{__('engagementRing.Sort By')}}:
                 </label>
