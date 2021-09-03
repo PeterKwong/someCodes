@@ -3,10 +3,12 @@
     <div class="flex w-full justify-between">
         <div class="flex flex-wrap items-center gap-3">
         @foreach($tags as  $k => $conditions)
-            @if($tagShowMore['count'] < 3 || $tagShowMore['show'] )
+
                 @if(in_array($k,['price','weight']))
                     @if($k == 'price')
                       @if( $conditions[0] != 1000 || $conditions[1] != 50000000  )
+                        @php($tagShowMore['count']=$tagShowMore['count']+1)
+                        @if($tagShowMore['count'] < 3 || $tagShowMore['show'] )
                         <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
                             <button wire:click="clearTags('{{$k}}')">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,11 +30,14 @@
                               @endforeach
                             </span>
                         </div>
-                        @php($tagShowMore['count']=$tagShowMore['count']+1)
+                        @endif                        
                       @endif
                     @endif
                     @if($k == 'weight')
                         @if( $conditions[0] != 0.3 || $conditions[1] != 20  )
+
+                            @php($tagShowMore['count']=$tagShowMore['count']+1)
+                            @if($tagShowMore['count'] < 3 || $tagShowMore['show'] )
                             <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
                                 <button wire:click="clearTags('{{$k}}')">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +59,7 @@
                                   @endforeach
                                 </span>
                             </div>
-                            @php($tagShowMore['count']=$tagShowMore['count']+1)
+                            @endif
                         @endif
                     @endif
                 @endif
@@ -68,7 +73,9 @@
                         @if(count($conditions))
                             @php($conditions = array_values($conditions))
                             @if(current($conditions) !== 0)
-                            <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
+                                @php($tagShowMore['count']=$tagShowMore['count']+1)
+                                @if($tagShowMore['count'] < 3 || $tagShowMore['show'] )
+                                <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
                                     <button wire:click="clearTags('{{$k}}')">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g clip-path="url(#clip0)">
@@ -89,12 +96,12 @@
                                         @endforeach
                                     </span>
                                 </div>
-                                @php($tagShowMore['count']=$tagShowMore['count']+1)
+                                @endif
                             @endif
                         @endif
                     @endif
                 @endif
-            @endif
+
         @endforeach
 
 
@@ -107,7 +114,7 @@
     <a @click="tagShowMore.show = !tagShowMore.show;@this.toggleShowMoreTags()" 
         class="flex items-center font-bold text-brown space-x-2">
         <span x-show="tagShowMore.show">{{trans('diamondSearch.View Less')}}</span>
-        <span x-show="!tagShowMore.show">{{trans('diamondSearch.View More')}}</span>
+        <span x-show="!tagShowMore.show">{{trans('diamondSearch.View More')}} ({{$tagShowMore['count']}})</span>
         <svg :class="{'rotate-0': tagShowMore.show, ' rotate-180': !tagShowMore.show}" class="transform" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.41 7.41L6 2.83L10.59 7.41L12 6L6 0L0 6L1.41 7.41Z" fill="#9A7474" />
         </svg>
