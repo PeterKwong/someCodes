@@ -1023,8 +1023,8 @@
         </div>
     </div>
     <!-- Apply button for mobile  -->
-    <a class="flex md:hidden items-center justify-center w-full mt-7 py-2 bg-brown hover:bg-white text-white hover:text-brown border border-brown transition ease-in-out duration-500">
-        <span class="text-white hover:text-brown font-bold font-lato tracking-widest uppercase"  x-on:click="applyFilter = false; mobileUpdateInputs()">{{trans('weddingRing.Apply')}}</span>
+    <a class="flex md:hidden items-center justify-center w-full mt-7 py-2 bg-brown hover:bg-white text-white hover:text-brown border border-brown transition ease-in-out duration-500" @click="applyFilter = false; mobileUpdateInputs()">
+        <span class="text-white hover:text-brown font-bold font-lato tracking-widest uppercase"  >{{trans('weddingRing.Apply')}}</span>
     </a>
     <span class="pt-4 md:pt-0"></span>
 </form>
