@@ -287,20 +287,20 @@
                                         </div>
                                         <ul class="z-50 flex flex-col space-y-3 divide-y uppercase font-lato pt-5 overflow-y-auto">
                                             <li class="pt-3">
-                                                <a href="{{ $baseUrl }}/gia-loose-diamonds" class="flex items-center space-x-3">
-                                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M22.3681 4.19995C21.6044 4.19995 8.47504 4.19995 7.63321 4.19995L3 10.5179L15.0498 26.3994L27 10.5161L22.3681 4.19995ZM9.58739 11.212L12.9823 21.3544L5.28697 11.212H9.58739ZM11.0663 11.212H18.9391L15.0298 23.053L11.0663 11.212ZM20.4161 11.212H24.7214L17.0495 21.4089L20.4161 11.212ZM21.6573 5.60237L24.7427 9.80962H20.417L19.0365 5.60237H21.6573ZM17.5605 5.60237L18.941 9.80962H11.0603L12.4408 5.60237H17.5605ZM8.34387 5.60237H10.9647L9.58421 9.80962H5.25855L8.34387 5.60237Z" fill="#666666"></path>
-                                                    </svg>                                    
-                                                    <span class="font-lato group-hover:border-b border-brown">{{trans('header.Start with a Diamond')}}</span>
-                                                </a>
-                                            </li>
-                                            <li class="pt-3">
                                                 <a href="{{ $baseUrl }}/engagement-rings" class="flex items-center space-x-3">
                                                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M15 27C8.39255 27 3 21.6071 3 15C3 8.39255 8.39292 3 15 3C21.6075 3 27 8.39292 27 15C27 21.6075 21.6071 27 15 27ZM15 4.40625C9.15858 4.40625 4.40625 9.15858 4.40625 15C4.40625 20.8414 9.15858 25.5938 15 25.5938C20.8414 25.5938 25.5938 20.8414 25.5938 15C25.5938 9.15858 20.8414 4.40625 15 4.40625Z" fill="#666666"></path>
                                                         <path d="M15 24.1875C9.95377 24.1875 5.8125 20.0453 5.8125 15C5.8125 9.95377 9.95475 5.8125 15 5.8125C20.0462 5.8125 24.1875 9.9547 24.1875 15C24.1875 20.0462 20.0452 24.1875 15 24.1875ZM15 7.21875C10.7094 7.21875 7.21875 10.7094 7.21875 15C7.21875 19.2906 10.7094 22.7812 15 22.7812C19.2906 22.7812 22.7812 19.2906 22.7812 15C22.7812 10.7094 19.2906 7.21875 15 7.21875Z" fill="#666666"></path>
                                                     </svg>                                                                      
                                                     <span class="font-lato">{{trans('header.Start with a Setting')}}</span>
+                                                </a>
+                                            </li>
+                                            <li class="pt-3">
+                                                <a href="{{ $baseUrl }}/gia-loose-diamonds" class="flex items-center space-x-3">
+                                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M22.3681 4.19995C21.6044 4.19995 8.47504 4.19995 7.63321 4.19995L3 10.5179L15.0498 26.3994L27 10.5161L22.3681 4.19995ZM9.58739 11.212L12.9823 21.3544L5.28697 11.212H9.58739ZM11.0663 11.212H18.9391L15.0298 23.053L11.0663 11.212ZM20.4161 11.212H24.7214L17.0495 21.4089L20.4161 11.212ZM21.6573 5.60237L24.7427 9.80962H20.417L19.0365 5.60237H21.6573ZM17.5605 5.60237L18.941 9.80962H11.0603L12.4408 5.60237H17.5605ZM8.34387 5.60237H10.9647L9.58421 9.80962H5.25855L8.34387 5.60237Z" fill="#666666"></path>
+                                                    </svg>                                    
+                                                    <span class="font-lato group-hover:border-b border-brown">{{trans('header.Start with a Diamond')}}</span>
                                                 </a>
                                             </li>
                                         </ul>
