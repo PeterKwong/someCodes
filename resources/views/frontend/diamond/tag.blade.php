@@ -57,8 +57,6 @@
                             @php($tagShowMore['count']=$tagShowMore['count']+1)
                         @endif
                     @endif
-                @else
-                    @php($tagShowMore['count']=$tagShowMore['count']+1)
                 @endif
 
                 @if(!in_array($k,['price','weight']))
@@ -71,28 +69,27 @@
                             @php($conditions = array_values($conditions))
                             @if(current($conditions) !== 0)
                             <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
-                                <button wire:click="clearTags('{{$k}}')">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip0)">
-                                            <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
-                                            <path d="M13.5355 7.64298L11.1785 10L13.5355 12.357L12.357 13.5355L9.99998 11.1785L7.64296 13.5355L6.46444 12.357L8.82147 10L6.46444 7.64298L7.64296 6.46447L9.99998 8.82149L12.357 6.46447L13.5355 7.64298Z" fill="white"></path>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0">
-                                                <rect width="20" height="20" fill="white"></rect>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </button>
-                                <span>{{__('diamondSearch.' . $k)}}:
-                                    @foreach($conditions as  $key => $data)
-                                      {{$data}}
-                                      {{count($conditions)-1 == $key?'':', '}}
-                                    @endforeach
-                                </span>
-                            </div>
-                            @php($tagShowMore['count']=$tagShowMore['count']+1)
-                            
+                                    <button wire:click="clearTags('{{$k}}')">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0)">
+                                                <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
+                                                <path d="M13.5355 7.64298L11.1785 10L13.5355 12.357L12.357 13.5355L9.99998 11.1785L7.64296 13.5355L6.46444 12.357L8.82147 10L6.46444 7.64298L7.64296 6.46447L9.99998 8.82149L12.357 6.46447L13.5355 7.64298Z" fill="white"></path>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0">
+                                                    <rect width="20" height="20" fill="white"></rect>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </button>
+                                    <span>{{__('diamondSearch.' . $k)}}:
+                                        @foreach($conditions as  $key => $data)
+                                          {{$data}}
+                                          {{count($conditions)-1 == $key?'':', '}}
+                                        @endforeach
+                                    </span>
+                                </div>
+                                @php($tagShowMore['count']=$tagShowMore['count']+1)
                             @endif
                         @endif
                     @endif
@@ -118,16 +115,16 @@
     <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row w-full md:items-center md:justify-between pt-10">
         <span class="text-sm">{{trans('diamondSearch.Total')}}: {{isset($diamonds['total'])?$diamonds['total']:''}} {{trans('diamondSearch.diamond')}}</span>
         <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row md:items-center md:space-x-16">
-            <div class="hidden md:flex items-center space-x-2">
-                <input type="checkbox" name="Starred" id="Starred" x-model="advance_search_conditions.starred.clicked"
-                        x-on:click="advance_search_conditions.starred.clicked = ! advance_search_conditions.starred.clicked; @this.selectStarred()">
+            <div class="hidden md:flex items-center space-x-2" 
+                    x-on:click="advance_search_conditions.starred.clicked = ! advance_search_conditions.starred.clicked; @this.selectStarred()">
+                <input type="checkbox" name="Starred" id="Starred" x-model="advance_search_conditions.starred.clicked">
                 <label for="Starred" class="font-bold">
                     {{__('diamondSearch.starred')}}
                 </label>
             </div>
-            <div class="hidden md:flex items-center space-x-2">
-                <input type="checkbox" name="HK_Stock" id="HK_Stock" x-model="search_conditions.location['1Hong Kong'].clicked"
-                        x-on:click="search_conditions.location['1Hong Kong'].clicked = ! search_conditions.location['1Hong Kong'].clicked;@this.setLocationToHK()">
+            <div class="hidden md:flex items-center space-x-2" 
+                    x-on:click="search_conditions.location['1Hong Kong'].clicked = ! search_conditions.location['1Hong Kong'].clicked;@this.setLocationToHK()">
+                <input type="checkbox" name="HK_Stock" id="HK_Stock" x-model="search_conditions.location['1Hong Kong'].clicked">
                 <label for="HK_Stock" class="font-bold">
                     {{__('diamondSearch.Only On Stock')}}
                 </label>
