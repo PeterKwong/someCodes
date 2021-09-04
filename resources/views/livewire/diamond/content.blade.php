@@ -44,197 +44,6 @@
 <div id="loading" wire:loading.class="loading">
 </div>
 
-<script >
-  function mobileSearch(){
-
-    return {
-      displayColumn:'', 
-      showAdvance : @entangle('showAdvance'),
-      search_conditions: @entangle('search_conditions'),
-      advance_search_conditions: @entangle('advance_search_conditions'), 
-      selectDisplayColumn(column){
-        if (this.displayColumn != column) {
-          this.displayColumn = column 
-        }else{
-          this.displayColumn = ''  
-        }
-      },
-      priceMin: @entangle('fetchData.price.0'), 
-      priceMax: @entangle('fetchData.price.1'),
-      weightMin: @entangle('fetchData.weight.0'), 
-      weightMax: @entangle('fetchData.weight.1'),
-      sliders: @entangle('sliders').defer,
-      init(){
-        this.sliders.price.mininputjs = this.priceMin
-        this.sliders.price.maxinputjs = this.priceMax
-        this.expUpdateMinThumb('price')
-        this.expUpdateMaxThumb('price')
-        this.sliders.weight.mininputjs = this.weightMin
-        this.sliders.weight.maxinputjs = this.weightMax
-        this.mintrigger('weight')
-        this.maxtrigger('weight')            
-        console.log('vars',this.sliders.price.mininputjs)
-
-      },
-      expMintrigger(type) {
-        this.expCheckMin(type)
-        var t = this.sliders[type]
-        t.minthumb = ((t.minvalue - t.min) / (t.max - t.min)) * 100;
-        if (t.minthumb<0) {
-          t.minthumb = 0
-        }
-        t.mininputjs = Math.round(Math.exp(t.minv + t.scale*(t.minthumb-t.minr))/100)*100;            
-      },
-      expUpdateMinThumb(type){
-        if (this.expCheckMin(type) == 0) {
-          return
-        }
-        var t = this.sliders[type]
-        t.minthumb = (Math.log(t.mininputjs)-t.minv)/t.scale + t.minr
-        if (t.minthumb<0) {
-          t.minthumb = 0
-        }
-        t.minvalue = (t.minthumb/100)*(t.max - t.min)+t.min
-      },
-      expMaxtrigger(type) {
-        this.expCheckMax(type) 
-        var t = this.sliders[type]
-        t.maxthumb = 100 - (((t.maxvalue - t.min) / (t.max - t.min)) * 100);
-        t.maxinputjs = Math.round(Math.exp(t.maxv + t.scale*(100 - t.maxthumb-t.maxr))/100)*100;
-      }, 
-      expUpdateMaxThumb(type){
-        if (this.expCheckMax(type) == 0) {
-          return
-        }
-        var t = this.sliders[type]
-        t.maxthumb =  100 - t.maxr - (Math.log(t.maxinputjs) - t.maxv)/t.scale
-        if (t.maxthumb<0) {
-          t.maxthumb = 0
-        }            
-        t.maxvalue = ((100-t.maxthumb)/100)*(t.max - t.min)+t.min
-      },
-      updateInput(m,mjs,type){
-        console.log(type)
-        console.log('min',m)
-        console.log('min',mjs)
-        var t = this.sliders[type]
-        console.log('min',t)
-        t[m] = t[mjs]            
-        console.log('min',t[m])
-      },
-      expCheckMin(type){
-        var t = this.sliders[type]
-        if (t.maxinputjs < t.mininputjs) {
-          return 0
-        }
-          t.minvalue = Math.min(t.minvalue, t.maxvalue - 100);
-          t.mininputjs = Math.min(t.mininputjs, t.maxinputjs - 1000);
-      },
-      expCheckMax(type){
-        var t = this.sliders[type]
-        if (t.maxinputjs < t.mininputjs) {
-          return 0
-        }
-        t.maxvalue = Math.max(t.maxvalue, t.minvalue + 100);
-        t.maxinputjs = Math.max(t.maxinputjs, t.mininputjs + 1000);
-      },
-      mintrigger(type) {
-        var t = this.sliders[type]
-        this.checkMin(type)
-
-        t.minthumb = ((t.mininputjs - t.min) / (t.max - t.min)) * 100;
-      },
-      updateMinThumb(type){
-        if (this.checkMin(type) == 0) {
-          return
-        }
-        this.mintrigger(type)
-      },
-      checkMin(type){
-        var t = this.sliders[type]
-        console.log('check')
-        if (t.maxinputjs < t.mininputjs) {
-          return 0
-        console.log('check')
-        }
-        t.mininputjs = Math.min(t.mininputjs, t.maxinputjs - 0.01); 
-      },
-      maxtrigger(type) {
-        var t = this.sliders[type]
-        this.checkMax(type)
-        t.maxthumb = 100 - (((t.maxinputjs - t.min) / (t.max - t.min)) * 100);    
-      },
-      updateMaxThumb(type){
-        if (this.checkMax(type) == 0) {
-          return
-        }
-        var t = this.sliders[type]
-        this.maxtrigger(type)
-        if (t.maxthumb<0) {
-          t.maxthumb = 0
-        }
-      },
-      checkMax(type){
-        var t = this.sliders[type]
-        if (t.maxinputjs < t.mininputjs) {
-          return 0
-        }
-        t.maxinputjs = Math.max(t.maxinputjs, t.mininputjs + 0.01); 
-      },
-
-
-
-      fancy_color: @entangle('fancy_color'),
-      selectedColor: @entangle('selectedColor'),
-      assignSelectColor(){
-        var items = Object.entries(this.fancy_color.fancy_color)
-        for (var [key, value] of Object.entries(items)) {
-          if (this.fancy_color.fancy_color[items[key][0]].clicked) {
-            if (items[key][0]!='Brown') {
-              this.selectedColor = items[key][0].toLowerCase()
-              }else{
-              this.selectedColor = 'red'
-            }
-          }
-        }
-      },
-      resetFancyColor(){
-        var items = Object.entries(this.fancy_color.fancy_color)
-        for (var [key, value] of Object.entries(items)) {
-          this.fancy_color.fancy_color[items[key][0]].clicked = false
-        }          
-      },
-      resetColor(){
-        var fancyClicked = this.search_conditions.color['Fancy'].clicked
-        var items = Object.entries(this.search_conditions.color)
-        for (var [key, value] of Object.entries(items)) {
-          this.search_conditions.color[items[key][0]].clicked = false
-        }          
-        console.log(fancyClicked)
-           this.search_conditions.color['Fancy'].clicked = fancyClicked
-      },
-      resetIntensity(){
-        var items = Object.entries(this.fancy_color.fancy_intensity)
-        for (var [key, value] of Object.entries(items)) {
-          this.fancy_color.fancy_intensity[items[key][0]].clicked = false
-        }          
-      },
-      resetCut(){
-        var items = Object.entries(this.search_conditions.cut)
-        for (var [key, value] of Object.entries(items)) {
-          this.search_conditions.cut[items[key][0]].clicked = false
-        }         
-      },
-      resetFancyData(){
-        this.resetFancyColor()
-        this.resetIntensity()
-        this.resetColor()
-        this.resetCut()
-      },
-
-    }
-  }
-</script>
 
 <script>
     function desktopSliders() {
@@ -387,6 +196,23 @@
           //advance
           showAdvance: @entangle('showAdvance'),
           advance_search_conditions: @entangle('advance_search_conditions'), 
+          appendQuery(tag){
+            var url = window.location.href
+            console.log(url)
+            console.log(url.includes(tag))
+
+            if (!url.includes(tag)) {
+              history.pushState('{{url()->current()}}', 
+                                    '', 
+                                    '{{url()->current()}}' + tag);
+            }else{
+              history.pushState('{{url()->current()}}', 
+                                    '', 
+                                      url.replace(tag,'') );
+              
+            }
+            
+          },
 
 
 
@@ -396,23 +222,6 @@
 
 </script>
 
-
-
-<script>
-  function advanceSearch(){
-
-    return {
-        showAdvance: @entangle('showAdvance'),
-        advance_search_conditions: @entangle('advance_search_conditions'), 
-        addAdvanceSearch(column){
-            // history.pushState('page2', 'Title', '/page2.php');
-            // console.log('adv')
-            this.advance_search_conditions[column].clicked = !this.advance_search_conditions[column].clicked
-        }
-
-    }
-  }
-</script>
 
 <script>
   function fancyColor(){
