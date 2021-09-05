@@ -221,9 +221,9 @@
        
         <!-- Filter Results  -->
         <div class="flex flex-col space-y-5 items-center pb-0 md:pb-7 p-7 border-t mt-5">
-            <div class="flex w-full md:items-center justify-between">
-                <div class="flex flex-wrap items-center gap-3">
-                    @foreach($tags as  $k => $conditions)
+          <div class="flex w-full md:items-center justify-between">
+              <div class="flex flex-wrap items-center gap-3">
+                  @foreach($tags as  $k => $conditions)
                         @foreach($conditions as  $key => $data)
                             @if($data != '')
                             <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
@@ -245,12 +245,29 @@
                           @endif
                         @endforeach
                     @endforeach
-                </div>
-                <div class="flex flex-shrink-0">
-                      <a class="text-brown underline" wire:click="resetAll()">{{__('weddingRing.Clear')}}</a>
-                </div>
+              </div>
+              <div class="flex flex-shrink-0">
+                  <button class="text-brown underline" wire:click="resetAll()">{{__('engagementRing.Clear')}}</button>
+              </div>
+          </div>
+          <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row w-full items-center md:justify-between">
+            <span class="text-sm">{{__('diamondSearch.Total')}}: {{ $model['total'] }} {{__('diamondSearch.Results')}}</span>
+            <div class="flex items-center space-x-1 max-w-max border-b">
+                <label>
+                    {{__('engagementRing.Sort By')}}: 
+                </label>
+                <select id="Sort" name="Sort" class="block w-32 md:w-52 pb-1 text-black focus:outline-none" wire:model="fetchData.column">
+                        <option value="unit_price">{{__('engagementRing.Unit Price')}}</option>
+<!--                         <option value="popular">{{__('engagementRing.Popular')}}</option>
+ -->                </select>
+                @if($fetchData['direction'] == 'desc')
+                    <span class="border p-2" wire:click="upOrDown('asc')">&uarr;</span>
+                @else
+                    <span class="border p-2" wire:click="upOrDown('desc')">&darr;</span>
+                @endif
             </div>
-        </div>
+         </div>
+      </div>
 
         <!-- Products -->
         <div class="relative grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 w-full xl:grid-cols-4 gap-3 md:gap-7 md:items-center py-5 2xl:py-10 2xl:pb-10">

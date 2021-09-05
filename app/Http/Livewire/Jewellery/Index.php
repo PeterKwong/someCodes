@@ -247,7 +247,7 @@ class Index extends Component
     }
     public function resetFetchData(){
 
-            $this->fetchData = ['page' =>1,  'column' => 'price','direction' => 'asc',
+            $this->fetchData = ['page' =>1,  'column' => 'unit_price','direction' => 'asc',
                          'per_page' => 15,
                          'type' => [], 'metal' => [], 'gemstone' => [],'setting' => [],  
                     ];

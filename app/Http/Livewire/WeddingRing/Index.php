@@ -213,7 +213,7 @@ class Index extends Component
 
 	 	$requests = ['shape','finish','metal','origin','style','brand'];
 
-        $query = WeddingRingPair::orderBy('unit_price', 'asc');
+        $query = WeddingRingPair::where('published',1);
 
  		foreach ($requests as $req) {
  			if (count((array)$this->fetchData[$req]) && !in_array('', (array)$this->fetchData[$req]) ) {
@@ -225,12 +225,25 @@ class Index extends Component
 
  		}
 
-	     $this->model = $query->where('published',1)
-                        ->with(['images',
+        $invoice_count = [];
+
+	     $this->model = $query->with(['images',
                             'weddingRings'=> function($query){ $query->withCount('invoices');},
-                            'weddingRings.invoices',
-                            ])
-			            ->paginate($this->fetchData['per_page']);
+                            // 'weddingRings.invoices',
+                            ]);
+         // $this->model = $this->model->select(
+         //                    'weddingRings.invoices'
+         //                    );
+        if ($this->fetchData['column'] == 'price') {
+             $this->fetchData['column'] ='unit_price' ;
+        }
+        if ($this->fetchData['column'] == 'popular') {
+             $this->model = $query->orderBy('wedding_rings.invoices_count', $this->fetchData['direction']);
+        }else{
+             $this->model = $query->orderBy($this->fetchData['column'], $this->fetchData['direction']);            
+        }
+
+		 $this->model = $this->model->paginate($this->fetchData['per_page']);
 
         $data =  $this->model->toArray();
 
@@ -277,6 +290,11 @@ class Index extends Component
 
         $this->setCookie();
 
+    }
+    public function upOrDown($direction)
+    {
+        $this->fetchData['direction'] = $direction; 
+        // dd($this->fetchData);
     }
     public function resetAll(){
 

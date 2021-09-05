@@ -129,59 +129,59 @@
       </div>
       <!-- Filter Results  -->
  
-			<div class="flex flex-col space-y-5 items-center pb-0 md:pb-7 p-7 border-t mt-5">
-		      <div class="flex w-full md:items-center justify-between">
-		          <div class="flex flex-wrap items-center gap-3">
-			          @foreach($tags as  $k => $conditions)
-						@foreach($conditions as  $key => $data)
-                              @if($data != '')
-    								<div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
-    				                  <button wire:click="toggleValue('{{$k}}', '{{$data}}' )">
-    				                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    				                          <g clip-path="url(#clip0)">
-    				                          <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
-    				                          <path d="M13.5355 7.64298L11.1785 10L13.5355 12.357L12.357 13.5355L9.99998 11.1785L7.64296 13.5355L6.46444 12.357L8.82147 10L6.46444 7.64298L7.64296 6.46447L9.99998 8.82149L12.357 6.46447L13.5355 7.64298Z" fill="white"></path>
-    				                          </g>
-    				                          <defs>
-    				                          <clipPath id="clip0">
-    				                          <rect width="20" height="20" fill="white"></rect>
-    				                          </clipPath>
-    				                          </defs>
-    				                      </svg>    
-    				                  </button>
-    				                  <span>{{__('engagementRing.' . $data)}}</span>
-    				              </div>
-                              @endif
-			  			@endforeach
-					@endforeach
-		          </div>
-		          <div class="flex flex-shrink-0">
-		              <a class="text-brown underline" href="#" wire:click="resetAll()">{{__('engagementRing.Clear')}}</a>
-		          </div>
-		      </div>
-              <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row w-full md:items-center md:justify-between">
-                <span class="text-sm">{{__('diamondSearch.Total')}}: {{ $model['total'] }} {{__('diamondSearch.Results')}}</span>
-                <div class="flex space-x-1 max-w-max border-b">
-                    <label>
-                        {{__('engagementRing.Sort By')}}: 
-                    </label>
-                    <select id="Sort" name="Sort" class="block w-32 md:w-52 pb-1 text-black focus:outline-none" wire:model="fetchData.column">
-                            <option value="popular">{{__('engagementRing.Popular')}}</option>
-                            <option value="unit_price">{{__('engagementRing.Unit Price')}}</option>
-                        @foreach($search_conditions as  $key => $data)
-                            <option value="{{$key}}">
-                              <div >{{__('engagementRing.' . $key)}}</div>
-                            </option>
-                        @endforeach
-                    </select>
-                    @if($fetchData['direction'] == 'desc')
-                        <span class="border p-2" wire:click="upOrDown('asc')">&uarr;</span>
-                    @else
-                        <span class="border p-2" wire:click="upOrDown('desc')">&darr;</span>
-                    @endif
-                </div>
-             </div>
-		  </div>
+		<div class="flex flex-col space-y-5 items-center pb-0 md:pb-7 p-7 border-t mt-5">
+	      <div class="flex w-full items-center justify-between">
+	          <div class="flex flex-wrap items-center gap-3">
+		          @foreach($tags as  $k => $conditions)
+					@foreach($conditions as  $key => $data)
+                          @if($data != '')
+								<div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
+				                  <button wire:click="toggleValue('{{$k}}', '{{$data}}' )">
+				                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				                          <g clip-path="url(#clip0)">
+				                          <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
+				                          <path d="M13.5355 7.64298L11.1785 10L13.5355 12.357L12.357 13.5355L9.99998 11.1785L7.64296 13.5355L6.46444 12.357L8.82147 10L6.46444 7.64298L7.64296 6.46447L9.99998 8.82149L12.357 6.46447L13.5355 7.64298Z" fill="white"></path>
+				                          </g>
+				                          <defs>
+				                          <clipPath id="clip0">
+				                          <rect width="20" height="20" fill="white"></rect>
+				                          </clipPath>
+				                          </defs>
+				                      </svg>    
+				                  </button>
+				                  <span>{{__('engagementRing.' . $data)}}</span>
+				              </div>
+                          @endif
+		  			@endforeach
+				@endforeach
+	          </div>
+	          <div class="flex flex-shrink-0">
+	              <button class="text-brown underline" wire:click="resetAll()">{{__('engagementRing.Clear')}}</button>
+	          </div>
+	      </div>
+          <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row w-full md:items-center md:justify-between">
+            <span class="text-sm">{{__('diamondSearch.Total')}}: {{ $model['total'] }} {{__('diamondSearch.Results')}}</span>
+            <div class="flex items-center space-x-1 max-w-max border-b">
+                <label>
+                    {{__('engagementRing.Sort By')}}: 
+                </label>
+                <select id="Sort" name="Sort" class="block w-32 md:w-52 pb-1 text-black focus:outline-none" wire:model="fetchData.column">
+                        <option value="popular">{{__('engagementRing.Popular')}}</option>
+                        <option value="unit_price">{{__('engagementRing.Unit Price')}}</option>
+                    @foreach($search_conditions as  $key => $data)
+                        <option value="{{$key}}">
+                          <div >{{__('engagementRing.' . $key)}}</div>
+                        </option>
+                    @endforeach
+                </select>
+                @if($fetchData['direction'] == 'desc')
+                    <span class="border p-2" wire:click="upOrDown('asc')">&uarr;</span>
+                @else
+                    <span class="border p-2" wire:click="upOrDown('desc')">&darr;</span>
+                @endif
+            </div>
+         </div>
+	  </div>
 
       <!-- Products -->
 

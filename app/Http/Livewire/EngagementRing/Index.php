@@ -216,9 +216,9 @@ class Index extends Component
         $this->model = $query->with(['images'])
                         ->withCount('invoices'); 
 
-        if ($this->fetchData['column'] == 'price') {
-             $this->fetchData['column'] ='popular' ;
-        }
+        // if ($this->fetchData['column'] == 'price') {
+        //      $this->fetchData['column'] ='popular' ;
+        // }
         if ($this->fetchData['column'] == 'popular') {
              $this->model = $query->orderBy('invoices_count', $this->fetchData['direction']);
         }

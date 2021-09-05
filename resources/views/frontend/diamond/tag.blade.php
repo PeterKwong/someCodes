@@ -107,12 +107,12 @@
 
         </div>
         <div class="flex flex-shrink-0">
-            <a class="text-brown underline" wire:click="resetAll()">{{__('engagementRing.Clear')}}</a>
+            <button class="text-brown underline" wire:click="resetAll()">{{__('engagementRing.Clear')}}</button>
         </div>
     </div>
 
     @if($tagShowMore['count']>2)
-        <a @click="tagShowMore.show = !tagShowMore.show;@this.toggleShowMoreTags()" 
+        <button @click="tagShowMore.show = !tagShowMore.show;@this.toggleShowMoreTags()" 
             class="flex items-center font-bold text-brown space-x-2"><!-- 
             <span x-show="tagShowMore.show">{{trans('diamondSearch.View Less')}}</span>
             <span x-show="!tagShowMore.show">{{trans('diamondSearch.View More')}}</span> -->
@@ -120,7 +120,7 @@
             <svg :class="{'rotate-0': tagShowMore.show, ' rotate-180': !tagShowMore.show}" class="transform" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.41 7.41L6 2.83L10.59 7.41L12 6L6 0L0 6L1.41 7.41Z" fill="#9A7474" />
             </svg>
-        </a>
+        </button>
     @endif
     <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row w-full md:items-center md:justify-between pt-10">
         <span class="text-sm">{{trans('diamondSearch.Total')}}: {{isset($diamonds['total'])?$diamonds['total']:''}} {{trans('diamondSearch.diamond')}}</span>
