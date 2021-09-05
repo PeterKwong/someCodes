@@ -220,8 +220,8 @@
 
        
         <!-- Filter Results  -->
-        <div class="flex flex-col space-y-5 items-center pb-0 md:pb-7 p-7 border-t mt-5">
-          <div class="flex w-full md:items-center justify-between">
+        <div class="flex flex-col space-y-5 items-center pb-0 md:pb-7 py-7 border-t mt-5">
+            <div class="flex w-full md:items-center justify-between">
               <div class="flex flex-wrap items-center gap-3">
                   @foreach($tags as  $k => $conditions)
                         @foreach($conditions as  $key => $data)
@@ -250,7 +250,7 @@
                   <button class="text-brown underline" wire:click="resetAll()">{{__('engagementRing.Clear')}}</button>
               </div>
           </div>
-          <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row w-full items-center md:justify-between">
+          <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row w-full md:items-center md:justify-between">
             <span class="text-sm">{{__('diamondSearch.Total')}}: {{ $model['total'] }} {{__('diamondSearch.Results')}}</span>
             <div class="flex items-center space-x-1 max-w-max border-b">
                 <label>

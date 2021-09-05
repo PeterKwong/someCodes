@@ -129,8 +129,8 @@
       </div>
       <!-- Filter Results  -->
  
-		<div class="flex flex-col space-y-5 items-center pb-0 md:pb-7 p-7 border-t mt-5">
-	      <div class="flex w-full items-center justify-between">
+		<div class="flex flex-col space-y-5 items-center pb-0 md:pb-7 py-7 border-t mt-5">
+            <div class="flex w-full md:items-center justify-between">
 	          <div class="flex flex-wrap items-center gap-3">
 		          @foreach($tags as  $k => $conditions)
 					@foreach($conditions as  $key => $data)
