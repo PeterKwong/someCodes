@@ -2,8 +2,11 @@
 
 return [
 	'Type' => 'Type',
+	'type' => 'Type',
 	'Gemstone' => 'Gemstone',
+	'gemstone' => 'Gemstone',
 	'Metal' => 'Metal',
+	'metal' => 'Metal',
 	'Setting' => 'Setting',
 	'setting' => 'setting',
 	'Search Engagement Rings' => 'Search Engagement Rings ',

@@ -213,17 +213,17 @@ class Index extends Component
 
  		}
 
-        $this->model = $query->with(['images'])
+        $query = $query->with(['images'])
                         ->withCount('invoices'); 
 
         // if ($this->fetchData['column'] == 'price') {
         //      $this->fetchData['column'] ='popular' ;
         // }
         if ($this->fetchData['column'] == 'popular') {
-             $this->model = $query->orderBy('invoices_count', $this->fetchData['direction']);
+             $query = $query->orderBy('invoices_count', $this->fetchData['direction']);
         }
         else{
-             $this->model = $query->orderBy($this->fetchData['column'], $this->fetchData['direction']);            
+             $query = $query->orderBy($this->fetchData['column'], $this->fetchData['direction']);            
         }
 
         $this->model = $query                        

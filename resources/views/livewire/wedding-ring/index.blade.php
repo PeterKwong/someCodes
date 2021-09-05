@@ -329,7 +329,7 @@
             <!-- More Products .... -->
             <div class="col-span-2 lg:col-span-3 xl:col-span-4 flex justify-center relative py-4 {{ isset($model['total']) && $model['total'] == 0 ? '' : ' hidden'}}">
                 <div class="px-4 flex items-center justify-between sm:px-0">
-                     <button class="btn btn-outline" wire:click="resetAll">
+                     <button class="btn btn-outline" wire:click="resetAll()">
                           {{ __('diamondSearch.No Result')}} ！ {{__('diamondSearch.reset')}} <i class="fas fa-undo"></i>
                       </button>
                 </div>

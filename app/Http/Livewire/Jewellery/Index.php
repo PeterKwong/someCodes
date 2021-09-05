@@ -12,6 +12,7 @@ class Index extends Component
 
 	public $model;
 	public $fetchData;
+    public $tags;
 	public $search_conditions = [
 									'type'=>[
 										'ring' => ['clicked'=>false,
@@ -77,6 +78,7 @@ class Index extends Component
 
         }
         $this->index();
+        $this->setTags();
         // dd($this->model);
         // dd($this->fetchData);
         return view('livewire.jewellery.index');
@@ -94,7 +96,24 @@ class Index extends Component
         $this->extraUrls();
         $this->setClickedSearchConditions();
 
-    }    
+    }
+    public function setTags(){
+        $columns = ['page','column','direction','per_page'];
+        $ori = $this->fetchData;
+
+        foreach ($columns as $key => $query) {
+            unset($this->fetchData[$query]);
+        }
+        // dd($this->fetchData);
+        $this->tags = $this->fetchData;
+        $this->fetchData = $ori;
+
+    }
+    public function upOrDown($direction)
+    {
+        $this->fetchData['direction'] = $direction; 
+        // dd($this->fetchData);
+    }  
     public function setCookie(){
 
         $time = time() + (60 * config('global.cookie.time') );
@@ -163,7 +182,7 @@ class Index extends Component
 
 	 	$requests = ['type','metal','gemstone','setting'];
 
-        $query = Jewellery::orderBy('created_at','desc');
+        $query = Jewellery::where('published',1);
 
  		foreach ($requests as $req) {
  			if (count((array)$this->fetchData[$req]) && !in_array('', (array)$this->fetchData[$req]) ) {
@@ -172,10 +191,22 @@ class Index extends Component
 
  		}
 
-	    $this->model = $query->where('published',1)
-                        ->with('images')
-                        ->withCount('invoices')
-			            ->paginate($this->fetchData['per_page']);
+        $query = $query->with(['images'])
+                        ->withCount('invoices'); 
+
+        if ($this->fetchData['column'] == 'price') {
+             $this->fetchData['column'] ='unit_price' ;
+        }
+        if ($this->fetchData['column'] == 'popular') {
+             $query = $query->orderBy('invoices_count', $this->fetchData['direction']);
+        }
+        else{
+             $query = $query->orderBy($this->fetchData['column'], $this->fetchData['direction']);            
+        }
+
+        $this->model = $query                        
+                        ->paginate($this->fetchData['per_page']);
+
                         
         $data =  $this->model->toArray();
 
@@ -247,8 +278,8 @@ class Index extends Component
     }
     public function resetFetchData(){
 
-            $this->fetchData = ['page' =>1,  'column' => 'unit_price','direction' => 'asc',
-                         'per_page' => 15,
+            $this->fetchData = ['page' =>1,  'column' => 'popular','direction' => 'desc',
+                         'per_page' => 12,
                          'type' => [], 'metal' => [], 'gemstone' => [],'setting' => [],  
                     ];
             $this->preset = $this->fetchData;

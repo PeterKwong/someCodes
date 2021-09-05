@@ -2,8 +2,11 @@
 
 return [
 	'Type' => '款式',
+	'type' => '款式',
 	'Gemstone' => '宝石',
+	'gemstone' => '宝石',
 	'Metal' => '金属',
+	'metal' => '金属',
 	'Setting' => '托类',
 	'setting' => '托类',
 	'Search Engagement Rings' => '搜寻选项 ',

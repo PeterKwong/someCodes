@@ -2,8 +2,11 @@
 
 return [
 	'Type' => '款式',
+	'type' => '款式',
 	'Gemstone' => '寶石',
+	'gemstone' => '寶石',
 	'Metal' => '金屬',
+	'metal' => '金屬',
 	'Setting' => '托類',
 	'setting' => '托類',
 	'Search Engagement Rings' => '搜尋選項 ',

@@ -13,7 +13,7 @@
                   <span class="font-bold">{{__('weddingRing.Filter')}}</span>    
               </button>
           </div>
-          <form action="#" :class="{'hidden lg:flex' : !applyFilter, 'flex lg:hidden fixed overflow-y-scroll h-5/6 w-full top-10 left-0 z-50 bg-white pt-5 md:pt-0 md:pb-0 px-4 md:px-0 border border-2' : applyFilter,}" class="flex-col space-y-7 font-lato" x-on:click.away="applyFilter = false">
+          <form :class="{'hidden lg:flex' : !applyFilter, 'flex lg:hidden fixed overflow-y-scroll h-5/6 w-full top-10 left-0 z-50 bg-white pt-5 md:pt-0 md:pb-0 px-4 md:px-0 border border-2' : applyFilter,}" class="flex-col space-y-7 font-lato" x-on:click.away="applyFilter = false">
                 <div class="flex md:hidden items-center space-x-5 justify-between">
                     <a @click="applyFilter = false" class="flex-shrink-0 focus:outline-none">
                         <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -187,7 +187,7 @@
 
       <div class="relative grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 w-full xl:grid-cols-4 gap-3 md:gap-7 md:items-center py-10 2xl:py-20 2xl:pb-10">
       	@foreach($model['data'] as $data)
-				@if( count($data['images']) )
+		@if( count($data['images']) )
           <div class="flex flex-col relative product-card rounded-none font-lato p-0 md:p-2 2xl:p-5 cursor-pointer transform hover:-translate-y-2 transition hover:border border-gold-light duration-500">
           	<a href="/{{app()->getLocale() . '/engagement-rings/' . $data['id'] }}" target="_blank">
               <img class="mt-5 md:mt-0" src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $data['images'][0]['image']}}" alt="p1">
@@ -235,21 +235,21 @@
             </a>
           	</div>
           @endif
-	    		@endforeach
-	    	</div>
+		@endforeach
+	</div>
 
 
    
 	 
-        <!-- More Products .... -->
-        <div class="col-span-2 lg:col-span-3 xl:col-span-4 flex justify-center relative py-4 {{ isset($model['total']) && $model['total'] == 0 ? '' : ' hidden'}}">
-            <div class="px-4 flex items-center justify-between sm:px-0">
-                 <button class="btn btn-outline" wire:click="resetAll">
-                      {{ __('diamondSearch.No Result')}} ！ {{__('diamondSearch.reset')}} <i class="fas fa-undo"></i>
-                  </button>
-            </div>
+    <!-- More Products .... -->
+    <div class="col-span-2 lg:col-span-3 xl:col-span-4 flex justify-center relative py-4 {{ isset($model['total']) && $model['total'] == 0 ? '' : ' hidden'}}">
+        <div class="px-4 flex items-center justify-between sm:px-0">
+             <button class="btn btn-outline" wire:click="resetAll">
+                  {{ __('diamondSearch.No Result')}} ！ {{__('diamondSearch.reset')}} <i class="fas fa-undo"></i>
+              </button>
         </div>
-
+    </div>
+        
 	<div id="loading" wire:loading.class="loading">
 	</div>
        
