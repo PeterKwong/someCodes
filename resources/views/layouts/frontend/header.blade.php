@@ -1,4 +1,4 @@
-<header class="fixed top-0 bg-white z-50 w-full bg-white py-2 lg:py-0 shadow-bottom" id="td-header">
+<header class="fixed top-0 bg-white z-40 w-full bg-white py-2 lg:py-0 shadow-bottom" id="td-header">
     <!-- Header for Desktop  -->
      
     @include('layouts.frontend.header-desktop')

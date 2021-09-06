@@ -3,7 +3,7 @@
   @if($flash)
   <div x-data="notificationFlash()" x-show="flash.show">
 
-  	<div aria-live="assertive" class="fixed m-12 inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end" >
+  	<div aria-live="assertive" class="fixed z-50 m-12 inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end" >
 	  <!--
 	    Notification panel, dynamically insert this into the live region when it needs to be displayed
 

@@ -321,6 +321,12 @@
                     <span>I</span>
                 </label>
                 <label class="relative border bg-white flex items-center justify-center h-12 w-12 cursor-pointer hover:border-brown hover:bg-brown-light"
+                :class=" `${search_conditions.color.J.clicked?' bg-brown-light border-brown':''}`">
+                    <input type="checkbox" name="white" value="1" class="sr-only"
+                    x-on:click="search_conditions.color.J.clicked = ! search_conditions.color.J.clicked; @this.toggleValue('color', 'J' )">
+                    <span>J</span>
+                </label>
+                <label class="relative border bg-white flex items-center justify-center h-12 w-12 cursor-pointer hover:border-brown hover:bg-brown-light"
                 :class=" `${search_conditions.color.K.clicked?' bg-brown-light border-brown':''}`">
                     <input type="checkbox" name="white" value="1" class="sr-only"
                     x-on:click="search_conditions.color.K.clicked = ! search_conditions.color.K.clicked; @this.toggleValue('color', 'K' )">
@@ -335,7 +341,7 @@
                 <label class="relative border bg-white flex items-center justify-center h-12 w-12 cursor-pointer hover:border-brown hover:bg-brown-light"
                 :class=" `${search_conditions.color.M.clicked?' bg-brown-light border-brown':''}`">
                     <input type="checkbox" name="white" value="1" class="sr-only"
-                    x-on:click="search_conditions.color.M.clicked = ! search_conditions.color.M.clicked; @this.toggleValue('color', 'D' )">
+                    x-on:click="search_conditions.color.M.clicked = ! search_conditions.color.M.clicked; @this.toggleValue('color', 'M' )">
                     <span>M</span>
                 </label>
                 <label class="relative border bg-white flex items-center justify-center h-12 w-12 cursor-pointer hover:border-brown hover:bg-brown-light"

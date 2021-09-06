@@ -141,7 +141,7 @@
 </div>
 
 <!-- Inquiry popedup Block -->
-<span class="hidden-before-hover">
+<span class="hidden-item-hover">
     <div id="inquiry" class="flex fixed md:flex z-50 bottom-2 md:bottom-4 left-2 md:left-8">
         <div class="bg-grey-04 p-2 md:px-5 md:py-3 max-w-2xl flex md:items-center space-x-7 rounded-xl">
             <svg class="w-8 h-8 md:w-12 md:h-12" viewBox="0 0 40 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -162,7 +162,7 @@
 
               @if(config('global.locale.' . app()->getLocale())  == '2')
 
-                <p class="hidden-item text-xs md:text-base font-lato text-white" >
+                <p class="hidden-item flex-col text-xs md:text-base font-lato text-white" >
                     {{trans('diamondSearch.If you could not find diamonds as your inquiry')}} ,   {{trans('diamondSearch.PLEASE（Whatsapp: Winnie－5484 4533， for the latest diamond Stock）')}}             
                      <img width="100" src="/images/front-end/aboutUs/wechat.jpg">
                     <br>

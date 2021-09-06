@@ -40,10 +40,26 @@
 
     @endSection
 
+    @section('hero')
+      <!-- Hero Section  -->
+      <div class="hero-image flex items-center justify-center w-full h-20 xl:h-36 mt-16 lg:mt-52">
+          <h2 class="text-lg xl:text-2xl font-medium font-suranna tracking-widest">
+               {{ $title }}
+          </h2>
+      </div>
+    @endsection
+
     @section('content')
+
+
+    <!-- Shop Section  -->
+    <div class="relative flex flex-col max-w-screen-2xl 2xl:mx-auto md:mx-10 lg:mx-20 px-5 md:px-0 font-lato">
 
         <!-- Steps  -->
         <x-shopping-cart.progress-bar />
+
+
+
 
         <div id="engagementRingsShow">
 
@@ -69,9 +85,6 @@
                           </keep-alive>
                         </figure>
                         
-<!-- 
-
-                        <product-viewer :folder="mutualVar.storage[mutualVar.storage.live] + 'public/test/weddingring1/' " :filename="filename"></product-viewer> -->
 
                       </div>
 
@@ -79,13 +92,9 @@
                         <article>
                               <center class="p-2">
 
-                                  
-<!--                                   <button class="button is-info" @click="appointmentState=!appointmentState">{{__('engagementRing.Appointment')}}</button>
-                                  <appointment v-model="engagementRing" :title="appointmentTitle" @active="appointmentState=!appointmentState" :active="appointmentState" :columns="columns"  :processing="false" :langs="langs" :locale="locale"></appointment>
- -->                                  
+              
                                   <shopping-cart :item="engagementRing" :type="shoppingCartType" :carousel-item="carouselItem" title="{{ $title }}" ></shopping-cart>
-<!--                                   <x-appointment v-if="appointmentState"/>
- -->
+
                               </center>
 
                               <p class="p-2">
