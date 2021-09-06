@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\EngagementRing;
 
 use App\Models\EngagementRing;
-use DB;
+use Livewire\WithPagination;
 use Livewire\Component;
 
 class Recommendation extends Component
 {
+    use WithPagination;
+
     public function render()
     {   
         $this->randomQuery();
@@ -16,7 +18,8 @@ class Recommendation extends Component
     }
     public function randomQuery()
     {
-        return EngagementRing::inRandomOrder()
+        return EngagementRing::where('published',1)
+                ->inRandomOrder()
                 ->with(['images'])
                 ->paginate(4);
 

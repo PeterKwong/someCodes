@@ -87,6 +87,10 @@
                             <p class="text-xs md:text-sm text-black opacity-50">{{__('diamondSearch.Fluorescence')}}</p>
                             <p class="text-xs md:text-sm">{{__('diamondSearch.' . $row['fluorescence'] )}}</p>
                         </div>
+                        <div class="relative flex flex-wrap w-full flex-row justify-between items-center py-2">
+                            <p class="text-xs md:text-sm text-black opacity-50">{{ $row['lab'] }}{{__('diamondSearch.Certificate')}}</p>
+                            <p class="text-xs md:text-sm">{{ $row['certificate'] }}</p>
+                        </div>
 
                         @if($fetchData['table_percent'][1] != 0 )
                         <div class="relative flex flex-wrap w-full flex-row justify-between items-center py-2">
