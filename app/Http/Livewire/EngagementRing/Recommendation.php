@@ -10,11 +10,14 @@ class Recommendation extends Component
 {
     use WithPagination;
 
+    public $showModal = false;
+    public $modelId;
+
     public function render()
     {   
-        $this->randomQuery();
+        // dd($this->randomQuery());
 
-        return view('livewire.engagement-ring.recommendation',['model' => $this->randomQuery()]);
+        return view('livewire.engagement-ring.recommendation',['model' => $this->randomQuery(),'modal'=>$this->modelId?$this->fetchModal():'']);
     }
     public function randomQuery()
     {
@@ -25,4 +28,14 @@ class Recommendation extends Component
 
         // dd($this->model);
     }
+    public function modalModel($id)
+    {  
+        // $this->showModal = true;
+        $this->modelId = $id;
+    }
+    public function fetchModal()
+    {
+        return EngagementRing::whereId($this->modelId)->with(['images'])->first();
+    }
+
 }

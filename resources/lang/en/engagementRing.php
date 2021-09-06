@@ -91,6 +91,10 @@ return [
 	
 	'ENGAGEMENT RINGS' => 'ENGAGEMENT RINGS',
 	'Popular' => 'Popular',	
+	'Engrave' => 'Engrave',	
+	'Ring Size' => 'Ring Size',	
+	'Recommended' => 'Recommended',	
+	'Settings' => 'Settings',	
 
 
 ];

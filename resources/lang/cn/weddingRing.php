@@ -5,7 +5,7 @@ return [
 	'wedding Rings' => '结婚戒指',	
 	'Wedding Rings - Classic' => '结婚戒指 - 经典',
 	'Wedding Ring' => '结婚戒指',
-	'Couple Rings' => '对戒',
+	'Couple Rings' => '情侶对戒',
 	'Style' => '款式',
 	'style' => '款式',
 	'Metal' => '金属',

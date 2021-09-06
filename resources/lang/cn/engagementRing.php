@@ -89,5 +89,9 @@ return [
 
 	'ENGAGEMENT RINGS' => '求婚戒指',
 	'Popular' => '最受欢迎',	
+	'Engrave' => '刻字',	
+	'Ring Size' => '戒指号',	
+	'Recommended' => '推荐',	
+	'Settings' => '戒指托',	
 
 ];

@@ -5,19 +5,24 @@ namespace App\Http\Livewire\CustomerJewellery;
 use App\Models\InvoicePost;
 use App\Models\Tag;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class PostFetchRow extends Component
 {
+    use WithPagination;
+
 	public $readyToLoad = true;
     public $type;
     public $upperType;
     public $query;
     public $draggableId;
+    public $title;
 
-    public $per_page = 8;
-    public $posts;
+    public $per_page = 2;
     public $upperId;
     public $tagId = [];
+
+    protected $posts;
 
     public function loadPosts()
     {
@@ -30,7 +35,7 @@ class PostFetchRow extends Component
     {
         // dd('hi');
         return view('livewire.customer-jewellery.post-fetch-row', [
-            'posts' => $this->readyToLoad
+            'model' => $this->readyToLoad
                 ? $this->delayLoad()
                 : [],
         ]);
@@ -38,7 +43,7 @@ class PostFetchRow extends Component
     public function delayLoad(){
         // dd('loadded');
         $this->getTagId();
-        $this->getPosts();
+        return $this->getPosts();
     }
 
     public function getPosts(){
@@ -65,18 +70,25 @@ class PostFetchRow extends Component
                                             $query->where('type','cover');
                                             }, 
                                     // 'texts',
+                                    'invoice.invoiceDiamonds',
+                                    'invoice.engagementRings',
+                                    'invoice.weddingRings',
+                                    'invoice.jewelleries'=>function($q){$q->where('type','!=','Misc'); },
                             ])->paginate($this->per_page);
+
+            // return $this->posts;
                             // dd($this->posts);
-            $invoicePosts = [];
+            // $invoicePosts = [];
             
-            foreach ($this->posts as $key => $post ) {
+            // foreach ($this->posts as $key => $post ) {
 
-                    $post->texts->content = $post->title($post->id);
-                    $invoicePosts[] = $post;
+            //         $post->texts->content = $post->title($post->id);
+            //         $invoicePosts[] = $post;
                     
-            }
+            // }
+                            // dd($this->posts->texts);
 
-            $this->posts = $invoicePosts;
+            return $this->posts;
 
         }        
 

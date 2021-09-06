@@ -68,18 +68,8 @@
         </div>
 
         <div class="p-4 text-center border-b">
-            <p class="text-2xl">{{__('customerJewellery.Cusomter Jewellery')}} {{__('customerJewellery.May Interested')}}</p>
             @livewire('customer-jewellery.post-fetch-row',
               ['draggableId'=>'draggable0' , 'type'=>'Wedding Ring', 'upperType'=>'shape', 'query'=>$weddingRings->weddingRings[1]->shape ])
-            <a class="btn btn-primary text-white text-lg" href="/{{app()->getlocale()}}/customer-jewellery" target="_blank">{{__('engagementRing.More')}}</a>
-
-
-          <script type="text/javascript">            
-
-            const draggable0 = document.getElementById('draggable0');
-            draggableItem(draggable0)
-          
-          </script>
         </div>
 
 
