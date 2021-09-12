@@ -91,7 +91,7 @@
                         </svg>
                     </span>
                     <span class="col-span-3 md:col-span-4">
-                        <a class="hover:text-brown" href="{{ '/' . app()->getlocale() . '/customer-jewellery?style=' . $meta->style .'&type=engagement ring'}}" target="_blank">
+                        <a class="text-brown" href="{{ '/' . app()->getlocale() . '/customer-jewellery?style=' . $meta->style .'&type=engagement ring'}}" target="_blank">
                             {{__('engagementRing.' .$meta->style )}}
                         </a>
                     </span>
@@ -104,7 +104,7 @@
                         </svg>
                     </span>
                     <span class="col-span-3 md:col-span-4">
-                        <a class="hover:text-brown" href="{{ '/' . app()->getlocale() . '/customer-jewellery?shoulder=' . $meta->shoulder }}" target="_blank">
+                        <a class="text-brown" href="{{ '/' . app()->getlocale() . '/customer-jewellery?shoulder=' . $meta->shoulder }}" target="_blank">
                             {{__('engagementRing.' .$meta->shoulder )}}
                         </a>
                     </span>
@@ -117,7 +117,7 @@
                         </svg>
                     </span>
                     <span class="col-span-3 md:col-span-4">
-                        <a class="hover:text-brown" href="{{ '/' . app()->getlocale() . '/customer-jewellery?prong=' . $meta->prong }}" target="_blank">
+                        <a class="text-brown" href="{{ '/' . app()->getlocale() . '/customer-jewellery?prong=' . $meta->prong }}" target="_blank">
                                 {{__('engagementRing.' .$meta->prong )}}
                             </a>
                         </a>

@@ -100,21 +100,21 @@ class Carousel extends Component
     // {
         
     // }
-    public function setJsData($type,$src,$thumb='',$video360=false){
-        // dd('done');
-        $url = config('global.cache.' . config('global.cache.live') ) . 'public/';
-        $data = ['src'=>$url,
-                    'thumb'=>$url,
-                    'type'=>$type,
-                    'video360' => false,
+    // public function setJsData($type,$src,$thumb='',$video360=false){
+    //     // dd('done');
+    //     $url = config('global.cache.' . config('global.cache.live') ) . 'public/';
+    //     $data = ['src'=>$url,
+    //                 'thumb'=>$url,
+    //                 'type'=>$type,
+    //                 'video360' => false,
 
-                ];
+    //             ];
 
-        if ($type == 'image') {
-            $data['src'] .= 'images/'. $src;
-        }
+    //     if ($type == 'image') {
+    //         $data['src'] .= 'images/'. $src;
+    //     }
 
-        $this->jsData = $data;
+    //     $this->jsData = $data;
 
-    }
+    // }
 }

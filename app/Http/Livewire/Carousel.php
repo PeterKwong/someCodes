@@ -53,49 +53,49 @@ class Carousel extends Component
         return $posts;
 
     }
-    public function setType(){
-        $types = ['video360','video','images'];
-        foreach ($types as $key => $value) {
-            if ($this->model->{$value} ) {
-                $this->setInitJsData($value);
-                return $this->mount = true;
-            }
-        }
-    }
-    public function setInitJsData($type){
-        // dd($type);
-        // $url = config('global.cache.' . config('global.cache.live') ) . 'public/';
+    // public function setType(){
+    //     $types = ['video360','video','images'];
+    //     foreach ($types as $key => $value) {
+    //         if ($this->model->{$value} ) {
+    //             $this->setInitJsData($value);
+    //             return $this->mount = true;
+    //         }
+    //     }
+    // }
+    // public function setInitJsData($type){
+    //     // dd($type);
+    //     // $url = config('global.cache.' . config('global.cache.live') ) . 'public/';
 
-        $data = ['src'=>'',
-                    'thumb'=>'',
-                    'type'=> $type,
-                    'video360' => false,
+    //     $data = ['src'=>'',
+    //                 'thumb'=>'',
+    //                 'type'=> $type,
+    //                 'video360' => false,
 
-                ];
+    //             ];
 
-        if ($type == 'video360') {
-            $data['thumb'] =  $this->model->video360 ;
-            $data['src'] =  $this->model->video;
-            $data['video360'] = $this->model->video360;
-        }
+    //     if ($type == 'video360') {
+    //         $data['thumb'] =  $this->model->video360 ;
+    //         $data['src'] =  $this->model->video;
+    //         $data['video360'] = $this->model->video360;
+    //     }
 
-        if ($type == 'video') {
-            $data['thumb'] = $this->model->images->first()->image;
-            $data['src'] =  $this->model->video;
-        }
+    //     if ($type == 'video') {
+    //         $data['thumb'] = $this->model->images->first()->image;
+    //         $data['src'] =  $this->model->video;
+    //     }
 
-        if ($type == 'image') {
-            $data['src'] =  $this->model->images->first()->image;
-        }
+    //     if ($type == 'image') {
+    //         $data['src'] =  $this->model->images->first()->image;
+    //     }
 
-        $this->jsData = $data;
-    }
-    public function directBack()
-    {
-        // return redirect(url()->current());
+    //     $this->jsData = $data;
+    // }
+    // public function directBack()
+    // {
+    //     // return redirect(url()->current());
 
-       // return back();
-    }
+    //    // return back();
+    // }
     public function selectingItemPost($id,$diamond,$engagementRing,$weddingRings,$jewelleries)
     {
         // dd($post);

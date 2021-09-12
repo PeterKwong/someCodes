@@ -57,7 +57,7 @@
 			'$route':'fetchData'
 		},
 		beforeMount(){
-			this.fetchData()
+			// this.fetchData()
 			
 		},
 		computed: {
