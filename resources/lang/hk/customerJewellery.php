@@ -5,6 +5,7 @@ return [
     'Engagement Ring' => '求婚戒指',
     'Wedding Ring' => '結婚戒指',
     'Jewellery' => '首飾',
+    'Customer Jewellery' => '客人首飾',
     'Weight' => '重量',
     'Shape' => '形狀',
     'Color' => '顏色',
@@ -142,7 +143,7 @@ return [
     'May Interested' => '可能感興趣',
     'Cusomter Jewellery' => '客人首飾',
     'Video' => '影片',
-
+    'View Details'=>'查看資料',
 
     '1' => '是',
     '0' => '否',

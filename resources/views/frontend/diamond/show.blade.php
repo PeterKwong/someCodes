@@ -35,7 +35,7 @@
     @endSection
 
     @section('content')
-    
+
     <!-- Steps  -->
     <x-shopping-cart.progress-bar />
 

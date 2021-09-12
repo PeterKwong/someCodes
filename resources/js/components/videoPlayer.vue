@@ -1,5 +1,5 @@
 <template>
-    <div class="videoPlayer">
+    <div class="videoPlayer" v-if="options.sources[0].src">
         <video
             :id="myVideo"
             class="w-full h-auto video-js vjs-fluid vjs-big-play-centered"
@@ -62,9 +62,9 @@ export default {
         }
     },
     beforeDestroy() {
-        if (this.hasLoaded()) {
-            videojs.getPlayer('myVideo').dispose()
-        }
+        // if (this.hasLoaded()) {
+        //     videojs.getPlayer('myVideo').dispose()
+        // }
     }
 };
 </script>

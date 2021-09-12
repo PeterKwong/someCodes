@@ -887,7 +887,7 @@ class Content extends Component
 		$this->resetCookies();
 		$this->resetSettings();
 		// dd('hi');
-		redirect(app()->getLocale() . '/gia-loose-diamonds');
+		return redirect(app()->getLocale() . '/gia-loose-diamonds');
 
 
 	}

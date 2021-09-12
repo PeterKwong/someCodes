@@ -29,7 +29,7 @@
         <meta property="article:modified_time" content="2013-09-16T19:08:47+01:00" />
         <meta property="article:tag" content="{{ $tags }}" /> 
 
-        <script src="https://cdn.scaleflex.it/plugins/js-cloudimage-360-view/2.3.2/js-cloudimage-360-view.min.js" defer></script>
+        <!-- <script src="https://cdn.scaleflex.it/plugins/js-cloudimage-360-view/2.3.2/js-cloudimage-360-view.min.js" defer></script> -->
         <!-- 
         <script src="https://code.createjs.com/easeljs-0.6.0.min.js"></script>
 
@@ -60,15 +60,19 @@
         <x-shopping-cart.progress-bar />
 
         <!-- Product Details -->
-        <div id="engagementRingsShow" class="flex flex-col space-y-3 md:space-y-0 md:grid md:grid-cols-7 md:space-x-10">
+        <div class="flex flex-col space-y-3 md:space-y-0 md:grid md:grid-cols-7 md:space-x-10">
             <!-- Column-1 - Ring Display  -->
-            <div class="md:col-span-4 flex flex-col space-y-4" >
+
+            <x-carousel type="engagementRing" :typeId="$meta->id" />
+
+
+<!--             <div class="md:col-span-4 flex flex-col space-y-4" >
                 <figure @click="carouselState=!carouselState">
                   <keep-alive >
                     <carousel @active="carouselState=!carouselState" :active="carouselState" :height="'500'" :width="'100%'" :upperitems="engagementRing" :items="customerItems" title="customer jewellries"></carousel>
                   </keep-alive>
                 </figure>
-            </div>
+            </div> -->
             <!-- Column-2 - Ring Detials  -->
             <div class="md:col-span-3 flex flex-col space-y-3">
                 <div class="max-w-xl flex items-center justify-between">
@@ -165,7 +169,16 @@
                         <input type="text" id="engrave1" name="engrave" placeholder="Please type your engrave" class="block w-full md:w-56 pb-1 text-black text-opacity-50 border-b border-opacity-20 focus:outline-none">
                     </div>
                 </div> -->
-                <shopping-cart :item="engagementRing" :type="shoppingCartType" :carousel-item="carouselItem" title="{{ $title }}" ></shopping-cart>
+                <div  id="engagementRingsShow">
+                    
+                    <shopping-cart :item="engagementRing" :type="shoppingCartType" :carousel-item="carouselItem" title="{{ $title }}" ></shopping-cart>
+                </div>
+
+                <script defer type="text/javascript">
+                    mutualVar.vComponents.push({'engagementRingShow':true})
+                </script>
+
+                
             </div>
         </div>
         <!-- Recommend Settings - Products -->
@@ -179,6 +192,8 @@
                   'type'=>'Engagement Ring', 
                   'upperType'=>'style', 
                   'query'=>$meta->style ])
+
+                  
             
     </div>
 

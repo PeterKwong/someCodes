@@ -1,11 +1,5 @@
-/**
- * @license
- * Video.js 6.13.0 <http://videojs.com/>
- * Copyright Brightcove, Inc. <https://www.brightcove.com/>
- * Available under Apache License Version 2.0
- * <https://github.com/videojs/video.js/blob/master/LICENSE>
- *
- * Includes vtt.js <https://github.com/mozilla/vtt.js>
- * Available under Apache License Version 2.0
- * <https://github.com/mozilla/vtt.js/blob/master/LICENSE>
+/*!
+ * Vue.js v2.6.12
+ * (c) 2014-2020 Evan You
+ * Released under the MIT License.
  */

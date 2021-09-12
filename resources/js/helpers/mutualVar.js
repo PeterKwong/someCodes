@@ -77,7 +77,8 @@ export default {
             weddingRings:'',
             jewelleries:'',
             show:{videoSelecting:''},
-            }
+            },
+        carousel:{src:'',thumb:'',type:'',video360:false},
         }
 
 

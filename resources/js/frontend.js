@@ -1,4 +1,11 @@
 
+import Vue from 'vue'
+window.Vue = Vue;
+
+// Langs
+import transJS from './langs/transJs'
+Vue.filter('transJs', transJS.transJs)
+
 //diamond
 // import DiamondViewerIndex from './views/frontEnd/diamondViewer/index'
 import DiamondViewerShow from './views/frontEnd/diamondViewer/show'
@@ -67,8 +74,10 @@ import AboutUs from './views/frontEnd/aboutUs/index'
 
 
 import ShoppingCartProgress from './components/shoppingCart/progress.vue'
+import ShoppingCart from './components/shoppingCart/cart.vue'
 import ShoppingCartIcon from './components/shoppingCart/icon.vue'
 
+import CarouselCenter from './components/carousel-center.vue'
 
 
 const header = new Vue({
@@ -104,6 +113,7 @@ const header = new Vue({
 });
 
 
+
 if (mutualVar.vComponents.findIndex((data)=>{ return data['progressBar'] }) > -1 ) {
     const progressBar = new Vue({
         el: '#progress-bar',
@@ -115,6 +125,38 @@ if (mutualVar.vComponents.findIndex((data)=>{ return data['progressBar'] }) > -1
         components:{ ShoppingCartProgress },
     });    
 }
+
+if (mutualVar.vComponents.findIndex((data)=>{ return data['shoppingCart'] }) > -1 ) {
+    const shoppingCart = new Vue({
+        el: '#shopping-cart',
+        data(){
+            return{
+                mutualVar,
+            }
+        },
+        components:{ ShoppingCartProgress },
+    });    
+}
+
+
+
+if (mutualVar.vComponents.findIndex((data)=>{ return data['carouselCenter'] }) > -1 ) {
+    const carouselCenter = new Vue({
+        el: '#carousel-center',
+        data(){
+            return{
+                mutualVar,
+            }
+        },
+        components:{ CarouselCenter },
+    });    
+}
+
+if (mutualVar.vComponents.findIndex((data)=>{ return data['engagementRingShow'] }) > -1 ) {
+   const engagementRingShow =  new Vue(EngagementRingShow);
+  
+}
+
 
 
 // const footer = new Vue({
@@ -157,12 +199,6 @@ if (!pUrl.includes('/gia-loose-diamonds/round-cut') && !pUrl.includes('/gia-loos
 //         const engagementRingIndex =  new Vue(EngagementRingIndex);
 //     }
 
-if (!pUrl.includes('/engagement-rings/solitaire-ring-setting') && 
-    !pUrl.includes('/engagement-rings/side-stones-setting') && !pUrl.includes('/engagement-rings/halo-setting') && 
-    window.location.pathname.slice(4,21) == 'engagement-rings/') 
-    {
-        const engagementRingShow =  new Vue(EngagementRingShow);
-    }
 
 //wedding rings
 // if (pUrl == '/wedding-rings' || pUrl == '/wedding-rings/' || pUrl.includes('/wedding-rings/classic') || 

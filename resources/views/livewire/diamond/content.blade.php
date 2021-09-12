@@ -44,7 +44,6 @@
 <div id="loading" wire:loading.class="loading">
 </div>
 
-
 <script>
     function desktopSliders() {
         return {
@@ -64,7 +63,7 @@
             this.sliders.weight.mininputjs = this.weightMin
             this.sliders.weight.maxinputjs = this.weightMax
             this.mintrigger('weight')
-            this.maxtrigger('weight')            
+            this.maxtrigger('weight')
             if (localStorage.getItem('clickedRows')) {
                 this.clickedRows = JSON.parse(decodeURIComponent(localStorage.getItem('clickedRows')))
             }

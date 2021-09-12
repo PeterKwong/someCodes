@@ -5,6 +5,7 @@ return [
     'Engagement Ring' => 'Engagement Ring',
     'Wedding Ring' => 'Wedding Ring',
     'Jewellery' => 'Jewellery',
+    'Customer Jewellery' => 'Customer Jewellery',
     'Weight' => 'Weight',
     'Shape' => 'Shape',
     'Color' => 'Color',
@@ -141,6 +142,7 @@ return [
     'May Interested' => 'May Interested',
     'Cusomter Jewellery' => 'Cusomter Jewellery',
     'Video' => 'Video',
+    'View Details'=>'View Details',
 
     '1' => 'Yes',
     '0' => 'No',

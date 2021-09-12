@@ -14,6 +14,7 @@
     @include('layouts.metas.cache')
 
     @include('layouts.head.asset')
+    @include('layouts.js.screen-width')
 
     @yield('meta')
     

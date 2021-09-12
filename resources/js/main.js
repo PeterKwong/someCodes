@@ -49,17 +49,11 @@
 
 // import './jqueryPlugin/rangeslider'
 
-import Vue from 'vue'
-window.Vue = Vue;
-
 //home
 
 import mutualVar from './helpers/mutualVar'
 window.mutualVar = mutualVar
 
-// Langs
-import transJS from './langs/transJs'
-Vue.filter('transJs', transJS.transJs)
 
 import { get,post } from './helpers/api'
 window.get = get
@@ -67,6 +61,12 @@ window.post = post
 
 
 window.pUrl = window.location.pathname.slice(3)
+
+
+import { setCookie,getCookie } from './helpers/cookie'
+window.setCookie = setCookie
+window.getCookie = getCookie
+
 
 // import HomeIndex from './views/frontEnd/home/index'
 
