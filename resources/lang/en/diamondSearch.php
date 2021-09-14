@@ -196,6 +196,7 @@ return [
 
 	'No Result' => 'No Result',
 	'Results' => 'Results',
+	'Download' => 'Download',
 
 	'price below $80000 diamond, pay by cash would have 1.7~2% discount' => 'price below $80000 diamond, pay by cash would have 1.7~2% discount',
 	'View Less' => 'View Less',

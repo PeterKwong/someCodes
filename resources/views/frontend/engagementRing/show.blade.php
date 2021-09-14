@@ -185,13 +185,14 @@
 
           @livewire('engagement-ring.recommendation')
 
-        
-          @livewire('customer-jewellery.post-fetch-row',
+            <div class="pt-10 pb-20 2xl:py-20">
+                @livewire('customer-jewellery.post-fetch-row',
                 ['draggableId'=>'draggableItem0' ,
                   'title'=>'',  
                   'type'=>'Engagement Ring', 
                   'upperType'=>'style', 
                   'query'=>$meta->style ])
+            </div>
 
                   
             

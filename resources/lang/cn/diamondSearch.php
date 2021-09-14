@@ -184,6 +184,8 @@ return [
 	
 	'No Result' => '无结果',
 	'Results' => '结果',
+	'Download' => '下载',
+
 	'price below $80000 diamond, pay by cash would have 1.7~2% discount' => '8万元以下，现金付款有1.7～2%折扣',
 
 

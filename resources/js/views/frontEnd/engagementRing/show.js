@@ -57,7 +57,7 @@
 			'$route':'fetchData'
 		},
 		beforeMount(){
-			// this.fetchData()
+			this.fetchData()
 			
 		},
 		computed: {
@@ -73,7 +73,7 @@
 				get(`/api/engagementRings/${window.location.pathname.slice(21)}?locale=${this.hrefLangs}`)
 				.then((res)=>{
 					this.engagementRing = res.data.model
-					this.customerItems = res.data.posts.invoicePosts?res.data.posts.invoicePosts:[]
+					// this.customerItems = res.data.posts.invoicePosts?res.data.posts.invoicePosts:[]
 					// this.filterNotPostable(res.data.posts.invoicePosts)
 					this.assignCarouselItem()
 				})
