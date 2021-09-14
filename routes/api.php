@@ -209,7 +209,7 @@ Route::get('cookies', [CookiesController::class,'index']);
 //payment
 Route::post('payment-cn-callback', [PurchasesController::class,'callbackByWechat']);
 
-Route::prefix('')->group(function(){
+// Route::middleware('auth:sanctum')->group(function(){
 	// dd(request()->user());
 	Route::get('account/user', [AccountController::class,'getUserInfo']);
 	Route::post('account/user', [AccountController::class,'userUpdate']);
@@ -241,7 +241,7 @@ Route::prefix('')->group(function(){
 	Route::post('fetch-cart-items', [ShoppingCartController::class,'fetchCartItems']);
 
 	Route::post('update-customer-info', [ShoppingCartController::class,'updateCustomerInfo']);
-});
+// });
 
 Route::get('invoice-diamonds-update-due-date/{id}', [InvoiceDiamondController::class,'setDiamondDueToday']);
 Route::get('invoices-update-due-date/{id}', [InvoiceController::class,'setInvoiceDueToday']);
