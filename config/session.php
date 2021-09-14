@@ -155,7 +155,7 @@ return [
     |
     */
 
-    'domain' => 'tingdiamond.com',
+    'domain' => env('SESSION_DOMAIN', null),
 
     /*
     |--------------------------------------------------------------------------
