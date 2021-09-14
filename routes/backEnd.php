@@ -18,7 +18,7 @@ use App\Http\Middleware\TeamTingDiamond;
 //admin 
 
 Route::prefix('/adm/')
-        ->middleware('auth:sanctum')->middleware(TeamTingDiamond::class)
+        ->middleware(TeamTingDiamond::class)
         ->group(function(){
 
         // dd('login');
