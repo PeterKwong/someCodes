@@ -209,7 +209,7 @@ Route::get('cookies', [CookiesController::class,'index']);
 //payment
 Route::post('payment-cn-callback', [PurchasesController::class,'callbackByWechat']);
 
-Route::middleware('auth:sanctum')->group(function(){
+Route::group(function(){
 	// dd(request()->user());
 	Route::get('account/user', [AccountController::class,'getUserInfo']);
 	Route::post('account/user', [AccountController::class,'userUpdate']);
