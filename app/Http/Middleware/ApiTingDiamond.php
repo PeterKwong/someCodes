@@ -16,9 +16,9 @@ class ApiTingDiamond
      */
     public function handle(Request $request, Closure $next)
     {
-        if (! $request->user()->isTeamTingDiamond()) {
-            return abort(403, 'Unauthorized.', $headers);
-        }
+        // if (! $request->user()->isTeamTingDiamond()) {
+        //     return abort(403, 'Unauthorized.', $headers);
+        // }
 
         return $next($request);
     }
