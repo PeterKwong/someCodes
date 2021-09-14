@@ -18,7 +18,7 @@ class TeamTingDiamond
     {
 
         if (! $request->user()) {
-            dd(auth()->viaRequest('user'));
+            // dd(auth()->viaRequest('user'));
             return redirect(app()->getLocale() .'/login');
 
         }
