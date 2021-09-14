@@ -50,7 +50,7 @@ Route::get('/home', [HomeController::class,'index']);
 
 
 //Auth Ting Diamond token
-// Route::middleware(['auth:sanctum','ApiTingDiamond'])->group(function(){
+Route::middleware(['auth:sanctum','ApiTingDiamond'])->group(function(){
 
 	Route::resource('engagementRings', EngagementRingController::class)
 		->only(['create', 'store', 'edit', 'update', 'destroy']);
@@ -148,7 +148,7 @@ Route::get('/home', [HomeController::class,'index']);
 	Route::post('diamonds/oncall-hold/{id}', [DiamondController::class,'oncallHoldDiamond']);
 	Route::post('diamonds/oncall-confirm/{id}', [DiamondController::class,'oncallConfirmDiamond']);
 
-// });
+});
 
 //Front
 
