@@ -359,8 +359,7 @@ class Content extends Component
     	if (!isset($_COOKIE['diamondSearch']) || 
     		// !isset($_COOKIE['diamondSearchShowAdvance'])|| 
     		// !isset($_COOKIE['tagShowMore'])|| 
-    		!isset($_COOKIE['clickedRows']) 
-    		) {
+    		!isset($_COOKIE['clickedRows']) ) {
 			$this->setCookie();
     	}
     	if (isset($_COOKIE['diamondSearch'])) {
