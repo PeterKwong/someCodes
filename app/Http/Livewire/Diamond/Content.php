@@ -864,7 +864,7 @@ class Content extends Component
 	public function getCookie(){
    		$this->fetchData = (array)json_decode($_COOKIE['diamondSearch']);
    		// dd($this->fetchData);
-   		// $this->showAdvance = (array)json_decode($_COOKIE['diamondSearchShowAdvance']);
+   		$this->showAdvance = json_decode($_COOKIE['diamondSearchShowAdvance']);
    		// $this->tagShowMore = (array)json_decode($_COOKIE['tagShowMore']);
    		$this->clickedRows = (array)json_decode($_COOKIE['clickedRows']);			
 	} 

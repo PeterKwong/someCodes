@@ -47,7 +47,7 @@
                     </div>
                 </div>
     	       
-               @include('layouts.frontEnd.footer')
+               @include('layouts.frontend.footer')
         </div>
 
 
