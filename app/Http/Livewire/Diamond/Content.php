@@ -356,10 +356,16 @@ class Content extends Component
 
     	$this->resetSettings();
 
-    	if (!isset($_COOKIE['diamondSearch']) ) {
+    	if (!isset($_COOKIE['diamondSearch']) ||
+    		!isset($_COOKIE['diamondSearchShowAdvance']) ||
+    		!isset($_COOKIE['clickedRows']) 
+    		) {
 			$this->setCookie();
     	}
-    	if (isset($_COOKIE['diamondSearch'])) {
+    	if (isset($_COOKIE['diamondSearch'])&&
+    		isset($_COOKIE['diamondSearchShowAdvance'])&&
+    		isset($_COOKIE['clickedRows']) 
+    		) {
     		$this->getCookie();
     	}    	
 		
