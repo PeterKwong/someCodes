@@ -28,6 +28,8 @@ return [
 	'Diamond Info' => 'Diamond Info',
 	'RD' => 'RD',
 	'Diamond Color' => 'Diamond Color',
+	'Diamond Clarity' => 'Diamond Clarity',
+	'Diamond Cut' => 'Diamond Cut',
 	'DIAMOND SIZE' => 'DIAMOND SIZE',
 	'Learn More' => 'Learn More',
 	'GIA Certificate' => 'GIA Certificate',
@@ -201,5 +203,17 @@ return [
 	'price below $80000 diamond, pay by cash would have 1.7~2% discount' => 'price below $80000 diamond, pay by cash would have 1.7~2% discount',
 	'View Less' => 'View Less',
 	'View More' => 'View More',
+	'Know More about your diamond' => 'Know More about your diamond',
+	'Your Dimaond' => 'Your Dimaond',
+	'No' => 'No',
+	'view' => 'view',
+
+	
+	'Results' => 'Results',
+	'Results' => 'Results',
+	'Results' => 'Results',
+
+
+
 
 ];

@@ -27,7 +27,9 @@ return [
 	'Certificate' => '證書',
 	'Diamond Info' => '鑽石資料',
 	'RD' => '圓形',
+	'Diamond Clarity' => '鑽石淨度',
 	'Diamond Color' => '鑽石顏色',
+	'Diamond Cut' => '鑽石切割',
 	'DIAMOND SIZE' => '鑽石大小',
 	'Learn More' => '查看更多',
 	'GIA Certificate' => 'GIA 證書',
@@ -190,6 +192,12 @@ return [
 
 	'View Less' => '查看更少',
 	'View More' => '查看更多',
+
+	'Know More about your diamond' => '知道更多關於你的鑽石',
+	'Your Dimaond' => '你的鑽石',
+	'No' => '無',
+	'view' => '觀看',
+
 
 
 ];

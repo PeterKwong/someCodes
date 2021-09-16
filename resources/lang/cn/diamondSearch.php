@@ -28,6 +28,8 @@ return [
 	'Diamond Info' => '钻石资料',
 	'RD' => '圆形',
 	'Diamond Color' => '钻石颜色',
+	'Diamond Clarity' => '钻石净度',
+	'Diamond Cut' => '钻石切割',
 	'DIAMOND SIZE' => '钻石大小',
 	'Learn More' => '查看更多',
 	'GIA Certificate' => 'GIA 证书',
@@ -188,5 +190,9 @@ return [
 
 	'price below $80000 diamond, pay by cash would have 1.7~2% discount' => '8万元以下，现金付款有1.7～2%折扣',
 
+	'Know More about your diamond' => '知道更多关于你的钻石',
+	'Your Dimaond' => '你的钻石',
+	'No' => '无',
+	'view' => '观看',
 
 ];
