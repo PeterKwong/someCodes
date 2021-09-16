@@ -2,8 +2,8 @@
 <div wire:init="loadDiamonds"  class="relative grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 w-full xl:grid-cols-4 gap-3 md:gap-7 md:items-center py-10 2xl:pb-10">
     @if( isset($diamonds['data']) )
         @foreach($diamonds['data'] as $id => $row)
-            <div class="flex flex-col relative product-card diamond font-lato p-0 md:p-3 2xl:p-4 cursor-pointer transform hover:-translate-y-2 transition hover:border border-gold-light duration-500" :class="{ ' bg-gray-200':clickedRows.includes( {{$row['id']}} )}">
-                <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" target="_blanck" x-on:click.prevent="goto( {{$row['id']}}, {{$id}} )">
+            <div class="flex flex-col relative product-card diamond font-lato p-0 md:p-3 2xl:p-4 cursor-pointer transform hover:-translate-y-2 transition hover:border border-gold-light duration-500" :class="{ ' bg-gray-200':clickedRows.includes( {{$row['id']}} )}" x-on:click.prevent="goto( {{$row['id']}}, {{$id}} )">
+                <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}">
                     <div class="relative flex items-center justify-center mt-0 md:mt-3 2xl:mt-4">
                         @if($row['image_cache'])  
                             <img class="h-36 md:h-64" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/diamond/' .'images/thm-' . $row['id'] . '.jpg'  }}" alt="Diamond 1">

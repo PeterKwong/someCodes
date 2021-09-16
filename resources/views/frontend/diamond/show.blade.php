@@ -566,36 +566,9 @@
 
         </div>
 
-        <script>
-        function sliders(){
-            return{
-                tab1:false,
-                tab2:false,
-                tab3:false,
-                tab4:false,
-                weight:@json($diamond->weight),
-                weightMin:0,
-                color:@json($diamond->color),
-                clarity:@json($diamond->clarity),
-                clarityMin:0,
-                cut:@json($diamond->cut),
-                maxthumb:1,
-                minthumb:0,
-                init(){
-                    console.log('weight',this.weight)
-                    this.cal()
-                    console.log('weight',this.weight)
-                },
-                cal(){
-                    this.weightMin = this.weight/5*100 
-                    this.weight =100 - this.weightMin
-                },
-            }
-        }
-    </script>
 
 
-         <script type="text/javascript">            
+<!--          <script type="text/javascript">            
             
             const draggable0 = document.getElementById('draggable0');
             draggableItem(draggable0)
@@ -606,7 +579,7 @@
             const draggable3 = document.getElementById('draggable3');
             draggableItem(draggable3)
 
-          </script>
+          </script> -->
 
     @endSection
 
