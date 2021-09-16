@@ -30,7 +30,7 @@
             </div>     
             </div>
             <!-- 360 view  -->
-            <div class="absolute bottom-3 w-full flex justify-end items-center px-4">
+            <div class="absolute bottom-3 w-full flex justify-start items-center px-4">
                 <div class="flex items-center opacity-75">
                     <button class="flex items-center justify-center" @click="viewerProgress(1)">
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
