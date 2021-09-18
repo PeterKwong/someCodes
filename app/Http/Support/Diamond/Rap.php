@@ -123,8 +123,8 @@ trait Rap{
       $reqBody = [ 
                   "request"=>[
                     "header"=>[
-                      "username" => env('RID'),
-                      "password" => env('RPW') ], 
+                      "username" => config('global.rap.RID'),
+                      "password" => config('global.rap.RPW') ], 
                     "body"=>[
                       "search_type" => "White",
                       'labs' => ['GIA'],
@@ -209,8 +209,8 @@ trait Rap{
         $reqBody = [ 
                   "request"=>[
                     "header"=>[
-                      "username" => env('RID'),
-                      "password" => env('RPW')], 
+                      "username" => config('global.rap.RID'),
+                      "password" => config('global.rap.RPW')], 
                     "body"=>[
                       "diamond_id" => $diamond ]]
                         
