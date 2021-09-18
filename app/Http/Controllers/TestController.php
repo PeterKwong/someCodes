@@ -25,7 +25,7 @@ class TestController extends Controller
 {
 
     public function test(){
-    	dd( config('oncall.id'));
+    	dd( config('global.oncall.id'));
 	    // return $this->postTags();
 	    return $this->resetAllDiamonds();
 
