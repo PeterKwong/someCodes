@@ -60,8 +60,8 @@ trait Rap{
             $reqBody = [ 
                   "request"=>[
                     "header"=>[
-                      "username" => env('RID'),
-                      "password" => env('RPW') ], 
+                      "username" => config('global.rap.RID'),
+                      "password" => config('global.rap.RPW') ], 
                     "body"=>[
                       "shape" => $req->shape,
                       "size" => $req->weight,

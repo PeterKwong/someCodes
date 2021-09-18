@@ -76,4 +76,8 @@ return [
         'pw' => env('OCPW'),
     ],
 
+    'rap' => [
+        'id'     => env('RID'),
+        'pw' => env('RPW'),
+    ],
 ];
