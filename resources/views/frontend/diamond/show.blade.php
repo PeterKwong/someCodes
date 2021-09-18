@@ -504,7 +504,7 @@
                                     <span class="font-lato">I1</span>
                                 </div>
                             </div>
-                            <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full">
+                            <div class="relative w-full">
                                 <div>
                                     <div class="relative z-10 h-2">
                                         <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
@@ -628,7 +628,7 @@
                                       <span class="font-lato">N</span>
                                   </div>
                               </div>
-                              <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full">
+                              <div class="relative w-full">
                                   <div>
                                       <div class="relative z-10 h-2">
                                           <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
@@ -708,7 +708,7 @@
                                         <span class="font-lato">Good</span>
                                     </div>
                                 </div>
-                                <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full">
+                                <div class="relative w-full">
                                     <div>
                                         <div class="relative z-10 h-2">
                                             <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
