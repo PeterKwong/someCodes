@@ -67,50 +67,6 @@
     </div>
 
 
-        <br>
-        <div id="weddingRingsShow">
-            <div class="flex justify-center">
-                <div class="flex-auto">
-                    <div class="flex justify-center p-4">
-                        <div class="col-span-9">
-                                <h1 class="text-center sm:text-2xl">
-                                {{$title}}
-                                </h1>
-                        </div>       
-                    </div>
-
-
-                    <div class="grid grid-cols-12 ">
-
-                        <div class="col-span-12 sm:col-span-7">
-                                <div class="tile is-child">
-                                        <figure class="image box" @click="carouselState=!carouselState">
-              <!--                           <carousel @active="carouselState=!carouselState" :active="carouselState"  :height="'500'" :width="'100%'" :upperitems="combinedUpperWeddingRings" :items="combinedLowerWeddingRings" title="customer jewellries"></carousel> -->
-                                        <carousel @active="carouselState=!carouselState" :active="carouselState" :height="'500'" :width="'100%'" :upperitems="weddingRing" :items="customerItems" title="customer jewellries" />
-                                        </figure>
-                                </div>
-                            </div>
-
-                        <div class="col-span-12 sm:col-span-5 box p-4">
-                            <x-wedding-ring.show-details :weddingRings="$weddingRings" :tags="$tags"/>
-                        </div>
-                      
-
-                        
-                        
-                    </div>
-                    
-                </div>
-                
-            </div>
-            
-        </div>
-
-        <div class="p-4 text-center border-b">
-            @livewire('customer-jewellery.post-fetch-row',
-              ['draggableId'=>'draggable0' , 'type'=>'Wedding Ring', 'upperType'=>'shape', 'query'=>$weddingRings->weddingRings[1]->shape ])
-        </div>
-
 
     @endSection
 
