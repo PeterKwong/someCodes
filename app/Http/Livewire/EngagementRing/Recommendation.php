@@ -24,6 +24,7 @@ class Recommendation extends Component
         return EngagementRing::where('published',1)
                 ->inRandomOrder()
                 ->with(['images'])
+                ->withCount('invoices')
                 ->paginate(4);
 
         // dd($this->model);

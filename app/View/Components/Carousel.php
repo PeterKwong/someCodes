@@ -2,10 +2,10 @@
 
 namespace App\View\Components;
 
-use Illuminate\View\Component;
-
 use App\Models\EngagementRing;
 use App\Models\InvoicePost;
+use App\Models\WeddingRingPair;
+use Illuminate\View\Component;
 
 class Carousel extends Component
 {
@@ -41,6 +41,21 @@ class Carousel extends Component
     public function engagementRing()
     {
         $this->model = EngagementRing::where('published',1)->with(['images','texts'])->findOrFail($this->typeId);
+
+        $this->mount?'':$this->setType();
+
+        // return $posts = InvoicePost::where('published',1)
+        //                     ->where('postable_type','App\Models\EngagementRing')
+        //                     ->where('postable_id',$this->typeId)
+        //                     ->with([
+        //                         'images',
+        //                         'invoice.invoiceDiamonds'
+        //                         ])->orderBy('created_at','desc')->paginate(4);
+
+    }
+    public function weddingRing()
+    {
+        $this->model = WeddingRingPair::where('published',1)->with(['images','texts'])->findOrFail($this->typeId);
 
         $this->mount?'':$this->setType();
 

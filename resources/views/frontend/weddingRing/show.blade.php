@@ -27,7 +27,46 @@
 
     @endSection
 
+    @section('hero')
+        <!-- Hero Section  -->
+        <div class="hero-image flex items-center justify-center w-full h-20 xl:h-36 mt-16 lg:mt-52">
+            <h2 class="text-lg xl:text-2xl font-medium font-suranna tracking-widest">
+                {{$title}}
+            </h2>
+        </div>
+    @endsection
+
     @section('content')
+
+
+
+    <!-- Shop Section  -->
+    <div class="relative flex flex-col max-w-screen-2xl 2xl:mx-auto md:mx-10 lg:mx-20 px-5 py-10 md:px-0 font-lato">
+
+        <!-- Product Details -->
+        <div class="flex flex-col space-y-3 md:space-y-0 md:grid md:grid-cols-7 md:space-x-10">
+
+            <!-- Column-1 - Ring Display  -->
+            <div class="md:col-span-4 flex flex-col space-y-4">
+                <x-carousel type="weddingRing" :typeId="$meta->wedding_ring_pair_id" />
+                
+            </div>
+            <!-- Column-2 - Wedding Ring Detials  -->
+
+                 <x-wedding-ring.show-details :weddingRings="$weddingRings" :tags="$tags"/>
+
+        </div>
+        <!-- Recommend Wedding Rings - Products -->
+            @livewire('wedding-ring.recommendation')
+        <!--Recommend Customer Jewellery - Products -->
+        <div class="">
+            @livewire('customer-jewellery.post-fetch-row',
+              ['draggableId'=>'draggable0' , 'type'=>'Wedding Ring', 'upperType'=>'shape', 'query'=>$weddingRings->weddingRings[1]->shape ])
+        </div>
+
+    </div>
+
+
         <br>
         <div id="weddingRingsShow">
             <div class="flex justify-center">

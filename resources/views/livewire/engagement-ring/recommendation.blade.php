@@ -31,7 +31,7 @@
         @foreach($model as $data)   
             <div class="flex flex-col relative product-card font-lato p-0 md:p-2 2xl:p-5 cursor-pointer transform hover:-translate-y-2 transition hover:border border-gold-light duration-500">
                 <a href="{{ '/' . app()->getlocale() . '/engagement-rings/' . $data->id }}" target="_blank">
-                    <img class="mt-5 md:mt-0" src="{{ config('global.cache.' . config('global.cache.live') ) 
+                    <img class="mt-5 md:mt-0 w-full" src="{{ config('global.cache.' . config('global.cache.live') ) 
                                               . 'public/images/' . $data->images->first()->image }}" alt="Recommend-Settings-2">
                     <div class="flex flex-col items-center space-y-2 md:space-y-3">
                         <p class="flex items-center space-x-1 font-suranna text-gold-light">
@@ -44,10 +44,12 @@
                         <p class="text-xs md:text-base">{{__('engagementRing.Engagement Ring Setting')}}</p>
                     </div>
                     <div class="flex items-center justify-center space-x-1 mt-3">
-                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.63604 0.5L11.0727 5.43763L16.5218 6.22964L12.5788 10.0728L13.5096 15.5L8.63604 12.9378L3.76224 15.5L4.69302 10.0728L0.75 6.22964L6.19914 5.43763L8.63604 0.5Z" fill="#EFCE4A" />
-                        </svg>
-                        <span class="text-sm font-lato">52</span>
+                        @if($data->invoices_count>0)
+                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.63604 0.5L11.0727 5.43763L16.5218 6.22964L12.5788 10.0728L13.5096 15.5L8.63604 12.9378L3.76224 15.5L4.69302 10.0728L0.75 6.22964L6.19914 5.43763L8.63604 0.5Z" fill="#EFCE4A" />
+                            </svg>
+                            <span class="text-sm font-lato">{{$data->invoices_count}}</span>
+                        @endif
                     </div>
                     <div class="flex flex-col md:flex-row items-center justify-center divide-y md:divide-y-0 md:divide-x divide-gold divide-opacity-50 mx-3 md:mx-0 py-2 md:py-5">
                         <div class="relative flex w-full flex-row justify-between md:flex-col items-center md:space-y-3 py-2 md:px-3 2xl:px-4">

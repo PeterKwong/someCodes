@@ -10,20 +10,24 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                             </svg>
                         </a>
-                    @else   
-                        <button class="z-10 cursor-pointer" x-on:click="@this.previousPage();selectingItem=null">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#666666">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                            </svg>
-                        </button>
+                    @else
+                        <span x-on:click="selectingItem=null">
+                            <button class="z-10 cursor-pointer" wire:click="previousPage()">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#666666">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                </svg>
+                            </button>
+                        </span>
                     @endif
 
                     @if($posts->hasMorePages())
-                        <button class="z-10 cursor-pointer" x-on:click="@this.nextPage();selectingItem=null">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#666666">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </button>
+                        <span x-on:click="selectingItem=null">
+                            <button class="z-10 cursor-pointer" wire:click="nextPage()">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#666666">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </button>
+                        </span>
                     @endif
                 </div>
             </div>
@@ -63,9 +67,6 @@
 
             @endforeach
             
-<!--             <div x-on:click="@this.nextPage()" class="flex items-center justify-center border w-32 md:w-auto min-w-max h-20 cursor-pointer overflow-hidden">
-                <img class="md:w-32 h-20" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/'. $posts[0]->images->first()->image }}" alt="">
-            </div> -->
 
         </div>
     </div>
@@ -119,16 +120,65 @@
                     @endif
 
                     @if(count($selectingItem['invoice_diamonds']))
-                    <p class="text-sm">{{$selectingItem['invoice_diamonds'][0]['weight']}} {{__('diamondSearch.'.$selectingItem['invoice_diamonds'][0]['shape'])}} {{__('diamondSearch.diamond')}}</p>
-                    <p class="text-sm">
-                        {{__('diamondSearch.Carat')}}: {{$selectingItem['invoice_diamonds'][0]['weight']}}
-                        ｜{{__('diamondSearch.Color')}}: {{$selectingItem['invoice_diamonds'][0]['color']}}
-                        ｜{{__('diamondSearch.Clarity')}}: {{$selectingItem['invoice_diamonds'][0]['clarity']}}
-                        ｜{{__('diamondSearch.Cut')}}: {{$selectingItem['invoice_diamonds'][0]['cut']}} <br>
-                        {{__('diamondSearch.Polish')}}: {{$selectingItem['invoice_diamonds'][0]['polish']}}
-                        ｜{{__('diamondSearch.Symmetry')}}: {{$selectingItem['invoice_diamonds'][0]['symmetry']}}
-                        ｜{{__('diamondSearch.Fluorescence')}}: {{__('diamondSearch.'.$selectingItem['invoice_diamonds'][0]['fluorescence'])}}
-                    </p>
+                        <p class="text-sm">{{$selectingItem['invoice_diamonds'][0]['weight']}} {{__('diamondSearch.'.$selectingItem['invoice_diamonds'][0]['shape'])}} {{__('diamondSearch.diamond')}}</p>
+                        <p class="text-sm">
+                            {{__('diamondSearch.Carat')}}: {{$selectingItem['invoice_diamonds'][0]['weight']}}
+                            ｜{{__('diamondSearch.Color')}}: {{$selectingItem['invoice_diamonds'][0]['color']}}
+                            ｜{{__('diamondSearch.Clarity')}}: {{$selectingItem['invoice_diamonds'][0]['clarity']}}
+                            ｜{{__('diamondSearch.Cut')}}: {{$selectingItem['invoice_diamonds'][0]['cut']}} <br>
+                            {{__('diamondSearch.Polish')}}: {{$selectingItem['invoice_diamonds'][0]['polish']}}
+                            ｜{{__('diamondSearch.Symmetry')}}: {{$selectingItem['invoice_diamonds'][0]['symmetry']}}
+                            ｜{{__('diamondSearch.Fluorescence')}}: {{__('diamondSearch.'.$selectingItem['invoice_diamonds'][0]['fluorescence'])}}
+                        </p>
+                    @endif
+
+                    @if(count($selectingItem['wedding_rings']))
+                        @if(isset($selectingItem['wedding_rings'][0]))
+                        <div class="flex items-center justify-between w-full mt-2 md:mt-0">
+                            <p class="text-sm md:text-xl font-bold md:font-normal font-suranna">{{__('weddingRing.'. $selectingItem['wedding_rings'][0]['metal'])}} {{__('weddingRing.Wedding Ring')}} </p>
+                            <a href="{{ '/' . app()->getlocale() . '/customer-jewellery/' . $selectingItem['id'] }}" target="_blank" >
+                                <button class="flex items-center space-x-3 text-brown">
+                                    <span class="font-bold">{{__('customerJewellery.View Details')}}</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#9A7474">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                        <p class="text-sm">{{__('weddingRing.'.$selectingItem['wedding_rings'][0]['gender'])}}{{__('weddingRing.Wedding Ring')}}</p>
+                        <div class="flex flex-col md:flex-row items-center justify-center md:justify-start divide-y md:divide-y-0 md:divide-x divide-gold divide-opacity-50 mr-2 md:mr-0 border-b pb-3">
+                            <div class="relative flex w-full md:w-auto justify-between md:justify-start md:max-w-max md:pl-0 md:px-5 flex-row md:space-x-5 items-center py-2">
+                                <p class="text-xs md:text-sm text-black opacity-50">{{__('weddingRing.shape')}}</p>
+                                <p class="text-xs md:text-sm">{{__('weddingRing.'. $selectingItem['wedding_rings'][0]['shape'])}}</p>
+                            </div>
+                            <div class="relative flex w-full md:w-auto justify-between md:justify-start md:max-w-max md:px-5 flex-row md:space-x-5 items-center py-2">
+                                <p class="text-xs md:text-sm text-black opacity-50">{{__('weddingRing.finish')}}</p>
+                                <p class="text-xs md:text-sm">{{__('weddingRing.'. $selectingItem['wedding_rings'][0]['finish'])}}</p>
+                            </div>
+                            <div class="relative flex w-full md:w-auto justify-between md:justify-start md:max-w-max md:pr-0 md:px-5 flex-row md:space-x-5 items-center py-2">
+                                <p class="text-xs md:text-sm text-black opacity-50">{{__('weddingRing.metal')}}</p>
+                                <p class="text-xs md:text-sm text-right"> {{__('weddingRing.'. $selectingItem['wedding_rings'][0]['metal'])}}</p>
+                            </div>
+                        </div>
+                        @endif
+                        
+                        @if(isset($selectingItem['wedding_rings'][1]))
+                            <p class="text-sm">{{__('weddingRing.'.$selectingItem['wedding_rings'][1]['gender'])}}{{__('weddingRing.Wedding Ring')}}</p>
+                            <div class="flex flex-col md:flex-row items-center justify-center md:justify-start divide-y md:divide-y-0 md:divide-x divide-gold divide-opacity-50 mr-2 md:mr-0 border-b pb-3">
+                                <div class="relative flex w-full md:w-auto justify-between md:justify-start md:max-w-max md:pl-0 md:px-5 flex-row md:space-x-5 items-center py-2">
+                                    <p class="text-xs md:text-sm text-black opacity-50">{{__('weddingRing.shape')}}</p>
+                                    <p class="text-xs md:text-sm">{{__('weddingRing.'. $selectingItem['wedding_rings'][1]['shape'])}}</p>
+                                </div>
+                                <div class="relative flex w-full md:w-auto justify-between md:justify-start md:max-w-max md:px-5 flex-row md:space-x-5 items-center py-2">
+                                    <p class="text-xs md:text-sm text-black opacity-50">{{__('weddingRing.finish')}}</p>
+                                    <p class="text-xs md:text-sm">{{__('weddingRing.'. $selectingItem['wedding_rings'][1]['finish'])}}</p>
+                                </div>
+                                <div class="relative flex w-full md:w-auto justify-between md:justify-start md:max-w-max md:pr-0 md:px-5 flex-row md:space-x-5 items-center py-2">
+                                    <p class="text-xs md:text-sm text-black opacity-50">{{__('weddingRing.metal')}}</p>
+                                    <p class="text-xs md:text-sm text-right"> {{__('weddingRing.'. $selectingItem['wedding_rings'][1]['metal'])}}</p>
+                                </div>
+                            </div>
+                        @endif
                     @endif
                 </div>
             </div>

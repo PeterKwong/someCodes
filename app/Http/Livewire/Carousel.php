@@ -4,9 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Models\EngagementRing;
 use App\Models\InvoicePost;
+use App\Models\WeddingRingPair;
+use Illuminate\Pagination\Paginator;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Pagination\Paginator;
 
 class Carousel extends Component
 {
@@ -18,6 +19,7 @@ class Carousel extends Component
     public $selectingItem = [];
     public $mount =false;
     public $jsPosts;
+    public $querySize;
     // public $invoiceDiamond =[];
 
     protected $model;
@@ -29,14 +31,17 @@ class Carousel extends Component
                     // 'model'=>$this->model
                     ]);
     }
+    public function mount()
+    {
+        $this->querySize = isset($_COOKIE['screenX'])&&$_COOKIE['screenX']<640?3:4;
+
+    }
     public function engagementRing()
     {
         // $this->model = EngagementRing::where('published',1)->with(['images','texts'])->findOrFail($this->typeId);
 
         // $this->mount?'':$this->setType();
 
-        $querySize = isset($_COOKIE['screenX'])&&$_COOKIE['screenX']<640?3:4;
-        // dd($querySize);
         $posts = InvoicePost::where('published',1)
                             ->where('postable_type','App\Models\EngagementRing')
                             ->where('postable_id',$this->typeId)
@@ -46,7 +51,35 @@ class Carousel extends Component
                                 'invoice.engagementRings',
                                 'invoice.weddingRings',
                                 'invoice.jewelleries',
-                                ])->orderBy('created_at','desc')->paginate($querySize);
+                                ])->orderBy('created_at','desc')->paginate($this->querySize);
+
+        $this->jsPosts = $posts->toArray();
+        // dd($this->jsPosts);
+        return $posts;
+
+    }
+    public function weddingRing()
+    {
+        $this->model = WeddingRingPair::where('published',1)->with('weddingRings')->findOrFail($this->typeId);
+
+        $ids = [];
+        foreach ($this->model->weddingRings as $key => $ring) {
+            $ids[] = $ring->id;
+        }
+
+        // dd($ids);
+        // $this->mount?'':$this->setType();
+
+        $posts = InvoicePost::where('published',1)
+                            ->where('postable_type','App\Models\WeddingRing')
+                            ->whereIn('postable_id',$ids)
+                            ->with([
+                                'images',
+                                'invoice.invoiceDiamonds',
+                                'invoice.engagementRings',
+                                'invoice.weddingRings',
+                                'invoice.jewelleries',
+                                ])->orderBy('created_at','desc')->paginate($this->querySize);
 
         $this->jsPosts = $posts->toArray();
         // dd($this->jsPosts);
@@ -98,12 +131,14 @@ class Carousel extends Component
     // }
     public function selectingItemPost($id,$diamond,$engagementRing,$weddingRings,$jewelleries)
     {
-        // dd($post);
+        // dd($weddingRings);
         $this->selectingItem['id'] =$id;
         $this->selectingItem['invoice_diamonds'] =$diamond;
         $this->selectingItem['engagement_rings'] =$engagementRing;
         $this->selectingItem['wedding_rings'] =$weddingRings;
         $this->selectingItem['jewelleries'] =$jewelleries;
+
+        // dd($this->selectingItem['wedding_rings']);
 
         // if ($post['invoice']['invoice_diamonds']) {
         //     $this->invoiceDiamond = $post['invoice']['invoice_diamonds'][0];

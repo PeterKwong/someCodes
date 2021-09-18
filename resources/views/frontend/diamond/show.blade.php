@@ -151,7 +151,7 @@
                 <div class="tags flex flex-wrap items-center gap-3">
                     @if($diamond->starred)
                         <p class="py-0.5 px-2 bg-grey-04 text-white font-medium text-xs font-lato rounded">
-                            Starred
+                            {{ __('diamondSearch.starred')}}
                         </p>
                     @endif
                     @if($diamond->location == '1Hong Kong')
