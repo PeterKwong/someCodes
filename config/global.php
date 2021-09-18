@@ -71,4 +71,9 @@ return [
         'redirect'      => env('WECHAT_OPEN_PLATFORM_URL'),
     ],
 
+    'oncall' => [
+        'id'     => env('OCID'),
+        'pw' => env('OCPW'),
+    ],
+
 ];

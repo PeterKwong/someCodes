@@ -32,8 +32,8 @@ trait Oncall{
                               'method' => 'post',
                               'header' => [],
                               'data' => ["action"=>"diamond_stock_list",
-                                        "email"=> env('OCID') ,
-                                        "password"=>env('OCPW') ,
+                                        "email"=> config('oncall.id') ,
+                                        "password"=>config('oncall.pw') ,
                                         "startindex"=>1,
                                         "lotno"=>"",
                                         "certificate_no"=>"",
@@ -138,7 +138,7 @@ trait Oncall{
 
     public function importDiamondFromAPI_1000_PerBatch($countingPage, $selectedID = 'white_diamond'){
           $data = $this->guzzleRequest($this->diamondSource,$selectedID,$countingPage);
-          dd(env('OCID'));
+          // dd(env('OCID'));
           $extractedDiamonds = $this->importDiamondsFromWebJson($data,$selectedID);   
 
           return $extractedDiamonds;
