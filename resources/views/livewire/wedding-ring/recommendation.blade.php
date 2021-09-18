@@ -27,7 +27,7 @@
     </div>
     @foreach($model as $data)
         <div @click="showModal = true" class="flex flex-col relative product-card rounded-none font-lato p-0 md:p-2 2xl:p-5 cursor-pointer transform hover:-translate-y-2 transition hover:border border-gold-light duration-500">
-            <a href="{{ '/' . app()->getlocale() . '/engagement-rings/' . $data->id }}" target="_blank">
+            <a href="{{ '/' . app()->getlocale() . '/wedding-rings/' . $data->id }}" target="_blank">
                 <img class="mt-5 md:mt-0 w-full" src="{{ config('global.cache.' . config('global.cache.live') ) 
                                               . 'public/images/' . $data->images->first()->image }}" alt="p1">
                 <div class="flex flex-col items-center space-y-2 md:space-y-3">
