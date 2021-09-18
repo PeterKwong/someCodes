@@ -2,7 +2,7 @@
     <div class="max-w-xl flex items-center">
         <span class="text-xl font-suranna">{{__('weddingRing.'.$weddingRings->weddingRings[0]->metal)}} {{__('weddingRing.Wedding Rings')}}</span>
     </div>
-    <p class="text-sm md:text-base font-lato"> {{__('weddingRing.Couple Rings')}}｜{{$weddingRings->weddingRings[0]->brand?'｜'.__('weddingRing.'.$weddingRings->weddingRings[0]->brand):''}} </p>
+    <p class="text-sm md:text-base font-lato"> {{__('weddingRing.Couple Rings')}} {{$weddingRings->weddingRings[0]->brand?'｜'.__('weddingRing.'.$weddingRings->weddingRings[0]->brand):''}} </p>
     <div class="grid grid-cols-6 divide-y md:divide-y-0 space-y-5 md:space-y-0 md:divide-x">
         <div class="col-span-5 md:col-span-3 flex flex-col space-y-3 ">
             <div class="flex flex-row justify-between md:justify-start w-full md:w-auto md:flex-col space-y-0">
