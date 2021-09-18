@@ -33,7 +33,7 @@ trait Oncall{
                               'header' => [],
                               'data' => ["action"=>"diamond_stock_list",
                                         "email"=> config('global.oncall.id') ,
-                                        "password"=>config('global.oncall.pw') ,
+                                        "password"=> config('global.oncall.pw') ,
                                         "startindex"=>1,
                                         "lotno"=>"",
                                         "certificate_no"=>"",
@@ -73,8 +73,8 @@ trait Oncall{
                               'method' => 'post',
                               'header' => [],
                               'data' => ["action"=>"diamond_stock_list_fancy",
-                                        "email"=> env('OCID') ,
-                                        "password"=>env('OCPW') ,
+                                        "email"=>  config('global.oncall.id') ,
+                                        "password"=>config('global.oncall.pw') ,
                                         "startindex"=>1,
                                         "lotno"=>"",
                                         "certificate_no"=>"",
@@ -138,7 +138,7 @@ trait Oncall{
 
     public function importDiamondFromAPI_1000_PerBatch($countingPage, $selectedID = 'white_diamond'){
           $data = $this->guzzleRequest($this->diamondSource,$selectedID,$countingPage);
-          // dd(env('OCID'));
+          // dd( config('global.oncall.id'));
           $extractedDiamonds = $this->importDiamondsFromWebJson($data,$selectedID);   
 
           return $extractedDiamonds;
@@ -334,8 +334,8 @@ trait Oncall{
                   'method' => 'post',
                   'header' => [],
                   'data' => ["action"=>"stone_available",
-                            "email"=> env('OCID') ,
-                            "password"=>env('OCPW') ,
+                            "email"=>  config('global.oncall.id') ,
+                            "password"=> config('global.oncall.pw') ,
                             "certificate_no"=> $diamond->certificate ]];
 
 

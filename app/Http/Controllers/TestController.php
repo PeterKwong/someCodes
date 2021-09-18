@@ -364,8 +364,8 @@ class TestController extends Controller
 
       // return;
 
-      $cron = new CronJob();
-      return $cron->runImportDiamondAPIPerBatch();      
+      // $cron = new CronJob();
+      // return $cron->runImportDiamondAPIPerBatch();      
 
       // $import = new DiamondImport();
       // return $import->deleteAllDiamonds();
@@ -374,6 +374,7 @@ class TestController extends Controller
       // return $import->importFancyDiamondFromAPI_1000_PerBatch(1);
       // return Cache::get('batchNumber');
       return $import->getDiamondsFromSunrise();
+      return $import->importDiamondFromRap();
       // return $import->preloadCerts();
       // return $import->preloadImages();
 
