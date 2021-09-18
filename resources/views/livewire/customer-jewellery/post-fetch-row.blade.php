@@ -31,11 +31,11 @@
     @if($model)     
     @foreach($model as $index => $post)
     @if(count($post->images))
-        <div x-data="{details: false}" @mouseover="details = true" @mouseleave="details = false" class="bg-white grid grid-cols-2 space-x-0 md:space-x-3 relative product-card w-full h-full p-0 md:p-5 cursor-pointer" :class="{'horizontal': details == false}" >
+        <div x-data="{details: false}" @mouseover="details = true" @mouseleave="details = false" class="bg-white grid grid-cols-2 space-x-0 md:space-x-3 relative items-center product-card p-0 md:p-5 cursor-pointer" :class="{'horizontal': details == false}" >
             @if($post->invoice->engagementRings->count())
             @php($engagementRing = $post->invoice->engagementRings->first())
                  <a class="" href="/{{ app()->getLocale() . '/customer-jewellery/' . $post->id }}" target="_blank" >
-                    <img class="w-full h-full md:w-auto md:h-auto" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' .  $post->images->first()->image }}" alt="customer jewellery 1">
+                    <img class="w-full" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' .  $post->images->first()->image }}" alt="customer jewellery 1">
                 </a>
                 <a class="" href="/{{ app()->getLocale() . '/customer-jewellery/' . $post->id }}" target="_blank" >
                     <div class="flex flex-col space-y-1 md:space-y-2 pl-2 pd:ml-0">
@@ -124,8 +124,8 @@
             @if($post->invoice->weddingRings->count())
             @php($weddingRing = $post->invoice->weddingRings->first())
                 <a href="/{{ app()->getLocale() . '/customer-jewellery/' . $post->id }}" target="_blank" class="col-span-2">
-                    <div class="relative grid grid-cols-2 space-x-2 md:space-x-3 product-card w-full h-full horizontal p-0 md:p-5 cursor-pointer">
-                        <img class="w-full h-full md:w-auto md:h-auto" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' .  $post->images->first()->image }}" alt="customer jewellery 2">
+                    <div class="relative grid grid-cols-2 space-x-2 md:space-x-3 items-center product-card horizontal p-0 md:p-5 cursor-pointer">
+                        <img class="w-full" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' .  $post->images->first()->image }}" alt="customer jewellery 2">
                         <div class="flex flex-col space-y-1 md:space-y-2">
                             <div class="flex flex-col mt-2 md:mt-0">
                                 <p class="text-sm md:text-xl font-bold md:font-normal font-suranna">{{__('weddingRing.' . $weddingRing->metal)}} {{__('weddingRing.Wedding Rings')}}</p>
@@ -153,8 +153,8 @@
             @if($post->invoice->jewelleries->count())
             @php($jewellery = $post->invoice->jewelleries->first())
                 <a href="/{{ app()->getLocale() . '/customer-jewellery/' . $post->id }}" target="_blank" class="col-span-2">
-                    <div class="relative col-span-1 grid grid-cols-2 space-x-2 md:space-x-3 product-card w-full h-full horizontal p-0 md:p-5">
-                        <img class="w-full h-full md:w-auto md:h-auto" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' .  $post->images->first()->image }}" alt="customer jewellery 1">
+                    <div class="relative col-span-1 grid grid-cols-2 space-x-2 md:space-x-3 items-center product-card horizontal p-0 md:p-5">
+                        <img class="w-full" src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' .  $post->images->first()->image }}" alt="customer jewellery 1">
                         <div class="flex flex-col space-y-1 md:space-y-2">
                             <p class="text-sm md:text-xl font-bold md:font-normal font-suranna">{{__('jewellery.' .$jewellery->metal)}} {{__('jewellery.' .$jewellery->type)}} {{__('jewellery.' .$jewellery->setting==1?'setting':'')}}</p>
                             <div class="flex flex-col items-center justify-center divide-y divide-gold divide-opacity-50 mr-2 md:mr-0">
