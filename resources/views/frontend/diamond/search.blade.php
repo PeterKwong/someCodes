@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </label>
-            <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full px-2">
+            <div class="relative w-full px-2">
                 <div>
                     <input type="range" 
                           class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
@@ -119,7 +119,7 @@
                     </div>
                 </div>
             </label>
-            <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full px-2">
+            <div class="relative w-full px-2">
                 <div>
                     <input class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer"
                           type="range"
