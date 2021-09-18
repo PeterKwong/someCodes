@@ -138,7 +138,7 @@ trait Oncall{
 
     public function importDiamondFromAPI_1000_PerBatch($countingPage, $selectedID = 'white_diamond'){
           $data = $this->guzzleRequest($this->diamondSource,$selectedID,$countingPage);
-          dd($data);
+          dd(env('OCID'));
           $extractedDiamonds = $this->importDiamondsFromWebJson($data,$selectedID);   
 
           return $extractedDiamonds;
