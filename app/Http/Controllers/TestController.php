@@ -27,7 +27,7 @@ class TestController extends Controller
     public function test(){
     	// dd( config('global.paymentMode'));
 	    // return $this->postTags();
-	    // return $this->resetAllDiamonds();
+	    return $this->resetAllDiamonds();
 
 	    return $this->oncall();
 	    // return $this->copyAWS();
@@ -364,11 +364,11 @@ class TestController extends Controller
 
       // return;
 
-      // $cron = new CronJob();
-      // return $cron->runImportDiamondAPIPerBatch();      
+      $cron = new CronJob();
+      return $cron->runImportDiamondAPIPerBatch();      
 
-      $import = new DiamondImport();
-      return $import->deleteAllDiamonds();
+      // $import = new DiamondImport();
+      // return $import->deleteAllDiamonds();
 
       $import = new DiamondImport();
       // return $import->importFancyDiamondFromAPI_1000_PerBatch(1);
