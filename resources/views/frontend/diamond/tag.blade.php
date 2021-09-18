@@ -122,9 +122,9 @@
             </svg>
         </button>
     @endif
-    <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row w-full md:items-center md:justify-between pt-10">
+    <div class="flex space-y-2 md:space-y-0 flex-row w-full items-center justify-between pt-10">
         <span class="text-sm">{{trans('diamondSearch.Total')}}: {{isset($diamonds['total'])?$diamonds['total']:''}} {{trans('diamondSearch.diamond')}}</span>
-        <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row md:items-center md:space-x-16">
+        <div class="flex space-y-2 md:space-y-0 flex-row md:items-center md:space-x-16">
             <div class="hidden md:flex items-center space-x-2" >
                 <input type="checkbox" name="Starred" id="Starred" x-model="advance_search_conditions.starred.clicked"
                     x-on:click="advance_search_conditions.starred.clicked = ! advance_search_conditions.starred.clicked; @this.selectStarred()">
@@ -143,7 +143,7 @@
                 <label class="flex-shrink-0">
                     {{__('engagementRing.Sort By')}}:
                 </label>
-                <select id="Sort" name="Sort" class="block w-full md:w-52 pb-1 text-black focus:outline-none" wire:model="fetchData.column">
+                <select id="Sort" name="Sort" class="block w-full pb-1 text-black focus:outline-none"  wire:model="fetchData.column">
                     @foreach($columns as $column)
                         <option value="{{$column}}" wire:click="toggleOrder('{{$column}}')">
                         <a >{{ __('diamondSearch.'.$column)}}</a>
