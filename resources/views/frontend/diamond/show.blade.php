@@ -628,12 +628,13 @@
                                       <span class="font-lato">N</span>
                                   </div>
                               </div>
-                              <div class="relative max-w-xs md:max-w-2xl xl:max-w-full w-full">
+                              <div class="relative max-w-xs md:max-w-2xl max-w-full w-full">
+                                  <div>
                                       <div class="relative z-10 h-2">
-                                          <div class="w-full absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
-                                          <div class="w-full absolute z-20 top-0 bottom-0 rounded-md bg-brown" x-bind:style="'right:'+color+'%; left:'+minthumb+'%'"></div>
+                                          <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
+                                          <div class="absolute z-20 top-0 bottom-0 rounded-md bg-brown" x-bind:style="'right:'+color+'%; left:'+minthumb+'%'"></div>
                                           <div class="range-slider-thumb absolute z-30 w-4 h-4 top-0 right-0 bg-white border border-brown transform rotate-45 -mt-1 -mr-3" x-bind:style="'right: '+color+'%'"></div>
-                                          <div class="flex items-center justify-between w-full absolute top-0 z-30 h-2">
+                                          <div class="flex items-center justify-between absolute top-0 z-30 w-full h-2">
                                               <div class="w-0.5 h-2 bg-white"></div>
                                               <div class="w-0.5 h-2 bg-white"></div>
                                               <div class="w-0.5 h-2 bg-white"></div>
@@ -647,6 +648,7 @@
                                               <div class="w-0.5 h-2 bg-transparent"></div>
                                           </div>
                                       </div>
+                                  </div>    
                               </div>
                               
                           </div> 
