@@ -5,7 +5,7 @@
       <div class="bg-gray-100" id="headingOne">
         <h5 class="mb-0">
           <p @click="mutualVar.tabs.sideBar = '4cs' " class="btn text-blue-600" >
-            {{trans('frontHeader.Education')}}
+            {{trans('header.Education')}}
             <i class="fas fa-chevron-down"></i>
           </p>
         </h5>
@@ -31,20 +31,20 @@
       <div class="bg-gray-100" id="headingTwo">
         <h5 class="mb-0">
           <p @click="mutualVar.tabs.sideBar = 'gia-report' " class="btn text-blue-600 " >
-            {{trans('frontHeader.Diamond Certificate')}}
+            {{trans('header.Diamond Certificate')}}
             <i class="fas fa-chevron-down"></i>
           </p>
         </h5>
       </div>
       <div id="education-certificate" v-if="mutualVar.tabs.sideBar.includes('gia-report') ">
         <div class="card-body" >
-            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'grading-certficate') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report/grading-certficate">{{trans('frontHeader.Diamond')}}{{trans('frontHeader.Certificate')}}</a>
+            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'grading-certficate') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report/grading-certficate">{{trans('header.Diamond')}}{{trans('header.Certificate')}}</a>
             <br>
               
-            <a class="text-decoration-none {{ Str::contains(request()->segment(3), 'gia-report') && !request()->segment(4) ?'text-blue-600':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report">{{trans('frontHeader.Diamond')}}{{trans('frontHeader.GIA Report')}}</a>
+            <a class="text-decoration-none {{ Str::contains(request()->segment(3), 'gia-report') && !request()->segment(4) ?'text-blue-600':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report">{{trans('header.Diamond')}}{{trans('header.GIA Report')}}</a>
             <br>
               
-            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'grading-eye-clean') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report/grading-eye-clean">{{trans('frontHeader.Eye Clean Diamond')}}</a> 
+            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'grading-eye-clean') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/gia-report/grading-eye-clean">{{trans('header.Eye Clean Diamond')}}</a> 
             <br>   
 
         </div>
@@ -54,24 +54,24 @@
       <div class="bg-gray-100" id="headingThree">
         <h5 class="mb-0">
           <p @click="mutualVar.tabs.sideBar = 'anatomy' " class="btn text-blue-600 " >
-            {{trans('frontHeader.Diamond Anatomy')}}
+            {{trans('header.Diamond Anatomy')}}
             <i class="fas fa-chevron-down"></i>
           </p>
         </h5>
       </div>
       <div id="diamond-anatomy"  v-if="mutualVar.tabs.sideBar.includes('anatomy') ">
         <div class="card-body">
-            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'shape') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/shape">{{trans('frontHeader.Diamond')}}{{trans('frontHeader.Shape')}}</a>
+            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'shape') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/shape">{{trans('header.Diamond')}}{{trans('header.Shape')}}</a>
             <br>
-            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'hearts-and-arrows') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/hearts-and-arrows">{{trans('frontHeader.Heards And Arrows')}}</a>
+            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'hearts-and-arrows') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/hearts-and-arrows">{{trans('header.Heards And Arrows')}}</a>
             <br>
-            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'proportion') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/proportion">{{trans('frontHeader.Diamond')}}{{trans('frontHeader.Proportion')}}</a>
+            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'proportion') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/proportion">{{trans('header.Diamond')}}{{trans('header.Proportion')}}</a>
             <br>
-            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'symmetry') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/symmetry">{{trans('frontHeader.Diamond')}}{{trans('frontHeader.Symmetry')}}</a>
+            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'symmetry') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/symmetry">{{trans('header.Diamond')}}{{trans('header.Symmetry')}}</a>
             <br>
-            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'polish') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/polish">{{trans('frontHeader.Diamond')}}{{trans('frontHeader.Polish')}}</a>
+            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'polish') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/polish">{{trans('header.Diamond')}}{{trans('header.Polish')}}</a>
             <br>
-            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'fluorescence') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/fluorescence">{{trans('frontHeader.Diamond')}}{{trans('frontHeader.Fluorescence')}}</a>
+            <a class="text-decoration-none {{ Str::contains(request()->segment(4), 'fluorescence') ?'text-blue-400':'' }}" href="{{url(app()->getLocale())}}/education-diamond-grading/anatomy/fluorescence">{{trans('header.Diamond')}}{{trans('header.Fluorescence')}}</a>
             <br>
         </div>
       </div>

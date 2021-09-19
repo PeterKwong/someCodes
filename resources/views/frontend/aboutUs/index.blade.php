@@ -29,7 +29,7 @@
         <br>
             <div class="grid grid-cols-12" >
                 <div class="col-span-12">
-                    <center><h3 class="title is-5">{{trans('aboutUs.About Us')}}</h3>                 {{trans('buyingProcedure.First to buy diamonds, then buy ring setting')}}     
+                    <center><h3 class="title is-5">{{trans('aboutUs.About Us')}}</h3>{{trans('buyingProcedure.First to buy diamonds, then buy ring setting')}}     
                     </center>
                 </div>
             </div>
