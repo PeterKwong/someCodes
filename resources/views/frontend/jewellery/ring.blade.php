@@ -25,31 +25,23 @@
 
     @endSection
 
+    @section('hero')
+        <!-- Hero Section  -->
+        <div class="hero-image jewellery flex items-center justify-center w-full h-20 xl:h-36 mt-16 lg:mt-52">
+            <h2 class="text-lg xl:text-2xl font-medium font-suranna tracking-widest uppercase">
+                {{trans('jewellery.metaTitle2')}}
+            </h2>
+        </div>       
+        
+    @endsection
+
     @section('content')
-        <br>
-            <div class="row" >
-                <div class="col-12">
-                    <center><h3 class="title is-5">{{trans('jewellery.metaTitle2')}}</h3>                        
-                    </center>
-                    
-                </div>
-            </div>
 
+         @include('frontend.jewellery.jewelleryContent')
 
-        <div id="jewellery">
-            <div class="row justify-content-center">
-                <div class="col-11">
-                    <br>
-
-                    @include('frontend.jewellery.jewelleryContent')
-                    
-                </div>
-                
-            </div>
-            
-        </div>
 
     @endSection
+
 
 
 
