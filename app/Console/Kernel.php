@@ -49,7 +49,7 @@ class Kernel extends ConsoleKernel
             $CronJob->runResetAllRapDiamonds();
 
 
-        })->dailyAt('01:01')->runInBackground();
+        })->dailyAt('00:01')->runInBackground();
 
 
         $schedule->call(function () use(&$CronJob) {
@@ -58,14 +58,14 @@ class Kernel extends ConsoleKernel
 
             Cache::put('batchNumber', $batchNumber, 90000);
             
-        })->dailyAt('01:02')->runInBackground();
+        })->dailyAt('00:02')->runInBackground();
 
 
         $schedule->call(function () use(&$CronJob) {
 
             $CronJob->runImportFancyDiamondAPIPerBatch();
 
-        })->dailyAt('01:03')->runInBackground();
+        })->dailyAt('00:03')->runInBackground();
 
 
         $this->intervalOncall($CronJob,$schedule);

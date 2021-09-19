@@ -52,8 +52,12 @@
                 
             </div>
             <!-- Column-2 - Wedding Ring Detials  -->
+            <div class="md:col-span-3 flex flex-col space-y-3">
+                
+                <x-wedding-ring.show-details :weddingRings="$weddingRings" :tags="$tags"/>
+                <x-appointment/>
 
-                 <x-wedding-ring.show-details :weddingRings="$weddingRings" :tags="$tags"/>
+            </div>
 
         </div>
         <!-- Recommend Wedding Rings - Products -->

@@ -216,27 +216,27 @@
       <div class="flex w-full md:items-center justify-between">
 	      <div class="flex flex-wrap items-center gap-3">
 		      @foreach($tags as  $k => $conditions)
-							@foreach($conditions as  $key => $data)
+				@foreach($conditions as  $key => $data)
 		            @if($data != '')
-										<div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
-						                  <button wire:click="toggleValue('{{$k}}', '{{$data}}' )">
-						                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-						                          <g clip-path="url(#clip0)">
-						                          <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
-						                          <path d="M13.5355 7.64298L11.1785 10L13.5355 12.357L12.357 13.5355L9.99998 11.1785L7.64296 13.5355L6.46444 12.357L8.82147 10L6.46444 7.64298L7.64296 6.46447L9.99998 8.82149L12.357 6.46447L13.5355 7.64298Z" fill="white"></path>
-						                          </g>
-						                          <defs>
-						                          <clipPath id="clip0">
-						                          <rect width="20" height="20" fill="white"></rect>
-						                          </clipPath>
-						                          </defs>
-						                      </svg>    
-						                  </button>
-						                  <span>{{__('jewellery.' . $data)}}</span>
-						              </div>
+							<div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
+			                  <button wire:click="toggleValue('{{$k}}', '{{$data}}' )">
+			                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+			                          <g clip-path="url(#clip0)">
+			                          <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
+			                          <path d="M13.5355 7.64298L11.1785 10L13.5355 12.357L12.357 13.5355L9.99998 11.1785L7.64296 13.5355L6.46444 12.357L8.82147 10L6.46444 7.64298L7.64296 6.46447L9.99998 8.82149L12.357 6.46447L13.5355 7.64298Z" fill="white"></path>
+			                          </g>
+			                          <defs>
+			                          <clipPath id="clip0">
+			                          <rect width="20" height="20" fill="white"></rect>
+			                          </clipPath>
+			                          </defs>
+			                      </svg>    
+			                  </button>
+			                  <span>{{__('jewellery.' . $data)}}</span>
+			              </div>
 		              @endif
-				  			@endforeach
-						@endforeach
+		  			@endforeach
+				@endforeach
 	          </div>
 	          <div class="flex flex-shrink-0">
 	              <button class="text-brown underline" wire:click="resetAll()">{{__('engagementRing.Clear')}}</button>
@@ -268,7 +268,7 @@
     <!-- Products -->
     <div class="relative grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 w-full xl:grid-cols-4 gap-3 md:gap-7 md:items-center py-5 2xl:py-10 2xl:pb-10">
         @foreach($model['data'] as $data)
-					@if( count($data['images']) )
+			@if( count($data['images']) )
 		        <div class="flex flex-col relative product-card rounded-none font-lato p-0 md:p-2 2xl:p-5 cursor-pointer transform hover:-translate-y-2 transition hover:border border-gold-light duration-500">
 		        	<a class="flex justify-center" href="/{{app()->getLocale() . '/jewellery/' . $data['id'] }}" target="_blank">
 		            	<img class="mt-5 md:mt-0" src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $data['images'][0]['image']}}" alt="p1">
@@ -295,8 +295,8 @@
 			          @endif
 				      </a>
 		        </div>
-				    @endif
-			    @endforeach
+		    @endif
+	    @endforeach
         <!-- More Products .... -->
 
     </div>

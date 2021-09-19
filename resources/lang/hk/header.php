@@ -18,6 +18,7 @@ return [
 	'Halo Ring' => '圍圈鑽石戒指托',
 	'Engagement Rings' => '求婚戒指',
 	'Wedding Rings' => '結婚戒指',
+	'Couple Rings' => '情侶對戒',
 	'Buying Procedure' => '買鑽石 | 流程',
 	'Education' => '鑽石知識',
 	'Customer Moments' => '客人珍貴時刻',

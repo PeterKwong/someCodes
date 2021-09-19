@@ -18,6 +18,7 @@ return [
 	'Halo Ring' => 'Halo Ring',
 	'Engagement Rings' => 'Engagement Rings',
 	'Wedding Rings' => 'Wedding Rings',
+	'Couple Rings' => 'Couple Rings',
 	'Buying Procedure' => 'Buying Procedure',
 	'Education' => 'Education',
 	'Customer Moments' => 'Customer Moments',

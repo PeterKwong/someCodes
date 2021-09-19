@@ -298,9 +298,8 @@
                         <div class="flex justify-between w-full border-t border-b border-05 py-5 max-w-screen-2xl 2xl:mx-auto px-5 md:px-10 lg:px-20 xl:px-28 font-lato">
                             <div class="flex space-x-14">
                                 <div class="flex flex-col space-y-2">
-                                    <p class="font-lato font-bold text-brown">
-                                        <a href="{{ $baseUrl }}/wedding-rings/japanese" class="dd-link font-lato font-bold text-brown">{{trans('header.Japanese Wedding Rings')}}</a>
-                                    </p>
+                                    <a href="{{ $baseUrl }}/wedding-rings" class="dd-link font-lato font-bold text-brown">{{trans('header.Wedding Rings')}}|{{trans('header.Couple Rings')}}</a>
+                                    <a href="{{ $baseUrl }}/wedding-rings/japanese" class="dd-link font-lato">{{trans('header.Japanese Wedding Rings')}}</a>
                                     <a href="{{ $baseUrl }}/wedding-rings/angerosa" class="dd-link font-lato flex space-x-2 items-center max-w-max">                                                                 
                                         Angerosa {{trans('header.Wedding Rings')}}
                                     </a>

@@ -18,6 +18,7 @@ return [
 	'Halo Ring' => '围圈钻石戒指托',
 	'Engagement Rings' => '求婚戒指',
 	'Wedding Rings' => '结婚戒指',
+	'Couple Rings' => '情侣对戒',
 	'Buying Procedure' => '买钻石 | 流程',
 	'Education' => '钻石知识',
 	'Customer Moments' => '客人珍贵时刻',

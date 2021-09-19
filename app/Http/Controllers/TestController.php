@@ -373,7 +373,7 @@ class TestController extends Controller
       $import = new DiamondImport();
       // return $import->importFancyDiamondFromAPI_1000_PerBatch(1);
       // return Cache::get('batchNumber');
-      return $import->getDiamondsFromSunrise();
+      // return $import->getDiamondsFromSunrise();
       return $import->importDiamondFromRap();
       // return $import->preloadCerts();
       // return $import->preloadImages();

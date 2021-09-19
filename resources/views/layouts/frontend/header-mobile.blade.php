@@ -369,6 +369,11 @@
                             </div>
                             <ul class="z-50 flex flex-col space-y-3 divide-y uppercase font-lato pt-5">
                                 <li class="pt-3">
+                                    <a href="{{ $baseUrl }}/wedding-rings" class="dd-link font-lato flex space-x-2 items-center max-w-max">
+                                        {{trans('header.Wedding Rings')}}｜{{trans('header.Couple Rings')}}
+                                    </a>
+                                </li>
+                                <li class="pt-3">
                                     <a href="{{ $baseUrl }}/wedding-rings/japanese" class="dd-link font-lato flex space-x-2 items-center max-w-max">
                                         {{trans('header.Japanese Wedding Rings')}}
                                     </a>

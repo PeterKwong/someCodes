@@ -49,7 +49,25 @@ class Carousel extends Component
                                 'images',
                                 'invoice.invoiceDiamonds',
                                 'invoice.engagementRings',
-                                'invoice.weddingRings',
+                                ])->orderBy('created_at','desc')->paginate($this->querySize);
+
+        $this->jsPosts = $posts->toArray();
+        // dd($this->jsPosts);
+        return $posts;
+
+    }
+    public function jewellery()
+    {
+        // $this->model = EngagementRing::where('published',1)->with(['images','texts'])->findOrFail($this->typeId);
+
+        // $this->mount?'':$this->setType();
+
+        $posts = InvoicePost::where('published',1)
+                            ->where('postable_type','App\Models\Jewellery')
+                            ->where('postable_id',$this->typeId)
+                            ->with([
+                                'images',
+                                'invoice.invoiceDiamonds',
                                 'invoice.jewelleries',
                                 ])->orderBy('created_at','desc')->paginate($this->querySize);
 
@@ -58,6 +76,7 @@ class Carousel extends Component
         return $posts;
 
     }
+
     public function weddingRing()
     {
         $this->model = WeddingRingPair::where('published',1)->with('weddingRings')->findOrFail($this->typeId);
@@ -75,10 +94,7 @@ class Carousel extends Component
                             ->whereIn('postable_id',$ids)
                             ->with([
                                 'images',
-                                'invoice.invoiceDiamonds',
-                                'invoice.engagementRings',
                                 'invoice.weddingRings',
-                                'invoice.jewelleries',
                                 ])->orderBy('created_at','desc')->paginate($this->querySize);
 
         $this->jsPosts = $posts->toArray();
