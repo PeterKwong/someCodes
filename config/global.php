@@ -72,12 +72,12 @@ return [
     ],
 
     'oncall' => [
-        'id'     => env('OCID'),
+        'id' => env('OCID'),
         'pw' => env('OCPW'),
     ],
 
     'rap' => [
-        'id'     => env('RID'),
+        'id' => env('RID'),
         'pw' => env('RPW'),
     ],
 ];

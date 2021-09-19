@@ -60,8 +60,8 @@ trait Rap{
             $reqBody = [ 
                   "request"=>[
                     "header"=>[
-                      "username" => config('global.rap.RID'),
-                      "password" => config('global.rap.RPW') ], 
+                      "username" => config('global.rap.id'),
+                      "password" => config('global.rap.pw') ], 
                     "body"=>[
                       "shape" => $req->shape,
                       "size" => $req->weight,
@@ -123,8 +123,8 @@ trait Rap{
       $reqBody = [ 
                   "request"=>[
                     "header"=>[
-                      "username" => config('global.rap.RID'),
-                      "password" => config('global.rap.RPW') ], 
+                      "username" => config('global.rap.id'),
+                      "password" => config('global.rap.pw') ], 
                     "body"=>[
                       "search_type" => "White",
                       'labs' => ['GIA'],
@@ -147,7 +147,7 @@ trait Rap{
                       "sort_direction" => "Asc" ]]
                         
                       ];
-
+      // dd(config('global.rap.id'));
       $client = new Client();
 
       $headers = ['Content-type'=>'application/x-www-form-urlencoded'];
@@ -209,8 +209,8 @@ trait Rap{
         $reqBody = [ 
                   "request"=>[
                     "header"=>[
-                      "username" => config('global.rap.RID'),
-                      "password" => config('global.rap.RPW')], 
+                      "username" => config('global.rap.id'),
+                      "password" => config('global.rap.pw')], 
                     "body"=>[
                       "diamond_id" => $diamond ]]
                         
