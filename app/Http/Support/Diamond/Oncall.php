@@ -485,7 +485,7 @@ trait Oncall{
                   }
 
 
-                  if (preg_match('/(hong)/i', ($diamond->LOCATION)) && $diamond->CARAT > 1.0 && $diamond->TOTAL_PRICE  > 3000 ) {
+                  if (preg_match('/(hong)/i', ($diamond->LOCATION)) && $diamond->CARAT > 1.0 && $diamond->AMOUNT  > 3000 ) {
                         $diam['location'] = '1Hong Kong';
                   }else{
                         $diam['location'] = '3';                    

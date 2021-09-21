@@ -18,6 +18,8 @@ class PostFetch extends Component
 	public $tags;
 	public $upperId;
 	public $selectedTags = [];
+	public $search_conditions;
+
 
     public function render()
     {
@@ -35,7 +37,132 @@ class PostFetch extends Component
 
     	$this->resetUpperId();
     } 
-
+    public function queryConditionDiamond()
+    {
+    	$search_conditions = ['shape'=>[
+										'round' => ['clicked'=>false,
+													  'value' => ['round']],
+										'pear' => ['clicked'=>false,
+													  'value' => ['pear']],
+										'emerald' => ['clicked'=>false,
+													  'value' => ['emerald']],
+										'princess' => ['clicked'=>false,
+													  'value' => ['princess']],
+										'marquise' => ['clicked'=>false,
+													  'value' => ['marquise']],
+										'cushion' => ['clicked'=>false,
+													  'value' => ['cushion']],
+										'asscher' => ['clicked'=>false,
+													  'value' => ['asscher']],
+										'oval' => ['clicked'=>false,
+													  'value' => ['oval']],
+										'heart' => ['clicked'=>false,
+													  'value' => ['heart']],
+										'radiant' => ['clicked'=>false,
+													  'value' => ['radiant']]
+										],
+									'color'=>[
+										'D' => ['clicked'=>false,
+													  'value' => ['D']],
+										'E' => ['clicked'=>false,
+													  'value' => ['E']],
+										'F' => ['clicked'=>false,
+													  'value' => ['F']],
+										'G' => ['clicked'=>false,
+													  'value' => ['G']],
+										'H' => ['clicked'=>false,
+													  'value' => ['H']],
+										'I' => ['clicked'=>false,
+													  'value' => ['I']],
+										'J' => ['clicked'=>false,
+													  'value' => ['J']],
+										'K' => ['clicked'=>false,
+													  'value' => ['K']],
+										'L' => ['clicked'=>false,
+													  'value' => ['L']],
+										'M' => ['clicked'=>false,
+													  'value' => ['M']],
+										'N' => ['clicked'=>false,
+													  'value' => ['N']],
+										'Fancy' => ['clicked'=>false,
+													  'value' => ['Fancy']],
+										],
+									'cut'=>[
+										'Excellent' => ['clicked'=>false,
+													  'value' => ['Excellent']
+													],
+										'Very Good' => ['clicked'=>false,
+													  'value' => ['Very Good']
+													],
+										'Good' => ['clicked'=>false,
+													  'value' => ['Good']
+													] 
+										],
+									'clarity'=>[
+										'FL' => ['clicked'=>false,
+													  'value' => ['FL']],
+										'IF' => ['clicked'=>false,
+													  'value' => ['IF']],
+										'VVS1' => ['clicked'=>false,
+													  'value' => ['VVS1']],
+										'VVS2' => ['clicked'=>false,
+													  'value' => ['VVS2']],
+										'VS1' => ['clicked'=>false,
+													  'value' => ['VS1']],
+										'VS2' => ['clicked'=>false,
+													  'value' => ['VS2']],
+										'SI1' => ['clicked'=>false,
+													  'value' => ['SI1']],
+										'SI2' => ['clicked'=>false,
+													  'value' => ['SI2']],
+										'I1' => ['clicked'=>false,
+													  'value' => ['I1']]
+										],
+									'polish'=>[
+										'Excellent' => ['clicked'=>false,
+													  'value' => ['Excellent']
+													],
+										'Very Good' => ['clicked'=>false,
+													  'value' => ['Very Good']
+													],
+										'Good' => ['clicked'=>false,
+													  'value' => ['Good']
+													] 
+										],
+									'fluorescence'=>[
+										'None' => ['clicked'=>false,
+													  'value' => ['None']
+													],
+										'Faint' => ['clicked'=>false,
+													  'value' => ['Faint']
+													],
+										'Medium' => ['clicked'=>false,
+													  'value' => ['Medium']
+													],
+										'Strong' => ['clicked'=>false,
+													  'value' => ['Strong']
+													],
+										'Very Strong' => ['clicked'=>false,
+													  'value' => ['Very Strong']
+													]
+										],
+									'symmetry'=>[
+										'Excellent' => ['clicked'=>false,
+													  'value' => ['Excellent']
+													],
+										'Very Good' => ['clicked'=>false,
+													  'value' => ['Very Good']
+													],
+										'Good' => ['clicked'=>false,
+													  'value' => ['Good']
+													] 
+										],
+									'location'=>[
+										'1Hong Kong' => ['clicked'=>false,
+													  'value' => ['1Hong Kong']],
+										],
+									];
+    }
     public function getPosts(){
     	
 
