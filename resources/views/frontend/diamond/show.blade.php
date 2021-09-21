@@ -309,29 +309,30 @@
                     <a href="https://www.gia.edu/report-check?reportno={{$diamond->certificate}}" target="_blank"  class="ml-2 text-brown font-bold">{{__('diamondSearch.Download')}}</a>
                 @endif
             </div>
-            @if($diamond->cert_link)
+
+            @if($diamond->cert_link && str_contains($diamond->cert_link,'www.diamondselections.com'))
                 <iframe src="{{$diamond->cert_link}}" class="w-full" height="500">123</iframe>
+            @else
+                <div class="relative flex items-center w-full h-full border">
+                    <div v-if="!loadingStatus.cert">
+                        <center>
+                            <img class="w-1/3" src="/images/front-end/loader.gif" >
+                        </center>
+                    </div>
+
+                    <div v-if="loadingStatus.cert" class="w-full" >
+                        <img class="w-full" :src="storageURL + 'certs/' + diamond.id + '.jpg' "  v-if="diamond.cert_cache">
+                    </div>
+
+                    <a href="https://www.gia.edu/report-check?reportno={{$diamond->certificate}}" target="_blank" class="absolute top-3 right-3">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.2221 0V2.22224H16.2054L5.2832 13.1444L6.85544 14.7167L17.7776 3.79443V7.77776H19.9999V0H12.2221Z" fill="black"/>
+                            <path d="M17.7778 17.7778H2.22224V2.22224H10V0H2.22224C0.994427 0 0 0.994427 0 2.22224V17.7778C0 19.0056 0.994427 20 2.22224 20H17.7778C19.0056 20 20 19.0056 20 17.7778V10H17.7778V17.7778Z" fill="black"/>
+                        </svg>
+                    </a>             
+                </div>
             @endif
 
-
-            <div class="relative flex items-center w-full h-full border">
-                <div v-if="!loadingStatus.cert">
-                    <center>
-                        <img class="w-1/3" src="/images/front-end/loader.gif" >
-                    </center>
-                </div>
-
-                <div v-if="loadingStatus.cert" class="w-full" >
-                    <img class="w-full" :src="storageURL + 'certs/' + diamond.id + '.jpg' "  v-if="diamond.cert_cache">
-                </div>
-
-                <a href="https://www.gia.edu/report-check?reportno={{$diamond->certificate}}" target="_blank" class="absolute top-3 right-3">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.2221 0V2.22224H16.2054L5.2832 13.1444L6.85544 14.7167L17.7776 3.79443V7.77776H19.9999V0H12.2221Z" fill="black"/>
-                        <path d="M17.7778 17.7778H2.22224V2.22224H10V0H2.22224C0.994427 0 0 0.994427 0 2.22224V17.7778C0 19.0056 0.994427 20 2.22224 20H17.7778C19.0056 20 20 19.0056 20 17.7778V10H17.7778V17.7778Z" fill="black"/>
-                    </svg>
-                </a>             
-            </div>
         </div>
     </div>
     <div class="relative flex flex-col max-w-screen-2xl 2xl:mx-auto md:mx-10 lg:mx-20 px-5 md:px-0 font-lato">
