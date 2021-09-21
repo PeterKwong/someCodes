@@ -7,6 +7,7 @@ return [
 	'change' => 'change',
 	'on' => 'on',
 	'Total' => 'Total',
+	'Subtotal' => 'Subtotal',
 	'Add Cart' => 'Add Cart',
 	'Shipping Cart' => 'Shipping Cart',
 	'Order' => 'Order',
@@ -64,5 +65,12 @@ return [
 	'Address' => 'Address',
 	'Phone' => 'Phone',
 	'Area' => 'Area',
+	'Please Select' => 'Please Select',
+	'Ring Size' => 'Ring Size',
+	'Engrave' => 'Engrave',
+	'Please type your engrave' => 'Please type your engrave',
+	'Mounting Fee' => 'Mounting Fee',
+	
+
 
 ];

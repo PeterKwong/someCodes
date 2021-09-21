@@ -26,16 +26,45 @@
         <meta property="article:published_time" content="2013-09-17T05:59:00+01:00" /> 
         <meta property="article:modified_time" content="2013-09-16T19:08:47+01:00" />
         <meta property="article:tag" content="{{trans('engagementRing.Engagement Ring Setting')}}" /> 
-
  
 
     @endSection
 
+    @section('hero')
+        <!-- Hero Section  -->
+        <div class="hero-image diamond flex items-center justify-center w-full h-20 xl:h-36 mt-16 lg:mt-52">
+            <h2 class="text-lg xl:text-2xl font-medium uppercase mt-7 font-suranna tracking-widest">
+                {{__('shoppingCart.Congratulations! Review Your Ring, Here is your design.')}}
+            </h2>
+        </div>
+    @endsection
+
     @section('content')
     
+
+    <!-- Shop Section  -->
+    <div class="relative flex flex-col max-w-screen-2xl 2xl:mx-auto md:mx-10 lg:mx-20 px-3 md:px-0 font-lato">
+        
         <!-- Steps  -->
         <x-shopping-cart.progress-bar />
 
+        <!-- Product Details -->
+        <div class="flex flex-col space-y-3 md:space-y-0 md:grid md:grid-cols-7 md:space-x-10">
+            <!-- Column-1 - Ring Display  -->
+            <x-carousel type="engagementRing" typeId="{{isset($_COOKIE['shoppingCartEngage'])?$_COOKIE['shoppingCartEngage']:1}}" />
+
+
+            <!-- Column-2 - Ring Detials  -->
+            @livewire('shopping-cart.review',[
+                        'engagementRingId'=> isset($_COOKIE['shoppingCartEngage'])?$_COOKIE['shoppingCartEngage']:0,
+                        'diamondId' => isset($_COOKIE['shoppingCartDiam'])?$_COOKIE['shoppingCartDiam']:0,
+                        ])
+        </div>
+    </div>
+   
+
+
+<!-- 
         <br>
             <div class="grid grid-cols-12" >
                 <div class="col-span-12">
@@ -132,12 +161,12 @@
             </div>
             
         </div>
-
+ -->
     @endSection
 
 
 
-
+<!-- 
 
 
 <style>
@@ -145,3 +174,4 @@
         opacity: 0.5;
     }
 </style>
+ -->

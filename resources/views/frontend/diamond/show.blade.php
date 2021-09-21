@@ -309,6 +309,11 @@
                     <a href="https://www.gia.edu/report-check?reportno={{$diamond->certificate}}" target="_blank"  class="ml-2 text-brown font-bold">{{__('diamondSearch.Download')}}</a>
                 @endif
             </div>
+            @if($diamond->cert_link)
+                <iframe src="{{$diamond->cert_link}}" class="w-full" height="500">123</iframe>
+            @endif
+                <iframe src="https://www.diamondselections.com/GetCertificate.aspx?diamondid=89259541" class="w-full" height="500">123</iframe>
+
             <div class="relative flex items-center w-full h-full border">
                 <div v-if="!loadingStatus.cert">
                     <center>

@@ -371,8 +371,9 @@ class TestController extends Controller
       // return $import->deleteAllDiamonds();
 
       $import = new DiamondImport();
-      // return $import->importFancyDiamondFromAPI_1000_PerBatch(1);
-      return $import->getSupplierTotalStones();
+      return $import->importFancyDiamondFromAPI_1000_PerBatch(1);
+      // return $import->oncallApi();
+      // return $import->getSupplierTotalStones();
       // return Cache::get('batchNumber');
       // return $import->getDiamondsFromSunrise();
       // return $import->importDiamondFromRap();

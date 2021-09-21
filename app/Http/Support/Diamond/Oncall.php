@@ -16,7 +16,8 @@ trait Oncall{
 
     function __construct()
     {
-      $this->diamondSource = ['GLOW STAR' => 
+      $this->diamondSource = [
+                          'GLOW STAR' => 
                             ['r_id' =>'73302', 
                               'extraImport' => 0,
 
@@ -106,10 +107,199 @@ trait Oncall{
                                         "key_symbols"=>"",
                                         "size"=>"",
                                         "lab"=>"gia"  ]
-                              ],                            
+                              ], 
+                          'api' =>
+                            ['r_id' =>'99194', 
+                              'extraImport' => 1,
+                              'url' => 'https://api.diamondsoncall.com/feed/naturaldiamond',
+                              'method' => 'post',
+                              'header' => ['Accept'=>'application/json','Authorization'=>'Bearer '.config('global.oncall.api'),],
+                              'data' => [
+                                        "startindex"=>1,
+                                        "certificate_no"=>"",
+                                        "shape"=>"Round,Pear,Princess,Marquise,Oval,Radiant,Emerald,Heart,Cushion,Asscher",
+                                        "color"=>"d,e,f,g,h,i,j,k,l,m",
+                                        "clarity"=>"fl,if,vvs1,vvs2,vs1,vs2,si1,si2,i1",
+                                        "cut"=>"ex,vg,gd,",
+                                        "polish"=>"ex,vg,gd",
+                                        "symmetry"=>"ex,vg,gd",
+                                        "fluorescence"=>"non,fnt,med,stg,vst",
+                                        'eye_clean'=>"YES",
+                                        'milky'=>"No Milky",
+                                        "lab"=>"gia"  ]
+                              ],                           
                         ];
     }
+    public function oncallAPI()
+    {
+      $data =  $this->guzzleRequest($this->diamondSource,'api',1);
+      // dd($data);
+      $extractedDiamonds = $this->importDiamondsFromWebAPI($data);   
+       
+       return $extractedDiamonds;
+
+    }         
+    public function importDiamondsFromWebAPI($data)
+    {
+       $success = 0;
+
+      if (!$data == 0) {
+
+        if ($data->success == true) {
+
+              $data = $data->data;
+              // dd(print_r($data));
+              if (count($data)) {
+
+                  foreach ($data as $diamond) {
+                  $diam = [];
+                  $diam['stock'] = $diamond->STOCK_ID?$diamond->STOCK_ID .'-c'. strrev( substr(strval( ceil( $diamond->TOTAL_PRICE ) ), 0,-1)  ) : 0;
+                  $diam['price'] = $diamond->TOTAL_PRICE?$this->markPrice($diamond->TOTAL_PRICE):0;
+                  $diam['shape'] = $diamond->SHAPE;
+                  $diam['weight'] = round($diamond->CARAT,2);
+                  $diam['color'] = $diamond->COLOR;
+                  $diam['clarity'] = $diamond->CLARITY;
+                  $diam['cut'] = $diamond->CUT?$diamond->CUT:0;
+                  $diam['polish'] = $diamond->POLISH;
+                  $diam['symmetry'] = $diamond->SYMMETRY;
+                  $diam['fluorescence'] = $diamond->FLUORESCENCE;
+                  $diam['length'] = is_numeric($diamond->LENGTH)?$diamond->LENGTH:0;
+                  $diam['width'] = is_numeric($diamond->WIDTH)?$diamond->WIDTH:0;
+                  $diam['depth'] = is_numeric($diamond->DEPTH)?$diamond->DEPTH:0;
+                  $diam['depth_percent'] = is_numeric($diamond->DEPTH_PER)?$diamond->DEPTH_PER:0;
+                  $diam['table_percent'] = is_numeric($diamond->TABLE_PER)?$diamond->TABLE_PER:0;
+                  $diam['crown_angle'] = is_numeric($diamond->CROWNANGLE)?$diamond->CROWNANGLE:0;
+                  $diam['parvilion_angle'] = is_numeric($diamond->PAVILIONANGLE)?$diamond->PAVILIONANGLE:0;
+                  $diam['lab'] = $diamond->LAB;
+                  $diam['certificate'] = is_numeric($diamond->CERTIFICATE_NO)?$diamond->CERTIFICATE_NO:0;
+                  $diam['available'] = 1;
+                  $diam['has_cert'] = null;
+                  $diam['cert_link'] = null;
+                  $diam['has_image'] = null;
+                  $diam['image_link'] = null;
+                  $diam['has_video'] = null;
+                  $diam['video_link'] = null; 
+                  $diam['plot'] = NULL; 
+                  $diam['heart_image'] = $diamond->HEART_IMAGE; 
+                  $diam['arrow_image'] = $diamond->ARROW_IMAGE; 
+                  $diam['asset_image'] = $diamond->ASSET_IMAGE; 
+                  $diam['milky'] = $diamond->MILKY; 
+                  $diam['brown'] = $diamond->SHADE;
+                  $diam['eye_clean'] = $diamond->EYE_CLEAN; 
+                  $diam['supplier_id'] = 14; 
+
+                  if (isset($diamond->CERTIFICATE) && !$diamond->CERTIFICATE == null) {
+                        $diam['cert_link'] = $diamond->CERTIFICATE;
+                        $diam['has_cert'] = 1;
+                  }
+
+                  if (isset($diamond->IMAGE) && !$diamond->IMAGE == null) {
+                        //check rap
+                        if (!strpos($diamond->IMAGE, 'SampleDiamondImages')) {
+                          // $diam['image_link'] = $source[$id]['image_link_url'] . preg_replace('/RK-/', '', $diamond->{$source[$id]['stock']}).'.jpg';
+                          $diam['image_link'] = $diamond->IMAGE;
+                          $diam['has_image'] = 1;
+                        }
                         
+                  }
+
+
+                  if (isset($diamond->VIDEO) ) {
+                        $diam['video_link'] = $diamond->VIDEO;
+                        $diam['has_video'] = 1;
+                  }
+
+
+                  if (preg_match('/(hong)/i', ($diamond->COUNTRY)) && $diamond->CARAT > 1.0 && $diamond->TOTAL_PRICE  > 3000 ) {
+                        $diam['location'] = '1Hong Kong';
+                  }else{
+                        $diam['location'] = '3';                    
+                  }
+                  
+                  if (isset($diamond->COLOR) && $diamond->COLOR == 'fancy' ) {
+                        $diam['fancy_color'] = $diamond->F_COLOR;
+                        $diam['fancy_intensity'] = $diamond->F_INTENSITY;
+                        $diam['fancy_overtone'] = $diamond->F_OVERTONE;
+                  }
+
+                  $this->createSingleDiamondFromAPI($diam);
+
+                  // $diamonds[] =$diam;
+                }
+                // dd(print_r($diamonds));
+              }
+            $success = 1;
+        }
+        
+
+
+      }
+
+
+      
+      return $success;
+    } 
+
+    public function createSingleDiamondFromAPI($diamond){
+
+            // dd($diamond);
+            // $s_id = Supplier::where('id',14)->first();
+
+            if (!empty($diamond['certificate']) ) {
+
+                  $d = Diamond::where('certificate',$diamond['certificate'])->first();
+                  // $invoiceDiamond = InvoiceDiamond::where('certificate',$diamond['certificate'])->first();
+
+                      if (!isset($d)) {
+                        $d = new Diamond;
+                      }
+                      $d->certificate = $diamond['certificate'];
+                      $d->shape = $diamond['shape'];
+                      $d->weight = $diamond['weight']; 
+                      $d->color = $diamond['color'];
+                      $d->clarity = $diamond['clarity']; 
+                      $d->cut = $diamond['cut']?$diamond['cut']:0;
+                      $d->polish = $diamond['polish']; 
+                      $d->symmetry = $diamond['symmetry'];
+                      $d->length = $diamond['length'];
+                      $d->width = $diamond['width'];
+                      $d->depth = $diamond['depth'];
+                      $d->depth_percent = $diamond['depth_percent'];
+                      $d->table_percent = $diamond['table_percent'];
+                      $d->crown_angle = $diamond['crown_angle'];
+                      $d->parvilion_angle = $diamond['parvilion_angle'];
+                      $d->fluorescence = $diamond['fluorescence']?$diamond['fluorescence']:'None'; 
+                      $d->lab = $diamond['lab'];
+                      $d->location = $diamond['location']; 
+                      $d->available = 1; 
+                      $d->image_link = $diamond['image_link']?$diamond['image_link']:null;
+                      $d->has_image = $diamond['has_image']?1:null;
+                      $d->heart_image = $diamond['heart_image']?$diamond['heart_image']:null;
+                      $d->arrow_image = $diamond['arrow_image']?$diamond['arrow_image']:null;
+                      $d->asset_image = $diamond['asset_image']?$diamond['asset_image']:null;
+                      $d->cert_link = $diamond['cert_link']?$diamond['cert_link']:null; 
+                      $d->has_cert = $diamond['has_cert']?1:null; 
+                      $d->video_link = $diamond['video_link']?$diamond['video_link']:null; 
+                      $d->has_video = $diamond['has_video']?1:null; 
+                      $d->milky = $diamond['milky'];
+                      $d->brown = $diamond['brown'];
+                      $d->eye_clean = $diamond['eye_clean'];
+                      $d->supplier_id = $diamond['supplier_id'];
+
+                      $this->notUpdateSuppliers($d, $d->supplier_id);
+                      $this->checkDiamondFancyColor($d,$diamond);
+
+                      $d->stock = 's'.$d->supplier_id.'-'. $diamond['stock'] ; 
+                      $d->price = $diamond['price'];
+
+
+                      $d->save();
+
+                }
+
+
+    }
+
     public function getSupplierTotalStones($selectedID = 'white_diamond'){
 
       $data = $this->guzzleRequest($this->diamondSource,$selectedID,1);
@@ -214,7 +404,7 @@ trait Oncall{
             $data = json_decode($response->getBody());
          } 
 
-        // dd(print_r($data));
+        // dd($response->getBody());
         
       } catch (Exception $e) {
         
@@ -271,6 +461,7 @@ trait Oncall{
                   $diam['brown'] = $diamond->BROWN; 
                   $diam['green'] = $diamond->GREEN; 
                   $diam['eye_clean'] = $diamond->EYE_CLEAN; 
+                  $diam['supplier_id'] = 14; 
 
                   if (isset($diamond->CERTIFICATE) && !$diamond->CERTIFICATE == null) {
                         $diam['cert_link'] = $diamond->CERTIFICATE;
@@ -294,7 +485,7 @@ trait Oncall{
                   }
 
 
-                  if (preg_match('/(hong)/i', ($diamond->LOCATION)) && $diamond->CARAT > 1.0 && $diamond->AMOUNT  > 3000 ) {
+                  if (preg_match('/(hong)/i', ($diamond->LOCATION)) && $diamond->CARAT > 1.0 && $diamond->TOTAL_PRICE  > 3000 ) {
                         $diam['location'] = '1Hong Kong';
                   }else{
                         $diam['location'] = '3';                    
@@ -383,12 +574,12 @@ trait Oncall{
     public function createSingleDiamondFromArray($diamond){
 
             // dd($diamond);
-            $s_id = Supplier::where('id',14)->first();
+            // $s_id = Supplier::where('id',14)->first();
 
             if (!empty($diamond['certificate']) ) {
 
                   $d = Diamond::where('certificate',$diamond['certificate'])->first();
-                  $invoiceDiamond = InvoiceDiamond::where('certificate',$diamond['certificate'])->first();
+                  // $invoiceDiamond = InvoiceDiamond::where('certificate',$diamond['certificate'])->first();
 
                       if (!isset($d)) {
                         $d = new Diamond;
@@ -411,7 +602,7 @@ trait Oncall{
                       $d->fluorescence = $diamond['fluorescence']?$diamond['fluorescence']:'None'; 
                       $d->lab = $diamond['lab'];
                       $d->location = $diamond['location']; 
-                      $d->available = $invoiceDiamond?NULL:1; 
+                      $d->available = 1; 
                       $d->image_link = $diamond['image_link']?$diamond['image_link']:null;
                       $d->has_image = $diamond['has_image']?1:null;
                       $d->heart_image = $diamond['heart_image']?$diamond['heart_image']:null;
@@ -425,15 +616,16 @@ trait Oncall{
                       $d->brown = $diamond['brown'];
                       $d->green = $diamond['green'];
                       $d->eye_clean = $diamond['eye_clean'];
+                      $d->supplier_id = $diamond['supplier_id'];
 
-                      $this->notUpdateSuppliers($d, $s_id);
+                      $this->notUpdateSuppliers($d);
                       $this->checkDiamondFancyColor($d,$diamond);
 
-                      $d->stock = 's'.$s_id->id .'-'. $diamond['stock'] ; 
+                      $d->stock = 's'.$d->supplier_id .'-'. $diamond['stock'] ; 
                       $d->price = $diamond['price'];
 
 
-                      $s_id->diamonds()->save($d);
+                      $d->save();
 
 
                 }
@@ -441,9 +633,10 @@ trait Oncall{
 
     }
 
-    public function notUpdateSuppliers($d,$s_id){
+    public function notUpdateSuppliers($d){
       if($d->supplier_id == 168){
-        return $s_id->diamonds()->save($d);
+        return $d->save($d);
+        // return $s_id->diamonds()->save($d);
       }
 
     }

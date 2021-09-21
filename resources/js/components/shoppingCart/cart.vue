@@ -285,8 +285,8 @@ export default {
                 item.type = 'engagementRings'
                 item.unit_price = this.item.unit_price
                 item.image = mutualVar.storage[mutualVar.storage.live] + 'public/images/' + this.item.images.find((data)=>{ return data.type == 'cover'}).image
-
-                item.url = '/'+ getLocale() +'/engagement-rings/'
+                item.ringSize = 6
+                item.url = '/'+ getLocale() +'/engagement-rings'
 
             }
 
@@ -294,7 +294,7 @@ export default {
                 item.type = 'diamonds'
                 item.unit_price = this.item.price
                 item.diamondSize = parseFloat(this.item.weight)
-                item.url = '/'+ getLocale() +'/gia-loose-diamonds/'
+                item.url = '/'+ getLocale() +'/gia-loose-diamonds'
                 if (this.item.image_cache == 1) {
                     item.image = mutualVar.storage[mutualVar.storage.live] + 'public/diamond/images/' + this.item.id + '.jpg'                    
                 }else{
@@ -305,16 +305,17 @@ export default {
                 }
             }
 
+            var pairItems = shoppingCart.items[shoppingCart.selectingIndex].pairItems
 
-            if (shoppingCart.items[shoppingCart.selectingIndex].pairItems.length == 0 ) {
-                    shoppingCart.items[shoppingCart.selectingIndex].pairItems.push(item)
+            if (pairItems.length == 0 ) {
+                    pairItems.push(item)
             }else{
                 var sameItem = 0
-                for (var i = 0 ;  shoppingCart.items[shoppingCart.selectingIndex].pairItems.length > i; i++) {
+                for (var i = 0 ;  pairItems.length > i; i++) {
 
-                    if (shoppingCart.items[shoppingCart.selectingIndex].pairItems[i].type == this.type ) {
+                    if (pairItems[i].type == this.type ) {
                         sameItem =1
-                        shoppingCart.items[shoppingCart.selectingIndex].pairItems[i] = item
+                        pairItems[i] = item
                     }
 
                     
@@ -322,7 +323,7 @@ export default {
 
                 if (sameItem == 0) {
 
-                    shoppingCart.items[shoppingCart.selectingIndex].pairItems.push(item)
+                    pairItems.push(item)
                 }
 
             }
@@ -334,12 +335,12 @@ export default {
 
             this.sendCookies()
 
-            if ( shoppingCart.items[shoppingCart.selectingIndex].pairItems.length == 3) {
-                this.directToReview()
+            if ( pairItems.length == 3) {
+                this.directToReview(pairItems)
             }
 
 
-            if ( shoppingCart.items[shoppingCart.selectingIndex].pairItems.length == 2) {
+            if ( pairItems.length == 2) {
 
                 var langCode = getLocaleCode()
                 var mountingFee =  {
@@ -362,22 +363,24 @@ export default {
 
                 for (var i =0 ; fee.length > i ; i++) {
                     
-                    if(fee[i].size > shoppingCart.items[shoppingCart.selectingIndex].pairItems.find((data)=>{return data.type == 'diamonds'}).diamondSize){
+                    if(fee[i].size > pairItems.find((data)=>{return data.type == 'diamonds'}).diamondSize){
                         mountingFee.unit_price = fee[i].amount
                         mountingFee.id = fee[i].id
                     }
-
                 }
 
-                shoppingCart.items[shoppingCart.selectingIndex].pairItems.push(mountingFee)  
-                this.directToReview()
+                pairItems.push(mountingFee)  
+                this.directToReview(pairItems)
             }
 
 
-
-
         },
-        directToReview(){
+        directToReview(pairItems){
+            var enId = pairItems.find((data)=>{return data.type == 'engagementRings'})
+            var diamId = pairItems.find((data)=>{return data.type == 'diamonds'})
+            // console.log(pId.id)
+            setCookie('shoppingCartEngage',enId.id,300)
+            setCookie('shoppingCartDiam',diamId.id,300)
             this.toggleModal()
             this.sendCookies()
             this.redirectTo( '/diamond-ring-review')

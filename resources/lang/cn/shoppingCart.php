@@ -7,6 +7,7 @@ return [
 	'change' => '更改',
 	'on' => '于',
 	'Total' => '总共',
+	'Subtotal' => '总共',
 	'Add Cart' => '加入购物车',
 	'Shipping Cart' => '购物车',
 	'Secure Checkout' => '安全结账',
@@ -65,6 +66,10 @@ return [
 	'Address' => '地址',
 	'Phone' => '电话号码',
 	'Area' => '地区',
-
+	'Please Select' => '请选择',
+	'Ring Size' => '戒指圈号',
+	'Engrave' => '刻字',
+	'Please type your engrave' => '请输入刻字',
+	'Mounting Fee' => '镶工',
 
 ];

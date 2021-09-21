@@ -75,7 +75,7 @@
 		                    <div class="progress-bar-line" aria-hidden="true">
 		                        <div class="line active"></div>
 		                    </div>
-		                    <a href="#" id="progress-bar-quare" class="active">
+		                    <a id="progress-bar-quare" class="active">
 		                        <span class="active">1</span>
 		                    </a>
 		                </li>
@@ -85,7 +85,7 @@
 		                    <div class="progress-bar-line" aria-hidden="true">
 		                        <div class="line" :class="{'active':shortenName[0]}"></div>
 		                    </div>
-		                    <a href="#" id="progress-bar-quare" :class="{'active':shortenName[0]}">
+		                    <a id="progress-bar-quare" :class="{'active':shortenName[0]}">
 		                        <span :class="{'active':shortenName[0]}">2</span>
 		                    </a>
 		                </li>
@@ -95,7 +95,7 @@
 		                    <div class="progress-bar-line" aria-hidden="true">
 		                        <div class="line" :class="{'active':currentUrl.includes('diamond-ring-review')}"></div>
 		                    </div>
-		                    <a href="#" id="progress-bar-quare" :class="{'active':currentUrl.includes('diamond-ring-review')}">
+		                    <a id="progress-bar-quare" :class="{'active':currentUrl.includes('diamond-ring-review')}">
 		                        <span :class="{'active':currentUrl.includes('diamond-ring-review')}">3</span>
 		                    </a>
 		                </li>

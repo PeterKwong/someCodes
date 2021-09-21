@@ -75,6 +75,8 @@ return [
     'oncall' => [
         'id' => env('OCID'),
         'pw' => env('OCPW'),
+        'api'=> env('DIAMONDONCALL'),
+        'api_test'=> env('DIAMONDONCALLTEST'),
     ],
 
     'rap' => [

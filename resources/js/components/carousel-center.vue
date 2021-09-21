@@ -83,6 +83,10 @@ export default {
             if (d.type =='image') {
                 d.src = url + 'images/' + d.src 
             }
+            if (d.type =='diamondImage') {
+                d.src = d.src 
+                d.type = 'image'
+            }
 
             if (d.type =='video') {
                 d.src = url + 'videos/' + d.src 

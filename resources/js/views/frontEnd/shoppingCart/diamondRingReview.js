@@ -19,6 +19,7 @@ export default {
                 items: [],
                 active: false,
             },
+            carouselSource:'',
             extraWorkingDates,
             shoppingCart:window.mutualVar.cookiesInfo.shoppingCart,
 
@@ -29,8 +30,8 @@ export default {
 	created(){
 		this.fetchCookies()
         this.cleanLastEmptyItemAndMaxItemIndex()    
-        this.getEngagementRing()
-        this.setCarouselType()
+        // this.getEngagementRing()
+        // this.setCarouselType()
 	},
 	computed:{
         shortenName(){
@@ -45,7 +46,16 @@ export default {
                 }
             }
             return subTotal
-        }
+        },
+        pairItemEngagementRing(){
+            return this.shoppingCart.items[this.shoppingCart.selectingIndex].pairItems.find((data)=>{return data.type =='engagementRings'}) 
+        },
+        pairItemDiamond(){
+            return this.shoppingCart.items[this.shoppingCart.selectingIndex].pairItems.find((data)=>{return data.type =='diamonds'})             
+        },
+        pairItemMounting(){
+            return this.shoppingCart.items[this.shoppingCart.selectingIndex].pairItems.find((data)=>{return data.type =='mountingFee'})             
+        }        
 
 	},
 	methods:{
@@ -68,6 +78,41 @@ export default {
                 // this.filterNotPostable(res.data.posts.invoicePosts, engagementRingId)
                 this.carouselItem.items = res.data.posts.invoicePosts?res.data.posts.invoicePosts:[]
             })
+        },
+        setCarouselSource(type){
+            if (type == 'diamonds') {
+                this.selectingCarousel = type
+                this.carouselSource = {src:'',thumb:'',type:'',video360:''}
+                this.carouselSource.src = mutualVar.lw.carousel.src
+                this.carouselSource.thumb = mutualVar.lw.carousel.thumb
+                this.carouselSource.type = mutualVar.lw.carousel.type
+                this.carouselSource.video360 = mutualVar.lw.carousel.video360
+
+                mutualVar.lw.carousel.src = this.pairItemDiamond.image
+                mutualVar.lw.carousel.type = 'diamondImage'
+                mutualVar.lw.carousel.video360 = false
+
+                console.log(mutualVar.lw.carousel)
+                console.log(this.carouselSource)
+
+            }
+
+            if (type == 'engagementRings') {
+                this.selectingCarousel = type
+                if(this.carouselSource.type == 'video360'){
+                    return mutualVar.lw.carousel = this.carouselSource
+                }
+
+                if (this.carouselSource.type == 'video') {
+                    mutualVar.lw.carousel.src = this.carouselSource.src.replace('https://image.tingdiamond.com/public/videos/','')
+                    mutualVar.lw.carousel.thumb = this.carouselSource.thumb.replace('https://image.tingdiamond.com/public/images/','')
+                    mutualVar.lw.carousel.type = 'video'
+                    mutualVar.lw.carousel.video360 = false
+                }
+
+                console.log(mutualVar.lw.carousel)
+            }
+
         },
         cleanLastEmptyItemAndMaxItemIndex(){
              if (this.shoppingCart.items[this.shoppingCart.items.length -1].pairItems.length == 0){
