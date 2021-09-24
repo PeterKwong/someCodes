@@ -765,6 +765,9 @@
                     this.cal()
                 },
                 cal(){
+                    if (this.weight>5) {
+                        this.weight=5
+                    }
                     this.weightMin = this.weight/5*100 
                     this.weight =100 - this.weightMin
                     this.setClarity()

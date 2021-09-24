@@ -194,7 +194,7 @@ class Content extends Component
 								];
 								
 	public $columns = [ 'has_image','shape','price','weight','color','clarity','cut','polish',
-						'symmetry','fluorescence','location','certificate','lab','starred' 
+						'symmetry','fluorescence','certificate','lab','location'
 		        	];
 
 	public $fetchData = '';

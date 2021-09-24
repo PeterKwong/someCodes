@@ -1,6 +1,23 @@
 
 <script type="text/javascript">
     
+        var  timerId;
+        
+        function  makeAPICall() {
+         
+         Livewire.emit('addPage')
+
+      }
+
+      var  throttleFunction  =  function (func, delay) {
+        if (timerId) {
+          return
+        }
+        timerId  =  setTimeout(function () {
+          func()          
+          timerId  =  undefined;
+        }, delay)
+      }
 
     window.addEventListener("scroll", function(event) {
 
@@ -16,15 +33,14 @@
 
           if (top > y ) {
           // console.log(height)
-
             if (!loading) {
               window.mutualVar.screen.y = height;
               // console.log(height)
               // console.log(window.mutualVar.screen.y)
               // console.log(top)
-              Livewire.emit('addPage')
-            } 
 
+              throttleFunction(makeAPICall, 1000)
+            } 
 
           }
 

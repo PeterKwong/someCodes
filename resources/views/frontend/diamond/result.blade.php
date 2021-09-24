@@ -1,5 +1,5 @@
 <!-- Products -->
-<div wire:init="loadDiamonds"  class="relative grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 w-full xl:grid-cols-4 gap-3 md:gap-7 md:items-center py-10 2xl:pb-10">
+<div x-show="view == 'grid'"  class="relative grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 w-full xl:grid-cols-4 gap-3 md:gap-7 md:items-center py-10 2xl:pb-10">
     @if( isset($diamonds['data']) )
         @foreach($diamonds['data'] as $id => $row)
             <div class="flex flex-col relative product-card diamond font-lato p-0 md:p-3 2xl:p-4 cursor-pointer transform hover:-translate-y-2 transition hover:border border-gold-light duration-500" :class="{ ' bg-gray-200':clickedRows.includes( {{$row['id']}} )}" x-on:click.prevent="goto( {{$row['id']}}, {{$id}} )">
@@ -143,6 +143,200 @@
     @endif
     <!-- More Products .... -->
 </div>
+
+<div x-show="view == 'table'" class="relative overflow-hidden mb-8">    
+    <div class="overflow-x-auto p-2 flex">  
+        <table class="table-auto w-full flex-auto">
+          <thead class="bg-grey-01">
+            <tr class="text-center">
+            @foreach($columns as $column)
+                <th wire:click="toggleOrder( '{{$column}}' )" x-data="{sort: false}" scope="col" class="px-3 text-left text-sm font-medium text-black">
+                    <button @click="sort = !sort" class="flex w-full space-x-2 items-center justify-between focus:outline-none hover:bg-grey-05 px-0.5 py-3 {{$column == $fetchData['column']?'bg-grey-05':''}}">
+                        <span>{{ __('diamondSearch.'.$column)}}</span>
+                        <span class="transform transition-all duration-100 {{$column == $fetchData['column']?'text-brown ':'text-grey-04'}} {{$column == $fetchData['column']&& $fetchData['direction'] == 'desc'?' rotate-180':''}} ">
+                            <svg class="fill-current" width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.1347 1.07765C11.0028 0.945688 10.8465 0.879761 10.6659 0.879761H1.33273C1.15206 0.879761 0.995872 0.945688 0.863907 1.07765C0.731943 1.20976 0.666016 1.36595 0.666016 1.54651C0.666016 1.72704 0.731943 1.88323 0.863907 2.01523L5.53052 6.68185C5.66263 6.81381 5.81882 6.87988 5.99935 6.87988C6.17987 6.87988 6.33621 6.81381 6.46806 6.68185L11.1347 2.01519C11.2665 1.88323 11.3327 1.72704 11.3327 1.54648C11.3327 1.36595 11.2665 1.20976 11.1347 1.07765Z"/>
+                            </svg>
+                        </span>      
+                    </button>
+                </th>
+
+            @endforeach
+
+            @foreach($fetchAdvance as $key => $value)
+
+                @if($fetchData[$key][0] != 0)
+                  <th class="px-4 py-2" wire:click="toggleOrder( '{{$key}}' )">
+                        {{ __('diamondSearch.'.$value)}}
+                        @if($key == $fetchData['column'])   
+                                @if($fetchData['direction'] == 'desc')
+                                    &#x25BC;
+                                @else
+                                    &#x25B2;
+                                 @endif
+                                             
+                        @endif
+
+                    </th>
+                @endif
+
+            @endforeach
+   
+
+            </tr>
+          </thead>
+          <tbody>
+            @if( isset($diamonds['data']) )
+            @foreach($diamonds['data'] as $id => $row)
+                <tr class="text-center"  :class="{ ' bg-gray-200':clickedRows.includes( {{$row['id']}} )}"  x-on:click.prevent="goto( {{$row['id']}}, {{$id}} )">
+                    <td class="border-b px-4 py-2" >
+                        <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
+                        @if($row['image_cache'])
+                            <div class="w-48">
+                                <img src="{{config('global.cache.' . config('global.cache.live') ) . 'public/diamond/' .'images/thm-' . $row['id'] . '.jpg'  }}" class="object-contain w-full h-auto transform hover:scale-150" ></img>
+                            </div>
+                        @endif
+
+                    
+                        </a>
+                    </td>
+
+                    <td class="border-b px-4 py-2" >
+                        <a href="{{ '/' . app()->getLocale() . '/gia-loose-diamonds/' . $row['id'] }}" >
+
+                        @if($row['plot'])                        
+                            <div class="w-48">
+                                <img src="{{config('global.cache.' . config('global.cache.live') ) . 'public/diamond/' .'plots/' . $row['id'] . '.jpg'  }}" class="object-contain w-full h-auto transform hover:scale-150" ></img>
+                            </div>
+                        @else
+                            <div>
+                              <center>
+                                <img src="{{ '/images/front-end/diamond_shapes/' . strtolower($row['shape']) . '.png'}}" class="w-16">  
+                                <p class="text-gray-800">sample</p>
+                              </center>
+                            </div>
+                        @endif
+                
+                        </a>
+                    </td> 
+                    <td class="border-b px-4 py-2" >                        
+                    HK${{ $row['price'] }}
+                    </td>
+                    <td class="border-b px-4 py-2" >                        
+                     {{ $row['weight'] }}
+                    </td>
+                    @if(array_search('color',$columns) > -1)
+                        <td class="border-b px-4 py-2" >                            
+                         {{ $row['color'] }}
+                        </td>
+                        <td class="border-b px-4 py-2" >                            
+                         {{ $row['clarity'] }}
+                        </td>
+                        <td class="border-b px-4 py-2" >                            
+                         {{ $row['cut'] }}
+                        </td>
+                    @endif
+
+                    @if(array_search('fancy_color',$columns) > -1)
+                        <td class="border-b px-4 py-2" >                            
+                         {{ $row['fancy_intensity'] }}
+                        </td>
+                        <td class="border-b px-4 py-2" >                            
+                         {{ $row['fancy_color'] }}
+                        </td>
+                        <td class="border-b px-4 py-2" >                            
+                         {{ $row['clarity'] }}
+                        </td>
+                    @endif
+
+
+                    <td class="border-b px-4 py-2" >                        
+                     {{ $row['polish'] }}
+                    </td>
+                    <td class="border-b px-4 py-2" >                        
+                     {{ $row['symmetry'] }}
+                    </td>
+                    <td class="border-b px-4 py-2" >                        
+                     {{ $row['fluorescence'] }}
+                    </td>
+                    <td class="border-b px-4 py-2" >                        
+                     {{ $row['certificate'] }}
+                    </td>
+                    <td class="border-b px-4 py-2" >                        
+                     {{ $row['lab'] }}
+                    </td>
+                    <td class="px-4 py-4 whitespace-nowrap">
+                        <div class="flex items-end flex-col space-y-1">
+                            @if($row['starred'] != 0)
+                                <p class="py-0.5 px-2 bg-grey-04 text-white font-medium text-xs font-lato rounded">
+                                    {{__('diamondSearch.starred')}}
+                                </p>
+                            @endif
+
+                            @if($row['location'] == '1Hong Kong')
+                                <p class="py-0.5 px-2 bg-grey-04 text-white font-medium text-xs font-lato rounded">
+                                    {{__('diamondSearch.1-2 Days')}}
+                                </p>
+                            @else
+                                <p class="py-0.5 px-2 bg-grey-04 text-white font-medium text-xs font-lato rounded">
+                                    {{__('diamondSearch.Order')}}
+                                </p>
+                            @endif
+                        </div>
+                    </td>
+
+
+                    @if($fetchData['table_percent'][0] != 0)
+                        <td class="border-b px-4 py-2" >                            
+                         {{ $row['table_percent'] }}%
+                        </td>
+                    @endif
+                    
+                    @if($fetchData['depth_percent'][0] != 0)
+                        <td class="border-b px-4 py-2" >                            
+                         {{ $row['depth_percent'] }}%
+                        </td>
+                    @endif
+                    @if($fetchData['crown_angle'][0] != 0)
+                        <td class="border-b px-4 py-2" >                            
+                         {{ $row['crown_angle'] }}°
+                        </td>
+                    @endif
+                    @if($fetchData['parvilion_angle'][0] != 0)
+                        <td class="border-b px-4 py-2" >                            
+                         {{ $row['parvilion_angle'] }}°
+                        </td>
+                    @endif
+                    @if($fetchData['length'][0] != 0)
+                        <td class="border-b px-4 py-2" >                            
+                         {{ $row['length'] }}mm
+                        </td>
+                    @endif
+                    @if($fetchData['width'][0] != 0)
+                        <td class="border-b px-4 py-2" >                            
+                         {{ $row['width'] }}mm
+                        </td>
+                    @endif
+                    @if($fetchData['depth'][0] != 0)
+                        <td class="border-b px-4 py-2" >                            
+                         {{ $row['depth'] }}mm
+                        </td>
+                    @endif
+
+                </tr>
+
+            @endforeach
+            @endif
+            
+
+          </tbody>
+        </table>
+
+
+        
+    </div>
+</div>
+
 
 <!-- Inquiry popedup Block -->
 <span class="hidden-item-hover">

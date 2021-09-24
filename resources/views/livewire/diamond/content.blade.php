@@ -29,11 +29,13 @@
     </div>   
 
     @include('frontend.diamond.tag')
-    @include('frontend.diamond.result')
+    <div wire:init="loadDiamonds" >
+          @include('frontend.diamond.result')      
+    </div>
 
       <div class="flex justify-center m-2 {{ isset($diamonds['total']) && $diamonds['total'] == 0 ? '' : 'hidden'}}">
 
-        <button class="btn btn-primary" wire:click="resetAll">
+        <button class="btn btn-outline" wire:click="resetAll">
             {{ __('diamondSearch.No Result')}} ！ {{__('diamondSearch.reset')}} <i class="fas fa-undo"></i>
         </button>
       
@@ -48,6 +50,7 @@
     function desktopSliders() {
         return {
           applyFilter:false,
+          view:'table',
           tagShowMore:@entangle('tagShowMore'),
           search_conditions: @entangle('search_conditions'),
           priceMin: @entangle('fetchData.price.0'), 
@@ -56,6 +59,7 @@
           weightMax: @entangle('fetchData.weight.1'),
           sliders: @entangle('sliders').defer,
           init(){
+            this.view = screen.width<450?'grid':'table'
             this.sliders.price.mininputjs = this.priceMin
             this.sliders.price.maxinputjs = this.priceMax
             this.expUpdateMinThumb('price')

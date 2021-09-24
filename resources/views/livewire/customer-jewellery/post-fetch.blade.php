@@ -1,5 +1,5 @@
 <div class="p-2">
-	<div id="totalHeigh">
+    <div id="totalHeigh">
 
         <div class="row p-2" >
             <div class="col-12">
@@ -61,23 +61,23 @@
 
         </div>
 
-    		
-    	<div class="grid grid-cols-12 gap-4">
+            
+        <div class="grid grid-cols-12 gap-4">
 
-    		@foreach($posts['data'] as $index => $post)
+            @foreach($posts['data'] as $index => $post)
                 @if(count($post['images']))
-		            <div class="sm:col-span-4 col-span-6 hover:opacity-75 hover:text-blue-600" >
-	                    <a href="/{{ app()->getLocale() . '/customer-jewellery/' . $post['id'] }}" target="_blank" @mouseover="loopImages(index)" @mouseleave="loopImages(index,0)">
-	                        <img src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' .  $post['images'][0]['image'] }}" width="100%">
-	                            <center class="p-4">
-	                                <p class="truncate">{{$post['invoice']}} </p>
-	                                </a>
-<!-- 	                                <p v-if="post.created_at">{{$post['date']}} </p>
- -->	                            </center>
-	                    </a>
-		            </div>
+                    <div class="sm:col-span-4 col-span-6 hover:opacity-75 hover:text-blue-600" >
+                        <a href="/{{ app()->getLocale() . '/customer-jewellery/' . $post['id'] }}" target="_blank" @mouseover="loopImages(index)" @mouseleave="loopImages(index,0)">
+                            <img src="{{config('global.cache.' . config('global.cache.live') ) . 'public/images/' .  $post['images'][0]['image'] }}" width="100%">
+                                <center class="p-4">
+                                    <p class="truncate">{{$post['invoice']}} </p>
+                                    </a>
+<!--                                    <p v-if="post.created_at">{{$post['date']}} </p>
+ -->                                </center>
+                        </a>
+                    </div>
                 @endif
-		    @endforeach
+            @endforeach
 
         </div>
                         
@@ -98,8 +98,8 @@
 
 
 
-	<div id="loading" wire:loading.class="loading">
-	</div>
+    <div id="loading" wire:loading.class="loading">
+    </div>
 
 </div>
 

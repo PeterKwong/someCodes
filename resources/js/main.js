@@ -67,6 +67,8 @@ import { setCookie,getCookie } from './helpers/cookie'
 window.setCookie = setCookie
 window.getCookie = getCookie
 
+import { updateTag } from './helpers/tag'
+window.updateTag = updateTag
 
 // import HomeIndex from './views/frontEnd/home/index'
 

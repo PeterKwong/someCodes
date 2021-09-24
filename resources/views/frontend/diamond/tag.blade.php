@@ -122,10 +122,32 @@
             </svg>
         </button>
     @endif
-    <div class="flex space-y-2 md:space-y-0 flex-row w-full items-center justify-between pt-10">
-        <span class="text-sm">{{trans('diamondSearch.Total')}}: {{isset($diamonds['total'])?$diamonds['total']:''}} {{trans('diamondSearch.diamond')}}</span>
-        <div class="flex space-y-2 md:space-y-0 flex-row md:items-center md:space-x-16">
-            <div class="hidden md:flex items-center space-x-2" >
+    <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row w-full md:items-center md:justify-between pt-10">
+        <div class="flex items-center space-x-3 divide-x">
+            <span class=" text-sm">{{trans('diamondSearch.Total')}}: {{isset($diamonds['total'])?$diamonds['total']:''}} {{trans('diamondSearch.diamond')}}</span>
+            <div class="flex items-center space-x-3 pl-3">
+                <button @click="view = 'grid'" :class="{'bg-brown text-white border-brown' : view == 'grid', 'text-grey-lighter' : view != 'grid'}" class="border w-8 h-8 flex items-center justify-center">
+                    <svg class="fill-current" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.25083 4.21313H10.7367C10.8752 4.21313 10.9875 4.32539 10.9875 4.46397V10.9498C10.9875 11.0884 10.8752 11.2006 10.7367 11.2006H4.25083C4.11226 11.2006 4 11.0884 4 10.9498V4.46397C4 4.32539 4.11226 4.21313 4.25083 4.21313Z"/>
+                        <path d="M13.1727 4.21313H19.6585C19.7971 4.21313 19.9094 4.32539 19.9094 4.46397V10.9498C19.9094 11.0884 19.7971 11.2006 19.6585 11.2006H13.1727C13.0341 11.2006 12.9219 11.0884 12.9219 10.9498V4.46397C12.9219 4.32539 13.0341 4.21313 13.1727 4.21313Z"/>
+                        <path d="M4.25083 13.1356H10.7367C10.8752 13.1356 10.9875 13.2479 10.9875 13.3865V19.8723C10.9875 20.0109 10.8752 20.1231 10.7367 20.1231H4.25083C4.11226 20.1231 4 20.0109 4 19.8723V13.3865C4 13.2479 4.11226 13.1356 4.25083 13.1356Z"/>
+                        <path d="M13.1727 13.1356H19.6585C19.7971 13.1356 19.9094 13.2479 19.9094 13.3865V19.8723C19.9094 20.0109 19.7971 20.1231 19.6585 20.1231H13.1727C13.0341 20.1231 12.9219 20.0109 12.9219 19.8723V13.3865C12.9219 13.2479 13.0341 13.1356 13.1727 13.1356Z"/>
+                    </svg>
+                </button>
+                <button @click="view = 'table'" :class="{'bg-brown text-white border-brown' : view == 'table', 'text-grey-lighter' : view != 'table'}" class="border w-8 h-8 flex items-center justify-center">
+                    <svg class="fill-current" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 4.21313H6.42551V8.63864H2V4.21313Z"/>
+                        <path d="M7.83203 4.21313H22.0001V8.63864H7.83203V4.21313Z"/>
+                        <path d="M2 9.95557H6.42551V14.3811H2V9.95557Z"/>
+                        <path d="M7.83203 9.95557H22.0001V14.3811H7.83203V9.95557Z"/>
+                        <path d="M2 15.6981H6.42551V20.1238H2V15.6981Z"/>
+                        <path d="M7.83203 15.6981H22.0001V20.1238H7.83203V15.6981Z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="flex flex-col space-y-2 md:space-y-0 md:flex-row md:items-center md:space-x-16">
+            <div class="hidden md:flex items-center space-x-2">
                 <input type="checkbox" name="Starred" id="Starred" x-model="advance_search_conditions.starred.clicked"
                     x-on:click="advance_search_conditions.starred.clicked = ! advance_search_conditions.starred.clicked; @this.selectStarred()">
                 <label for="Starred" class="font-bold">
