@@ -66,7 +66,7 @@
     </div>
     <div class="col-span-5 md:col-span-3 flex flex-col space-y-3 pt-5 md:pt-0 md:pl-16">
         <div class="flex flex-row justify-between md:justify-start w-full md:w-auto md:flex-col space-y-0">
-            <span class="text-grey-04 text-sm">{{__('weddingRing.'.$weddingRings->weddingRings[1]->metal)}}</span>
+            <span class="text-grey-04 text-sm">{{__('weddingRing.'.$weddingRings->weddingRings[1]->gender)}}</span>
             <p class="flex items-center space-x-1 font-suranna text-gold-light">
                 <span class="text-base md:text-xl">HKD</span>
                 <span class="text-xl md:text-2xl">${{$weddingRings->weddingRings[1]->unit_price}}</span>

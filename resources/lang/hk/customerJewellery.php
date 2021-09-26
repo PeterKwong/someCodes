@@ -144,6 +144,7 @@ return [
     'Cusomter Jewellery' => '客人首飾',
     'Video' => '影片',
     'View Details'=>'查看資料',
+    'Diamond Waist Number' => '鑽石腰部編號',
 
     '1' => '是',
     '0' => '否',

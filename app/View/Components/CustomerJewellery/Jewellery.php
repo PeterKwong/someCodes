@@ -26,6 +26,7 @@ class Jewellery extends Component
      */
     public function render()
     {
+        // dd($this->jewelleries);
         return view('components.customer-jewellery.jewellery');
     }
 }

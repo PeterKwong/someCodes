@@ -144,6 +144,8 @@ return [
     'Video' => 'Video',
     'View Details'=>'View Details',
 
+    'Diamond Waist Number' => 'Diamond Waist Number',
+
     '1' => 'Yes',
     '0' => 'No',
 
