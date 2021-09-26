@@ -105,7 +105,7 @@
                 @foreach($meta->invoice->invoiceDiamonds as $key => $diamond )
                 <p class="text-sm md:text-base font-lato pt-1">{{$diamond->weight}} {{__('diamondSearch.carat')}} 
                     <a class="text-brown" href="/{{app()->getLocale() . '/gia-loose-diamonds?shape=' . strtolower($diamond['shape']) }}">
-                       {{__('diamondSearch.round')}} 
+                     {{__('diamondSearch.'.$diamond->shape)}}
                      {{__('diamondSearch.diamond')}}
                      </a>
                  </p>
