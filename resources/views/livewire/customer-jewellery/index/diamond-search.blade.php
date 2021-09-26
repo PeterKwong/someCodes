@@ -15,43 +15,43 @@
         <!-- 2 -->
         <div class="flex flex-col space-y-5 mt-6 md:mt-0">
             <div class="flex flex-wrap items-center gap-1.5 md:gap-3">
-                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center">
-                  <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/0-30-0-49-carat-weight">
+                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center cursor-pointer hover:bg-gray-300">
+                  <a x-on:click="updateQuery('diamond','weight','0.3',true);location.reload();">
                     <span class="font-lato text-sm md:text-base">0.3 - 0.49</span>
                   </a>
                 </div>
-                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center">
-                  <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/0-50-0-79-carat-weight">
+                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center cursor-pointer hover:bg-gray-300">
+                  <a x-on:click="updateQuery('diamond','weight','0.5',true);location.reload();">
                     <span class="font-lato text-sm md:text-base">0.5 - 0.79</span>
                   </a>
                 </div>
-                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center">
-                  <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/0-80-0-99-carat-weight">
+                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center cursor-pointer hover:bg-gray-300">
+                  <a x-on:click="updateQuery('diamond','weight','0.8',true);location.reload();">
                     <span class="font-lato text-sm md:text-base">0.8 - 0.99</span>
                   </a>
                 </div>
-                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center">
-                  <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-00-1-19-carat-weight">
+                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center cursor-pointer hover:bg-gray-300">
+                  <a x-on:click="updateQuery('diamond','weight','1',true);location.reload();">
                     <span class="font-lato text-sm md:text-base">1.0-1.19</span>
                   </a>
                 </div>
-                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center">
-                  <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-20-1-49-carat-weight">
+                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center cursor-pointer hover:bg-gray-300">
+                  <a x-on:click="updateQuery('diamond','weight','1.2',true);location.reload();">
                     <span class="font-lato text-sm md:text-base">1.2 - 1.49</span>
                   </a>
                 </div>
-                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center">
-                  <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/1-50-1-99-carat-weight">
+                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center cursor-pointer hover:bg-gray-300">
+                  <a x-on:click="updateQuery('diamond','weight','1.5',true);location.reload();">
                     <span class="font-lato text-sm md:text-base">1.5 - 1.99</span>
                   </a>
                 </div>
-                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center">
-                  <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/2-00-2-99-carat-weight">
+                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center cursor-pointer hover:bg-gray-300">
+                  <a x-on:click="updateQuery('diamond','weight','2',true);location.reload();">
                     <span class="font-lato text-sm md:text-base">2.0 - 2.99</span>
                   </a>
                 </div>
-                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center">
-                  <a href="{{url(app()->getLocale())}}/gia-loose-diamonds/round-cut/3-00-up-carat-weight">
+                <div class="bg-grey-01 py-2 px-2 md:px-5 text-center cursor-pointer hover:bg-gray-300">
+                  <a x-on:click="updateQuery('diamond','weight','3',true);location.reload();">                    
                     <span class="font-lato text-sm md:text-base">3.0 Up</span>
                   </a>
                 </div>
@@ -71,7 +71,7 @@
                 @foreach($search_conditions['shape'] as $type => $shape)
                     <label class="relative border bg-white flex items-center justify-center h-12 md:h-20 w-12 md:w-20 p-1.5 md:p-0 cursor-pointer hover:border-brown hover:bg-brown-light"
                     :class=" `${search_conditions.shape.{{$type}}.clicked?' bg-brown-light border-brown':''}`" >
-                        <input type="checkbox" name="position" value="1" class="sr-only" x-on:click="search_conditions.shape.{{$type}}.clicked = ! search_conditions.shape.{{$type}}.clicked; @this.toggleValue({{$shape['tagId']}})">
+                        <input type="checkbox" name="position" value="1" class="sr-only" x-on:click="search_conditions.shape.{{$type}}.clicked = ! search_conditions.shape.{{$type}}.clicked; @this.toggleValue({{$shape['tagId']}});updateQuery('diamond','shape','{{$type}}')">
                         <div>
                             <img src="/assets/images/image {{$shape['image']}}" alt="shape image">
                         </div>
@@ -98,7 +98,7 @@
                         :class=" `${search_conditions.color.{{$type}}.clicked?' bg-brown-light border-brown':''}`"
                         >
                         <input type="checkbox" name="white" value="1" class="sr-only"
-                            x-on:click="search_conditions.color.{{$type}}.clicked = ! search_conditions.color.{{$type}}.clicked; @this.toggleValue({{$color['tagId']}});updateTags('color','{{$type}}')">
+                            x-on:click="search_conditions.color.{{$type}}.clicked = ! search_conditions.color.{{$type}}.clicked; @this.toggleValue({{$color['tagId']}});updateQuery('diamond','color','{{$type}}')">
                             <span>{{$type}}</span>
                         </label>
                     @endif
@@ -121,7 +121,7 @@
             </label>
             <div class="flex flex-wrap md:justify-between items-center gap-0.5 md:gap-3">
                 @foreach($search_conditions['clarity'] as $type => $clarity)                
-                    <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.clarity.{{$type}}.clicked = ! search_conditions.clarity.{{$type}}.clicked; @this.toggleValue({{$clarity['tagId']}})">
+                    <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.clarity.{{$type}}.clicked = ! search_conditions.clarity.{{$type}}.clicked; @this.toggleValue({{$clarity['tagId']}});updateQuery('diamond','clarity','{{$type}}')">
                         <span class="font-lato">{{$type}}</span>
                       <span class="border-2 mt-2 px-6 border-gray-300"
                             :class=" `${search_conditions.clarity.{{$type}}.clicked?' bg-brown-light border-brown':''}`">
@@ -145,19 +145,19 @@
                 </p>
             </label>
             <div class="flex flex-wrap  md:justify-between items-center gap-0.5 md:gap-3">
-                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.cut.Excellent.clicked = ! search_conditions.cut.Excellent.clicked; @this.toggleValue(53)">
+                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.cut.Excellent.clicked = ! search_conditions.cut.Excellent.clicked; @this.toggleValue(53);updateQuery('diamond','cut','EX')">
                     <span class="font-lato">Excellent</span>
                   <span class="border-2 mt-2 px-12 border-gray-300"
                         :class=" `${search_conditions.cut.Excellent.clicked?' bg-brown-light border-brown':''}`">
                         </span>
                 </div>
-                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.cut['Very Good'].clicked = ! search_conditions.cut['Very Good'].clicked; @this.toggleValue(54)">
+                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.cut['Very Good'].clicked = ! search_conditions.cut['Very Good'].clicked; @this.toggleValue(54);updateQuery('diamond','cut','VG')">
                   <span class="font-lato">Very Good</span>
                   <span class="border-2 mt-2 px-12 border-gray-300"
                         :class=" `${search_conditions.cut['Very Good'].clicked?' bg-brown-light border-brown':''}`">
                         </span>
                 </div>
-                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.cut.Good.clicked = ! search_conditions.cut.Good.clicked; @this.toggleValue(55)">
+                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.cut.Good.clicked = ! search_conditions.cut.Good.clicked; @this.toggleValue(55);updateQuery('diamond','cut','GD')">
                   <span class="font-lato">Good</span>
                   <span class="border-2 mt-2 px-12 border-gray-300"
                         :class=" `${search_conditions.cut.Good.clicked?' bg-brown-light border-brown':''}`">
@@ -179,17 +179,31 @@
                 </p>
             </label>
             <div class="flex flex-wrap md:justify-between items-center gap-0.5 md:gap-3">
-                @foreach($search_conditions['fluorescence'] as $type => $fluorescence)
-                    @if($type != 'Very Strong')           
-                        <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence.{{$type}}.clicked = ! search_conditions.fluorescence.{{$type}}.clicked; @this.toggleValue({{ $fluorescence['tagId']}} )">
-                            <span class="font-lato">{{trans('diamondSearch.'.$type)}}</span>
-                          <span class="border-2 mt-2 px-12 border-gray-300"
-                                :class=" `${search_conditions.fluorescence.{{$type}}.clicked?' bg-brown-light border-brown':''}`">
-                                </span>
-                        </div>
-                    @endif
-                @endforeach
-                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['Very Strong'].clicked = ! search_conditions.fluorescence['Very Strong'].clicked; @this.toggleValue(66)">
+                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['None'].clicked = ! search_conditions.fluorescence['None'].clicked; @this.toggleValue(62);updateQuery('diamond','fluorescence','Non')">
+                  <span class="font-lato">{{trans('diamondSearch.None')}}</span>
+                  <span class="border-2 mt-2 px-12 border-gray-300"
+                        :class=" `${search_conditions.fluorescence['None'].clicked?' bg-brown-light border-brown':''}`">
+                        </span>
+                </div>
+                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['Faint'].clicked = ! search_conditions.fluorescence['Faint'].clicked; @this.toggleValue(63);updateQuery('diamond','fluorescence','FNT')">
+                  <span class="font-lato">{{trans('diamondSearch.Faint')}}</span>
+                  <span class="border-2 mt-2 px-12 border-gray-300"
+                        :class=" `${search_conditions.fluorescence['Faint'].clicked?' bg-brown-light border-brown':''}`">
+                        </span>
+                </div>
+                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['Medium'].clicked = ! search_conditions.fluorescence['Medium'].clicked; @this.toggleValue(64);updateQuery('diamond','fluorescence','MED')">
+                  <span class="font-lato">{{trans('diamondSearch.Medium')}}</span>
+                  <span class="border-2 mt-2 px-12 border-gray-300"
+                        :class=" `${search_conditions.fluorescence['Medium'].clicked?' bg-brown-light border-brown':''}`">
+                        </span>
+                </div>
+                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['Strong'].clicked = ! search_conditions.fluorescence['Strong'].clicked; @this.toggleValue(65);updateQuery('diamond','fluorescence','STG')">
+                  <span class="font-lato">{{trans('diamondSearch.Strong')}}</span>
+                  <span class="border-2 mt-2 px-12 border-gray-300"
+                        :class=" `${search_conditions.fluorescence['Strong'].clicked?' bg-brown-light border-brown':''}`">
+                        </span>
+                </div>
+                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['Very Strong'].clicked = ! search_conditions.fluorescence['Very Strong'].clicked; @this.toggleValue(66);updateQuery('diamond','fluorescence','VST')">
                   <span class="font-lato">{{trans('diamondSearch.Very Strong')}}</span>
                   <span class="border-2 mt-2 px-12 border-gray-300"
                         :class=" `${search_conditions.fluorescence['Very Strong'].clicked?' bg-brown-light border-brown':''}`">

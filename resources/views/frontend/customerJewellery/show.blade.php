@@ -25,6 +25,15 @@
 
     @endSection
 
+    @section('hero')
+        <!-- Hero Section  -->
+        <div class="relative z-10 hero-image customer-jewellery flex items-center justify-center w-full h-20 xl:h-36 mt-16 lg:mt-52">
+            <h2 class="text-lg xl:text-2xl font-medium font-suranna tracking-widest uppercase p-4">
+                {{__('customerJewellery.Customer Jewellery')}}
+            </h2>
+        </div>
+    @endsection
+
     @section('content')
 
         @livewire('customer-jewellery.show')

@@ -67,8 +67,10 @@ import { setCookie,getCookie } from './helpers/cookie'
 window.setCookie = setCookie
 window.getCookie = getCookie
 
-import { updateTag } from './helpers/tag'
-window.updateTag = updateTag
+import { setParams,setUrl } from './helpers/get-parameter'
+window.setUrl = setUrl
+window.setParams = setParams
+
 
 // import HomeIndex from './views/frontEnd/home/index'
 

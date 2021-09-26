@@ -17,6 +17,10 @@ body, html {
     background: url('/assets/images/hero-image-jewellery.jpg') no-repeat;
     background-size: 100% 100%;
 }
+.customer-jewellery.hero-image {
+    background: url('/assets/images/hero-image-custoemr-jewellary.jpg') no-repeat;
+    background-size: 100% 100%;
+}
 .product-card {
     background: #ffffff;
     box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.05);
@@ -124,4 +128,7 @@ select.custom-select *
 select.custom-select *:hover
 {
  @apply bg-grey-01;
+}
+.tracking-card {
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
 }

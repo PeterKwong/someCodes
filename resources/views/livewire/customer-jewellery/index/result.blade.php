@@ -4,75 +4,32 @@
         <div class="flex flex-wrap items-center gap-3">
         @foreach($tags as  $k => $conditions)
 
-                @if(in_array($k,['price','weight']))
-                    @if($k == 'weight')
-                        @if( $conditions[0] != 0.3 || $conditions[1] != 20  )
-                            @php($tagShowMore['count']=$tagShowMore['count']+1)
-                            @if($tagShowMore['count'] < 3 || $tagShowMore['show'] )
-                            <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
-                                <button wire:click="clearTags('{{$k}}')">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip0)">
-                                            <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
-                                            <path d="M13.5355 7.64298L11.1785 10L13.5355 12.357L12.357 13.5355L9.99998 11.1785L7.64296 13.5355L6.46444 12.357L8.82147 10L6.46444 7.64298L7.64296 6.46447L9.99998 8.82149L12.357 6.46447L13.5355 7.64298Z" fill="white"></path>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0">
-                                                <rect width="20" height="20" fill="white"></rect>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </button>
-                                <span>{{__('diamondSearch.' . $k)}}:
-                                  @foreach($conditions as  $key => $data)
-                                    {{$data}}
-                                    {{count($conditions)-1 == $key?'':'-'}}
-                                  @endforeach
-                                </span>
-                            </div>
-                            @endif
-                        @endif
+                    @php($tagShowMore['count']=$tagShowMore['count']+1)
+                    @if($tagShowMore['count'] < 3 || $tagShowMore['show'] )
+                    <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
+                        <button x-on:click="clearQuery('diamond','{{strtolower($k)}}');location.reload()">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0)">
+                                    <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
+                                    <path d="M13.5355 7.64298L11.1785 10L13.5355 12.357L12.357 13.5355L9.99998 11.1785L7.64296 13.5355L6.46444 12.357L8.82147 10L6.46444 7.64298L7.64296 6.46447L9.99998 8.82149L12.357 6.46447L13.5355 7.64298Z" fill="white"></path>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0">
+                                        <rect width="20" height="20" fill="white"></rect>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </button>
+                        <span>{{__('diamondSearch.' . $k)}}:
+                            @foreach($conditions as  $key => $data)
+                              {{$data}}
+                              {{count($conditions)-1 == $key?'':', '}}
+                            @endforeach
+                        </span>
+                    </div>
                     @endif
-                @endif
-
-                @if(!in_array($k,['price','weight']))
-                    @if(is_object($conditions))
-                      @php($conditions = (array)$conditions)
-                    @endif
-
-                    @if(is_array($conditions))
-                        @if(count($conditions))
-                            @php($conditions = array_values($conditions))
-                            @if(current($conditions) !== 0)
-                                @php($tagShowMore['count']=$tagShowMore['count']+1)
-                                @if($tagShowMore['count'] < 3 || $tagShowMore['show'] )
-                                <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
-                                    <button wire:click="clearTags('{{$k}}')">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <g clip-path="url(#clip0)">
-                                                <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
-                                                <path d="M13.5355 7.64298L11.1785 10L13.5355 12.357L12.357 13.5355L9.99998 11.1785L7.64296 13.5355L6.46444 12.357L8.82147 10L6.46444 7.64298L7.64296 6.46447L9.99998 8.82149L12.357 6.46447L13.5355 7.64298Z" fill="white"></path>
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0">
-                                                    <rect width="20" height="20" fill="white"></rect>
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                    </button>
-                                    <span>{{__('diamondSearch.' . $k)}}:
-                                        @foreach($conditions as  $key => $data)
-                                          {{$data}}
-                                          {{count($conditions)-1 == $key?'':', '}}
-                                        @endforeach
-                                    </span>
-                                </div>
-                                @endif
-                            @endif
-                        @endif
-                    @endif
-                @endif
-
+             
+               
         @endforeach
 
 
@@ -93,18 +50,6 @@
     @endif
     <div class="flex space-y-2 md:space-y-0 flex-row w-full items-center justify-between pt-10">
         <span class="text-sm">{{trans('diamondSearch.Total')}}: {{ $model->total()?$model->total():''}} {{trans('diamondSearch.diamond')}}</span>
-        <div class="flex space-y-2 md:space-y-0 flex-row md:items-center md:space-x-16">
-            <div class="flex space-x-1 items-center md:max-w-max border-b">
-                <label class="flex-shrink-0">
-                    {{__('engagementRing.Sort By')}}:
-                </label>
-<!--                 <select class="block w-full pb-1 text-black focus:outline-none"  wire:model="fetchData.column">
-                    @foreach($columns as $column)
-                        <option value="{{$column}}" wire:click="toggleOrder('{{$column}}')">
-                        <a >{{ __('diamondSearch.'.$column)}}</a>
-                    @endforeach -->
-            </div>
-        </div>
     </div>
 </div>
 

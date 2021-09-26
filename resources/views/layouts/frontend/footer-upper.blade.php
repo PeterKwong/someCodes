@@ -55,7 +55,7 @@
 </div>
 
 <!-- Right Side patterns  -->
-<span class="absolute z-0 top-5 lg:top-0 right-0">
+<span style="z-index: -10;" class="absolute top-5 lg:top-0 right-0">
     <svg class="w-24 lg:w-56 h-60 lg:h-131" viewBox="0 0 174 859" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.3">
         <mask id="path-1-inside-1" fill="white">
@@ -66,7 +66,7 @@
         </g>
     </svg>
 </span>
-<span class="absolute z-0 top-1/4 lg:top-1/4 mt-60 lg:-mt-96 right-0">
+<span style="z-index: -10;" class="absolute top-1/4 lg:top-1/4 mt-60 lg:-mt-96 right-0">
     <svg class="w-24 lg:w-56 h-60 lg:h-131" viewBox="0 0 174 859" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.3">
         <mask id="path-1-inside-1" fill="white">
@@ -77,7 +77,7 @@
         </g>
     </svg>
 </span>
-<span class="absolute z-0 bottom-1/3 lg:bottom-1/4 -mt-131 lg:-mt-96 right-0">
+<span style="z-index: -10;" class="absolute bottom-1/3 lg:bottom-1/4 -mt-131 lg:-mt-96 right-0">
     <svg class="w-24 lg:w-28 h-60 lg:h-131" viewBox="0 0 174 859" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.3">
         <mask id="path-1-inside-1" fill="white">
@@ -90,7 +90,7 @@
 </span>
 
 <!-- Left Side patterns  -->
-<span class="absolute z-0 top-48 lg:top-20 left-0">
+<span style="z-index: -10;" class="absolute top-48 lg:top-20 left-0">
     <svg class="w-24 lg:w-36 h-60 lg:h-131" viewBox="0 0 168 852" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.3">
             <mask id="path-1-inside-1" fill="white">
@@ -101,7 +101,7 @@
         </g>
     </svg>
 </span>
-<span class="absolute z-0 top-1/4 mt-96 left-0">
+<span style="z-index: -10;" class="absolute top-1/4 mt-96 left-0">
     <svg class="w-24 lg:w-36 h-60 lg:h-131" viewBox="0 0 168 852" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.3">
             <mask id="path-1-inside-1" fill="white">
@@ -112,7 +112,7 @@
         </g>
     </svg>
 </span>
-<span class="absolute z-0 bottom-1/4 lg:bottom-1/4 mb-28 lg:mb-0 lg:mt-20 left-0">
+<span style="z-index: -10;" class="absolute bottom-1/4 lg:bottom-1/4 mb-28 lg:mb-0 lg:mt-20 left-0">
     <svg class="w-24 lg:w-36 h-60 lg:h-131" viewBox="0 0 168 852" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.3">
             <mask id="path-1-inside-1" fill="white">
