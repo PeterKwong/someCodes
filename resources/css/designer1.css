@@ -21,6 +21,15 @@ body, html {
     background: url('/assets/images/hero-image-custoemr-jewellary.jpg') no-repeat;
     background-size: 100% 100%;
 }
+
+/* About us  */
+.about-us.hero-image {
+    background: url('/assets/images/hero-image-about-us.jpg') no-repeat;
+    background-size: 100% 100%;
+}
+.card-shadow-5xl {
+    box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.05) !important;
+}
 .product-card {
     background: #ffffff;
     box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.05);
