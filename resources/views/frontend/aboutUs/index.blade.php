@@ -261,7 +261,9 @@
     <div class="relative h-40 lg:h-80 mx-auto">
         <div class="relative h-full">
               @if( app()->getLocale() != 'cn' )
-                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.3851815683306!2d114.17123071495473!3d22.30126788532317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340400efa8cc55e7%3A0x88d77643fa84c770!2zVGluZyBEaWFtb25kIEdJQemRveefs-OAgeioguWpmuaIkuaMh-OAgeaxguWpmuaIkuaMh-OAgee1kOWpmuaIkuaMh-OAgeS7i-aMhw!5e0!3m2!1szh-TW!2shk!4v1633021358693!5m2!1szh-TW!2shk" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              
+                <iframe  class="absolute top-0 left-0 w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1845.70976546845!2d114.17391399378062!3d22.29996796946113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340400ec2103aa27%3A0x28d16963f4a64e96!2z5p2x5riv5ZWG5qWt5aSn5buI!5e0!3m2!1szh-TW!2shk!4v1567429885678!5m2!1szh-TW!2shk" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
               @endif
 
               @if( app()->getLocale() == 'cn' )
