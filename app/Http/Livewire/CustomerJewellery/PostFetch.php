@@ -213,8 +213,8 @@ class PostFetch extends Component
 				    $queryRanges = [
 												//jewellery
 												range(107,111),
-												range(112,115),
-												range(116,118),
+												range(112,116),
+												range(117,119),
 												];
 			}
 
