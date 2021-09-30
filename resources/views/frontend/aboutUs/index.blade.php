@@ -127,6 +127,19 @@
             <!-- Know More about your diamond -->
             <div class="col-span-2 lg:col-span-1 flex flex-col w-full font-lato">
                 <ul class="flex flex-col space-y-3">
+                    <li :class="{'border border-gold-light': tab == 'tab5'}" class="bg-white text-sm lg:text-base card-shadow-5xl flex flex-col">
+                        <h2 @click="toggleTab('tab5')" class="flex flex-row justify-between items-center cursor-pointer py-3 lg:py-3.5 px-3 lg:px-7">
+                        <span class="font-bold">{{trans('aboutUs.title10')}}</span>
+                        <svg :class="{'rotate-180' : tab == 'tab5'}" class="rotate-0 fill-current transform transition-all duration-300" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.31112 0.756836L8.31181 6.48184L14.3125 0.756836L16.1558 2.51934L8.31181 10.0193L0.467773 2.51934L2.31112 0.756836Z"/>
+                        </svg>
+                    </h2>
+                    <div x-show="tab == 'tab5'" class="flex flex-col space-y-10 duration-300 transition-all pb-3">
+                        <p class="px-3 md:px-7">
+                            {{trans('aboutUs.para12')}}
+                        </p>
+                    </div>
+                    </li>
                     <li :class="{'border border-gold-light': tab == 'tab1'}" class="bg-white text-sm lg:text-base card-shadow-5xl flex flex-col">
                         <h2 @click="toggleTab('tab1')" class="flex flex-row justify-between items-center cursor-pointer py-3 lg:py-3.5 px-3 lg:px-7">
                         <span class="font-bold">{{trans('aboutUs.title6')}}</span>
@@ -176,19 +189,6 @@
                     <div x-show="tab == 'tab4'" class="flex flex-col space-y-10 duration-300 transition-all pb-3">
                         <p class="px-3 md:px-7">
                             {{trans('aboutUs.para11')}}
-                        </p>
-                    </div>
-                    </li>
-                    <li :class="{'border border-gold-light': tab == 'tab5'}" class="bg-white text-sm lg:text-base card-shadow-5xl flex flex-col">
-                        <h2 @click="toggleTab('tab5')" class="flex flex-row justify-between items-center cursor-pointer py-3 lg:py-3.5 px-3 lg:px-7">
-                        <span class="font-bold">{{trans('aboutUs.title10')}}</span>
-                        <svg :class="{'rotate-180' : tab == 'tab5'}" class="rotate-0 fill-current transform transition-all duration-300" width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.31112 0.756836L8.31181 6.48184L14.3125 0.756836L16.1558 2.51934L8.31181 10.0193L0.467773 2.51934L2.31112 0.756836Z"/>
-                        </svg>
-                    </h2>
-                    <div x-show="tab == 'tab5'" class="flex flex-col space-y-10 duration-300 transition-all pb-3">
-                        <p class="px-3 md:px-7">
-                            {{trans('aboutUs.para12')}}
                         </p>
                     </div>
                     </li>
@@ -288,7 +288,7 @@
     <script type="text/javascript">
       function aboutUs(){
         return{
-          tab:'tab1',
+          tab:'tab5',
           toggleTab(tab){
             if (this.tab == tab) {
               this.tab = !this.tab
