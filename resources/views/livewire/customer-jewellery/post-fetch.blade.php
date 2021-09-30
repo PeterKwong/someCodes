@@ -91,7 +91,7 @@
                                     'weight','shape','color','clarity','cut','fluorescence',
                                     ],
                  'weddingRing':['jtype','shape','finish','metal',],
-                 'jewellery':['jtype','type','style','gemstone','metal'],
+                 'jewellery':['jtype','type','gemstone','metal'],
                 },
           //fancy Color
           init(){
