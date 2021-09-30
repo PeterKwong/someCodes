@@ -30,7 +30,7 @@
                 </div>
                 <ul class="z-50 flex flex-col space-y-3 divide-y uppercase font-lato pt-5">
                     <li x-data="{ nav: 'hidden', nav2: 'hidden'}" class="pt-3">
-                        <a href="#{{ $baseUrl }}/gia-loose-diamonds" class="flex items-center justify-between" @click="nav = 'diamond'">
+                        <a class="flex items-center justify-between" @click="nav = 'diamond'">
                             <span>{{trans('header.Diamonds')}}</span>
                             <button class="focus:outline-none">
                                 <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +54,7 @@
                                     </a>
                                 </li>
                                 <li class="pt-3">
-                                    <a href="#{{ $baseUrl }}/" class="flex items-center justify-between" @click="nav2 = 'DER'">
+                                    <a class="flex items-center justify-between" @click="nav2 = 'DER'">
                                         <span class="text-sm">{{trans('header.Design Your Engagement Rings')}}</span>
                                         <button class="focus:outline-none">
                                             <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +93,7 @@
                                     </div>
                                 </li>
                                 <li class="pt-3">
-                                    <a href="#{{ $baseUrl }}/gia-loose-diamonds/fancy-cut-diamond" class="flex items-center justify-between" @click="nav2 = 'FCutD'">
+                                    <a class="flex items-center justify-between" @click="nav2 = 'FCutD'">
                                         <span class="text-sm">{{trans('header.Fancy Cut Diamond')}}</span>
                                         <button class="focus:outline-none">
                                             <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -169,7 +169,7 @@
                                     </div>
                                 </li>
                                 <li class="pt-3">
-                                    <a href="#{{ $baseUrl }}/gia-loose-diamonds/fancy-color" class="flex items-center justify-between"@click="nav2 = 'FCD'" >
+                                    <a class="flex items-center justify-between"@click="nav2 = 'FCD'" >
                                         <span class="text-sm">{{trans('header.Fancy Color Diamond')}}</span>
                                         <button class="focus:outline-none">
                                             <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -249,7 +249,7 @@
                         </div>
                     </li>
                     <li x-data="{ nav: 'hidden', nav2: 'hidden'}" class="pt-3">
-                        <a href="#{{ $baseUrl }}/" class="flex items-center justify-between" @click="nav = 'ER'">
+                        <a class="flex items-center justify-between" @click="nav = 'ER'">
                             <span>{{trans('header.Engagement Rings')}}</span>
                             <button class="focus:outline-none">
                                 <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -268,7 +268,7 @@
                             </div>
                             <ul class="z-50 flex flex-col space-y-3 divide-y uppercase font-lato pt-5">
                                 <li class="pt-3">
-                                    <a href="#{{ $baseUrl }}/" class="flex items-center justify-between" @click="nav2 = 'DER'">
+                                    <a class="flex items-center justify-between" @click="nav2 = 'DER'">
                                         <span class="text-sm">{{trans('header.Design Your Engagement Rings')}}</span>
                                         <button class="focus:outline-none">
                                             <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -307,7 +307,7 @@
                                     </div>
                                 </li>
                                 <li class="pt-3">
-                                    <a href="#{{ $baseUrl }}/engagement-rings" class="flex items-center justify-between" @click="nav2 = 'ERS'">
+                                    <a  class="flex items-center justify-between" @click="nav2 = 'ERS'">
                                         <span class="text-sm">{{trans('header.Engagement Rings Style')}}</span>
                                         <button class="focus:outline-none">
                                             <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -350,7 +350,7 @@
                         </div>
                     </li>
                     <li x-data="{ nav: 'hidden'}" class="pt-3">
-                        <a href="#{{ $baseUrl }}/wedding-rings" class="flex items-center justify-between" @click="nav = 'WR'">
+                        <a class="flex items-center justify-between" @click="nav = 'WR'">
                             <span>{{trans('header.Wedding Rings')}}</span>
                             <button class="focus:outline-none">
                                 <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -402,7 +402,7 @@
                         </div>
                     </li>
                     <li x-data="{ nav: 'hidden', nav2: 'hidden'}" class="pt-3">
-                        <a href="#{{ $baseUrl }}/jewellery" class="flex items-center justify-between" @click="nav = 'JEW'">
+                        <a class="flex items-center justify-between" @click="nav = 'JEW'">
                             <span>{{trans('header.Jewellery')}}</span>
                             <button class="focus:outline-none">
                                 <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -421,7 +421,7 @@
                             </div>
                             <ul class="z-50 flex flex-col space-y-3 divide-y uppercase font-lato pt-5">
                                 <li class="pt-3">
-                                    <a href="#{{ $baseUrl }}/jewellery/rings" class="flex items-center justify-between" @click="nav2 = 'RINGS'" >
+                                    <a class="flex items-center justify-between" @click="nav2 = 'RINGS'" >
                                         <span class="flex space-x-2 items-center max-w-max">
                                             <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M10.1605 5.14315L12.3172 2.67048C12.3613 2.61983 12.39 2.55753 12.3997 2.49103C12.4094 2.42453 12.3998 2.35664 12.372 2.29547C12.3674 2.28527 12.3596 2.27727 12.3542 2.26767C12.3534 2.26245 12.3516 2.25743 12.349 2.25287L11.0227 0.162605C10.9911 0.112802 10.9475 0.071785 10.8958 0.0433591C10.8441 0.0149332 10.7861 1.90619e-05 10.7271 0H5.42256C5.36358 1.90619e-05 5.30556 0.0149332 5.25389 0.0433591C5.20221 0.071785 5.15855 0.112802 5.12695 0.162605L3.80071 2.25287C3.79881 2.25661 3.79765 2.26068 3.79731 2.26487C3.79009 2.27469 3.78341 2.28491 3.77731 2.29547C3.74948 2.35664 3.73985 2.42453 3.74957 2.49103C3.75928 2.55753 3.78794 2.61983 3.83211 2.67048L5.98918 5.14315C4.23324 5.64607 2.71817 6.76654 1.72301 8.29817C0.727857 9.8298 0.319648 11.6694 0.573574 13.4782C0.8275 15.287 1.72646 16.9432 3.10487 18.1416C4.48328 19.34 6.2483 20 8.07484 20C9.90137 20 11.6664 19.34 13.0448 18.1416C14.4232 16.9432 15.3222 15.287 15.5761 13.4782C15.83 11.6694 15.4218 9.8298 14.4267 8.29817C13.4315 6.76654 11.9164 5.64607 10.1605 5.14315ZM8.85486 5.57636L9.66468 2.79048H11.2847L8.85486 5.57636ZM8.71126 0.70002H10.0913L9.40088 1.78705L8.71126 0.70002ZM8.76446 2.09046H7.38442L8.07484 1.00343L8.76446 2.09046ZM6.7488 1.78705L6.05898 0.70002H7.43902L6.7488 1.78705ZM8.93486 2.79048L8.07484 5.74817L7.21481 2.79048H8.93486ZM8.07484 7.35201C9.07834 7.35197 10.0593 7.64951 10.8937 8.207C11.7281 8.76449 12.3785 9.55688 12.7625 10.484C13.1466 11.4111 13.2471 12.4313 13.0513 13.4155C12.8556 14.3997 12.3724 15.3038 11.6628 16.0134C10.9532 16.723 10.0492 17.2062 9.06495 17.402C8.08073 17.5978 7.06056 17.4973 6.13345 17.1133C5.20633 16.7293 4.4139 16.079 3.85639 15.2446C3.29887 14.4102 3.00129 13.4293 3.00129 12.4258C3.00298 11.0807 3.53805 9.79116 4.48916 8.84002C5.44026 7.88888 6.72975 7.35376 8.07484 7.35201ZM11.4167 2.09046H10.0367L10.7263 1.00343L11.4167 2.09046ZM5.42256 1.00343L6.11218 2.09046H4.73214L5.42256 1.00343ZM6.48599 2.79048L7.29582 5.57636L4.86595 2.79048H6.48599ZM8.07484 19.3006C6.38859 19.3004 4.76123 18.6804 3.50221 17.5587C2.2432 16.4369 1.44035 14.8916 1.24635 13.2165C1.05234 11.5415 1.4807 9.85356 2.44998 8.47373C3.41925 7.0939 4.86183 6.11841 6.50339 5.73277L7.34662 6.7002C5.89025 6.88537 4.55912 7.61838 3.62401 8.75012C2.6889 9.88187 2.22004 11.3273 2.31281 12.7925C2.40558 14.2576 3.05301 15.6324 4.1234 16.6372C5.1938 17.642 6.60675 18.2012 8.07484 18.2012C9.54293 18.2012 10.9559 17.642 12.0263 16.6372C13.0967 15.6324 13.7441 14.2576 13.8369 12.7925C13.9296 11.3273 13.4608 9.88187 12.5257 8.75012C11.5906 7.61838 10.2594 6.88537 8.80306 6.7002L9.64629 5.73337C11.2873 6.11953 12.7292 7.09516 13.6979 8.47482C14.6667 9.85447 15.0947 11.542 14.9008 13.2166C14.7068 14.8912 13.9043 16.4362 12.6459 17.5578C11.3874 18.6795 9.76064 19.2997 8.07484 19.3006Z" fill="#666666"/>
@@ -493,7 +493,7 @@
                         </div>
                     </li>
                     <li x-data="{ nav: 'hidden', nav2: 'hidden'}" class="pt-3">
-                        <a href="#{{ $baseUrl }}/education-diamond-grading" class="flex items-center justify-between" @click="nav = 'EDU'">
+                        <a class="flex items-center justify-between" @click="nav = 'EDU'">
                             <span>{{trans('header.Education')}}</span>
                             <button class="focus:outline-none">
                                 <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -512,7 +512,7 @@
                             </div>
                             <ul class="z-50 flex flex-col space-y-3 divide-y uppercase font-lato pt-5">
                                 <li class="pt-3">
-                                    <a href="#{{ $baseUrl }}/education-diamond-grading/4cs" class="flex items-center justify-between" @click="nav2 = 'DG'">
+                                    <a class="flex items-center justify-between" @click="nav2 = 'DG'">
                                         <span class="text-sm">{{trans('header.Diamond Grading | 4Cs')}}</span>
                                         <button class="focus:outline-none">
                                             <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -554,7 +554,7 @@
                                     </div>
                                 </li>
                                 <li class="pt-3">
-                                    <a href="#{{ $baseUrl }}/education-diamond-grading/gia-report" class="flex items-center justify-between" @click="nav2 = 'DC'">
+                                    <a class="flex items-center justify-between" @click="nav2 = 'DC'">
                                         <span class="text-sm">{{trans('header.Diamond Certificates')}}</span>
                                         <button class="focus:outline-none">
                                             <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -591,7 +591,7 @@
                                     </div>
                                 </li>
                                 <li class="pt-3">
-                                    <a href="#{{ $baseUrl }}/education-diamond-grading/anatomy" class="flex items-center justify-between" @click="nav2 = 'DA'">
+                                    <a class="flex items-center justify-between" @click="nav2 = 'DA'">
                                         <span class="text-sm">{{trans('header.Diamond Anatomy')}}</span>
                                         <button class="focus:outline-none">
                                             <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -646,7 +646,7 @@
                         </div>
                     </li>
                     <li x-data="{ nav: 'hidden'}" class="pt-3">
-                        <a href="#{{ $baseUrl }}/customer-jewellery" class="flex items-center justify-between" @click="nav = 'CJ'">
+                        <a class="flex items-center justify-between" @click="nav = 'CJ'">
                             <span> {{trans('header.Customer Jewellery')}}</span>
                             <button class="focus:outline-none">
                                 <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -683,7 +683,7 @@
                         </div>
                     </li>
                     <li x-data="{ nav: 'hidden'}" class="pt-3">
-                        <a href="#{{ $baseUrl }}/about-us" class="flex items-center justify-between" @click="nav = 'AU'">
+                        <a class="flex items-center justify-between" @click="nav = 'AU'">
                             <span> {{trans('header.About Us')}}</span>
                             <button class="focus:outline-none">
                                 <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
