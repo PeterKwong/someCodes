@@ -118,7 +118,7 @@
                 <h1 class="text-brown font-suranna text-xl">02 {{trans('aboutUs.Satification Insurence')}}</h1>
             </div>
             <div class="col-span-2 lg:col-span-1 flex justify-center">
-                <img x-show="tab == 'tab1'" class="w-auto lg:h-96" src="/assets/images/Satisfaction_Insurance.jpg" alt="" />
+                <img x-show="tab == 'tab1'" class="w-auto lg:h-96" src="/images/front-end/aboutUs/insurence/HS_EngagementGuide_RingSizer-539x303.jpg" alt="" />
                 <img x-show="tab == 'tab2'" class="w-auto lg:h-96" src="/images/front-end/aboutUs/insurence/Sterling-Silver-My-Heart-is-Yours-Engraved-CZ-Heart-Promise-Ring-MLA14618486.jpg">
                 <img x-show="tab == 'tab3'" class="w-auto lg:h-96" src="/images/front-end/aboutUs/insurence/130218-hero_1356018657153.jpg">
                 <img x-show="tab == 'tab4'" class="w-auto lg:h-96" src="/images/front-end/aboutUs/insurence/diamondup-img.jpg" alt="" />
@@ -261,9 +261,7 @@
     <div class="relative h-40 lg:h-80 mx-auto">
         <div class="relative h-full">
               @if( app()->getLocale() != 'cn' )
-
-              <iframe  class="absolute top-0 left-0 w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1845.70976546845!2d114.17391399378062!3d22.29996796946113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340400ec2103aa27%3A0x28d16963f4a64e96!2z5p2x5riv5ZWG5qWt5aSn5buI!5e0!3m2!1szh-TW!2shk!4v1567429885678!5m2!1szh-TW!2shk" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-
+                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.3851815683306!2d114.17123071495473!3d22.30126788532317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340400efa8cc55e7%3A0x88d77643fa84c770!2zVGluZyBEaWFtb25kIEdJQemRveefs-OAgeioguWpmuaIkuaMh-OAgeaxguWpmuaIkuaMh-OAgee1kOWpmuaIkuaMh-OAgeS7i-aMhw!5e0!3m2!1szh-TW!2shk!4v1633021358693!5m2!1szh-TW!2shk" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
               @endif
 
               @if( app()->getLocale() == 'cn' )
@@ -281,6 +279,21 @@
 
 
 
+    <!-- Right Side patterns  -->
+    <span class="absolute z-0 top-0 lg:-top-48 right-6 lg:right-36">
+        <img class="w-32 md:w-auto" src="/assets/images/about_us_lines_pattern.png" alt="">
+    </span>
+    <span class="hidden lg:inline-block absolute z-10 bottom-1/3 lg:bottom-1/3 -mt-131 lg:mb-96 right-0">
+        <img src="/assets/images/about_us_flower_3.png" alt="">
+    </span>
+    <span class="hidden lg:inline-block absolute z-0 bottom-1/3 lg:bottom-1/3 lg:mb-44 right-0">
+        <img class="z-10" src="/assets/images/about_us_lines_pattern_2.png" alt="">
+    </span>
+    <!-- Left Side patterns  -->
+    <span class="absolute z-0 top-1/3 lg:top-1/4 -mt-24 lg:-mt-44 left-0">
+        <img class="hidden md:inline-block" src="/assets/images/about_us_flower_2.png" alt="">
+        <img class="inline-block md:hidden" src="/assets/images/about_us_flower_2_mobile.png" alt="">
+    </span>
 
 
 
