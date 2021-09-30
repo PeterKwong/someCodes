@@ -26,8 +26,8 @@ class TestController extends Controller
 
     public function test(){
     	// dd( config('global.oncall.id'));
-	    // return $this->postTags();
-	    return $this->resetAllDiamonds();
+	    return $this->postTags();
+	    // return $this->resetAllDiamonds();
 
 	    return $this->oncall();
 	    // return $this->copyAWS();
@@ -416,7 +416,7 @@ class TestController extends Controller
 	    				// dd($jewellery);
 		    			// $diamond->weight = $diamondWeight;
 
-		    			$columns = [ 104 =>'type', 105 => 'gemstone',106 =>'metal', ];
+		    			$columns = [ 104 =>'type', 105 => 'metal',106 =>'gemstone', ];
 
 		    			foreach ($columns as $key => $column) {
 

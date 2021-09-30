@@ -20,7 +20,7 @@
                 </span>
             </span>
             <span class="col-span-3">
-                <a class="text-brown" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?shape=' . $weddingRings->weddingRings[0]->shape . '&type=wedding ring'}}">
+                <a class="text-brown" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?shape=' . $weddingRings->weddingRings[0]->shape . '&jtype=wedding ring'}}">
                     {{__('weddingRing.'.$weddingRings->weddingRings[0]->shape)}}
                 </a>
             </span>
@@ -33,7 +33,7 @@
                 </svg>
             </span>
             <span class="col-span-3">
-                 <a class="text-brown" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?finish=' . $weddingRings->weddingRings[0]->finish . '&type=wedding ring'}}">
+                 <a class="text-brown" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?finish=' . $weddingRings->weddingRings[0]->finish . '&jtype=wedding ring'}}">
                     {{__('weddingRing.'.$weddingRings->weddingRings[0]->finish)}}
                 </a>
             </span>
@@ -46,7 +46,7 @@
                 </svg>
             </span>
             <span class="col-span-3">
-                <a class="text-brown" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?metal=' . $weddingRings->weddingRings[0]->metal . '&type=wedding ring'}}">
+                <a class="text-brown" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?metal=' . $weddingRings->weddingRings[0]->metal . '&jtype=wedding ring'}}">
                     {{__('weddingRing.'.$weddingRings->weddingRings[0]->metal)}}
                 </a>
             </span>
@@ -80,7 +80,7 @@
                 </svg>
             </span>
             <span class="col-span-3">
-                <a class="text-brown" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?shape=' . $weddingRings->weddingRings[1]->shape . '&type=wedding ring'}}">
+                <a class="text-brown" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?shape=' . $weddingRings->weddingRings[1]->shape . '&jtype=wedding ring'}}">
                     {{__('weddingRing.'.$weddingRings->weddingRings[1]->shape)}}
                 </a>
             </span>
@@ -93,7 +93,7 @@
                 </svg>
             </span>
             <span class="col-span-3">
-                <a class="text-brown" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?finish=' . $weddingRings->weddingRings[0]->finish . '&type=wedding ring'}}">
+                <a class="text-brown" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?finish=' . $weddingRings->weddingRings[0]->finish . '&jtype=wedding ring'}}">
                     {{__('weddingRing.'.$weddingRings->weddingRings[1]->finish)}}
                 </a>
             </span>
@@ -106,7 +106,7 @@
                 </svg>
             </span>
             <span class="col-span-3">
-                <a class="text-brown" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?metal=' . $weddingRings->weddingRings[0]->metal . '&type=wedding ring'}}">
+                <a class="text-brown" target="_blank" href="/{{app()->getLocale() . '/customer-jewellery?metal=' . $weddingRings->weddingRings[0]->metal . '&jtype=wedding ring'}}">
                     {{__('weddingRing.'.$weddingRings->weddingRings[1]->metal)}}
                 </a>
             </span>

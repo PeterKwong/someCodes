@@ -91,7 +91,7 @@
                         </svg>
                     </span>
                     <span class="col-span-3 md:col-span-4">
-                        <a class="text-brown" href="{{ '/' . app()->getlocale() . '/customer-jewellery?style=' . $meta->style .'&type=engagement ring'}}" target="_blank">
+                        <a class="text-brown" href="{{ '/' . app()->getlocale() . '/customer-jewellery?style=' . $meta->style .'&jtype=engagement ring'}}" target="_blank">
                             {{__('engagementRing.' .$meta->style )}}
                         </a>
                     </span>

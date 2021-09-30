@@ -7,7 +7,7 @@
                     @php($tagShowMore['count']=$tagShowMore['count']+1)
                     @if($tagShowMore['count'] < 3 || $tagShowMore['show'] )
                     <div class="flex items-center jsutify-center space-x-2 bg-grey-02 py-3 px-5">
-                        <button x-on:click="clearQuery('diamond','{{strtolower($k)}}');location.reload()">
+                        <button x-on:click="clearQuery(selectingType,'{{strtolower($k)}}');location.reload()">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0)">
                                     <path d="M4.1074 15.8926C0.854709 12.6399 0.854709 7.36013 4.1074 4.10744C7.36009 0.854752 12.6398 0.854752 15.8925 4.10744C19.1452 7.36014 19.1452 12.6399 15.8925 15.8926C12.6398 19.1452 7.36009 19.1452 4.1074 15.8926Z" fill="#666666"></path>
@@ -20,9 +20,9 @@
                                 </defs>
                             </svg>
                         </button>
-                        <span>{{__('diamondSearch.' . $k)}}:
+                        <span>{{__('customerJewellery.' . $k)}}:
                             @foreach($conditions as  $key => $data)
-                              {{$data}}
+                              {{__('customerJewellery.' .$data)}}
                               {{count($conditions)-1 == $key?'':', '}}
                             @endforeach
                         </span>

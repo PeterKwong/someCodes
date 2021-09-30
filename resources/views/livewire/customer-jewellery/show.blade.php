@@ -24,7 +24,7 @@
                 <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4 overflow-hidden">
                     <div class="w-full h-auto relative border">
                         @if($videoSelecting == 'video360')
-                            <video-360-exchange src="{{$meta->video}}" img="{{$meta->images[0]->image}}" :vid360="video360.src"/>
+                            <video-360-exchange src="{{$meta->video}}" img="{{$meta->images->where('type','cover')->first()->image}}" :vid360="video360.src"/>
                         @else 
                             <div class="flex">
                                 <div class="w-full h-full videoPlayer">  
@@ -33,7 +33,7 @@
                                     class="video-js vjs-fluid vjs-big-play-centered"
                                     controls
                                     preload="auto"
-                                    poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $meta->images[0]->image}}"
+                                    poster="{{ config('global.cache.' . config('global.cache.live') ) . 'public/images/' . $meta->images->where('type','cover')->first()->image}}"
                                     data-setup='{"fluid": true}'
                                     >
                                     <source src="{{ config('global.cache.' . config('global.cache.live') ) . 'public/videos/' . $meta->video}}" type="video/mp4">
@@ -41,37 +41,6 @@
                                 </div>
                             </div>
                         @endif                       
-                        <!-- zoom in/out  -->
-                        <div class="absolute top-6 right-6 hidden lg:flex flex-col divide-y border">
-                            <button class="w-7 h-7 flex items-center justify-center">
-                                <svg class="" width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9.0975 9.5239H14.9512V6.59707H9.0975V0.743408H6.17067V6.59707H0.317017V9.5239H6.17067V15.3776H9.0975V9.5239Z" fill="#666666"/>
-                                </svg> 
-                            </button> 
-                            <button class="w-7 h-7 flex items-center justify-center border-t-2">
-                                <svg width="15" height="4" viewBox="0 0 15 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9.0975 3.25557H14.9512V0.328735H9.0975H6.17067H0.317017V3.25557H6.17067H9.0975Z" fill="#666666"/>
-                                </svg>  
-                            </button>                                            
-                        </div>
-                        <!-- 360 view  -->
-                        <div class="absolute bottom-2 lg:bottom-3 w-full flex justify-end lg:justify-between items-center px-2 lg:px-4">
-                            <p class="hidden lg:flex items-center space-x-1">
-                                <svg width="24" height="24" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.5987 5.09811C14.8234 4.96838 15.0999 4.96721 15.3257 5.09518L21.3455 8.50637L15.0035 12.1851L8.66356 8.52473L14.5987 5.09811ZM10.5967 20.7044C10.19 20.2906 9.48326 20.4928 9.35914 21.0613L9.03555 22.5431C4.18829 21.2384 1.86104 18.4324 6.46729 16.1307V14.5189C0.42305 17.1264 1.37154 22.0238 8.72266 23.9757L8.43169 25.3079C8.30694 25.8791 8.873 26.3623 9.41895 26.1439L13.0798 24.6795C13.5641 24.4859 13.6968 23.8598 13.3302 23.4866L10.5967 20.7044ZM23.5414 14.5189V16.1307C25.119 16.9189 26.0356 17.8947 26.0356 18.8626C26.0356 21.0811 21.5722 22.8239 17.1564 23.1912C16.7532 23.2244 16.4535 23.5783 16.4872 23.981C16.5188 24.3683 16.8528 24.681 17.2769 24.6506C21.1208 24.3342 27.5 22.6755 27.5 18.8626C27.5 16.7802 25.4624 15.3476 23.5414 14.5189ZM7.93144 16.6461C7.93144 16.9077 8.07099 17.1494 8.29751 17.2802L14.2722 20.7296V13.4537L7.93139 9.79282V16.6461H7.93144ZM22.0773 9.77474V16.6461C22.0773 16.9077 21.9378 17.1494 21.7113 17.2802L15.7366 20.7297V13.4527L22.0773 9.77474Z" fill="#666666"></path>
-                                </svg>
-                                <span class="text-sm">360° view</span>
-                            </p>
-                            <div class="flex items-center">
-                                <button class="flex items-center justify-center">
-                                    <svg width="44" height="45" viewBox="0 0 44 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4.31586 22.3407C4.31586 12.604 12.2383 4.68158 21.975 4.68158C31.7117 4.68158 39.6342 12.604 39.6342 22.3407C39.6342 32.0775 31.7117 39.9999 21.975 39.9999C12.2383 39.9999 4.31586 32.0775 4.31586 22.3407Z" fill="white" stroke="#CCCCCC" stroke-width="0.905157"></path>
-                                        <path d="M15.1831 29.1326H19.711V15.5488H15.1831V29.1326Z" fill="#666666"></path>
-                                        <path d="M24.239 29.1326H28.7669V15.5488H24.239V29.1326Z" fill="#666666"></path>
-                                    </svg>                                                                                                       
-                                </button>
-                            </div>                                          
-                        </div>
                     </div>
                 </div>
             </div>

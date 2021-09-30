@@ -72,6 +72,10 @@ window.setUrl = setUrl
 window.setParams = setParams
 
 
+import {camelize} from './helpers/camelize'
+window.camelize = camelize
+
+
 // import HomeIndex from './views/frontEnd/home/index'
 
 // if (window.location.pathname == '/' || window.location.pathname == '/en' || 

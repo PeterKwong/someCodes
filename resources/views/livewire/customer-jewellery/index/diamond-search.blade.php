@@ -179,31 +179,31 @@
                 </p>
             </label>
             <div class="flex flex-wrap md:justify-between items-center gap-0.5 md:gap-3">
-                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['None'].clicked = ! search_conditions.fluorescence['None'].clicked; @this.toggleValue(62);updateQuery('diamond','fluorescence','Non')">
+                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['None'].clicked = ! search_conditions.fluorescence['None'].clicked; @this.toggleValue('{{$search_conditions['fluorescence']['None']['tagId']}}');updateQuery('diamond','fluorescence','Non')">
                   <span class="font-lato">{{trans('diamondSearch.None')}}</span>
                   <span class="border-2 mt-2 px-12 border-gray-300"
                         :class=" `${search_conditions.fluorescence['None'].clicked?' bg-brown-light border-brown':''}`">
                         </span>
                 </div>
-                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['Faint'].clicked = ! search_conditions.fluorescence['Faint'].clicked; @this.toggleValue(63);updateQuery('diamond','fluorescence','FNT')">
+                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['Faint'].clicked = ! search_conditions.fluorescence['Faint'].clicked; @this.toggleValue('{{$search_conditions['fluorescence']['Faint']['tagId']}}');updateQuery('diamond','fluorescence','FNT')">
                   <span class="font-lato">{{trans('diamondSearch.Faint')}}</span>
                   <span class="border-2 mt-2 px-12 border-gray-300"
                         :class=" `${search_conditions.fluorescence['Faint'].clicked?' bg-brown-light border-brown':''}`">
                         </span>
                 </div>
-                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['Medium'].clicked = ! search_conditions.fluorescence['Medium'].clicked; @this.toggleValue(64);updateQuery('diamond','fluorescence','MED')">
+                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['Medium'].clicked = ! search_conditions.fluorescence['Medium'].clicked; @this.toggleValue('{{$search_conditions['fluorescence']['Medium']['tagId']}}');updateQuery('diamond','fluorescence','MED')">
                   <span class="font-lato">{{trans('diamondSearch.Medium')}}</span>
                   <span class="border-2 mt-2 px-12 border-gray-300"
                         :class=" `${search_conditions.fluorescence['Medium'].clicked?' bg-brown-light border-brown':''}`">
                         </span>
                 </div>
-                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['Strong'].clicked = ! search_conditions.fluorescence['Strong'].clicked; @this.toggleValue(65);updateQuery('diamond','fluorescence','STG')">
+                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['Strong'].clicked = ! search_conditions.fluorescence['Strong'].clicked; @this.toggleValue('{{$search_conditions['fluorescence']['Strong']['tagId']}}');updateQuery('diamond','fluorescence','STG')">
                   <span class="font-lato">{{trans('diamondSearch.Strong')}}</span>
                   <span class="border-2 mt-2 px-12 border-gray-300"
                         :class=" `${search_conditions.fluorescence['Strong'].clicked?' bg-brown-light border-brown':''}`">
                         </span>
                 </div>
-                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['Very Strong'].clicked = ! search_conditions.fluorescence['Very Strong'].clicked; @this.toggleValue(66);updateQuery('diamond','fluorescence','VST')">
+                <div class="px-1 flex flex-col items-center" x-on:click="search_conditions.fluorescence['Very Strong'].clicked = ! search_conditions.fluorescence['Very Strong'].clicked; @this.toggleValue('{{$search_conditions['fluorescence']['Very Strong']['tagId']}}');updateQuery('diamond','fluorescence','VST')">
                   <span class="font-lato">{{trans('diamondSearch.Very Strong')}}</span>
                   <span class="border-2 mt-2 px-12 border-gray-300"
                         :class=" `${search_conditions.fluorescence['Very Strong'].clicked?' bg-brown-light border-brown':''}`">
