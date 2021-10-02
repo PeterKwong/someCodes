@@ -3,16 +3,16 @@
         <div class="hidden md:flex w-1/4 h-auto"></div>
         <div class="relative w-full md:w-3/4 pb-0.5 overflow-y-hidden flex space-x-3">
             <div class="absolute top-1/3 flex w-full items-center">
-                <div class="flex w-full items-center justify-between space-x-2">
+                <div class="relative flex w-full items-center justify-between space-x-2">
                      @if($posts->onFirstPage())
-                        <a class="opacity-50 z-10 cursor-pointer">
+                        <a class="opacity-50 absolute left-0 z-20 cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" stroke="#666666">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                             </svg>
                         </a>
                     @else
                         <span x-on:click="selectingItem=null">
-                            <button class="z-10 cursor-pointer" wire:click="previousPage()">
+                            <button class="absolute left-0 z-20 cursor-pointer" wire:click="previousPage()">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#666666">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                                 </svg>
@@ -22,7 +22,7 @@
 
                     @if($posts->hasMorePages())
                         <span x-on:click="selectingItem=null">
-                            <button class="z-10 cursor-pointer" wire:click="nextPage()">
+                            <button class="absolute right-0 z-20 cursor-pointer" wire:click="nextPage()">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#666666">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                 </svg>
