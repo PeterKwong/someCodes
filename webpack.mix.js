@@ -11,21 +11,16 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').version()
-	.js('resources/js/main.js', 'public/js').version()
-	.js('resources/js/frontend.js', 'public/js').version()
-	.js('resources/js/langs/langs.js', 'public/js').version()
-	.js('resources/js/userAccount.js', 'public/js').version()
-	.js('resources/js/backend.js', 'public/js').version()
-	.vue()
-	// .autoload({
- //        jquery: ['$', 'window.jQuery', 'jQuery'],
- //        'popper.js/dist/umd/popper.js': ['Popper']
- //    })
+mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/main.js', 'public/js').version()
+    .js('resources/js/frontend.js', 'public/js').version()
+    .js('resources/js/langs/langs.js', 'public/js').version()
+    .js('resources/js/userAccount.js', 'public/js').version()
+    .js('resources/js/backend.js', 'public/js').version()
+    .vue()
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
-        require('autoprefixer'),
     ]);
 
 if (mix.inProduction()) {
